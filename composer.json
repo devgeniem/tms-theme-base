@@ -21,8 +21,8 @@
         "dustpress",
         "theme"
     ],
-    "license": "GPL-3.0",
-    "minimum-stability": "dev",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
     "scripts": {
         "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0",
         "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/",
