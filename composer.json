@@ -23,6 +23,11 @@
     ],
     "license": "GPL-3.0",
     "minimum-stability": "dev",
+    "scripts": {
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0",
+        "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/",
+        "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/"
+    },
     "require": {
         "php": ">=7.4|^8.0",
         "devgeniem/dustpress": ">=1.33.0",
