@@ -1,0 +1,10 @@
+/assets/dist
+/node_modules
+/.sass-cache
+/.idea
+.DS_Store
+vendor
+composer.lock
+
+# Don't include unison data sync tmp files
+*.unison.tmp

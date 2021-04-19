@@ -1,0 +1,66 @@
+/* Styling for the sites images */
+
+// Need a bit of !important to override some Bulmas styles
+// sass-lint:disable no-important
+
+// sass-lint:disable force-element-nesting
+figure,
+.content figure {
+    max-width: 100%;
+    margin-left: 0 !important;
+}
+
+.size-full {
+    width: auto;
+}
+
+// Default wp classes
+.alignnone,
+.aligncenter {
+    display: block;
+    margin-bottom: $theme-spacing;
+}
+
+.alignright {
+    display: block;
+    margin-bottom: $theme-spacing;
+
+    @include from($tablet) {
+        float: right;
+        margin-top: $theme-spacing-half !important; // sass-lint:disable no-important
+        margin-left: $theme-spacing;
+    }
+
+    &.wp-cation {
+        margin-bottom: 0;
+    }
+}
+
+.alignleft {
+    display: block;
+    margin-bottom: $theme-spacing;
+
+    @include from($tablet) {
+        float: left;
+        margin-top: $theme-spacing-half !important; // sass-lint:disable no-important
+        margin-right: $theme-spacing;
+    }
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto;
+}
+
+.wp-caption-text,
+.content figcaption.wp-caption-text { //sass-lint:disable-line no-qualifying-elements force-element-nesting
+    font-size: $size-7;
+    font-style: normal;
+
+    width: auto;
+    padding: $theme-spacing;
+
+    text-align: left;
+
+    background: $light;
+}

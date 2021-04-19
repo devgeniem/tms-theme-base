@@ -1,0 +1,36 @@
+{
+    "name": "devgeniem/tms-theme-base",
+    "type": "wordpress-theme",
+    "description": "Tampere Multisite Base Theme",
+    "authors": [
+        {
+            "name": "Ville Viklund",
+            "email": "ville.viklund@geniem.com",
+            "homepage": "http://geniem.com/",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Ismo Vuorinen",
+            "email": "ismo.vuorinen@geniem.com",
+            "homepage": "http://geniem.com/",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "dustpress",
+        "theme"
+    ],
+    "license": "GPL-3.0",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4|^8.0",
+        "devgeniem/dustpress": ">=1.33.0",
+        "composer/installers": "^1.0.12"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "devgeniem/geniem-rules-codesniffer": "^1.0.7",
+        "devgeniem/acf-codifier": "*"
+    }
+}
