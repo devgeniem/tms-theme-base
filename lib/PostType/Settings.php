@@ -140,7 +140,8 @@ class Settings implements PostType {
             'exclude_from_search' => true,
             'publicly_queryable'  => false,
             'rewrite'             => $rewrite,
-            'capability_type'     => 'post',
+            'capability_type'     => 'site_setting',
+            'map_meta_cap'        => true,
             'show_in_rest'        => true,
         ];
 
