@@ -3,9 +3,9 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
+// Autoload theme
 require_once dirname( __FILE__ ) . '/lib/autoload.php';
 
-// Theme setup
 TMS\Theme\Base\ThemeController::instance();
 
 /**

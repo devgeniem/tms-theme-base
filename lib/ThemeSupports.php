@@ -7,6 +7,7 @@ namespace TMS\Theme\Base;
 
 /**
  * Class ThemeSupports
+ *
  * @package TMS\Theme\Base
  */
 class ThemeSupports implements Interfaces\Controller {
