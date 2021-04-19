@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+# Libraries and frameworks.
+--------------------------------------------------------------*/
+@import "~normalize.css";
+@import "~bulma/sass/utilities/all";
+
+/*--------------------------------------------------------------
+# Settings - All project global settings are stored here.
+--------------------------------------------------------------*/
+@import "settings/fonts";
+@import "settings/settings";
+
+/*--------------------------------------------------------------
+# Bulma
+--------------------------------------------------------------*/
+@import "~bulma/sass/base/generic";
+@import "~bulma/sass/helpers/all";
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/elements/button";
+@import "~bulma/sass/elements/image";
+@import "~bulma/sass/components/navbar";
+@import "~bulma/sass/components/dropdown";
+@import "~bulma/sass/grid/columns";
+@import "~bulma/sass/layout/section";
+
+/*--------------------------------------------------------------
+# Base styles
+--------------------------------------------------------------*/
+@import "base/base";
+@import "base/images";
+@import "base/object-fit";
+@import "base/typography";
+@import "base/wp-classes";
+
+/*--------------------------------------------------------------
+# UI Components - Theme user interface components.
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Blocks - Gutenberg blocks.
+--------------------------------------------------------------*/
+@import "blocks/blocks";

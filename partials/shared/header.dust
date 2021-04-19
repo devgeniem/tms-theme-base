@@ -1,0 +1,17 @@
+<!doctype html>
+    <html class="{#WP.document_class}{.}{@sep} {/sep}{/WP.document_class}" lang="{WP.language}">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            {@wphead /}
+        </head>
+
+        <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
+
+        <header class="site-header">
+            <a href="#main-content" class="u-skip-to-content">
+                {Strings.s.header.skip_to_content|s}
+            </a>
+        </header>

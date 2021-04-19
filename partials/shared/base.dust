@@ -1,0 +1,10 @@
+{+header}
+    {>"shared/header" /}
+{/header}
+
+{+content /}
+
+{+footer}
+    {>"shared/footer" /}
+{/footer}
+

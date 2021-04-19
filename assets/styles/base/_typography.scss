@@ -1,0 +1,52 @@
+// The sites typography styles
+
+// -- Links
+a {
+    transition: color $easing $speed, background-color $easing $speed;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: .0625rem dotted;
+    }
+}
+
+.content a:not(.button) {
+    text-decoration: underline;
+}
+
+// -- Lists
+// Need a few !importants to override Bulma styles
+.content ul {
+    margin-left: 0 !important;
+    list-style: none !important;
+
+    li {
+        position: relative;
+        margin-bottom: $theme-spacing*.75;
+        padding-left: $theme-spacing-oneandhalf;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: .65rem;
+            left: 0;
+
+            width: $theme-spacing;
+            height: .125rem;
+
+            background-color: $primary;
+        }
+    }
+}
+
+.content ol {
+    margin-left: 1rem !important;
+
+    li {
+        margin-bottom: $theme-spacing*.75;
+    }
+}

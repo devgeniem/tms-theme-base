@@ -1,0 +1,42 @@
+<li class="navbar-item{?sub_menu} has-dropdown{/sub_menu} level">
+
+	<div{?classes} class="menu-item-lvl-{depth_now}{?sub_menu} navbar-dropdown-control{/sub_menu} {#classes}{.}{@sep} {/sep}{/classes}"{/classes} id="menu_item_{object_id}">
+		{!
+			Add a menu-link class for easier JS use. 
+			If there is a sub menu, set the link target as # and 
+			add a corresponding aria attribute to the element.
+
+			Also add an indicator icon if there's a sub menu.
+		!}
+		<a class="navbar-link is-arrowless menu-link menu-link-lvl-{depth_now}" 
+			href="{?sub_menu}#{:else}{url}{/sub_menu}"
+			{?sub_menu} aria-haspopup="true" {/sub_menu}>
+			{title|s}{?sub_menu} <span class="sub-menu-indicator ion-chevron-down" aria-hidden="true"></span>{/sub_menu}
+		</a>
+
+		{?sub_menu} 
+			<button class="dropdown-toggler icon" aria-expanded=false aria-controls="js-navbar-dropdown-{$idx}">
+				<span class="is-sr-only">Open menu</span>
+				<span class="arrow" aria-hidden="true"></span>
+			</button>
+		{/sub_menu}
+
+		{?show_submenu}
+			{@eq key=depth value=depth_now}
+			{:else}
+				{?sub_menu}
+					{@set key="depth_now" add=1 /}
+					{! Add the sub menu class and the proper aria roles and states. !}
+					<ul class="navbar-dropdown is-hidden-touch is-hidden-desktop-only sub-menu menu-depth-{depth_now}" aria-hidden="true" aria-label="submenu" id="js-navbar-dropdown-{$idx}">
+				{/sub_menu}
+				{#sub_menu}
+					{>"{menuitem_partial}" /}
+				{/sub_menu}
+				{?sub_menu}
+					</ul>
+				{/sub_menu}
+			{/eq}
+		{/show_submenu}
+	</div>
+
+</li>

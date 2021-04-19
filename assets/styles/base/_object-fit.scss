@@ -1,0 +1,69 @@
+// Object fit fallback for non-supporting browsers
+.js-object-fit-image-container {
+    &.compat-object-fit {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        &.js-object-fit-image-container--contain {
+            background-size: contain;
+        }
+        // hide image if object fit is not supported - opacity to 0 for the link area
+        .js-object-fit-image {
+            opacity: 0;
+        }
+    }
+
+    &--top {
+        &.compat-object-fit {
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+    }
+}
+
+@mixin objectfit-absolute-container() {
+    // The image needs to behave like a cover-background,
+    // so we position the container as absolute and use object-fit:cover for the actual image.
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin objectfit-image-contain() {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+}
+
+@mixin objectfit-image-cover() {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+@mixin objectfit-image-cover-top() {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+}
+
+.objectfit-image-wrapper {
+    position: relative;
+}
+
+.objectfit-image-container {
+    @include objectfit-absolute-container();
+}
+
+.objectfit-image {
+    @include objectfit-image-cover();
+}
