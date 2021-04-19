@@ -34,4 +34,4 @@ jobs:
         run: |
           composer install --prefer-dist --no-progress
           composer require staabm/annotate-pull-request-from-checkstyle
-          ./vendor/bin/phpcs -q --report=checkstyle | vendor/bin/cs2pr
+          ./vendor/bin/phpcs -q --report=checkstyle | vendor/bin/cs2pr --graceful-warnings
