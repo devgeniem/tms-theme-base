@@ -19,15 +19,15 @@ $custom-colors: (
 // Remove all unnecessary colours and add custom ones above.
 $colors: mergeColorMaps( // sass-lint:disable-line function-name-format
     (
-        "white": ($white, $black), 
-        "black": ($black, $white), 
-        "light": ($light, $light-invert), 
-        "dark": ($dark, $dark-invert), 
-        "primary": ($primary, $primary-invert, $primary-light, $primary-dark), 
-        "link": ($link, $link-invert, $link-light, $link-dark), 
-        "info": ($info, $info-invert, $info-light, $info-dark), 
-        "success": ($success, $success-invert, $success-light, $success-dark), 
-        "warning": ($warning, $warning-invert, $warning-light, $warning-dark), 
+        "white": ($white, $black),
+        "black": ($black, $white),
+        "light": ($light, $light-invert),
+        "dark": ($dark, $dark-invert),
+        "primary": ($primary, $primary-invert, $primary-light, $primary-dark),
+        "link": ($link, $link-invert, $link-light, $link-dark),
+        "info": ($info, $info-invert, $info-light, $info-dark),
+        "success": ($success, $success-invert, $success-light, $success-dark),
+        "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
         "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
     ),
         $custom-colors
@@ -43,15 +43,17 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 $size-8;
 // ****************************************************************************
 $theme-spacing:         1rem;
 
-$theme-spacing-quarter:        $theme-spacing * .25;
-$theme-spacing-half:           $theme-spacing * .5;
+$theme-spacing-quarter: $theme-spacing * .25;
+$theme-spacing-half: $theme-spacing * .5;
 $theme-spacing-three-quarters: $theme-spacing * .75;
-$theme-spacing-oneandhalf:     $theme-spacing * 1.5;
-$theme-spacing-two:            $theme-spacing * 2;
-$theme-spacing-twoandhalf:     $theme-spacing * 2.5;
-$theme-spacing-three:          $theme-spacing * 3;
-$theme-spacing-threeandhalf:   $theme-spacing * 3.5;
-$theme-spacing-four:           $theme-spacing * 4;
-$theme-spacing-fourandhalf:    $theme-spacing * 4.5;
+$theme-spacing-oneandhalf: $theme-spacing * 1.5;
+$theme-spacing-two: $theme-spacing * 2;
+$theme-spacing-twoandhalf: $theme-spacing * 2.5;
+$theme-spacing-three: $theme-spacing * 3;
+$theme-spacing-threeandhalf: $theme-spacing * 3.5;
+$theme-spacing-four: $theme-spacing * 4;
+$theme-spacing-fourandhalf: $theme-spacing * 4.5;
+$theme-spacing-five: $theme-spacing * 5;
+$theme-spacing-six: $theme-spacing * 6;
 
 // For Bulma spacing helpers, see https://bulma.io/documentation/helpers/spacing-helpers/

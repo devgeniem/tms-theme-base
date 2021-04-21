@@ -79,11 +79,11 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_align" )
             ->set_name( 'align' )
             ->set_choices( [
-                'has-text-left'     => 'Vasen',
-                'has-text-right'    => 'Oikea',
-                'has-text-centered' => 'Keskitetty',
+                'has-text-left-desktop'     => 'Vasen',
+                'has-text-right-desktop'    => 'Oikea',
+                'has-text-centered-desktop' => 'Keskitetty',
             ] )
-            ->set_default_value( 'has-text-centered' )
+            ->set_default_value( 'has-text-centered-desktop' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['align']['instructions'] );
 

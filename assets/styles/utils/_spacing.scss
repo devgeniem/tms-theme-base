@@ -1,0 +1,78 @@
+// Only add breakpoints here you actually need to avoid excess CSS generation
+// sass-lint:disable variable-name-format
+
+$margins_paddings_breakpoints: (
+    "tablet": $tablet,
+    "desktop": $desktop
+);
+
+$margins_paddings_properties: (
+    "margin": "m",
+    "padding": "p"
+);
+
+$margins_paddings_levels: (
+    "0": 0,
+    "1": $theme-spacing-quarter,
+    "2": $theme-spacing-half,
+    "3": $theme-spacing-three-quarters,
+    "4": $theme-spacing,
+    "5": $theme-spacing-oneandhalf,
+    "6": $theme-spacing-two,
+    "7": $theme-spacing-twoandhalf,
+    "8": $theme-spacing-three,
+    "9": $theme-spacing-four,
+    "10": $theme-spacing * 5,
+    "11": $theme-spacing * 6,
+    "12": $theme-spacing * 7,
+);
+
+$margins_paddings_sides: (
+    "top": "t",
+    "right": "r",
+    "bottom": "b",
+    "left": "l"
+);
+
+@each $property, $shorthand in $margins_paddings_properties {
+
+    // m-4, p-3
+    @each $level, $amount in $margins_paddings_levels {
+        .#{$shorthand}-#{$level} {
+            #{$property}: #{$amount} !important; // sass-lint:disable-line no-important
+        }
+    }
+
+    // m-2-tablet m-4-desktop
+    @each $breakpoint, $breakpoint_px in $margins_paddings_breakpoints {
+        @each $level, $amount in $margins_paddings_levels {
+            @media screen and (min-width: #{$breakpoint_px}) {
+                .#{$shorthand}-#{$level}-#{$breakpoint} {
+                    #{$property}: #{$amount} !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+
+    // ml-4, pb-3
+    @each $side, $side_short in $margins_paddings_sides {
+        @each $level, $amount in $margins_paddings_levels {
+            .#{$shorthand}#{$side_short}-#{$level} {
+                #{$property}-#{$side}: #{$amount} !important; // sass-lint:disable-line no-important
+            }
+        }
+    }
+
+    // ml-2-tablet ml-4-desktop
+    @each $breakpoint, $breakpoint_px in $margins_paddings_breakpoints {
+        @each $side, $side_short in $margins_paddings_sides {
+            @each $level, $amount in $margins_paddings_levels {
+                @media screen and (min-width: #{$breakpoint_px}) {
+                    .#{$shorthand}#{$side_short}-#{$level}-#{$breakpoint} {
+                        #{$property}-#{$side}: #{$amount} !important; // sass-lint:disable-line no-important
+                    }
+                }
+            }
+        }
+    }
+}
