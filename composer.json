@@ -6,13 +6,13 @@
         {
             "name": "Ville Viklund",
             "email": "ville.viklund@geniem.com",
-            "homepage": "http://geniem.com/",
+            "homepage": "https://geniem.com/",
             "role": "Lead Developer"
         },
         {
             "name": "Ismo Vuorinen",
             "email": "ismo.vuorinen@geniem.com",
-            "homepage": "http://geniem.com/",
+            "homepage": "https://geniem.com/",
             "role": "Developer"
         }
     ],
@@ -21,8 +21,16 @@
         "dustpress",
         "theme"
     ],
-    "license": "GPL-3.0",
-    "minimum-stability": "dev",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "scripts": {
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0",
+        "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/",
+        "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "require": {
         "php": ">=7.4|^8.0",
         "devgeniem/dustpress": ">=1.33.0",

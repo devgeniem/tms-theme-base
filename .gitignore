@@ -5,6 +5,7 @@
 .DS_Store
 vendor
 composer.lock
+wp-content
 
 # Don't include unison data sync tmp files
 *.unison.tmp
