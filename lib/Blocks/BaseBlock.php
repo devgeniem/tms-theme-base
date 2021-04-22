@@ -129,7 +129,7 @@ class BaseBlock {
      */
     protected function get_renderer( string $name = '' ) {
         $name = $name ?: $this->get_name();
-        $file = get_theme_file_path( '/partials/blocks/' . $name . '.dust' );
+        $file = get_theme_file_path( '/partials/blocks/block-' . $name . '.dust' );
 
         if ( file_exists( $file ) ) {
             return new Dust( $file );

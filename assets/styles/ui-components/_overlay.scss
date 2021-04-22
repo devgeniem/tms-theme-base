@@ -1,7 +1,7 @@
 .overlay {
     @extend %overlay;
 
-    &--dark {
-        background-color: rgba($black, 0.6);
+    &--dark-30 {
+        background-color: rgba($black, 0.3);
     }
 }

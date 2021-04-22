@@ -3,17 +3,17 @@
         {@image id=image.id size="large" /}
     </div>
 
-    <div class="overlay overlay--dark"></div>
+    <div class="overlay overlay--dark-30"></div>
 
     <div class="image-banner__inner is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50 pr-7 pl-7 pr-12-desktop pl-12-desktop {align|s}">
         {?title}
-            <h2 class="image-banner__title has-text-white">
+            <h2 class="image-banner__title has-text-white mt-0 mb-6">
                 {title|s}
             </h2>
         {/title}
 
         {?link}
-            <a href="{link.url}" class="button is-primary" target="{link.target}">
+            <a href="{link.url}" class="button is-primary is-inverted" target="{link.target}">
                 {link.title|s}
             </a>
         {/link}
