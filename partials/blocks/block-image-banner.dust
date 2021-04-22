@@ -5,7 +5,7 @@
 
     <div class="overlay overlay--dark-30"></div>
 
-    <div class="image-banner__inner is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50 pr-7 pl-7 pr-12-desktop pl-12-desktop {align|s}">
+    <div class="image-banner__inner is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50 pt-6 pb-6 pr-7 pl-7 pr-12-desktop pl-12-desktop {align|s}">
         {?title}
             <h2 class="image-banner__title has-text-white mt-0 mb-6">
                 {title|s}
