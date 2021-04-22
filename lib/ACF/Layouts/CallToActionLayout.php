@@ -7,20 +7,20 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\ImageBannerFields;
+use TMS\Theme\Base\ACF\Fields\CallToActionFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class ImageBannerLayout
+ * Class CallToActionLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class ImageBannerLayout extends Layout {
+class CallToActionLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_image_banner';
+    const KEY = '_call_to_action';
 
     /**
      * Create the layout
@@ -29,9 +29,9 @@ class ImageBannerLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Kuvabanneri',
+            'Manuaaliset nostot',
             $key . self::KEY,
-            'image_banner'
+            'call_to_action'
         );
 
         $this->add_layout_fields();
@@ -43,7 +43,7 @@ class ImageBannerLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new ImageBannerFields(
+        $fields = new CallToActionFields(
             $this->get_label(),
             $this->get_key(),
             $this->get_name()

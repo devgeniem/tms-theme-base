@@ -1,0 +1,35 @@
+<div class="section call-to-action">
+    <div class="container keep-vertical-spacing">
+        {#rows}
+            <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
+                {?image}
+                    <div class="column is-6-desktop">
+                        <div class="image is-5by3">
+                            {@image id=image.id size="large" class="objectfit-image" /}
+                        </div>
+                    </div>
+                {/image}
+
+                <div class="column {text_column_class|s}">
+                    {?title}
+                        <h2 class="call-to-action__title h4">
+                            {title|s}
+                        </h2>
+                    {/title}
+
+                    {?description}
+                        <div class="call-to-action__description mt-6 mb-6">
+                            {description|s}
+                        </div>
+                    {/description}
+
+                    {?link}
+                        <a href="{link.url}" target="{link.target}" class="button is-primary">
+                            {link.title|s}
+                        </a>
+                    {/link}
+                </div>
+            </div>
+        {/rows}
+    </div>
+</div>

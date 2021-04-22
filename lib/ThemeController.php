@@ -74,6 +74,7 @@ class ThemeController {
             'Constants'           => new Constants(),
             'DustPressController' => new DustPressController(),
             'Emojis'              => new Emojis(),
+            'Formatters'          => new FormatterController(),
             'Images'              => new Images(),
             'Localization'        => new Localization(),
             'PostTypeController'  => new PostTypeController(),
