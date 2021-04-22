@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-46: Image Banner #8
 - feat/pr-automation-linting-and-tweaks #2
     - `.github/` directory with templates and pr automation
     - `.nvmrc` v14 (the current LTS version of npm)
