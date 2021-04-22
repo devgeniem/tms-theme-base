@@ -98,7 +98,7 @@ class KeyFiguresBlock extends BaseBlock {
         }
 
         return apply_filters(
-            'tms/block/'. self::KEY . '/data',
+            'tms/block/' . self::KEY . '/data',
             $altered_data,
             $data
         );
