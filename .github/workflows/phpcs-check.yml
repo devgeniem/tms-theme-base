@@ -1,0 +1,37 @@
+name: PHP CS Checks
+
+on: [push]
+
+jobs:
+  phpcs-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: simplexml
+          coverage: xdebug
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run PHPCS Check
+        run: |
+          composer install --prefer-dist --no-progress
+          composer require staabm/annotate-pull-request-from-checkstyle
+          ./vendor/bin/phpcs -q --report=checkstyle | vendor/bin/cs2pr --graceful-warnings

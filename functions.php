@@ -4,7 +4,7 @@
  */
 
 // Autoload theme
-require_once dirname( __FILE__ ) . '/lib/autoload.php';
+require_once __DIR__ . '/lib/autoload.php';
 
 TMS\Theme\Base\ThemeController::instance();
 

@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- feat/pr-automation-linting-and-tweaks #2
+    - `.github/` directory with templates and pr automation
+    - `.nvmrc` v14 (the current LTS version of npm)
+    - Included correct `LICENSE` (was MIT, now GPL-3-or-later)
+
+### Changed
+
+- feat/pr-automation-linting-and-tweaks #2
+    - `composer.json` minimum stability to `stable`
+
 ## 0.1.0 2021-04-19
 
 ### Added
