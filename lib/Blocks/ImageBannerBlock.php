@@ -9,6 +9,7 @@ use TMS\Theme\Base\ACF\Fields\ImageBannerFields;
 
 /**
  * Class ImageBannerBlock
+ *
  * @package TMS\Theme\Base\Blocks
  */
 class ImageBannerBlock extends BaseBlock {

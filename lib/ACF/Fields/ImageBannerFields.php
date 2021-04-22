@@ -8,6 +8,11 @@ namespace TMS\Theme\Base\ACF\Fields;
 use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 
+/**
+ * Class ImageBannerFields
+ *
+ * @package TMS\Theme\Base\ACF\Fields
+ */
 class ImageBannerFields extends \Geniem\ACF\Field\Group {
 
     /**

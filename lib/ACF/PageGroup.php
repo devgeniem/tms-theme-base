@@ -1,4 +1,7 @@
 <?php
+/**
+ * Copyright (c) 2021. Geniem Oy
+ */
 
 namespace TMS\Theme\Base\ACF;
 
@@ -10,6 +13,11 @@ use TMS\Theme\Base\ACF\Layouts\ImageBannerLayout;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
+/**
+ * Class PageGroup
+ *
+ * @package TMS\Theme\Base\ACF
+ */
 class PageGroup {
 
     /**

@@ -16,7 +16,7 @@ use TMS\Theme\Base\Logger;
  * @package TMS\Theme\Base\ACF\Layouts
  */
 class ImageBannerLayout extends Layout {
-    
+
     /**
      * Layout key
      */
