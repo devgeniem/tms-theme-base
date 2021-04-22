@@ -101,9 +101,9 @@ class BlocksController implements Interfaces\Controller {
      */
     private function allowed_block_types( $allowed_blocks, $post ) {
         $blocks = [
-            'core/block'     => [],
-            'core/template'  => [],
-            'core/heading'   => [
+            'core/block'       => [],
+            'core/template'    => [],
+            'core/heading'     => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
@@ -112,7 +112,7 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-            'core/paragraph' => [
+            'core/paragraph'   => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
@@ -121,13 +121,18 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-            'core/image'     => [
+            'core/image'       => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
                 'templates'  => [
                     '',
+                ],
+            ],
+            'acf/image-banner' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
                 ],
             ],
         ];

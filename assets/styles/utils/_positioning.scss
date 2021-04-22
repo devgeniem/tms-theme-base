@@ -1,0 +1,21 @@
+.is-absolute {
+    position: absolute;
+}
+
+.has-top {
+    &-50 {
+        top: 50%;
+    }
+}
+
+.has-right {
+    &-0 {
+        right: 0;
+    }
+}
+
+.has-left {
+    &-0 {
+        left: 0;
+    }
+}

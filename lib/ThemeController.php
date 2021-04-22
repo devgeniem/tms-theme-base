@@ -66,48 +66,19 @@ class ThemeController {
      */
     private function init_classes() : void {
         $this->classes = [
-            // Initialize DustPress and the specific helpers.
-            'DustPressController' => new DustPressController(),
-
-            // Define all constants.
-            'Constants'           => new Constants(),
-
-            // Control theme assets.
-            'Assets'              => new Assets(),
-
-            // Control theme images.
-            'Images'              => new Images(),
-
-            // Control rewrite rules and other url manipulations.
-            'Rewrites'            => new Rewrites(),
-
-            // Clean up default WP markup bloat.
-            'Cleanup'             => new Cleanup(),
-
-            // Initialize CPT and Taxonomy translation settings.
-            'Localization'        => new Localization(),
-
-            // This controls CPT functionality in the theme.
-            'PostTypeController'  => new PostTypeController(),
-
-            // This controls taxonomy functionality in the theme.
-            'TaxonomyController'  => new TaxonomyController(),
-
-            // This controls the ACF functionality in the theme.
             'ACFController'       => new ACFController(),
-
-            // This controls the Gutenberg blocks functionalities,
-            // set allowed block types and add custom block categories.
-            'BlocksController'    => new BlocksController(),
-
-            // Add emoji related modifications.
-            'Emojis'              => new Emojis(),
-
-            // Add supported theme functionality.
-            'ThemeSupports'       => new ThemeSupports(),
-
-            // Add admin related modifications.
             'Admin'               => new Admin(),
+            'Assets'              => new Assets(),
+            'BlocksController'    => new BlocksController(),
+            'Cleanup'             => new Cleanup(),
+            'Constants'           => new Constants(),
+            'DustPressController' => new DustPressController(),
+            'Emojis'              => new Emojis(),
+            'Images'              => new Images(),
+            'Localization'        => new Localization(),
+            'PostTypeController'  => new PostTypeController(),
+            'TaxonomyController'  => new TaxonomyController(),
+            'ThemeSupports'       => new ThemeSupports(),
         ];
 
         // Loop through the classes and run hooks methods of all controllers.

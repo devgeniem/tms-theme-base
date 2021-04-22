@@ -19,7 +19,10 @@ class ACFController implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \add_action( 'acf/init', \Closure::fromCallable( [ $this, 'require_acf_files' ] ) );
+        \add_action(
+            'acf/init',
+            \Closure::fromCallable( [ $this, 'require_acf_files' ] )
+        );
 
         \add_filter( 'acf/settings/show_admin', '__return_false' );
     }
@@ -29,7 +32,10 @@ class ACFController implements Interfaces\Controller {
      * ACF directory and requires them.
      */
     private function require_acf_files() : void {
-        $files = array_diff( scandir( __DIR__ . '/ACF' ), [ '.', '..', 'Fields' ] );
+        $files = array_diff(
+            scandir( __DIR__ . '/ACF' ),
+            [ '.', '..', 'Fields', 'Layouts' ]
+        );
 
         array_walk(
             $files,

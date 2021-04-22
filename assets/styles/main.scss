@@ -14,7 +14,14 @@
 # Bulma
 --------------------------------------------------------------*/
 @import "~bulma/sass/base/generic";
-@import "~bulma/sass/helpers/all";
+@import "~bulma/sass/helpers/color";
+@import "~bulma/sass/helpers/flexbox";
+@import "~bulma/sass/helpers/float";
+@import "~bulma/sass/helpers/other";
+@import "~bulma/sass/helpers/overflow";
+@import "~bulma/sass/helpers/position";
+@import "~bulma/sass/helpers/typography";
+@import "~bulma/sass/helpers/visibility";
 @import "~bulma/sass/elements/container";
 @import "~bulma/sass/elements/button";
 @import "~bulma/sass/elements/image";
@@ -33,8 +40,14 @@
 @import "base/wp-classes";
 
 /*--------------------------------------------------------------
+# Utils
+--------------------------------------------------------------*/
+@import "utils";
+
+/*--------------------------------------------------------------
 # UI Components - Theme user interface components.
 --------------------------------------------------------------*/
+@import "ui-components";
 
 /*--------------------------------------------------------------
 # Blocks - Gutenberg blocks.
