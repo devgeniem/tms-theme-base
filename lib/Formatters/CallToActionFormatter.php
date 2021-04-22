@@ -1,15 +1,24 @@
 <?php
-
+/**
+ *  Copyright (c) 2021. Geniem Oy
+ */
 
 namespace TMS\Theme\Base\Formatters;
 
-
+/**
+ * Class CallToActionFormatter
+ *
+ * @package TMS\Theme\Base\Formatters
+ */
 class CallToActionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
+    /**
+     * Define formatter name
+     */
     const NAME = 'CallToAction';
 
     /**
-     * @inheritDoc
+     * Hooks
      */
     public function hooks() : void {
         add_filter(
@@ -30,7 +39,7 @@ class CallToActionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $layout['rows'][ $row_key ]['text_column_class'] = 'is-5-desktop';
 
             if ( $row['layout'] === 'is-text-first' ) {
-                $layout['rows'][ $row_key ]['container_class']   = 'is-reversed-desktop';
+                $layout['rows'][ $row_key ]['container_class']    = 'is-reversed-desktop';
                 $layout['rows'][ $row_key ]['text_column_class'] .= ' is-offset-1-desktop';
             }
         }
