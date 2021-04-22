@@ -50,8 +50,11 @@ class ImageBannerBlock extends BaseBlock {
      * @return array
      */
     protected function fields() : array {
-        $fields = new ImageBannerFields( $this->title, self::NAME );
+        $group = new ImageBannerFields( $this->title, self::NAME );
 
-        return $fields->get_fields();
+        return apply_filters(
+            'tms/block/' . self::KEY . '/fields',
+            $group->get_fields()
+        );
     }
 }
