@@ -1,0 +1,7 @@
+.is-reversed {
+    &-desktop {
+        @include from($desktop) {
+            flex-direction: row-reverse;
+        }
+    }
+}

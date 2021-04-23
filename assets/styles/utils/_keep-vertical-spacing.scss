@@ -1,0 +1,15 @@
+// sass-lint:disable no-important
+
+@mixin keep-vertical-spacing {
+    > :first-child {
+        margin-top: 0 !important;
+    }
+
+    > :last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+.keep-vertical-spacing {
+    @include keep-vertical-spacing;
+}
