@@ -4,14 +4,13 @@
 // Colors
 // ****************************************************************************
 $black: #222;
-$purple: #780076;
-$primary: $purple;
-$secondary: #ea5353;
+$primary: #c83e36;
+$secondary: #e5eef8;
 
 // Theme custom colors
 // can be used in HTML with .has-background-<color> or .has-text-<color> classes
 $custom-colors: (
-    "accent": ($secondary, $secondary),
+    "secondary": ($secondary, $secondary),
 );
 
 // Default colors, can be removed.
