@@ -46,6 +46,7 @@
   },
   "scripts": {
     "watch": "webpack --progress --watch --display-error-details --display-reasons --mode development",
+    "dev": "cross-env webpack --progress --mode development",
     "build": "cross-env NODE_ENV=production webpack --progress --mode production"
   },
   "browserslist": [

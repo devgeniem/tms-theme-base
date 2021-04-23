@@ -1,0 +1,252 @@
+/**
+ * Tampere Brand Colors, Fonts and Settings for all themes.
+ */
+
+// All Tampere brand colors
+$color-white: #fff;
+
+$color-tunnelma: #c83e36;
+$color-tumma-tiilenpunainen: #ae1e20;
+$color-tiilenpunainen: #eb5e58;
+
+$color-muutos: #cb4a6c;
+$color-marjanpunainen: #ad3963;
+$color-lila-violetti: #7361a2;
+
+$color-tyo: #29549a;
+$color-tumma-vesi: #00417d;
+$color-usva: #668ec9;
+
+$color-koti: #39a7d7;
+$color-uni: #5390b5;
+$color-veden-sininen: #91c9ea;
+
+$color-kokemus: #abc872;
+$color-havun-vihrea: #397368;
+$color-vaalea-petrooli: #8cc1b3;
+
+$color-idea: #f4d240; // Idea
+$color-paahde: #e8b455; // Paahde
+$color-haive: #f8de79; // Häive
+
+$color-vaalean-harmaa: #bebfbf; // Vaalean harmaa
+$color-vaalea-harmaa: $color-vaalean-harmaa; // Added for consistency, real name has 'vaalean'
+$color-tumman-harmaa: #585857; // Tumman harmaa
+$color-tumma-harmaa: $color-tumman-harmaa; // Added for consistency, real name has 'tumman'
+$color-vaalea-siniharmaa: #e5eef8; // Vaalea siniharmaa
+$color-vaalea-siniharmaa-50: rgba(229, 238, 248, 0.5); // Vaalean siniharmaa 50%
+$color-siniharmaa: #cad6e2; // Siniharmaa
+
+// Color panels with primary color with dark and light variations (plus inverts)
+$color-tunnelma-invert: $color-white;
+$color-tunnelma-dark: $color-tumma-tiilenpunainen;
+$color-tunnelma-dark-invert: $color-tunnelma-invert;
+$color-tunnelma-light: $color-tiilenpunainen;
+$color-tunnelma-light-invert: $color-tunnelma-invert;
+
+$color-muutos-invert: $color-white;
+$color-muutos-dark: $color-marjanpunainen;
+$color-muutos-dark-invert: $color-muutos-invert;
+$color-muutos-light: $color-lila-violetti;
+$color-muutos-light-invert: $color-muutos-invert;
+
+$color-tyo-invert: $color-white;
+$color-tyo-dark: $color-tumma-vesi;
+$color-tyo-dark-invert: $color-tyo-invert;
+$color-tyo-light: $color-usva;
+$color-tyo-light-invert: $color-tunnelma-invert;
+
+$color-koti-invert: $color-white;
+$color-koti-dark: $color-uni;
+$color-koti-dark-invert: $color-koti-invert;
+$color-koti-light: $color-veden-sininen;
+$color-koti-light-invert: $color-koti-invert;
+
+$color-kokemus-invert: $color-white;
+$color-kokemus-dark: $color-havun-vihrea;
+$color-kokemus-dark-invert: $color-kokemus-invert;
+$color-kokemus-light: $color-vaalea-petrooli;
+$color-kokemus-light-invert: $color-kokemus-invert;
+
+$color-idea-invert: $color-white;
+$color-idea-dark: $color-paahde;
+$color-idea-dark-invert: $color-idea-invert;
+$color-idea-light: $color-haive;
+$color-idea-light-invert: $color-idea-invert;
+
+/**
+ * Each entry contains primary, primary-invert, light, light-invert, dark, dark-invert
+ */
+$tampere-palettes: (
+    "tunnelma": (
+        "primary": $color-tunnelma,
+        "primary-invert": $color-tunnelma-invert,
+        "light": $color-tunnelma-light,
+        "light-invert": $color-tunnelma-light-invert,
+        "dark": $color-tunnelma-dark,
+        "dark-invert": $color-tunnelma-dark-invert
+    ),
+    "muutos": (
+        "primary": $color-muutos,
+        "primary-invert": $color-muutos-invert,
+        "light": $color-muutos-light,
+        "light-invert": $color-muutos-light-invert,
+        "dark": $color-muutos-dark,
+        "dark-invert": $color-muutos-dark-invert
+    ),
+    "tyo": (
+        "primary": $color-tyo,
+        "primary-invert": $color-tyo-invert,
+        "light": $color-tyo-light,
+        "light-invert": $color-tyo-light-invert,
+        "dark": $color-tyo-dark,
+        "dark-invert": $color-tyo-dark-invert
+    ),
+    "koti": (
+        "primary": $color-koti,
+        "primary-invert": $color-koti-invert,
+        "light": $color-koti-light,
+        "light-invert": $color-koti-light-invert,
+        "dark": $color-koti-dark,
+        "dark-invert": $color-koti-dark-invert
+    ),
+    "kokemus": (
+        "primary": $color-kokemus,
+        "primary-invert": $color-kokemus-invert,
+        "light": $color-kokemus-light,
+        "light-invert": $color-kokemus-light-invert,
+        "dark": $color-kokemus-dark,
+        "dark-invert": $color-kokemus-dark-invert
+    ),
+    "idea": (
+        "primary": $color-idea,
+        "primary-invert": $color-idea-invert,
+        "light": $color-idea-light,
+        "light-invert": $color-idea-light-invert,
+        "dark": $color-idea-dark,
+        "dark-invert": $color-idea-dark-invert
+    ),
+) !default;
+
+@function get_brand_color($name, $variant: "all") {
+    @if ($variant == "all") {
+        @return map-get($tampere-palettes, $name);
+    }
+
+    $tampere-palettes-selected: map-get($tampere-palettes, $name);
+    @return map-get($tampere-palettes-selected, $variant);
+}
+
+/**
+ * Typography
+ */
+
+$base-sizes: (
+    "mobile": ("base_size": 16px, "scale_value": 1.135, "break_point": 0),
+    "tablet": ("base_size": 17px, "scale_value": 1.145, "break_point": $tablet),
+    "desktop": ("base_size": 17px, "scale_value": 1.165, "break_point": $desktop)
+) !default;
+
+@function get_calculated_sizes($base_size: 17px, $scale_value: 1.165, $as_list: false) {
+    $size-h6: $base_size * $scale_value;
+    $size-h5: $size-h6 * $scale_value;
+    $size-h4: $size-h5 * $scale_value;
+    $size-h3: $size-h4 * $scale_value;
+    $size-h2: $size-h3 * $scale_value;
+    $size-h1: $size-h2 * $scale_value;
+
+    @if ($as_list) {
+        @return ($size-h1 $size-h2 $size-h3 $size-h4 $size-h5 $size-h6)
+    }
+
+    @return (
+        "h1": rem($size-h1, $base_size),
+        "h2": rem($size-h2, $base_size),
+        "h3": rem($size-h3, $base_size),
+        "h4": rem($size-h4, $base_size),
+        "h5": rem($size-h5, $base_size),
+        "h6": rem($size-h6, $base_size),
+    )
+}
+
+$sizes-desktop: map-get($base-sizes, "desktop");
+$sizes-desktop-base_size: map-get($sizes-desktop, "base_size");
+$sizes-desktop-scale_value: map-get($sizes-desktop, "scale_value");
+$sizes-desktop-calculated: get_calculated_sizes($sizes-desktop-base_size, $sizes-desktop-scale_value);
+
+$base-size: $sizes-desktop-base_size;
+$body-font-size: $base-size;
+
+$size-1: map-get($sizes-desktop-calculated, "h1");
+$size-2: map-get($sizes-desktop-calculated, "h2");
+$size-3: map-get($sizes-desktop-calculated, "h3");
+$size-4: map-get($sizes-desktop-calculated, "h4");
+$size-5: map-get($sizes-desktop-calculated, "h5");
+$size-6: map-get($sizes-desktop-calculated, "h6");
+$size-7: rem(14px, $base-size);
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+
+@function stripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue, $body-font-size) {
+    @return #{stripUnit($pxValue) / stripUnit($body-font-size)}rem;
+}
+
+@each $base-size-breakpoint, $base-size-values in $base-sizes {
+    $calc-base_size: map-get($base-size-values, "base_size");
+    $calc-scale_value: map-get($base-size-values, "scale_value");
+    $breakpoint: map-get($base-size-values, "break_point");
+    $calculated_sizes: get_calculated_sizes($calc-base_size, $calc-scale_value);
+
+    @if ($base-size-breakpoint == "mobile") {
+        body {
+            font-size: $calc-base_size;
+        }
+
+        h1, .h1 {
+            font-size: map-get($calculated_sizes, "h1") !important;
+        }
+        h2, .h2 {
+            font-size: map-get($calculated_sizes, "h2") !important;
+        }
+        h3, .h3 {
+            font-size: map-get($calculated_sizes, "h3") !important;
+        }
+        h4, .h4 {
+            font-size: map-get($calculated_sizes, "h4") !important;
+        }
+        h5, .h5 {
+            font-size: map-get($calculated_sizes, "h5") !important;
+        }
+        h6, .h6 {
+            font-size: map-get($calculated_sizes, "h6") !important;
+        }
+    } @else {
+        @include from($breakpoint) {
+            body {
+                font-size: $calc-base_size;
+            }
+
+            h1, .h1 {
+                font-size: map-get($calculated_sizes, "h1") !important;
+            }
+            h2, .h2 {
+                font-size: map-get($calculated_sizes, "h2") !important;
+            }
+            h3, .h3 {
+                font-size: map-get($calculated_sizes, "h3") !important;
+            }
+            h4, .h4 {
+                font-size: map-get($calculated_sizes, "h4") !important;
+            }
+            h5, .h5 {
+                font-size: map-get($calculated_sizes, "h5") !important;
+            }
+            h6, .h6 {
+                font-size: map-get($calculated_sizes, "h6") !important;
+            }
+        }
+    }
+}
