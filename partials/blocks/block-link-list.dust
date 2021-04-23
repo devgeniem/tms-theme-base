@@ -1,0 +1,25 @@
+<div class="link-list">
+    {?title}
+        <h2 class="link-list__title h5 mt-0 mb-6">
+            {title|s}
+        </h2>
+    {/title}
+
+    {?description}
+        <div class="link-list__description mt-6 mb-6">
+            {description|s}
+        </div>
+    {/description}
+
+    {?links}
+        <ul class="link-list__links list-reset mt-6">
+            {#links}
+                <li>
+                    <a href="{link.url}" target="{link.target}">
+                        {link.title|s}
+                    </a>
+                </li>
+            {/links}
+        </ul>
+    {/links}
+</div>
