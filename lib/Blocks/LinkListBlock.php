@@ -5,6 +5,7 @@
 
 namespace TMS\Theme\Base\Blocks;
 
+use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\LinkListFields;
 
 /**
@@ -57,4 +58,33 @@ class LinkListBlock extends BaseBlock {
             $group->get_fields()
         );
     }
+
+    /**
+     * This filters the block ACF data.
+     *
+     * @param array  $data       Block's ACF data.
+     * @param Block  $instance   The block instance.
+     * @param array  $block      The original ACF block array.
+     * @param string $content    The HTML content.
+     * @param bool   $is_preview A flag that shows if we're in preview.
+     * @param int    $post_id    The parent post's ID.
+     *
+     * @return array The block data.
+     */
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+        if ( empty( $data['links'] ) ) {
+            return $data;
+        }
+
+        $home_url = defined( 'DPT_PLL_ACTIVE ' ) && DPT_PLL_ACTIVE
+            ? \pll_home_url()
+            : \home_url();
+
+        foreach ( $data['links'] as $key => $link ) {
+            $data['links'][ $key ]['link']['is_external'] = false === strpos( $link['link']['url'], $home_url );
+        }
+
+        return $data;
+    }
+
 }

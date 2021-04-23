@@ -1,4 +1,4 @@
-<div class="link-list">
+<div class="link-list wrapper wrapper--medium mt-8 mb-8 p-8 has-background-secondary">
     {?title}
         <h2 class="link-list__title h5 mt-0 mb-6">
             {title|s}
@@ -6,17 +6,23 @@
     {/title}
 
     {?description}
-        <div class="link-list__description mt-6 mb-6">
+        <div class="link-list__description mt-6">
             {description|s}
         </div>
     {/description}
 
     {?links}
-        <ul class="link-list__links list-reset mt-6">
+        <ul class="link-list__links is-unstyled mt-6 keep-vertical-spacing">
             {#links}
-                <li>
-                    <a href="{link.url}" target="{link.target}">
-                        {link.title|s}
+                <li class="mb-2">
+                    <a href="{link.url}" target="{link.target}" class="is-flex is-align-items-center">
+                        {>"ui/icon" icon="chevron-right" class="icon--small is-primary mr-2" /}
+
+                        <span>{link.title|s}</span>
+
+                        {?link.is_external}
+                            {>"ui/icon" icon="external" class="icon--medium is-primary ml-1" /}
+                        {/link.is_external}
                     </a>
                 </li>
             {/links}

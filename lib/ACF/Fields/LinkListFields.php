@@ -72,10 +72,18 @@ class LinkListFields extends Field\Group {
         $description_field = ( new Field\ExtendedWysiwyg( $strings['description']['label'] ) )
             ->set_key( "${key}_description" )
             ->set_name( 'description' )
-            ->set_toolbar( 'basic' )
             ->set_tabs( 'visual' )
+            ->set_toolbar(
+                [
+                    'bold',
+                    'italic',
+                    'link',
+                    'pastetext',
+                    'removeformat',
+                ]
+            )
             ->disable_media_upload()
-            ->set_height( 50 )
+            ->set_height( 100 )
             ->set_instructions( $strings['description']['instructions'] );
 
         $links_field = ( new Field\Repeater( $strings['links']['label'] ) )
