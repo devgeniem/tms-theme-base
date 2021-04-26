@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assets test</title>
+    <link rel="stylesheet" href="dist/main.css">
+</head>
+<body>
+
+<div class="container pb-12">
+    <h1>main.css test page</h1>
+
+    <table>
+        <caption>Current active breakpoints</caption>
+        <tr>
+            <td class="has-text-centered" style="width: 200px">
+                &nbsp;<div class="is-inline-block p-3 has-text-tertiary-light-invert has-background-tertiary-light">
+                Mobile
+            </div>
+            </td>
+            <td class="has-text-centered" style="width: 200px">
+                &nbsp;<div
+                class="is-hidden is-inline-block-tablet p-3 has-text-secondary-light-invert has-background-secondary-light">
+                Tablet
+            </div>
+            </td>
+            <td class="has-text-centered" style="width: 200px">
+                &nbsp;<div
+                class="is-hidden is-inline-block-desktop p-3 has-text-primary-light-invert has-background-primary-light">
+                Desktop
+            </div>
+            </td>
+        </tr>
+    </table>
+
+    <h2 id="color-palettes">Color palettes</h2>
+
+    <table class="is-block" aria-describedby="#color-palettes">
+        <tr>
+            <th scope="row" class="p-3">Primary</th>
+            <td class="p-3 has-background-primary-primary has-text-primary-primary-invert">Primary</td>
+            <td class="p-3 has-background-primary-primary-invert has-text-primary-primary">Primary Invert</td>
+            <td class="p-3 has-background-primary-dark has-text-primary-dark-invert">Dark</td>
+            <td class="p-3 has-background-primary-dark-invert has-text-primary-dark">Dark Invert</td>
+            <td class="p-3 has-background-primary-light has-text-primary-light-invert">Light</td>
+            <td class="p-3 has-background-primary-light-invert has-text-primary-light">Light Invert</td>
+        </tr>
+        <tr>
+            <th scope="row" class="p-3">Secondary</th>
+            <td class="p-3 has-background-secondary-primary has-text-secondary-primary-invert">Primary</td>
+            <td class="p-3 has-background-secondary-primary-invert has-text-secondary-primary">Primary Invert</td>
+            <td class="p-3 has-background-secondary-dark has-text-secondary-dark-invert">Dark</td>
+            <td class="p-3 has-background-secondary-dark-invert has-text-secondary-dark">Dark Invert</td>
+            <td class="p-3 has-background-secondary-light has-text-secondary-light-invert">Light</td>
+            <td class="p-3 has-background-secondary-light-invert has-text-secondary-light">Light Invert</td>
+        </tr>
+        <tr>
+            <th scope="row" class="p-3">Tertiary</th>
+            <td class="p-3 has-background-tertiary-primary has-text-tertiary-primary-invert">Primary</td>
+            <td class="p-3 has-background-tertiary-primary-invert has-text-tertiary-primary">Primary Invert</td>
+            <td class="p-3 has-background-tertiary-dark has-text-tertiary-dark-invert">Dark</td>
+            <td class="p-3 has-background-tertiary-dark-invert has-text-tertiary-dark">Dark Invert</td>
+            <td class="p-3 has-background-tertiary-light has-text-tertiary-light-invert">Light</td>
+            <td class="p-3 has-background-tertiary-light-invert has-text-tertiary-light">Light Invert</td>
+        </tr>
+        <tr>
+            <th scope="row" class="p-3">Quaternary</th>
+            <td class="p-3 has-background-quaternary-primary has-text-quaternary-primary-invert">Primary</td>
+            <td class="p-3 has-background-quaternary-primary-invert has-text-quaternary-primary">Primary Invert</td>
+            <td class="p-3 has-background-quaternary-dark has-text-quaternary-dark-invert">Dark</td>
+            <td class="p-3 has-background-quaternary-dark-invert has-text-quaternary-dark">Dark Invert</td>
+            <td class="p-3 has-background-quaternary-light has-text-quaternary-light-invert">Light</td>
+            <td class="p-3 has-background-quaternary-light-invert has-text-quaternary-light">Light Invert</td>
+        </tr>
+        <tr>
+            <th scope="row" class="p-3">Quinary</th>
+            <td class="p-3 has-background-quinary-primary has-text-quinary-primary-invert">Primary</td>
+            <td class="p-3 has-background-quinary-primary-invert has-text-quinary-primary">Primary Invert</td>
+            <td class="p-3 has-background-quinary-dark has-text-quinary-dark-invert">Dark</td>
+            <td class="p-3 has-background-quinary-dark-invert has-text-quinary-dark">Dark Invert</td>
+            <td class="p-3 has-background-quinary-light has-text-quinary-light-invert">Light</td>
+            <td class="p-3 has-background-quinary-light-invert has-text-quinary-light">Light Invert</td>
+        </tr>
+        <tr>
+            <th scope="row" class="p-3">Senary</th>
+            <td class="p-3 has-background-senary-primary has-text-senary-primary-invert">Primary</td>
+            <td class="p-3 has-background-senary-primary-invert has-text-senary-primary">Primary Invert</td>
+            <td class="p-3 has-background-senary-dark has-text-senary-dark-invert">Dark</td>
+            <td class="p-3 has-background-senary-dark-invert has-text-senary-dark">Dark Invert</td>
+            <td class="p-3 has-background-senary-light has-text-senary-light-invert">Light</td>
+            <td class="p-3 has-background-senary-light-invert has-text-senary-light">Light Invert</td>
+        </tr>
+    </table>
+
+    <h2 id="headers">Headers</h2>
+
+    <table aria-describedby="#headers">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 200px">Class</th>
+                <th scope="col" style="width: 200px">Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width: 200px" class="is-vcentered is-family-monospace">is-size-1</td>
+                <td style="width: 200px" class="is-vcentered is-size-1">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-2</td>
+                <td class="is-vcentered is-size-2">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-3</td>
+                <td class="is-vcentered is-size-3">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-4</td>
+                <td class="is-vcentered is-size-4">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-5</td>
+                <td class="is-vcentered is-size-5">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-6</td>
+                <td class="is-vcentered is-size-6">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-7</td>
+                <td class="is-vcentered is-size-7">Example</td>
+            </tr>
+            <tr>
+                <td class="is-vcentered is-family-monospace">is-size-8</td>
+                <td class="is-vcentered is-size-8">Example</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="buttons">Buttons</h2>
+
+    <table aria-describedby="#buttons">
+        <thead>
+            <tr>
+                <th scope="col" rowspan="2" class="p-3 is-vcentered">State</th>
+                <th scope="colgroup" class="p-3 is-vcentered" colspan="2">Default (Button with icon)</th>
+                <th scope="colgroup" class="p-3 is-vcentered" colspan="2">Small (Small button without icon)</th>
+                <th scope="colgroup" class="p-3 is-vcentered" colspan="2">Only the icon</th>
+            </tr>
+            <tr>
+                <th scope="col" class="p-3 is-vcentered">Default</th>
+                <th scope="col" class="p-3 is-vcentered">Inverted</th>
+                <th scope="col" class="p-3 is-vcentered">Default</th>
+                <th scope="col" class="p-3 is-vcentered">Inverted</th>
+                <th scope="col" class="p-3 is-vcentered">Default</th>
+                <th scope="col" class="p-3 is-vcentered">Inverted</th>
+            </tr>
+        </thead>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Default</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-inverted">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary">&nbsp;</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-inverted">&nbsp;</span>
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Hovered</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-hovered">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-hovered is-inverted">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-hovered">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-hovered is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-hovered">&nbsp;</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-hovered is-inverted">&nbsp;</span>
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Active</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-active">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-active is-inverted">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-active">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-active is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-active">&nbsp;</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-active is-inverted">&nbsp;</span>
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Borderless</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-borderless">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-inverted is-borderless">Button with icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-borderless">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-inverted is-borderless">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-borderless">&nbsp;</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-borderless is-inverted">&nbsp;</span>
+            </td>
+        </tr>
+    </table>
+
+    <h2 id="lists">Lists</h2>
+
+    <ul>
+        <li>Iam quae corporis sunt, ea nec auctoritatem cum animi partibus, comparandam et cognitionem habent
+            faciliorem.
+        </li>
+        <li>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest.
+            <ul>
+                <li>Iam quae corporis sunt, ea nec auctoritatem cum animi partibus.</li>
+                <li>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest.</li>
+                <li>Tertium autem omnibus aut maximis rebus iis, quae secundum naturam sint, fruentem vivere.</li>
+            </ul>
+        </li>
+        <li>Tertium autem omnibus aut maximis rebus iis, quae secundum naturam sint, fruentem vivere.</li>
+    </ul>
+
+    <ol>
+        <li>Quasi ego id curem, quid ille aiat aut neget.</li>
+        <li>Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</li>
+        <li>
+            Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.
+            <ol>
+                <li>Ea nec auctoritatem cum animi partibus, comparandam et cognitionem habent faciliorem.</li>
+                <li>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest.</li>
+                <li>Tertium autem omnibus aut maximis rebus iis, quae secundum naturam sint, fruentem vivere.</li>
+            </ol>
+        </li>
+        <li>Tenesne igitur, inquam, Hieronymus Rhodius quid dicat esse summum bonum, quo putet omnia referri oportere?
+        </li>
+    </ol>
+
+    <h2 id="image-alignment">Image alignment</h2>
+
+    <p>
+        <img src="https://placekitten.com/100/150" class="alignleft" alt="Kitten">
+        Habent enim et bene longam et satis litigiosam disputationem. Sed id ne cogitari quidem potest quale sit, ut non
+        repugnet ipsum sibi. Disserendi artem nullam habuit. Eorum enim est haec querela, qui sibi cari sunt seseque
+        diligunt. Ex ea difficultate illae fallaciloquae, ut ait Accius, malitiae natae sunt. Ea, quae dialectici nunc
+        tradunt et docent, nonne ab illis instituta sunt aut inventa sunt? </p>
+    <p>
+        <img src="https://placekitten.com/150/100" class="alignright" alt="Another Kitten">
+        <a href='#' target='_blank'>Quid nunc honeste dicit?</a> Atque his de rebus et splendida est
+        eorum et illustris oratio. Et hercule-fatendum est enim, quod sentio -mirabilis est apud illos contextus rerum.
+        Apud imperitos tum illa dicta sunt, aliquid etiam coronae datum; <i>Beatus sibi videtur esse moriens.</i> Quae
+        contraria sunt his, malane? Nam Pyrrho, Aristo, Erillus iam diu abiecti.
+        <mark>Quid ergo hoc loco intellegit honestum?</mark>
+    </p>
+
+    <img src="https://placekitten.com/250/100" class="aligncenter" alt="Centered Kitten">
+
+    <p>Non minor, inquit, voluptas percipitur ex vilissimis rebus quam ex pretiosissimis. Collatio igitur ista te nihil
+        iuvat. Ergo et avarus erit, sed finite, et adulter, verum habebit modum, et luxuriosus eodem modo. Sin tantum
+        modo ad indicia veteris memoriae cognoscenda, curiosorum. Praeclare hoc quidem. <code>Hic ambiguo
+            ludimur.</code> Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. <a
+            href='#' target='_blank'>Sedulo, inquam, faciam.</a> Verba tu fingas et ea dicas, quae
+        non sentias? Sed ad haec, nisi molestum est, habeo quae velim. Ab hoc autem quaedam non melius quam veteres,
+        quaedam omnino relicta. Quam illa ardentis amores excitaret sui! Cur tandem? </p>
+
+    <pre>
+Quae est enim, quae se umquam deserat aut partem aliquam sui
+aut eius partis habitum aut vini aut ullius earum rerum,
+quae secundum naturam sunt, aut motum aut statum?
+
+Verum tamen cum de rebus grandioribus dicas, ipsae res verba
+rapiunt;
+</pre>
+
+    <dl>
+        <dt><dfn>Quare attende, quaeso.</dfn></dt>
+        <dd>Oculorum, inquit Plato, est in nobis sensus acerrimus, quibus sapientiam non cernimus.</dd>
+        <dt><dfn>Quid ergo?</dfn></dt>
+        <dd>Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere.</dd>
+        <dt><dfn>Sed fortuna fortis;</dfn></dt>
+        <dd>Sed quid minus probandum quam esse aliquem beatum nec satis beatum?</dd>
+        <dt><dfn>Ne discipulum abducam, times.</dfn></dt>
+        <dd>Est autem etiam actio quaedam corporis, quae motus et status naturae congruentis tenet;</dd>
+    </dl>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="dist/main.js"></script>
+<script src="dist/vendor.js"></script>
+</body>
+</html>
