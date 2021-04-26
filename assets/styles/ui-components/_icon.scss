@@ -1,0 +1,28 @@
+$icon-fill: $primary !default;
+
+.icon {
+    display: inline-block;
+    fill: $icon-fill;
+
+    &--small {
+        width: $theme-spacing-half;
+        height: $theme-spacing-half;
+    }
+
+    &--medium {
+        width: $theme-spacing-three-quarters;
+        height: $theme-spacing-three-quarters;
+    }
+
+    &.is-primary {
+        fill: $primary;
+    }
+
+    &.is-primary-invert {
+        fill: $primary-invert;
+    }
+
+    &.is-black {
+        fill: $black;
+    }
+}
