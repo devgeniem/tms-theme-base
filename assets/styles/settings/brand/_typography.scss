@@ -41,7 +41,7 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
     .has-text-lead {
         font-size: map-get($calculated_sizes, "h6") !important;
-        line-height: 162%;
+        line-height: 1.62;
     }
 
     h1,
@@ -49,42 +49,47 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
         font-size: map-get($calculated_sizes, "h1") !important;
         font-family: $font-family-header;
         font-weight: 800;
-        line-height: 122%;
+        line-height: 1.22;
     }
+
     h2,
     .h2 {
         font-size: map-get($calculated_sizes, "h2") !important;
         font-family: $font-family-header;
         font-weight: 800;
-        line-height: 120%;
+        line-height: 1.2;
     }
+
     h3,
     .h3 {
         font-size: map-get($calculated_sizes, "h3") !important;
         font-family: $font-family-header;
         font-weight: 800;
-        line-height: 122%;
+        line-height: 1.22;
     }
+
     h4,
     .h4 {
         font-size: map-get($calculated_sizes, "h4") !important;
         font-family: $font-family-header;
         font-weight: 800;
-        line-height: 122%;
+        line-height: 1.22;
     }
+
     h5,
     .h5 {
         font-size: map-get($calculated_sizes, "h5") !important;
         font-family: $font-family-header;
         font-weight: 600;
-        line-height: 122%;
+        line-height: 1.22;
     }
+
     h6,
     .h6 {
         font-size: map-get($calculated_sizes, "h6") !important;
         font-family: $font-family-header;
         font-weight: 600;
-        line-height: 122%;
+        line-height: 1.22;
     }
 }
 

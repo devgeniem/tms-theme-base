@@ -2,6 +2,7 @@
 
 // All Tampere brand colors
 $color-white: #fff;
+$color-black: #111;
 
 $color-tunnelma: #c83e36;
 $color-tumma-tiilenpunainen: #ae1e20;
@@ -124,4 +125,20 @@ $tampere-palettes: (
         "dark": $color-idea-dark,
         "dark-invert": $color-idea-dark-invert
     ),
+    "black": (
+        "primary": $color-black,
+        "primary-invert": $color-white,
+        "light": $color-white,
+        "light-invert": $color-black,
+        "dark": $color-black,
+        "dark-invert": $color-white
+    ),
+    "white": (
+        "primary": $color-white,
+        "primary-invert": $color-black,
+        "light": $color-white,
+        "light-invert": $color-black,
+        "dark": $color-black,
+        "dark-invert": $color-white
+    )
 ) !default;

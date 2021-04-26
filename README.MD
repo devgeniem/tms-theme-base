@@ -43,6 +43,51 @@ The theme has been designed to make use of the [Bulma][bulma] CSS Framework and
 the [Bulmally][bulmally] accessibility-ready frontend component framework.
 Refer to that repository for modals, accordions, tabs and other dynamic components.
 
+### Custom Bulma helpers and Brand color palettes
+
+Tampere Brand guidelines has color themes and different color variations defined. To make everything easy to follow and inherit, this theme base has helpers and brand guidelines defined for other themes.
+
+You can find the brand definitions from `assets/settings/brand` folder, and examples of usage can be found from the `assets/settings/_settings.scss` file.
+
+#### Functions for theme developers:
+
+| Function        | Parameters | Description |
+| --------------- | ---------- | ----------- |
+| get_brand_color | palette name, [optional] variant name, [optional] return as list | Get brand color palette as map, string (color hex), or as a list |
+
+#### Helper classes for developers:
+
+The brand color palettes have been build into utility classes following conventions from Bulma.
+
+As the `$colors` map contains a key (for example: primary, secondary, black...) and `$tampere-colors` brand palettes
+all have map keys `primary`, `primary-invert`, `light`, `light-invert`, `dark` and `dark-invert`, we can build
+variations from these.
+
+The naming scheme is as follows: `.has-text-[NAME]-[VARIATION]`, `.has-background-[NAME]-[VARIATION]` and `.has-colors-[NAME]` .
+
+If our `$colors` was:
+
+```scss
+$colors: (
+    "primary": get_brand_color("tunnelma"),
+    "dark": get_brand_color("black"),
+)
+```
+
+Generated CSS Classes would be (for example):
+
+| CSS Class Prefix   | Group     | Variation        | Description                                                                       |
+| ------------------ | --------- | ---------------- | --------------------------------------------------------------------------------- |
+| `.has-text-`       | `primary` |                  | `.has-text-primary`, text color: `tunnelma.primary`                               |
+| `.has-text-`       | `primary` | `primary`        | `.has-text-primary-primary`, text color: `tunnelma.primary`                       |
+| `.has-text-`       | `primary` | `primary-invert` | `.has-text-primary-primary-invert`, text color: `tunnelma.primary-invert`         |
+| `.has-text-`       | `primary` | `light-invert`   | `.has-text-primary-light-invert`, text color: `tunnelma.light-invert`             |
+| `.has-text-`       | `dark`    | `primary-invert` | `.has-text-dark-primary-invert`, text color: `black.primary-invert`               |
+| `.has-background-` | `dark`    | `primary`        | `.has-background-dark-primary`, Background color: `black.primary`                 |
+| `.has-colors-`     | `primary` |                  | Background color from `tunnelma.primary` and text color `tunnelma.primary-invert` |
+| `.has-colors-`     | `dark`    |                  | Background color from `black.primary` and text color `black.primary-invert`       |
+
+
 ## Theme info
 
 - Namespace: `\TMS\Theme\Base`

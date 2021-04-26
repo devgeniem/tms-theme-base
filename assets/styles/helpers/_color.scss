@@ -11,10 +11,50 @@
             .has-text-#{$name}-#{$variant} {
                 color: $color !important;
             }
+
             .has-background-#{$name}-#{$variant} {
                 background-color: $color !important;
             }
+
+            a.has-text-#{$name}-#{$variant} {
+                &:hover,
+                &:focus {
+                    color: bulmaDarken($color, 10%) !important;
+                }
+            }
         }
+
+        // .has-text-secondary is actually the primary color of the secondary palette
+        .has-text-#{$name} {
+            color: map-get($pair, "primary") !important;
+
+            // .has-text-secondary-invert is actually the inverse of the secondary palette primary
+            &-invert,
+            &.is-inverted {
+                color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
+        .has-background-#{$name} {
+            background-color: map-get($pair, "primary") !important;
+
+            &-invert,
+            &.is-inverted {
+                background-color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
+        .has-colors-#{$name} {
+            color: map-get($pair, "primary-invert") !important;
+            background-color: map-get($pair, "primary") !important;
+
+            &-invert,
+            &.is-inverted {
+                color: map-get($pair, "primary") !important;
+                background-color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
     } @else {
         // This is the default bulma way of color variation generation
         $color: nth($pair, 1);
@@ -49,6 +89,7 @@
                     color: bulmaDarken($color-light, 10%) !important
                 }
             }
+
             .has-background-#{$name}-light {
                 background-color: $color-light !important
             }
@@ -64,18 +105,10 @@
                     color: bulmaDarken($color-dark, 10%) !important
                 }
             }
+
             .has-background-#{$name}-dark {
                 background-color: $color-dark !important
             }
         }
-    }
-}
-
-@each $name, $shade in $shades {
-    .has-text-#{$name} {
-        color: $shade !important
-    }
-    .has-background-#{$name} {
-        background-color: $shade !important
     }
 }
