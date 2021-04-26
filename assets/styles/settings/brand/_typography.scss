@@ -1,0 +1,105 @@
+/**
+ * Typography
+ */
+@import "functions";
+
+$base-sizes: (
+    "mobile": ("base_size": 16px, "scale_value": 1.135, "break_point": 0),
+    "tablet": ("base_size": 17px, "scale_value": 1.145, "break_point": $tablet),
+    "desktop": ("base_size": 17px, "scale_value": 1.165, "break_point": $desktop)
+) !default;
+
+$family-sans-serif: "Montserrat", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+$family-primary: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-secondary: $family-sans-serif;
+
+$font-family-header: $family-secondary;
+$font-family-text: $family-primary;
+
+$sizes-desktop: map-get($base-sizes, "desktop");
+$sizes-desktop-base_size: map-get($sizes-desktop, "base_size");
+$sizes-desktop-scale_value: map-get($sizes-desktop, "scale_value");
+$sizes-desktop-calculated: get_calculated_sizes($sizes-desktop-base_size, $sizes-desktop-scale_value);
+
+$base-size: $sizes-desktop-base_size;
+$body-font-size: $base-size;
+
+$size-1: map-get($sizes-desktop-calculated, "h1");
+$size-2: map-get($sizes-desktop-calculated, "h2");
+$size-3: map-get($sizes-desktop-calculated, "h3");
+$size-4: map-get($sizes-desktop-calculated, "h4");
+$size-5: map-get($sizes-desktop-calculated, "h5");
+$size-6: map-get($sizes-desktop-calculated, "h6");
+$size-7: rem(14px, $base-size);
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+
+@mixin breakpoint_typography($base, $calculated_sizes) {
+    body {
+        font-size: $base;
+    }
+
+    .has-text-lead {
+        font-size: map-get($calculated_sizes, "h6") !important;
+        line-height: 162%;
+    }
+
+    h1,
+    .h1 {
+        font-size: map-get($calculated_sizes, "h1") !important;
+        font-family: $font-family-header;
+        font-weight: 800;
+        line-height: 122%;
+    }
+    h2,
+    .h2 {
+        font-size: map-get($calculated_sizes, "h2") !important;
+        font-family: $font-family-header;
+        font-weight: 800;
+        line-height: 120%;
+    }
+    h3,
+    .h3 {
+        font-size: map-get($calculated_sizes, "h3") !important;
+        font-family: $font-family-header;
+        font-weight: 800;
+        line-height: 122%;
+    }
+    h4,
+    .h4 {
+        font-size: map-get($calculated_sizes, "h4") !important;
+        font-family: $font-family-header;
+        font-weight: 800;
+        line-height: 122%;
+    }
+    h5,
+    .h5 {
+        font-size: map-get($calculated_sizes, "h5") !important;
+        font-family: $font-family-header;
+        font-weight: 600;
+        line-height: 122%;
+    }
+    h6,
+    .h6 {
+        font-size: map-get($calculated_sizes, "h6") !important;
+        font-family: $font-family-header;
+        font-weight: 600;
+        line-height: 122%;
+    }
+}
+
+@each $base-size-breakpoint, $base-size-values in $base-sizes {
+    $calc-base_size: map-get($base-size-values, "base_size");
+    $calc-scale_value: map-get($base-size-values, "scale_value");
+    $calculated_sizes: get_calculated_sizes($calc-base_size, $calc-scale_value);
+
+    @if ($base-size-breakpoint == "mobile") {
+        @include breakpoint_typography($calc-base_size, $calculated_sizes);
+    } @else {
+        $breakpoint: map-get($base-size-values, "break_point");
+
+        @include from($breakpoint) {
+            @include breakpoint_typography($calc-base_size, $calculated_sizes);
+        }
+    }
+}
