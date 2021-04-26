@@ -1,4 +1,4 @@
-<div class="image-banner is-relative">
+<div class="image-banner is-relative is-align-full">
     <div class="image is-2by1">
         {@image id=image.id size="large" /}
     </div>

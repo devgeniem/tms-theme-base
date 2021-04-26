@@ -1,0 +1,13 @@
+{?quote}
+    <div class="quote has-background-secondary has-text-secondary-invert mt-9 mb-9 pr-5 pl-5 pt-8 pb-8 pr-9-tablet pl-9-tablet pr-11-desktop pl-11-desktop has-text-centered {extra_classes|s}">
+        <blockquote class="quote__content p-0 m-0 has-text-lead">
+            {quote|s}
+        </blockquote>
+
+        {?author}
+            <div class="quote__author is-uppercase mt-5">
+                {author|s}
+            </div>
+        {/author}
+    </div>
+{/quote}
