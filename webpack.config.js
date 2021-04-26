@@ -9,20 +9,17 @@ const TerserPlugin = require( 'terser-webpack-plugin' );
 // Check for production mode.
 const isProduction = process.env.NODE_ENV === 'production';
 
-// Project root folder.
-const wpProjectPath = `${path.resolve( __dirname, '..', '..', '..', '..' )}`;
-
- // Local development server URL.
+// Local development server URL.
 const wpProjectUrl = 'https://client-tms.test';
 
 // Theme paths.
-const themeName = path.basename( __dirname );
-const themePath = `/web/app/themes/${themeName}`;
-const themePublicPath = `/app/themes/${themeName}/assets/dist/`;
-const themeFullPath = `${wpProjectPath}${themePath}`;
-const themeEntry = `${themeFullPath}/assets/scripts/main.js`;
-const themeAdminEntry = `${themeFullPath}/assets/scripts/admin.js`;
-const themeOutput = `${themeFullPath}/assets/dist`;
+const wpThemePath = path.resolve( __dirname );
+const themeName = path.basename( wpThemePath );
+const themePath = `/web/app/themes/${ themeName }`;
+const themePublicPath = `${ themePath }/assets/dist/`;
+const themeEntry = `${ wpThemePath }/assets/scripts/main.js`;
+const themeAdminEntry = `${ wpThemePath }/assets/scripts/admin.js`;
+const themeOutput = `${ wpThemePath }/assets/dist`;
 
 // All loaders to use on assets.
 const allModules = {
@@ -34,12 +31,12 @@ const allModules = {
             use: {
                 loader: 'eslint-loader',
                 options: {
-                    configFile: `${wpProjectPath}/.eslintrc.json`,
+                    configFile: '.eslintrc.json',
                     fix: false,
                     failOnWarning: false,
-                    failonError: true
-                }
-            }
+                    failOnError: true,
+                },
+            },
         },
         {
             test: /\.js$/,
@@ -58,9 +55,9 @@ const allModules = {
                     presets: [ '@babel/preset-env' ],
 
                     // Enable dynamic imports.
-                    plugins: [ '@babel/plugin-syntax-dynamic-import' ]
-                }
-            }
+                    plugins: [ '@babel/plugin-syntax-dynamic-import' ],
+                },
+            },
         },
         {
             test: /\.scss$/,
@@ -68,23 +65,17 @@ const allModules = {
                 MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader',
-                    options: {
-                        sourceMap: true
-                    }
+                    options: { sourceMap: true },
                 },
                 {
                     loader: 'postcss-loader',
-                    options: {
-                        sourceMap: true
-                    }
+                    options: { sourceMap: true },
                 },
                 {
                     loader: 'sass-loader',
-                    options: {
-                        sourceMap: true
-                    }
-                }
-            ]
+                    options: { sourceMap: true },
+                },
+            ],
         },
         {
             test: /\.(gif|jpe?g|png|svg)(\?[a-z0-9=\.]+)?$/,
@@ -94,29 +85,20 @@ const allModules = {
                 {
                     loader: 'image-webpack-loader',
                     options: {
-
                         // Disable imagemin for development build.
                         disable: ! isProduction,
-                        mozjpeg: {
-                            quality: 70
-                        },
-                        optipng: {
-                            enabled: false
-                        },
-                        pngquant: {
-                            quality: [ 0.7, 0.7 ]
-                        },
-                        gifsicle: {
-                            interlaced: false
-                        }
-                    }
-                }
-            ]
+                        mozjpeg: { quality: 70 },
+                        optipng: { enabled: false },
+                        pngquant: { quality: [ 0.7, 0.7 ] },
+                        gifsicle: { interlaced: false },
+                    },
+                },
+            ],
         },
         {
             test: /\.(eot|svg|ttf|woff(2)?)(\?[a-z0-9=\.]+)?$/,
             exclude: [ /assets\/images/, /assets\/icons/, /node_modules/ ],
-            use: 'file-loader?name=[name].[ext]'
+            use: 'file-loader?name=[name].[ext]',
         },
         {
             test: /assets\/icons\/.*\.svg(\?[a-z0-9=\.]+)?$/,
@@ -126,21 +108,21 @@ const allModules = {
                     options: {
                         symbolId: 'icon-[name]',
                         extract: true,
-                        spriteFilename: 'icons.svg'
-                    }
+                        spriteFilename: 'icons.svg',
+                    },
                 },
                 {
                     loader: 'svgo-loader',
                     options: {
                         plugins: [
                             { removeTitle: true },
-                            { removeAttrs: { attrs: [ 'path:fill', 'path:class' ] } }
-                        ]
-                    }
-                }
-            ]
-        }
-    ]
+                            { removeAttrs: { attrs: [ 'path:fill', 'path:class' ] } },
+                        ],
+                    },
+                },
+            ],
+        },
+    ],
 };
 
 // All optimizations to use.
@@ -151,50 +133,36 @@ const allOptimizations = {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
                 name: 'vendor',
-                chunks: 'all'
-            }
-        }
-    }
+                chunks: 'all',
+            },
+        },
+    },
 };
 
 // All plugins to use.
 const allPlugins = [
 
     // Use BrowserSync.
-    new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        proxy: wpProjectUrl,
-        files: [ {
-            match: [
-                '**/*.php',
-                '**/*.dust'
-            ]
-        } ],
-        notify: true,
-        open: false
-    },
-    {
-        reload: true
-    }),
+    new BrowserSyncPlugin(
+        {
+            host: 'localhost',
+            port: 3000,
+            proxy: wpProjectUrl,
+            files: [ { match: [ '**/*.php', '**/*.dust' ] } ],
+            notify: true,
+            open: false,
+        },
+        { reload: true }
+    ),
 
     // Convert JS to CSS.
-    new MiniCssExtractPlugin({
-        filename: '[name].css'
-    }),
+    new MiniCssExtractPlugin( { filename: '[name].css' } ),
 
     // Create hidden SVG sprite with inline style.
-    new SpriteLoaderPlugin({
-        plainSprite: true,
-        spriteAttrs: {
-            style: 'display: none;'
-        }
-    }),
+    new SpriteLoaderPlugin( { plainSprite: true, spriteAttrs: { style: 'display: none;' } } ),
 
     // Provide jQuery instance for all modules.
-    new webpack.ProvidePlugin({
-        jQuery: 'jquery'
-    })
+    new webpack.ProvidePlugin( { jQuery: 'jquery' } ),
 ];
 
 // Use only for production build.
@@ -202,7 +170,7 @@ if ( isProduction ) {
     allOptimizations.minimizer = [
 
         // Optimize for production build.
-        new TerserPlugin({
+        new TerserPlugin( {
             cache: true,
             parallel: true,
             sourceMap: true,
@@ -212,10 +180,10 @@ if ( isProduction ) {
                 },
                 compress: {
                     warnings: false,
-                    drop_console: true // eslint-disable-line camelcase
-                }
-            }
-        })
+                    drop_console: true, // eslint-disable-line camelcase
+                },
+            },
+        } ),
     ];
 
     // Delete distribution folder for production build.
@@ -224,15 +192,22 @@ if ( isProduction ) {
 
 module.exports = [
     {
+        resolve: {
+            alias: {
+                scripts: path.resolve( __dirname, 'assets', 'scripts' ),
+                styles: path.resolve( __dirname, 'assets', 'styles' ),
+            },
+        },
+
         entry: {
             main: [ themeEntry ],
-            admin: [ themeAdminEntry ]
+            admin: [ themeAdminEntry ],
         },
 
         output: {
             path: themeOutput,
             publicPath: themePublicPath,
-            filename: '[name].js'
+            filename: '[name].js',
         },
 
         module: allModules,
@@ -241,13 +216,9 @@ module.exports = [
 
         plugins: allPlugins,
 
-        externals: {
-
-            // Set jQuery to be an external resource.
-            jquery: 'jQuery'
-        },
+        externals: { jquery: 'jQuery' },
 
         // Disable source maps for production build.
-        devtool: isProduction ? '' : 'inline-source-map'
-    }
+        devtool: isProduction ? false : 'inline-source-map',
+    },
 ];

@@ -1,0 +1,114 @@
+/**
+ * Generates .has-text-X and .has-background-X variations from colors.
+ * This version can handle our color maps and be smart about color palettes.
+ */
+@each $name, $pair in $colors {
+    @if type-of($pair) == "map" {
+        // see assets/styles/settings/brand/_colors.scss
+        // .has-text-(primary|secondary)-(primary|primary-invert|dark|dark-invert...)
+        // .has-background-(primary|secondary)-(primary|primary-invert|dark|dark-invert...)
+        @each $variant, $color in $pair {
+            .has-text-#{$name}-#{$variant} {
+                color: $color !important;
+            }
+
+            .has-background-#{$name}-#{$variant} {
+                background-color: $color !important;
+            }
+
+            a.has-text-#{$name}-#{$variant} {
+                &:hover,
+                &:focus {
+                    color: bulmaDarken($color, 10%) !important;
+                }
+            }
+        }
+
+        // .has-text-secondary is actually the primary color of the secondary palette
+        .has-text-#{$name} {
+            color: map-get($pair, "primary") !important;
+
+            // .has-text-secondary-invert is actually the inverse of the secondary palette primary
+            &-invert,
+            &.is-inverted {
+                color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
+        .has-background-#{$name} {
+            background-color: map-get($pair, "primary") !important;
+
+            &-invert,
+            &.is-inverted {
+                background-color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
+        .has-colors-#{$name} {
+            color: map-get($pair, "primary-invert") !important;
+            background-color: map-get($pair, "primary") !important;
+
+            &-invert,
+            &.is-inverted {
+                color: map-get($pair, "primary") !important;
+                background-color: map-get($pair, "primary-invert") !important;
+            }
+        }
+
+    } @else {
+        // This is the default bulma way of color variation generation
+        $color: nth($pair, 1);
+
+        .has-text-#{$name} {
+            color: $color !important;
+        }
+
+        a.has-text-#{$name} {
+            &:hover,
+            &:focus {
+                color: bulmaDarken($color, 10%) !important;
+            }
+        }
+
+        .has-background-#{$name} {
+            background-color: $color !important;
+        }
+
+        @if length($pair) >= 4 {
+            $color-light: nth($pair, 3);
+            $color-dark: nth($pair, 4);
+
+            // Light
+            .has-text-#{$name}-light {
+                color: $color-light !important;
+            }
+
+            a.has-text-#{$name}-light {
+                &:hover,
+                &:focus {
+                    color: bulmaDarken($color-light, 10%) !important
+                }
+            }
+
+            .has-background-#{$name}-light {
+                background-color: $color-light !important
+            }
+
+            // Dark
+            .has-text-#{$name}-dark {
+                color: $color-dark !important;
+            }
+
+            a.has-text-#{$name}-dark {
+                &:hover,
+                &:focus {
+                    color: bulmaDarken($color-dark, 10%) !important
+                }
+            }
+
+            .has-background-#{$name}-dark {
+                background-color: $color-dark !important
+            }
+        }
+    }
+}
