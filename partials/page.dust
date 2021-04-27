@@ -11,7 +11,7 @@
                                 {@title /}
                             </h1>
 
-                            <div class="entry__content">
+                            <div class="entry__content is-content-grid">
                                 {@content /}
                             </div>
                         </article>
