@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Assets test</title>
     <link rel="stylesheet" href="dist/main.css">
+    <style>
+        .bordered th, .bordered td {
+            border: 1px solid #eee;
+        }
+        tr th {
+            vertical-align: middle !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -298,6 +306,37 @@
             </td>
         </tr>
         <tr>
+            <th class="p-3 is-vcentered" scope="row">Focused</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-focused">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-focused is-inverted">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-focused">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-primary is-small is-focused is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-primary is-focused">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-primary is-focused is-inverted">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+        </tr>
+        <tr>
             <th class="p-3 is-vcentered" scope="row">Borderless</th>
             <td class="p-3 is-vcentered">
                 <span class="button is-primary is-borderless">
@@ -326,6 +365,107 @@
             </td>
             <td class="p-3 is-vcentered">
                 <span class="button button--icon is-primary is-borderless is-inverted">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+        </tr>
+        <tr class="is-vcentered">
+            <td colspan="7" class="p-3 has-text-centered">
+                Only default and hovered states in the next variations
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Secondary</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-secondary">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-secondary is-inverted">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-secondary is-small">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-secondary is-small is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-secondary">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-secondary is-inverted">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">Tertiary</th>
+            <td class="p-3 is-vcentered">
+                <span class="button is-tertiary">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-tertiary is-inverted">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-tertiary is-small">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-tertiary is-small is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-tertiary">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-tertiary is-inverted">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th class="p-3 is-vcentered" scope="row">
+                Unknown<br>
+                <small>(defaults to primary)</small>
+            </th>
+            <td class="p-3 is-vcentered">
+                <span class="button">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-inverted">
+                    Button with icon
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-small">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button is-small is-inverted">Small without icon</span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon">
+                    <svg class="icon"><use xlink:href="#chevron" /></svg>
+                </span>
+            </td>
+            <td class="p-3 is-vcentered">
+                <span class="button button--icon is-inverted">
                     <svg class="icon"><use xlink:href="#chevron" /></svg>
                 </span>
             </td>

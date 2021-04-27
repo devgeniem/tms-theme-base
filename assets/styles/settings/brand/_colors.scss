@@ -81,6 +81,16 @@ $color-idea-light-invert: $color-idea-invert;
  * Each entry contains primary, primary-invert, light, light-invert, dark, dark-invert
  */
 $tampere-palettes: (
+    "grays": (
+        "primary": $color-vaalea-siniharmaa,
+        "primary-invert": $color-black,
+        "secondary": $color-tumma-harmaa,
+        "secondary-invert": $color-white,
+        "light": $color-siniharmaa,
+        "light-invert": $color-black,
+        "dark": $color-tumma-harmaa,
+        "dark-invert": $color-white
+    ),
     "tunnelma": (
         "primary": $color-tunnelma,
         "primary-invert": $color-tunnelma-invert,

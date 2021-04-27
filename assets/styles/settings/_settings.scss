@@ -20,13 +20,15 @@ $link: $primary;
 // can be used in HTML with .has-background-<color> or .has-text-<color> classes
 // NOTE! These colours have a big impact on CSS size
 // Remove all unnecessary colours and add custom ones above.
+
+$colors-palette-primary: get_brand_color("tunnelma");
+$colors-palette-secondary: get_brand_color("grays");
+$colors-palette-tertiary: get_brand_color("tyo");
+
 $colors: (
-    "primary": get_brand_color("tunnelma"),
-    "secondary": map-merge(
-            $theme-colors,
-            ("primary": $secondary, "primary-invert": $secondary-invert)
-    ),
-    "tertiary": get_brand_color("tyo"),
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "tertiary": $colors-palette-tertiary,
     "quaternary": get_brand_color("koti"),
     "quinary": get_brand_color("kokemus"),
     "senary": get_brand_color("idea"),
@@ -39,7 +41,11 @@ $colors: (
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
 
-$button-colors: ("primary": $theme-colors, "secondary": get_brand_color("koti"));
+$button-colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "tertiary": $colors-palette-tertiary
+);
 $navbar-colors: ("primary": ($primary, $primary-invert));
 
 // Font sizes

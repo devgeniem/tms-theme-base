@@ -35,6 +35,10 @@ $size-6: map-get($sizes-desktop-calculated, "h6");
 $size-7: rem(14px, $base-size);
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
+.has-text-align-center {
+    text-align: center;
+}
+
 @mixin breakpoint_typography($base, $calculated_sizes) {
     body {
         font-size: $base;
