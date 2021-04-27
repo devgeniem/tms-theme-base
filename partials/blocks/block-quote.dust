@@ -5,7 +5,7 @@
         </blockquote>
 
         {?author}
-            <div class="quote__author is-uppercase mt-5">
+            <div class="quote__author is-uppercase has-text-weight-medium mt-5">
                 {author|s}
             </div>
         {/author}
