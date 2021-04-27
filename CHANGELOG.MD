@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-48: Quote ACF Block #15
 - TMS-48: Typography and Colors #12
 - TMS-36: Link List ACF block #13
 - TMS-27: Call to Action ACF layout #10
