@@ -39,7 +39,7 @@ $colors: (
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
 
-$button-colors: ("primary": ($primary, $primary-invert));
+$button-colors: ("primary": $theme-colors, "secondary": get_brand_color("koti"));
 $navbar-colors: ("primary": ($primary, $primary-invert));
 
 // Font sizes
