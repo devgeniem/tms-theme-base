@@ -6,14 +6,14 @@
 $theme-colors: get_brand_color("tunnelma");
 $primary: map-get($theme-colors, "primary");
 $primary-invert: map-get($theme-colors, "primary-invert");
+$primary-dark: map-get($theme-colors, "dark");
+$primary-dark-invert: map-get($theme-colors, "dark-invert");
+$secondary: map-get($theme-colors, "secondary");
+$secondary-invert: map-get($theme-colors, "secondary-invert");
 $light: map-get($theme-colors, "light");
 $light-invert: map-get($theme-colors, "light-invert");
 $dark: map-get($theme-colors, "dark");
 $dark-invert: map-get($theme-colors, "dark-invert");
-
-$white: #fff;
-$black: #222;
-$secondary: #e5eef8;
 $link: $primary;
 
 // Theme colors
@@ -22,7 +22,10 @@ $link: $primary;
 // Remove all unnecessary colours and add custom ones above.
 $colors: (
     "primary": get_brand_color("tunnelma"),
-    "secondary": get_brand_color("muutos"),
+    "secondary": map-merge(
+            $theme-colors,
+            ("primary": $secondary, "primary-invert": $secondary-invert)
+    ),
     "tertiary": get_brand_color("tyo"),
     "quaternary": get_brand_color("koti"),
     "quinary": get_brand_color("kokemus"),

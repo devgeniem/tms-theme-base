@@ -24,6 +24,7 @@ $sizes-desktop-calculated: get_calculated_sizes($sizes-desktop-base_size, $sizes
 
 $base-size: $sizes-desktop-base_size;
 $body-font-size: $base-size;
+$body-weight: 400;
 
 $size-1: map-get($sizes-desktop-calculated, "h1");
 $size-2: map-get($sizes-desktop-calculated, "h2");

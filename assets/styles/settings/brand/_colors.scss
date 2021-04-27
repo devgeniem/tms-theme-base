@@ -4,6 +4,10 @@
 $color-white: #fff;
 $color-black: #111;
 
+// Override Bulma
+$white: $color-white;
+$black: $color-black;
+
 $color-tunnelma: #c83e36;
 $color-tumma-tiilenpunainen: #ae1e20;
 $color-tiilenpunainen: #eb5e58;
@@ -80,6 +84,8 @@ $tampere-palettes: (
     "tunnelma": (
         "primary": $color-tunnelma,
         "primary-invert": $color-tunnelma-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-tunnelma-light,
         "light-invert": $color-tunnelma-light-invert,
         "dark": $color-tunnelma-dark,
@@ -88,6 +94,8 @@ $tampere-palettes: (
     "muutos": (
         "primary": $color-muutos,
         "primary-invert": $color-muutos-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-muutos-light,
         "light-invert": $color-muutos-light-invert,
         "dark": $color-muutos-dark,
@@ -96,6 +104,8 @@ $tampere-palettes: (
     "tyo": (
         "primary": $color-tyo,
         "primary-invert": $color-tyo-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-tyo-light,
         "light-invert": $color-tyo-light-invert,
         "dark": $color-tyo-dark,
@@ -104,6 +114,8 @@ $tampere-palettes: (
     "koti": (
         "primary": $color-koti,
         "primary-invert": $color-koti-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-koti-light,
         "light-invert": $color-koti-light-invert,
         "dark": $color-koti-dark,
@@ -112,6 +124,8 @@ $tampere-palettes: (
     "kokemus": (
         "primary": $color-kokemus,
         "primary-invert": $color-kokemus-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-kokemus-light,
         "light-invert": $color-kokemus-light-invert,
         "dark": $color-kokemus-dark,
@@ -120,6 +134,8 @@ $tampere-palettes: (
     "idea": (
         "primary": $color-idea,
         "primary-invert": $color-idea-invert,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-idea-light,
         "light-invert": $color-idea-light-invert,
         "dark": $color-idea-dark,
@@ -128,6 +144,8 @@ $tampere-palettes: (
     "black": (
         "primary": $color-black,
         "primary-invert": $color-white,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-white,
         "light-invert": $color-black,
         "dark": $color-black,
@@ -136,6 +154,8 @@ $tampere-palettes: (
     "white": (
         "primary": $color-white,
         "primary-invert": $color-black,
+        "secondary": $color-vaalea-siniharmaa,
+        "secondary-invert": $color-black,
         "light": $color-white,
         "light-invert": $color-black,
         "dark": $color-black,
