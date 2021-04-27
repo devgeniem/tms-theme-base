@@ -24,6 +24,7 @@ $sizes-desktop-calculated: get_calculated_sizes($sizes-desktop-base_size, $sizes
 
 $base-size: $sizes-desktop-base_size;
 $body-font-size: $base-size;
+$body-weight: 400;
 
 $size-1: map-get($sizes-desktop-calculated, "h1");
 $size-2: map-get($sizes-desktop-calculated, "h2");
@@ -33,6 +34,10 @@ $size-5: map-get($sizes-desktop-calculated, "h5");
 $size-6: map-get($sizes-desktop-calculated, "h6");
 $size-7: rem(14px, $base-size);
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+
+.has-text-align-center {
+    text-align: center;
+}
 
 @mixin breakpoint_typography($base, $calculated_sizes) {
     body {

@@ -6,24 +6,29 @@
 $theme-colors: get_brand_color("tunnelma");
 $primary: map-get($theme-colors, "primary");
 $primary-invert: map-get($theme-colors, "primary-invert");
+$primary-dark: map-get($theme-colors, "dark");
+$primary-dark-invert: map-get($theme-colors, "dark-invert");
+$secondary: map-get($theme-colors, "secondary");
+$secondary-invert: map-get($theme-colors, "secondary-invert");
 $light: map-get($theme-colors, "light");
 $light-invert: map-get($theme-colors, "light-invert");
 $dark: map-get($theme-colors, "dark");
 $dark-invert: map-get($theme-colors, "dark-invert");
-
-$white: #fff;
-$black: #222;
-$secondary: #e5eef8;
 $link: $primary;
 
 // Theme colors
 // can be used in HTML with .has-background-<color> or .has-text-<color> classes
 // NOTE! These colours have a big impact on CSS size
 // Remove all unnecessary colours and add custom ones above.
+
+$colors-palette-primary: get_brand_color("tunnelma");
+$colors-palette-secondary: get_brand_color("grays");
+$colors-palette-tertiary: get_brand_color("tyo");
+
 $colors: (
-    "primary": get_brand_color("tunnelma"),
-    "secondary": get_brand_color("muutos"),
-    "tertiary": get_brand_color("tyo"),
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "tertiary": $colors-palette-tertiary,
     "quaternary": get_brand_color("koti"),
     "quinary": get_brand_color("kokemus"),
     "senary": get_brand_color("idea"),
@@ -36,7 +41,11 @@ $colors: (
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
 
-$button-colors: ("primary": ($primary, $primary-invert));
+$button-colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "tertiary": $colors-palette-tertiary
+);
 $navbar-colors: ("primary": ($primary, $primary-invert));
 
 // Font sizes
