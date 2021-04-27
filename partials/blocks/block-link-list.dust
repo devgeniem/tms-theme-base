@@ -1,4 +1,4 @@
-<div class="link-list wrapper wrapper--medium mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
+<div class="link-list mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
     {?title}
         <h2 class="link-list__title h5 mt-0 mb-6">
             {title|s}

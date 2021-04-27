@@ -66,7 +66,6 @@ class LinkListFields extends Field\Group {
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "${key}_title" )
             ->set_name( 'title' )
-            ->set_required()
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\ExtendedWysiwyg( $strings['description']['label'] ) )
