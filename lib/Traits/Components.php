@@ -28,7 +28,7 @@ trait Components {
     /**
      * Format layout data
      *
-     * @param array $fields Array of Layout fields
+     * @param array $fields Array of Layout fields.
      *
      * @return array
      */
