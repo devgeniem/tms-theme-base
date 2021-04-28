@@ -21,13 +21,25 @@ trait Components {
      */
     public function components() : array {
         $content = get_field( 'components' );
+
+        return $this->handle_layouts( $content );
+    }
+
+    /**
+     * Format layout data
+     *
+     * @param array $fields Array of Layout fields
+     *
+     * @return array
+     */
+    protected function handle_layouts( array $fields ) : array {
         $handled = [];
 
-        if ( empty( $content ) ) {
+        if ( empty( $fields ) ) {
             return $handled;
         }
 
-        foreach ( $content as $layout ) {
+        foreach ( $fields as $layout ) {
             if ( empty( $layout['acf_fc_layout'] ) ) {
                 continue;
             }
@@ -37,7 +49,7 @@ trait Components {
             $layout['partial'] = 'partials/layouts/layout-' . $layout_name . '.dust';
 
             $handled[] = apply_filters(
-                "acf/layout/${acf_layout}/data",
+                "tms/acf/layout/${acf_layout}/data",
                 $layout
             );
         }

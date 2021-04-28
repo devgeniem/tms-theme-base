@@ -1,9 +1,33 @@
 .has-transform {
     &-y-50 {
         transform: translateY(50%);
+
+        &-tablet {
+            @include from($tablet) {
+                transform: translateY(50%);
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                transform: translateY(50%);
+            }
+        }
     }
 
     &-y--50 {
         transform: translateY(-50%);
+
+        &-tablet {
+            @include from($tablet) {
+                transform: translateY(-50%);
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                transform: translateY(-50%);
+            }
+        }
     }
 }

@@ -26,6 +26,7 @@
 @import "~bulma/sass/elements/container";
 @import "~bulma/sass/elements/button";
 @import "~bulma/sass/elements/image";
+@import "~bulma/sass/elements/table";
 @import "~bulma/sass/components/navbar";
 @import "~bulma/sass/components/dropdown";
 @import "~bulma/sass/grid/columns";
@@ -53,4 +54,4 @@
 /*--------------------------------------------------------------
 # Blocks - Gutenberg blocks.
 --------------------------------------------------------------*/
-@import "blocks/blocks";
+@import "blocks";

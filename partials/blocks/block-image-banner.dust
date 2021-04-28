@@ -1,21 +1,24 @@
-<div class="image-banner is-relative is-align-full">
-    <div class="image is-2by1">
-        {@image id=image.id size="large" /}
+{?image}
+    <div class="image-banner is-relative is-align-full has-background-cover"
+         style="background-image: url({image.sizes.large})">
+        <div class="image is-2by1 is-hidden-mobile">
+            {@image id=image.id size="large" class="object-fit-cover" /}
+        </div>
+
+        <div class="overlay overlay--dark-30"></div>
+
+        <div class="image-banner__inner is-relative is-absolute-tablet has-top-50-tablet has-right-0-tablet has-left-0-tablet has-transform-y--50-tablet pt-8 pb-8 pr-8 pl-8 pr-12-desktop pl-12-desktop has-text-centered {align|s}">
+            {?title}
+                <h2 class="image-banner__title has-text-white mt-0 mb-6">
+                    {title|s}
+                </h2>
+            {/title}
+
+            {?link}
+                <a href="{link.url}" class="button is-primary is-inverted" target="{link.target}">
+                    {link.title|s}
+                </a>
+            {/link}
+        </div>
     </div>
-
-    <div class="overlay overlay--dark-30"></div>
-
-    <div class="image-banner__inner is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50 pt-6 pb-6 pr-7 pl-7 pr-12-desktop pl-12-desktop {align|s}">
-        {?title}
-            <h2 class="image-banner__title has-text-white mt-0 mb-6">
-                {title|s}
-            </h2>
-        {/title}
-
-        {?link}
-            <a href="{link.url}" class="button is-primary is-inverted" target="{link.target}">
-                {link.title|s}
-            </a>
-        {/link}
-    </div>
-</div>
+{/image}
