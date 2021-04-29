@@ -146,7 +146,7 @@ class GridFields extends Field\Group {
      * Add Repeater selection: Relationship.
      *
      * @return \Geniem\ACF\Field\Group
-     * @throws \Geniem\ACF\Exception
+     * @throws \Geniem\ACF\Exception Thrown if mandatory fields have not been set.
      */
     protected function grid_item_relationship_fields() : Field\Group {
         $group = ( new Field\Group( $this->strings['relationship']['label'] ) )
@@ -174,7 +174,7 @@ class GridFields extends Field\Group {
      * Add Repeater selection: Custom grid item fields.
      *
      * @return \Geniem\ACF\Field\Group
-     * @throws \Geniem\ACF\Exception
+     * @throws \Geniem\ACF\Exception Thrown if mandatory fields have not been set.
      */
     protected function grid_item_type_custom_fields() : Field\Group {
         $grid_item_custom = ( new Field\Group( $this->strings['custom']['label'] ) )

@@ -109,7 +109,6 @@ class Assets implements Interfaces\Controller {
      * @return void
      */
     private function editor() : void {
-
         $css_mod_time = static::get_theme_asset_mod_time( 'editor.css' );
         $js_mod_time  = static::get_theme_asset_mod_time( 'editor.js' );
 
@@ -128,7 +127,7 @@ class Assets implements Interfaces\Controller {
             );
         }
 
-        if (file_exists( DPT_ASSET_CACHE_URI . '/editor.css')) {
+        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.css' ) ) {
             \wp_enqueue_style(
                 'editor-css',
                 DPT_ASSET_URI . '/editor.css',
