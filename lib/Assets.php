@@ -113,20 +113,30 @@ class Assets implements Interfaces\Controller {
         $css_mod_time = static::get_theme_asset_mod_time( 'editor.css' );
         $js_mod_time  = static::get_theme_asset_mod_time( 'editor.js' );
 
-        \wp_enqueue_script(
-            'editor-js',
-            DPT_ASSET_URI . '/editor.js',
-            [
-                'wp-i18n',
-                'wp-blocks',
-                'wp-dom-ready',
-                'wp-edit-post',
-            ],
-            $js_mod_time,
-            true
-        );
+        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.js' ) ) {
+            \wp_enqueue_script(
+                'editor-js',
+                DPT_ASSET_URI . '/editor.js',
+                [
+                    'wp-i18n',
+                    'wp-blocks',
+                    'wp-dom-ready',
+                    'wp-edit-post',
+                ],
+                $js_mod_time,
+                true
+            );
+        }
 
-        \wp_enqueue_style( 'editor-css', DPT_ASSET_URI . '/editor.css', [], $css_mod_time, 'all' );
+        if (file_exists( DPT_ASSET_CACHE_URI . '/editor.css')) {
+            \wp_enqueue_style(
+                'editor-css',
+                DPT_ASSET_URI . '/editor.css',
+                [],
+                $css_mod_time,
+                'all'
+            );
+        }
     }
 
     /**

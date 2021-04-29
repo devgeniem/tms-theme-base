@@ -1,0 +1,26 @@
+<div class="image-grid is-align-full mt-8 mb-8 mt-11-desktop mb-11-desktop keep-vertical-spacing">
+{#repeater}
+
+    <div class="image-grid__item {classes}">
+        <div class="details">
+            {?title}
+                <h3 class="{?featured}h4{:else}h6{/featured}">{title}</h3>
+            {/title}
+
+            {?description}
+                <p class="has-text-small">{description|s}</p>
+            {/description}
+
+            {?link}
+                <a href="{link.url}" target="{link.target}" class="button">{link.title}</a>
+            {/link}
+        </div>
+        <div class="image is-1by1">
+            {?image.id}
+                {@image id=image.id size="large" /}
+            {/image.id}
+        </div>
+    </div>
+
+{/repeater}
+</div>
