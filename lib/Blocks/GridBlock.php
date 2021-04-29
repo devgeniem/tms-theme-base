@@ -71,7 +71,7 @@ class GridBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function base_filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
         if ( empty( $data['repeater'] ) ) {
             return $data;
         }
@@ -84,13 +84,13 @@ class GridBlock extends BaseBlock {
         $is_first        = true;
         $even_odd        = 0;
 
-        $display_default = '';
-        $display_alt     = 'image-grid__item--alt';
-        $order_default   = 'image-grid__item--order';
-        $order_alt       = 'image-grid__item--order-alt';
+        $display_default = 'secondary';
+        $display_alt     = 'primary';
+        $order_default   = 'reversed';
+        $order_alt       = '';
 
         foreach ( $data['repeater'] as $key => $item ) {
-            $filtered = $item['selector']
+            $filtered = $item['selector'] === 'relationship'
                 ? $this->filter_data_relationship( $item )
                 : $this->filter_data_custom( $item );
 
@@ -98,18 +98,12 @@ class GridBlock extends BaseBlock {
                 $filtered['link']['is_external'] = false === strpos( $filtered['link']['url'], $home_url );
             }
 
-            $classes = [];
-
-            if ( $highlight_first && ! $is_first ) {
-                $classes[] = 'image-grid__item--equal-height';
-            }
-
             if ( $highlight_first && $is_first ) {
                 $is_first             = false;
-                $classes[]            = 'image-grid__item--featured';
                 $filtered['featured'] = true;
             }
 
+            $classes = [];
             // $classes[] = 'item_count_' . $even_odd; // For debugging
 
             switch ( $even_odd ) {
@@ -144,6 +138,9 @@ class GridBlock extends BaseBlock {
                 }
             }
 
+            $filtered['display'] = 'is-' . $classes['display'];
+            $classes['display']  = 'has-colors-' . $classes['display'];
+
             $classes                  = array_map( 'trim', $classes );
             $filtered['classes']      = trim( implode( ' ', $classes ) );
             $data['repeater'][ $key ] = $filtered;
@@ -154,7 +151,14 @@ class GridBlock extends BaseBlock {
         return $data;
     }
 
-    private function filter_data_relationship( $data ) {
+    /**
+     * Filter data: Relationship
+     *
+     * @param array $data Data payload.
+     *
+     * @return array|false
+     */
+    private function filter_data_relationship( $data = [] ) {
         $item = $data['grid_item_relationship']['item'] ?? [];
 
         if ( empty( $item ) ) {
@@ -188,11 +192,17 @@ class GridBlock extends BaseBlock {
             'image'       => [
                 'id' => $image_id,
             ],
-            'orig'        => $item,
         ];
     }
 
-    private function filter_data_custom( $data ) {
+    /**
+     * Filter data: Custom.
+     *
+     * @param array $data Data payload.
+     *
+     * @return array|false
+     */
+    private function filter_data_custom( $data = [] ) {
         $item = $data['grid_item_custom'] ?? [];
 
         if ( empty( $item ) ) {

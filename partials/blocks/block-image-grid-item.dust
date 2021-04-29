@@ -1,0 +1,20 @@
+<div class="image-grid__item image-grid__item--equal-height gallery is-gapless gallery-columns-2 is-align-items-stretch {classes}">
+    <div class="image-grid__item__details details is-flex is-flex-direction-column is-justify-content-center has-text-centered p-2">
+        {?title}
+            <h3 class="h6">{title}</h3>
+        {/title}
+
+        {?description}
+            <p class="has-text-small">{description|s}</p>
+        {/description}
+
+        {?link}
+            <a href="{link.url}" target="{link.target}" class="button {display}-invert ml-auto mr-auto mt-2">{link.title}</a>
+        {/link}
+    </div>
+    <div class="image is-square is-clipped">
+        {?image.id}
+            {@image id=image.id size="large" class="objectfit-image" /}
+        {/image.id}
+    </div>
+</div>

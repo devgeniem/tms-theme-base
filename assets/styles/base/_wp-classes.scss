@@ -138,6 +138,10 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: $theme-spacing;
+
+    &.is-gapless {
+        grid-gap: 0;
+    }
 }
 
 @include from($tablet) {

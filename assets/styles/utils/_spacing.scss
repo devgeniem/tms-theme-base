@@ -1,6 +1,10 @@
 // Only add breakpoints here you actually need to avoid excess CSS generation
 // sass-lint:disable variable-name-format
 
+.has-width-fit-content {
+    width: fit-content !important;
+}
+
 $margins_paddings_breakpoints: (
     "tablet": $tablet,
     "desktop": $desktop
@@ -12,6 +16,7 @@ $margins_paddings_properties: (
 );
 
 $margins_paddings_levels: (
+    "auto": "auto",
     "0": 0,
     "1": $theme-spacing-quarter,
     "2": $theme-spacing-half,
