@@ -61,7 +61,7 @@ class AccordionImageLayout extends Layout {
         try {
             $this->add_fields(
                 apply_filters(
-                    'tms/layout' . $this->get_key() . '/fields',
+                    'tms/acf/layout/' . $this->get_key() . '/fields',
                     [ $image_field ]
                 )
             );

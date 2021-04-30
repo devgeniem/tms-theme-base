@@ -65,7 +65,7 @@ class AccordionTableLayout extends Layout {
 
             $this->add_fields(
                 apply_filters(
-                    'tms/layout' . $this->get_key() . '/fields',
+                    'tms/acf/layout/' . $this->get_key() . '/fields',
                     [ $table_field ]
                 )
             );

@@ -81,7 +81,7 @@ class ContentColumnsFields extends Field\Group {
             ->set_instructions( $strings['rows']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_numbers" )
+            ->set_key( "${key}_image" )
             ->set_name( 'image' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
