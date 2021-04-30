@@ -1,0 +1,29 @@
+/*!
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.grid {
+    &__item {
+        @include from($tablet) {
+            grid-auto-flow: column dense;
+
+            &.reversed {
+                .details {
+                    grid-column-start: 2;
+                }
+            }
+        }
+
+        @include mobile() {
+            &--equal-height {
+                > div {
+                    min-height: 437px !important;
+                }
+            }
+        }
+
+        &--featured {
+            grid-row: span 2 !important;
+        }
+    }
+}
