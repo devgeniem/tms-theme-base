@@ -9,9 +9,6 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
-use TMS\Theme\Base\ACF\Layouts\CallToActionLayout;
-use TMS\Theme\Base\ACF\Layouts\ContentColumnsLayout;
-use TMS\Theme\Base\ACF\Layouts\ImageBannerLayout;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -102,9 +99,9 @@ class PageGroup {
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
-                ImageBannerLayout::class,
-                CallToActionLayout::class,
-                ContentColumnsLayout::class,
+                Layouts\ImageBannerLayout::class,
+                Layouts\CallToActionLayout::class,
+                Layouts\ContentColumnsLayout::class,
             ]
         );
 

@@ -42,24 +42,28 @@ class ContentColumnsFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'rows'        => [
+            'rows'         => [
                 'label'        => 'Nostot',
                 'instructions' => '',
                 'button'       => 'Lisää rivi',
             ],
-            'layout'      => [
+            'layout'       => [
                 'label'        => 'Asettelu',
                 'instructions' => '',
             ],
-            'image'       => [
+            'aspect_ratio' => [
+                'label'        => 'Mittasuhteet',
+                'instructions' => '',
+            ],
+            'image'        => [
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'title'       => [
+            'title'        => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
+            'description'  => [
                 'label'        => 'Teksti',
                 'instructions' => '',
             ],
@@ -103,14 +107,27 @@ class ContentColumnsFields extends Field\Group {
                 'is-image-first' => 'Kuva ensin',
                 'is-text-first'  => 'Teksti ensin',
             ] )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 25 )
             ->set_instructions( $strings['layout']['instructions'] );
+
+        $aspect_ratio_field = ( new Field\Radio( $strings['aspect_ratio']['label'] ) )
+            ->set_key( "${key}_aspect_ratio" )
+            ->set_name( 'aspect_ratio' )
+            ->set_choices( [
+                '50-50' => '50/50',
+                '30-70' => '30/70',
+                '70-30' => '70/30',
+            ] )
+            ->set_wrapper_width( 25 )
+            ->set_instructions( $strings['aspect_ratio']['instructions'] );
+
 
         $rows_field->add_fields( [
             $image_field,
             $title_field,
             $description_field,
             $layout_field,
+            $aspect_ratio_field,
         ] );
 
         return [
