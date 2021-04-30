@@ -42,11 +42,16 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 @mixin breakpoint_typography($base, $calculated_sizes) {
     body {
         font-size: $base;
+        line-height: 1.76;
     }
 
     .has-text-lead {
         font-size: map-get($calculated_sizes, "h6") !important;
         line-height: 1.62;
+    }
+
+    .has-text-small {
+        font-size: 85%;
     }
 
     h1,
