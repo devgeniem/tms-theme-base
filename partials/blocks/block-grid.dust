@@ -1,0 +1,9 @@
+<div class="grid gallery is-gapless gallery-columns-2 is-align-full mt-8 mb-8 mt-11-desktop mb-11-desktop keep-vertical-spacing">
+{#repeater}
+    {?featured}
+        {>"partials/blocks/block-grid-item--featured" /}
+    {:else}
+        {>"partials/blocks/block-grid-item" /}
+    {/featured}
+{/repeater}
+</div>
