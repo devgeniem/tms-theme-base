@@ -6,7 +6,7 @@
 namespace TMS\Theme\Base\Formatters;
 
 /**
- * Class CallToActionFormatter
+ * Class ContentColumnsFormatter
  *
  * @package TMS\Theme\Base\Formatters
  */
