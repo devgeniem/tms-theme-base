@@ -10,6 +10,7 @@ use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
 use TMS\Theme\Base\ACF\Layouts\CallToActionLayout;
+use TMS\Theme\Base\ACF\Layouts\ContentColumnsLayout;
 use TMS\Theme\Base\ACF\Layouts\ImageBannerLayout;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
@@ -103,6 +104,7 @@ class PageGroup {
             [
                 ImageBannerLayout::class,
                 CallToActionLayout::class,
+                ContentColumnsLayout::class,
             ]
         );
 
