@@ -44,10 +44,10 @@ class GridFields extends Field\Group {
                 'instructions' => '',
             ],
             'selector'           => [
-                'label'        => 'Noston tyypin valinta',
-                'instructions' => 'Valitse onko nosto sivu, tai artikkeli vai vapaavalintainen sisältö',
-                'on'           => 'Sivu tai artikkeli',
-                'off'          => 'Vapaavalintainen nosto',
+                'label'             => 'Noston tyypin valinta',
+                'instructions'      => 'Valitse onko nosto sivu, tai artikkeli vai vapaavalintainen sisältö',
+                'type_relationship' => 'Sivu tai artikkeli',
+                'type_custom'       => 'Vapaavalintainen nosto',
             ],
             'relationship'       => [
                 'label'        => 'Sivu tai artikkeli',
@@ -115,8 +115,8 @@ class GridFields extends Field\Group {
             ->set_name( 'selector' )
             ->set_default_value( 'relationship' )
             ->set_choices( [
-                'relationship' => $this->strings['selector']['on'],
-                'custom'       => $this->strings['selector']['off'],
+                'relationship' => $this->strings['selector']['type_relationship'],
+                'custom'       => $this->strings['selector']['type_custom'],
             ] )
             ->set_layout( 'horizontal' )
             ->set_instructions( $this->strings['selector']['instructions'] );

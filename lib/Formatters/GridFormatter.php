@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
 
@@ -167,10 +167,10 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @param int    $counter         Item order number in grid. Used to determine what colors and order to use.
      * @param bool   $highlight_first Are we highlighting the first item. Affects the item display.
-     * @param string $display_default CSS Class to use when coloring the default way
-     * @param string $display_alt     CSS Class to use when coloring the alternative way
-     * @param string $order_default   CSS Class to use when ordering items the default way
-     * @param string $order_alt       CSS Class to use when ordering items the alternative way
+     * @param string $display_default CSS Class to use when coloring the default way.
+     * @param string $display_alt     CSS Class to use when coloring the alternative way.
+     * @param string $order_default   CSS Class to use when ordering items the default way.
+     * @param string $order_alt       CSS Class to use when ordering items the alternative way.
      *
      * @return array
      */

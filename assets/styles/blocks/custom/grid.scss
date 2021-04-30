@@ -3,7 +3,6 @@
  */
 
 .grid {
-
     &__item {
         @include from($tablet) {
             grid-auto-flow: column dense;
