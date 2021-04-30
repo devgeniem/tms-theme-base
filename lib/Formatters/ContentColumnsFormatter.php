@@ -50,7 +50,7 @@ class ContentColumnsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             ],
         ];
 
-        if ( empty( $layout['rows'] ) ) {
+        if ( empty( $layout['rows'] ) || ! is_array( $layout['rows'] ) ) {
             return $layout;
         }
 
