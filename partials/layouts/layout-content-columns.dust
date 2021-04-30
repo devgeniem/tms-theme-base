@@ -12,7 +12,7 @@
 
                 <div class="column {text_col_class|s}">
                     {?title}
-                        <h2 class="content-columns__title h4 mt-0">
+                        <h2 class="content-columns__title h4 mt-0-desktop">
                             {title|s}
                         </h2>
                     {/title}
