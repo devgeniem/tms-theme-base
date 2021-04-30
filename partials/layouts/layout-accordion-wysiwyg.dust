@@ -1,0 +1,5 @@
+{?text}
+    <div class="wysiwyg mt-4 mb-4 mt-8-tablet mb-8-tablet keep-vertical-spacing">
+        {text|s}
+    </div>
+{/text}

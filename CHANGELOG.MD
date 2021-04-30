@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-32: Content Columns Layout #17
 - TMS-40: Grid #18
 - TMS-48: Colors, button style and cleanup #16
 - TMS-48: Quote ACF Block #15

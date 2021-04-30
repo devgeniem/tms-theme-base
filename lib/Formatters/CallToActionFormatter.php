@@ -22,7 +22,7 @@ class CallToActionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      */
     public function hooks() : void {
         add_filter(
-            'acf/layout/call_to_action/data',
+            'tms/acf/layout/call_to_action/data',
             [ $this, 'format' ]
         );
     }
@@ -34,7 +34,7 @@ class CallToActionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return array
      */
-    public static function format( array $layout ) : array {
+    public function format( array $layout ) : array {
         foreach ( $layout['rows'] as $row_key => $row ) {
             $layout['rows'][ $row_key ]['text_column_class'] = 'is-5-desktop';
 

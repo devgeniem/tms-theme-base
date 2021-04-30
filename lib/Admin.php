@@ -44,12 +44,11 @@ class Admin implements Interfaces\Controller {
      * @return array $tags
      */
     private function modify_tinymce_headings( $tags = [] ) : array {
-        // H1, H5, H6, pre and address removed.
         $formats = [
             'p'  => 'Tekstikappale',
-            'h2' => 'Otsikko 2',
             'h3' => 'Otsikko 3',
             'h4' => 'Otsikko 4',
+            'h5' => 'Otsikko 5',
         ];
 
         \array_walk( $formats, function ( $key, $val ) use ( &$block_formats ) {

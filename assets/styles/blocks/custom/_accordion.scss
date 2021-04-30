@@ -1,0 +1,37 @@
+.accordion {
+    &__content {
+        p {
+            clear: both;
+            overflow: auto;
+        }
+    }
+
+    &__row {
+        border: 1px solid $color-siniharmaa;
+        border-radius: $theme-spacing-quarter;
+    }
+
+    &__title-button {
+        width: 100%;
+        border: 0;
+        transition: background-color ease-in .2s, color ease-in .2s;
+        appearance: none;
+
+        &[aria-expanded="true"] {
+            .icon {
+                transform: rotate(180deg);
+            }
+        }
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+        }
+    }
+
+    &__title-icon {
+        .icon {
+            transition: transform ease-in .2s;
+        }
+    }
+}
