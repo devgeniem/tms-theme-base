@@ -153,7 +153,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/image-grid'   => [
+            'acf/grid'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,

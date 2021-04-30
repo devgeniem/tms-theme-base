@@ -20,14 +20,14 @@ class GridBlock extends BaseBlock {
      *
      * @var string
      */
-    const NAME = 'image-grid';
+    const NAME = 'grid';
 
     /**
      * The block acf-key.
      *
      * @var string
      */
-    const KEY = 'image_grid';
+    const KEY = 'grid';
 
     /**
      * The block icon
