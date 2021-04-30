@@ -121,7 +121,6 @@ class ContentColumnsFields extends Field\Group {
             ->set_wrapper_width( 25 )
             ->set_instructions( $strings['aspect_ratio']['instructions'] );
 
-
         $rows_field->add_fields( [
             $image_field,
             $title_field,

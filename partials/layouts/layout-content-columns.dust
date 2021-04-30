@@ -3,7 +3,7 @@
         {#rows}
             <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|s}">
                 {?image}
-                    <div class="column is-6 {img_col_class|s}">
+                    <div class="column {img_col_class|s}">
                         <div class="image is-5by3">
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
