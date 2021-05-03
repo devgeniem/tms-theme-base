@@ -30,6 +30,9 @@ class Strings extends \DustPress\Model {
                 ),
                 'home_link_txt' => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'video'  => [
+                'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-30: Video Block #22
 - TMS-28: Logo wall #21
 - TMS-39: Content Columns Layout #20
 - TMS-32: Accordion Block #17
