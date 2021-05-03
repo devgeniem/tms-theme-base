@@ -9,6 +9,7 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
+use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -102,6 +103,7 @@ class PageGroup {
                 Layouts\ImageBannerLayout::class,
                 Layouts\CallToActionLayout::class,
                 Layouts\ContentColumnsLayout::class,
+                Layouts\LogoWallLayout::class,
             ]
         );
 

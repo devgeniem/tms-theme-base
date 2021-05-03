@@ -1,0 +1,17 @@
+/*!
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.logo-wall {
+    &__item {
+        width: fit-content !important;
+        max-width: 7rem !important;
+        height: auto !important;
+
+        @include from($tablet) {
+            max-width: 15rem !important;
+            min-width: 3rem !important;
+            max-height: max-content !important;
+        }
+    }
+}
