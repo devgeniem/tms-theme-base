@@ -48,6 +48,22 @@
             }
         }
     }
+
+    &-50 {
+        right: 50% !important;
+
+        &-tablet {
+            @include from($tablet) {
+                right: 50% !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                right: 50% !important;
+            }
+        }
+    }
 }
 
 .has-left {
@@ -63,6 +79,22 @@
         &-desktop {
             @include from($desktop) {
                 left: 0 !important;
+            }
+        }
+    }
+
+    &-50 {
+        left: 50% !important;
+
+        &-tablet {
+            @include from($tablet) {
+                left: 50% !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                left: 50% !important;
             }
         }
     }
