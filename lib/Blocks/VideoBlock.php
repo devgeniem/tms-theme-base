@@ -6,41 +6,41 @@
 namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
-use TMS\Theme\Base\ACF\Fields\KeyFiguresFields;
+use TMS\Theme\Base\ACF\Fields\VideoFields;
 
 /**
- * Class KeyFiguresBlock
+ * Class VideoBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class KeyFiguresBlock extends BaseBlock {
+class VideoBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
      *
      * @var string
      */
-    const NAME = 'key-figures';
+    const NAME = 'video';
 
     /**
      * The block acf-key.
      *
      * @var string
      */
-    const KEY = 'key_figures';
+    const KEY = 'video';
 
     /**
      * The block icon
      *
      * @var string
      */
-    protected $icon = 'admin-network';
+    protected $icon = 'video-alt2';
 
     /**
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Numeronostot';
+        $this->title = 'Video';
 
         parent::__construct();
     }
@@ -51,7 +51,7 @@ class KeyFiguresBlock extends BaseBlock {
      * @return array
      */
     protected function fields() : array {
-        $group = new KeyFiguresFields( $this->title, self::NAME );
+        $group = new VideoFields( $this->title, self::NAME );
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
@@ -72,35 +72,9 @@ class KeyFiguresBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $layouts = [
-            '50-50' => [
-                'is-6-tablet',
-                'is-6-tablet',
-            ],
-            '70-30' => [
-                'is-6-tablet is-8-desktop',
-                'is-6-tablet is-4-desktop',
-            ],
-            '30-70' => [
-                'is-6-tablet is-4-desktop',
-                'is-6-tablet is-8-desktop',
-            ],
-        ];
+        $data['id']        = wp_unique_id( 'video-' );
+        $data['skip_text'] = ( new \Strings() )->s()['video']['skip_embed'];
 
-        $altered_data = $data;
-
-        foreach ( $altered_data['rows'] as $row_key => $row_data ) {
-            $row_layout = $row_data['layout'];
-
-            foreach ( $row_data['numbers'] as $numbers_key => $numbers_data ) {
-                $altered_data['rows'][ $row_key ]['numbers'][ $numbers_key ]['column_class'] = $layouts[ $row_layout ][ $numbers_key ];
-            }
-        }
-
-        return apply_filters(
-            'tms/block/' . self::KEY . '/data',
-            $altered_data,
-            $data
-        );
+        return $data;
     }
 }
