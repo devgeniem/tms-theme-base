@@ -7,20 +7,20 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\CallToActionFields;
+use TMS\Theme\Base\ACF\Fields\ContentColumnsFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class CallToActionLayout
+ * Class ContentColumnsLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class CallToActionLayout extends Layout {
+class ContentColumnsLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_call_to_action';
+    const KEY = '_content_columns';
 
     /**
      * Create the layout
@@ -29,9 +29,9 @@ class CallToActionLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Manuaaliset nostot',
+            'Palstat',
             $key . self::KEY,
-            'call_to_action'
+            'content_columns'
         );
 
         $this->add_layout_fields();
@@ -43,7 +43,7 @@ class CallToActionLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new CallToActionFields(
+        $fields = new ContentColumnsFields(
             $this->get_label(),
             $this->get_key(),
             $this->get_name()
