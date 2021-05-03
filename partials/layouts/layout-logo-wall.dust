@@ -1,0 +1,20 @@
+{?rows}
+<div class="section logo-wall layout-logo-wall has-colors-light">
+    <div class="container keep-vertical-spacing">
+        <div class="logo-wall__items-wrapper is-align-full is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly is-align-content-center is-align-items-center has-text-centered {container_class|s}">
+            {#rows}
+                <div class="logo-wall__item m-7 is-inline-flex">
+                    {?link.url}
+                        <a href="{link.url}" target="{link.target}" class="is-block">
+                            {@image id=logo.id size="medium" /}
+                        </a>
+                    {:else}
+                        {@image id=logo.id size="medium" /}
+                    {/link.url}
+                </div>
+
+            {/rows}
+        </div>
+    </div>
+</div>
+{/rows}
