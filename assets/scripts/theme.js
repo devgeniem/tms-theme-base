@@ -1,7 +1,9 @@
 import Common from './common';
+import Accordion from './accordion';
 
 const globalControllers = {
     Common,
+    Accordion,
 };
 
 const templateControllers = {

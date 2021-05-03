@@ -6,21 +6,21 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
+use Geniem\ACF\Field;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\CallToActionFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class CallToActionLayout
+ * Class AccordionVideoLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class CallToActionLayout extends Layout {
+class AccordionVideoLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_call_to_action';
+    const KEY = '_accordion_video';
 
     /**
      * Create the layout
@@ -29,9 +29,9 @@ class CallToActionLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Manuaaliset nostot',
+            'Video',
             $key . self::KEY,
-            'call_to_action'
+            'accordion_video'
         );
 
         $this->add_layout_fields();
@@ -43,17 +43,25 @@ class CallToActionLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new CallToActionFields(
-            $this->get_label(),
-            $this->get_key(),
-            $this->get_name()
-        );
+        $strings = [
+            'video' => [
+                'label'        => 'Video',
+                'instructions' => '',
+            ],
+        ];
+
+        $key = $this->get_key();
 
         try {
+            $video_field = ( new Field\Oembed( $strings['video']['label'] ) )
+                ->set_key( "${key}_video" )
+                ->set_name( 'video' )
+                ->set_instructions( $strings['video']['instructions'] );
+
             $this->add_fields(
                 apply_filters(
                     'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
+                    [ $video_field ]
                 )
             );
         }

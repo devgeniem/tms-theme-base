@@ -6,21 +6,21 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
+use Geniem\ACF\Field;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\CallToActionFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class CallToActionLayout
+ * Class AccordionWysiwygLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class CallToActionLayout extends Layout {
+class AccordionWysiwygLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_call_to_action';
+    const KEY = '_accordion_wysiwyg';
 
     /**
      * Create the layout
@@ -29,9 +29,9 @@ class CallToActionLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Manuaaliset nostot',
+            'Teksti',
             $key . self::KEY,
-            'call_to_action'
+            'accordion_wysiwyg'
         );
 
         $this->add_layout_fields();
@@ -43,17 +43,35 @@ class CallToActionLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new CallToActionFields(
-            $this->get_label(),
-            $this->get_key(),
-            $this->get_name()
-        );
+        $strings = [
+            'text' => [
+                'label'        => 'Teksti',
+                'instructions' => '',
+            ],
+        ];
+
+        $key = $this->get_key();
+
+        $text_field = ( new Field\Wysiwyg( $strings['text']['label'] ) )
+            ->set_key( "${key}_rows" )
+            ->set_name( 'text' )
+            ->disable_media_upload()
+            ->set_tabs( 'visual' )
+            ->set_toolbar( [
+                'formatselect',
+                'bold',
+                'italic',
+                'bullist',
+                'numlist',
+                'link',
+            ] )
+            ->set_instructions( $strings['text']['instructions'] );
 
         try {
             $this->add_fields(
                 apply_filters(
                     'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
+                    [ $text_field ]
                 )
             );
         }

@@ -6,21 +6,22 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
+use Geniem\ACF\Field;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\CallToActionFields;
 use TMS\Theme\Base\Logger;
+use TMS\Theme\Base\PostType;
 
 /**
- * Class CallToActionLayout
+ * Class AccordionTableLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class CallToActionLayout extends Layout {
+class AccordionTableLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_call_to_action';
+    const KEY = '_accordion_table';
 
     /**
      * Create the layout
@@ -29,9 +30,9 @@ class CallToActionLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Manuaaliset nostot',
+            'Taulukko',
             $key . self::KEY,
-            'call_to_action'
+            'accordion_table'
         );
 
         $this->add_layout_fields();
@@ -43,17 +44,29 @@ class CallToActionLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new CallToActionFields(
-            $this->get_label(),
-            $this->get_key(),
-            $this->get_name()
-        );
+        $strings = [
+            'table' => [
+                'label'        => 'Taulukko',
+                'instructions' => '',
+            ],
+        ];
+
+        $key = $this->get_key();
 
         try {
+            $table_field = ( new Field\Relationship( $strings['table']['label'] ) )
+                ->set_key( "${key}_table" )
+                ->set_name( 'table' )
+                ->set_post_types( [ PostType\TablePress::SLUG ] )
+                ->set_filters( [ 'search' ] )
+                ->set_return_format( 'id' )
+                ->set_max( 1 )
+                ->set_instructions( $strings['table']['instructions'] );
+
             $this->add_fields(
                 apply_filters(
                     'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
+                    [ $table_field ]
                 )
             );
         }

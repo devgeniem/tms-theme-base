@@ -1,0 +1,5 @@
+{?video}
+    <div class="image is-16by9 is-embed-container mt-4 mb-4 mt-8-tablet mb-8-tablet">
+        {video|s}
+    </div>
+{/video}

@@ -1,21 +1,69 @@
 .is-absolute {
-    position: absolute;
+    position: absolute !important;
+
+    &-tablet {
+        @include from($tablet) {
+            position: absolute !important;
+        }
+    }
+
+    &-desktop {
+        @include from($desktop) {
+            position: absolute !important;
+        }
+    }
 }
 
 .has-top {
     &-50 {
-        top: 50%;
+        top: 50% !important;
+
+        &-tablet {
+            @include from($tablet) {
+                top: 50% !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                top: 50% !important;
+            }
+        }
     }
 }
 
 .has-right {
     &-0 {
-        right: 0;
+        right: 0 !important;
+
+        &-tablet {
+            @include from($tablet) {
+                right: 0 !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                right: 0 !important;
+            }
+        }
     }
 }
 
 .has-left {
     &-0 {
-        left: 0;
+        left: 0 !important;
+
+        &-tablet {
+            @include from($tablet) {
+                left: 0 !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                left: 0 !important;
+            }
+        }
     }
 }

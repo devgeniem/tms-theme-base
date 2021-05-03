@@ -1,0 +1,44 @@
+<div class="accordion is-align-wide" {?anchor}id="{anchor|s}"{/anchor}>
+    <header class="accordion__header has-text-centered">
+        <h2 class="accordion__title h3 mt-0 mb-4">
+            {title|s}
+        </h2>
+
+        {?description}
+            <div class="accordion__description has-text-lead keep-vertical-spacing">
+                {description|s}
+            </div>
+        {/description}
+    </header>
+
+    {?sections}
+        <div class="accordion__inner bulmally-accordion mt-5">
+            <ul class="accordion__list is-unstyled">
+                {#sections}
+                    <li class="accordion__row mb-2 mb-4-tablet has-background-white">
+                        <h3 class="accordion__row-title m-0 pt-5 pb-5 pr-4 pl-4 pr-6-tablet pl-6-tablet">
+                            <button id="accordion-title-button-{ID}"
+                                    class="accordion__title-button is-flex is-align-items-center p-0 has-background-white has-text-black"
+                                    aria-expanded="false"
+                                    aria-controls="accordion-content-{ID}">
+                                <span class="accordion__row-title-text h6 has-text-left">
+                                    {section_title|s}
+                                </span>
+
+                                <span class="accordion__title-icon is-flex ml-auto" aria-hidden="true">
+                                    {>"ui/icon" icon="chevron-down" class="icon--medium" /}
+                                </span>
+                            </button>
+                        </h3>
+
+                        <div id="accordion-content-{ID}" class="accordion__content pr-4 pl-4 pb-4 pr-6-tablet pl-6-tablet pb-6-tablet keep-vertical-spacing">
+                            {#section_content}
+                                {>"{partial}" /}
+                            {/section_content}
+                        </div>
+                    </li>
+                {/sections}
+            </ul>
+        </div>
+    {/sections}
+</div>
