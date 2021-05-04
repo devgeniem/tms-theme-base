@@ -1,11 +1,13 @@
 import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
+import CopyToClipboard from './copy-to-clipboard';
 
 const globalControllers = {
     Common,
     Accordion,
     MapLayout,
+    CopyToClipboard,
 };
 
 const templateControllers = {

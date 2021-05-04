@@ -1,3 +1,11 @@
-import './chevron-right.svg';
 import './chevron-down.svg';
+import './chevron-right.svg';
+import './email.svg';
 import './external.svg';
+import './facebook.svg';
+import './line.svg';
+import './link.svg';
+import './linkedin.svg';
+import './twitter.svg';
+import './vkontakte.svg';
+import './whatsapp.svg';
