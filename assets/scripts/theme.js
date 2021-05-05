@@ -1,9 +1,16 @@
+/**
+ * Copyright (c) 2021. Geniem Oy
+ * Theme controller.
+ */
+
 import Common from './common';
 import Accordion from './accordion';
+import Image from './image';
 
 const globalControllers = {
     Common,
     Accordion,
+    Image,
 };
 
 const templateControllers = {
@@ -15,11 +22,11 @@ const templateControllers = {
  * This singleton controls theme's JS class running.
  */
 class Theme {
-    // /**
-    //  * The constructor creates the singleton and binds the docready event.
-    //  *
-    //  * @returns {object / void} Either the instance of the class or nothing.
-    //  */
+    /**
+     * The constructor creates the singleton and binds the docready event.
+     *
+     * @return {Theme} Either the instance of the class or nothing.
+     */
     constructor() {
         if ( instance ) {
             return instance;
@@ -49,6 +56,9 @@ class Theme {
     init() {
         // Run all global scripts.
         for ( const className in this._globalControllers ) {
+            if ( ! this._globalControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( typeof this._globalControllers[ className ].init === 'function' ) {
                 this._globalControllers[ className ].init();
             }
@@ -56,6 +66,9 @@ class Theme {
 
         // Run template-specific scripts
         for ( const className in this._templateControllers ) {
+            if ( ! this._templateControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( Theme.documentHasClass( className ) &&
                 typeof this._templateControllers[ className ].init === 'function'
             ) {
@@ -140,6 +153,9 @@ class Theme {
     runDocReady() {
         // Run all global scripts
         for ( const className in this._globalControllers ) {
+            if ( ! this._globalControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( typeof this._globalControllers[ className ].docReady === 'function' ) {
                 this._globalControllers[ className ].docReady();
             }
@@ -147,6 +163,9 @@ class Theme {
 
         // Run template-specific scripts
         for ( const className in this._templateControllers ) {
+            if ( ! this._templateControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( Theme.documentHasClass( className ) &&
                 typeof this._templateControllers[ className ].docReady === 'function'
             ) {

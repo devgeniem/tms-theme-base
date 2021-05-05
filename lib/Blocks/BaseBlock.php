@@ -141,4 +141,28 @@ class BaseBlock {
             return print_r( [ 'file' => $file, 'data' => $data ], true ); // phpcs:ignore
         } );
     }
+
+    /**
+     * Adds filter attributes to data array so they are available in WP filters.
+     *
+     * @param array  $data       Block's ACF data.
+     * @param Block  $instance   The block instance.
+     * @param array  $block      The original ACF block array.
+     * @param string $content    The HTML content.
+     * @param bool   $is_preview A flag that shows if we're in preview.
+     * @param int    $post_id    The parent post's ID.
+     *
+     * @return array The block data.
+     */
+    public static function add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+        $data['__filter_attributes'] = [
+            'block'      => $block,
+            'is_preview' => $is_preview,
+            'post_id'    => $post_id,
+            'instance'   => $instance,
+            'content'    => $content,
+        ];
+
+        return $data;
+    }
 }
