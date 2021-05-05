@@ -72,6 +72,8 @@ class VideoBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+
         $data['id']        = wp_unique_id( 'video-' );
         $data['skip_text'] = ( new \Strings() )->s()['video']['skip_embed'];
 

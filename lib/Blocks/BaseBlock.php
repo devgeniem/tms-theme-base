@@ -115,6 +115,13 @@ class BaseBlock {
             $data['anchor'] = $block['anchor'] ?? '';
         }
 
+        if ( isset( $this->supports['align'] ) && $this->supports['align'] ) {
+            $data['align'] = $block['align'] ?? '';
+        }
+
+        // phpcs warns if we aren't using these, so let's bend the rules a bit.
+        unset( $instance, $content, $is_preview, $post_id );
+
         return $data;
     }
 
