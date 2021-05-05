@@ -121,15 +121,6 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-            'core/image'       => [
-                'post_types' => [
-                    PostType\Page::SLUG,
-                    PostType\Post::SLUG,
-                ],
-                'templates'  => [
-                    '',
-                ],
-            ],
             'acf/image-banner' => [
                 'post_types' => [
                     PostType\Page::SLUG,
@@ -165,7 +156,13 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/video'    => [
+            'acf/video'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
+            'acf/image'        => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,

@@ -6,41 +6,41 @@
 namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
-use TMS\Theme\Base\ACF\Fields\VideoFields;
+use TMS\Theme\Base\ACF\Fields\ImageFields;
 
 /**
- * Class VideoBlock
+ * Class ImageBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class VideoBlock extends BaseBlock {
+class ImageBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
      *
      * @var string
      */
-    const NAME = 'video';
+    const NAME = 'image';
 
     /**
      * The block acf-key.
      *
      * @var string
      */
-    const KEY = 'video';
+    const KEY = 'image';
 
     /**
      * The block icon
      *
      * @var string
      */
-    protected $icon = 'video-alt2';
+    protected $icon = 'cover-image';
 
     /**
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Video';
+        $this->title = 'Kuva';
 
         parent::__construct();
     }
@@ -51,7 +51,7 @@ class VideoBlock extends BaseBlock {
      * @return array
      */
     protected function fields() : array {
-        $group = new VideoFields( $this->title, self::NAME );
+        $group = new ImageFields( $this->title, self::NAME );
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
@@ -74,9 +74,6 @@ class VideoBlock extends BaseBlock {
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
         $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
 
-        $data['id']        = wp_unique_id( 'video-' );
-        $data['skip_text'] = ( new \Strings() )->s()['video']['skip_embed'];
-
-        return $data;
+        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }

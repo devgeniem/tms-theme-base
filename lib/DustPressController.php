@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use TMS\Theme\Base\Helpers\ImageAdvanced;
+
 /**
  * Class DustPressController
  *
@@ -28,5 +30,7 @@ class DustPressController implements Interfaces\Controller {
         add_filter( 'codifier/components/dustphp', function ( $dust ) { // phpcs:ignore
             return dustpress()->dust;
         } );
+
+        dustpress()->add_helper( 'image', new ImageAdvanced() );
     }
 }
