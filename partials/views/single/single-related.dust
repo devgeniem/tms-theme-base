@@ -1,0 +1,55 @@
+<section class="section related-posts has-background-secondary has-background-secondary--opaque pt-10 pb-10">
+    <div class="container">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <h2 class="mt-0 mb-6">
+                    {related.title|s}
+                </h2>
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            {#related.posts}
+                <div class="column is-6 is-3-widescreen">
+                    <div class="related-post__item mb-4 mb-0-tablet">
+                        {?image_id}
+                            <div class="image is-4by3">
+                                <a href="{permalink}" aria-hidden="true" tabindex="-1">
+                                    {@image id=image_id size="large" class="objectfit-image" /}
+                                </a>
+                            </div>
+                        {/image_id}
+
+                        {?post_title}
+                            <h3 class="h4 mt-5 mb-5">
+                                <a href="{permalink}" class="has-text-black">
+                                    {post_title|s}
+                                </a>
+                            </h3>
+                        {/post_title}
+
+                        <div class="mt-5">
+                            <span class="has-text-weight-bold">{@strtodate value=post_date format="d.m.Y" /}</span>
+                            {post_excerpt|s}
+                        </div>
+
+                        {?category}
+                            <a href="{category_link}"
+                               class="button is-secondary is-size-7 mt-5 pt-1 pr-4 pb-1 pl-4 has-border-radius-small">{category|s}</a>
+                        {/category}
+                    </div>
+                </div>
+            {/related.posts}
+        </div>
+
+        {?related.link}
+            <div class="columns">
+                <div class="column has-text-right-tablet">
+                    <a href="{related.link.url}" class="is-inline-flex is-align-items-center mt-4-tablet mt-6-desktop">
+                        {>"ui/icon" icon="chevron-right" class="icon--small is-primary mr-2" /}
+                        {related.link.title|s}
+                    </a>
+                </div>
+            </div>
+        {/related.link}
+    </div>
+</section>

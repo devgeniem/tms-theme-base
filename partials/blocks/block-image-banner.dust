@@ -2,7 +2,7 @@
     <div class="image-banner is-relative is-align-full has-background-cover"
          style="background-image: url({image.sizes.large})">
         <div class="image is-2by1 is-hidden-mobile">
-            {@image id=image.id size="large" class="object-fit-cover" /}
+            {@image id=image.id size="large" class="objectfit-image" /}
         </div>
 
         <div class="overlay overlay--dark-30"></div>

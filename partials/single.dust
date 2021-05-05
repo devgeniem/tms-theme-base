@@ -29,4 +29,9 @@
                 </div>
             </div>
         </section>
+
+        {?Single.related.posts}
+            {>"views/single/single-related" related=Single.related /}
+        {/Single.related.posts}
+    </main>
 {/content}
