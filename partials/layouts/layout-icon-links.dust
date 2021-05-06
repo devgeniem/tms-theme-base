@@ -3,7 +3,6 @@
         <div class="columns">
             <div class="column">
                 <div class="icon-links__grid">
-
                     {#rows}
                         <div class="icon-links__item keep-vertical-spacing">
                             {?icon}
@@ -23,7 +22,7 @@
                             {/description}
 
                             {?link}
-                                <a href="{link.url}" class="button is-small is-primary-invert"
+                                <a href="{link.url}" class="button is-small is-primary is-outlined"
                                    target="{link.target}">
                                     {link.title|s}
                                 </a>
