@@ -9,3 +9,9 @@
         background-color: rgba($secondary, .5) !important;
     }
 }
+
+.has-background-primary-light {
+    &--opaque-light {
+        background-color: rgba($primary-light, .05) !important;
+    }
+}
