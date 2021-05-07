@@ -168,7 +168,12 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/share-links'    => [
+            'acf/share-links'  => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                ],
+            ],
+            'acf/table'        => [
                 'post_types' => [
                     PostType\Page::SLUG,
                 ],

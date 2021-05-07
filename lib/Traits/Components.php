@@ -22,6 +22,10 @@ trait Components {
     public function components() : array {
         $content = get_field( 'components' );
 
+        if ( empty( $content ) ) {
+            return [];
+        }
+
         return $this->handle_layouts( $content );
     }
 
