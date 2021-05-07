@@ -10,13 +10,14 @@ use Geniem\ACF\Field;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use TMS\Theme\Base\Logger;
+use TMS\Theme\Base\PostType;
 
 /**
- * Class AttachmentCptFields
+ * Class AttachmentGroup
  *
  * @package TMS\Theme\Base\ACF\Fields
  */
-class AttachmentCptFields {
+class AttachmentGroup {
     /**
      * UI Strings
      *
@@ -48,9 +49,14 @@ class AttachmentCptFields {
         $field_group = ( new Group( $this->strings['group']['title'] ) )
             ->set_key( 'fg_attachment_fields' );
 
-        $field_group = $this->set_field_group_rules( $field_group );
-
         try {
+            $rule_group = ( new RuleGroup() )
+                ->add_rule( PostType\Attachment::SLUG, '==', 'all' );
+
+            $field_group
+                ->add_rule_group( $rule_group )
+                ->set_position( 'normal' );
+
             $field_group->add_fields(
                 apply_filters(
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
@@ -87,38 +93,6 @@ class AttachmentCptFields {
             ->set_instructions( $this->strings['author']['help'] )
             ->set_default_value( '' );
     }
-
-    /**
-     * Set Field Group Rules.
-     *
-     * @param \Geniem\ACF\Group $field_group Field group.
-     *
-     * @return \Geniem\ACF\Group
-     */
-    protected function set_field_group_rules( Group $field_group ) : Group {
-        $rules = [
-            [
-                'key'      => 'attachment',
-                'operator' => '==',
-                'value'    => 'all',
-            ],
-        ];
-
-        $rule_group = new RuleGroup();
-
-        foreach ( $rules as $rule ) {
-            try {
-                $rule_group->add_rule( $rule['key'], $rule['operator'], $rule['value'] );
-            }
-            catch ( Exception $e ) {
-                ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
-            }
-        }
-
-        $field_group->add_rule_group( $rule_group );
-
-        return $field_group;
-    }
 }
 
-new AttachmentCptFields();
+( new AttachmentGroup() );
