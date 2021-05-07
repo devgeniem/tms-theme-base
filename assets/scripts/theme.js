@@ -6,6 +6,7 @@
 import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
+import Modal from './modal';
 import CopyToClipboard from './copy-to-clipboard';
 import Image from './image';
 
@@ -15,6 +16,7 @@ const globalControllers = {
     MapLayout,
     CopyToClipboard,
     Image,
+    Modal,
 };
 
 const templateControllers = {
@@ -181,7 +183,7 @@ class Theme {
     }
 
     /**
-     * Check wheather the body has the given class.
+     * Check whether the body has the given class.
      *
      * @param {string} docClass The body class string.
      * @return {boolean} True of false
@@ -249,7 +251,7 @@ class Theme {
                 const controllerInstance = this.getController( controllerName );
 
                 if ( controllerInstance && typeof controllerInstance[ command ] === 'function' ) {
-                    this.Common.stop( e );
+                    Common.stop( e );
 
                     // Set the event as the first parameter and the actual captured element as the second parameter.
                     controllerInstance[ command ].call( controllerInstance, e, captured.cmd.el );

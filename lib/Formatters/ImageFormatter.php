@@ -34,7 +34,7 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return array
      */
-    public function format( array $data ) : array {
+    public static function format( array $data ) : array {
         $block = $data['__filter_attributes']['block'] ?? [];
         unset( $data['__filter_attributes'] );
 
@@ -49,7 +49,7 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $data['image_url_orig'] = $is_clickable ? ( $image['url'] ?? null ) : null;
         }
 
-        if ( $block['supports']['align'] ) {
+        if ( $block['supports']['align'] ?? false ) {
             $data['align'] = $block['align'] ?? '';
         }
 
