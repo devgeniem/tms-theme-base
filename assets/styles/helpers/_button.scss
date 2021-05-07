@@ -22,7 +22,7 @@ $button-background-color-inverted-focus: $light !default;
 $button-background-color-inverted-active: $light !default;
 $button-border-color: $button-background-color !default;
 $button-border-color-active: $button-background-color-active !default;
-$button-border-color-focus: $button-background-color-focus !default;
+$button-border-color-focus: $black !default;
 $button-border-width: .15rem;
 $button-border-radius: 1.8rem;
 
@@ -87,49 +87,6 @@ $button-border-radius: 1.8rem;
         color: $button-color-active !important;
     }
 
-    &.is-inverted {
-        border-color: $button-color-inverted !important;
-        color: $button-color-inverted !important;
-        background-color: $button-background-color-inverted !important;
-
-        .icon {
-            fill: $button-color-inverted !important;
-        }
-
-        &:hover,
-        &.is-hovered {
-            border-color: $button-color-inverted-hover !important;
-            background: $button-background-color-inverted-hover !important;
-            color: $button-color-inverted-hover !important;
-
-            .icon {
-                fill: $button-color-inverted-hover !important;
-            }
-        }
-    }
-
-    &.is-borderless {
-        border-color: transparent !important;
-
-        &:focus,
-        &.is-focused,
-        &:active,
-        &.is-active,
-        &:hover,
-        &.is-hovered {
-            border-color: transparent !important;
-        }
-    }
-
-    &.is-small {
-        padding: .36rem 1.5rem !important;
-        border-radius: 1.7rem !important;
-
-        .icon {
-            display: none;
-        }
-    }
-
     // Then the color variation generation
     @each $name, $pair in $button-colors {
         @if type-of($pair) == "map" {
@@ -164,7 +121,7 @@ $button-border-radius: 1.8rem;
                 &.is-focused {
                     color: $dark-invert !important;
                     background-color: $dark !important;
-                    border-color: $dark !important;
+                    border-color: $button-border-color-focus !important;
 
                     .icon {
                         fill: $dark-invert !important;
@@ -206,7 +163,7 @@ $button-border-radius: 1.8rem;
                     &:focus,
                     &.is-focused {
                         background-color: $light-invert !important;
-                        border-color: $light !important;
+                        border-color: $button-border-color-focus !important;
                         color: $light !important;
 
                         .icon {
@@ -268,4 +225,53 @@ $button-border-radius: 1.8rem;
             }
         }
     }
+
+    &.is-inverted {
+        border-color: $button-color-inverted !important;
+        color: $button-color-inverted !important;
+        background-color: $button-background-color-inverted !important;
+
+        .icon {
+            fill: $button-color-inverted !important;
+        }
+
+        &:hover,
+        &.is-hovered {
+            border-color: $button-color-inverted-hover !important;
+            background: $button-background-color-inverted-hover !important;
+            color: $button-color-inverted-hover !important;
+
+            .icon {
+                fill: $button-color-inverted-hover !important;
+            }
+        }
+
+        &:focus,
+        &.is-focused {
+            border-color: $button-border-color-focus !important;
+        }
+    }
+
+    &.is-borderless {
+        border-color: transparent !important;
+
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active,
+        &:hover,
+        &.is-hovered {
+            border-color: transparent !important;
+        }
+    }
+
+    &.is-small {
+        padding: .36rem 1.5rem !important;
+        border-radius: 1.7rem !important;
+
+        .icon {
+            display: none;
+        }
+    }
+
 }

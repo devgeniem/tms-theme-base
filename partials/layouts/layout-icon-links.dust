@@ -21,12 +21,7 @@
                                 </div>
                             {/description}
 
-                            {?link}
-                                <a href="{link.url}" class="button is-small is-primary is-outlined"
-                                   target="{link.target}">
-                                    {link.title|s}
-                                </a>
-                            {/link}
+                            {>"ui/button-link" classes="is-small is-primary is-outlined" /}
                         </div>
                     {/rows}
                 </div>
