@@ -54,19 +54,22 @@ class SettingsGroup {
                     ]
                 );
 
-            $fields = [
-                $this->get_header_fields( $field_group->get_key() ),
-            ];
+            $field_group->add_fields(
+                apply_filters(
+                    'tms/acf/group/' . $field_group->get_key() . '/fields',
+                    [
+                        $this->get_header_fields( $field_group->get_key() ),
+                        $this->get_map_fields( $field_group->get_key() ),
+                    ]
+                )
+            );
 
-            $field_group
-                ->set_fields( [
-                    apply_filters(
-                        'tms_theme_base_acf_' . $field_group->get_key(),
-                        $fields,
-                        $field_group->get_key()
-                    ),
-                ] )
-                ->register();
+            $field_group = apply_filters(
+                'tms/acf/group/' . $field_group->get_key(),
+                $field_group
+            );
+
+            $field_group->register();
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
@@ -102,4 +105,50 @@ class SettingsGroup {
 
         return $tab;
     }
+
+    /**
+     * Get map fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_map_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'             => 'Kartat',
+            'map_placeholder' => [
+                'title'        => 'Kartan placeholder-kuva',
+                'instructions' => '',
+            ],
+            'map_button_text' => [
+                'title'        => 'Kartan näyttämisen toimintakehoite',
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $map_placeholder_field = ( new Field\Image( $strings['map_placeholder']['title'] ) )
+            ->set_key( "${key}_map_placeholder" )
+            ->set_name( 'map_placeholder' )
+            ->set_return_format( 'id' )
+            ->set_instructions( $strings['map_placeholder']['instructions'] );
+
+        $map_button_text_field = ( new Field\Text( $strings['map_button_text']['title'] ) )
+            ->set_key( "${key}_map_button_text" )
+            ->set_name( 'map_button_text' )
+            ->set_default_value( __( 'Open map', 'tms-theme-base' ) )
+            ->set_instructions( $strings['map_button_text']['instructions'] );
+
+        $tab->add_fields( [
+            $map_placeholder_field,
+            $map_button_text_field,
+        ] );
+
+        return $tab;
+    }
 }
+
+( new SettingsGroup() );
