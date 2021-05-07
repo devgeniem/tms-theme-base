@@ -30,4 +30,20 @@
             }
         }
     }
+
+    &-x--50 {
+        transform: translateX(-50%);
+
+        &-tablet {
+            @include from($tablet) {
+                transform: translateX(-50%);
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                transform: translateX(-50%);
+            }
+        }
+    }
 }

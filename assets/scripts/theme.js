@@ -1,9 +1,11 @@
 import Common from './common';
 import Accordion from './accordion';
+import MapLayout from './map-layout';
 
 const globalControllers = {
     Common,
     Accordion,
+    MapLayout,
 };
 
 const templateControllers = {
