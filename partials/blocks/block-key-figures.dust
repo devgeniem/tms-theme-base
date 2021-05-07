@@ -4,11 +4,11 @@
             {#numbers}
                 <div class="column {column_class|s} has-background-{background_color|s} has-text-{background_color|s}-invert">
                     <div class="key-figures__item is-flex p-9 p-12-desktop is-align-items-center is-justify-content-center is-flex-direction-column">
-                        <div class="key-figures__number is-text-huge is-family-primary">
+                        <div class="key-figures__number is-text-huge is-family-secondary has-text-weight-bold">
                             {number|s}
                         </div>
 
-                        <div class="key-figures__description has-text-weight-medium is-size-8 is-uppercase">
+                        <div class="key-figures__description has-text-weight-medium is-size-7 is-uppercase is-family-secondary">
                             {description|s}
                         </div>
                     </div>

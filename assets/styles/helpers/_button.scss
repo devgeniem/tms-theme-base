@@ -39,6 +39,7 @@ $button-border-radius: 1.8rem;
     cursor: pointer;
     font-weight: $weight-medium;
     font-family: $family-secondary;
+    font-size: .9375rem;
 
     justify-content: center;
     padding: .625rem 1.875rem;
@@ -48,6 +49,7 @@ $button-border-radius: 1.8rem;
     text-decoration: none !important;
 
     @include from($tablet) {
+        font-size: .88235rem;
         padding-right: 1.764rem;
         padding-left: 1.764rem;
     }
