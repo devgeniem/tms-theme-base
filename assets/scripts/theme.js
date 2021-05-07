@@ -5,11 +5,13 @@
 
 import Common from './common';
 import Accordion from './accordion';
+import MapLayout from './map-layout';
 import Image from './image';
 
 const globalControllers = {
     Common,
     Accordion,
+    MapLayout,
     Image,
 };
 
