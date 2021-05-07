@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-29: Image #26
 - TMS-45: Map Block #23
 - TMS-30: Video Block #22
 - TMS-28: Logo wall #21
