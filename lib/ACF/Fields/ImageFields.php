@@ -74,11 +74,12 @@ class ImageFields extends Field\Group {
             ->set_default_value( true )
             ->set_instructions( $strings['is_clickable']['instructions'] );
 
-        $caption_field = ( new Field\Wysiwyg( $strings['caption']['label'] ) )
+        $caption_field = ( new Field\ExtendedWysiwyg( $strings['caption']['label'] ) )
             ->set_key( "${key}_caption" )
             ->set_name( 'caption' )
             ->set_tabs( 'visual' )
             ->set_toolbar( [ 'bold', 'italic', 'link' ] )
+            ->set_height( 100 )
             ->disable_media_upload()
             ->set_instructions( $strings['caption']['instructions'] );
 

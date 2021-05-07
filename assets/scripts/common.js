@@ -256,11 +256,12 @@ export default class Common {
      * Example usage:
      * Theme.Common.stop(e);
      *
-     * @param {Object} e Event object.
+     * @param {Event|Object} e Event object.
+     * @return {void}
      */
-    // static stop( e ) {
-    //     e.preventDefault ? e.preventDefault() : ( e.returnValue = false );
-    // }
+    static stop( e ) {
+        e.preventDefault ? e.preventDefault() : ( e.returnValue = false );
+    }
 
     /**
      * Select a list of matching elements, context is optional.
@@ -283,5 +284,72 @@ export default class Common {
      */
     static $1( selector, context ) {
         return ( context || document ).querySelector( selector );
+    }
+
+    /**
+     * Generates a svg container that uses icon with an ID.
+     *
+     * @param {string} icon Icon ID.
+     * @return {string} Icon HTML String.
+     */
+    static makeIcon( icon = '' ) {
+        return `<svg class="icon"><use xlink:href="#icon-${ icon }" /></svg>`;
+    }
+
+    /**
+     * Helper function for removing classes
+     *
+     * @param {HTMLElement} el HTML element
+     * @param {string} className Class name
+     * @return {void}
+     */
+    static removeClass( el, className ) {
+        return el.classList.remove( className );
+    }
+
+    /**
+     * Helper function for detecting if an element has a class
+     *
+     * @param {HTMLElement} el HTML Element
+     * @param {string} className Class name
+     * @return {Object} The element with a class
+     */
+    static hasClass( el, className ) {
+        return el.classList.contains( className );
+    }
+
+    /**
+     * This is a custom empty check for parameters.
+     *
+     * @param {*} param The checked element.
+     * @return {boolean} True or false.
+     */
+    static empty( param ) {
+        return typeof param === 'undefined' ||
+            param === '' ||
+            param === null ||
+            param === false ||
+            param.length === 0;
+    }
+
+    /**
+     * This parses and returns a given URL parameter value.
+     *
+     * @param {string} name The name of the parameter
+     *
+     * @return {boolean|string} The parameter.
+     */
+    static getUrlParameter( name = '' ) {
+        const paramName = name
+            .replace( /[\[]/, '\\[' )
+            .replace( /[\]]/, '\\]' );
+        const regex = new RegExp( '[\\?&]' + paramName + '=([^&#]*)' );
+        const results = regex.exec( location.search );
+
+        return results === null
+            ? false
+            : decodeURIComponent(
+                results[ 1 ].replace( /\+/g, ' ' )
+            );
     }
 }
