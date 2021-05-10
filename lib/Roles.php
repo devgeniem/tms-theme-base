@@ -5,7 +5,6 @@
 
 namespace TMS\Theme\Base;
 
-
 /**
  * Class Roles
  *
