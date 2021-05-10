@@ -17,6 +17,13 @@ class Roles implements \TMS\Theme\Base\Interfaces\Controller {
      */
     public function hooks() : void {
         $this->modify_administrator_caps();
+
+        add_filter(
+            'map_meta_cap',
+            \Closure::fromCallable( [ $this, 'add_unfiltered_html_capability' ] ),
+            1,
+            3
+        );
     }
 
     /**
@@ -55,5 +62,22 @@ class Roles implements \TMS\Theme\Base\Interfaces\Controller {
         }
 
         unset( $admin );
+    }
+
+    /**
+     * Enable unfiltered_html capability for Editors and Administrators.
+     *
+     * @param array  $caps    The user's capabilities.
+     * @param string $cap     Capability name.
+     * @param int    $user_id The user ID.
+     *
+     * @return array  $caps    The user's capabilities, with 'unfiltered_html' potentially added.
+     */
+    protected function add_unfiltered_html_capability( $caps, $cap, $user_id ) {
+        if ( $cap === 'unfiltered_html' && ( user_can( $user_id, 'administrator' ) || user_can( $user_id, 'editor' ) ) ) {
+            $caps = [ 'unfiltered_html' ];
+        }
+
+        return $caps;
     }
 }
