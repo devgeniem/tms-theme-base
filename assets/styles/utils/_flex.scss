@@ -1,4 +1,6 @@
 .is-reversed {
+    flex-direction: row-reverse;
+
     &-tablet {
         @include from($tablet) {
             flex-direction: row-reverse;
