@@ -5,7 +5,7 @@
             {@image id=image.id size="large" class="objectfit-image" /}
         </div>
 
-        <div class="overlay overlay--dark-30"></div>
+        <div class="overlay overlay--dark-40"></div>
 
         <div class="image-banner__inner is-relative is-absolute-tablet has-top-50-tablet has-right-0-tablet has-left-0-tablet has-transform-y--50-tablet pt-8 pb-8 pr-8 pl-8 pr-12-desktop pl-12-desktop has-text-centered {align|s}">
             {?title}
