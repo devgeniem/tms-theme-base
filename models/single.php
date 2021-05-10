@@ -33,7 +33,7 @@ class Single extends BaseModel {
         ];
 
         if ( ! empty( $categories ) ) {
-            $args['cat__in'] = $categories;
+            $args['category__in'] = $categories;
         }
 
         $posts = \DustPress\Query::get_posts( $args );
