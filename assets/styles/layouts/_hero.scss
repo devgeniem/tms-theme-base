@@ -1,0 +1,78 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+@mixin hero-height {
+    height: 31.25rem;
+
+    @include from($tablet) {
+        height: 29.411rem;
+    }
+
+    @include from($desktop) {
+        height: 43.7rem;
+    }
+}
+
+.hero {
+    @include hero-height;
+
+    &__video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 0;
+        width: auto;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &__inner {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        text-align: center;
+        transform: translateY(-50%);
+
+        @include from($desktop) {
+            &.is-left {
+                left: 0;
+                text-align: left;
+                transform: translateY(-50%);
+            }
+
+            &.is-right {
+                right: 0;
+                text-align: right;
+                transform: translateY(-50%);
+            }
+
+        }
+    }
+
+    &__box {
+        max-width: 42rem;
+        margin-right: auto;
+        margin-left: auto;
+
+        &--background {
+            padding: 3.25rem;
+        }
+
+        &.is-left {
+            @include from($desktop) {
+                margin-left: 0;
+                text-align: left;
+            }
+        }
+
+        &.is-right {
+            @include from($desktop) {
+                margin-right: 0;
+                text-align: right;
+            }
+        }
+    }
+}

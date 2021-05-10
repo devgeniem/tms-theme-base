@@ -28,5 +28,7 @@ class DustPressController implements Interfaces\Controller {
         add_filter( 'codifier/components/dustphp', function ( $dust ) { // phpcs:ignore
             return dustpress()->dust;
         } );
+
+        dustpress()->add_helper( 'inlinebg', new Helpers\InlineBackgroundHelper() );
     }
 }

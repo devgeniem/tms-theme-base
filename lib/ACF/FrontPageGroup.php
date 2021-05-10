@@ -14,11 +14,11 @@ use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
 /**
- * Class PageGroup
+ * Class FrontPageGroup
  *
  * @package TMS\Theme\Base\ACF
  */
-class PageGroup {
+class PageFrontPageGroup {
 
     /**
      * PageGroup constructor.
@@ -38,10 +38,10 @@ class PageGroup {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
 
             $field_group = ( new Group( $group_title ) )
-                ->set_key( 'fg_page_components' );
+                ->set_key( 'fg_front_page_components' );
 
             $rule_group = ( new RuleGroup() )
-                ->add_rule( 'post_type', '==', PostType\Page::SLUG );
+                ->add_rule( 'page_template', '==', \PageFrontPage::TEMPLATE );
 
             $field_group
                 ->add_rule_group( $rule_group )
@@ -100,11 +100,7 @@ class PageGroup {
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
-                Layouts\ImageBannerLayout::class,
-                Layouts\CallToActionLayout::class,
-                Layouts\ContentColumnsLayout::class,
-                Layouts\LogoWallLayout::class,
-                Layouts\MapLayout::class,
+                Layouts\HeroLayout::class,
             ]
         );
 
@@ -116,4 +112,4 @@ class PageGroup {
     }
 }
 
-//( new PageGroup() );
+( new PageFrontPageGroup() );
