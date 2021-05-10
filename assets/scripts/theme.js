@@ -2,12 +2,14 @@ import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
+import Table from './table';
 
 const globalControllers = {
     Common,
     Accordion,
     MapLayout,
     CopyToClipboard,
+    Table,
 };
 
 const templateControllers = {
