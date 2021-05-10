@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use TMS\Theme\Base\Helpers\ImageAdvanced;
+
 /**
  * Class DustPressController
  *
@@ -30,5 +32,6 @@ class DustPressController implements Interfaces\Controller {
         } );
 
         dustpress()->add_helper( 'inlinebg', new Helpers\InlineBackgroundHelper() );
+        dustpress()->add_helper( 'image', new ImageAdvanced() );
     }
 }

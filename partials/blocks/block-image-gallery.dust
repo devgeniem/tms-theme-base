@@ -1,0 +1,31 @@
+<div class="image-gallery is-align-full gallery gallery-columns-2 gallery-columns-3-tablet js-image-gallery mt-8 mb-8 mt-11-desktop mb-11-desktop"
+    data-next="{translations.next}"
+    data-previous="{translations.previous}"
+>
+    {#rows}
+            <a  href="{image.sizes.fullhd}"
+                data-preview="{image.sizes.medium}"
+                data-gallery="{gallery_id}"
+                data-modal-button
+                aria-controls="{gallery_id}"
+                data-caption="{caption}"
+                data-author="{author_name}"
+                class="image-gallery__image image-gallery__link image is-square"
+                aria-expanded="false"
+                aria-label="{translations.open}"
+            >
+                {@image id=image.id size="large" alt=image.alt title=image.description /}
+            </a>
+
+    {/rows}
+
+    <!-- Markup of the modal -->
+    <div role="dialog" id="{gallery_id}" class="modal" aria-modal="true" aria-labelledby="{gallery_id}">
+        <div class="modal-background"></div>
+        <button class="button modal-close-button" aria-controls="{gallery_id}">
+            {translations.close}
+            {>"ui/icon" icon="close" class="icon--medium" /}
+        </button>
+        <div class="modal-content"></div>
+    </div>
+</div>

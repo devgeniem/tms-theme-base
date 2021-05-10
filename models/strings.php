@@ -16,12 +16,12 @@ class Strings extends \DustPress\Model {
      */
     public function s() : array {
         return [
-            'header' => [
+            'header'  => [
                 'skip_to_content' => _x( 'Skip to content', 'theme-frontend', 'tms-theme-base' ),
                 'main_navigation' => _x( 'Main navigation', 'theme-frontend', 'tms-theme-base' ),
                 'search'          => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
-            '404'    => [
+            '404'     => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),
                 'subtitle'      => _x(
                     'The content were looking for was not found',
@@ -30,11 +30,17 @@ class Strings extends \DustPress\Model {
                 ),
                 'home_link_txt' => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'video'  => [
+            'video'   => [
                 'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'share'  => [
+            'share'   => [
                 'share_article' => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'gallery' => [
+                'close'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'next'     => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
+                'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }

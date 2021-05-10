@@ -47,5 +47,16 @@ class Cleanup implements Interfaces\Controller {
         \remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
         // Remove oEmbed-specific JavaScript from the front-end and back-end.
         \remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+        // Remove FileBird review begging nag screen, if it exists.
+        if (
+            class_exists( \FileBird\Classes\Review::class ) &&
+            method_exists( \FileBird\Classes\Review::class, 'getInstance' )
+        ) {
+            \remove_action(
+                'admin_notices',
+                [ \FileBird\Classes\Review::getInstance(), 'give_review' ]
+            );
+        }
     }
 }
