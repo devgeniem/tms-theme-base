@@ -3,7 +3,7 @@
     data-previous="{translations.previous}"
 >
     {#rows}
-            <a  href="{image_url_orig}"
+            <a  href="{image.sizes.fullhd}"
                 data-preview="{image.sizes.medium}"
                 data-gallery="{gallery_id}"
                 data-modal-button

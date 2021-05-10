@@ -1,0 +1,52 @@
+/*!
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.grid {
+    &__item {
+        $item: &;
+
+        @include from($tablet) {
+            grid-auto-flow: column dense;
+
+            &.reversed {
+                .details {
+                    grid-column-start: 2;
+                }
+            }
+
+            &__details {
+                object-fit: contain;
+                overflow: hidden;
+                aspect-ratio: 1 / 1;
+
+                p {
+                    // Addition lines for 2 line or multiline ellipsis
+                    // https://caniuse.com/css-line-clamp
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        @include mobile() {
+            &--equal-height {
+                > div {
+                    min-height: 437px !important;
+                }
+            }
+        }
+
+        &--featured {
+            grid-row: span 2 !important;
+
+            #{$item}__details {
+                aspect-ratio: auto;
+            }
+        }
+    }
+}

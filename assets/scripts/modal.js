@@ -48,38 +48,7 @@ export default class Modal {
      */
     events() {
         // Bind handlers to each modal open button.
-        if ( this.$modalButtons.length > 0 ) {
-            this.$modalButtons.forEach( ( button ) => {
-
-                const modal = document.getElementById( button.getAttribute( 'aria-controls' ) );
-                modal.isOpened = 0;
-                modal.gallery = false;
-
-                // Add this modal to list of modals if it hasn't been added yet.
-                // This ensures that there can be more than one trigger for the same modal.
-                if ( this.$modals.length === 0 || ! this.$modals.some( ( element ) => element.id === modal.id ) ) {
-                    this.$modals.push( modal );
-                }
-
-                button.addEventListener( 'click', ( e ) => {
-                    e.preventDefault();
-
-                    const clickedButton = e.currentTarget;
-                    modal.openingButton = clickedButton;
-
-                    if ( clickedButton.hasAttribute( 'href' ) && modal.gallery === false ) {
-                        this.initializeGallery( modal );
-                        modal.galleryInitialized = true;
-                        this.focusGallerySlide( modal );
-                    }
-                    else if ( clickedButton.hasAttribute( 'href' ) ) {
-                        this.focusGallerySlide( modal );
-                    }
-                    this.openModal( modal );
-                    this.toggleAriaExpanded( clickedButton );
-                } );
-            } );
-        }
+        this.eventsModalOpenRegistration();
 
         // Bind handlers to each modal close button.
         if ( this.$modalCloses.length > 0 ) {
@@ -96,6 +65,48 @@ export default class Modal {
             if ( e.keyCode === 27 ) {
                 this.closeModals();
             }
+        } );
+    }
+
+    /**
+     * Events: Modal Open Registration.
+     *
+     * @return {void}
+     */
+    eventsModalOpenRegistration() {
+        if ( this.$modalButtons.length < 1 ) {
+            return;
+        }
+
+        this.$modalButtons.forEach( ( button ) => {
+
+            const modal = document.getElementById( button.getAttribute( 'aria-controls' ) );
+            modal.isOpened = 0;
+            modal.gallery = false;
+
+            // Add this modal to list of modals if it hasn't been added yet.
+            // This ensures that there can be more than one trigger for the same modal.
+            if ( this.$modals.length === 0 || ! this.$modals.some( ( element ) => element.id === modal.id ) ) {
+                this.$modals.push( modal );
+            }
+
+            button.addEventListener( 'click', ( e ) => {
+                e.preventDefault();
+
+                const clickedButton = e.currentTarget;
+                modal.openingButton = clickedButton;
+
+                if ( clickedButton.hasAttribute( 'href' ) && modal.gallery === false ) {
+                    this.initializeGallery( modal );
+                    modal.galleryInitialized = true;
+                    this.focusGallerySlide( modal );
+                }
+                else if ( clickedButton.hasAttribute( 'href' ) ) {
+                    this.focusGallerySlide( modal );
+                }
+                this.openModal( modal );
+                this.toggleAriaExpanded( clickedButton );
+            } );
         } );
     }
 
