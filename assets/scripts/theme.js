@@ -9,6 +9,7 @@ import MapLayout from './map-layout';
 import Modal from './modal';
 import CopyToClipboard from './copy-to-clipboard';
 import Image from './image';
+import Table from './table';
 
 const globalControllers = {
     Common,
@@ -17,6 +18,7 @@ const globalControllers = {
     CopyToClipboard,
     Image,
     Modal,
+    Table,
 };
 
 const templateControllers = {
