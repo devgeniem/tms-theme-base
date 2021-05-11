@@ -1,5 +1,4 @@
 import './chevron-down.svg';
-import './chevron-right.svg';
 import './chevron-left.svg';
 import './chevron-right.svg';
 import './close.svg';
