@@ -16,7 +16,7 @@ export default class Table {
      */
     docReady() {
         if ( document.getElementsByTagName( 'table' ).length > 0 ) {
-            const instance = new Indicate( document.getElementsByTagName( 'table' ), { arrows: true } );
+            new Indicate( document.getElementsByTagName( 'table' ), { arrows: true } );
         }
     }
 }

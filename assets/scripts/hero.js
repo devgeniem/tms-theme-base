@@ -17,7 +17,7 @@ export default class Hero {
      * @return {void}
      */
     constructor() {
-        this.BOX_BREAKPOINT = 767;
+        this.BOX_BREAKPOINT = 1024;
     }
 
     /**
@@ -52,14 +52,24 @@ export default class Hero {
             return;
         }
 
-        if ( $( window ).width() <= this.BOX_BREAKPOINT ) {
-            const margin = this.container.find( '.hero__box' ).outerHeight() / 2;
-            this.container.css( 'marginBottom', margin );
-        }
+        const margin = $( window ).width() < this.BOX_BREAKPOINT
+            ? this.container.find( '.hero__box' ).outerHeight() / 2
+            : 0;
+
+        this.container.css( 'marginBottom', margin );
     }
 
+    /**
+     * Toggle video
+     *
+     * @return {void}
+     */
     toggleVideo() {
         const el = this.getVideoElement();
+
+        if ( ! el ) {
+            return;
+        }
 
         if ( el.paused ) {
             this.playVideo();
@@ -69,29 +79,46 @@ export default class Hero {
         }
     }
 
+    /**
+     * Play video
+     *
+     * @return {void}
+     */
     playVideo() {
         const el = this.getVideoElement();
 
-        if ( el.paused ) {
+        if ( el && el.paused ) {
             el.play();
             this.container.toggleClass( 'has-video-playing' );
             this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
         }
     }
 
+    /**
+     * Pause video
+     *
+     * @return {void}
+     */
     pauseVideo() {
         const el = this.getVideoElement();
 
-        if ( ! el.paused ) {
+        if ( el && ! el.paused ) {
             el.pause();
             this.container.toggleClass( 'has-video-playing' );
         }
     }
 
+    /**
+     * Get video element
+     *
+     * @return {boolean|Object} jQuery selected video element or false.
+     */
     getVideoElement() {
         const $video = this.container.find( '.hero__video' );
 
-        return $video.get( 0 );
+        return $video.length === 0
+            ? false
+            : $video.get( 0 );
     }
 
     /**

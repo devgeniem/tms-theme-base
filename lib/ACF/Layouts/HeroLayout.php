@@ -8,7 +8,6 @@ namespace TMS\Theme\Base\ACF\Layouts;
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\ACF\Fields\HeroFields;
-use TMS\Theme\Base\ACF\Fields\MapFields;
 use TMS\Theme\Base\Logger;
 
 /**

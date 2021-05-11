@@ -101,6 +101,12 @@ class PageFrontPageGroup {
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
                 Layouts\HeroLayout::class,
+                Layouts\IconLinksLayout::class,
+                Layouts\CallToActionLayout::class,
+                Layouts\ContentColumnsLayout::class,
+                Layouts\ImageBannerLayout::class,
+                Layouts\MapLayout::class,
+                Layouts\LogoWallLayout::class,
             ]
         );
 

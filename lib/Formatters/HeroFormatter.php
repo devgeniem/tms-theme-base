@@ -40,7 +40,7 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'is-' . $layout['align'],
         ];
 
-        if ( $layout['use_box'] ) {
+        if ( $layout['use_box'] && $this->has_filled_text_fields( $layout ) ) {
             $layout['container_class'] = 'hero--box';
             $box_classes[]             = 'hero__box--background';
             $box_classes[]             = 'has-background-primary';
@@ -60,5 +60,28 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $layout['pause_video']    = __( 'Pause video', 'tms-theme-base' );
 
         return $layout;
+    }
+
+    /**
+     * Has filled text fields
+     *
+     * @param array $layout ACF Layout data.
+     *
+     * @return bool
+     */
+    protected function has_filled_text_fields( array $layout ) : bool {
+        $fields = [
+            'title',
+            'description',
+            'link',
+        ];
+
+        foreach ( $fields as $field_key ) {
+            if ( ! empty( $layout[ $field_key ] ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
