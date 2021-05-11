@@ -37,4 +37,8 @@
             </div>
         </div>
     </div>
+
+    <div class="hero__image-credits is-absolute has-right-0 has-bottom-0 has-text-white p-4 is-size-7">
+        {image_credits|s}
+    </div>
 </section>

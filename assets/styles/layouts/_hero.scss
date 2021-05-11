@@ -175,4 +175,8 @@
             max-width: 70%;
         }
     }
+
+    &__image-credits {
+        background-color: rgba($black, .3); // sass-lint:disable-line no-color-literals
+    }
 }
