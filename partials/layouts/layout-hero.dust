@@ -1,10 +1,19 @@
-<section class="hero is-relative has-background-cover {container_class|s} {align|s}" {@inlinebg id=image size="fullhd" /}>
+<section
+        class="hero is-relative has-background-cover {container_class|s}" {@inlinebg id=image size="fullhd" /}>
     {?use_overlay}
         <div class="overlay overlay--dark-40"></div>
     {/use_overlay}
 
     {?video}
-        <video src="{video}" class="hero__video" autoplay loop></video>
+        <video src="{video}" class="hero__video is-hidden" loop></video>
+
+        <button class="hero__control hero__control--play" aria-label="{play_video|s}">
+            {>"ui/icon" icon="play" class="icon--xxlarge"  /}
+        </button>
+
+        <button class="hero__control hero__control--pause" aria-label="{pause_video|s}">
+            {>"ui/icon" icon="pause" class="icon--xxlarge"  /}
+        </button>
     {/video}
 
     <div class="hero__inner">

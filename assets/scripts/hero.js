@@ -36,6 +36,10 @@ export default class Hero {
      */
     events() {
         $( window ).resize( debounce( this.adjustSpacing.bind( this ), 250 ) );
+
+        this.container.find( '.hero__control--play' ).on( 'click', this.playVideo.bind( this ) );
+        this.container.find( '.hero__control--pause' ).on( 'click', this.pauseVideo.bind( this ) );
+        this.container.find( '.hero__video' ).on( 'click', this.toggleVideo.bind( this ) );
     }
 
     /**
@@ -52,6 +56,42 @@ export default class Hero {
             const margin = this.container.find( '.hero__box' ).outerHeight() / 2;
             this.container.css( 'marginBottom', margin );
         }
+    }
+
+    toggleVideo() {
+        const el = this.getVideoElement();
+
+        if ( el.paused ) {
+            this.playVideo();
+        }
+        else {
+            this.pauseVideo();
+        }
+    }
+
+    playVideo() {
+        const el = this.getVideoElement();
+
+        if ( el.paused ) {
+            el.play();
+            this.container.toggleClass( 'has-video-playing' );
+            this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
+        }
+    }
+
+    pauseVideo() {
+        const el = this.getVideoElement();
+
+        if ( ! el.paused ) {
+            el.pause();
+            this.container.toggleClass( 'has-video-playing' );
+        }
+    }
+
+    getVideoElement() {
+        const $video = this.container.find( '.hero__video' );
+
+        return $video.get( 0 );
     }
 
     /**
