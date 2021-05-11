@@ -7,6 +7,7 @@ import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
+import Table from './table';
 import Image from './image';
 import Modal from './modal';
 
@@ -15,6 +16,7 @@ const globalControllers = {
     Accordion,
     MapLayout,
     CopyToClipboard,
+    Table,
     Image,
     Modal,
 };
