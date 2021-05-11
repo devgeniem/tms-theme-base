@@ -1,12 +1,15 @@
 <section class="section related-posts has-background-secondary has-background-secondary--opaque pt-10 pb-10">
     <div class="container">
-        <div class="columns">
-            <div class="column has-text-centered">
-                <h2 class="mt-0 mb-6">
-                    {related.title|s}
-                </h2>
+        {?related.title}
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <h2 class="mt-0 mb-6">
+                        {related.title|s}
+                    </h2>
+                </div>
             </div>
-        </div>
+        {/related.title}
+        
         <div class="columns is-multiline">
             {#related.posts}
                 <div class="column is-6 is-3-widescreen">
