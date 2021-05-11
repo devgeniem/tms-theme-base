@@ -80,6 +80,15 @@
             padding: 3.25rem;
         }
 
+        &.is-center {
+            p {
+                @include from($desktop) {
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+            }
+        }
+
         &.is-left {
             @include from($desktop) {
                 margin-left: 0;
@@ -91,6 +100,10 @@
             @include from($desktop) {
                 margin-right: 0;
                 text-align: right;
+
+                p {
+                    margin-left: auto;
+                }
             }
         }
     }
@@ -154,6 +167,12 @@
                     opacity: 1;
                 }
             }
+        }
+    }
+
+    p {
+        @include from($tablet) {
+            max-width: 70%;
         }
     }
 }

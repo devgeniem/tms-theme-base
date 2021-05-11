@@ -5,15 +5,17 @@
     {/use_overlay}
 
     {?video}
-        <video src="{video}" class="hero__video is-hidden" loop muted></video>
+        <div class="is-overlay is-clipped">
+            <video src="{video}" class="hero__video is-hidden" loop muted></video>
 
-        <button class="hero__control hero__control--play" aria-label="{play_video|s}">
-            {>"ui/icon" icon="play" class="icon--xxlarge"  /}
-        </button>
+            <button class="hero__control hero__control--play" aria-label="{play_video|s}">
+                {>"ui/icon" icon="play" class="icon--xxlarge"  /}
+            </button>
 
-        <button class="hero__control hero__control--pause" aria-label="{pause_video|s}">
-            {>"ui/icon" icon="pause" class="icon--xxlarge"  /}
-        </button>
+            <button class="hero__control hero__control--pause" aria-label="{pause_video|s}">
+                {>"ui/icon" icon="pause" class="icon--xxlarge"  /}
+            </button>
+        </div>
     {/video}
 
     <div class="hero__inner">
