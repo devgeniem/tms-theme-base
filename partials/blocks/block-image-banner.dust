@@ -14,11 +14,7 @@
                 </h2>
             {/title}
 
-            {?link}
-                <a href="{link.url}" class="button is-primary is-inverted" target="{link.target}">
-                    {link.title|s}
-                </a>
-            {/link}
+            {>"ui/button-link" classes="is-primary is-inverted" icon="chevron-right" icon_class="icon--medium"  /}
         </div>
     </div>
 {/image}

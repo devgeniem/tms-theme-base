@@ -22,7 +22,7 @@ $button-background-color-inverted-focus: $light !default;
 $button-background-color-inverted-active: $light !default;
 $button-border-color: $button-background-color !default;
 $button-border-color-active: $button-background-color-active !default;
-$button-border-color-focus: $button-background-color-focus !default;
+$button-border-color-focus: $black !default;
 $button-border-width: .15rem;
 $button-border-radius: 1.8rem;
 
@@ -30,6 +30,7 @@ $button-border-radius: 1.8rem;
     @extend %control;
     @extend %unselectable;
 
+    height: auto;
     background-color: $button-background-color !important;
     border-color: $button-border-color !important;
     border-width: $button-border-width !important;
@@ -38,27 +39,32 @@ $button-border-radius: 1.8rem;
     cursor: pointer;
     font-weight: $weight-medium;
     font-family: $family-secondary;
+    font-size: .9375rem;
 
     justify-content: center;
-    padding: 1rem 1.75rem;
+    padding: .625rem 1.875rem;
 
     text-align: center;
     white-space: nowrap;
     text-decoration: none !important;
 
+    @include from($tablet) {
+        font-size: .88235rem;
+        padding-right: 1.764rem;
+        padding-left: 1.764rem;
+    }
+
     .icon {
         width: 1rem;
         height: 1rem;
-        margin-left: .75rem !important;
+        margin-left: 1.75rem !important;
         margin-right: -.5rem !important;
         fill: $button-color;
     }
 
     &--icon {
-        padding: 1rem !important;
-
         .icon {
-            margin-left: -.3rem !important;
+            margin-left: .75rem !important;
             margin-right: -.3rem !important;
         }
     }
@@ -81,49 +87,6 @@ $button-border-radius: 1.8rem;
     &.is-active {
         border-color: $button-border-color-active !important;
         color: $button-color-active !important;
-    }
-
-    &.is-inverted {
-        border-color: $button-color-inverted !important;
-        color: $button-color-inverted !important;
-        background-color: $button-background-color-inverted !important;
-
-        .icon {
-            fill: $button-color-inverted !important;
-        }
-
-        &:hover,
-        &.is-hovered {
-            border-color: $button-color-inverted-hover !important;
-            background: $button-background-color-inverted-hover !important;
-            color: $button-color-inverted-hover !important;
-
-            .icon {
-                fill: $button-color-inverted-hover !important;
-            }
-        }
-    }
-
-    &.is-borderless {
-        border-color: transparent !important;
-
-        &:focus,
-        &.is-focused,
-        &:active,
-        &.is-active,
-        &:hover,
-        &.is-hovered {
-            border-color: transparent !important;
-        }
-    }
-
-    &.is-small {
-        padding: .7rem !important;
-        border-radius: 1.7rem !important;
-
-        .icon {
-            display: none;
-        }
     }
 
     // Then the color variation generation
@@ -160,7 +123,7 @@ $button-border-radius: 1.8rem;
                 &.is-focused {
                     color: $dark-invert !important;
                     background-color: $dark !important;
-                    border-color: $dark !important;
+                    border-color: $button-border-color-focus !important;
 
                     .icon {
                         fill: $dark-invert !important;
@@ -202,7 +165,7 @@ $button-border-radius: 1.8rem;
                     &:focus,
                     &.is-focused {
                         background-color: $light-invert !important;
-                        border-color: $light !important;
+                        border-color: $button-border-color-focus !important;
                         color: $light !important;
 
                         .icon {
@@ -220,6 +183,11 @@ $button-border-radius: 1.8rem;
                             fill: $dark !important;
                         }
                     }
+                }
+
+                &.is-outlined {
+                    background-color: transparent !important;
+                    color: $primary !important;
                 }
 
                 &.is-borderless {
@@ -259,4 +227,53 @@ $button-border-radius: 1.8rem;
             }
         }
     }
+
+    &.is-inverted {
+        border-color: $button-color-inverted !important;
+        color: $button-color-inverted !important;
+        background-color: $button-background-color-inverted !important;
+
+        .icon {
+            fill: $button-color-inverted !important;
+        }
+
+        &:hover,
+        &.is-hovered {
+            border-color: $button-color-inverted-hover !important;
+            background: $button-background-color-inverted-hover !important;
+            color: $button-color-inverted-hover !important;
+
+            .icon {
+                fill: $button-color-inverted-hover !important;
+            }
+        }
+
+        &:focus,
+        &.is-focused {
+            border-color: $button-border-color-focus !important;
+        }
+    }
+
+    &.is-borderless {
+        border-color: transparent !important;
+
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active,
+        &:hover,
+        &.is-hovered {
+            border-color: transparent !important;
+        }
+    }
+
+    &.is-small {
+        padding: .36rem 1.5rem !important;
+        border-radius: 1.7rem !important;
+
+        .icon {
+            display: none;
+        }
+    }
+
 }
