@@ -1,7 +1,7 @@
 <section
         class="hero is-relative has-background-cover {container_class|s}" {@inlinebg id=image size="fullhd" /}>
     {?use_overlay}
-        <div class="overlay overlay--dark-40"></div>
+        <div class="overlay overlay--dark-50"></div>
     {/use_overlay}
 
     {?video}
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <div class="hero__box {box_classes|s}">
+                    <div class="hero__box is-relative {box_classes|s}">
                         {?title}
                             <h1 class="mt-0 h2">
                                 {title|s}
@@ -32,13 +32,19 @@
                         {description|s}
 
                         {>"ui/button-link" link=link classes=button_classes icon="chevron-right" icon_classes="icon--medium" /}
+
+                        {?use_box}
+                            <div class="hero__image-credits is-hidden-desktop is-absolute has-right-0 has-bottom-0 has-text-white p-2 is-size-7">
+                                {image_credits|s}
+                            </div>
+                        {/use_box}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="hero__image-credits is-absolute has-right-0 has-bottom-0 has-text-white p-4 is-size-7">
+    <div class="hero__image-credits {?use_box}is-hidden-touch{/use_box} is-absolute has-right-0 has-bottom-0 has-text-white p-4 is-size-7">
         {image_credits|s}
     </div>
 </section>
