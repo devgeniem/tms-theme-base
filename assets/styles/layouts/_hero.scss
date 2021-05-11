@@ -78,6 +78,12 @@
 
         &--background {
             padding: 3.25rem;
+
+            .hero__image-credits {
+                @include from($desktop) {
+                    transform: translateY(100%);
+                }
+            }
         }
 
         &.is-center {
@@ -93,6 +99,10 @@
             @include from($desktop) {
                 margin-left: 0;
                 text-align: left;
+
+                p {
+                    margin-left: 0;
+                }
             }
         }
 
@@ -102,7 +112,7 @@
                 text-align: right;
 
                 p {
-                    margin-left: auto;
+                    margin-right: 0;
                 }
             }
         }
@@ -171,12 +181,16 @@
     }
 
     p {
+        max-width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+
         @include from($tablet) {
             max-width: 70%;
         }
     }
 
     &__image-credits {
-        background-color: rgba($black, .3); // sass-lint:disable-line no-color-literals
+        background-color: rgba($black, .5); // sass-lint:disable-line no-color-literals
     }
 }
