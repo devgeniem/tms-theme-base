@@ -10,6 +10,7 @@ import Modal from './modal';
 import CopyToClipboard from './copy-to-clipboard';
 import Image from './image';
 import Table from './table';
+import Hero from './hero';
 
 const globalControllers = {
     Common,
@@ -19,6 +20,7 @@ const globalControllers = {
     Image,
     Modal,
     Table,
+    Hero,
 };
 
 const templateControllers = {

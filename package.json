@@ -6,8 +6,8 @@
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "modaal": "^0.4.4",
     "indicate": "^2.4.0",
+    "modaal": "^0.4.4",
     "normalize.css": "^8.0.1",
     "webfontloader": "^1.6.28"
   },
