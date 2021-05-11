@@ -3,3 +3,9 @@
     background-position: center center;
     background-size: cover;
 }
+
+.has-background-secondary {
+    &--opaque {
+        background-color: rgba($secondary, .5) !important;
+    }
+}
