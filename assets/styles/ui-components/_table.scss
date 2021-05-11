@@ -1,0 +1,95 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.tablepress {
+    font-size: .9375rem;
+
+    @include from($tablet) {
+        font-size: .88235rem;
+    }
+
+    thead,
+    tfoot {
+        font-size: 1rem;
+
+        th {
+            font-weight: 600;
+            padding: $theme-spacing $theme-spacing-half;
+            background-color: transparent;
+            border: 0;
+
+            &.sorting {
+                padding-right: $theme-spacing-oneandhalf;
+            }
+        }
+    }
+
+    thead {
+        tr {
+            th {
+                &:first-child {
+                    border-top-left-radius: $radius;
+                }
+
+                &:last-child {
+                    border-top-right-radius: $radius;
+                }
+            }
+        }
+
+        th {
+            vertical-align: middle;
+            background-color: $white;
+            transition: background-color $easing $speed;
+        }
+    }
+
+    tbody {
+        td {
+            min-width: 10rem;
+            padding: $theme-spacing-three-quarters $theme-spacing-half;
+            border: 0;
+        }
+
+        tr {
+            td {
+                transition: background-color $easing $speed;
+            }
+
+            &.even {
+                td {
+                    background-color: $secondary;
+                }
+            }
+
+            &.odd {
+                td {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+
+    .row-hover {
+        tr {
+            td {
+                transition: background-color $easing $speed;
+            }
+
+            &:hover {
+                td {
+                    background-color: darken($white, 1);
+                }
+            }
+
+            &.even {
+                &:hover {
+                    td {
+                        background-color: darken($secondary, 4);
+                    }
+                }
+            }
+        }
+    }
+}

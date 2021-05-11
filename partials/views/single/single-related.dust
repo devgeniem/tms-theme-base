@@ -9,7 +9,7 @@
                 </div>
             </div>
         {/related.title}
-        
+
         <div class="columns is-multiline">
             {#related.posts}
                 <div class="column is-6 is-3-widescreen">
