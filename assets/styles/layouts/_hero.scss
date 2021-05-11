@@ -30,13 +30,21 @@
 
     &__inner {
         position: absolute;
-        top: 50%;
-        right: 0;
-        left: 0;
+        right: 1rem;
+        bottom: 0;
+        left: 1rem;
         text-align: center;
-        transform: translateY(-50%);
+        transform: translateY(50%);
+
+        @include from($tablet) {
+            right: 0;
+            left: 0;
+        }
 
         @include from($desktop) {
+            top: 50%;
+            transform: translateY(-50%);
+
             &.is-left {
                 left: 0;
                 text-align: left;

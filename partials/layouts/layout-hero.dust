@@ -1,11 +1,10 @@
-<section class="hero is-relative is-clipped has-background-cover {align|s}" {@inlinebg id=image size="fullhd" /}>
+<section class="hero is-relative has-background-cover {container_class|s} {align|s}" {@inlinebg id=image size="fullhd" /}>
     {?use_overlay}
         <div class="overlay overlay--dark-40"></div>
     {/use_overlay}
 
     {?video}
-        <video src="{video}" class="hero__video" autoplay loop>
-        </video>
+        <video src="{video}" class="hero__video" autoplay loop></video>
     {/video}
 
     <div class="hero__inner">

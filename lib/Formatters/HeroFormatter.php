@@ -35,18 +35,18 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
-        $button_classes = [];
+        $button_classes = [ 'mt-4' ];
         $box_classes    = [
             'is-' . $layout['align'],
         ];
 
-
         if ( $layout['use_box'] ) {
-            $box_classes[]    = 'hero__box--background';
-            $box_classes[]    = 'has-background-primary';
-            $box_classes[]    = 'has-text-primary-invert';
-            $button_classes[] = 'is-primary-invert';
-            $button_classes[] = 'is-outlined';
+            $layout['container_class'] = 'hero--box';
+            $box_classes[]             = 'hero__box--background';
+            $box_classes[]             = 'has-background-primary';
+            $box_classes[]             = 'has-text-primary-invert';
+            $button_classes[]          = 'is-primary-invert';
+            $button_classes[]          = 'is-outlined';
         }
         else {
             $layout['use_overlay'] = true;
