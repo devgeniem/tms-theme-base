@@ -1,8 +1,15 @@
+/**
+ * Copyright (c) 2021. Geniem Oy
+ * Theme controller.
+ */
+
 import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
 import Table from './table';
+import Image from './image';
+import Modal from './modal';
 
 const globalControllers = {
     Common,
@@ -10,6 +17,8 @@ const globalControllers = {
     MapLayout,
     CopyToClipboard,
     Table,
+    Image,
+    Modal,
 };
 
 const templateControllers = {
@@ -21,11 +30,11 @@ const templateControllers = {
  * This singleton controls theme's JS class running.
  */
 class Theme {
-    // /**
-    //  * The constructor creates the singleton and binds the docready event.
-    //  *
-    //  * @returns {object / void} Either the instance of the class or nothing.
-    //  */
+    /**
+     * The constructor creates the singleton and binds the docready event.
+     *
+     * @return {Theme} Either the instance of the class or nothing.
+     */
     constructor() {
         if ( instance ) {
             return instance;
@@ -55,6 +64,9 @@ class Theme {
     init() {
         // Run all global scripts.
         for ( const className in this._globalControllers ) {
+            if ( ! this._globalControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( typeof this._globalControllers[ className ].init === 'function' ) {
                 this._globalControllers[ className ].init();
             }
@@ -62,6 +74,9 @@ class Theme {
 
         // Run template-specific scripts
         for ( const className in this._templateControllers ) {
+            if ( ! this._templateControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( Theme.documentHasClass( className ) &&
                 typeof this._templateControllers[ className ].init === 'function'
             ) {
@@ -146,6 +161,9 @@ class Theme {
     runDocReady() {
         // Run all global scripts
         for ( const className in this._globalControllers ) {
+            if ( ! this._globalControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( typeof this._globalControllers[ className ].docReady === 'function' ) {
                 this._globalControllers[ className ].docReady();
             }
@@ -153,6 +171,9 @@ class Theme {
 
         // Run template-specific scripts
         for ( const className in this._templateControllers ) {
+            if ( ! this._templateControllers.hasOwnProperty( className ) ) {
+                continue;
+            }
             if ( Theme.documentHasClass( className ) &&
                 typeof this._templateControllers[ className ].docReady === 'function'
             ) {
@@ -164,7 +185,7 @@ class Theme {
     }
 
     /**
-     * Check wheather the body has the given class.
+     * Check whether the body has the given class.
      *
      * @param {string} docClass The body class string.
      * @return {boolean} True of false
@@ -232,7 +253,7 @@ class Theme {
                 const controllerInstance = this.getController( controllerName );
 
                 if ( controllerInstance && typeof controllerInstance[ command ] === 'function' ) {
-                    this.Common.stop( e );
+                    Common.stop( e );
 
                     // Set the event as the first parameter and the actual captured element as the second parameter.
                     controllerInstance[ command ].call( controllerInstance, e, captured.cmd.el );

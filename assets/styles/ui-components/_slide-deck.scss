@@ -1,0 +1,57 @@
+/*!
+ * Copyright (c) 2021. Geniem Oy
+ * Slide deck, used in an image gallery lightbox
+ */
+
+.slide-deck {
+
+    &,
+    .slide {
+        overflow: hidden;
+        width: 85%;
+        margin: auto;
+
+        figure {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-height: 75vh;
+        }
+    }
+
+    & {
+        position: relative;
+
+        ul {
+            margin: auto;
+            padding: 0;
+        }
+    }
+
+    .slide {
+        display: none;
+    }
+
+    &.active {
+        .slide {
+            display: none;
+        }
+    }
+
+    .slide.current {
+        display: block;
+    }
+
+    .slidenav {
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin: 0 .5em;
+        }
+    }
+}

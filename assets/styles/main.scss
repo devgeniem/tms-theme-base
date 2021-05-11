@@ -30,6 +30,7 @@
 @import "~bulma/sass/elements/table";
 @import "~bulma/sass/components/navbar";
 @import "~bulma/sass/components/dropdown";
+@import "~bulma/sass/components/modal";
 @import "~bulma/sass/grid/columns";
 @import "~bulma/sass/layout/section";
 
@@ -61,3 +62,8 @@
 # Flexible Content Layouts
 --------------------------------------------------------------*/
 @import "layouts";
+
+/*--------------------------------------------------------------
+# External resources
+--------------------------------------------------------------*/
+@import "~modaal/source/css/modaal";
