@@ -33,6 +33,9 @@ class Strings extends \DustPress\Model {
             'video'   => [
                 'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'share'   => [
+                'share_article' => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+            ],
             'gallery' => [
                 'close'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
                 'next'     => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),

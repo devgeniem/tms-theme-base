@@ -6,6 +6,7 @@
 $theme-colors: get_brand_color("tunnelma");
 $primary: map-get($theme-colors, "primary");
 $primary-invert: map-get($theme-colors, "primary-invert");
+$primary-light: map-get($theme-colors, "light");
 $primary-dark: map-get($theme-colors, "dark");
 $primary-dark-invert: map-get($theme-colors, "dark-invert");
 $secondary: map-get($theme-colors, "secondary");

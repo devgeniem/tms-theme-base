@@ -60,6 +60,7 @@ class SettingsGroup {
                     [
                         $this->get_header_fields( $field_group->get_key() ),
                         $this->get_map_fields( $field_group->get_key() ),
+                        $this->get_social_media_sharing_fields( $field_group->get_key() ),
                     ]
                 )
             );
@@ -145,6 +146,48 @@ class SettingsGroup {
         $tab->add_fields( [
             $map_placeholder_field,
             $map_button_text_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get social media sharing fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_social_media_sharing_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'           => 'Sosiaalinen media',
+            'some_channels' => [
+                'title'        => 'Kanavat',
+                'instructions' => 'Valitse käytössä olevat kanavat',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $some_channels_field = ( new Field\Checkbox( $strings['some_channels']['title'] ) )
+            ->set_key( "${key}_some_channels" )
+            ->set_name( 'some_channels' )
+            ->set_choices( [
+                'facebook'  => 'Facebook',
+                'email'     => 'Sähköposti',
+                'whatsapp'  => 'WhatsApp',
+                'twitter'   => 'Twitter',
+                'linkedin'  => 'LinkedIn',
+                'vkontakte' => 'VKontakte',
+                'line'      => 'LINE',
+                'link'      => 'Linkki',
+            ] )
+            ->set_instructions( $strings['some_channels']['instructions'] );
+
+        $tab->add_fields( [
+            $some_channels_field,
         ] );
 
         return $tab;

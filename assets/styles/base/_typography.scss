@@ -12,6 +12,17 @@ a {
     &:focus {
         outline: .0625rem dotted;
     }
+
+    &.has-background-primary {
+        &:hover,
+        &:focus {
+            background-color: $primary-light !important;
+        }
+
+        &:active {
+            background-color: $primary-dark !important;
+        }
+    }
 }
 
 .is-text-huge {

@@ -1,4 +1,32 @@
 {>"shared/base" /}
 
 {<content}
+    <main class="main-content" id="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <article class="entry">
+                            <header class="entry__header">
+                                <h1 class="entry__title has-text-centered">
+                                    {@title /}
+                                </h1>
+                            </header>
+
+                            <div class="entry__content is-content-grid">
+                                {@content /}
+
+                                <div class="entry__share-links">
+                                    <h2 class="h6 mt-6 mb-6">
+                                        {Strings.s.share.share_article|s}
+                                    </h2>
+
+                                    {>"ui/share-links" share_links=Single.share_links /}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
 {/content}
