@@ -101,9 +101,9 @@ class BlocksController implements Interfaces\Controller {
      */
     private function allowed_block_types( $allowed_blocks, $post ) {
         $blocks = [
-            'core/block'       => [],
-            'core/template'    => [],
-            'core/heading'     => [
+            'core/block'        => [],
+            'core/template'     => [],
+            'core/heading'      => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
@@ -112,7 +112,7 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-            'core/paragraph'   => [
+            'core/paragraph'    => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
@@ -121,51 +121,54 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-            'core/image'       => [
-                'post_types' => [
-                    PostType\Page::SLUG,
-                    PostType\Post::SLUG,
-                ],
-                'templates'  => [
-                    '',
-                ],
-            ],
-            'acf/image-banner' => [
+            'acf/image-banner'  => [
                 'post_types' => [
                     PostType\Page::SLUG,
                 ],
             ],
-            'acf/key-figures'  => [
+            'acf/key-figures'   => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/link-list'    => [
+            'acf/link-list'     => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/quote'        => [
+            'acf/quote'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/grid'         => [
+            'acf/grid'          => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/accordion'    => [
+            'acf/accordion'     => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                 ],
             ],
-            'acf/video'    => [
+            'acf/video'         => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
+            'acf/image'         => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
+            'acf/image-gallery' => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,

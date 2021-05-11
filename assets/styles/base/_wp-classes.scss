@@ -144,13 +144,23 @@
     }
 }
 
+.gallery-columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 @include from($tablet) {
     .gallery-columns-2 {
-        grid-template-columns: repeat(2, 1fr);
+        &,
+        &-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
     .gallery-columns-3 {
         // grid-template-columns: repeat(3, 1fr);
-        grid-template-columns: 1fr 1fr 1fr;
+        &,
+        &-tablet {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
     .gallery-columns-4 {
         grid-template-columns: repeat(4, 1fr);
