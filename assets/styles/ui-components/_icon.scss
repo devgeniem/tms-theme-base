@@ -5,13 +5,13 @@ $icon-fill: $primary !default;
     fill: $icon-fill;
 
     &--small {
-        width: $theme-spacing-half;
-        height: $theme-spacing-half;
+        width: $theme-spacing-half !important;
+        height: $theme-spacing-half !important;
     }
 
     &--medium {
-        width: $theme-spacing-three-quarters;
-        height: $theme-spacing-three-quarters;
+        width: $theme-spacing-three-quarters !important;
+        height: $theme-spacing-three-quarters !important;
     }
 
     &--large {

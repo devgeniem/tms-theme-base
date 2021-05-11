@@ -1,6 +1,13 @@
 {?rows}
-<div class="section logo-wall layout-logo-wall has-colors-light">
+<div class="section logo-wall layout-logo-wall mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
     <div class="container keep-vertical-spacing">
+
+        {?header}
+            <h2 class="logo-wall__header is-align-full has-text-centered mt-0 mb-6">
+                {header|s}
+            </h2>
+        {/header}
+
         <div class="logo-wall__items-wrapper is-align-full is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly is-align-content-center is-align-items-center has-text-centered {container_class|s}">
             {#rows}
                 <div class="logo-wall__item m-7 is-inline-flex">
