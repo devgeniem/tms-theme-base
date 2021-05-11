@@ -19,6 +19,11 @@ $icon-fill: $primary !default;
         height: $theme-spacing;
     }
 
+    &--xxlarge {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
     &.is-primary {
         fill: $primary;
     }

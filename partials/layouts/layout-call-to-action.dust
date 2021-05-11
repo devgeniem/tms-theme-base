@@ -23,11 +23,7 @@
                         </div>
                     {/description}
 
-                    {?link}
-                        <a href="{link.url}" target="{link.target}" class="button is-primary">
-                            {link.title|s}
-                        </a>
-                    {/link}
+                    {>"ui/button-link" classes="is-primary" icon="chevron-right" icon_class="icon--medium"  /}
                 </div>
             </div>
         {/rows}

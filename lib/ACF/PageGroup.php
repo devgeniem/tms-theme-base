@@ -105,6 +105,7 @@ class PageGroup {
                 Layouts\ContentColumnsLayout::class,
                 Layouts\LogoWallLayout::class,
                 Layouts\MapLayout::class,
+                Layouts\IconLinksLayout::class,
             ]
         );
 

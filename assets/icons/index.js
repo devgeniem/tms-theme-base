@@ -1,8 +1,8 @@
 import './chevron-down.svg';
-import './chevron-right.svg';
-import './email.svg';
 import './chevron-left.svg';
+import './chevron-right.svg';
 import './close.svg';
+import './email.svg';
 import './external.svg';
 import './facebook.svg';
 import './line.svg';
