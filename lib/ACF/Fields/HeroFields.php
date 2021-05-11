@@ -45,10 +45,6 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'image_credits' => [
-                'label'        => 'Kuvan tekijätieto',
-                'instructions' => '',
-            ],
             'video'         => [
                 'label'        => 'Videon URL',
                 'instructions' => '',
@@ -84,12 +80,6 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
-        $image_credits_field = ( new Field\Text( $strings['image_credits']['label'] ) )
-            ->set_key( "${key}_image_credits" )
-            ->set_name( 'image_credits' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['image_credits']['instructions'] );
-
         $video_field = ( new Field\URL( $strings['video']['label'] ) )
             ->set_key( "${key}_video" )
             ->set_name( 'video' )
@@ -113,7 +103,7 @@ class HeroFields extends \Geniem\ACF\Field\Group {
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
             ->set_key( "${key}_link" )
             ->set_name( 'link' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 40 )
             ->set_instructions( $strings['link']['instructions'] );
 
         $align_field = ( new Field\Select( $strings['align']['label'] ) )
@@ -125,19 +115,18 @@ class HeroFields extends \Geniem\ACF\Field\Group {
                 'center' => 'Keskitetty',
             ] )
             ->set_default_value( 'has-text-centered-desktop' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 30 )
             ->set_instructions( $strings['align']['instructions'] );
 
         $use_box_field = ( new Field\TrueFalse( $strings['use_box']['label'] ) )
             ->set_key( "${key}_use_box" )
             ->set_name( 'use_box' )
             ->use_ui()
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 30 )
             ->set_instructions( $strings['use_box']['instructions'] );
 
         return [
             $image_field,
-            $image_credits_field,
             $video_field,
             $title_field,
             $description_field,
