@@ -72,6 +72,8 @@ class QuoteBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+
         if ( ! empty( $data['is_wide'] ) ) {
             $data['extra_classes'] = 'is-align-wide';
         }

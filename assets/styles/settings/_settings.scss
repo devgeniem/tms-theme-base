@@ -16,6 +16,8 @@ $light-invert: map-get($theme-colors, "light-invert");
 $dark: map-get($theme-colors, "dark");
 $dark-invert: map-get($theme-colors, "dark-invert");
 $link: $primary;
+$overlay-background: rgba($black, 0.3);
+$modal-overlay-background: rgba($black, 0.86);
 
 // Theme colors
 // can be used in HTML with .has-background-<color> or .has-text-<color> classes
@@ -73,3 +75,6 @@ $theme-spacing-five: $theme-spacing * 5;
 $theme-spacing-six: $theme-spacing * 6;
 
 // For Bulma spacing helpers, see https://bulma.io/documentation/helpers/spacing-helpers/
+
+// Overrides
+$modal-background-background-color: $modal-overlay-background;
