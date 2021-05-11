@@ -30,6 +30,22 @@
             }
         }
     }
+
+    &-100 {
+        top: 100% !important;
+
+        &-tablet {
+            @include from($tablet) {
+                top: 100% !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                top: 100% !important;
+            }
+        }
+    }
 }
 
 .has-right {

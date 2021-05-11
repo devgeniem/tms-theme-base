@@ -11,7 +11,7 @@
         <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
 
         <header class="site-header">
-            <a href="#main-content" class="u-skip-to-content">
+            <a href="#main-content" class="skip-to-content">
                 {Strings.s.header.skip_to_content|s}
             </a>
         </header>

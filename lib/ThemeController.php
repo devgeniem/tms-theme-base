@@ -78,6 +78,7 @@ class ThemeController {
             'Images'              => new Images(),
             'Localization'        => new Localization(),
             'PostTypeController'  => new PostTypeController(),
+            'Roles'               => new Roles(),
             'TaxonomyController'  => new TaxonomyController(),
             'ThemeSupports'       => new ThemeSupports(),
         ];

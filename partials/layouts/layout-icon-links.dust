@@ -1,0 +1,31 @@
+<section class="icon-links section pt-12 pb-12 has-background-primary-light--opaque-light has-text-centered">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="icon-links__grid">
+                    {#rows}
+                        <div class="icon-links__item keep-vertical-spacing">
+                            {?icon}
+                                {>"ui/icon" class="icon--xxlarge is-primary mb-4" /}
+                            {/icon}
+
+                            {?title}
+                                <h2 class="h4 mt-0 mb-5">
+                                    {title|s}
+                                </h2>
+                            {/title}
+
+                            {?description}
+                                <div class="mb-5">
+                                    {description|s}
+                                </div>
+                            {/description}
+
+                            {>"ui/button-link" classes="is-small is-primary is-outlined" /}
+                        </div>
+                    {/rows}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

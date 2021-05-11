@@ -1,5 +1,5 @@
 {?image}
     <div class="image is-16by9 mt-4 mb-4 mt-8-tablet mb-8-tablet">
-        {@image id=image size="large" class="objectfit-cover" /}
+        {@image id=image size="large" class="objectfit-image" /}
     </div>
 {/image}

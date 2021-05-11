@@ -24,9 +24,11 @@
                             {@image id=placeholder size="xlarge" class="objectfit-cover"/}
 
                             <div class="is-overlay">
-                                <button class="js-map-layout-toggle button is-primary is-absolute has-top-50 has-left-50 has-transform-x--50"
+                                <button class="js-map-layout-toggle button button--icon is-primary is-absolute has-top-50 has-left-50 has-transform-x--50"
                                         data-target="#{id|s}">
                                     {map_button_text|s}
+
+                                    {>"ui/icon" icon="chevron-right" class="icon--medium" /}
                                 </button>
                             </div>
                         </div>

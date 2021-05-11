@@ -1,0 +1,13 @@
+<div class="table is-align-wide mt-6 mb-6" {?anchor} id="{anchor}"{/anchor}>
+    {?title}
+        <h2 class="h4 mt-0 mb-6">
+            {title|s}
+        </h2>
+    {/title}
+
+    {?table_markup}
+        <div class="table-container">
+            {table_markup|s}
+        </div>
+    {/table_markup}
+</div>

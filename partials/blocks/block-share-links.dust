@@ -1,0 +1,12 @@
+{?share_links}
+
+    <div class="share-links mt-6 mb-6">
+        {?title}
+            <h2 class="h6 mt-0 mb-6">
+                {title|s}
+            </h2>
+        {/title}
+
+        {>"ui/share-links" /}
+    </div>
+{/share_links}
