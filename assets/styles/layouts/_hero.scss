@@ -78,12 +78,6 @@
 
         &--background {
             padding: 3.25rem;
-
-            .hero__image-credits {
-                @include from($desktop) {
-                    transform: translateY(100%);
-                }
-            }
         }
 
         &.is-center {
@@ -188,9 +182,5 @@
         @include from($tablet) {
             max-width: 70%;
         }
-    }
-
-    &__image-credits {
-        background-color: rgba($black, .5); // sass-lint:disable-line no-color-literals
     }
 }
