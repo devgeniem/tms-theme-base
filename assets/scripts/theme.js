@@ -11,6 +11,7 @@ import Hero from './hero';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import Header from './header';
 
 const globalControllers = {
     Common,
@@ -21,6 +22,7 @@ const globalControllers = {
     Table,
     Image,
     Modal,
+    Header,
 };
 
 const templateControllers = {

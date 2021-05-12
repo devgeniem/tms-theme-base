@@ -1,0 +1,47 @@
+<div class="site-header__wrapper">
+    <div class="site-header__branding pt-4-desktop pb-4-desktop">
+        {>"shared/header-logo" /}
+
+        <div class="site-header__end ml-auto-desktop">
+            <div class="is-hidden-touch is-hidden-desktop-only">
+                {>"ui/menu/secondary-nav" /}
+            </div>
+
+            {>"{Header.language_nav.partial}" links=Header.language_nav.links  /}
+
+            {>"shared/header-search-toggle"  /}
+
+            {>"shared/header-brand" /}
+        </div>
+    </div>
+
+    <div id="js-search-toggle-target"
+         class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
+         role="search">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8 is-offset-2-tablet is-6-desktop is-offset-3-desktop">
+                    <div class="pt-6 pb-6 pt-8-desktop pb-8-desktop">
+                        <div class="popup__label h4 mb-6">
+                            {Strings.s.header.search_title|s}
+                        </div>
+
+                        {>"ui/search-form" /}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{!
+<div class="site-header__nav is-relative has-background-primary">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {@menu menu_name="primary" ul_classes="primary-menu" menuitem_partial="ui/menu/menuitem" /}
+            </div>
+        </div>
+    </div>
+</div>
+!}

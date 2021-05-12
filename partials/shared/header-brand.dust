@@ -1,0 +1,5 @@
+<div class="site-header__brand">
+    {?Header.brand_logo}
+        {@image id=Header.brand_logo size="large" /}
+    {/Header.brand_logo}
+</div>

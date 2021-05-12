@@ -1,0 +1,17 @@
+<div class="site-header__logo">
+    {?Header.logo}
+        {?Header.home_url}
+            <a href="{Header.home_url}">
+                {@image id=Header.logo size="medium" /}
+            </a>
+        {:else}
+            {@image id=Header.logo size="large" /}
+        {/Header.home_url}
+    {/Header.logo}
+
+    {?Header.tagline}
+        <div class="site-header__tagline is-family-secondary is-size-7">
+            {Header.tagline|s}
+        </div>
+    {/Header.tagline}
+</div>

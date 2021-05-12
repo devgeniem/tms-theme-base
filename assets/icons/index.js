@@ -10,6 +10,7 @@ import './link.svg';
 import './linkedin.svg';
 import './pause.svg';
 import './play.svg';
+import './search.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';

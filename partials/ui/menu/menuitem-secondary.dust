@@ -1,0 +1,5 @@
+<li class="ml-4-desktop ml-6-fullhd is-uppercase is-family-secondary has-text-weight-semibold">
+    <a class="has-text-black" href="{url}">
+        {title|s}
+    </a>
+</li>
