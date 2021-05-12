@@ -8,6 +8,7 @@ import './facebook.svg';
 import './line.svg';
 import './link.svg';
 import './linkedin.svg';
+import './phone.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';

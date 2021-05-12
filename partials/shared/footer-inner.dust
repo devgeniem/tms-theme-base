@@ -1,0 +1,93 @@
+{#Footer}
+    <footer class="site-footer section has-background-primary has-text-primary-invert">
+        <div class="container is-relative">
+            {?logo}
+                <div class="columns">
+                    <div class="column">
+                        {@image id=logo size="medium" /}
+                    </div>
+                </div>
+            {/logo}
+
+            <div class="columns is-multiline">
+                {?contact_info}
+                    <div class="column is-6-tablet is-3-widescreen has-text-small">
+                        {?contact_info.title}
+                            <h2 class="h4 mt-4 mb-4">
+                                {contact_info.title|s}
+                            </h2>
+                        {/contact_info.title}
+
+                        {?contact_info.address}
+                            <div class="mt-4 mb-4 keep-vertical-spacing">
+                                {contact_info.address|s}
+                            </div>
+                        {/contact_info.address}
+
+                        {?contact_info.email}
+                            <a href="mailto:{contact_info.email|s}"
+                               class="is-flex is-align-items-center mb-2 has-text-primary-invert">
+                                {>"ui/icon" icon="email" class="icon--large is-primary-invert mr-2" /}
+                                <span>{contact_info.email|s}</span>
+                            </a>
+                        {/contact_info.email}
+
+                        {?contact_info.phone}
+                            <a href="tel:{contact_info.phone|s}"
+                               class="is-flex is-align-items-center has-text-primary-invert">
+                                {>"ui/icon" icon="phone" class="icon--large is-primary-invert mr-2" /}
+                                <span>{contact_info.phone|s}</span>
+                            </a>
+                        {/contact_info.phone}
+                    </div>
+                {/contact_info}
+
+                {#link_columns}
+                    <div class="column is-6-tablet is-3-widescreen">
+                        {?column_title}
+                            <h2 class="h4 mt-4 mb-4">
+                                {column_title|s}
+                            </h2>
+                        {/column_title}
+
+                        <ul class="is-unstyled has-text-weight-medium is-family-secondary has-text-small">
+                            {#link_column}
+                                <li class="mb-2">
+                                    <a href="{link.url}" target="{link.target}"
+                                       class="is-flex is-align-items-center has-text-primary-invert has-text-decoration-underline">
+                                        {>"ui/icon" icon="chevron-right" class="icon--small is-primary-invert mr-2" /}
+                                        <span>{link.title|s}</span>
+                                    </a>
+                                </li>
+                            {/link_column}
+                        </ul>
+                    </div>
+                {/link_columns}
+            </div>
+            <div class="columns mt-6 mt-8-desktop">
+                <div class="column">
+                    <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-small">
+                        <li class="is-relative pr-3">
+                            {copyright|s}
+                        </li>
+
+                        {#privacy_links}
+                            <li class="is-relative ml-3 pr-3">
+                                <a href="{privacy_link.url}" target="{privacy_link.target}"
+                                   class="has-text-primary-invert has-text-decoration-underline">
+                                    {privacy_link.title|s}
+                                </a>
+                            </li>
+                        {/privacy_links}
+
+                        {?hero_credits}
+                            <li class="is-relative ml-3 pr-3">
+                                {hero_credits|s}
+                            </li>
+                        {/hero_credits}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+{/Footer}
