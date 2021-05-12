@@ -5,7 +5,7 @@
         {/title}
 
         {?description}
-            <p class="has-text-small">{description|s}</p>
+            <p class="has-text-small pl-2 pr-2">{description|s}</p>
         {/description}
 
         {?link}

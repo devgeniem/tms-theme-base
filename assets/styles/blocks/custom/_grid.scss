@@ -29,6 +29,9 @@
                     white-space: normal;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    line-height: 1.76;
+                    // lines (1rem per line) * body size * line-height
+                    max-height: calc((3rem * #{$body-size}) * 1.76);
                 }
             }
         }
