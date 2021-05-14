@@ -91,6 +91,14 @@ export default class Hero {
             el.play();
             this.container.toggleClass( 'has-video-playing' );
             this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
+
+            window.setTimeout( () => {
+                this.container
+                    .find( '.hero__control--pause' )
+                    .fadeOut( 200, function() {
+                        $( this ).prop( 'style', '' );
+                    } );
+            }, 1000 );
         }
     }
 
