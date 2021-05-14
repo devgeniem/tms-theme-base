@@ -11,6 +11,7 @@ import CopyToClipboard from './copy-to-clipboard';
 import Image from './image';
 import Table from './table';
 import Hero from './hero';
+import BackToTop from './back-to-top';
 
 const globalControllers = {
     Common,
@@ -21,6 +22,7 @@ const globalControllers = {
     Modal,
     Table,
     Hero,
+    BackToTop,
 };
 
 const templateControllers = {
