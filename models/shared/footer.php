@@ -11,10 +11,49 @@ use TMS\Theme\Base\Settings;
  */
 class Footer extends Model {
 
+    /**
+     * Logo
+     *
+     * @return mixed
+     */
     public function logo() {
         return Settings::get_setting( 'footer_logo' );
     }
 
+    /**
+     * Brand logo url
+     *
+     * @return string
+     */
+    public function brand_logo_url() : string {
+        if ( DPT_PLL_ACTIVE && 'fi' !== pll_current_language() ) {
+            return 'https://www.tampere.fi/en/';
+        }
+
+        return 'https://www.tampere.fi/';
+    }
+
+    /**
+     * Get class for footer columns
+     *
+     * @return string
+     */
+    public function column_class() : string {
+        $contact_info = $this->contact_info();
+        $columns      = $this->link_columns();
+        $count        = empty( $columns ) ? 0 : count( $columns );
+        $count        = empty( $contact_info ) ? $count : ++ $count;
+
+        return $count <= 3
+            ? 'is-6 is-4-widescreen'
+            : 'is-6 is-3-widescreen';
+    }
+
+    /**
+     * Contact info
+     *
+     * @return array|null
+     */
     public function contact_info() {
         $info = [
             'title'   => Settings::get_setting( 'contact_title' ),
@@ -23,19 +62,16 @@ class Footer extends Model {
             'phone'   => Settings::get_setting( 'phone' ),
         ];
 
-        $has_values = false;
-
-        foreach ( $info as $val ) {
-            if ( ! empty( $val ) ) {
-                $has_values = true;
-            }
-        }
-
-        return $has_values
+        return 0 !== count( array_filter( $info, fn( $val ) => ! empty( $val ) ) )
             ? $info
             : null;
     }
 
+    /**
+     * Get link columns
+     *
+     * @return mixed|null
+     */
     public function link_columns() {
         $columns = Settings::get_setting( 'link_columns' ) ?? null;
 
@@ -57,6 +93,11 @@ class Footer extends Model {
         return $columns;
     }
 
+    /**
+     * Get privacy links
+     *
+     * @return mixed|null
+     */
     public function privacy_links() {
         $links = Settings::get_setting( 'privacy_links' ) ?? null;
 
@@ -64,20 +105,24 @@ class Footer extends Model {
             return null;
         }
 
-        foreach ( $links as $key => $link ) {
-            if ( empty( $link['privacy_link'] ) ) {
-                unset( $links[ $key ] );
-            }
-        }
-
-        return $links;
+        return array_filter( $links, fn( $link ) => ! empty( $link['privacy_link'] ) );
     }
 
+    /**
+     * Get hero credits
+     *
+     * @return mixed|null
+     */
     public function hero_credits() {
         return Settings::get_setting( 'hero_credits' ) ?? null;
     }
 
-    public function copyright() {
+    /**
+     * Get copyright
+     *
+     * @return string
+     */
+    public function copyright() : string {
         return sprintf(
             '&copy; %s %s',
             date( 'Y' ),

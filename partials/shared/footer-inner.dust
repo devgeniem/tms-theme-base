@@ -2,7 +2,7 @@
     <footer class="site-footer section has-background-primary has-text-primary-invert">
         <div class="container is-relative">
             {?logo}
-                <div class="columns">
+                <div class="columns pt-10 pt-0-tablet">
                     <div class="column">
                         {@image id=logo size="medium" /}
                     </div>
@@ -11,7 +11,7 @@
 
             <div class="columns is-multiline">
                 {?contact_info}
-                    <div class="column is-6-tablet is-3-widescreen has-text-small">
+                    <div class="column {column_class|s} has-text-small">
                         {?contact_info.title}
                             <h2 class="h4 mt-4 mb-4">
                                 {contact_info.title|s}
@@ -43,7 +43,7 @@
                 {/contact_info}
 
                 {#link_columns}
-                    <div class="column is-6-tablet is-3-widescreen">
+                    <div class="column {column_class|s}">
                         {?column_title}
                             <h2 class="h4 mt-4 mb-4">
                                 {column_title|s}
@@ -64,8 +64,9 @@
                     </div>
                 {/link_columns}
             </div>
-            <div class="columns mt-6 mt-8-desktop">
-                <div class="column">
+
+            <div class="columns is-multiline is-vcentered mt-4 mt-0-desktop">
+                <div class="column is-10-desktop">
                     <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-small">
                         <li class="is-relative pr-3">
                             {copyright|s}
@@ -87,7 +88,20 @@
                         {/hero_credits}
                     </ul>
                 </div>
+
+                <div class="column is-12 is-2-desktop mt-6 mt-0-desktop has-text-centered has-text-right-desktop">
+                    <a href="{brand_logo_url}">
+                        <span class="is-sr-only">{Strings.s.footer.to_main_site|s}</span>
+                        {>"ui/icon" icon="tampere-vaakuna" class="brand-logo is-primary-invert" /}
+                    </a>
+                </div>
             </div>
+
+            <button id="js-back-to-top"
+               class="button button--icon is-primary is-inverted is-outlined is-absolute has-top-0 has-right-0 mt-6">
+                {Strings.s.footer.back_to_top|s}
+                {>"ui/icon" icon="chevron-up" class="icon--medium is-primary-invert" /}
+            </button>
         </div>
     </footer>
 {/Footer}

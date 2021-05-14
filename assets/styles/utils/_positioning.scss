@@ -15,6 +15,22 @@
 }
 
 .has-top {
+    &-0 {
+        top: 0 !important;
+
+        &-tablet {
+            @include from($tablet) {
+                top: 0 !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                top: 0 !important;
+            }
+        }
+    }
+
     &-50 {
         top: 50% !important;
 
