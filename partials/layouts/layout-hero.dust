@@ -6,7 +6,7 @@
 
     {?video}
         <div class="is-overlay is-clipped">
-            <video src="{video}" class="hero__video is-hidden" loop muted></video>
+            <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
 
             <button class="hero__control hero__control--play" aria-label="{play_video|s}">
                 {>"ui/icon" icon="play" class="icon--xxlarge"  /}
