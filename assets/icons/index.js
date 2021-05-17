@@ -5,6 +5,7 @@ import './close.svg';
 import './email.svg';
 import './external.svg';
 import './facebook.svg';
+import './file.svg';
 import './line.svg';
 import './link.svg';
 import './linkedin.svg';

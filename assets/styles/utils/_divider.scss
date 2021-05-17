@@ -1,0 +1,21 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.has-divider {
+    &-dark-grey {
+        > * {
+            border-color: $color-tumma-harmaa;
+        }
+    }
+
+    &-x-1 {
+        > * {
+            border-right: 1px solid;
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+}

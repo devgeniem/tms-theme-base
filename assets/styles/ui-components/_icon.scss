@@ -19,6 +19,11 @@ $icon-fill: $primary !default;
         height: $theme-spacing;
     }
 
+    &--xlarge {
+        width: $theme-spacing-oneandhalf;
+        height: $theme-spacing-oneandhalf;
+    }
+
     &--xxlarge {
         width: 4.5rem;
         height: 4.5rem;
@@ -34,5 +39,9 @@ $icon-fill: $primary !default;
 
     &.is-black {
         fill: $black;
+    }
+
+    &.is-gray {
+        fill: $color-tumma-harmaa;
     }
 }
