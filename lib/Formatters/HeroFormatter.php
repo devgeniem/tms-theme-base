@@ -56,8 +56,6 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $layout['button_classes'] = implode( ' ', $button_classes );
         $layout['box_classes']    = implode( ' ', $box_classes );
-        $layout['play_video']     = __( 'Play video', 'tms-theme-base' );
-        $layout['pause_video']    = __( 'Pause video', 'tms-theme-base' );
 
         return $layout;
     }
