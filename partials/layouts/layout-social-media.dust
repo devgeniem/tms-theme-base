@@ -1,0 +1,30 @@
+<div class="section social-media has-background-secondary">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2 has-text-centered has-text-black">
+                {?title}
+                    <h2 class="mt-0 mb-6">
+                        {title|s}
+                    </h2>
+                {/title}
+
+                {?description}
+                    <div class="social-media__description mb-4 mb-6-desktop is-family-secondary has-text-weight-semibold has-text-large">
+                        {description|s}
+                    </div>
+                {/description}
+            </div>
+
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                {?flocker_embed}
+                    <div class="social-media__flocker-embed">
+                        {flocker_embed|s}
+                    </div>
+                {/flocker_embed}
+            </div>
+        </div>
+    </div>
+</div>
