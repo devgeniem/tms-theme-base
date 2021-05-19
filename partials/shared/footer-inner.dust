@@ -1,6 +1,6 @@
 {#Footer}
     <footer class="site-footer section has-background-primary has-text-primary-invert">
-        <div class="container is-relative">
+        <div class="container is-relative {^logo}pt-9{/logo}">
             {?logo}
                 <div class="columns pt-10 pt-0-tablet">
                     <div class="column">
@@ -98,7 +98,7 @@
             </div>
 
             <button id="js-back-to-top"
-               class="button button--icon is-primary is-inverted is-outlined is-absolute has-top-0 has-right-0 mt-6">
+               class="button button--icon is-primary is-inverted is-outlined is-absolute has-top-0 has-right-0 {?logo}mt-6{/logo}">
                 {Strings.s.footer.back_to_top|s}
                 {>"ui/icon" icon="chevron-up" class="icon--medium is-primary-invert" /}
             </button>
