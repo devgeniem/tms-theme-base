@@ -5,7 +5,7 @@
     {/use_overlay}
 
     {?video}
-        <div class="is-overlay is-clipped">
+        <div class="is-overlay is-clipped" aria-hidden="true" tabindex="-1">
             <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
 
             <button class="hero__control hero__control--play" aria-label="{play_video|s}">
