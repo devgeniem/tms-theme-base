@@ -1,3 +1,5 @@
+        {>"shared/footer-inner" /}
+
         {@wpfooter /}
     </body>
 </html>

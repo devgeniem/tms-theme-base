@@ -7,9 +7,11 @@ import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
+import Hero from './hero';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
 
 const globalControllers = {
@@ -18,9 +20,11 @@ const globalControllers = {
     Accordion,
     MapLayout,
     CopyToClipboard,
+    Hero,
     Table,
     Image,
     Modal,
+    BackToTop,
 };
 
 const templateControllers = {
