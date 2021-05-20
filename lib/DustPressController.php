@@ -31,6 +31,7 @@ class DustPressController implements Interfaces\Controller {
             return dustpress()->dust;
         } );
 
+        dustpress()->add_helper( 'inlinebg', new Helpers\InlineBackgroundHelper() );
         dustpress()->add_helper( 'image', new ImageAdvanced() );
     }
 }

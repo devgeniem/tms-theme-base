@@ -1,11 +1,17 @@
+// sass-lint:disable no-color-literals
+
 .overlay {
     @extend %overlay;
 
-    &--dark-30 {
-        background-color: rgba($black, .3);
+    &--dark-50 {
+        background-color: rgba($black, .5);
     }
 
     &--dark-40 {
         background-color: rgba($black, .4);
+    }
+
+    &--dark-30 {
+        background-color: rgba($black, .3);
     }
 }

@@ -1,0 +1,7 @@
+{>"shared/base" /}
+
+{<content}
+    <main class="main-content" id="main-content">
+        {>"ui/components" components=PageFrontPage.components /}
+    </main>
+{/content}
