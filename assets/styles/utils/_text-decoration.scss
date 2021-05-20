@@ -1,0 +1,13 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.has-text-decoration {
+    &-underline {
+        text-decoration: underline;
+    }
+
+    &-none {
+        text-decoration: none;
+    }
+}

@@ -89,6 +89,62 @@ $button-border-radius: 1.8rem;
         color: $button-color-active !important;
     }
 
+    &.is-inverted {
+        border-color: $button-color-inverted !important;
+        color: $button-color-inverted !important;
+        background-color: $button-background-color-inverted !important;
+
+        .icon {
+            fill: $button-color-inverted !important;
+        }
+
+        &:hover,
+        &.is-hovered {
+            border-color: $button-color-inverted-hover !important;
+            background: $button-background-color-inverted-hover !important;
+            color: $button-color-inverted-hover !important;
+
+            .icon {
+                fill: $button-color-inverted-hover !important;
+            }
+        }
+
+        &:focus,
+        &.is-focused {
+            border-color: $button-border-color-focus !important;
+        }
+
+        &.is-outlined {
+            background-color: transparent !important;
+
+            .icon {
+                fill: $button-color-inverted !important;
+            }
+        }
+    }
+
+    &.is-borderless {
+        border-color: transparent !important;
+
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active,
+        &:hover,
+        &.is-hovered {
+            border-color: transparent !important;
+        }
+    }
+
+    &.is-small {
+        padding: .36rem 1.5rem !important;
+        border-radius: 1.7rem !important;
+
+        .icon {
+            display: none;
+        }
+    }
+
     // Then the color variation generation
     @each $name, $pair in $button-colors {
         @if type-of($pair) == "map" {
@@ -148,7 +204,7 @@ $button-border-radius: 1.8rem;
                     border-color: $primary !important;
 
                     .icon {
-                        fill: $primary !important;
+                        fill: $primary-invert !important;
                     }
 
                     &:hover,
@@ -181,6 +237,28 @@ $button-border-radius: 1.8rem;
 
                         .icon {
                             fill: $dark !important;
+                        }
+                    }
+
+                    &.is-outlined {
+                        color: $primary-invert !important;
+                        background-color: transparent !important;
+                        border-color: $primary-invert !important;
+
+                        &:hover {
+                            border-color: $primary-light !important;
+
+                            .icon {
+                                fill: $primary-invert !important;
+                            }
+                        }
+
+                        &:focus {
+                            border-color: $button-border-color-focus !important;
+
+                            .icon {
+                                fill: $primary-invert !important;
+                            }
                         }
                     }
                 }
@@ -228,52 +306,5 @@ $button-border-radius: 1.8rem;
         }
     }
 
-    &.is-inverted {
-        border-color: $button-color-inverted !important;
-        color: $button-color-inverted !important;
-        background-color: $button-background-color-inverted !important;
-
-        .icon {
-            fill: $button-color-inverted !important;
-        }
-
-        &:hover,
-        &.is-hovered {
-            border-color: $button-color-inverted-hover !important;
-            background: $button-background-color-inverted-hover !important;
-            color: $button-color-inverted-hover !important;
-
-            .icon {
-                fill: $button-color-inverted-hover !important;
-            }
-        }
-
-        &:focus,
-        &.is-focused {
-            border-color: $button-border-color-focus !important;
-        }
-    }
-
-    &.is-borderless {
-        border-color: transparent !important;
-
-        &:focus,
-        &.is-focused,
-        &:active,
-        &.is-active,
-        &:hover,
-        &.is-hovered {
-            border-color: transparent !important;
-        }
-    }
-
-    &.is-small {
-        padding: .36rem 1.5rem !important;
-        border-radius: 1.7rem !important;
-
-        .icon {
-            display: none;
-        }
-    }
 
 }
