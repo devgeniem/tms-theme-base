@@ -1,13 +1,15 @@
-{?link}
-    <a href="{link.url}" target="{link.target}" class="button {?icon}button--icon{/icon} {classes|s}">
-        {link.title|s}
+{?link.url}
+    {?link.title}
+        <a href="{link.url}" target="{link.target}" class="button {?icon}button--icon{/icon} {classes|s}">
+            {link.title|s}
 
-        {@eq key=link.target value="_blank"}
-            <span class="is-sr-only"> {Strings.s.common.target_blank|s} </span>
-        {/eq}
+            {@eq key=link.target value="_blank"}
+                <span class="is-sr-only"> {Strings.s.common.target_blank|s} </span>
+            {/eq}
 
-        {?icon}
-            {>"ui/icon" class=icon_classes /}
-        {/icon}
-    </a>
-{/link}
+            {?icon}
+                {>"ui/icon" class=icon_classes /}
+            {/icon}
+        </a>
+    {/link.title}
+{/link.url}
