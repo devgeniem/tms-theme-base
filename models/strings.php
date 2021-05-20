@@ -42,6 +42,9 @@ class Strings extends \DustPress\Model {
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'common' => [
+                'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
+            ]
         ];
     }
 }
