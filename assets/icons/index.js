@@ -9,8 +9,11 @@ import './facebook.svg';
 import './line.svg';
 import './link.svg';
 import './linkedin.svg';
+import './pause.svg';
 import './phone.svg';
+import './play.svg';
 import './tampere-vaakuna.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
+
