@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-37: Social Media layout #44
 - TMS-33-icons: Add icons to IconLInks Layout #43
 - TMS-65: Hero Layout #34
 - TMS-55: Footer #38
