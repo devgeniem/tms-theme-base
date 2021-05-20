@@ -126,6 +126,7 @@ export default class Common {
         this.cache();
         this.events();
         this.objectFitFallback();
+        this.hyphenateElements();
     }
 
     /**
@@ -378,5 +379,28 @@ export default class Common {
             : decodeURIComponent(
                 results[ 1 ].replace( /\+/g, ' ' )
             );
+    }
+
+    /**
+     * Hyphenate entry titles.
+     *
+     * @return {void}
+     */
+    hyphenateElements() {
+        const selectors = [
+            '.hyphenate',
+            'h1', '.h1',
+            'h2', '.h2',
+            'h3', '.h3',
+            'h4', '.h4',
+            'h5', '.h5',
+            'h6', '.h6',
+        ];
+
+        const hyphenationController = window.Theme.getController( 'Hyphenation' );
+
+        selectors.forEach( ( selector ) => {
+            hyphenationController.hyphenate( selector );
+        } );
     }
 }

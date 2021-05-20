@@ -13,9 +13,11 @@ import Image from './image';
 import Modal from './modal';
 import ImageCarousel from './image-carousel';
 import BackToTop from './back-to-top';
+import Hyphenation from './hyphenation';
 
 const globalControllers = {
     Common,
+    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
