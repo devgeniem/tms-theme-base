@@ -5,18 +5,23 @@ $icon-fill: $primary !default;
     fill: $icon-fill;
 
     &--small {
-        width: $theme-spacing-half !important;
-        height: $theme-spacing-half !important;
+        width: $theme-spacing-half !important; // sass-lint:disable-line no-important
+        height: $theme-spacing-half !important; // sass-lint:disable-line no-important
     }
 
     &--medium {
-        width: $theme-spacing-three-quarters !important;
-        height: $theme-spacing-three-quarters !important;
+        width: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
+        height: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
     }
 
     &--large {
         width: $theme-spacing;
         height: $theme-spacing;
+    }
+
+    &--xlarge {
+        width: $theme-spacing-oneandhalf;
+        height: $theme-spacing-oneandhalf;
     }
 
     &--xxlarge {
@@ -25,14 +30,18 @@ $icon-fill: $primary !default;
     }
 
     &.is-primary {
-        fill: $primary;
+        fill: $primary !important; // sass-lint:disable-line no-important
     }
 
     &.is-primary-invert {
-        fill: $primary-invert;
+        fill: $primary-invert !important; // sass-lint:disable-line no-important
     }
 
     &.is-black {
-        fill: $black;
+        fill: $black !important; // sass-lint:disable-line no-important
+    }
+
+    &.is-gray {
+        fill: $color-tumma-harmaa;
     }
 }

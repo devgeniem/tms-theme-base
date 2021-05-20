@@ -1,0 +1,15 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.has-width {
+    &-100 {
+        width: 100%;
+
+        &-until-tablet {
+            @include until($tablet) {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -47,6 +47,22 @@ class Roles implements \TMS\Theme\Base\Interfaces\Controller {
             'edit_published_site_settings'   => true,
             'edit_site_settings'             => true,
 
+            // Materials
+            'edit_material'                  => true,
+            'read_material'                  => true,
+            'delete_material'                => true,
+            'edit_others_materials'          => true,
+            'delete_materials'               => true,
+            'publish_materials'              => true,
+            'publish_material'               => true,
+            'read_private_materials'         => true,
+            'delete_private_materials'       => true,
+            'delete_published_materials'     => true,
+            'delete_others_materials'        => true,
+            'edit_private_materials'         => true,
+            'edit_published_materials'       => true,
+            'edit_materials'                 => true,
+
             // Common
             'unfiltered_html'                => true,
         ];

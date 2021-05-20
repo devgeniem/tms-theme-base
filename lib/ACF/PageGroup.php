@@ -41,7 +41,8 @@ class PageGroup {
                 ->set_key( 'fg_page_components' );
 
             $rule_group = ( new RuleGroup() )
-                ->add_rule( 'post_type', '==', PostType\Page::SLUG );
+                ->add_rule( 'post_type', '==', PostType\Page::SLUG )
+                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE );
 
             $field_group
                 ->add_rule_group( $rule_group )

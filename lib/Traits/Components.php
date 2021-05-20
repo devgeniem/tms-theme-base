@@ -50,7 +50,7 @@ trait Components {
 
             $acf_layout        = $layout['acf_fc_layout'];
             $layout_name       = str_replace( '_', '-', $acf_layout );
-            $layout['partial'] = 'partials/layouts/layout-' . $layout_name . '.dust';
+            $layout['partial'] = 'layout-' . $layout_name . '.dust';
 
             $handled[] = apply_filters(
                 "tms/acf/layout/${acf_layout}/data",
