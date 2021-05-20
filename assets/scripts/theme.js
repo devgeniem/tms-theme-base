@@ -6,9 +6,10 @@
 import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
-import Modal from './modal';
 import CopyToClipboard from './copy-to-clipboard';
 import Image from './image';
+import Modal from './modal';
+import ImageCarousel from './image-carousel';
 import Table from './table';
 import Hero from './hero';
 import BackToTop from './back-to-top';
@@ -20,6 +21,7 @@ const globalControllers = {
     CopyToClipboard,
     Image,
     Modal,
+    ImageCarousel,
     Table,
     Hero,
     BackToTop,

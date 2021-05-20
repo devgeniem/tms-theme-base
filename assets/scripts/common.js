@@ -287,6 +287,33 @@ export default class Common {
     }
 
     /**
+     * Makes a button element
+     *
+     * @param {string} contents What to add inside the button element.
+     * @param {string} classes CSS Classes to add to the element.
+     * @param {string} type Type of the button, 'button' as default.
+     *
+     * @return {string} Button element HTML.
+     */
+    static makeButton( contents = '', classes = '', type = 'button' ) {
+        const button = document.createElement( 'button' );
+
+        if ( classes.length ) {
+            button.className = classes;
+        }
+
+        if ( type.length ) {
+            button.type = type;
+        }
+
+        if ( contents.length ) {
+            button.insertAdjacentHTML( 'afterbegin', contents );
+        }
+
+        return button.outerHTML;
+    }
+
+    /**
      * Generates a svg container that uses icon with an ID.
      *
      * @param {string} icon Icon ID.
