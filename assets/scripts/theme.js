@@ -10,9 +10,11 @@ import CopyToClipboard from './copy-to-clipboard';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import Hyphenation from './hyphenation';
 
 const globalControllers = {
     Common,
+    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
