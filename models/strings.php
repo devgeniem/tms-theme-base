@@ -49,7 +49,7 @@ class Strings extends \DustPress\Model {
             ],
             'common' => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
-            ]
+            ],
         ];
     }
 }
