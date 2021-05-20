@@ -7,7 +7,7 @@
 
     <div class="overlay overlay--dark-40"></div>
 
-    <div class="grid__item__details is-order-0 has-text-left is-absolute has-top-0 has-right-0 has-left-0 is-flex is-align-self-flex-end is-flex-direction-column is-justify-content-end pb-7 pr-6 pl-6 has-text-white">
+    <div class="grid__item__details is-order-0 has-text-left is-absolute has-bottom-0 pb-7 pr-6 pl-6 has-text-white">
         {?title}
             <h3 class="h4 mb-0 has-text-white">{title}</h3>
         {/title}
