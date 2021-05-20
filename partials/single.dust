@@ -16,13 +16,15 @@
                             <div class="entry__content is-content-grid">
                                 {@content /}
 
-                                <div class="entry__share-links">
-                                    <h2 class="h6 mt-6 mb-6">
-                                        {Strings.s.share.share_article|s}
-                                    </h2>
+                                {?Single.share_links}
+                                    <div class="entry__share-links">
+                                        <h2 class="h6 mt-6 mb-6">
+                                            {Strings.s.share.share_article|s}
+                                        </h2>
 
-                                    {>"ui/share-links" share_links=Single.share_links /}
-                                </div>
+                                        {>"ui/share-links" share_links=Single.share_links /}
+                                    </div>
+                                {/Single.share_links}
                             </div>
                         </article>
                     </div>
