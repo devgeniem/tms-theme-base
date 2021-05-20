@@ -91,8 +91,7 @@ export default class Hyphenation {
 
                 elements.each( ( idx, node ) => {
                     const element = $( node );
-                    const hyphenatedText = h( element.html() ).replace( regExp, '­' );
-                    element.html( hyphenatedText );
+                    element.innerHTML = h( element.innerHTML ).replace( regExp, '­' );
                 } );
             }
             catch ( e ) {
