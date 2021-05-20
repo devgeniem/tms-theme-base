@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-40-rework: Grid fixes, cleanup #36
 - TMS-28-rework: Logo Wall spacings and hyphenation #37
 - TMS-32-files: Allow template to be overridden from plugins #41
 - TMS-33-icons: Add icons to IconLInks Layout #43
