@@ -50,6 +50,8 @@ html {
     .has-text-lead {
         font-size: map-get($calculated_sizes, "h6") !important;
         line-height: 1.62;
+        font-family: $family-sans-serif;
+        font-weight: 600;
     }
 
     .has-text-small {

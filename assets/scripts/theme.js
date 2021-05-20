@@ -10,6 +10,7 @@ import CopyToClipboard from './copy-to-clipboard';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import ImageCarousel from './image-carousel';
 
 const globalControllers = {
     Common,
@@ -19,6 +20,7 @@ const globalControllers = {
     Table,
     Image,
     Modal,
+    ImageCarousel,
 };
 
 const templateControllers = {

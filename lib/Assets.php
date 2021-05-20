@@ -92,6 +92,11 @@ class Assets implements Interfaces\Controller {
             true
         );
 
+        /**
+         * Add localizations to window.s object.
+         */
+        \wp_localize_script( 'theme-js', 's', ( new \Strings() )->s() );
+
         \wp_dequeue_style( 'wp-block-library' );
 
         \wp_enqueue_style(
