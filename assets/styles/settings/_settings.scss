@@ -38,6 +38,7 @@ $colors: (
     "link": get_brand_color("tunnelma"),
     "black": get_brand_color("black"),
     "white": get_brand_color("white"),
+    "gray": ($color-tumma-harmaa, $white),
     // "info": ($info, $info-invert, $info-light, $info-dark),
     // "success": ($success, $success-invert, $success-light, $success-dark),
     // "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
@@ -56,6 +57,11 @@ $navbar-colors: ("primary": ($primary, $primary-invert));
 // ****************************************************************************
 $size-8: .75rem;
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 $size-8;
+
+// Image dimensions
+// Default sizes: https://bulma.io/documentation/elements/image/
+$dimensions: 64 180;
+
 
 // Spacing
 // ****************************************************************************

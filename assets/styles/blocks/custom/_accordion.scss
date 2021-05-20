@@ -1,4 +1,12 @@
 .accordion {
+    &__description {
+        @include from($tablet) {
+            max-width: 75%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
     &__content {
         p {
             clear: both;

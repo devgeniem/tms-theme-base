@@ -190,6 +190,12 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                 ],
             ],
+            'acf/material'      => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];
