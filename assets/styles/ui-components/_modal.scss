@@ -7,9 +7,12 @@
         .modal-content {
             width: 100%;
             max-width: 100vw;
-            min-width: 640px;
             padding: $theme-spacing 0;
             background-color: $modal-overlay-background;
+
+            @include from($tablet) {
+                min-width: 640px;
+            }
 
             .image-carousel__items {
                 width: 80%;
@@ -30,6 +33,8 @@
 
     &--slider {
         .modal-close-button {
+            margin-right: 2rem;
+
             @include from($tablet) {
                 margin-right: calc(100vw - 80%);
             }
