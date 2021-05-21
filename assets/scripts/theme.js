@@ -12,9 +12,11 @@ import Table from './table';
 import Image from './image';
 import Modal from './modal';
 import BackToTop from './back-to-top';
+import Hyphenation from './hyphenation';
 
 const globalControllers = {
     Common,
+    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,

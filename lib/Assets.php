@@ -92,6 +92,10 @@ class Assets implements Interfaces\Controller {
             true
         );
 
+        \wp_localize_script( 'theme-js', 'themeData', [
+            'assetsUri' => esc_url( get_stylesheet_directory_uri() ),
+        ] );
+
         \wp_dequeue_style( 'wp-block-library' );
 
         \wp_enqueue_style(

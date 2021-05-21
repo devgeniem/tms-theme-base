@@ -1,0 +1,14 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.has-border {
+    &-secondary {
+        border-color: $secondary;
+    }
+
+    &-1 {
+        border-width: 1px;
+        border-style: solid;
+    }
+}

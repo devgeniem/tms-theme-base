@@ -6,6 +6,7 @@ import './close.svg';
 import './email.svg';
 import './external.svg';
 import './facebook.svg';
+import './file.svg';
 import './icon-alykas.svg';
 import './icon-ambulanssi.svg';
 import './icon-auto.svg';
@@ -79,4 +80,3 @@ import './tampere-vaakuna.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
-
