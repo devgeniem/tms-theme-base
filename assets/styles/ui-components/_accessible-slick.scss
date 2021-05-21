@@ -25,10 +25,6 @@ $slick-opacity-not-active: 0.25 !default;
 
         margin: 0 0 30px;
 
-        @include from($desktop) {
-            margin: 0 $theme-spacing-threeandhalf 30px;
-        }
-
         &.slick-dotted {
             margin-bottom: 60px;
         }
@@ -266,38 +262,31 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .image-carousel__items {
-    @include until($desktop) {
-        .slick-arrow {
-            &.slick-prev,
-            &.slick-next {
-                display: inline;
-                margin: $theme-spacing-half;
-                position: relative;
-                top: 1rem;
-                left: calc(50% - 3rem);
+    // Previous button
+    .slick-prev {
+        left: -2rem;
+    }
+
+    // Next button
+    .slick-next {
+        right: -2rem;
+    }
+
+    &--modal {
+        @include until($tablet) {
+            // Previous button
+            .slick-prev {
+                left: 3.5rem;
             }
-        }
-    }
 
-    @include from($desktop) {
-        // Previous button
-        .slick-prev {
-            left: -45px;
-        }
+            // Next button
+            .slick-next {
+                right: 3.5rem;
+            }
 
-        // Next button
-        .slick-next {
-            right: -45px;
-        }
-    }
-}
-
-@include until($desktop) {
-    .modal-content {
-        .slick-arrow {
-            &.slick-prev,
-            &.slick-next {
-                display: none;
+            .slick-prev,
+            .slick-next {
+                top: 9px;
             }
         }
     }
