@@ -137,39 +137,18 @@ $slick-opacity-not-active: 0.25 !default;
 
         &.slick-prev,
         &.slick-next {
-            line-height: 0;
-            font-size: 0;
-            cursor: pointer;
-            background: transparent;
-            color: transparent;
-            border: none;
-
-            padding: 0;
-            margin: 0;
-
-            display: block;
             position: absolute;
             top: 50%;
             transform: translate(0, -50%);
 
-            // Hover and focus states
-            &:hover,
-            &:focus {
-                .slick-prev-icon,
-                .slick-next-icon {
-                    opacity: $slick-opacity-active;
-                }
-            }
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: .5rem !important;
+            padding-right: .5rem !important;
 
-            &:focus {
-                top: calc(50% - 1px);
-
-                .slick-prev-icon,
-                .slick-next-icon {
-                    color: $primary;
-                    font-size: 28px;
-                    margin-left: -2px;
-                }
+            .icon {
+                margin-left: .1rem !important;
+                margin-right: .1rem !important;
             }
 
             // Disabled state
@@ -180,6 +159,16 @@ $slick-opacity-not-active: 0.25 !default;
                 .slick-next-icon {
                     opacity: $slick-opacity-not-active;
                 }
+            }
+        }
+        &.slick-prev {
+            .icon {
+                padding-right: .3rem !important;
+            }
+        }
+        &.slick-next {
+            .icon {
+                padding-left: .3rem !important;
             }
         }
     }
