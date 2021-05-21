@@ -38,7 +38,6 @@
         &-content {
             width: 100% !important; // To override Bulma
             color: $color-white;
-            background: $modal-background-background-color;
 
             &:focus {
                 text-decoration: underline;
