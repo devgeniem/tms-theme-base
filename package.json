@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "hyphenopoly": "^3.4.0",
     "indicate": "^2.4.0",
     "modaal": "^0.4.4",
     "normalize.css": "^8.0.1",
@@ -24,6 +25,7 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "bulma": "^0.9.2",
     "clean-webpack-plugin": "^2.0.2",
+    "copy-webpack-plugin": "^6.4.1",
     "cross-env": "^5.2.1",
     "css-loader": "^2.1.0",
     "css-mqpacker": "^7.0.0",

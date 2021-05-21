@@ -1,11 +1,11 @@
 <div class="accordion is-align-wide" {?anchor}id="{anchor|s}"{/anchor}>
     <header class="accordion__header has-text-centered">
-        <h2 class="accordion__title h3 mt-0 mb-4">
+        <h2 class="accordion__title h3 mt-0 mb-6">
             {title|s}
         </h2>
 
         {?description}
-            <div class="accordion__description has-text-lead keep-vertical-spacing">
+            <div class="accordion__description mt-6 mb-6 mb-7-desktop has-text-large is-family-secondary has-text-weight-semibold keep-vertical-spacing">
                 {description|s}
             </div>
         {/description}

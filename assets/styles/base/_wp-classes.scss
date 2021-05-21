@@ -142,45 +142,40 @@
     &.is-gapless {
         grid-gap: 0;
     }
-}
 
-.gallery-columns-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
+    &-columns {
+        // .gallery-columns-# (2...9)
+        // .gallery-columns-#-(breakpoint)
+        @for $i from 2 through 9 {
+            &-#{$i} {
+                grid-template-columns: repeat(#{$i}, 1fr);
 
-@include from($tablet) {
-    .gallery-columns-2 {
-        &,
-        &-tablet {
-            grid-template-columns: repeat(2, 1fr);
+                @include from($tablet) {
+                    &-tablet {
+                        grid-template-columns: repeat(#{$i}, 1fr);
+                    }
+                }
+
+                @include from($desktop) {
+                    &-desktop {
+                        grid-template-columns: repeat(#{$i}, 1fr);
+                    }
+                }
+
+                @include from($widescreen) {
+                    &-widescreen {
+                        grid-template-columns: repeat(#{$i}, 1fr);
+                    }
+                }
+
+                @include from($fullhd) {
+                    &-fullhd {
+                        grid-template-columns: repeat(#{$i}, 1fr);
+                    }
+                }
+            }
         }
     }
-    .gallery-columns-3 {
-        // grid-template-columns: repeat(3, 1fr);
-        &,
-        &-tablet {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-    }
-    .gallery-columns-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .gallery-columns-5 {
-        grid-template-columns: repeat(5, 1fr);
-    }
-    .gallery-columns-6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
-    .gallery-columns-7 {
-        grid-template-columns: repeat(7, 1fr);
-    }
-    .gallery-columns-8 {
-        grid-template-columns: repeat(8, 1fr);
-    }
-    .gallery-columns-9 {
-        grid-template-columns: repeat(9, 1fr);
-    }
-
 }
 
 // Override the centering style from wp-caption
