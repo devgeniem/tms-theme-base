@@ -14,6 +14,8 @@ export default class ImageCarousel {
     }
 
     initCarousels() {
+        // Translations are defined in models/strings.php,
+        // and loaded to windows.s in lib/Assets.php.
         const translations = window.s.gallery || {
             next: 'Next',
             previous: 'Previous',
@@ -35,49 +37,63 @@ export default class ImageCarousel {
             nextArrow: Common.makeButton( icons.next + nextSrText, `${ arrowClass } slick-next` ),
         };
 
-        $( this.carousels ).each( function() {
-            const carousel = $( this );
-            const modalCarouselId = '#' + carousel.attr( 'data-slider-for' ) || false;
-
-            const carouselOptions = {
-                prevArrow: buttons.prevArrow,
-                nextArrow: buttons.nextArrow,
-                customPaging( slider, i ) {
-                    const dotIcon = '<span class="slick-dot-icon" aria-hidden="true"></span>';
-                    const srLabel = `<span class="is-sr-only">${ translations.goto } ${ i + 1 }</span>`;
-                    return $( Common.makeButton( dotIcon + srLabel ) );
-                },
-                centerMode: true,
-                centerPadding: '1rem',
-                slidesToShow: 3,
-                variableWidth: true,
-                arrowsPlacement: 'afterSlides',
-            };
-
-            if ( modalCarouselId ) {
-                // Add necessary things to the original carousel to support linking with another carousel.
-                carouselOptions.regionLabel = 'main image carousel';
-                carouselOptions.asNavFor = modalCarouselId;
-
-                const modalCarousel = $( modalCarouselId );
-
-                // Start the modal carousel.
-                modalCarousel.slick( {
-                    centerMode: true,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    fade: true,
-                    asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
-                    prevArrow: carouselOptions.prevArrow,
-                    nextArrow: carouselOptions.nextArrow,
-                    regionLabel: 'modal image carousel',
-                    arrowsPlacement: 'afterSlides',
-                } );
-            }
-
-            // Start the main carousel.
-            carousel.slick( carouselOptions );
+        $( this.carousels ).each( ( n, element ) => {
+            this.constructCarousel( element, buttons, translations );
         } );
+    }
+
+    /**
+     * Constructs the carousel, or two if we have sync defined.
+     *
+     * @param {HTMLElement} element Main carousel element.
+     * @param {Object} buttons Buttons to use.
+     * @param {Object} translations Translations.
+     * @return {*|jQuery|HTMLElement} Constructed main carousel.
+     */
+    constructCarousel( element = undefined, buttons = {}, translations = {} ) {
+        const carousel = $( element );
+        const modalCarouselId = '#' + carousel.attr( 'data-slider-for' ) || false;
+
+        const carouselOptions = {
+            prevArrow: buttons.prevArrow,
+            nextArrow: buttons.nextArrow,
+            customPaging( slider, i ) {
+                const dotIcon = '<span class="slick-dot-icon" aria-hidden="true"></span>';
+                const srLabel = `<span class="is-sr-only">${ translations.goto } ${ i + 1 }</span>`;
+                return $( Common.makeButton( dotIcon + srLabel ) );
+            },
+            centerMode: true,
+            centerPadding: '1rem',
+            slidesToShow: 3,
+            variableWidth: true,
+            arrowsPlacement: 'afterSlides',
+        };
+
+        if ( modalCarouselId ) {
+            // Add necessary things to the original carousel to support linking with another carousel.
+            carouselOptions.regionLabel = 'main image carousel';
+            carouselOptions.asNavFor = modalCarouselId;
+
+            const modalCarousel = $( modalCarouselId );
+
+            // Start the modal carousel.
+            modalCarousel.slick( {
+                centerMode: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                fade: true,
+                asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
+                prevArrow: carouselOptions.prevArrow,
+                nextArrow: carouselOptions.nextArrow,
+                regionLabel: 'modal image carousel',
+                arrowsPlacement: 'afterSlides',
+            } );
+        }
+
+        // Start the main carousel.
+        carousel.slick( carouselOptions );
+
+        return carousel;
     }
 
     docReady() {
