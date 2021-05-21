@@ -252,6 +252,11 @@ export default class Modal {
         modal.classList.add( 'is-active' );
         modal.isOpened = 1;
 
+        const slickSlider = $( modal ).find( '.image-carousel__items' );
+        if ( slickSlider && slickSlider.hasClass( 'slick-initialized' ) ) {
+            slickSlider.slick( 'refresh' );
+        }
+
         // Collect each focusable element inside the modal.
         // eslint-disable-next-line max-len
         const focusableElements = modal.querySelectorAll( 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]' );
@@ -272,11 +277,6 @@ export default class Modal {
                     this.handleModalTabbing( event, modal );
                 }
             } );
-        }
-
-        const slickSlider = $( modal ).find( '.image-carousel__items' );
-        if ( slickSlider && slickSlider.hasClass( 'slick-initialized' ) ) {
-            slickSlider.slick( 'refresh' );
         }
 
         if ( typeof modal.gallery !== 'undefined' && typeof modal.gallery !== 'boolean' ) {

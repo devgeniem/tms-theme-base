@@ -4,6 +4,7 @@
 
 import '@accessible360/accessible-slick';
 import Common from './common';
+import { LEFT, RIGHT } from '@wordpress/keycodes';
 
 // Use jQuery as $ within this file scope.
 const $ = jQuery;
@@ -87,6 +88,22 @@ export default class ImageCarousel {
                 nextArrow: carouselOptions.nextArrow,
                 regionLabel: 'modal image carousel',
                 arrowsPlacement: 'afterSlides',
+            } );
+
+            // Bind next/prev handlers to arrow keys.
+            document.addEventListener( 'keydown', ( event = undefined ) => {
+                const e = event || window.event;
+                const { keyCode } = e;
+
+                // Left arrow key
+                if ( keyCode === LEFT ) {
+                    modalCarousel.slick( 'slickPrev' );
+                }
+
+                // Right arrow key
+                if ( keyCode === RIGHT ) {
+                    modalCarousel.slick( 'slickNext' );
+                }
             } );
         }
 
