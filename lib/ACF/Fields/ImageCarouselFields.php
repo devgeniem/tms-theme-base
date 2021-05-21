@@ -92,7 +92,8 @@ class ImageCarouselFields extends Field\Group {
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "${key}_rows" )
             ->set_name( 'rows' )
-            ->set_min( 1 )
+            ->set_min( 2 )
+            ->set_max( 20 )
             ->set_layout( 'block' )
             ->set_button_label( $strings['rows']['button'] )
             ->set_instructions( $strings['rows']['instructions'] );
