@@ -100,6 +100,31 @@ class Header extends Model {
     }
 
     /**
+     * Get nav depth
+     *
+     * @return int
+     */
+    public function menu_partial() {
+        return Settings::get_setting( 'limit_nav_depth' )
+            ? 'menu-item-simple'
+            : 'menu-item';
+    }
+
+    /**
+     * Is language nav horizontal
+     * @return bool
+     */
+    public function lang_nav_horizontal() : bool {
+        $lang_nav_display = Settings::get_setting( 'lang_nav_display' );
+
+        if ( 'hide' === $lang_nav_display ) {
+            return false;
+        }
+
+        return 'dropdown' !== $lang_nav_display;
+    }
+
+    /**
      * Get search action
      *
      * @return string|void

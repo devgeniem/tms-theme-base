@@ -1,0 +1,7 @@
+<li class="navbar-item">
+    <div class="menu-item-lvl-{depth_now}} {#classes}{.}{@sep} {/sep}{/classes}" id="menu_item_{object_id}">
+        <a class="navbar-link is-arrowless menu-link is-family-secondary is-uppercase has-text-primary-invert has-text-weight-extra-bold" href="{url}">
+            {title|s}
+        </a>
+    </div>
+</li>

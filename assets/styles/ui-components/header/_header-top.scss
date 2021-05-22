@@ -13,21 +13,54 @@
     }
 
     &__branding {
-        @include from($desktop) {
-            display: flex;
-            align-items: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo-image {
+        max-width: 10rem;
+
+        @include from($tablet) {
+            max-width: 11.29rem;
+        }
+
+        img {
+            display: block;
+            vertical-align: middle;
         }
     }
 
     &__end {
-        @include from($desktop) {
-            display: flex;
-            align-items: center;
-        }
+        display: flex;
+        align-items: center;
     }
 
     &__popup {
-        transform: translateY(100%);
         z-index: 3;
+        transform: translateY(100%);
+    }
+}
+
+.secondary-menu {
+    li {
+        &:not(:first-child) {
+            @include from($desktop) {
+                margin-left: .5rem;
+            }
+
+            @include from($fullhd) {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    a {
+        color: $black;
+
+        &:hover,
+        &:focus {
+            color: $black;
+            text-decoration: underline;
+        }
     }
 }

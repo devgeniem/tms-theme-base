@@ -1,4 +1,5 @@
 <div class="site-header__logo">
+    <div class="site-header__logo-image">
     {?Header.logo}
         {?Header.home_url}
             <a href="{Header.home_url}">
@@ -8,9 +9,10 @@
             {@image id=Header.logo size="large" /}
         {/Header.home_url}
     {/Header.logo}
+    </div>
 
     {?Header.tagline}
-        <div class="site-header__tagline is-family-secondary is-size-7">
+        <div class="site-header__tagline is-hidden-mobile is-family-secondary is-size-7">
             {Header.tagline|s}
         </div>
     {/Header.tagline}

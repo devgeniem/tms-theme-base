@@ -4,12 +4,20 @@
 
 // Use jQuery as $ within this file scope.
 const $ = jQuery; // eslint-disable-line no-unused-vars
+import MicroModal from 'micromodal';
 
 /**
  * Export the class reference.
  */
 export default class Header {
 
+    /**
+     * Toggle search form
+     *
+     * @param {Object} event Click event object.
+     *
+     * @return {void}
+     */
     toggleSearchForm( event ) {
         const toggle = $( event.currentTarget );
         const toggleTarget = $( '#' + toggle.attr( 'aria-controls' ) );
@@ -27,11 +35,35 @@ export default class Header {
     }
 
     /**
+     * Close fly out modal
+     *
+     * @return {void}
+     */
+    closeFlyOutMenu() {
+        MicroModal.close( 'js-fly-out-nav' );
+    }
+
+    /**
+     * Open menu callback
+     *
+     * @return {void}
+     */
+    onFlyOutMenuOpen() {
+        $( '#js-fly-out-nav' ).height( $( 'body' ).height() );
+    }
+
+    /**
      * Run when the document is ready.
      *
      * @return {void}
      */
     docReady() {
         $( '.js-toggle' ).on( 'click', this.toggleSearchForm.bind( this ) );
+        $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
+
+        MicroModal.init( {
+            disableScroll: true,
+            onShow: this.onFlyOutMenuOpen.bind( this ),
+        } );
     }
 }

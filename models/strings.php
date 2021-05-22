@@ -19,6 +19,8 @@ class Strings extends \DustPress\Model {
             'header'  => [
                 'skip_to_content'          => _x( 'Skip to content', 'theme-frontend', 'tms-theme-base' ),
                 'main_navigation'          => _x( 'Main navigation', 'theme-frontend', 'tms-theme-base' ),
+                'open_menu'                => _x( 'Open menu', 'theme-frontend', 'tms-theme-base' ),
+                'close_menu'               => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
                 'language_navigation'      => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
                 'search'                   => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
@@ -46,11 +48,11 @@ class Strings extends \DustPress\Model {
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'footer'   => [
+            'footer'  => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
-                'back_to_top' => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
+                'back_to_top'  => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'common' => [
+            'common'  => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];

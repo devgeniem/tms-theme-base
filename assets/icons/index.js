@@ -1,3 +1,4 @@
+import './burger.svg';
 import './chevron-down.svg';
 import './chevron-left.svg';
 import './chevron-right.svg';
@@ -77,6 +78,7 @@ import './pause.svg';
 import './phone.svg';
 import './play.svg';
 import './search.svg';
+import './tampere-finland.svg';
 import './tampere-vaakuna.svg';
 import './twitter.svg';
 import './vkontakte.svg';

@@ -1,20 +1,23 @@
-<ul id="lang-menu" class="js-main-menu-lang main-menu">
-    <li class="menu-item-lvl-1 menu-item {?language_nav.others}menu-item-has-children {/language_nav.others}{#language_nav.current.classes}{.}{@sep} {/sep}{/language_nav.current.classes}">
-        <a class="menu-link menu-link-lvl-1"
-            href="{language_nav.current.url}"
-            {?language_nav.others}aria-haspopup="true" data-ctrl="Menu" data-cmd="toggleLangMenu"{/language_nav.others}>
-            {language_nav.current.slug}
-            {?language_nav.others}<i class="sub-menu-indicator ion-chevron-down" aria-hidden="true"></i>{/language_nav.others}
-        </a>
+{?links}
+    <div class="language-nav">
+        <div class="dropdown">
+            <div class="dropdown-trigger">
+                <button class="button button--icon is-uppercase"
+                        aria-haspopup="true" aria-controls="lang-dropdown-menu">
+                    <span>{links.current.slug}</span>
+                    {>"ui/icon" icon="chevron-down" class="icon--medium"  /}
+                </button>
+            </div>
 
-        {?language_nav.others}
-            <ul class="sub-menu menu-depth-2" aria-hidden="true" aria-label="submenu">
-                {#language_nav.others}
-                    <li class="menu-item-lvl-2 menu-item {#classes}{.}{@sep} {/sep}{/classes}">
-                        <a class="menu-link menu-link-lvl-2" href="{url}">{slug}</a>
-                    </li>
-                {/language_nav.others}
-            </ul>
-        {/language_nav.others}
-    </li>
-</ul>
+            <div class="dropdown-menu" id="lang-dropdown-menu" role="menu" aria-hidden="true">
+                <div class="dropdown-content is-uppercase">
+                    {#links.others}
+                        <a href="{url}" class="dropdown-item">
+                            {slug}
+                        </a>
+                    {/links.others}
+                </div>
+            </div>
+        </div>
+    </div>
+{/links}

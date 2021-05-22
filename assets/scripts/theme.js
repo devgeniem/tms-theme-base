@@ -14,10 +14,11 @@ import Modal from './modal';
 import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import Navbar from './navbar';
+import Dropdown from './dropdown';
 
 const globalControllers = {
     Common,
-    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
@@ -27,6 +28,9 @@ const globalControllers = {
     Modal,
     Header,
     BackToTop,
+    Hyphenation,
+    Navbar,
+    Dropdown,
 };
 
 const templateControllers = {

@@ -109,6 +109,10 @@ class SettingsGroup {
                 'title'        => 'Näytä vain hampurilaisvalikko',
                 'instructions' => 'Kyllä-valinnan ollessa aktiivinen vain hampurilaisvalikko näytetään',
             ],
+            'limit_nav_depth'  => [
+                'title'        => 'Pudotusvalikko pois käytöstä',
+                'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
+            ],
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
@@ -143,15 +147,24 @@ class SettingsGroup {
                 'horizontal' => 'Vaakavalikko',
             ] )
             ->set_default_value( 'horizontal' )
-            ->set_wrapper_width( 25 )
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['lang_nav_display']['instructions'] );
 
         $hide_main_nav_field = ( new Field\TrueFalse( $strings['hide_main_nav']['title'] ) )
             ->set_key( "${key}_hide_main_nav" )
             ->set_name( 'hide_main_nav' )
             ->set_default_value( false )
-            ->set_wrapper_width( 25 )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['hide_main_nav']['instructions'] );
+
+        $limit_nav_depth_field = ( new Field\TrueFalse( $strings['limit_nav_depth']['title'] ) )
+            ->set_key( "${key}_limit_nav_depth" )
+            ->set_name( 'limit_nav_depth' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['limit_nav_depth']['instructions'] );
 
         $tab->add_fields( [
             $logo_field,
@@ -159,6 +172,7 @@ class SettingsGroup {
             $tagline_field,
             $lang_nav_display_field,
             $hide_main_nav_field,
+            $limit_nav_depth_field,
         ] );
 
         return $tab;
