@@ -64,3 +64,23 @@
         }
     }
 }
+
+.primary-nav {
+    &--simple {
+        font-size: 1.058rem;
+        font-weight: 800;
+
+        .navbar-item {
+            padding-right: 1.1764rem;
+            padding-left: 1.1764rem;
+            color: $primary-invert;
+
+            &:hover,
+            &:focus {
+                color: $primary-invert;
+                text-decoration: underline;
+                background-color: transparent;
+            }
+        }
+    }
+}

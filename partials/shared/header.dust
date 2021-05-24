@@ -26,9 +26,9 @@
                         {>"ui/icon" icon="close" class="icon--large is-primary-invert" /}
                     </button>
 
-                    {@menu menu_name="primary" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
+                    {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
 
-                    {@menu menu_name="secondary" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                    {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
 
                     <div class="h4 mt-9 mb-4">
                         {Strings.s.header.search_title|s}

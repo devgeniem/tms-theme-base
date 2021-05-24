@@ -1,7 +1,5 @@
 {^sub_menu}
-    <a href="{url}" class="navbar-item">
-        {title|s}
-    </a>
+    {>"ui/menu/menu-item-simple"  /}
 {/sub_menu}
 
 {?sub_menu}

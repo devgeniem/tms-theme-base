@@ -1,5 +1,5 @@
 {?links}
-    <div class="language-nav">
+    <div class="language-nav ml-4 ml-6-desktop">
         <div class="dropdown">
             <div class="dropdown-trigger">
                 <button class="button button--icon is-primary is-outlined"

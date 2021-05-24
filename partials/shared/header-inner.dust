@@ -55,7 +55,9 @@
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    {@menu menu_name="primary" ul_classes="primary-menu" menuitem_partial="ui/menu/{Header.menu_partial}" /}
+                    {?Header.limit_nav_depth}
+                        {@menu menu_name="primary" depth="1" ul_classes="bulmally-navbar primary-nav primary-nav--simple is-flex is-justify-content-center is-unstyled is-uppercase is-hidden-touch is-family-secondary" menuitem_partial="ui/menu/menu-item-simple" /}
+                    {/Header.limit_nav_depth}
                 </div>
             </div>
         </div>
