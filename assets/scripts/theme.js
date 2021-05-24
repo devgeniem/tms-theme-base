@@ -12,12 +12,14 @@ import Modal from './modal';
 import ImageCarousel from './image-carousel';
 import Table from './table';
 import Hero from './hero';
+import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import Navbar from './navbar';
+import Dropdown from './dropdown';
 
 const globalControllers = {
     Common,
-    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
@@ -26,7 +28,11 @@ const globalControllers = {
     ImageCarousel,
     Table,
     Hero,
+    Header,
     BackToTop,
+    Hyphenation,
+    Navbar,
+    Dropdown,
 };
 
 const templateControllers = {

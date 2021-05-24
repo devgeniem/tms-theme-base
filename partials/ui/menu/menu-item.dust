@@ -1,0 +1,29 @@
+{^sub_menu}
+    <a href="{url}" class="navbar-item">
+        {title|s}
+    </a>
+{/sub_menu}
+
+{?sub_menu}
+    <div class="navbar-item has-dropdown">
+        <div class="navbar-dropdown-control">
+            <a class="navbar-link dropdown-trigger is-arrowless" href="#">
+                {title|s}
+            </a>
+
+            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-dropdown-{$idx}">
+                <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
+
+                <span aria-hidden="true">
+                    {>"ui/icon" icon="chevron-down" class="icon--medium is-primary-invert" /}
+                </span>
+            </button>
+        </div>
+
+        <div class="navbar-dropdown is-hidden-touch" id="js-navbar-dropdown-{$idx}">
+            {#sub_menu}
+                {>"ui/menu/menu-item"  /}
+            {/sub_menu}
+        </div>
+    </div>
+{/sub_menu}

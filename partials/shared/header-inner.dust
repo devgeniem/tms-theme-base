@@ -1,0 +1,63 @@
+<div class="site-header__wrapper">
+    <div class="site-header__branding pt-4 pb-4">
+        {>"shared/header-logo" /}
+
+        <div class="site-header__end ml-auto">
+            <div class="is-hidden-touch is-hidden-desktop-only is-hidden-widescreen-only">
+                {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+            </div>
+
+            {?Header.lang_nav_horizontal}
+                <div class="is-hidden-touch">
+                    {>"ui/menu/language-nav" links=Header.language_nav.links  /}
+                </div>
+            {/Header.lang_nav_horizontal}
+
+            {?Header.lang_nav_horizontal}
+                <div class="is-hidden-desktop">
+            {/Header.lang_nav_horizontal}
+            {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links  /}
+            {?Header.lang_nav_horizontal}
+                </div>
+            {/Header.lang_nav_horizontal}
+
+            {>"shared/header-search-toggle"  /}
+
+            <button class="fly-out-nav__trigger" data-micromodal-trigger="js-fly-out-nav">
+                {>"ui/icon" icon="burger" class="icon--large" /}
+            </button>
+
+            {>"shared/header-brand" /}
+        </div>
+    </div>
+
+    <div id="js-search-toggle-target"
+         class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
+         role="search">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8 is-offset-2-tablet is-6-desktop is-offset-3-desktop">
+                    <div class="pt-6 pb-6 pt-8-desktop pb-8-desktop">
+                        <div class="popup__label h4 mb-6">
+                            {Strings.s.header.search_title|s}
+                        </div>
+
+                        {>"ui/search-form" /}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{^Header.hide_main_nav}
+    <div class="site-header__nav is-relative is-hidden-touch has-background-primary">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {@menu menu_name="primary" ul_classes="primary-menu" menuitem_partial="ui/menu/{Header.menu_partial}" /}
+                </div>
+            </div>
+        </div>
+    </div>
+{/Header.hide_main_nav}

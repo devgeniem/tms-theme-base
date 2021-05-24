@@ -1,0 +1,23 @@
+{?links}
+    <div class="language-nav">
+        <div class="dropdown">
+            <div class="dropdown-trigger">
+                <button class="button button--icon is-primary is-outlined"
+                        aria-haspopup="true" aria-controls="lang-dropdown-menu">
+                    <span class="is-uppercase">{links.current.slug}</span>
+                    {>"ui/icon" icon="chevron-down" class="icon--medium" /}
+                </button>
+            </div>
+
+            <div class="dropdown-menu" id="lang-dropdown-menu" role="menu" aria-hidden="true">
+                <div class="dropdown-content is-uppercase">
+                    {#links.others}
+                        <a href="{url}" class="dropdown-item">
+                            {slug}
+                        </a>
+                    {/links.others}
+                </div>
+            </div>
+        </div>
+    </div>
+{/links}

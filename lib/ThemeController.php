@@ -77,6 +77,7 @@ class ThemeController {
             'Formatters'          => new FormatterController(),
             'Images'              => new Images(),
             'Localization'        => new Localization(),
+            'Navigation'          => new NavigationController(),
             'PostTypeController'  => new PostTypeController(),
             'Roles'               => new Roles(),
             'TaxonomyController'  => new TaxonomyController(),

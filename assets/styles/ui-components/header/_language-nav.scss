@@ -1,0 +1,18 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.lang-nav {
+    &--horizontal {
+        a {
+            width: 2.375rem;
+            height: 2.375rem;
+            border: 1px solid $primary;
+
+            @include from($tablet) {
+                width: 2.2359rem;
+                height: 2.2359rem;
+            }
+        }
+    }
+}
