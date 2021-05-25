@@ -1,4 +1,5 @@
 import './burger.svg';
+import './checkmark.svg';
 import './chevron-down.svg';
 import './chevron-left.svg';
 import './chevron-right.svg';
