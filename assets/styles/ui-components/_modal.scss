@@ -55,7 +55,10 @@
         .modal-content {
             .slick-track {
                 display: flex !important;
-                align-items: center;
+
+                @include from($tablet) {
+                    align-items: center;
+                }
             }
         }
     }

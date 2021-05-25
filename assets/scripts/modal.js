@@ -276,6 +276,10 @@ export default class Modal {
                 if ( keyCode === TAB ) {
                     this.handleModalTabbing( event, modal );
                 }
+
+                if ( keyCode === ESCAPE ) {
+                    this.closeModals();
+                }
             } );
         }
 

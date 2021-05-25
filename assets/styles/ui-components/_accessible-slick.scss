@@ -276,17 +276,17 @@ $slick-opacity-not-active: 0.25 !default;
         @include until($tablet) {
             // Previous button
             .slick-prev {
-                left: 3.5rem;
+                left: -2.3rem;
             }
 
             // Next button
             .slick-next {
-                right: 3.5rem;
+                right: -2.3rem;
             }
 
             .slick-prev,
             .slick-next {
-                top: 9px;
+                top: 2rem;
             }
         }
     }
