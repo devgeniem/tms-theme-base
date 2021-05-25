@@ -5,6 +5,12 @@
 .site-header {
     position: relative;
 
+    &__nav {
+        > .container {
+            position: static;
+        }
+    }
+
     &__wrapper {
         width: 90%;
         max-width: 1808px;
@@ -38,6 +44,12 @@
     &__popup {
         z-index: 3;
         transform: translateY(100%);
+
+        .search-form {
+            &__input {
+                border: 1px solid $black;
+            }
+        }
     }
 }
 
@@ -66,20 +78,73 @@
 }
 
 .primary-nav {
-    &--simple {
+    @include list-reset;
+    font-family: $family-secondary;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+
+    > .navbar-item,
+    > .has-dropdown > div > .navbar-link {
         font-size: 1.058rem;
         font-weight: 800;
+        padding-right: 1.1764rem;
+        padding-left: 1.1764rem;
+        color: $primary-invert !important; // sass-lint:disable-line no-important
+        text-transform: uppercase;
+        background-color: transparent !important; // sass-lint:disable-line no-important
 
-        .navbar-item {
-            padding-right: 1.1764rem;
-            padding-left: 1.1764rem;
-            color: $primary-invert;
+        &:hover,
+        &:focus {
+            color: $primary-invert !important; // sass-lint:disable-line no-important
+            text-decoration: underline;
+            background-color: transparent !important; // sass-lint:disable-line no-important
+        }
+    }
 
-            &:hover,
-            &:focus {
-                color: $primary-invert;
-                text-decoration: underline;
-                background-color: transparent;
+    > .has-dropdown {
+        &.is-active,
+        &:hover,
+        &:focus {
+            > div > .navbar-link {
+                color: $primary-invert !important; // sass-lint:disable-line no-important
+                background-color: transparent !important; // sass-lint:disable-line no-important
+            }
+        }
+    }
+
+    &--dropdown {
+        .has-dropdown {
+            position: static;
+        }
+
+        .navbar-dropdown {
+            padding: 3rem 0 2rem;
+            border-radius: 0;
+            box-shadow: 0 .0588rem .5rem rgba($black, .1);
+
+            &__parent-link {
+                font-weight: 600;
+                text-transform: none;
+            }
+        }
+
+        .navbar-grid {
+            font-size: .8823rem;
+            font-weight: 600;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-column-gap: $gap;
+            text-transform: none;
+
+            .navbar-item {
+                padding: 1.411rem 0;
+                border-bottom: 1px solid $color-vaalea-siniharmaa-50;
+
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                }
             }
         }
     }

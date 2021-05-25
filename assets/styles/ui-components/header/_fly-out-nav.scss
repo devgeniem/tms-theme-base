@@ -29,7 +29,11 @@
         bottom: 0;
         left: 0;
         z-index: 3;
-        padding: 2.5rem;
+        padding: 1rem;
+
+        @include from($tablet) {
+            padding: 2.5rem;
+        }
 
         @include from($desktop) {
             left: auto;
@@ -42,6 +46,10 @@
         background-color: transparent;
         border: 0;
         cursor: pointer;
+
+        @include from($tablet) {
+            margin-left: 0;
+        }
 
         &:hover {
             outline: 0;
@@ -60,14 +68,19 @@
 
     &__close {
         position: absolute;
-        top: 2.5rem;
-        right: 2.5rem;
+        top: 1rem;
+        right: 1rem;
         z-index: 3;
         width: 2.5rem;
         height: 2.5rem;
         background-color: transparent;
         border: 0;
         cursor: pointer;
+
+        @include from($tablet) {
+            top: 2.5rem;
+            right: 2.5rem;
+        }
     }
 
     &__primary {

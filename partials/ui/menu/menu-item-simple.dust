@@ -1,3 +1,7 @@
 <a href="{url}" class="navbar-item">
     {title|s}
+
+    {?icon}
+        {>"ui/icon" class="icon--medium ml-2" /}
+    {/icon}
 </a>

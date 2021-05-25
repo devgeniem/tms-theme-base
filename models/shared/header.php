@@ -28,7 +28,7 @@ class Header extends Model {
     public function home_url() {
         return DPT_PLL_ACTIVE
             ? pll_home_url()
-            : $this->home_url();
+            : home_url();
     }
 
     /**
