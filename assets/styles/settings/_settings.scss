@@ -15,6 +15,7 @@ $light: map-get($theme-colors, "light");
 $light-invert: map-get($theme-colors, "light-invert");
 $dark: map-get($theme-colors, "dark");
 $dark-invert: map-get($theme-colors, "dark-invert");
+$text: $black;
 $link: $primary;
 $overlay-background: rgba($black, 0.3);
 $modal-overlay-background: rgba($black, 0.86);
