@@ -29,7 +29,7 @@
                             aria-haspopup="true"
                             aria-label="{translations.open}"
                         >
-                            {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" /}
+                            {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
                         </button>
                     </div>
                 {/rows}
@@ -51,7 +51,7 @@
             <div class="image-carousel__items image-carousel__items--modal column is-full" id="{carousel_id}-modal-carousel" data-slider-for="{carousel_id}">
                 {#rows}
                     <div class="image-carousel__item" id="{id}-modal">
-                        {@image id=image.id alt=image.alt title=image.description size="fullhd" width="{image.sizes.fullhd-width}" height="{image.sizes.fullhd-height}" /}
+                        {@image id=image.id alt=image.alt title=image.description size="fullhd" width="{image.sizes.fullhd-width}" height="{image.sizes.fullhd-height}" loading="" /}
 
                         {>"ui/image/image-block__meta" /}
                     </div>

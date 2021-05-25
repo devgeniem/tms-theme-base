@@ -110,6 +110,13 @@ export default class ImageCarousel {
         // Start the main carousel.
         carousel.slick( carouselOptions );
 
+        carousel.on( 'setPosition', ( event, slick ) => {
+            // Make the centered image selectable, rest disabled.
+            // This way user can't open the "wrong" image and get confused of the results.
+            $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
+            $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
+        } );
+
         return carousel;
     }
 
