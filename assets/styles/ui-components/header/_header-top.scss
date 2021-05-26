@@ -41,6 +41,10 @@
         align-items: center;
     }
 
+    &__brand {
+        max-width: 12rem;
+    }
+
     &__popup {
         z-index: 3;
         transform: translateY(100%);
