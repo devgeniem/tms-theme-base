@@ -28,7 +28,7 @@ class Header extends Model {
     public function home_url() {
         return DPT_PLL_ACTIVE
             ? pll_home_url()
-            : $this->home_url();
+            : home_url();
     }
 
     /**
@@ -100,14 +100,12 @@ class Header extends Model {
     }
 
     /**
-     * Get nav depth
+     * Get limit nav depth status
      *
-     * @return int
+     * @return mixed
      */
-    public function menu_partial() {
-        return Settings::get_setting( 'limit_nav_depth' )
-            ? 'menu-item-simple'
-            : 'menu-item';
+    public function limit_nav_depth() {
+        return Settings::get_setting( 'limit_nav_depth' );
     }
 
     /**

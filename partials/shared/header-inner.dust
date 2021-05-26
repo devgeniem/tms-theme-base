@@ -9,21 +9,21 @@
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-touch">
-                    {>"ui/menu/language-nav" links=Header.language_nav.links  /}
+                    {>"ui/menu/language-nav" links=Header.language_nav.links /}
                 </div>
             {/Header.lang_nav_horizontal}
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-desktop">
             {/Header.lang_nav_horizontal}
-            {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links  /}
+            {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
             {?Header.lang_nav_horizontal}
                 </div>
             {/Header.lang_nav_horizontal}
 
             {>"shared/header-search-toggle"  /}
 
-            <button class="fly-out-nav__trigger" data-micromodal-trigger="js-fly-out-nav">
+            <button class="fly-out-nav__trigger {^Header.hide_main_nav}is-hidden-desktop{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
                 {>"ui/icon" icon="burger" class="icon--large" /}
             </button>
 
@@ -53,9 +53,13 @@
 {^Header.hide_main_nav}
     <div class="site-header__nav is-relative is-hidden-touch has-background-primary">
         <div class="container">
-            <div class="columns">
+            <div class="columns mt-0 mb-0">
                 <div class="column">
-                    {@menu menu_name="primary" ul_classes="primary-menu" menuitem_partial="ui/menu/{Header.menu_partial}" /}
+                    {?Header.limit_nav_depth}
+                        {@menu menu_name="primary" depth="1" ul_classes="bulmally-navbar primary-nav primary-nav--simple" menuitem_partial="ui/menu/menu-item-simple" /}
+                    {:else}
+                        {@menu menu_name="primary" depth="2" ul_id="js-primary-menu" ul_classes="bulmally-navbar primary-nav primary-nav--dropdown" menuitem_partial="ui/menu/menu-item-dropdown" /}
+                    {/Header.limit_nav_depth}
                 </div>
             </div>
         </div>

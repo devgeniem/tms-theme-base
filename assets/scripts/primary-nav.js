@@ -6,9 +6,9 @@
 const $ = jQuery; // eslint-disable-line no-unused-vars
 
 /**
- * Class Navbar
+ * Class PrimaryNav
  */
-export default class Navbar {
+export default class PrimaryNav {
 
     /**
      * Cache dom elements for use in the class's methods
@@ -16,7 +16,7 @@ export default class Navbar {
      * @return {void}
      */
     cache() {
-        this.navbarMenu = document.getElementById( 'js-navbar-menu' );
+        this.navbarMenu = document.getElementById( 'js-primary-menu' );
 
         if ( this.navbarMenu ) {
             this.dropdownTogglers = this.navbarMenu.querySelectorAll( '.dropdown-toggler' );
@@ -35,9 +35,16 @@ export default class Navbar {
             }
         }
 
-        $( '.fly-out-nav .dropdown-trigger' ).on( 'click', this.dropdownLinkClick.bind( this ) );
+        $( this.navbarMenu ).find( '.dropdown-trigger' ).on( 'click', this.dropdownLinkClick.bind( this ) );
     }
 
+    /**
+     * Dropdown link click callback
+     *
+     * @param {Object} event Click event object.
+     *
+     * @return {void}
+     */
     dropdownLinkClick( event ) {
         event.preventDefault();
 
@@ -45,7 +52,7 @@ export default class Navbar {
     }
 
     /**
-     * Toggles a dropdown menu visibility.
+     * Toggles click callback
      *
      * @param {Event} event A click event.
      *
@@ -53,12 +60,43 @@ export default class Navbar {
      */
     toggleDropdown( event ) {
         const target = event.currentTarget;
+        const isExpanded = target.getAttribute( 'aria-expanded' ) === 'true';
+
+        this.closeOpenDropdowns();
+
+        if ( ! isExpanded ) {
+            this.doToggleDropdown( target );
+        }
+    }
+
+    /**
+     * Toggles a dropdown menu visibility.
+     *
+     * @param {Object} target Toggle element.
+     *
+     * @return {void}
+     */
+    doToggleDropdown( target ) {
         const containerId = target.getAttribute( 'aria-controls' );
         const dropdownMenu = this.navbarMenu.querySelector( `#${ containerId }` );
 
         this.toggleAriaExpanded( target );
         dropdownMenu.classList.toggle( 'is-hidden-touch' );
         this.toggleAncestorActiveState( target, 'has-dropdown' );
+    }
+
+    /**
+     * Close open dropdowns
+     *
+     * @return {void}
+     */
+    closeOpenDropdowns() {
+        $( this.navbarMenu )
+            .find( '.has-dropdown.is-active' )
+            .find( '.dropdown-toggler' )
+            .each( ( idx, el ) => {
+                this.doToggleDropdown( el );
+            } );
     }
 
     /**

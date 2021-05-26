@@ -29,7 +29,11 @@
         bottom: 0;
         left: 0;
         z-index: 3;
-        padding: 2.5rem;
+        padding: 1rem;
+
+        @include from($tablet) {
+            padding: 2.5rem;
+        }
 
         @include from($desktop) {
             left: auto;
@@ -42,6 +46,10 @@
         background-color: transparent;
         border: 0;
         cursor: pointer;
+
+        @include from($tablet) {
+            margin-left: 0;
+        }
 
         &:hover {
             outline: 0;
@@ -60,14 +68,19 @@
 
     &__close {
         position: absolute;
-        top: 2.5rem;
-        right: 2.5rem;
+        top: 1rem;
+        right: 1rem;
         z-index: 3;
         width: 2.5rem;
         height: 2.5rem;
         background-color: transparent;
         border: 0;
         cursor: pointer;
+
+        @include from($tablet) {
+            top: 2.5rem;
+            right: 2.5rem;
+        }
     }
 
     &__primary {
@@ -177,57 +190,14 @@
             border: 1px solid $primary;
             border-radius: .25rem;
         }
-    }
-}
 
-.bulmally-navbar {
-
-    // Reset all buttons inside a navbar.
-    button {
-        background: none;
-        border: 0;
-    }
-
-    .navbar-burger {
-        &:hover {
-            background: $primary;
-        }
-    }
-
-    .navbar-dropdown-control {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        .navbar-link {
-            flex: 1 1 auto;
-            padding-right: 1rem;
-
-            &:hover {
-                // The link background is controlled on the '.has-dropdown' level.
-                background: none;
+        &__button {
+            &.is-inverted {
+                .icon {
+                    fill: $primary !important; // sass-lint:disable-line no-important
+                }
             }
         }
     }
-
-    .navbar-item {
-        &.has-dropdown {
-            &:hover,
-            &.is-active {
-                background-color: $primary;
-            }
-        }
-    }
-
-    .dropdown-toggler {
-        position: relative; // Make the arrow stick to the button.
-        flex: 0 0 auto;
-        margin-right: .75rem;
-        transition: transform $speed $easing;
-        cursor: pointer;
-
-        &[aria-expanded="true"] {
-            transform: rotate(180deg);
-        }
-    }
 }
+

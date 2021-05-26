@@ -5,6 +5,12 @@
 .site-header {
     position: relative;
 
+    &__nav {
+        > .container {
+            position: static;
+        }
+    }
+
     &__wrapper {
         width: 90%;
         max-width: 1808px;
@@ -38,29 +44,11 @@
     &__popup {
         z-index: 3;
         transform: translateY(100%);
-    }
-}
 
-.secondary-menu {
-    li {
-        &:not(:first-child) {
-            @include from($desktop) {
-                margin-left: .5rem;
+        .search-form {
+            &__input {
+                border: 1px solid $black;
             }
-
-            @include from($fullhd) {
-                margin-left: 1rem;
-            }
-        }
-    }
-
-    a {
-        color: $black;
-
-        &:hover,
-        &:focus {
-            color: $black;
-            text-decoration: underline;
         }
     }
 }

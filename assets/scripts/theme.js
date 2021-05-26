@@ -15,7 +15,8 @@ import Hero from './hero';
 import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
-import Navbar from './navbar';
+import FlyOutNav from './fly-out-nav';
+import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 
 const globalControllers = {
@@ -31,7 +32,8 @@ const globalControllers = {
     Header,
     BackToTop,
     Hyphenation,
-    Navbar,
+    FlyOutNav,
+    PrimaryNav,
     Dropdown,
 };
 
