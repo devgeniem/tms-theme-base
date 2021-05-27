@@ -11,9 +11,16 @@ $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
 .pill {
+    font-family: $family-secondary;
+    font-size: 85%;
+    font-weight: 500;
+    line-height: 1.1;
     display: inline-block;
+    padding: $theme-spacing-half $theme-spacing-three-quarters;
     color: $pill-color;
     background-color: $pill-background-color;
+    border: 1px solid transparent;
+    border-radius: $theme-spacing-quarter;
 
     &.is-active,
     &:focus,
@@ -43,6 +50,23 @@ $pill-background-color-focus: $dark !default;
         &:hover,
         &:focus {
             background-color: $pill-background-active-focus;
+        }
+    }
+
+    &.is-outlined {
+        background-color: transparent;
+        border-color: $pill-background-color;
+
+        &:hover {
+            color: $pill-color-hover;
+            background-color: transparent;
+            border-color: $pill-background-color-hover;
+        }
+
+        &:focus,
+        &:active {
+            background-color: transparent;
+            border-color: $pill-background-color-focus;
         }
     }
 }

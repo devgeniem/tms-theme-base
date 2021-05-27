@@ -264,6 +264,11 @@ $button-border-radius: 1.8rem;
                     color: $primary !important;
                     background-color: transparent !important;
 
+                    &:hover,
+                    &.is-hovered {
+                        color: $light !important;
+                    }
+
                     .icon {
                         fill: $primary !important;
                     }
