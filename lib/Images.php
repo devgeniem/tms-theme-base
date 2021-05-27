@@ -65,6 +65,7 @@ class Images implements Interfaces\Controller {
             \update_option( 'large_size_h', 9999 );
         }
 
+        \add_image_size( 'single', 1170, 520, 1);
         \add_image_size( 'fullhd', 1920, 9999 );
 
         \add_image_size( 'medium_vertical', 9999, 320 );
@@ -86,6 +87,7 @@ class Images implements Interfaces\Controller {
             'medium',
             'medium_large',
             'large',
+            'single',
             'fullhd',
         ];
     }

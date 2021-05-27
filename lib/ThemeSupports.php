@@ -21,7 +21,8 @@ class ThemeSupports implements Interfaces\Controller {
     public function hooks() : void {
         \add_action(
             'after_setup_theme',
-            \Closure::fromCallable( [ $this, 'add_supported_functionality' ] )
+            \Closure::fromCallable( [ $this, 'add_supported_functionality' ] ),
+            0
         );
 
         \add_filter(

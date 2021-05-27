@@ -1,5 +1,7 @@
 // Theme Settings
 // https://bulma.io/documentation/customize/variables/
+$mobile: 679px;
+$tablet: 680px;
 
 // Colors
 // ****************************************************************************
@@ -45,6 +47,8 @@ $colors: (
     // "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
+
+$text: $black;
 
 $button-colors: (
     "primary": $colors-palette-primary,
