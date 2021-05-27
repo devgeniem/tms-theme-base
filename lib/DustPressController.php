@@ -47,7 +47,7 @@ class DustPressController implements Interfaces\Controller {
      * @return object
      */
     protected function disable_pagination_hellip_duplicate_link( $data ) : object {
-        if ( $data->last_page === end( $data->pages )->page ) {
+        if ( ! empty( $data->pages ) && $data->last_page === end( $data->pages )->page ) {
             $data->hellip_end = false;
         }
 
