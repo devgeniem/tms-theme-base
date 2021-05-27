@@ -22,7 +22,7 @@
                                     {/content.image}
                                 </header>
 
-                                <div class="entry__content is-content-grid">
+                                <div class="entry__content is-content-grid keep-vertical-spacing">
                                     {^content.image}
                                         {>"views/single/single-meta" spacing_class="mt-6 mb-6" /}
                                     {/content.image}
