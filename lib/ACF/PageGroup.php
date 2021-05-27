@@ -78,7 +78,7 @@ class PageGroup {
     }
 
     /**
-     * Get header fields
+     * Get components field
      *
      * @param string $key Field group key.
      *
@@ -108,6 +108,7 @@ class PageGroup {
                 Layouts\MapLayout::class,
                 Layouts\IconLinksLayout::class,
                 Layouts\SocialMediaLayout::class,
+                Layouts\ImageCarouselLayout::class,
             ]
         );
 

@@ -1,0 +1,12 @@
+<form role="search" method="get" class="search-form is-flex is-align-items-center" action="{Header.search_action|s}">
+    <label>
+        <span class="is-sr-only"> {Strings.s.header.search_input_label|s} </span>
+        <input type="search" class="search-form__input has-border-radius-small has-background-light mr-2 p-3"
+               placeholder="{Strings.s.header.search_input_placeholder|s}" value="{search_query|s}" name="s">
+    </label>
+
+    <button type="submit" class="search-form__button button button--icon {button_class|s}">
+        {Strings.s.header.search|s}
+        {>"ui/icon" icon="search" class="icon--medium"  /}
+    </button>
+</form>

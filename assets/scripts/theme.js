@@ -7,24 +7,34 @@ import Common from './common';
 import Accordion from './accordion';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
-import Hero from './hero';
-import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import ImageCarousel from './image-carousel';
+import Table from './table';
+import Hero from './hero';
+import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import FlyOutNav from './fly-out-nav';
+import PrimaryNav from './primary-nav';
+import Dropdown from './dropdown';
 
 const globalControllers = {
     Common,
-    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
-    Hero,
-    Table,
     Image,
     Modal,
+    ImageCarousel,
+    Table,
+    Hero,
+    Header,
     BackToTop,
+    Hyphenation,
+    FlyOutNav,
+    PrimaryNav,
+    Dropdown,
 };
 
 const templateControllers = {

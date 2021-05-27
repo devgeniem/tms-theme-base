@@ -36,6 +36,8 @@ $size-7: rem(14px, $base-size);
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
 html {
+    font-size: 16px;
+
     @include from($tablet) {
         font-size: 17px;
     }
@@ -50,6 +52,8 @@ html {
     .has-text-lead {
         font-size: map-get($calculated_sizes, "h6") !important;
         line-height: 1.62;
+        font-family: $family-sans-serif;
+        font-weight: 600;
     }
 
     .has-text-large {

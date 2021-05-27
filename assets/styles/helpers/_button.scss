@@ -1,5 +1,6 @@
 /**
  * Button class generator
+ * sass-lint:disable no-important
  */
 
 $button-colors: $colors !default;
@@ -227,9 +228,9 @@ $button-border-radius: 1.8rem;
 
                     &:active,
                     &.is-active {
+                        color: $dark !important;
                         background-color: $dark-invert !important;
                         border-color: $dark !important;
-                        color: $dark !important;
 
                         .icon {
                             fill: $dark !important;
@@ -260,12 +261,16 @@ $button-border-radius: 1.8rem;
                 }
 
                 &.is-outlined {
-                    background-color: transparent !important;
                     color: $primary !important;
+                    background-color: transparent !important;
 
                     &:hover,
                     &.is-hovered {
                         color: $light !important;
+                    }
+
+                    .icon {
+                        fill: $primary !important;
                     }
                 }
 

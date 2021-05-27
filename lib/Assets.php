@@ -92,6 +92,11 @@ class Assets implements Interfaces\Controller {
             true
         );
 
+        /**
+         * Add localizations to window.s object.
+         */
+        \wp_localize_script( 'theme-js', 's', ( new \Strings() )->s() );
+
         \wp_localize_script( 'theme-js', 'themeData', [
             'assetsUri' => esc_url( get_stylesheet_directory_uri() ),
         ] );
