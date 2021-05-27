@@ -27,7 +27,7 @@
             <li class="unavailable" aria-disabled="true">
                 <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a></li>
 
-            <li class="pagination-item unavailable not-used" aria-disabled="true">
+            <li class="pagination-item">
                 <a class="pagination-item__link" href="{page_link}{last_page}{hash}" data-page="{last_page}">
                     {last_page}
                 </a>
