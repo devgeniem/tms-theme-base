@@ -49,6 +49,15 @@ class Strings extends \DustPress\Model {
             'common' => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'password_protected' => [
+                'input_label' => _x( 'Password:', 'theme-frontend', 'tms-theme-base' ),
+                'button_text' => _x( 'Enter', 'theme-frontend', 'tms-theme-base' ),
+                'message'     => _x(
+                    'This content is password protected. To view it please enter your password below:',
+                    'theme-frontend',
+                    'tms-theme-base'
+                ),
+            ],
         ];
     }
 }
