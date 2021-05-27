@@ -262,6 +262,11 @@ $button-border-radius: 1.8rem;
                 &.is-outlined {
                     background-color: transparent !important;
                     color: $primary !important;
+
+                    &:hover,
+                    &.is-hovered {
+                        color: $light !important;
+                    }
                 }
 
                 &.is-borderless {
