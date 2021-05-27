@@ -12,10 +12,15 @@ $pagination-item-background-color-current-focus: $primary-dark !default;
     @include list-reset;
 
     .pagination-item {
-        margin-right: $theme-spacing-half;
-        margin-left: $theme-spacing-half;
+        margin-right: .35rem;
+        margin-left: .35rem;
 
         a {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 2.2352rem;
+            height: 2.2352rem;
             padding: $theme-spacing-quarter $theme-spacing-half;
             color: $pagination-item-color;
             background-color: $pagination-item-background-color;
@@ -44,6 +49,15 @@ $pagination-item-background-color-current-focus: $primary-dark !default;
                 }
             }
         }
+    }
+
+    .paginate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0 .35rem;
+
     }
 
     .hellip {

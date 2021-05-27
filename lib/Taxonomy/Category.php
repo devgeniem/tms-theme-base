@@ -47,4 +47,21 @@ class Category implements Taxonomy {
             return $item;
         }, $categories );
     }
+
+    /**
+     * Has multiple categories
+     *
+     * @return bool
+     */
+    public static function has_multiple() {
+        $categories = get_categories( [
+            'hide_empty' => true,
+        ] );
+
+        if ( empty( $categories ) ) {
+            return false;
+        }
+
+        return 1 < count( $categories );
+    }
 }
