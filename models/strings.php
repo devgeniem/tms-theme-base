@@ -42,12 +42,16 @@ class Strings extends \DustPress\Model {
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'footer'   => [
+            'footer'  => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
-                'back_to_top' => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
+                'back_to_top'  => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'common' => [
+            'common'  => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'single'  => [
+                'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
+                'writing_credits' => _x( 'Text:', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
