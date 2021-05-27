@@ -11,9 +11,15 @@ $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
 .pill {
+    font-family: $family-secondary;
+    font-size: 85%;
+    font-weight: 500;
+    line-height: 1.1;
     display: inline-block;
+    padding: $theme-spacing-half $theme-spacing-three-quarters;
     color: $pill-color;
     background-color: $pill-background-color;
+    border-radius: $theme-spacing-quarter;
 
     &.is-active,
     &:focus,
