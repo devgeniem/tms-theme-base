@@ -20,4 +20,20 @@
             {/content.fields.image_credits}
         </div>
     </div>
+
+    {?content.categories}
+        <div class="is-flex is-flex-wrap-wrap mt-4">
+            {#content.categories}
+                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
+            {/content.categories}
+        </div>
+    {/content.categories}
+
+    {?content.tags}
+        <div class="is-flex is-flex-wrap-wrap mt-4">
+            {#content.tags}
+                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
+            {/content.tags}
+        </div>
+    {/content.tags}
 </div>

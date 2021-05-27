@@ -6,6 +6,7 @@
 use DustPress\Query;
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
 
 /**
@@ -28,6 +29,9 @@ class Single extends BaseModel {
         $single->image = $single->image === 0
             ? false
             : $single->image;
+
+        $single->categories = Category::get_post_categories( $single->ID );
+        $single->tags       = PostTag::get_post_tags( $single->ID );
 
         return $single;
     }
