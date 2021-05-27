@@ -20,7 +20,7 @@ class Single extends BaseModel {
      * Content
      *
      * @return array|object|WP_Post|null
-     * @throws Exception
+     * @throws Exception If global $post is not available or $id param is not defined.
      */
     public function content() {
         $single = Query::get_acf_post( get_queried_object_id() );
