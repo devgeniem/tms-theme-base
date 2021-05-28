@@ -103,6 +103,15 @@ class BlocksController implements Interfaces\Controller {
         $blocks = [
             'core/block'        => [],
             'core/template'     => [],
+            'core/list'         => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+                'templates'  => [
+                    '',
+                ],
+            ],
             'core/heading'      => [
                 'post_types' => [
                     PostType\Page::SLUG,
