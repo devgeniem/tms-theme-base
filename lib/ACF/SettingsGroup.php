@@ -124,7 +124,7 @@ class SettingsGroup {
                 'instructions' => '',
             ],
             'contact_title' => [
-                'title'        => 'Yhteystietojen osoite',
+                'title'        => 'Yhteystietojen otsikko',
                 'instructions' => '',
             ],
             'address'       => [
