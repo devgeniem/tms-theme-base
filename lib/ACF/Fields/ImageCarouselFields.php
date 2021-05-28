@@ -53,7 +53,7 @@ class ImageCarouselFields extends Field\Group {
             'rows'        => [
                 'label'        => 'Kuvakaruselli',
                 'instructions' => '',
-                'button'       => 'Lisää istuin',
+                'button'       => 'Lisää kuva',
             ],
             'image'       => [
                 'label'        => 'Kuva',
