@@ -40,7 +40,7 @@ class LinkListBlock extends BaseBlock {
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Linkkkilista';
+        $this->title = 'Linkkilista';
 
         parent::__construct();
     }
