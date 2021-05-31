@@ -90,6 +90,7 @@ class ThemeController {
             }
         } );
 
+        \Archive::hooks();
         \Home::hooks();
     }
 }

@@ -15,7 +15,7 @@ class Home extends BaseModel {
      *
      * @var object
      */
-    private object $pagination;
+    protected object $pagination;
 
     /**
      * Hooks
@@ -67,7 +67,6 @@ class Home extends BaseModel {
         return ! $value
             ? null
             : intval( $value );
-
     }
 
     /**
@@ -83,13 +82,25 @@ class Home extends BaseModel {
         }
 
         $filter_category = static::get_filter_category();
-        $filter_month    = static::get_filter_month();
-        $filter_year     = static::get_filter_year();
-        $date_query      = [];
 
         if ( ! empty( $filter_category ) ) {
             $wp_query->set( 'cat', $filter_category );
         }
+
+        static::modify_query_date( $wp_query );
+    }
+
+    /**
+     * Modify query date params
+     *
+     * @param WP_Query $wp_query Instance of WP_Query.
+     *
+     * @return void
+     */
+    protected static function modify_query_date( $wp_query ) {
+        $filter_month = static::get_filter_month();
+        $filter_year  = static::get_filter_year();
+        $date_query   = [];
 
         if ( ! empty( $filter_month ) ) {
             $date_query['month'] = $filter_month;
@@ -152,7 +163,7 @@ class Home extends BaseModel {
      * @return object|null
      */
     public function highlight() : ?object {
-        $highlight = get_field( 'highlight', 387 );
+        $highlight = get_field( 'highlight', get_option( 'page_for_posts' ) );
 
         if ( empty( $highlight ) ) {
             return null;
@@ -167,39 +178,8 @@ class Home extends BaseModel {
      * @return array
      */
     public function filters() : array {
-        $current_year_filter     = static::get_filter_year();
-        $current_month_filter    = static::get_filter_month();
-        $categories              = get_categories();
-        $current_category_filter = static::get_filter_category();
-        $permalink               = get_the_permalink( get_queried_object_id() );
-
-        if ( ! empty( $categories ) ) {
-            $categories = array_map( function ( $item ) use ( $permalink, $current_category_filter, $current_month_filter, $current_year_filter ) {
-                $item->is_active = $current_category_filter === $item->term_id;
-                $item->url       = add_query_arg(
-                    [
-                        'filter-category' => $item->term_id,
-                        'filter-month'    => $current_month_filter,
-                        'filter-year'     => $current_year_filter,
-                    ],
-                    $permalink
-                );
-
-                return $item;
-            }, $categories );
-
-            array_unshift( $categories, [
-                'name'      => __( 'All', 'tms-theme-base' ),
-                'url'       => add_query_arg(
-                    [
-                        'filter-month' => $current_month_filter,
-                        'filter-year'  => $current_year_filter,
-                    ],
-                    $permalink
-                ),
-                'is_active' => empty( $current_category_filter ),
-            ] );
-        }
+        $current_year_filter  = static::get_filter_year();
+        $current_month_filter = static::get_filter_month();
 
         $month_strings = ( new Strings() )->s()['months'];
         $months        = [];
@@ -227,11 +207,57 @@ class Home extends BaseModel {
         }
 
         return [
-            'categories'      => $categories,
+            'categories'      => $this->get_filter_categories(),
             'months'          => $months,
             'years'           => $year_choices,
-            'active_category' => $current_category_filter,
+            'active_category' => static::get_filter_category(),
         ];
+    }
+
+    /**
+     * Get filter categories
+     *
+     * @return array
+     */
+    protected function get_filter_categories() : array {
+        $categories = get_categories();
+
+        if ( empty( $categories ) ) {
+            return [];
+        }
+
+        $current_year_filter     = static::get_filter_year();
+        $current_month_filter    = static::get_filter_month();
+        $current_category_filter = static::get_filter_category();
+        $permalink               = get_the_permalink( get_queried_object_id() );
+
+        $categories = array_map( function ( $item ) use ( $permalink, $current_category_filter, $current_month_filter, $current_year_filter ) {
+            $item->is_active = $current_category_filter === $item->term_id;
+            $item->url       = add_query_arg(
+                [
+                    'filter-category' => $item->term_id,
+                    'filter-month'    => $current_month_filter,
+                    'filter-year'     => $current_year_filter,
+                ],
+                $permalink
+            );
+
+            return $item;
+        }, $categories );
+
+        array_unshift( $categories, [
+            'name'      => __( 'All', 'tms-theme-base' ),
+            'url'       => add_query_arg(
+                [
+                    'filter-month' => $current_month_filter,
+                    'filter-year'  => $current_year_filter,
+                ],
+                $permalink
+            ),
+            'is_active' => empty( $current_category_filter ),
+        ] );
+
+        return $categories;
     }
 
     /**
