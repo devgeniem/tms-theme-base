@@ -89,5 +89,7 @@ class ThemeController {
                 $instance->hooks();
             }
         } );
+
+        \Home::hooks();
     }
 }
