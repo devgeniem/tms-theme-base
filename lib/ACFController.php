@@ -34,7 +34,7 @@ class ACFController implements Interfaces\Controller {
     private function require_acf_files() : void {
         $files = array_diff(
             scandir( __DIR__ . '/ACF' ),
-            [ '.', '..', 'Fields', 'Layouts' ]
+            [ '.', '..', 'Field', 'Fields', 'Layouts' ]
         );
 
         array_walk(
