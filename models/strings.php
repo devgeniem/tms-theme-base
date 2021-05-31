@@ -55,6 +55,7 @@ class Strings extends \DustPress\Model {
             ],
             'common'  => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
+                'all'          => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
             ],
             'password_protected' => [
                 'input_label' => _x( 'Password:', 'theme-frontend', 'tms-theme-base' ),
@@ -68,6 +69,26 @@ class Strings extends \DustPress\Model {
             'single'  => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
                 'writing_credits' => _x( 'Text:', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'home'    => [
+                'month'              => _x( 'Month', 'theme-frontend', 'tms-theme-base' ),
+                'year'               => _x( 'Year', 'theme-frontend', 'tms-theme-base' ),
+                'no_results'         => _x( 'No results', 'theme-frontend', 'tms-theme-base' ),
+                'filter_by_category' => _x( 'Filter by Category', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'months'  => [
+                'january'   => _x( 'January', 'theme-frontend', 'tms-theme-base' ),
+                'february'  => _x( 'February', 'theme-frontend', 'tms-theme-base' ),
+                'march'     => _x( 'March', 'theme-frontend', 'tms-theme-base' ),
+                'april'     => _x( 'April', 'theme-frontend', 'tms-theme-base' ),
+                'may'       => _x( 'May', 'theme-frontend', 'tms-theme-base' ),
+                'june'      => _x( 'June', 'theme-frontend', 'tms-theme-base' ),
+                'july'      => _x( 'July', 'theme-frontend', 'tms-theme-base' ),
+                'august'    => _x( 'August', 'theme-frontend', 'tms-theme-base' ),
+                'september' => _x( 'September', 'theme-frontend', 'tms-theme-base' ),
+                'october'   => _x( 'October', 'theme-frontend', 'tms-theme-base' ),
+                'november'  => _x( 'November', 'theme-frontend', 'tms-theme-base' ),
+                'december'  => _x( 'December', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }

@@ -32,6 +32,11 @@ class ThemeSupports implements Interfaces\Controller {
             3
         );
 
+        \add_filter(
+            'query_vars',
+            \Closure::fromCallable( [ $this, 'query_vars' ] )
+        );
+
         \remove_theme_support( 'core-block-patterns' );
     }
 
@@ -68,5 +73,21 @@ class ThemeSupports implements Interfaces\Controller {
      */
     private function favicon_url() : string {
         return DPT_ASSETS_URI . '/images/favicon.png';
+    }
+
+    /**
+     * Append custom query vars
+     *
+     * @param array $vars Registered query vars.
+     *
+     * @return array
+     */
+    protected function query_vars( $vars ) {
+        $vars[] = 'filter-category';
+        $vars[] = 'filter-tag';
+        $vars[] = 'filter-month';
+        $vars[] = 'filter-year';
+
+        return $vars;
     }
 }

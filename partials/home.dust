@@ -1,7 +1,7 @@
 {>"shared/base" /}
 
 {<content}
-    <main class="main-content" id="main-content">
+    <main class="main-content pb-8" id="main-content">
         {#Home}
             <section class="section">
                 <div class="container">
@@ -13,74 +13,26 @@
                         </div>
                     </div>
 
-                    <div class="columns is-gapless">
-                        <div class="column is-8-desktop is-relative">
-                            <div class="highlight__image is-absolute-tablet has-top-0-tablet has-right-0-tablet has-bottom-0-tablet has-left-0-tablet has-background-cover" {@inlinebg id=highlight.featured_image size="large" /}>
-                                <div class="image is-16by9 is-hidden-tablet">
-                                    {@image id=highlight.featured_image size="fullhd" class="objecfit-image" /}
-                                </div>
-                            </div>
-                        </div>
+                    {>"views/home/home-highlight" /}
 
-                        <div class="column is-4-desktop has-background-secondary has-text-secondary-invert">
-                            <div class="highlight__fields p-6 pt-9-desktop pr-6-desktop pb-9-desktop pl-6-desktop">
-                                {?highlight.post_title}
-                                    <h2 class="mt-3 mb-5">
-                                        <a href="{permalink}" class="has-text-black">
-                                            {highlight.post_title|s}
-                                        </a>
-                                    </h2>
-                                {/highlight.post_title}
-
-                                {?highlight.category}
-                                    <span class="pill is-white">
-                                        {highlight.category.name|s}
-                                    </span>
-                                {/highlight.category}
-
-                                <div class="entry__excerpt mt-5 mb-5">
-                                    <span class="is-block has-text-weight-bold">{@strtodate value=highlight.post_date format="d.m.Y" /}</span>
-                                    {highlight.excerpt|s}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {>"views/home/home-filters" /}
 
                     <div class="columns is-multiline mt-8">
-                        {#articles}
-                            <div class="column is-6 is-4-desktop is-3-widescreen">
-                                <article class="entry mb-6">
-                                    {?featured_image}
-                                        <div class="image is-5by3 mb-5">
-                                            <a href="{permalink}" aria-hidden="true" tabindex="-1">
-                                                {@image id=featured_image size="medium_large" class="objectfit-image" /}
-                                            </a>
-                                        </div>
-                                    {/featured_image}
-
-                                    <h2 class="entry__title h4 mt-5 mb-5">
-                                        <a href="{permalink}" class="has-text-black">
-                                            {post_title|s}
-                                        </a>
-                                    </h2>
-
-                                    <div class="entry__excerpt mt-5 mb-5 has-text-small">
-                                        <span class="has-text-weight-bold">{@strtodate value=post_date format="d.m.Y" /}</span>
-                                        {excerpt|s}
-                                    </div>
-
-                                    {?category}
-                                        <span class="pill">
-                                            {category.name|s}
-                                        </span>
-                                    {/category}
-                                </article>
+                        {?articles}
+                            {#articles}
+                                {>"views/home/home-grid-item" /}
+                            {/articles}
+                        {:else}
+                            <div class="column">
+                                <div class="pt-6 pb-6 h4 has-text-centered">
+                                    {Strings.s.home.no_results|s}
+                                </div>
                             </div>
                         {/articles}
                     </div>
 
                     {?pagination}
-                        <div class="columns">
+                        <div class="columns mt-8">
                             <div class="column has-text-centered">
                                 {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
                             </div>
