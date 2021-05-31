@@ -4,6 +4,8 @@
     <main class="main-content" id="main-content">
         <section class="section">
             <div class="container">
+                {>"ui/breadcrumbs" breadcrumbs=Single.breadcrumbs /}
+
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
