@@ -18,14 +18,14 @@ trait Breadcrumbs {
     /**
      * Format by queried type.
      *
-     * @param string $current_type Queried post type slug
+     * @param string $current_type Queried post type slug.
      * @param int    $current_id   Queried ID.
      * @param string $home_url     Home page url.
      * @param array  $breadcrumbs  Breadcrumbs to format.
      *
-     * @return array|mixed
+     * @return array
      */
-    private function prepare_by_type( $current_type, $current_id, $home_url, $breadcrumbs ) {
+    private function prepare_by_type( $current_type, $current_id, $home_url = '', $breadcrumbs = [] ) : array {
         switch ( $current_type ) {
             case PostType\Page::SLUG:
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
