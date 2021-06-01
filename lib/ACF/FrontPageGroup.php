@@ -109,6 +109,7 @@ class PageFrontPageGroup {
                 Layouts\LogoWallLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\TextBlockLayout::class,
+                Layouts\ImageCarouselLayout::class,
             ]
         );
 
