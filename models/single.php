@@ -12,7 +12,9 @@ use TMS\Theme\Base\Traits;
  */
 class Single extends BaseModel {
 
-    use Traits\Sharing, Traits\Breadcrumbs, Traits\PostCategories;
+    use Traits\Sharing;
+    use Traits\Breadcrumbs;
+    use Traits\PostCategories;
 
     /**
      * Get related posts
@@ -68,7 +70,7 @@ class Single extends BaseModel {
     }
 
     /**
-     * Page breadcrumbs
+     * Single breadcrumbs
      *
      * @return array
      */

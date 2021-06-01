@@ -11,7 +11,8 @@ use TMS\Theme\Base\Traits;
  */
 class Page extends BaseModel {
 
-    use Traits\Components, Traits\Breadcrumbs;
+    use Traits\Components;
+    use Traits\Breadcrumbs;
 
     /**
      * Page breadcrumbs

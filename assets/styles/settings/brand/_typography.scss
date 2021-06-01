@@ -100,7 +100,7 @@ html {
     .h5 {
         font-size: map-get($calculated_sizes, "h5") !important;
         font-family: $font-family-header;
-        font-weight: 600;
+        font-weight: $weight-semibold;
         line-height: 1.22;
         hyphens: auto;
     }
@@ -109,7 +109,7 @@ html {
     .h6 {
         font-size: map-get($calculated_sizes, "h6") !important;
         font-family: $font-family-header;
-        font-weight: 600;
+        font-weight: $weight-semibold;
         line-height: 1.22;
         hyphens: auto;
     }
