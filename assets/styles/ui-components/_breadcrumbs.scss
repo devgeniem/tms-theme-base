@@ -1,0 +1,29 @@
+/*!*
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.breadcrumb {
+    .breadcrumbs {
+        &__nav {
+            font-family: $family-secondary;
+            font-size: $size-7;
+            line-height: 1.2;
+            font-weight: $weight-medium;
+
+            a {
+                color: $primary;
+                text-decoration: underline;
+
+                &.is-hovered,
+                &:hover {
+                    color: $primary-dark;
+                }
+
+                &.is-active,
+                &:active {
+                    color: $primary-light;
+                }
+            }
+        }
+    }
+}
