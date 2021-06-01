@@ -40,3 +40,9 @@
                 </div>
             </div>
         </nav>
+
+        {?Header.breadcrumbs}
+            <div class="container mt-3 mb-6 p-0">
+                {>"ui/breadcrumbs" breadcrumbs=Header.breadcrumbs /}
+            </div>
+        {/Header.breadcrumbs}

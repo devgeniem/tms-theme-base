@@ -6,12 +6,95 @@
 
 namespace TMS\Theme\Base\Traits;
 
+use TMS\Theme\Base\PostType;
+
 /**
  * Trait Breadcrumbs
  *
  * @package TMS\Theme\Base\Traits
  */
 trait Breadcrumbs {
+
+    /**
+     * Format by queried type.
+     *
+     * @param string $current_type Queried post type slug
+     * @param int    $current_id   Queried ID.
+     * @param string $home_url     Home page url.
+     * @param array  $breadcrumbs  Breadcrumbs to format.
+     *
+     * @return array|mixed
+     */
+    private function prepare_by_type( $current_type, $current_id, $home_url, $breadcrumbs ) {
+        switch ( $current_type ) {
+            case PostType\Page::SLUG:
+                return $this->format_page( $current_id, $home_url, $breadcrumbs );
+            case PostType\Post::SLUG:
+                return $this->format_post( $current_id, $home_url, $breadcrumbs );
+            default:
+                return $breadcrumbs;
+        }
+    }
+
+    /**
+     * Format breadcrumbs for: Post
+     *
+     * @param int    $current_id  Current page ID.
+     * @param string $home_url    Home URL.
+     * @param array  $breadcrumbs Breadcrumbs array.
+     *
+     * @return array
+     */
+    private function format_post( $current_id, string $home_url, array $breadcrumbs ) : array {
+        $breadcrumbs['home'] = $this->get_home_link();
+
+        $categories = wp_get_post_categories( $current_id, [ 'fields' => 'all' ] );
+        $categories = array_map( function ( $category ) {
+            $category->url = get_category_link( $category->term_id );
+
+            return $category;
+        }, $categories ?? [] );
+
+        if ( ! empty( $categories ) ) {
+            $breadcrumbs[] = [
+                'title'     => $categories[0]->name,
+                'permalink' => $categories[0]->url,
+                'icon'      => false,
+            ];
+        }
+
+        return $breadcrumbs;
+    }
+
+    /**
+     * Format breadcrumbs for: Page
+     *
+     * @param int    $current_id  Current page ID.
+     * @param string $home_url    Home URL.
+     * @param array  $breadcrumbs Breadcrumbs array.
+     *
+     * @return array
+     */
+    private function format_page( $current_id, string $home_url, array $breadcrumbs ) : array {
+        /**
+         * Add current page to breadcrumbs and set its
+         * link status to false, unless it's the front page, then remove it.
+         */
+        if ( trailingslashit( get_the_permalink( $current_id ) ) !== $home_url ) {
+            $breadcrumbs[] = [
+                'title'     => get_the_title( $current_id ),
+                'permalink' => false,
+                'icon'      => false,
+                'is_active' => true,
+            ];
+        }
+        else {
+            unset( $breadcrumbs['home'] ); // Not showing frontpage on frontpage.
+        }
+
+        return $breadcrumbs;
+    }
+
     /**
      * Get Object Ancestors.
      *

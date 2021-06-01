@@ -14,9 +14,7 @@ use TMS\Theme\Base\Traits;
  */
 class Single extends BaseModel {
 
-    use Traits\Breadcrumbs;
     use Traits\Components;
-    use Traits\PostCategories;
     use Traits\Sharing;
 
     /**
@@ -89,28 +87,5 @@ class Single extends BaseModel {
             'posts' => $posts,
             'link'  => get_field( 'related_link' ) ?? '',
         ];
-    }
-
-    /**
-     * Page breadcrumbs
-     *
-     * @return array
-     */
-    public function breadcrumbs() : array {
-        $breadcrumbs = [
-            $this->get_home_link(),
-        ];
-
-        $categories = $this->get_post_categories( get_queried_object_id() );
-
-        if ( ! empty( $categories ) ) {
-            $breadcrumbs[] = [
-                'title'     => $categories[0]->name,
-                'permalink' => $categories[0]->url,
-                'icon'      => false,
-            ];
-        }
-
-        return $this->format_breadcrumbs( $breadcrumbs );
     }
 }

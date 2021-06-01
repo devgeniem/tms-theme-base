@@ -17,4 +17,14 @@ class PageFrontPage extends BaseModel {
      * Template
      */
     const TEMPLATE = 'models/page-front-page.php';
+
+    /**
+     * Init model.
+     */
+    public function init() : void {
+        add_filter( 'tms/theme/breadcrumbs/page', function ( $formatted, $original, $object ) {
+            unset( $formatted, $original, $object );
+            return [];
+        } );
+    }
 }
