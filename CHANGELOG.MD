@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-73: Text block (Layout) #51
 - TMS-75: Text Editor #50
 
 ## [1.0.0] - 2021-05-21
