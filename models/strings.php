@@ -22,6 +22,7 @@ class Strings extends \DustPress\Model {
                 'open_menu'                => _x( 'Open menu', 'theme-frontend', 'tms-theme-base' ),
                 'close_menu'               => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
                 'language_navigation'      => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
+                'open_search'              => _x( 'Open search form', 'theme-frontend', 'tms-theme-base' ),
                 'search'                   => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_label'       => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),

@@ -3,7 +3,7 @@
         {>"shared/header-logo" /}
 
         <div class="site-header__end ml-auto">
-            <div class="is-hidden-touch is-hidden-desktop-only is-hidden-widescreen-only">
+            <div class="is-hidden-touch is-hidden-desktop-only">
                 {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
             </div>
 
@@ -23,7 +23,7 @@
 
             {>"shared/header-search-toggle"  /}
 
-            <button class="fly-out-nav__trigger {^Header.hide_main_nav}is-hidden-desktop{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+            <button class="fly-out-nav__trigger {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
                 {>"ui/icon" icon="burger" class="icon--large" /}
             </button>
 
@@ -51,7 +51,7 @@
 </div>
 
 {^Header.hide_main_nav}
-    <div class="site-header__nav is-relative is-hidden-touch has-background-primary">
+    <div class="site-header__nav is-relative is-hidden-touch is-hidden-desktop-only has-background-primary">
         <div class="container">
             <div class="columns mt-0 mb-0">
                 <div class="column">

@@ -2,7 +2,7 @@
     <div class="site-header__logo-image">
     {?Header.logo}
         {?Header.home_url}
-            <a href="{Header.home_url}">
+            <a href="{Header.home_url}" class="is-block">
                 {@image id=Header.logo size="medium" /}
             </a>
         {:else}

@@ -15,7 +15,7 @@
                 {Strings.s.header.skip_to_content|s}
             </a>
 
-            {>"shared/header-inner"  /}
+            {>"shared/header-inner" /}
         </header>
 
         <nav id="js-fly-out-nav" class="fly-out-nav overlay overlay--dark-80" aria-hidden="true">
@@ -34,7 +34,7 @@
                         {Strings.s.header.search_title|s}
                     </div>
 
-                    {>"search-form" button_class="is-primary is-inverted" /}
+                    {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
 
                     {>"ui/icon" icon="tampere-finland" class="is-primary-invert" /}
                 </div>
