@@ -76,14 +76,11 @@ class SubpageFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['background_color']['instructions'] );
 
-        $display_image_field = ( new Field\Radio( $strings['display_image']['label'] ) )
+        $display_image_field = ( new Field\TrueFalse( $strings['display_image']['label'] ) )
             ->set_key( "${key}_display_image" )
             ->set_name( 'display_image' )
-            ->set_choices( [
-                false => 'Ei',
-                true  => 'Kyllä',
-            ] )
             ->set_wrapper_width( 50 )
+            ->use_ui()
             ->set_instructions( $strings['display_image']['instructions'] );
 
         return [
