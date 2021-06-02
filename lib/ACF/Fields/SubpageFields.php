@@ -80,8 +80,8 @@ class SubpageFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_display_image" )
             ->set_name( 'display_image' )
             ->set_choices( [
-                false => 'Kyllä',
-                true  => 'Ei',
+                false => 'Ei',
+                true  => 'Kyllä',
             ] )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['display_image']['instructions'] );
@@ -89,7 +89,6 @@ class SubpageFields extends \Geniem\ACF\Field\Group {
         return [
             $title_field,
             $background_color_field,
-            $layout_field,
             $display_image_field,
         ];
     }
