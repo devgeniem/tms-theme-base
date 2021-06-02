@@ -1,0 +1,15 @@
+.post-link {
+    font-family: $family-secondary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $theme-spacing-oneandhalf $theme-spacing;
+
+    @include from($desktop) {
+        padding: $theme-spacing-twoandhalf $theme-spacing-two;
+    }
+
+    &.has-background-image {
+        padding-top: 12.558rem;
+    }
+}
