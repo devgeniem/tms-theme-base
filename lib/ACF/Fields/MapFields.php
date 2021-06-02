@@ -66,15 +66,7 @@ class MapFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_description" )
             ->set_name( 'description' )
             ->set_tabs( 'visual' )
-            ->set_toolbar(
-                [
-                    'bold',
-                    'italic',
-                    'link',
-                    'pastetext',
-                    'removeformat',
-                ]
-            )
+            ->set_toolbar( 'tms-minimal' )
             ->disable_media_upload()
             ->set_height( 100 )
             ->set_wrapper_width( 50 )
