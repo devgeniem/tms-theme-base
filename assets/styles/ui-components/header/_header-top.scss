@@ -24,6 +24,7 @@
     }
 
     &__logo-image {
+        min-width: 10rem;
         max-width: 10rem;
 
         @include from($tablet) {
