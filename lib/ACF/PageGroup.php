@@ -109,6 +109,7 @@ class PageGroup {
                 Layouts\IconLinksLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\TextBlockLayout::class,
+                Layouts\GridLayout::class,
             ]
         );
 
