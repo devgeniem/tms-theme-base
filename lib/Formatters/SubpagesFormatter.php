@@ -56,7 +56,7 @@ class SubpagesFormatter implements Formatter {
         }
 
         $data['item_classes'] = implode( ' ', $item_classes );
-        $data['subpages']     = $this->get_subpages();
+        $data['subpages']     = $this->get_subpages( $data['display_image'] );
         $data['icon_classes'] = $data['background_color'] === 'primary'
             ? 'is-primary-invert'
             : 'is-primary-light';
@@ -67,9 +67,11 @@ class SubpagesFormatter implements Formatter {
     /**
      * Get current page subpages.
      *
+     * @param bool $include_thumbnail If true, attempt to include post thumbnail.
+     *
      * @return array
      */
-    private function get_subpages() : array {
+    private function get_subpages( bool $include_thumbnail ) : array {
         $args = [
             'post_type'              => Page::SLUG,
             'posts_per_page'         => 100,
@@ -86,11 +88,13 @@ class SubpagesFormatter implements Formatter {
             return [];
         }
 
-        return array_map( function ( $item ) {
+        return array_map( function ( $item ) use ( $include_thumbnail ) {
             return [
                 'title'    => get_the_title( $item ),
                 'url'      => get_the_permalink( $item ),
-                'image_id' => has_post_thumbnail( $item ) ? get_post_thumbnail_id( $item ) : false,
+                'image_id' => $include_thumbnail && has_post_thumbnail( $item )
+                    ? get_post_thumbnail_id( $item )
+                    : false,
             ];
         }, $wp_query->posts );
     }

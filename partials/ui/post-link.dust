@@ -1,7 +1,7 @@
-<a href="{url}" class="post-link {item_classes|s}" {?display_image}{@inlinebg id=image_id size="medium_large" /}{/display_image}>
-    {?display_image}
+<a href="{url}" class="post-link {item_classes|s}" {?image_id}{@inlinebg id=image_id size="medium_large" /}{/image_id}>
+    {?image_id}
         <div class="overlay overlay--dark-gradient"></div>
-    {/display_image}
+    {/image_id}
 
     <h3 class="h6 m-0 is-relative">{title|s}</h3>
 
