@@ -9,11 +9,11 @@ use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\SubpageFields;
 
 /**
- * Class SubPagesBlock
+ * Class SubpagesBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class SubPagesBlock extends BaseBlock {
+class SubpagesBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
@@ -34,7 +34,7 @@ class SubPagesBlock extends BaseBlock {
      *
      * @var string
      */
-    protected $icon = 'pages';
+    protected $icon = 'text-page';
 
     /**
      * Create the block and register it.
@@ -71,9 +71,7 @@ class SubPagesBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
-
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }
