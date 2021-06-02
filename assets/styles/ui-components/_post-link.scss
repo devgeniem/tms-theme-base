@@ -9,7 +9,11 @@
         padding: $theme-spacing-twoandhalf $theme-spacing-two;
     }
 
-    &.has-background-image {
+    .icon {
+        flex-shrink: 0;
+    }
+
+    &.is-tall {
         padding-top: 12.558rem;
     }
 }

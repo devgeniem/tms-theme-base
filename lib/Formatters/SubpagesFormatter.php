@@ -44,19 +44,7 @@ class SubpagesFormatter implements Formatter {
      * @return array
      */
     public function format( array $data ) : array {
-        $item_classes = [
-            'has-background-' . $data['background_color'],
-            'has-text-' . $data['background_color'] . '-invert',
-        ];
-
-        if ( $data['display_image'] ) {
-            $item_classes[] = 'has-background-image';
-            $item_classes[] = 'has-background-cover';
-            $item_classes[] = 'is-relative';
-        }
-
-        $data['item_classes'] = implode( ' ', $item_classes );
-        $data['subpages']     = $this->get_subpages( $data['display_image'] );
+        $data['subpages']     = $this->get_subpages( $data );
         $data['icon_classes'] = $data['background_color'] === 'primary'
             ? 'is-primary-invert'
             : 'is-primary-light';
@@ -67,11 +55,11 @@ class SubpagesFormatter implements Formatter {
     /**
      * Get current page subpages.
      *
-     * @param bool $include_thumbnail If true, attempt to include post thumbnail.
+     * @param array $data Layout/block data.
      *
      * @return array
      */
-    private function get_subpages( bool $include_thumbnail ) : array {
+    private function get_subpages( array $data ) : array {
         $args = [
             'post_type'              => Page::SLUG,
             'posts_per_page'         => 100,
@@ -88,14 +76,31 @@ class SubpagesFormatter implements Formatter {
             return [];
         }
 
-        return array_map( function ( $item ) use ( $include_thumbnail ) {
-            return [
-                'title'    => get_the_title( $item ),
-                'url'      => get_the_permalink( $item ),
-                'image_id' => $include_thumbnail && has_post_thumbnail( $item )
-                    ? get_post_thumbnail_id( $item )
-                    : false,
+        return array_map( function ( $post_id ) use ( $data ) {
+            $item = [
+                'title' => get_the_title( $post_id ),
+                'url'   => get_the_permalink( $post_id ),
             ];
+
+            $item_classes = [];
+
+            if ( $data['display_image'] ) {
+                $item_classes[] = 'is-tall';
+            }
+
+            if ( $data['display_image'] && has_post_thumbnail( $post_id ) ) {
+                $item_classes[] = 'has-background-image has-background-cover is-relative has-text-primary-invert';
+
+                $item['image_id'] = get_post_thumbnail_id( $post_id );
+            }
+            else {
+                $item_classes[] = 'has-background-' . $data['background_color'];
+                $item_classes[] = 'has-text-' . $data['background_color'] . '-invert';
+            }
+
+            $item['classes'] = implode( ' ', $item_classes );
+
+            return $item;
         }, $wp_query->posts );
     }
 }
