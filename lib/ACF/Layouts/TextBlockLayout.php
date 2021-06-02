@@ -7,20 +7,20 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Field\TextEditor;
+use TMS\Theme\Base\ACF\Fields\TextBlockFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class AccordionWysiwygLayout
+ * Class TextBlockLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class AccordionWysiwygLayout extends Layout {
+class TextBlockLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_accordion_wysiwyg';
+    const KEY = '_textblock';
 
     /**
      * Create the layout
@@ -29,9 +29,9 @@ class AccordionWysiwygLayout extends Layout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Teksti',
+            'Tekstikappale',
             $key . self::KEY,
-            'accordion_wysiwyg'
+            'textblock'
         );
 
         $this->add_layout_fields();
@@ -43,25 +43,17 @@ class AccordionWysiwygLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $strings = [
-            'text' => [
-                'label'        => 'Teksti',
-                'instructions' => '',
-            ],
-        ];
-
-        $key = $this->get_key();
+        $fields = new TextBlockFields(
+            $this->get_label(),
+            $this->get_key(),
+            $this->get_name()
+        );
 
         try {
-            $text_field = ( new TextEditor( $strings['text']['label'] ) )
-                ->set_key( "${key}_rows" )
-                ->set_name( 'text' )
-                ->set_instructions( $strings['text']['instructions'] );
-
             $this->add_fields(
                 apply_filters(
                     'tms/acf/layout/' . $this->get_key() . '/fields',
-                    [ $text_field ]
+                    $fields->get_fields()
                 )
             );
         }
