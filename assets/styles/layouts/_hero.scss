@@ -4,12 +4,14 @@
 @mixin hero-height {
     height: 31.25rem;
 
-    @include from($tablet) {
-        height: 29.411rem;
-    }
+    &:not(.is-small) {
+        @include from($tablet) {
+            height: 29.411rem;
+        }
 
-    @include from($desktop) {
-        height: 43.7rem;
+        @include from($desktop) {
+            height: 43.7rem;
+        }
     }
 }
 
