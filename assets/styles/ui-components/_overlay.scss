@@ -18,4 +18,8 @@
     &--dark-30 {
         background-color: rgba($black, .3);
     }
+
+    &--dark-gradient {
+        background: linear-gradient(rgba($black, 0), rgba($black, .5));
+    }
 }

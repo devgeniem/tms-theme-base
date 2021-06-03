@@ -111,6 +111,7 @@ class PageGroup {
                 Layouts\SocialMediaLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\TextBlockLayout::class,
+                Layouts\SubpageLayout::class,
             ]
         );
 
