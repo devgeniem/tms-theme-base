@@ -2,14 +2,20 @@
 
 {<content}
     <main class="main-content" id="main-content">
+        {?Page.featured_image_id}
+            {>"layouts/layout-hero" title=Page.title container_class="has-text-white is-primary is-small" use_overlay="true" image=Page.featured_image_id /}
+        {/Page.featured_image_id}
+
         <section class="section">
             <div class="container">
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
-                            <h1 class="entry__title">
-                                {@title /}
-                            </h1>
+                            {^Page.featured_image_id}
+                                <h1 class="entry__title">
+                                    {@title /}
+                                </h1>
+                            {/Page.featured_image_id}
 
                             <div class="entry__content is-content-grid">
                                 {@content /}
