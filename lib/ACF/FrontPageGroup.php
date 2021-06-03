@@ -109,7 +109,11 @@ class PageFrontPageGroup {
                 Layouts\LogoWallLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\TextBlockLayout::class,
+<<<<<<< HEAD
                 Layouts\ImageCarouselLayout::class,
+=======
+                Layouts\GridLayout::class,
+>>>>>>> TMS-89
             ]
         );
 

@@ -112,6 +112,7 @@ class PageGroup {
                 Layouts\ImageCarouselLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\SubpageLayout::class,
+                Layouts\GridLayout::class,
             ]
         );
 
