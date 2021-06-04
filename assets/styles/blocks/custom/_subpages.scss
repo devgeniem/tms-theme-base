@@ -1,0 +1,11 @@
+.subpages {
+    &__items {
+        display: grid;
+        grid-gap: $theme-spacing;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include from($desktop) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
