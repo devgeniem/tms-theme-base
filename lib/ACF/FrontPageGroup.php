@@ -107,6 +107,7 @@ class PageFrontPageGroup {
                 Layouts\ImageBannerLayout::class,
                 Layouts\MapLayout::class,
                 Layouts\LogoWallLayout::class,
+                Layouts\TextBlockLayout::class,
             ]
         );
 

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- TMS-58: Error 404 page #53
+- TMS-73: Text block (Layout) #51
+- TMS-75: Text Editor #50
+
 ## [1.0.0] - 2021-05-21
 
 ### Added
