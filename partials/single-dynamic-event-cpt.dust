@@ -1,0 +1,39 @@
+{>"shared/base" /}
+
+{<content}
+    <main class="main-content" id="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <article class="entry">
+                            <header class="entry__header">
+                                <h1 class="entry__title has-text-centered">
+                                    {@title /}
+                                </h1>
+                            </header>
+
+                            <div class="entry__content is-content-grid">
+                                {@content /}
+                            </div>
+
+                            {#SingleDynamicEventCpt}
+                                <div class="columns">
+                                    <div class="column is-5 is-offset-1">
+                                        <p>
+                                            {event.normalized.short_description|s}
+                                        </p>
+                                        {event.normalized.description|s}
+                                    </div>
+
+                                    <div class="column is-5">
+                                    </div>
+                                </div>
+                            {/SingleDynamicEventCpt}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{/content}

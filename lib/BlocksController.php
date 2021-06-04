@@ -107,6 +107,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
                 'templates'  => [
                     '',
@@ -116,6 +117,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
                 'templates'  => [
                     '',
@@ -124,24 +126,28 @@ class BlocksController implements Interfaces\Controller {
             'acf/image-banner'  => [
                 'post_types' => [
                     PostType\Page::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/key-figures'   => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/link-list'     => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/quote'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/grid'          => [
@@ -154,46 +160,54 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/video'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/image'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/video'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/image-gallery' => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/share-links'   => [
                 'post_types' => [
                     PostType\Page::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/table'         => [
                 'post_types' => [
                     PostType\Page::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/material'      => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
         ];

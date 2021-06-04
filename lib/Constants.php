@@ -61,6 +61,10 @@ class Constants implements Interfaces\Controller {
         if ( ! defined( 'DPT_LAZYLOADING' ) ) {
             define( 'DPT_LAZYLOADING', true );
         }
+
+        if ( ! defined( 'PIRKANMAA_EVENTS_API_URL' ) ) {
+            define( 'PIRKANMAA_EVENTS_API_URL', 'https://pirkanmaaevents.fi/api/v2/' );
+        }
     }
 
     /**
@@ -68,5 +72,6 @@ class Constants implements Interfaces\Controller {
      *
      * @return void
      */
-    public function hooks() : void {}
+    public function hooks() : void {
+    }
 }
