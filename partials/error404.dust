@@ -7,7 +7,7 @@
                 <div class="columns">
                     <div class="column is-10 is-offset-1">
                         {#Error404}
-                            <article class="entry">
+                            <article class="entry mb-8 mb-10-desktop">
                                 <header class="entry__header">
                                     {?image}
                                         <div class="entry__figure mb-6 mb-8-tablet pt-2">
@@ -15,9 +15,11 @@
                                         </div>
                                     {/image}
 
-                                    <h1 class="entry__title mt-0 mb-6 mb-8-tablet has-line-height-tight has-text-centered ">
-                                        {title|s}
-                                    </h1>
+                                    {?title}
+                                        <h1 class="entry__title mt-0 mb-6 mb-8-tablet has-line-height-tight has-text-centered ">
+                                            {title|s}
+                                        </h1>
+                                    {/title}
                                 </header>
 
                                 {?description}

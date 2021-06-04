@@ -3,6 +3,7 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\Category;
 
 /**
@@ -25,6 +26,15 @@ class Home extends BaseModel {
             'pre_get_posts',
             [ __CLASS__, 'modify_query' ]
         );
+    }
+
+    /**
+     * Get view type
+     *
+     * @return string
+     */
+    public function view_type() : string {
+        return Settings::get_setting( 'archive_view_type' ) ?? 'grid';
     }
 
     /**
@@ -275,9 +285,10 @@ class Home extends BaseModel {
         $this->set_pagination_data( $wp_query );
 
         $display_categories = Category::has_multiple();
+        $use_images         = Settings::get_setting( 'archive_use_images' ) ?? true;
 
-        return array_map( function ( $article ) use ( $display_categories ) {
-            return $this->enrich_article( $article, $display_categories );
+        return array_map( function ( $article ) use ( $display_categories, $use_images ) {
+            return $this->enrich_article( $article, $display_categories, $use_images );
         }, $wp_query->posts );
     }
 
@@ -286,14 +297,25 @@ class Home extends BaseModel {
      *
      * @param WP_Post $article            WP_Post.
      * @param bool    $display_categories Should category to be displayed.
+     * @param bool    $use_images         Should images be displayed.
      * @param int     $excerpt_length     Excerpt length.
      *
      * @return object
      */
-    protected function enrich_article( WP_Post $article, bool $display_categories, int $excerpt_length = 160 ) {
-        $article->featured_image = \has_post_thumbnail( $article->ID ) ? \get_post_thumbnail_id( $article->ID ) : null;
-        $article->permalink      = \get_permalink( $article->ID );
-        $article->excerpt        = \get_the_excerpt( $article->ID );
+    protected function enrich_article(
+        WP_Post $article,
+        bool $display_categories,
+        bool $use_images = true,
+        int $excerpt_length = 160
+    ) {
+        if ( $use_images ) {
+            $article->featured_image = has_post_thumbnail( $article->ID )
+                ? get_post_thumbnail_id( $article->ID )
+                : null;
+        }
+
+        $article->permalink = get_permalink( $article->ID );
+        $article->excerpt   = get_the_excerpt( $article->ID );
 
         if ( strlen( $article->excerpt ) > $excerpt_length ) {
             $article->excerpt = trim( substr( $article->excerpt, 0, $excerpt_length ) );
@@ -318,8 +340,8 @@ class Home extends BaseModel {
      * @return void
      */
     protected function set_pagination_data( $wp_query ) : void {
-        $per_page = \get_option( 'posts_per_page' );
-        $paged    = ( \get_query_var( 'paged' ) ) ? \get_query_var( 'paged' ) : 1;
+        $per_page = get_option( 'posts_per_page' );
+        $paged    = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
         $this->pagination           = new stdClass();
         $this->pagination->page     = $paged;

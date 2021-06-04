@@ -20,7 +20,7 @@
                     <div class="columns is-multiline mt-8">
                         {?articles}
                             {#articles}
-                                {>"views/home/home-grid-item" /}
+                                {>"views/home/home-{view_type}-item" /}
                             {/articles}
                         {:else}
                             <div class="column">
