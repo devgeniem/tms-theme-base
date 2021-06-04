@@ -18,7 +18,7 @@
             </h2>
 
             <div class="entry__excerpt mt-5 mb-5 has-text-small">
-                <span class="has-text-weight-bold">{@strtodate value=post_date format="d.m.Y" /}</span>
+                <span class="has-text-weight-bold">{@strtodate value=post_date /}</span>
                 {excerpt|s}
             </div>
 
