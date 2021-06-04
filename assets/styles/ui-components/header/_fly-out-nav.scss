@@ -173,6 +173,7 @@
 
         .menu-item-secondary {
             margin-bottom: $theme-spacing;
+            margin-left: 0 !important; // sass-lint:disable-line no-important
 
             &__link {
                 color: $primary-invert;
