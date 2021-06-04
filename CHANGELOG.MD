@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-68-1: Add archive / home view #58
+- TMS-67-1: Add single view #57
+- TMS-66: Add article fields #56
+- TMS-57: Materials Page #55
+- TMS-61: Subpages block & layout #54
+- TMS-58: Error 404 page #53
 - TMS-73: Text block (Layout) #51
 - TMS-75: Text Editor #50
 

@@ -2,7 +2,7 @@
 
 {<content}
     <main class="main-content pb-8" id="main-content">
-        {#Archive}
+        {#Home}
             <section class="section">
                 <div class="container">
                     <div class="columns">
@@ -40,6 +40,6 @@
                     {/pagination}
                 </div>
             </section>
-        {/Archive}
+        {/Home}
     </main>
 {/content}

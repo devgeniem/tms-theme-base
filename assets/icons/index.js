@@ -80,3 +80,4 @@ import './tampere-vaakuna.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
+import './checkmark.svg';

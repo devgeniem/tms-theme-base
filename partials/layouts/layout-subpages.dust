@@ -1,0 +1,9 @@
+<section class="section layout-subpages pt-0 pb-0">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {>"blocks/block-subpages" /}
+            </div>
+        </div>
+    </div>
+</section>

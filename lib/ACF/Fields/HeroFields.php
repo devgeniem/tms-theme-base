@@ -41,31 +41,31 @@ class HeroFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'image'         => [
+            'image'       => [
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'video'         => [
+            'video'       => [
                 'label'        => 'Videon URL',
                 'instructions' => '',
             ],
-            'title'         => [
+            'title'       => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description'   => [
+            'description' => [
                 'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
-            'link'          => [
+            'link'        => [
                 'label'        => 'Painike',
                 'instructions' => '',
             ],
-            'align'         => [
+            'align'       => [
                 'label'        => 'Tekstin tasaus',
                 'instructions' => '',
             ],
-            'use_box'       => [
+            'use_box'     => [
                 'label'        => 'Teksti värilaatikossa',
                 'instructions' => '',
             ],

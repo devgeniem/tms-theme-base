@@ -42,7 +42,8 @@ class PageGroup {
 
             $rule_group = ( new RuleGroup() )
                 ->add_rule( 'post_type', '==', PostType\Page::SLUG )
-                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE );
+                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
+                ->add_rule( 'page_type', '!=', 'posts_page' );
 
             $field_group
                 ->add_rule_group( $rule_group )
@@ -78,7 +79,7 @@ class PageGroup {
     }
 
     /**
-     * Get header fields
+     * Get components fields
      *
      * @param string $key Field group key.
      *
@@ -108,6 +109,7 @@ class PageGroup {
                 Layouts\MapLayout::class,
                 Layouts\IconLinksLayout::class,
                 Layouts\SocialMediaLayout::class,
+                Layouts\SubpageLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
             ]
