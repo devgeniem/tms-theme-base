@@ -8,7 +8,7 @@
             </div>
         {/featured_image}
 
-        <h2 class="entry__title h4 mt-5 mb-5">
+        <h2 class="entry__title h4 mt-0 mb-5">
             <a href="{permalink}" class="has-text-black">
                 {post_title|s}
             </a>
