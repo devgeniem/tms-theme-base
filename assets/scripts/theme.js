@@ -13,6 +13,7 @@ import Image from './image';
 import Modal from './modal';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import Home from './home';
 
 const globalControllers = {
     Common,
@@ -25,6 +26,7 @@ const globalControllers = {
     Image,
     Modal,
     BackToTop,
+    Home,
 };
 
 const templateControllers = {

@@ -1,0 +1,60 @@
+<div class="columns mt-6">
+    <div class="column is-8">
+        <div class="h6 mb-4">
+            {Strings.s.home.filter_by_category|s}
+        </div>
+
+        <div>
+            {#filters.categories}
+                <a href="{url}" class="pill mr-2 mb-2 {?is_active}is-active{/is_active}">
+                    {?is_active}
+                        {>"ui/icon" icon="checkmark" class="icon--medium mr-2 is-primary-invert" /}
+                    {/is_active}
+
+                    {name|s}
+                </a>
+            {/filters.categories}
+        </div>
+    </div>
+
+    <div class="column is-4">
+        <form action="" method="get" class="is-flex is-justify-content-flex-end">
+            {?filters.active_category}
+                <input name="filter-category" type="hidden" value="{filters.active_category|s}">
+            {/filters.active_category}
+
+            <div>
+                <label for="filter-year" class="is-block h6 mb-4">
+                    {Strings.s.home.year|s}
+                </label>
+
+                <select name="filter-year" id="filter-year"
+                        class="js-trigger-form-submit p-2 has-border-radius-small has-border-secondary has-border-1">
+                    <option value="">{Strings.s.common.all|s}</option>
+
+                    {#filters.years}
+                        <option value="{key}" {is_selected|s}>
+                            {name|s}
+                        </option>
+                    {/filters.years}
+                </select>
+            </div>
+
+            <div class="ml-6">
+                <label for="filter-month" class="is-block h6 mb-4">
+                    {Strings.s.home.month|s}
+                </label>
+
+                <select name="filter-month" id="filter-month"
+                        class="js-trigger-form-submit p-2 has-border-radius-small has-border-secondary has-border-1">
+                    <option value="">{Strings.s.common.all|s}</option>
+                    {#filters.months}
+                        <option value="{key}" {is_selected|s}>
+                            {name|s}
+                        </option>
+                    {/filters.months}
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
