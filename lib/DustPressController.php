@@ -33,5 +33,24 @@ class DustPressController implements Interfaces\Controller {
 
         dustpress()->add_helper( 'inlinebg', new Helpers\InlineBackgroundHelper() );
         dustpress()->add_helper( 'image', new ImageAdvanced() );
+        add_filter(
+            'dustpress/pagination/data',
+            \Closure::fromCallable( [ $this, 'disable_pagination_hellip_duplicate_link' ] )
+        );
+    }
+
+    /**
+     * Disable pagination hellip_end if link to last page is already present.
+     *
+     * @param object $data Pagination settings.
+     *
+     * @return object
+     */
+    protected function disable_pagination_hellip_duplicate_link( $data ) : object {
+        if ( ! empty( $data->pages ) && $data->last_page === end( $data->pages )->page ) {
+            $data->hellip_end = false;
+        }
+
+        return $data;
     }
 }
