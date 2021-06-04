@@ -1,7 +1,7 @@
 <div class="entry__meta {spacing_class|s}">
     <div class="is-flex is-flex-wrap-wrap has-text-small">
         <div>
-            {@strtodate value=content.post_date format="d.m.Y" /}
+            {@strtodate value=content.post_date /}
         </div>
 
         <div class="is-flex has-width-100-until-tablet mt-3 mt-0-tablet ml-auto-tablet">
