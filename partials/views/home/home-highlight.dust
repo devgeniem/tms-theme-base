@@ -12,7 +12,7 @@
             <div class="highlight__fields p-6 pt-9-desktop pr-6-desktop pb-9-desktop pl-6-desktop">
                 {?highlight.post_title}
                     <h2 class="mt-3 mb-5">
-                        <a href="{permalink}" class="has-text-black">
+                        <a href="{highlight.permalink}" class="has-text-black">
                             {highlight.post_title|s}
                         </a>
                     </h2>
