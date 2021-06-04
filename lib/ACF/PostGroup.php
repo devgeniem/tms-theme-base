@@ -51,6 +51,7 @@ class PostGroup {
                     [
                         $this->get_credits_tab( $field_group->get_key() ),
                         $this->get_related_posts_tab( $field_group->get_key() ),
+                        $this->get_components_tab( $field_group->get_key() ),
                     ]
                 )
             );
@@ -77,12 +78,12 @@ class PostGroup {
      */
     protected function get_credits_tab( string $key ) : Field\Tab {
         $strings = [
-            'tab'   => 'Tiedot',
+            'tab'             => 'Tiedot',
             'writing_credits' => [
-                'title'         => 'Kirjoittajan nimi',
-                'instructions'  => '',
+                'title'        => 'Kirjoittajan nimi',
+                'instructions' => '',
             ],
-            'image_credits'  => [
+            'image_credits'   => [
                 'title'        => 'Kuvaajan nimi',
                 'instructions' => '',
             ],
@@ -153,6 +154,47 @@ class PostGroup {
             $title_field,
             $link_field,
         ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get components tab
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_components_tab( string $key ) : Field\Tab {
+        $strings = [
+            'tab'        => 'Komponentit',
+            'components' => [
+                'title'        => _x( 'Components', 'theme ACF', 'tms-theme-base' ),
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
+            ->set_key( "${key}_components" )
+            ->set_name( 'components' )
+            ->set_instructions( $strings['components']['instructions'] );
+
+        $component_layouts = apply_filters(
+            'tms/acf/field/' . $components_field->get_key() . '/layouts',
+            [
+                Layouts\MapLayout::class,
+            ]
+        );
+
+        foreach ( $component_layouts as $component_layout ) {
+            $components_field->add_layout( new $component_layout( $key ) );
+        }
+
+        $tab->add_field( $components_field );
 
         return $tab;
     }

@@ -78,7 +78,7 @@ class PageGroup {
     }
 
     /**
-     * Get header fields
+     * Get components fields
      *
      * @param string $key Field group key.
      *
