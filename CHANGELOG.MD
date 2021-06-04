@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-57: Materials Page #55
 - TMS-61: Subpages block & layout #54
 - TMS-58: Error 404 page #53
 - TMS-73: Text block (Layout) #51
