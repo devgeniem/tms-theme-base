@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-66: Add article fields #56
 - TMS-37: Social Media layout #44
 - TMS-40-rework: Grid fixes, cleanup #36
 - TMS-28-rework: Logo Wall spacings and hyphenation #37
