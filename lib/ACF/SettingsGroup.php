@@ -63,6 +63,7 @@ class SettingsGroup {
                         $this->get_map_fields( $field_group->get_key() ),
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
                         $this->get_404_fields( $field_group->get_key() ),
+                        $this->get_archive_fields( $field_group->get_key() ),
                     ]
                 )
             );
@@ -427,6 +428,57 @@ class SettingsGroup {
             $title_field,
             $description_field,
             $image_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get archive fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_archive_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'                => 'Arkistot',
+            'archive_use_images' => [
+                'title'        => 'Kuvat käytössä',
+                'instructions' => '',
+            ],
+            'archive_view_type'  => [
+                'title'        => 'Listaustyyli',
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $use_images_field = ( new Field\TrueFalse( $strings['archive_use_images']['title'] ) )
+            ->set_key( "${key}_archive_use_images" )
+            ->set_name( 'archive_use_images' )
+            ->set_default_value( true )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['archive_use_images']['instructions'] );
+
+        $view_type_field = ( new Field\Radio( $strings['archive_view_type']['title'] ) )
+            ->set_key( "${key}_archive_view_type" )
+            ->set_name( 'archive_view_type' )
+            ->set_choices( [
+                'grid' => 'Ruudukko',
+                'list' => 'Lista',
+            ] )
+            ->set_default_value( 'grid' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['archive_view_type']['instructions'] );
+
+        $tab->add_fields( [
+            $use_images_field,
+            $view_type_field,
         ] );
 
         return $tab;
