@@ -30,7 +30,7 @@ trait Breadcrumbs {
             case PostType\Page::SLUG:
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
             case PostType\Post::SLUG:
-                return $this->format_post( $current_id, $home_url, $breadcrumbs );
+                return $this->format_post( $current_id, $breadcrumbs );
             default:
                 return $breadcrumbs;
         }
@@ -39,13 +39,12 @@ trait Breadcrumbs {
     /**
      * Format breadcrumbs for: Post
      *
-     * @param int    $current_id  Current page ID.
-     * @param string $home_url    Home URL.
-     * @param array  $breadcrumbs Breadcrumbs array.
+     * @param int   $current_id  Current page ID.
+     * @param array $breadcrumbs Breadcrumbs array.
      *
      * @return array
      */
-    private function format_post( $current_id, string $home_url, array $breadcrumbs ) : array {
+    private function format_post( $current_id, array $breadcrumbs ) : array {
         $breadcrumbs['home'] = $this->get_home_link();
 
         $categories = wp_get_post_categories( $current_id, [ 'fields' => 'all' ] );

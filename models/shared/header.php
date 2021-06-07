@@ -176,4 +176,20 @@ class Header extends Model {
             $current_object
         );
     }
+
+    /**
+     * Display helper function.
+     *
+     * If subpage / view wants to display the breadcrumbs bar somewhere else,
+     * this method can be overridden with a filter.
+     *
+     * @return bool
+     */
+    public function show_breadcrumbs_in_header() {
+        return (bool) apply_filters(
+            'tms/theme/breadcrumbs/show_breadcrumbs_in_header',
+            true,
+            get_queried_object()
+        );
+    }
 }
