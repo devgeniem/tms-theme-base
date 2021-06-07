@@ -51,7 +51,7 @@ class MapFields extends \Geniem\ACF\Field\Group {
             ],
             'embed'       => [
                 'label'        => 'Karttaupote',
-                'instructions' => '',
+                'instructions' => 'Muista lisätä iframe-koodiin title',
             ],
         ];
 

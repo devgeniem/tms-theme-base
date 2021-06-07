@@ -1,0 +1,8 @@
+<button id="js-search-toggle"
+        class="is-hidden-mobile button button--icon is-primary js-toggle mr-4 ml-4 mr-6-widescreen ml-6-widescreen mr-8-fullhd ml-8-fullhd"
+        aria-controls="js-search-toggle-target"
+        aria-expanded="false"
+        aria-label="{Strings.s.header.open_search|s}">
+    {Strings.s.header.search|s}
+    {>"ui/icon" icon="search" class="icon--large is-primary"  /}
+</button>

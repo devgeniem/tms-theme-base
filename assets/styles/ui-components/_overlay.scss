@@ -3,6 +3,10 @@
 .overlay {
     @extend %overlay;
 
+    &--dark-80 {
+        background-color: rgba($black, .8);
+    }
+
     &--dark-50 {
         background-color: rgba($black, .5);
     }

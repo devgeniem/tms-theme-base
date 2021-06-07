@@ -1,0 +1,9 @@
+<div class="section layout-grid">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {>"blocks/block-grid" /}
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,6 +27,11 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         );
 
         add_filter(
+            'tms/acf/layout/grid/data',
+            [ $this, 'format' ]
+        );
+
+        add_filter(
             'tms/acf/block/grid/data/type_custom',
             [ $this, 'format_type_custom' ]
         );

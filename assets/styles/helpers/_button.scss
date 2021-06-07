@@ -1,5 +1,6 @@
 /**
  * Button class generator
+ * sass-lint:disable no-important
  */
 
 $button-colors: $colors !default;
@@ -45,7 +46,7 @@ $button-border-radius: 1.8rem;
     padding: .625rem 1.875rem;
 
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     text-decoration: none !important;
 
     @include from($tablet) {
@@ -231,9 +232,9 @@ $button-border-radius: 1.8rem;
 
                     &:active,
                     &.is-active {
+                        color: $dark !important;
                         background-color: $dark-invert !important;
                         border-color: $dark !important;
-                        color: $dark !important;
 
                         .icon {
                             fill: $dark !important;
@@ -264,8 +265,12 @@ $button-border-radius: 1.8rem;
                 }
 
                 &.is-outlined {
-                    background-color: transparent !important;
                     color: $primary !important;
+                    background-color: transparent !important;
+
+                    .icon {
+                        fill: $primary !important;
+                    }
                 }
 
                 &.is-borderless {
