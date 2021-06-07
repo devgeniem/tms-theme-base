@@ -8,6 +8,7 @@
     "@babel/polyfill": "^7.12.1",
     "hyphenopoly": "^3.4.0",
     "indicate": "^2.4.0",
+    "micromodal": "^0.4.6",
     "modaal": "^0.4.4",
     "normalize.css": "^8.0.1",
     "webfontloader": "^1.6.28"

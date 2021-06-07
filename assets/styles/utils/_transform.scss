@@ -15,6 +15,22 @@
         }
     }
 
+    &-y-100 {
+        transform: translateY(100%);
+
+        &-tablet {
+            @include from($tablet) {
+                transform: translateY(100%);
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                transform: translateY(100%);
+            }
+        }
+    }
+
     &-y--50 {
         transform: translateY(-50%);
 
