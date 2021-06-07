@@ -111,6 +111,7 @@ class PageGroup {
                 Layouts\SocialMediaLayout::class,
                 Layouts\SubpageLayout::class,
                 Layouts\TextBlockLayout::class,
+                Layouts\GridLayout::class,
             ]
         );
 

@@ -45,7 +45,7 @@ $button-border-radius: 1.8rem;
     padding: .625rem 1.875rem;
 
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     text-decoration: none !important;
 
     @include from($tablet) {
