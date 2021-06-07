@@ -59,7 +59,7 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $data['image_caption'] .= ' (' . $data['author_name'] . ')';
         }
 
-        $data['wrapper_class'] = 'is-align-wide mb-6';
+        $data['wrapper_class'] = 'is-align-wide mt-6 mb-6';
 
         return $data;
     }

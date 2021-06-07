@@ -1,0 +1,204 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.fly-out-nav {
+    z-index: 50;
+    display: none;
+
+    @include from($desktop) {
+        display: none;
+    }
+
+    &.is-open {
+        display: block;
+    }
+
+    .admin-bar & {
+        top: 46px;
+
+        @include from(783px) {
+            top: 32px;
+        }
+    }
+
+    &__inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        padding: 1rem;
+
+        @include from($tablet) {
+            padding: 2.5rem;
+        }
+
+        @include from($desktop) {
+            left: auto;
+            width: 36rem;
+        }
+    }
+
+    &__trigger {
+        margin-left: 1rem;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        @include from($tablet) {
+            margin-left: 0;
+        }
+
+        &:hover {
+            outline: 0;
+
+            .icon {
+                fill: $primary-dark;
+            }
+        }
+
+        .icon {
+            width: 2rem;
+            height: 1.5rem;
+            fill: $primary;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 3;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        @include from($tablet) {
+            top: 2.5rem;
+            right: 2.5rem;
+        }
+    }
+
+    &__primary {
+        position: relative;
+        margin-top: 3rem;
+
+        > .navbar-item {
+            font-family: $family-secondary;
+            font-size: 1.223rem;
+            font-weight: 600;
+            padding-left: 0;
+
+            > .navbar-dropdown-control {
+                > .navbar-link {
+                    padding-left: 0;
+                }
+            }
+
+            .navbar-item {
+                font-family: $family-primary;
+                font-size: 1rem;
+                font-weight: 400;
+
+                &:hover,
+                &:focus {
+                    color: $primary-invert !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+
+        .navbar-item,
+        .navbar-link {
+            display: block !important; // sass-lint:disable-line no-important
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: transparent !important; // sass-lint:disable-line no-important
+            }
+        }
+
+        .has-dropdown {
+            &:focus,
+            &:hover,
+            &.is-active {
+                .navbar-link {
+                    background-color: transparent !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+
+        .navbar-dropdown {
+            position: static !important; // sass-lint:disable-line no-important
+            background-color: transparent !important; // sass-lint:disable-line no-important
+            border: 0 !important; // sass-lint:disable-line no-important
+            box-shadow: none !important; // sass-lint:disable-line no-important
+        }
+    }
+
+    a {
+        color: $primary-invert;
+
+        &:hover,
+        &:focus {
+            color: $primary-invert;
+            text-decoration: underline;
+            background-color: transparent !important; // sass-lint:disable-line no-important
+        }
+    }
+
+    .has-dropdown {
+        &.is-active {
+            &::after {
+                content: "";
+                position: absolute;
+                top: .85rem;
+                bottom: 1.25rem;
+                left: -1.75rem;
+                display: block;
+                width: 1px;
+                background-color: $primary-invert;
+            }
+        }
+    }
+
+    .secondary-menu {
+        margin: 2rem 0;
+        padding: 2rem 0 0 2rem;
+        border-top: 1px solid $primary-invert;
+
+        .menu-item-secondary {
+            margin-bottom: $theme-spacing;
+            margin-left: 0 !important; // sass-lint:disable-line no-important
+
+            &__link {
+                color: $primary-invert;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .search-form {
+        &__input {
+            border: 1px solid $primary;
+            border-radius: .25rem;
+        }
+
+        &__button {
+            &.is-inverted {
+                .icon {
+                    fill: $primary !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}
+

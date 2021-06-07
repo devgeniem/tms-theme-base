@@ -77,6 +77,7 @@ class ThemeController {
             'Formatters'          => new FormatterController(),
             'Images'              => new Images(),
             'Localization'        => new Localization(),
+            'Navigation'          => new NavigationController(),
             'PostTypeController'  => new PostTypeController(),
             'Roles'               => new Roles(),
             'TaxonomyController'  => new TaxonomyController(),
@@ -89,5 +90,8 @@ class ThemeController {
                 $instance->hooks();
             }
         } );
+
+        \Archive::hooks();
+        \Home::hooks();
     }
 }

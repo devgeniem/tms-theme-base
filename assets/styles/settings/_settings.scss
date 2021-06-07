@@ -1,5 +1,7 @@
 // Theme Settings
 // https://bulma.io/documentation/customize/variables/
+$mobile: 679px;
+$tablet: 680px;
 
 // Colors
 // ****************************************************************************
@@ -45,6 +47,8 @@ $colors: (
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
 
+$text: $black;
+
 $button-colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
@@ -84,3 +88,5 @@ $theme-spacing-six: $theme-spacing * 6;
 
 // Overrides
 $modal-background-background-color: $modal-overlay-background;
+$navbar-item-active-background-color: transparent;
+$navbar-dropdown-item-hover-background-color: transparent;

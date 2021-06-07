@@ -21,7 +21,8 @@ class ThemeSupports implements Interfaces\Controller {
     public function hooks() : void {
         \add_action(
             'after_setup_theme',
-            \Closure::fromCallable( [ $this, 'add_supported_functionality' ] )
+            \Closure::fromCallable( [ $this, 'add_supported_functionality' ] ),
+            0
         );
 
         \add_filter(
@@ -29,6 +30,11 @@ class ThemeSupports implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'favicon_url' ] ),
             10,
             3
+        );
+
+        \add_filter(
+            'query_vars',
+            \Closure::fromCallable( [ $this, 'query_vars' ] )
         );
 
         \remove_theme_support( 'core-block-patterns' );
@@ -67,5 +73,21 @@ class ThemeSupports implements Interfaces\Controller {
      */
     private function favicon_url() : string {
         return DPT_ASSETS_URI . '/images/favicon.png';
+    }
+
+    /**
+     * Append custom query vars
+     *
+     * @param array $vars Registered query vars.
+     *
+     * @return array
+     */
+    protected function query_vars( $vars ) {
+        $vars[] = 'filter-category';
+        $vars[] = 'filter-tag';
+        $vars[] = 'filter-month';
+        $vars[] = 'filter-year';
+
+        return $vars;
     }
 }

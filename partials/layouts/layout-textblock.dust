@@ -1,0 +1,9 @@
+<section class="section layout-textblock">
+    <div class="container keep-vertical-spacing">
+        <div class="is-content-grid">
+            <div class="textblock__inner is-align-full keep-vertical-spacing">
+                {text|s}
+            </div>
+        </div>
+    </div>
+</section>
