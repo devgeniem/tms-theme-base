@@ -24,6 +24,11 @@ class Admin implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'modify_tinymce_headings' ] )
         );
 
+        \add_filter(
+            'acf/fields/wysiwyg/toolbars',
+            \Closure::fromCallable( [ $this, 'modify_tinymce_toolbars' ] )
+        );
+
         \add_action(
             'admin_body_class',
             \Closure::fromCallable( [ $this, 'add_template_slug_to_body_class' ] )
@@ -44,11 +49,15 @@ class Admin implements Interfaces\Controller {
      * @return array $tags
      */
     private function modify_tinymce_headings( $tags = [] ) : array {
+        $strings = [
+            'paragraph' => __( 'Paragraph' ),
+            'header'    => __( 'Header' ),
+        ];
         $formats = [
-            'p'  => 'Tekstikappale',
-            'h3' => 'Otsikko 3',
-            'h4' => 'Otsikko 4',
-            'h5' => 'Otsikko 5',
+            'p'  => $strings['paragraph'],
+            'h2' => $strings['header'] . ' 2',
+            'h3' => $strings['header'] . ' 3',
+            'h4' => $strings['header'] . ' 4',
         ];
 
         \array_walk( $formats, function ( $key, $val ) use ( &$block_formats ) {
@@ -57,6 +66,49 @@ class Admin implements Interfaces\Controller {
         $tags['block_formats'] = $block_formats;
 
         return $tags;
+    }
+
+    /**
+     * Modify ACF Wysiwyg toolbars.
+     *
+     * @param array $toolbars ACF Registered toolbars.
+     *
+     * @return array
+     */
+    private function modify_tinymce_toolbars( array $toolbars = [] ) : array {
+        $toolbars['tms'] = apply_filters(
+            'tms/theme/toolbars/tms',
+            [
+                1 => [ // Must start with 1
+                    'formatselect',
+                    'bold',
+                    'italic',
+                    'bullist',
+                    'numlist',
+                    'alignleft',
+                    'aligncenter',
+                    'alignright',
+                    'link',
+                    'pastetext',
+                    'removeformat',
+                ],
+            ]
+        );
+
+        $toolbars['tms-minimal'] = apply_filters(
+            'tms/theme/toolbars/tms-minimal',
+            [
+                1 => [ // Must start with 1
+                    'bold',
+                    'italic',
+                    'link',
+                    'pastetext',
+                    'removeformat',
+                ],
+            ]
+        );
+
+        return $toolbars;
     }
 
     /**

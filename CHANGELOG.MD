@@ -8,7 +8,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-42: Image Carousel #42
+- TMS-68-1: Add archive / home view #58
+- TMS-67-1: Add single view #57
+- TMS-66: Add article fields #56
+- TMS-57: Materials Page #55
+- TMS-61: Subpages block & layout #54
+- TMS-58: Error 404 page #53
+- TMS-73: Text block (Layout) #51
+- TMS-75: Text Editor #50
+
+## [1.0.0] - 2021-05-21
+
+### Added
+
 - TMS-37: Social Media layout #44
 - TMS-40-rework: Grid fixes, cleanup #36
 - TMS-28-rework: Logo Wall spacings and hyphenation #37

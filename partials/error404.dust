@@ -1,4 +1,48 @@
 {>"shared/base" /}
 
 {<content}
+    <main class="main-content" id="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-10 is-offset-1">
+                        {#Error404}
+                            <article class="entry mb-8 mb-10-desktop">
+                                <header class="entry__header">
+                                    {?image}
+                                        <div class="entry__figure mb-6 mb-8-tablet pt-2">
+                                            {@image id=image.id size="single" /}
+                                        </div>
+                                    {/image}
+
+                                    {?title}
+                                        <h1 class="entry__title mt-0 mb-6 mb-8-tablet has-line-height-tight has-text-centered ">
+                                            {title|s}
+                                        </h1>
+                                    {/title}
+                                </header>
+
+                                {?description}
+                                    <div class="entry__content is-content-grid has-text-centered keep-vertical-spacing">
+                                        {description|s}
+                                    </div>
+                                {/description}
+
+                                {?links}
+                                    <div class="entry__links mt-6 mt-8-tablet has-text-centered">
+                                        {#links}
+                                            <a href="{url}" class="button m-1 {?icon}button--icon{/icon} {classes|s}">
+                                                {title|s}
+                                                {?icon}{>"ui/icon" /}{/icon}
+                                            </a>
+                                        {/links}
+                                    </div>
+                                {/links}
+                            </article>
+                        {/Error404}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 {/content}

@@ -14,6 +14,7 @@ import Modal from './modal';
 import ImageCarousel from './image-carousel';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import Home from './home';
 
 const globalControllers = {
     Common,
@@ -27,6 +28,7 @@ const globalControllers = {
     Modal,
     ImageCarousel,
     BackToTop,
+    Home,
 };
 
 const templateControllers = {
