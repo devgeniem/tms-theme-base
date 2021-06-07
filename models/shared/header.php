@@ -186,10 +186,13 @@ class Header extends Model {
      * @return bool
      */
     public function show_breadcrumbs_in_header() {
-        return (bool) apply_filters(
+        $default = true;
+        $status  = apply_filters(
             'tms/theme/breadcrumbs/show_breadcrumbs_in_header',
-            true,
+            $default,
             get_queried_object()
         );
+
+        return is_bool( $status ) ? $status : (bool) $status;
     }
 }
