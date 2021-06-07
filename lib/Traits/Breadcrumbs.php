@@ -47,12 +47,7 @@ trait Breadcrumbs {
     private function format_post( $current_id, array $breadcrumbs ) : array {
         $breadcrumbs['home'] = $this->get_home_link();
 
-        $categories = wp_get_post_categories( $current_id, [ 'fields' => 'all' ] );
-        $categories = array_map( function ( $category ) {
-            $category->url = get_category_link( $category->term_id );
-
-            return $category;
-        }, $categories ?? [] );
+        $categories = \TMS\Theme\Base\Taxonomy\Category::get_post_categories( $current_id );
 
         if ( ! empty( $categories ) ) {
             $breadcrumbs[] = [
