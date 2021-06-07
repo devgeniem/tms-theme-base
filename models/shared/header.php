@@ -113,6 +113,7 @@ class Header extends Model {
 
     /**
      * Is language nav horizontal
+     *
      * @return bool
      */
     public function lang_nav_horizontal() : bool {

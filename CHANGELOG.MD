@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-52: Header #59
+- TMS-89: Add layout Grid #60
 - TMS-68-1: Add archive / home view #58
 - TMS-67-1: Add single view #57
 - TMS-66: Add article fields #56

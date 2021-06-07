@@ -19,12 +19,18 @@ class PageFrontPage extends BaseModel {
     const TEMPLATE = 'models/page-front-page.php';
 
     /**
-     * Init model.
+     * Setup hooks.
      */
-    public function init() : void {
+    public function hooks() {
         add_filter( 'tms/theme/breadcrumbs/page', function ( $formatted, $original, $object ) {
             unset( $formatted, $original, $object );
             return [];
-        } );
+        }, 10, 3 );
+
+        add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', function ( $status, $context ) {
+            unset( $context, $status );
+
+            return false;
+        }, 10, 2 );
     }
 }
