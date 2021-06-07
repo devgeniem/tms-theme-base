@@ -289,6 +289,14 @@ $slick-opacity-not-active: 0.25 !default;
                 top: 2rem;
             }
         }
+
+        .slick-prev {
+            left: -3rem;
+        }
+
+        .slick-next {
+            right: -3rem;
+        }
     }
 }
 

@@ -41,8 +41,9 @@
     {! The modal !}
     <div id="{carousel_id}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{carousel_id}">
         <div class="modal-background"></div>
-        <button class="button modal-close-button is-primary is-outlined is-flex is-align-self-flex-end mb-4" aria-controls="{gallery_id}">
-            {translations.close}
+
+        <button class="button modal-close-button is-primary is-flex is-align-self-flex-end image-carousel__modal-control">
+            <span class="modal-close-button__text">{translations.close}</span>
             {>"ui/icon" icon="close" class="icon--medium" /}
         </button>
         <div class="modal-content">
@@ -55,7 +56,6 @@
 
                         {>"ui/image/image-block__meta" /}
                     </div>
-
                 {/rows}
             </div>
 
