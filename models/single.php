@@ -3,8 +3,10 @@
  * Define the single post class.
  */
 
+use DustPress\Query;
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
 
 /**
@@ -13,6 +15,26 @@ use TMS\Theme\Base\Traits;
 class Single extends BaseModel {
 
     use Traits\Sharing;
+    use Traits\Components;
+
+    /**
+     * Content
+     *
+     * @return array|object|WP_Post|null
+     * @throws Exception If global $post is not available or $id param is not defined.
+     */
+    public function content() {
+        $single = Query::get_acf_post( get_queried_object_id() );
+
+        $single->image = $single->image === 0
+            ? false
+            : $single->image;
+
+        $single->categories = Category::get_post_categories( $single->ID );
+        $single->tags       = PostTag::get_post_tags( $single->ID );
+
+        return $single;
+    }
 
     /**
      * Get related posts
@@ -36,7 +58,7 @@ class Single extends BaseModel {
             $args['category__in'] = $categories;
         }
 
-        $posts = \DustPress\Query::get_posts( $args );
+        $posts = Query::get_posts( $args );
 
         if ( empty( $posts ) || count( $posts ) < $limit ) {
             return null;

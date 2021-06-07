@@ -33,6 +33,10 @@ $icon-fill: $primary !default;
         fill: $primary !important; // sass-lint:disable-line no-important
     }
 
+    &.is-primary-light {
+        fill: $primary-light !important; // sass-lint:disable-line no-important
+    }
+
     &.is-primary-invert {
         fill: $primary-invert !important; // sass-lint:disable-line no-important
     }

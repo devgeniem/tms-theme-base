@@ -17,6 +17,7 @@ import Hyphenation from './hyphenation';
 import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
+import Home from './home';
 
 const globalControllers = {
     Common,
@@ -33,6 +34,7 @@ const globalControllers = {
     FlyOutNav,
     PrimaryNav,
     Dropdown,
+    Home,
 };
 
 const templateControllers = {
