@@ -32,7 +32,8 @@ export default class ImageCarousel {
         const prevSrText = `<span class="is-sr-only">${ translations.previous }</span>`;
         const nextSrText = `<span class="is-sr-only">${ translations.next }</span>`;
 
-        const arrowClass = 'button button--icon is-primary';
+        const arrowClass = 'button button--icon is-primary image-carousel__modal-control';
+
         const buttons = {
             prevArrow: Common.makeButton( icons.prev + prevSrText, `${ arrowClass } slick-prev` ),
             nextArrow: Common.makeButton( icons.next + nextSrText, `${ arrowClass } slick-next` ),
