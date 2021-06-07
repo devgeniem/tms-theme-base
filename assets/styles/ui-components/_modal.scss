@@ -98,6 +98,15 @@
                 }
             }
         }
+
+        .image-carousel__item {
+            img {
+                @include until($desktop) {
+                    max-height: 80vh;
+                    object-fit: contain;
+                }
+            }
+        }
     }
 
     .image-carousel__modal-control {
