@@ -1,7 +1,7 @@
 <div class="entry__meta {spacing_class|s}">
     <div class="is-flex is-flex-wrap-wrap has-text-small">
         <div>
-            {@strtodate value=content.post_date format="d.m.Y" /}
+            {@strtodate value=content.post_date /}
         </div>
 
         <div class="is-flex has-width-100-until-tablet mt-3 mt-0-tablet ml-auto-tablet">
@@ -22,7 +22,7 @@
     </div>
 
     {?content.categories}
-        <div class="is-flex is-flex-wrap-wrap mt-5">
+        <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.categories}
                 <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
             {/content.categories}
@@ -30,9 +30,9 @@
     {/content.categories}
 
     {?content.tags}
-        <div class="is-flex is-flex-wrap-wrap mt-3 mt-5-tablet">
+        <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.tags}
-                <a href="{permalink}" class="pill is-outlined mr-2 mb-2">{name|s}</a>
+                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
             {/content.tags}
         </div>
     {/content.tags}

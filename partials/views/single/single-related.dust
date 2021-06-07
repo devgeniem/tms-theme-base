@@ -31,7 +31,7 @@
                         {/post_title}
 
                         <div class="mt-5">
-                            <span class="has-text-weight-bold">{@strtodate value=post_date format="d.m.Y" /}</span>
+                            <span class="has-text-weight-bold">{@strtodate value=post_date /}</span>
                             {post_excerpt|s}
                         </div>
 

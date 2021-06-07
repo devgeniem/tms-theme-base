@@ -24,8 +24,7 @@ class Category implements Taxonomy {
      *
      * @return void
      */
-    public function hooks() : void {
-    }
+    public function hooks() : void {}
 
     /**
      * Get post categories

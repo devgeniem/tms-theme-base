@@ -79,7 +79,7 @@ class PageGroup {
     }
 
     /**
-     * Get components field
+     * Get components fields
      *
      * @param string $key Field group key.
      *
@@ -113,6 +113,7 @@ class PageGroup {
                 Layouts\TextBlockLayout::class,
                 Layouts\SubpageLayout::class,
                 Layouts\GridLayout::class,
+                Layouts\TextBlockLayout::class,
             ]
         );
 

@@ -16,6 +16,7 @@ class Single extends BaseModel {
 
     use Traits\Components;
     use Traits\Sharing;
+    use Traits\Components;
 
     /**
      * Content
