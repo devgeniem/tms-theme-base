@@ -3,3 +3,5 @@
  */
 
 import '../styles/admin.scss';
+
+import './admin-dynamic-events';

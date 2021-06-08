@@ -1,0 +1,7 @@
+{?link.url}
+    {?link.title}
+        <a href="{link.url}" target="{link.target}" class="{classes|s}">
+            {link.title|s}
+        </a>
+    {/link.title}
+{/link.url}
