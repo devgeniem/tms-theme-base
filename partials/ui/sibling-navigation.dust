@@ -1,0 +1,13 @@
+<nav class="sibling-navigation pr-5 pl-5 pr-0-desktop pl-0-desktop" aria-label="{Strings.s.sibling_navigation.sibling_navigation|s}">
+    <div class="container sibling-navigation__container">
+        <div class="columns pt-6 pb-6 pt-8-desktop pb-10-desktop">
+            <div class="column sibling-navigation__items">
+                {#post_siblings}
+                    <a href="{url}"
+                       class="sibling-navigation__item h6 pt-3 pr-4 pb-3 pl-4 has-border-radius has-border-radius-large has-text-black {?is_current}is-current{/is_current}"
+                       {?is_current}aria-hidden="true"{/is_current}>{title|s}</a>
+                {/post_siblings}
+            </div>
+        </div>
+    </div>
+</nav>

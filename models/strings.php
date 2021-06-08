@@ -90,6 +90,9 @@ class Strings extends \DustPress\Model {
                     'tms-theme-base'
                 ),
             ],
+            'sibling_navigation' => [
+                'sibling_navigation' => _x( 'Sibling pages', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }
