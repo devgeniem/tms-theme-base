@@ -58,12 +58,17 @@
 
         .modal-close-button {
             position: absolute;
-            top: $theme-spacing;
-            right: $theme-spacing-oneandhalf;
+            top: $theme-spacing-half;
+            right: $theme-spacing;
             z-index: 10;
 
             @include until($desktop) {
                 padding: .75rem;
+            }
+
+            @include from($tablet) {
+                top: $theme-spacing;
+                right: $theme-spacing-oneandhalf;
             }
 
             .icon {
@@ -83,11 +88,15 @@
         }
 
         .modal-content {
-            padding-top: $theme-spacing;
+            padding-top: $theme-spacing-three;
             padding-bottom: $theme-spacing;
 
             @include until($desktop) {
                 max-height: 100vh;
+            }
+
+            @include from($tablet) {
+                padding-top: $theme-spacing;
             }
 
             .slick-track {
