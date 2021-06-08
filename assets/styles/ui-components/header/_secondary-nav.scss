@@ -1,0 +1,27 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.secondary-menu {
+    li {
+        &:not(:first-child) {
+            @include from($desktop) {
+                margin-left: .5rem;
+            }
+
+            @include from($fullhd) {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    a {
+        color: $black;
+
+        &:hover,
+        &:focus {
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+}

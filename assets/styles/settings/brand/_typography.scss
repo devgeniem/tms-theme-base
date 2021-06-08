@@ -36,6 +36,8 @@ $size-7: rem(14px, $base-size);
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
 html {
+    font-size: 16px;
+
     @include from($tablet) {
         font-size: 17px;
     }

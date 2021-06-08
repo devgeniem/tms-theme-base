@@ -4,10 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.0] - 2021-06-07
 
 ### Added
 
+- TMS-52: Header #59
+- TMS-89: Add layout Grid #60
+- TMS-68-1: Add archive / home view #58
+- TMS-67-1: Add single view #57
+- TMS-66: Add article fields #56
 - TMS-57: Materials Page #55
 - TMS-61: Subpages block & layout #54
 - TMS-58: Error 404 page #53
@@ -18,7 +23,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-66: Add article fields #56
 - TMS-37: Social Media layout #44
 - TMS-40-rework: Grid fixes, cleanup #36
 - TMS-28-rework: Logo Wall spacings and hyphenation #37

@@ -1,0 +1,32 @@
+<div class="column is-12 is-10-desktop is-offset-1-desktop">
+    <article class="entry columns is-vcentered is-multiline mb-6">
+        {?featured_image}
+            <div class="column is-4">
+                <div class="image is-4by3">
+                    <a href="{permalink}" aria-hidden="true" tabindex="-1">
+                        {@image id=featured_image size="medium_large" class="objectfit-image" /}
+                    </a>
+                </div>
+            </div>
+        {/featured_image}
+
+        <div class="column">
+            <h2 class="entry__title h4 mt-0 mb-5">
+                <a href="{permalink}" class="has-text-black">
+                    {post_title|s}
+                </a>
+            </h2>
+
+            <div class="entry__excerpt mt-5 mb-5 has-text-small">
+                <span class="has-text-weight-bold">{@strtodate value=post_date /}</span>
+                {excerpt|s}
+            </div>
+
+            {?category}
+                <span class="pill">
+                    {category.name|s}
+                </span>
+            {/category}
+        </div>
+    </article>
+</div>
