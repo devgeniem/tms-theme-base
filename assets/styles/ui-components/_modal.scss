@@ -51,7 +51,7 @@
         }
 
         .control {
-            &:focus-visible {
+            &:focus {
                 border-color: $primary-invert !important;
             }
         }
