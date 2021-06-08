@@ -64,6 +64,7 @@ class SettingsGroup {
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
                         $this->get_404_fields( $field_group->get_key() ),
                         $this->get_archive_fields( $field_group->get_key() ),
+                        $this->get_page_fields( $field_group->get_key() ),
                     ]
                 )
             );
@@ -549,6 +550,41 @@ class SettingsGroup {
         $tab->add_fields( [
             $use_images_field,
             $view_type_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get page fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_page_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'                   => 'Sisältösivut',
+            'page_display_siblings' => [
+                'title'        => 'Rinnakkaissivujen navigointi',
+                'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $display_siblings = ( new Field\TrueFalse( $strings['page_display_siblings']['title'] ) )
+            ->set_key( "${key}_display_sibling_pages" )
+            ->set_name( 'display_sibling_pages' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['page_display_siblings']['instructions'] );
+
+        $tab->add_fields( [
+            $display_siblings,
         ] );
 
         return $tab;
