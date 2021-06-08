@@ -3,6 +3,7 @@
  * Define the generic Page class.
  */
 
+use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits;
 
 /**
@@ -31,7 +32,7 @@ class Page extends BaseModel {
     }
 
     /**
-     * Get sibling posts.
+     * Get post siblings.
      *
      * @return array|array[]|false
      */
