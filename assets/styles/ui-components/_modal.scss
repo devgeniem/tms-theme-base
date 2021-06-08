@@ -119,6 +119,7 @@
     }
 
     .image-carousel__modal-control {
+        &:hover,
         &:focus {
             border-color: $primary-invert !important;
         }
