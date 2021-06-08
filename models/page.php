@@ -14,7 +14,7 @@ class Page extends BaseModel {
     use Components;
 
     /**
-     * Get sibling posts.
+     * Get post siblings.
      *
      * @return array|array[]|false
      */
