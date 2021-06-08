@@ -93,10 +93,10 @@ class NoticeBannerFields extends Field\Group {
                 'primary'   => 'Pääväri',
                 'secondary' => 'Toissijainen väri',
             ] )
+            ->set_wrapper_width( 50 )
             ->set_default_value( 'has-background-black' )
             ->set_instructions( $strings['background_color']['instructions'] );
 
-        // TODO: Tehdään tämä myös ikoninostoon.
         $icons = apply_filters( 'tms/theme/icons', [] );
         $icons = apply_filters( 'tms/acf/field/' . $key . '_icon/choices', $icons );
 

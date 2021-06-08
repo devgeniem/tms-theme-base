@@ -225,7 +225,7 @@ class Assets implements Interfaces\Controller {
      *
      * @return string[]
      */
-    private function get_theme_iconsga() {
+    private function get_theme_icons() {
         return [
             'icon-ambulanssi'      => 'Ambulanssi',
             'icon-auto'            => 'Auto',

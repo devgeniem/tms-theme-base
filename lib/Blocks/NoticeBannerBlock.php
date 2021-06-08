@@ -72,7 +72,7 @@ class NoticeBannerBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
-        return $data;
+        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 
 }
