@@ -1,0 +1,4 @@
+<div class="info-group__label is-relative pt-3 pr-8 pb-3 pl-8 has-background-secondary has-text-weight-semibold has-text-small">
+    {title|s}
+    {>"ui/icon" class="icon--large is-primary is-absolute has-top-1 has-left-1" /}
+</div>

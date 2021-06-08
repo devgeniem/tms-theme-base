@@ -8,7 +8,6 @@ namespace TMS\Theme\Base;
 use Closure;
 use Geniem\LinkedEvents\LinkedEventsClient;
 use Geniem\LinkedEvents\LinkedEventsException;
-use GuzzleHttp\Exception\GuzzleException;
 use TMS\Theme\Base\Interfaces\Controller;
 
 /**
@@ -30,7 +29,7 @@ class LinkedEvents implements Controller {
 
     protected function admin_event_search_callback() : void {
         $params = $_GET['params'];
-        $client = new LinkedEventsClient( 'https://pirkanmaaevents.fi/api/v2/' );
+        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
             $events = $client->get_all( 'event', $params );
@@ -38,14 +37,11 @@ class LinkedEvents implements Controller {
         catch ( LinkedEventsException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
-        catch ( GuzzleException $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
         catch ( \JsonException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
 
-        wp_send_json( $events );
+        wp_send_json( $events ?? [] );
     }
 
     public static function normalize_event( $event ) : array {
@@ -55,6 +51,122 @@ class LinkedEvents implements Controller {
             'name'              => $event->name->{$lang_key},
             'short_description' => $event->short_description->{$lang_key},
             'description'       => nl2br( $event->description->{$lang_key} ),
+
+            'date_title' => __( 'Dates', 'tms-theme-base' ),
+            'date'       => static::get_event_date( $event ),
+
+            'time_title' => __( 'Time', 'tms-theme-base' ),
+            'time'       => static::get_event_time( $event ),
+
+            'location_title' => __( 'Location', 'tms-theme-base' ),
+            'location'       => static::get_event_location( $event, $lang_key ),
+
+            'price_title' => __( 'Price', 'tms-theme-base' ),
+            'price'       => static::get_event_price_info( $event, $lang_key ),
+
+            'provider_title' => __( 'Organizer', 'tms-theme-base' ),
+            'provider'       => static::get_provider_info( $event ),
+        ];
+    }
+
+    public static function get_event_date( $event ) {
+        if ( empty( $event->start_time ) ) {
+            return null;
+        }
+
+        $start_time  = static::get_as_datetime( $event->start_time );
+        $end_time    = static::get_as_datetime( $event->end_time );
+        $date_format = get_option( 'date_format' );
+
+        if ( $start_time && $end_time && $start_time->diff( $end_time )->days >= 1 ) {
+            return sprintf(
+                '%s - %s',
+                $start_time->format( $date_format ),
+                $end_time->format( $date_format )
+            );
+        }
+
+        return $start_time->format( $date_format );
+    }
+
+    public static function get_event_time( $event ) {
+        if ( empty( $event->start_time ) ) {
+            return null;
+        }
+
+        $start_time  = static::get_as_datetime( $event->start_time );
+        $end_time    = static::get_as_datetime( $event->end_time );
+        $time_format = 'H:i';
+
+        if ( $start_time && $end_time ) {
+            return sprintf(
+                '%s - %s',
+                $start_time->format( $time_format ),
+                $end_time->format( $time_format )
+            );
+        }
+
+        return $start_time->format( $time_format );
+    }
+
+    public static function get_event_location( $event, $lang_key ) {
+        return [
+            'name'        => $event->location->name->{$lang_key},
+            'description' => $event->location->description->{$lang_key},
+            'extra_info'  => $event->location_extra_info->{$lang_key},
+            'info_url'    => [
+                'title' => __( 'Additional information', 'tms-theme-base' ),
+                'link'  => $event->location->info_url->{$lang_key},
+            ],
+        ];
+
+    }
+
+    public static function get_as_datetime( $value ) {
+        try {
+            return new \DateTime( $value );
+        }
+        catch ( \Exception $e ) {
+            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+        }
+
+        return null;
+    }
+
+    public static function get_event_price_info( $event, $lang_key ) : ?array {
+        if ( empty( $event ) && empty( $event->offers ) ) {
+            return null;
+        }
+
+        return array_map( function ( $offer ) use ( $lang_key ) {
+            $price = $offer->price->{$lang_key};
+
+            if ( empty( $price ) && $offer->is_free ) {
+                $price = __( 'Free', 'tms-theme-base' );
+            }
+
+            return [
+                'is_free'     => $offer->is_free,
+                'price'       => $price,
+                'info_url'    => [
+                    'title' => __( 'Additional information', 'tms-theme-base' ),
+                    'url'   => $offer->info_url->{$lang_key},
+                ],
+                'description' => $offer->description->{$lang_key},
+            ];
+
+        }, $event->offers );
+    }
+
+    public static function get_provider_info( $event ) {
+        return [
+            'name'  => $event->provider_name,
+            'email' => $event->provider_email,
+            'phone' => $event->provider_phone,
+            'link'  => [
+                'url'   => $event->provider_link,
+                'title' => __( 'Additional info', 'tms-theme-base' ),
+            ],
         ];
     }
 }

@@ -15,15 +15,10 @@ class SingleDynamicEventCpt extends BaseModel {
 
     use Components;
 
-    public function hero() {
-        return [
-            'title'       => get_the_title(),
-            'image_id'    => has_post_thumbnail()
-                ? get_post_thumbnail_id()
-                : false,
-            'description' => get_field( 'description' ),
-            'link'        => get_field( 'hero_link' ),
-        ];
+    public function hero_image() {
+        return has_post_thumbnail()
+            ? get_post_thumbnail_id()
+            : false;
     }
 
     private function get_event() {
@@ -36,7 +31,10 @@ class SingleDynamicEventCpt extends BaseModel {
         $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
-            return $client->get( 'event/' . $event_id );
+            return $client->get(
+                'event/' . $event_id,
+                [ 'include' => 'organization,location' ]
+            );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );

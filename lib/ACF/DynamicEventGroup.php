@@ -10,6 +10,7 @@ use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
 use Geniem\LinkedEvents\LinkedEventsClient;
+use Geniem\LinkedEvents\LinkedEventsException;
 use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
@@ -38,6 +39,11 @@ class DynamicEventGroup {
         add_filter(
             'acf/load_field/name=location',
             \Closure::fromCallable( [ $this, 'fill_location_choices' ] )
+        );
+
+        add_filter(
+            'acf/load_field/name=publisher',
+            \Closure::fromCallable( [ $this, 'fill_publisher_choices' ] )
         );
     }
 
@@ -190,7 +196,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_publisher_choices( $field ) : array {
-        return $field;
+        return $this->fill_choices_from_response(
+            $field,
+            $this->get_choices( 'organization' ),
+        );
     }
 
     /**
@@ -201,17 +210,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_keyword_choices( array $field ) : array {
-        $cache_key = 'events-keywords';
-        $response  = wp_cache_get( $cache_key );
-
-        if ( ! $response ) {
-            $client   = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
-            $response = $client->get_all( 'keyword', [ 'page_size' => 250 ] );
-
-            wp_cache_set( $cache_key, $response, '', MINUTE_IN_SECONDS * 15 );
-        }
-
-        return $this->fill_choices_from_response( $field, $response );
+        return $this->fill_choices_from_response(
+            $field,
+            $this->get_choices( 'keyword', [ 'page_size' => 250 ] ),
+        );
     }
 
     /**
@@ -222,17 +224,38 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_location_choices( array $field ) : array {
-        $cache_key = 'events-locations';
+        return $this->fill_choices_from_response(
+            $field,
+            $this->get_choices( 'place', [ 'data_source' => 'system' ] ),
+        );
+    }
+
+    protected function get_choices( string $slug, array $params = [], int $cache_duration = 15 ) {
+        $cache_key = 'events-' . $slug;
         $response  = wp_cache_get( $cache_key );
 
         if ( ! $response ) {
-            $client   = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
-            $response = $client->get_all( 'place', [ 'data_source' => 'system' ] );
+            $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
-            wp_cache_set( $cache_key, $response, '', MINUTE_IN_SECONDS * 15 );
+            try {
+                $response = $client->get_all( $slug, $params );
+
+                wp_cache_set(
+                    $cache_key,
+                    $response,
+                    '',
+                    MINUTE_IN_SECONDS * $cache_duration
+                );
+            }
+            catch ( LinkedEventsException $e ) {
+                ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+            }
+            catch ( \JsonException $e ) {
+                ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+            }
         }
 
-        return $this->fill_choices_from_response( $field, $response );
+        return $response ?? [];
     }
 
     /**
@@ -249,7 +272,8 @@ class DynamicEventGroup {
         }
 
         foreach ( $response as $item ) {
-            $field['choices'][ $item->id ] = $item->name->fi . ' : ' . $item->id;
+            $name                          = $item->name->fi ?? $item->name;
+            $field['choices'][ $item->id ] = $name . ' : ' . $item->id;
         }
 
         return $field;
