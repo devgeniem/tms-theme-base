@@ -34,7 +34,7 @@ class NoticeBannerBlock extends BaseBlock {
      *
      * @var string
      */
-    protected $icon = 'excerpt-view';
+    protected $icon = 'info-outline';
 
     /**
      * Create the block and register it.
