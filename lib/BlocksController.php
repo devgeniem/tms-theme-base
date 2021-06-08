@@ -210,6 +210,11 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'acf/subpages'      => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];

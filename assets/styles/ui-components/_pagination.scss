@@ -1,0 +1,66 @@
+$pagination-item-color: $secondary-invert !default;
+$pagination-item-color-current: $primary-invert !default;
+
+$pagination-item-background-color: $secondary !default;
+$pagination-item-background-color-hover: $color-siniharmaa-75 !default;
+$pagination-item-background-color-focus: $color-siniharmaa !default;
+$pagination-item-background-color-current: $primary !default;
+$pagination-item-background-color-current-hover: $primary-dark !default;
+$pagination-item-background-color-current-focus: $primary-dark !default;
+
+.pagination {
+    @include list-reset;
+
+    .pagination-item {
+        margin-right: .35rem;
+        margin-left: .35rem;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 2.2352rem;
+            height: 2.2352rem;
+            padding: $theme-spacing-quarter $theme-spacing-half;
+            color: $pagination-item-color;
+            background-color: $pagination-item-background-color;
+            border-radius: $theme-spacing-quarter;
+
+            &:focus {
+                background-color: $pagination-item-background-color-focus;
+            }
+
+            &:hover {
+                background-color: $pagination-item-background-color-hover;
+            }
+        }
+
+        &.is-current {
+            a {
+                color: $pagination-item-color-current;
+                background-color: $pagination-item-background-color-current;
+
+                &:hover {
+                    background-color: $pagination-item-background-color-current-hover;
+                }
+
+                &:focus {
+                    background-color: $pagination-item-background-color-current-focus;
+                }
+            }
+        }
+    }
+
+    .paginate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0 .35rem;
+
+    }
+
+    .hellip {
+        color: $secondary-invert;
+    }
+}

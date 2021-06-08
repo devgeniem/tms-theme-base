@@ -11,12 +11,16 @@ import Hero from './hero';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
+import FlyOutNav from './fly-out-nav';
+import PrimaryNav from './primary-nav';
+import Dropdown from './dropdown';
+import Home from './home';
 
 const globalControllers = {
     Common,
-    Hyphenation,
     Accordion,
     MapLayout,
     CopyToClipboard,
@@ -24,7 +28,13 @@ const globalControllers = {
     Table,
     Image,
     Modal,
+    Header,
     BackToTop,
+    Hyphenation,
+    FlyOutNav,
+    PrimaryNav,
+    Dropdown,
+    Home,
 };
 
 const templateControllers = {

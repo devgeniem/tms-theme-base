@@ -78,6 +78,7 @@ class ThemeController {
             'Images'              => new Images(),
             'LinkedEvents'        => new LinkedEvents(),
             'Localization'        => new Localization(),
+            'Navigation'          => new NavigationController(),
             'PostTypeController'  => new PostTypeController(),
             'Roles'               => new Roles(),
             'TaxonomyController'  => new TaxonomyController(),
@@ -90,5 +91,8 @@ class ThemeController {
                 $instance->hooks();
             }
         } );
+
+        \Archive::hooks();
+        \Home::hooks();
     }
 }
