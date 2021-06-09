@@ -34,6 +34,8 @@ class Page extends BaseModel {
             'update_post_term_cache' => false,
             'no_found_rows'          => true,
             'fields'                 => 'ids',
+            'orderby'                => 'title',
+            'order'                  => 'ASC',
         ];
 
         $wp_query = new WP_Query( $query_args );
