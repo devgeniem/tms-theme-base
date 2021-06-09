@@ -49,6 +49,13 @@ class Assets implements Interfaces\Controller {
             'admin_init',
             \Closure::fromCallable( [ $this, 'add_editor_styles' ] )
         );
+
+        \add_filter(
+            'tms/theme/icons',
+            \Closure::fromCallable( [ $this, 'get_theme_icons' ] ),
+            10,
+            0
+        );
     }
 
     /**
@@ -211,5 +218,78 @@ class Assets implements Interfaces\Controller {
         return file_exists( DPT_ASSET_CACHE_URI . '/' . $filename )
             ? filemtime( DPT_ASSET_CACHE_URI . '/' . $filename )
             : DPT_THEME_VERSION;
+    }
+
+    /**
+     * Get available icon choices.
+     *
+     * @return string[]
+     */
+    private function get_theme_icons() {
+        return [
+            'icon-ambulanssi'      => 'Ambulanssi',
+            'icon-auto'            => 'Auto',
+            'icon-bussi'           => 'Bussi',
+            'icon-chat'            => 'Chat',
+            'icon-finlaysoninalue' => 'Finlaysoninalue',
+            'icon-haulitorni'      => 'Haulitorni',
+            'icon-idea'            => 'Idea',
+            'icon-info'            => 'Info',
+            'icon-jaakiekko'       => 'Jääkiekko',
+            'icon-jarvi'           => 'Järvi',
+            'icon-juna'            => 'Juna',
+            'icon-kahvikuppi'      => 'Kahvikuppi',
+            'icon-kalastus'        => 'Kalastus',
+            'icon-kamera'          => 'Kamera',
+            'icon-kannykka'        => 'Kännykkä',
+            'icon-kattaus'         => 'Kattaus',
+            'icon-kaupunki'        => 'Kaupunki',
+            'icon-kavely'          => 'Kävely',
+            'icon-kavu'            => 'Kavu',
+            'icon-kello'           => 'Kello',
+            'icon-kirja'           => 'Kirja',
+            'icon-koira'           => 'Koira',
+            'icon-koti'            => 'Koti',
+            'icon-koulu'           => 'Koulu',
+            'icon-laiva'           => 'Laiva',
+            'icon-lapsi'           => 'Lapsi',
+            'icon-latu'            => 'Latu',
+            'icon-lehti'           => 'Lehti',
+            'icon-leikkipuisto'    => 'Leikkipuisto',
+            'icon-lentokone'       => 'Lentokone',
+            'icon-lukko'           => 'Lukko',
+            'icon-metso'           => 'Metso',
+            'icon-mies'            => 'Mies',
+            'icon-muistilista'     => 'Muistilista',
+            'icon-musiikki'        => 'Musiikki',
+            'icon-nainen'          => 'Nainen',
+            'icon-nasinneula'      => 'Näsinneula',
+            'icon-nuija'           => 'Nuija',
+            'icon-nuotio'          => 'Nuotio',
+            'icon-osaaminen'       => 'Osaaminen',
+            'icon-paikka'          => 'Paikka',
+            'icon-peukku'          => 'Peukku',
+            'icon-puisto'          => 'Puisto',
+            'icon-pyora'           => 'Pyorä',
+            'icon-raatihuone'      => 'Raatihuone',
+            'icon-raha'            => 'Raha',
+            'icon-ratikka'         => 'Ratikka',
+            'icon-ratinanstadion'  => 'Ratinanstadion',
+            'icon-sairaala'        => 'Sairaala',
+            'icon-sauna'           => 'Sauna',
+            'icon-sieni'           => 'Sieni',
+            'icon-sopimus'         => 'Sopimus',
+            'icon-soutuvene'       => 'Soutuvene',
+            'icon-sydan'           => 'Sydan',
+            'icon-tammerkoski'     => 'Tammerkoski',
+            'icon-teatteri'        => 'Teatteri',
+            'icon-tehdas'          => 'Tehdas',
+            'icon-tehtava'         => 'Tehtävä',
+            'icon-teltta'          => 'Teltta',
+            'icon-timantti'        => 'Timantti',
+            'icon-tori'            => 'Tori',
+            'icon-wifi'            => 'Wifi',
+            'icon-alykas'          => 'Älykas',
+        ];
     }
 }

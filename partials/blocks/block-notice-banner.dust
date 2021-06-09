@@ -1,0 +1,31 @@
+<div class="notice-banner is-align-full {container_classes}">
+    <div class="container columns">
+        <div class="column is-10 is-offset-1 has-text-black">
+            <div class="notice-banner__content pt-3 pr-6 pb-5 pl-6 pt-7-tablet pr-0-tablet pb-7-tablet pl-0-tablet pt-8-fullhd pb-8-fullhd">
+                <div class="notice-banner__text keep-vertical-spacing {text_color}">
+                    {?link}
+                        <a class="keep-vertical-spacing {text_color}" href={link.url} {?link.target} target="{link.target}"{/link.target}>
+                            {?title}
+                                <h2 class="h5 mt-0 mb-0">
+                                    {title|s}
+                                </h2>
+                            {/title}
+
+                            {description|s}
+                        </a>
+                    {:else}
+                        {?title}
+                            <h2 class="h5 mt-0 mb-0">
+                                {title|s}
+                            </h2>
+                        {/title}
+
+                        {description|s}
+                    {/link}
+                </div>
+
+                {>"ui/icon" icon=icon class="icon--xxlarge is-large ml-12-desktop {icon_classes}" /}
+            </div>
+        </div>
+    </div>
+</div>
