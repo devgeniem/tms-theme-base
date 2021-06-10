@@ -3,6 +3,10 @@
  */
 
 .has-border {
+    &-primary {
+        border-color: $primary;
+    }
+
     &-secondary {
         border-color: $secondary;
     }

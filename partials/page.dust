@@ -22,4 +22,10 @@
 
         {>"ui/components" components=Page.components /}
     </main>
+
+    {#Page}
+        {?post_siblings}
+            {>"ui/sibling-navigation" /}
+        {/post_siblings}
+    {/Page}
 {/content}
