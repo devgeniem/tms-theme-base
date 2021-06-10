@@ -15,6 +15,22 @@ use TMS\Theme\Base\Interfaces\Controller;
 class Roles implements Controller {
 
     /**
+     * Remove these capabilities from all Roles.
+     *
+     * @var array
+     */
+    private $remove_from_all = [
+        'edit_themes',
+        'edit_files',
+        'update_plugins',
+        'install_plugins',
+        'update_themes',
+        'install_themes',
+        'delete_themes',
+        'update_core',
+    ];
+
+    /**
      * Pages / page (default page type)
      *
      * @var string[]
@@ -60,6 +76,27 @@ class Roles implements Controller {
     ];
 
     /**
+     * Site settings / settings-cpt.
+     *
+     * @var array
+     */
+    private $site_settings_all_capabilities = [
+        'edit_site_setting',
+        'read_site_setting',
+        'delete_site_setting',
+        'edit_others_site_settings',
+        'delete_site_settings',
+        'publish_site_settings',
+        'read_private_site_settings',
+        'delete_private_site_settings',
+        'delete_published_site_settings',
+        'delete_others_site_settings',
+        'edit_private_site_settings',
+        'edit_published_site_settings',
+        'edit_site_settings',
+    ];
+
+    /**
      * Hooks
      */
     public function hooks() : void {
@@ -75,8 +112,8 @@ class Roles implements Controller {
         // If wp-geniem-roles is active.
         if ( class_exists( '\Geniem\Roles' ) ) {
             // Run Geniem roles functions here.
+            $this->modify_admin_caps(); // These modifications are automatically added to superadmin.
             $this->modify_superadmin_caps();
-            $this->modify_admin_caps();
             $this->modify_editor_caps();
             $this->modify_author_caps();
             $this->modify_contributor_caps();
@@ -96,7 +133,6 @@ class Roles implements Controller {
             'edit_others_site_settings'      => true,
             'delete_site_settings'           => true,
             'publish_site_settings'          => true,
-            'publish_site_setting'           => true,
             'read_private_site_settings'     => true,
             'delete_private_site_settings'   => true,
             'delete_published_site_settings' => true,
@@ -159,7 +195,7 @@ class Roles implements Controller {
             $role = \Geniem\Roles::create(
                 'super_administrator',
                 _x( 'Super Administrator', 'wp-geniem-roles', 'tms-theme-base' ),
-                $admin->get_caps()
+                $admin->capabilities ?? []
             );
         }
 
@@ -177,6 +213,10 @@ class Roles implements Controller {
         ] );
 
         $role->add_caps( $this->pages_all_capabilities );
+        $role->add_caps( $this->site_settings_all_capabilities );
+        $role->add_caps( $this->materials_all_capabilities );
+
+        $role->remove_caps( $this->remove_from_all );
 
         apply_filters( 'tms/roles/super_administrator', $role );
     }
@@ -198,6 +238,9 @@ class Roles implements Controller {
         }
 
         $role->add_caps( $this->pages_all_capabilities );
+        $role->add_caps( $this->site_settings_all_capabilities );
+
+        $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/admin', $role );
         $role->rename( _x( 'Administrator', 'wp-geniem-roles', 'tms-theme-base' ) );
@@ -221,6 +264,9 @@ class Roles implements Controller {
 
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+        $role->add_caps( $this->site_settings_all_capabilities );
+
+        $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/editor', $role );
         $role->rename( _x( 'Site Manager', 'wp-geniem-roles', 'tms-theme-base' ) );
@@ -245,6 +291,8 @@ class Roles implements Controller {
         $role->add_caps( [ 'edit_others_posts', 'publish_posts', 'read_private_posts' ] );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+
+        $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/author', $role );
         $role->rename( _x( 'Author', 'wp-geniem-roles', 'tms-theme-base' ) );
@@ -292,6 +340,8 @@ class Roles implements Controller {
             'edit_published_pages',
             'edit_pages',
         ] );
+
+        $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/contributor', $role );
         $role->rename( _x( 'Contributor', 'wp-geniem-roles', 'tms-theme-base' ) );
