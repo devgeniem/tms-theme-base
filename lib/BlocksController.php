@@ -196,6 +196,16 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Post::SLUG,
                 ],
             ],
+            'acf/subpages'      => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                ],
+            ],
+            'acf/notice-banner' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];

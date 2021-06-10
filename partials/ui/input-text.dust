@@ -1,0 +1,5 @@
+<label for="{id|s}" class="h6 is-block mb-3">
+    {label|s}
+</label>
+
+<input id="{id|s}" class="has-border-radius-small mb-2 p-2 has-text-small has-border-1 has-border-secondary" type="text" name="{name|s}" value="{value|s}" placeholder="{placeholder|s}">

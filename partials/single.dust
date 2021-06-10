@@ -5,28 +5,48 @@
         <section class="section">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
-                        <article class="entry">
-                            <header class="entry__header">
-                                <h1 class="entry__title has-text-centered">
-                                    {@title /}
-                                </h1>
-                            </header>
+                    <div class="column is-10 is-offset-1">
+                        {#Single}
+                            <article class="entry">
+                                <header class="entry__header">
+                                    <h1 class="entry__title mt-0 mb-8 has-line-height-tight has-text-centered ">
+                                        {@title /}
+                                    </h1>
 
-                            <div class="entry__content is-content-grid">
-                                {@content /}
+                                    {?content.image}
+                                        <div class="entry__figure pt-2">
+                                            {@image id=content.image.id size="single" /}
+                                        </div>
 
-                                {?Single.share_links}
-                                    <div class="entry__share-links">
-                                        <h2 class="h6 mt-6 mb-6">
-                                            {Strings.s.share.share_article|s}
-                                        </h2>
+                                        {>"views/single/single-meta" spacing_class="pt-5 pb-5 p-5-tablet" /}
+                                    {/content.image}
+                                </header>
 
-                                        {>"ui/share-links" share_links=Single.share_links /}
-                                    </div>
-                                {/Single.share_links}
-                            </div>
-                        </article>
+                                <div class="entry__content is-content-grid keep-vertical-spacing">
+                                    {^content.image}
+                                        {>"views/single/single-meta" spacing_class="mt-6 mb-6" /}
+                                    {/content.image}
+
+                                    {?content.post_excerpt}
+                                        <p class="entry__lead">
+                                            {content.post_excerpt|s}
+                                        </p>
+                                    {/content.post_excerpt}
+
+                                    {@content /}
+
+                                    {?share_links}
+                                        <div class="entry__share-links">
+                                            <h2 class="h6 mt-6 mb-6">
+                                                {Strings.s.share.share_article|s}
+                                            </h2>
+
+                                            {>"ui/share-links" share_links=share_links /}
+                                        </div>
+                                    {/share_links}
+                                </div>
+                            </article>
+                        {/Single}
                     </div>
                 </div>
             </div>
@@ -35,5 +55,7 @@
         {?Single.related.posts}
             {>"views/single/single-related" related=Single.related /}
         {/Single.related.posts}
+
+        {>"ui/components" components=Single.components /}
     </main>
 {/content}

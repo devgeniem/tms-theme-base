@@ -62,6 +62,8 @@ class SettingsGroup {
                         $this->get_footer_fields( $field_group->get_key() ),
                         $this->get_map_fields( $field_group->get_key() ),
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
+                        $this->get_404_fields( $field_group->get_key() ),
+                        $this->get_archive_fields( $field_group->get_key() ),
                     ]
                 )
             );
@@ -88,22 +90,92 @@ class SettingsGroup {
      */
     protected function get_header_fields( string $key ) : Field\Tab {
         $strings = [
-            'tab'  => _x( 'Header', 'theme ACF', 'tms-theme-base' ),
-            'logo' => [
-                'title'        => _x( 'Site logo', 'theme ACF', 'tms-theme-base' ),
-                'instructions' => _x( 'Add site logo here.', 'theme ACF', 'tms-theme-base' ),
+            'tab'              => 'Ylätunniste',
+            'logo'             => [
+                'title'        => 'Logo',
+                'instructions' => '',
+            ],
+            'brand_logo'       => [
+                'title'        => 'Tampere-logo',
+                'instructions' => '',
+            ],
+            'tagline'          => [
+                'title'        => 'Tagline',
+                'instructions' => '',
+            ],
+            'lang_nav_display' => [
+                'title'        => 'Kielivalikko',
+                'instructions' => '',
+            ],
+            'hide_main_nav'    => [
+                'title'        => 'Näytä vain hampurilaisvalikko',
+                'instructions' => 'Kyllä-valinnan ollessa aktiivinen vain hampurilaisvalikko näytetään',
+            ],
+            'limit_nav_depth'  => [
+                'title'        => 'Pudotusvalikko pois käytöstä',
+                'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
             ],
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
             ->set_placement( 'left' );
 
-        $logo = ( new Field\Image( $strings['logo']['title'] ) )
+        $logo_field = ( new Field\Image( $strings['logo']['title'] ) )
             ->set_key( "${key}_logo" )
             ->set_name( 'logo' )
+            ->set_return_format( 'id' )
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['logo']['instructions'] );
 
-        $tab->add_field( $logo );
+        $brand_logo_field = ( new Field\Image( $strings['brand_logo']['title'] ) )
+            ->set_key( "${key}_brand_logo" )
+            ->set_name( 'brand_logo' )
+            ->set_wrapper_width( 50 )
+            ->set_return_format( 'id' )
+            ->set_instructions( $strings['brand_logo']['instructions'] );
+
+        $tagline_field = ( new Field\Text( $strings['tagline']['title'] ) )
+            ->set_key( "${key}_tagline" )
+            ->set_name( 'tagline' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['tagline']['instructions'] );
+
+        $lang_nav_display_field = ( new Field\Select( $strings['lang_nav_display']['title'] ) )
+            ->set_key( "${key}_lang_nav_display" )
+            ->set_name( 'lang_nav_display' )
+            ->set_choices( [
+                'hide'       => 'Ei käytössä',
+                'dropdown'   => 'Pudotusvalikko',
+                'horizontal' => 'Vaakavalikko',
+            ] )
+            ->set_default_value( 'horizontal' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['lang_nav_display']['instructions'] );
+
+        $hide_main_nav_field = ( new Field\TrueFalse( $strings['hide_main_nav']['title'] ) )
+            ->set_key( "${key}_hide_main_nav" )
+            ->set_name( 'hide_main_nav' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['hide_main_nav']['instructions'] );
+
+        $limit_nav_depth_field = ( new Field\TrueFalse( $strings['limit_nav_depth']['title'] ) )
+            ->set_key( "${key}_limit_nav_depth" )
+            ->set_name( 'limit_nav_depth' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['limit_nav_depth']['instructions'] );
+
+        $tab->add_fields( [
+            $logo_field,
+            $brand_logo_field,
+            $tagline_field,
+            $lang_nav_display_field,
+            $hide_main_nav_field,
+            $limit_nav_depth_field,
+        ] );
 
         return $tab;
     }
@@ -360,6 +432,123 @@ class SettingsGroup {
 
         $tab->add_fields( [
             $some_channels_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get 404 page fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_404_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'             => '404-sivu',
+            '404_title'       => [
+                'title'        => 'Otsikko',
+                'instructions' => '',
+            ],
+            '404_description' => [
+                'title'        => 'Kuvaus',
+                'instructions' => '',
+            ],
+            '404_image'       => [
+                'title'        => 'Kuva',
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $title_field = ( new Field\Text( $strings['404_title']['title'] ) )
+            ->set_key( "${key}_404_title" )
+            ->set_name( '404_title' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['404_title']['instructions'] );
+
+        $description_field = ( new Field\ExtendedWysiwyg( $strings['404_description']['title'] ) )
+            ->set_key( "${key}_404_description" )
+            ->set_name( '404_description' )
+            ->set_tabs( 'visual' )
+            ->set_toolbar(
+                [
+                    'bold',
+                    'italic',
+                    'link',
+                    'pastetext',
+                    'removeformat',
+                ]
+            )
+            ->disable_media_upload()
+            ->set_height( 200 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['404_description']['instructions'] );
+
+        $image_field = ( new Field\Image( $strings['404_image']['title'] ) )
+            ->set_key( "${key}_404_image" )
+            ->set_name( '404_image' )
+            ->set_instructions( $strings['404_image']['instructions'] );
+
+        $tab->add_fields( [
+            $title_field,
+            $description_field,
+            $image_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get archive fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_archive_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'                => 'Arkistot',
+            'archive_use_images' => [
+                'title'        => 'Kuvat käytössä',
+                'instructions' => '',
+            ],
+            'archive_view_type'  => [
+                'title'        => 'Listaustyyli',
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $use_images_field = ( new Field\TrueFalse( $strings['archive_use_images']['title'] ) )
+            ->set_key( "${key}_archive_use_images" )
+            ->set_name( 'archive_use_images' )
+            ->set_default_value( true )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['archive_use_images']['instructions'] );
+
+        $view_type_field = ( new Field\Radio( $strings['archive_view_type']['title'] ) )
+            ->set_key( "${key}_archive_view_type" )
+            ->set_name( 'archive_view_type' )
+            ->set_choices( [
+                'grid' => 'Ruudukko',
+                'list' => 'Lista',
+            ] )
+            ->set_default_value( 'grid' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['archive_view_type']['instructions'] );
+
+        $tab->add_fields( [
+            $use_images_field,
+            $view_type_field,
         ] );
 
         return $tab;

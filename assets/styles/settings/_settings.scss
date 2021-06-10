@@ -1,5 +1,7 @@
 // Theme Settings
 // https://bulma.io/documentation/customize/variables/
+$mobile: 679px;
+$tablet: 680px;
 
 // Colors
 // ****************************************************************************
@@ -17,7 +19,7 @@ $dark: map-get($theme-colors, "dark");
 $dark-invert: map-get($theme-colors, "dark-invert");
 $link: $primary;
 $overlay-background: rgba($black, 0.3);
-$modal-overlay-background: rgba($black, 0.86);
+$modal-overlay-background: rgba($black, 0.97);
 
 // Theme colors
 // can be used in HTML with .has-background-<color> or .has-text-<color> classes
@@ -44,6 +46,8 @@ $colors: (
     // "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
     // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
 );
+
+$text: $black;
 
 $button-colors: (
     "primary": $colors-palette-primary,
@@ -84,3 +88,5 @@ $theme-spacing-six: $theme-spacing * 6;
 
 // Overrides
 $modal-background-background-color: $modal-overlay-background;
+$navbar-item-active-background-color: transparent;
+$navbar-dropdown-item-hover-background-color: transparent;

@@ -1,0 +1,19 @@
+<div class="subpages is-align-full mt-6 mb-6 {container_classes|s}">
+    <div class="container columns">
+        <div class="column is-8 is-offset-2 has-text-centered has-text-black">
+            {?title}
+                <h2 class="mt-0 mb-6">
+                    {title|s}
+                </h2>
+            {/title}
+        </div>
+    </div>
+
+    {?subpages}
+        <div class="subpages__items">
+            {#subpages}
+                {>"ui/post-link" /}
+            {/subpages}
+        </div>
+    {/subpages}
+</div>

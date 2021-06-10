@@ -6,7 +6,7 @@
                     {#rows}
                         <div class="icon-links__item keep-vertical-spacing">
                             {?icon}
-                                {>"ui/icon" class="icon--xxlarge is-primary mb-4" /}
+                                {>"ui/icon" class="icon--xxxlarge is-primary mb-4" /}
                             {/icon}
 
                             {?title}
@@ -21,7 +21,7 @@
                                 </div>
                             {/description}
 
-                            {>"ui/button-link" classes="is-small is-primary is-outlined" /}
+                            {>"ui/button-link" classes="is-small is-primary is-outlined" icon="" /}
                         </div>
                     {/rows}
                 </div>

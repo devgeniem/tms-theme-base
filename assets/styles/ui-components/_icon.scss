@@ -25,12 +25,21 @@ $icon-fill: $primary !default;
     }
 
     &--xxlarge {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    &--xxxlarge {
         width: 4.5rem;
         height: 4.5rem;
     }
 
     &.is-primary {
         fill: $primary !important; // sass-lint:disable-line no-important
+    }
+
+    &.is-primary-light {
+        fill: $primary-light !important; // sass-lint:disable-line no-important
     }
 
     &.is-primary-invert {
