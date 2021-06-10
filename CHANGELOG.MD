@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-62: Add block Notice Banner #63
 - TMS-42: Image Carousel #42
+- TMS-53: Breadcrumbs #52
 
 ## [1.1.0] - 2021-06-07
 
