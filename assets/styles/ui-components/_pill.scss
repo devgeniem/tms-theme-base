@@ -69,4 +69,18 @@ $pill-background-color-focus: $dark !default;
             border-color: $pill-background-color-focus;
         }
     }
+
+    &.is-outlined--primary {
+        color: $primary;
+        background-color: $white;
+        border: 2px solid $primary-dark;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $pill-color-active;
+            background-color: $pill-background-active;
+            border-color: $pill-background-active;
+        }
+    }
 }
