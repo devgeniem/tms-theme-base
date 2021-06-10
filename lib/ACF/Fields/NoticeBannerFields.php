@@ -10,11 +10,11 @@ use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class IconLinksFields
+ * Class NoticeBannerFields
  *
  * @package TMS\Theme\Base\ACF\Fields
  */
-class IconLinksFields extends Field\Group {
+class NoticeBannerFields extends Field\Group {
 
     /**
      * The constructor for field.
@@ -42,39 +42,60 @@ class IconLinksFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'rows'        => [
-                'label'        => 'Nostot',
-                'instructions' => '',
-                'button'       => 'Lisää nosto',
-            ],
-            'icon'        => [
-                'label'        => 'Ikoni',
-                'instructions' => '',
-            ],
-            'title'       => [
+            'title'            => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
-                'label'        => 'Kuvaus',
+            'description'      => [
+                'label'        => 'Teksti',
                 'instructions' => '',
             ],
-            'link'        => [
+            'link'             => [
                 'label'        => 'Linkki',
+                'instructions' => '',
+            ],
+            'background_color' => [
+                'label'        => 'Taustaväri',
+                'instructions' => '',
+            ],
+            'icon'             => [
+                'label'        => 'Ikoni',
                 'instructions' => '',
             ],
         ];
 
         $key = $this->get_key();
 
-        $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
-            ->set_name( 'rows' )
-            ->set_min( 3 )
-            ->set_max( 9 )
-            ->set_layout( 'block' )
-            ->set_button_label( $strings['rows']['button'] )
-            ->set_instructions( $strings['rows']['instructions'] );
+        $title_field = ( new Field\Text( $strings['title']['label'] ) )
+            ->set_key( "${key}_title" )
+            ->set_name( 'title' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['title']['instructions'] );
+
+        $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
+            ->set_key( "${key}_description" )
+            ->set_name( 'description' )
+            ->set_rows( 4 )
+            ->set_new_lines( 'wpautop' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['description']['instructions'] );
+
+        $link_field = ( new Field\Link( $strings['link']['label'] ) )
+            ->set_key( "${key}_link" )
+            ->set_name( 'link' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['link']['instructions'] );
+
+        $background_color_field = ( new Field\Select( $strings['background_color']['label'] ) )
+            ->set_key( "${key}_background_color" )
+            ->set_name( 'background_color' )
+            ->set_choices( [
+                'primary'   => 'Pääväri',
+                'secondary' => 'Toissijainen väri',
+            ] )
+            ->set_wrapper_width( 50 )
+            ->set_default_value( 'has-background-black' )
+            ->set_instructions( $strings['background_color']['instructions'] );
 
         $icons = apply_filters( 'tms/theme/icons', [] );
         $icons = apply_filters( 'tms/acf/field/' . $key . '_icon/choices', $icons );
@@ -87,34 +108,12 @@ class IconLinksFields extends Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['icon']['instructions'] );
 
-        $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
-            ->set_name( 'title' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['title']['instructions'] );
-
-        $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
-            ->set_name( 'description' )
-            ->set_wrapper_width( 50 )
-            ->set_rows( 2 )
-            ->set_instructions( $strings['description']['instructions'] );
-
-        $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
-            ->set_name( 'link' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['link']['instructions'] );
-
-        $rows_field->add_fields( [
-            $icon_field,
+        return [
             $title_field,
             $description_field,
             $link_field,
-        ] );
-
-        return [
-            $rows_field,
+            $background_color_field,
+            $icon_field,
         ];
     }
 }
