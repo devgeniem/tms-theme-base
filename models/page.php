@@ -33,7 +33,6 @@ class Page extends BaseModel {
             'update_post_meta_cache' => false,
             'update_post_term_cache' => false,
             'no_found_rows'          => true,
-            'fields'                 => 'ids',
             'orderby'                => 'menu_order title',
             'order'                  => 'ASC',
         ];
@@ -44,11 +43,11 @@ class Page extends BaseModel {
             return false;
         }
 
-        return array_map( function ( $post_id ) use ( $current_post_id ) {
+        return array_map( function ( $post ) use ( $current_post_id ) {
             return [
-                'title'      => get_the_title( $post_id ),
-                'url'        => get_the_permalink( $post_id ),
-                'is_current' => $post_id === $current_post_id,
+                'title'      => $post->post_title,
+                'url'        => get_the_permalink( $post->ID ),
+                'is_current' => $post->ID === $current_post_id,
             ];
         }, $wp_query->posts );
     }
