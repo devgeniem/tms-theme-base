@@ -1,0 +1,139 @@
+/*!*
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.modal {
+    &--large {
+        .modal-content {
+            width: 100%;
+            max-width: 100vw;
+            padding: $theme-spacing 0;
+
+            @include from($tablet) {
+                min-width: 640px;
+            }
+
+            .image-carousel__items {
+                width: 75%;
+
+                @include from($desktop) {
+                    max-width: $desktop;
+                }
+
+                margin: 0 auto;
+
+                &,
+                strong {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &--slider {
+        .modal-close-button__text {
+            @include until($desktop) {
+                position: absolute;
+                overflow: hidden;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                border: 0;
+                clip: rect(0, 0, 0, 0);
+            }
+        }
+
+        .slick-arrow {
+            position: absolute;
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+
+        .control {
+            &:focus {
+                border-color: $primary-invert !important;
+            }
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: $theme-spacing-half;
+            right: $theme-spacing;
+            z-index: 10;
+
+            @include until($desktop) {
+                padding: .75rem;
+            }
+
+            @include from($tablet) {
+                top: $theme-spacing;
+                right: $theme-spacing-oneandhalf;
+            }
+
+            .icon {
+                @include until($desktop) {
+                    margin: 0 !important;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                border: .125rem solid $primary;
+            }
+
+            @include from($desktop) {
+                right: calc(100vw - 80%);
+            }
+        }
+
+        .modal-content {
+            padding-top: $theme-spacing-three;
+            padding-bottom: $theme-spacing;
+
+            @include until($desktop) {
+                max-height: 100vh;
+            }
+
+            @include from($tablet) {
+                padding-top: $theme-spacing;
+            }
+
+            .slick-track {
+                display: flex !important;
+
+                @include from($desktop) {
+                    align-items: center;
+                }
+            }
+        }
+
+        .image-carousel__item {
+            img {
+                @include until($desktop) {
+                    max-height: 80vh;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+    .image-carousel__modal-control {
+        &:hover,
+        &:focus {
+            border-color: $primary-invert !important;
+        }
+    }
+
+    .image-carousel__items {
+        height: 100%;
+
+        .image-block__meta {
+            margin: 0 auto;
+        }
+
+        img {
+            margin: 0 auto;
+        }
+    }
+}

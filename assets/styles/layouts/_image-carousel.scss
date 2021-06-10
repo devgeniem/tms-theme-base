@@ -1,0 +1,15 @@
+/*!*
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+.image-carousel {
+    &__items {
+        .image-block__meta {
+            max-width: 100vw;
+
+            @include from($desktop) {
+                max-width: $desktop;
+            }
+        }
+    }
+}

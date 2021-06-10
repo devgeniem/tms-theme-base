@@ -2,8 +2,13 @@
  * Copyright (c) 2021. Geniem Oy
  * Modal JS controller.
  */
+import '@accessible360/accessible-slick';
 import SlideDeck from './slide-deck';
 import Common from './common';
+import { ESCAPE, TAB } from '@wordpress/keycodes';
+
+// Use jQuery as $ within this file scope.
+const $ = jQuery;
 
 /**
  * Class Modal
@@ -61,8 +66,8 @@ export default class Modal {
 
         // Bind modal closing handler to ESC key.
         document.addEventListener( 'keydown', ( event ) => {
-            const e = event || window.event;
-            if ( e.keyCode === 27 ) {
+            const { keyCode } = event;
+            if ( keyCode === ESCAPE ) {
                 this.closeModals();
             }
         } );
@@ -214,6 +219,9 @@ export default class Modal {
      * @return {void}
      */
     focusGallerySlide( modal ) {
+        if ( typeof modal.gallery === 'undefined' || typeof modal.gallery === 'boolean' ) {
+            return;
+        }
 
         const currentTarget = modal.openingButton.href;
         let currentIndex = 0;
@@ -244,6 +252,11 @@ export default class Modal {
         modal.classList.add( 'is-active' );
         modal.isOpened = 1;
 
+        const slickSlider = $( modal ).find( '.image-carousel__items' );
+        if ( slickSlider && slickSlider.hasClass( 'slick-initialized' ) ) {
+            slickSlider.slick( 'refresh' );
+        }
+
         // Collect each focusable element inside the modal.
         // eslint-disable-next-line max-len
         const focusableElements = modal.querySelectorAll( 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]' );
@@ -259,14 +272,18 @@ export default class Modal {
             // Bind modal focus loop handler to document when modal is opened.
             // If pressed key was 'Tab', call tab handling method.
             document.addEventListener( 'keydown', ( event ) => {
-                const e = event || window.event;
-                if ( e.keyCode === 9 ) {
-                    this.handleModalTabbing( e, modal );
+                const { keyCode } = event;
+                if ( keyCode === TAB ) {
+                    this.handleModalTabbing( event, modal );
+                }
+
+                if ( keyCode === ESCAPE ) {
+                    this.closeModals();
                 }
             } );
         }
 
-        if ( typeof modal.gallery !== 'undefined' ) {
+        if ( typeof modal.gallery !== 'undefined' && typeof modal.gallery !== 'boolean' ) {
 
             // Activate arrow key binding
             modal.gallery.arrowKeys = true;
@@ -288,7 +305,7 @@ export default class Modal {
                 this.toggleAriaExpanded( modal.openingButton );
                 modal.isOpened = 0;
 
-                if ( typeof modal.gallery !== 'undefined' ) {
+                if ( typeof modal.gallery !== 'boolean' ) {
 
                     // Deactivate arrow key binding
                     modal.gallery.arrowKeys = false;
@@ -302,14 +319,14 @@ export default class Modal {
      * focusable element inside the modal. If a user navigates backwards
      * using shift + tab, the loop is handled properly to the opposite direction.
      *
-     * @param {Event} e Key press event.
+     * @param {KeyboardEvent|Event} e Key press event.
      * @param {Element} modal The modal that is currently visible.
      * @return {void}
      */
     handleModalTabbing( e, modal ) {
-
+        const { shiftKey } = e;
         // If shift + tab pushed.
-        if ( e.shiftKey ) {
+        if ( shiftKey ) {
 
             // Focus the last element if focus was on the first element.
             if ( modal.focusableElements.first === document.activeElement ) {
