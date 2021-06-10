@@ -3,10 +3,16 @@
         <div class="columns">
             <div class="column is-8 is-offset-2 has-text-centered has-text-black">
                 {?title}
-                    <h2 class="mt-0 mb-8">
+                    <h2 class="mt-0 mb-6">
                         {title|s}
                     </h2>
                 {/title}
+
+                {?description}
+                    <div class="article-liftup__description mb-6 has-text-weight-semibold">
+                        {description|s}
+                    </div>
+                {/description}
             </div>
         </div>
     </div>
