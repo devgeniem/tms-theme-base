@@ -3,13 +3,12 @@
  * Define the generic Page class.
  */
 
-use TMS\Theme\Base\Traits\Components;
+use TMS\Theme\Base\Traits;
 
 /**
  * The Page class.
  */
 class Page extends BaseModel {
 
-    use Components;
-
+    use Traits\Components;
 }
