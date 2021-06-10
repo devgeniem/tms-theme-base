@@ -13,7 +13,7 @@
                         </div>
                     </div>
 
-                    {>"views/home/home-highlight" /}
+                    {>"views/home/home-highlight" category_link_classes="is-white" /}
 
                     {>"views/home/home-filters" /}
 
