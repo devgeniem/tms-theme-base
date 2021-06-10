@@ -11,6 +11,7 @@ import Hero from './hero';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import ImageCarousel from './image-carousel';
 import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
@@ -28,6 +29,7 @@ const globalControllers = {
     Table,
     Image,
     Modal,
+    ImageCarousel,
     Header,
     BackToTop,
     Hyphenation,
