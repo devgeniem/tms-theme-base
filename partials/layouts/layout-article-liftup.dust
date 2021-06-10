@@ -1,0 +1,39 @@
+<section class="section layout-article-liftup">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2 has-text-centered has-text-black">
+                {?title}
+                    <h2 class="mt-0 mb-8">
+                        {title|s}
+                    </h2>
+                {/title}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {?highlight}
+            {#highlight}
+                {>"views/home/home-highlight" category_link_classes="is-outlined is-outlined--primary" /}
+            {/highlight}
+        {/highlight}
+
+        <div class="columns is-multiline mt-8">
+            {?posts}
+                {#posts}
+                    {>"views/home/home-grid-item" category_link_classes="is-outlined--primary" /}
+                {/posts}
+            {/posts}
+        </div>
+
+        {?link.url}
+            {?link.title}
+                <div class="has-text-right">
+                    <a href="{link.url}" target="{link.target}" class="has-text-weight-medium ml-auto">
+                        {>"ui/icon" icon="chevron-right" class="is-primary icon--small mr-1" /}{link.title|s}
+                    </a>
+                </div>
+            {/link.title}
+        {/link.url}
+    </div>
+</section>

@@ -109,6 +109,7 @@ class PageFrontPageGroup {
                 Layouts\LogoWallLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
+                Layouts\ArticleLiftupLayout::class,
             ]
         );
 
