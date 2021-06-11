@@ -616,6 +616,7 @@ class SettingsGroup {
             ->set_name( 'exception_text' )
             ->set_rows( 2 )
             ->set_wrapper_width( 50 )
+            ->set_maxlength( 200 )
             ->set_instructions( $strings['text']['instructions'] );
 
         $tab->add_fields( [
