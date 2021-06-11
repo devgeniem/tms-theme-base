@@ -15,12 +15,22 @@ class SingleDynamicEventCpt extends BaseModel {
 
     use Components;
 
+    /**
+     * Hero image
+     *
+     * @return false|int
+     */
     public function hero_image() {
         return has_post_thumbnail()
             ? get_post_thumbnail_id()
             : false;
     }
 
+    /**
+     * Get event from API
+     *
+     * @return false|stdClass|null
+     */
     private function get_event() {
         $event_id = get_field( 'event' );
 
@@ -43,6 +53,11 @@ class SingleDynamicEventCpt extends BaseModel {
         return null;
     }
 
+    /**
+     * Get event info
+     *
+     * @return array
+     */
     public function event() {
         $event = $this->get_event();
 
