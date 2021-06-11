@@ -195,4 +195,23 @@ class Header extends Model {
 
         return is_bool( $status ) ? $status : (bool) $status;
     }
+
+    /**
+     * Exception notice.
+     *
+     * @return array|bool
+     */
+    public function exception_notice() {
+        $text         = Settings::get_setting( 'exception_text' );
+        $exception_id = md5( $text );
+
+        if ( empty( $text ) || isset( $_COOKIE[ $exception_id ] ) ) {
+            return false;
+        }
+
+        return [
+            'message' => $text,
+            'id'      => $exception_id,
+        ];
+    }
 }

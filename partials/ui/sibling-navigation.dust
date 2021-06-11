@@ -5,7 +5,7 @@
                 {#post_siblings}
                     <a href="{url}"
                        class="sibling-navigation__item h6 pt-3 pr-4 pb-3 pl-4 has-border-radius has-border-radius-large has-text-black {?is_current}is-current{/is_current}"
-                       {?is_current}aria-hidden="true"{/is_current}>{title|s}</a>
+                       {?is_active}aria-hidden="true"{/is_active}>{post_title|s}</a>
                 {/post_siblings}
             </div>
         </div>
