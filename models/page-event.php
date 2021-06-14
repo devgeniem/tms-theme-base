@@ -17,6 +17,80 @@ class PageEvent extends BaseModel {
     use Components;
 
     /**
+     * Event
+     *
+     * @var ?object
+     */
+    protected ?object $event;
+
+    /**
+     * Template
+     */
+    const TEMPLATE = 'models/page-event.php';
+
+    /**
+     * Hooks
+     *
+     * @return void
+     */
+    public function hooks() : void {
+        add_filter(
+            'the_seo_framework_title_from_generation',
+            Closure::fromCallable( [ $this, 'alter_title' ] )
+        );
+
+        add_action(
+            'wp_head',
+            Closure::fromCallable( [ $this, 'add_json_ld_data' ] )
+        );
+    }
+
+    /**
+     * Init
+     */
+    public function init() {
+        $this->set_event();
+    }
+
+    /**
+     * Add json+ld data to head
+     */
+    protected function add_json_ld_data() : void {
+        $event = $this->get_event();
+
+        if ( empty( $event ) ) {
+            return;
+        }
+
+        printf(
+            '<script type="application/ld+json">%s</script>',
+            LinkedEvents::get_json_ld_data( $event ) // phpcs:ignore
+        );
+    }
+
+    /**
+     * Alter page title
+     *
+     * @param string $title Page title.
+     *
+     * @return string
+     */
+    protected function alter_title( string $title ) : string {
+        if ( ! is_page_template( static::TEMPLATE ) ) {
+            return $title;
+        }
+
+        $event = $this->get_event();
+
+        if ( $event ) {
+            $event = LinkedEvents::normalize_event( $event );
+            $title = $event['name'];
+        }
+
+        return $title;
+    }
+
+    /**
      * Get home url
      *
      * @return mixed|string
@@ -64,22 +138,15 @@ class PageEvent extends BaseModel {
     }
 
     /**
-     * Get event from API
-     *
-     * @return false|stdClass|null
+     * Set view event
      */
-    private function get_event() {
+    protected function set_event() : void {
         $event_id = $this->get_event_id();
 
         if ( empty( $event_id ) ) {
-            return null;
-        }
+            $this->event = null;
 
-        $cache_key = 'event-' . $event_id;
-        $event     = wp_cache_get( $cache_key );
-
-        if ( $event ) {
-            return $event;
+            return;
         }
 
         try {
@@ -90,16 +157,23 @@ class PageEvent extends BaseModel {
             );
 
             if ( ! empty( $event ) ) {
-                wp_cache_set( $cache_key, $event, '', MINUTE_IN_SECONDS );
-
-                return $event;
+                $this->event = $event;
             }
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
 
-        return null;
+            $this->event = null;
+        }
+    }
+
+    /**
+     * Get event
+     *
+     * @return object|null
+     */
+    protected function get_event() {
+        return $this->event;
     }
 
     /**

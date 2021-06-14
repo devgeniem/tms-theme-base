@@ -24,12 +24,12 @@
                     </div>
                 </section>
 
-                <section class="section">
+                <section class="section pt-0">
                     <div class="container">
                         <div class="columns">
                             <div class="column">
                                 <div class="entry__content is-content-grid mb-8">
-                                    <p>
+                                    <p class="mt-6 mb-6 has-text-large">
                                         {event.normalized.short_description|s}
                                     </p>
                                 </div>
@@ -49,7 +49,6 @@
                 </section>
             </article>
         </main>
-
     {/PageEvent}
 {/content}
 
