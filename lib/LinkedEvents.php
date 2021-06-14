@@ -27,8 +27,11 @@ class LinkedEvents implements Controller {
         );
     }
 
+    /**
+     * Admin event search callback
+     */
     protected function admin_event_search_callback() : void {
-        $params = $_GET['params'];
+        $params = $_GET['params']; // phpcs:ignore
         $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
@@ -44,6 +47,13 @@ class LinkedEvents implements Controller {
         wp_send_json( $events ?? [] );
     }
 
+    /**
+     * Normalize event data
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
     public static function normalize_event( $event ) : array {
         $lang_key = Localization::get_current_language();
 
@@ -52,23 +62,58 @@ class LinkedEvents implements Controller {
             'short_description' => $event->short_description->{$lang_key},
             'description'       => nl2br( $event->description->{$lang_key} ),
 
-            'date_title' => __( 'Dates', 'tms-theme-base' ),
-            'date'       => static::get_event_date( $event ),
+            'date_title'        => __( 'Dates', 'tms-theme-base' ),
+            'date'              => static::get_event_date( $event ),
 
-            'time_title' => __( 'Time', 'tms-theme-base' ),
-            'time'       => static::get_event_time( $event ),
+            'time_title'        => __( 'Time', 'tms-theme-base' ),
+            'time'              => static::get_event_time( $event ),
 
-            'location_title' => __( 'Location', 'tms-theme-base' ),
-            'location'       => static::get_event_location( $event, $lang_key ),
+            'location_title'    => __( 'Location', 'tms-theme-base' ),
+            'location'          => static::get_event_location( $event, $lang_key ),
 
-            'price_title' => __( 'Price', 'tms-theme-base' ),
-            'price'       => static::get_event_price_info( $event, $lang_key ),
+            'price_title'       => __( 'Price', 'tms-theme-base' ),
+            'price'             => static::get_event_price_info( $event, $lang_key ),
 
-            'provider_title' => __( 'Organizer', 'tms-theme-base' ),
-            'provider'       => static::get_provider_info( $event ),
+            'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
+            'provider'          => static::get_provider_info( $event ),
         ];
     }
 
+    /**
+     * Get event data for json+ld
+     *
+     * @param object $event Event object.
+     *
+     * @return false|string
+     */
+    public static function get_json_ld_data( $event ) {
+        $lang_key   = Localization::get_current_language();
+        $start_time = static::get_as_datetime( $event->start_time );
+        $end_time   = static::get_as_datetime( $event->end_time );
+
+        $event->name        = $event->name->{$lang_key};
+        $event->description = ( $event->description->{$lang_key} );
+
+        if ( $start_time ) {
+            $event->startDate = $start_time->format( 'Y-m-d' );
+        }
+
+        if ( $end_time ) {
+            $event->endDate = $end_time->format( 'Y-m-d' );
+        }
+
+        $event->location->address = $event->location->street_address->{$lang_key};
+
+        return wp_json_encode( $event );
+    }
+
+    /**
+     * Get event date
+     *
+     * @param object $event Event object.
+     *
+     * @return string|null
+     */
     public static function get_event_date( $event ) {
         if ( empty( $event->start_time ) ) {
             return null;
@@ -89,6 +134,13 @@ class LinkedEvents implements Controller {
         return $start_time->format( $date_format );
     }
 
+    /**
+     * Get event time
+     *
+     * @param object $event Event object.
+     *
+     * @return string|null
+     */
     public static function get_event_time( $event ) {
         if ( empty( $event->start_time ) ) {
             return null;
@@ -109,6 +161,14 @@ class LinkedEvents implements Controller {
         return $start_time->format( $time_format );
     }
 
+    /**
+     * Get event location
+     *
+     * @param object $event    Event object.
+     * @param string $lang_key Language key.
+     *
+     * @return array
+     */
     public static function get_event_location( $event, $lang_key ) {
         return [
             'name'        => $event->location->name->{$lang_key},
@@ -122,6 +182,13 @@ class LinkedEvents implements Controller {
 
     }
 
+    /**
+     * Get string as date time.
+     *
+     * @param string $value Date time string.
+     *
+     * @return \DateTime|null
+     */
     public static function get_as_datetime( $value ) {
         try {
             return new \DateTime( $value );
@@ -133,6 +200,14 @@ class LinkedEvents implements Controller {
         return null;
     }
 
+    /**
+     * Get event price info
+     *
+     * @param object $event    Event object.
+     * @param string $lang_key Language key.
+     *
+     * @return array|null
+     */
     public static function get_event_price_info( $event, $lang_key ) : ?array {
         if ( empty( $event ) && empty( $event->offers ) ) {
             return null;
@@ -158,7 +233,14 @@ class LinkedEvents implements Controller {
         }, $event->offers );
     }
 
-    public static function get_provider_info( $event ) {
+    /**
+     * Get provider info
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function get_provider_info( object $event ) : array {
         return [
             'name'  => $event->provider_name,
             'email' => $event->provider_email,

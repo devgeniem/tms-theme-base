@@ -87,6 +87,7 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = 'filter-tag';
         $vars[] = 'filter-month';
         $vars[] = 'filter-year';
+        $vars[] = 'event-id';
 
         return $vars;
     }

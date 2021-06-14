@@ -230,6 +230,15 @@ class DynamicEventGroup {
         );
     }
 
+    /**
+     * Get choices from API
+     *
+     * @param string $slug           API slug.
+     * @param array  $params         API query params.
+     * @param int    $cache_duration Cache duration.
+     *
+     * @return array|bool|mixed|string
+     */
     protected function get_choices( string $slug, array $params = [], int $cache_duration = 15 ) {
         $cache_key = 'events-' . $slug;
         $response  = wp_cache_get( $cache_key );
