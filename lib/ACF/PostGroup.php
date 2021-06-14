@@ -38,11 +38,15 @@ class PostGroup {
             $field_group = ( new Group( 'Artikkelin lisätiedot' ) )
                 ->set_key( 'fg_post_fields' );
 
-            $rule_group = ( new RuleGroup() )
+            $post_article_rule_group = ( new RuleGroup() )
                 ->add_rule( 'post_type', '==', PostType\Post::SLUG );
 
+            $blog_article_rule_group = ( new RuleGroup() )
+                ->add_rule( 'post_type', '==', PostType\BlogArticle::SLUG );
+
             $field_group
-                ->add_rule_group( $rule_group )
+                ->add_rule_group( $post_article_rule_group )
+                ->add_rule_group( $blog_article_rule_group )
                 ->set_position( 'normal' );
 
             $field_group->add_fields(
