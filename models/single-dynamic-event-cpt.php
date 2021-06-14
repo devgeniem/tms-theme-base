@@ -11,9 +11,7 @@ use TMS\Theme\Base\Traits\Components;
 /**
  * The SingleDynamicEventCpt class.
  */
-class SingleDynamicEventCpt extends BaseModel {
-
-    use Components;
+class SingleDynamicEventCpt extends PageEvent {
 
     /**
      * Hero image
@@ -27,43 +25,11 @@ class SingleDynamicEventCpt extends BaseModel {
     }
 
     /**
-     * Get event from API
+     * Get event id
      *
-     * @return false|stdClass|null
+     * @return string|null
      */
-    private function get_event() {
-        $event_id = get_field( 'event' );
-
-        if ( empty( $event_id ) ) {
-            return null;
-        }
-
-        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
-
-        try {
-            return $client->get(
-                'event/' . $event_id,
-                [ 'include' => 'organization,location' ]
-            );
-        }
-        catch ( Exception $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
-
-        return null;
-    }
-
-    /**
-     * Get event info
-     *
-     * @return array
-     */
-    public function event() {
-        $event = $this->get_event();
-
-        return [
-            'normalized' => LinkedEvents::normalize_event( $event ),
-            'orig'       => $event,
-        ];
+    protected function get_event_id() : ?string {
+        return get_field( 'event' );
     }
 }
