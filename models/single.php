@@ -4,7 +4,6 @@
  */
 
 use DustPress\Query;
-use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
 use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
@@ -48,7 +47,7 @@ class Single extends BaseModel {
         $limit      = 4;
 
         $args = [
-            'post_type'      => Post::SLUG,
+            'post_type'      => get_post_type( $post_id ),
             'posts_per_page' => $limit,
             'no_found_rows'  => true,
             'post__not_in'   => [ $post_id ],
