@@ -82,6 +82,7 @@ class ThemeController {
             'Roles'               => new Roles(),
             'TaxonomyController'  => new TaxonomyController(),
             'ThemeSupports'       => new ThemeSupports(),
+            'Comments'            => new Comments(),
         ];
 
         // Loop through the classes and run hooks methods of all controllers.

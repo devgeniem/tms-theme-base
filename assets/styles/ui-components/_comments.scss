@@ -1,0 +1,49 @@
+.dustpress-comments {
+    .comment-form-comment,
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url {
+        > label {
+            display: block;
+            margin-bottom: $theme-spacing-quarter;
+        }
+
+        input,
+        textarea {
+            line-height: 1;
+            width: 100%;
+            padding: $theme-spacing-half;
+            border: 1px solid $secondary;
+            border-radius: $theme-spacing-quarter;
+        }
+    }
+
+    .required {
+        color: $primary;
+    }
+
+    .alert-box {
+        padding: $theme-spacing-half $theme-spacing-three-quarters;
+
+        .alert-box__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close {
+            margin-left: auto;
+        }
+    }
+
+    .dustpress-comments__error {
+        color: $primary-invert;
+        background-color: $primary;
+    }
+
+    .dustpress-comments__success,
+    .dustpress-comments__warning {
+        color: $secondary-invert;
+        background-color: $secondary;
+    }
+}
