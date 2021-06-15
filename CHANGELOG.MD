@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-100: Add Finnish translations
+- TMS-100: Add Finnish translations #65
 - TMS-83: Add sibling page list #64
 - TMS-62: Add block Notice Banner #63
 - TMS-42: Image Carousel #42
