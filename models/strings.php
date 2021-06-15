@@ -94,6 +94,10 @@ class Strings extends \DustPress\Model {
             'sibling_navigation' => [
                 'sibling_navigation' => _x( 'Sibling pages', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'comments' => [
+                'comments_title' => _x( 'Comments', 'theme-frontend', 'tms-theme-base' ),
+                'close_notice'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }

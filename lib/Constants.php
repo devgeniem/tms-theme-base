@@ -61,6 +61,14 @@ class Constants implements Interfaces\Controller {
         if ( ! defined( 'DPT_LAZYLOADING' ) ) {
             define( 'DPT_LAZYLOADING', true );
         }
+
+        // Set DustPress Comments active state. Use this to check if DustPress Comments plugin is active.
+        if ( function_exists( 'DustPress\init_comments_helper' ) ) {
+            define( 'DPT_COMMENTS_ACTIVE', true );
+        }
+        else {
+            define( 'DPT_COMMENTS_ACTIVE', false );
+        }
     }
 
     /**

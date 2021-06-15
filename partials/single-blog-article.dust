@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-10 is-offset-1">
-                        {#Single}
+                        {#SingleBlogArticle}
                             <article class="entry">
                                 <header class="entry__header">
                                     <h1 class="entry__title mt-0 mb-8 has-line-height-tight has-text-centered ">
@@ -46,15 +46,15 @@
                                     {/share_links}
                                 </div>
                             </article>
-                        {/Single}
+                        {/SingleBlogArticle}
                     </div>
                 </div>
             </div>
         </section>
 
-        {?Single.DPCommentsActive}
-            {@comments /}
-        {/Single.DPCommentsActive}
+        {?SingleBlogArticle.DPCommentsActive}
+            {>"views/single/single-comments" /}
+        {/SingleBlogArticle.DPCommentsActive}
 
         {?Single.related.posts}
             {>"views/single/single-related" related=Single.related /}

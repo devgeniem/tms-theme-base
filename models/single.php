@@ -4,6 +4,7 @@
  */
 
 use DustPress\Query;
+use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
 use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
@@ -15,6 +16,11 @@ class Single extends BaseModel {
 
     use Traits\Sharing;
     use Traits\Components;
+
+    /**
+     * Post type
+     */
+    const POST_TYPE = Post::SLUG;
 
     /**
      * Content
@@ -47,7 +53,7 @@ class Single extends BaseModel {
         $limit      = 4;
 
         $args = [
-            'post_type'      => get_post_type( $post_id ),
+            'post_type'      => self::POST_TYPE,
             'posts_per_page' => $limit,
             'no_found_rows'  => true,
             'post__not_in'   => [ $post_id ],
@@ -86,5 +92,14 @@ class Single extends BaseModel {
             'posts' => $posts,
             'link'  => get_field( 'related_link' ) ?? '',
         ];
+    }
+
+    /**
+     * Returns status of DustPress Comments plugin.
+     *
+     * @return boolean True if DustPress Comments is active.
+     */
+    public function DPCommentsActive() : bool {
+        return DPT_COMMENTS_ACTIVE;
     }
 }
