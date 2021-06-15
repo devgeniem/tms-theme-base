@@ -5,10 +5,10 @@
 .page-template-page-event {
     .entry {
         &__hero-image {
-            height: 31.25rem;
+            height: 18.25rem;
 
             @include from($tablet) {
-                height: 29.411rem;
+                height: 22rem;
             }
 
             @include from($desktop) {
