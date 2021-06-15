@@ -115,6 +115,7 @@ class PageGroup {
                 Layouts\GridLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\ArticleLiftupLayout::class,
+                Layouts\EventsLayout::class,
             ]
         );
 

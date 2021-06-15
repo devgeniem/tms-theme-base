@@ -31,6 +31,15 @@ $pill-background-color-focus: $dark !default;
     &.is-white {
         background-color: $white;
         border: 1px solid $pill-background-color;
+
+        &.is-bordered {
+            border: 2px solid $black;
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+            }
+        }
     }
 
     &:hover {

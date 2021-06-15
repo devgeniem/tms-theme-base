@@ -112,6 +112,7 @@ class PageFrontPageGroup {
                 Layouts\ImageCarouselLayout::class,
                 Layouts\GridLayout::class,
                 Layouts\ArticleLiftupLayout::class,
+                Layouts\EventsLayout::class,
             ]
         );
 
