@@ -12,7 +12,7 @@
                     <div class="column">
                         <article class="entry">
                             {^Page.featured_image_id}
-                                <h1 class="entry__title">
+                                <h1 class="entry__title has-text-centered">
                                     {@title /}
                                 </h1>
                             {/Page.featured_image_id}
