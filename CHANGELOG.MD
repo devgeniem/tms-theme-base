@@ -8,9 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-102-editor: Disable Gutenberg colors and fonts
-- TMS-102-editor: Hide custom links from navigation
-- TMS-102-editor: Disable drop cap
+- TMS-102-editor: Disable Gutenberg colors and fonts #70
+- TMS-102-editor: Hide custom links from navigation #70
+- TMS-102-editor: Disable drop cap #70
 - TMS-101: Setting to hide search #66
 
 ## [1.2.0] - 2021-06-15
