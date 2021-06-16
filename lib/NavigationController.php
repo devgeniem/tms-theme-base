@@ -38,7 +38,7 @@ class NavigationController implements Interfaces\Controller {
     /**
      * Remove nav menu meta-box links
      */
-    function remove_custom_links() : void {
+    protected function remove_custom_links() : void {
         global $wp_meta_boxes;
 
         if ( isset( $wp_meta_boxes['nav-menus'], $wp_meta_boxes['nav-menus']['side'] ) ) {
