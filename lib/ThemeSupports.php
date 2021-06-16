@@ -38,6 +38,17 @@ class ThemeSupports implements Interfaces\Controller {
         );
 
         \remove_theme_support( 'core-block-patterns' );
+
+        \add_theme_support( 'disable-custom-colors' );
+
+        \add_theme_support( 'editor-color-palette' );
+
+        \add_theme_support( 'editor-font-sizes', [] );
+
+        \add_filter(
+            'block_editor_settings',
+            \Closure::fromCallable( [ $this, 'disable_drop_cap' ] )
+        );
     }
 
     /**
@@ -63,6 +74,19 @@ class ThemeSupports implements Interfaces\Controller {
                 'search-form',
             ]
         );
+    }
+
+    /**
+     * Disable drop cap
+     *
+     * @param array $editor_settings Editor settings.
+     *
+     * @return array
+     */
+    protected function disable_drop_cap( array $editor_settings ) : array {
+        $editor_settings['__experimentalFeatures']['defaults']['typography']['dropCap'] = false;
+
+        return $editor_settings;
     }
 
     /**

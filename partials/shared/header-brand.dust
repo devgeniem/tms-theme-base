@@ -1,4 +1,4 @@
-<div class="site-header__brand ml-4 is-hidden-touch">
+<div class="site-header__brand ml-4 ml-6-desktop is-hidden-touch">
     {?Header.brand_logo}
         {@image id=Header.brand_logo size="large" /}
     {/Header.brand_logo}
