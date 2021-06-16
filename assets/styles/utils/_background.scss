@@ -10,8 +10,9 @@
     }
 }
 
+$color-background-primary-light--opaque-light: rgba($primary-light, .05) !default;
 .has-background-primary-light {
     &--opaque-light {
-        background-color: rgba($primary-light, .05) !important;
+        background-color: $color-background-primary-light--opaque-light !important;
     }
 }

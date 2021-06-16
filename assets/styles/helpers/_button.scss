@@ -148,17 +148,42 @@ $button-border-radius: 1.8rem;
 
     // Then the color variation generation
     @each $name, $pair in $button-colors {
-        @if type-of($pair) == "map" {
-            &.is-#{$name} {
-                $primary: map-get($pair, "primary");
-                $primary-invert: map-get($pair, "primary-invert");
-                $dark: map-get($pair, "dark");
-                $dark-invert: map-get($pair, "dark-invert");
-                $light: map-get($pair, "light");
-                $light-invert: map-get($pair, "light-invert");
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
 
-                color: $primary-invert !important;
-                background-color: $primary !important;
+        &.is-#{$name} {
+            background-color: $color;
+            border-color: transparent;
+            color: $color-invert;
+
+            &:hover,
+            &.is-hovered {
+                background-color: bulmaDarken($color, 2.5%);
+                border-color: transparent;
+                color: $color-invert;
+            }
+
+            &:focus,
+            &.is-focused {
+                border-color: transparent;
+                color: $color-invert;
+            }
+
+            &:active,
+            &.is-active {
+                background-color: bulmaDarken($color, 5%);
+                border-color: transparent;
+                color: $color-invert;
+            }
+
+            .icon {
+                fill: $color-invert;
+            }
+
+            &-invert,
+            &.is-inverted {
+                color: $primary !important;
+                background-color: $primary-invert !important;
                 border-color: $primary !important;
 
                 .icon {
@@ -167,9 +192,9 @@ $button-border-radius: 1.8rem;
 
                 &:hover,
                 &.is-hovered {
-                    color: $light-invert !important;
                     background-color: $light !important;
                     border-color: $light !important;
+                    color: $light-invert !important;
 
                     .icon {
                         fill: $light-invert !important;
@@ -178,135 +203,54 @@ $button-border-radius: 1.8rem;
 
                 &:focus,
                 &.is-focused {
-                    color: $dark-invert !important;
-                    background-color: $dark !important;
+                    background-color: $light-invert !important;
                     border-color: $button-border-color-focus !important;
+                    color: $light !important;
 
                     .icon {
-                        fill: $dark-invert !important;
+                        fill: $light !important;
                     }
                 }
 
                 &:active,
                 &.is-active {
-                    color: $dark-invert !important;
-                    background-color: $dark !important;
+                    color: $dark !important;
+                    background-color: $dark-invert !important;
                     border-color: $dark !important;
 
                     .icon {
-                        fill: $dark-invert !important;
-                    }
-                }
-
-                &-invert,
-                &.is-inverted {
-                    color: $primary !important;
-                    background-color: $primary-invert !important;
-                    border-color: $primary !important;
-
-                    .icon {
-                        fill: $primary-invert !important;
-                    }
-
-                    &:hover,
-                    &.is-hovered {
-                        background-color: $light !important;
-                        border-color: $light !important;
-                        color: $light-invert !important;
-
-                        .icon {
-                            fill: $light-invert !important;
-                        }
-                    }
-
-                    &:focus,
-                    &.is-focused {
-                        background-color: $light-invert !important;
-                        border-color: $button-border-color-focus !important;
-                        color: $light !important;
-
-                        .icon {
-                            fill: $light !important;
-                        }
-                    }
-
-                    &:active,
-                    &.is-active {
-                        color: $dark !important;
-                        background-color: $dark-invert !important;
-                        border-color: $dark !important;
-
-                        .icon {
-                            fill: $dark !important;
-                        }
-                    }
-
-                    &.is-outlined {
-                        color: $primary-invert !important;
-                        background-color: transparent !important;
-                        border-color: $primary-invert !important;
-
-                        &:hover {
-                            border-color: $primary-light !important;
-
-                            .icon {
-                                fill: $primary-invert !important;
-                            }
-                        }
-
-                        &:focus {
-                            border-color: $button-border-color-focus !important;
-
-                            .icon {
-                                fill: $primary-invert !important;
-                            }
-                        }
+                        fill: $dark !important;
                     }
                 }
 
                 &.is-outlined {
-                    color: $primary !important;
+                    color: $primary-invert !important;
                     background-color: transparent !important;
+                    border-color: $primary-invert !important;
 
-                    .icon {
-                        fill: $primary !important;
+                    &:hover {
+                        border-color: $primary-light !important;
+
+                        .icon {
+                            fill: $primary-invert !important;
+                        }
                     }
-                }
 
-                &.is-borderless {
-                    border-color: transparent !important;
+                    &:focus {
+                        border-color: $button-border-color-focus !important;
+
+                        .icon {
+                            fill: $primary-invert !important;
+                        }
+                    }
                 }
             }
 
-        } @else {
-            // Bulma defaults
-            $color: nth($pair, 1);
-            $color-invert: nth($pair, 2);
+            @if length($pair) >= 4 {
+                $color-light: nth($pair, 3);
+                $color-dark: nth($pair, 4);
 
-            &.is-#{$name} {
-                background-color: $color;
-                border-color: transparent;
-                color: $color-invert;
 
-                &:hover,
-                &.is-hovered {
-                    background-color: bulmaDarken($color, 2.5%);
-                    border-color: transparent;
-                    color: $color-invert;
-                }
-
-                &:focus,
-                &.is-focused {
-                    border-color: transparent;
-                    color: $color-invert;
-                }
-
-                &:active,
-                &.is-active {
-                    background-color: bulmaDarken($color, 5%);
-                    border-color: transparent;
-                    color: $color-invert;
-                }
             }
         }
     }

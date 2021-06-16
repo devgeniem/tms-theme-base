@@ -1,0 +1,9 @@
+/*!*
+ * Included before theme-*.scss
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+@import "~normalize.css";
+@import "~bulma/sass/utilities/all";
+@import "~indicate/dist/indicate.css";
+@import "settings/brand";
