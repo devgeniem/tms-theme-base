@@ -63,8 +63,8 @@ class Page extends BaseModel {
         }
 
         return array_map( function ( $post ) use ( $current_post_id ) {
-            $post->permalink = get_the_permalink( $post->ID );
-            $post->is_active = $post->ID === $current_post_id;
+            $post->permalink  = get_the_permalink( $post->ID );
+            $post->is_current = $post->ID === $current_post_id;
 
             return $post;
         }, $wp_query->posts );
