@@ -79,7 +79,7 @@ class ThemeSupports implements Interfaces\Controller {
     /**
      * Disable drop cap
      *
-     * @param array $editor_settings Editor settings
+     * @param array $editor_settings Editor settings.
      *
      * @return array
      */
