@@ -4,10 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [UNRELEASED]
 
 ### Added
 
+- TMS-102-editor: Disable Gutenberg colors and fonts #70
+- TMS-102-editor: Hide custom links from navigation #70
+- TMS-102-editor: Disable drop cap #70
+- TMS-101: Setting to hide search #66
+
+### Changed
+
+- TMS-97: Generate multiple themes #68
+
+## [1.2.0] - 2021-06-15
+
+### Added
+
+- TMS-100: Add Finnish translations #65
 - TMS-83: Add sibling page list #64
 - TMS-62: Add block Notice Banner #63
 - TMS-42: Image Carousel #42

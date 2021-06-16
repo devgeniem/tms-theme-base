@@ -205,5 +205,13 @@ class Header extends Model {
         $head_scripts = Settings::get_setting( 'header_scripts' );
 
         return ( ! empty( $head_scripts ) ) ? $head_scripts : false;
+
+    /*
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        return Settings::get_setting( 'hide_search' );
     }
 }

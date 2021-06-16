@@ -68,36 +68,45 @@ class Assets implements Interfaces\Controller {
     }
 
     /**
-     * Theme assets. These have automatic cache busting.
+     * Enqueue Theme Files.
+     *
+     * @param string $theme Theme file name without prefix 'theme_' or suffix '.js/.css'.
      */
-    private function enqueue_assets() : void {
-        $main_css_mod_time  = static::get_theme_asset_mod_time( 'main.css' );
-        $main_js_mod_time   = static::get_theme_asset_mod_time( 'main.js' );
-        $vendor_js_mod_time = static::get_theme_asset_mod_time( 'vendor.js' );
+    private function enqueue_theme( $theme = 'tunnelma' ) : void {
+        $css = sprintf( 'theme_%s.css', $theme );
+        $js  = sprintf( 'theme_%s.js', $theme );
 
         \wp_enqueue_style(
             'theme-css',
-            DPT_ASSET_URI . '/main.css',
+            DPT_ASSET_URI . '/' . $css,
             [],
-            $main_css_mod_time,
+            static::get_theme_asset_mod_time( $css ),
             'all'
         );
 
         \wp_enqueue_script(
+            'theme-js',
+            DPT_ASSET_URI . '/' . $js,
+            [ 'jquery', 'vendor-js' ],
+            static::get_theme_asset_mod_time( $js ),
+            true
+        );
+    }
+
+    /**
+     * Theme assets. These have automatic cache busting.
+     */
+    private function enqueue_assets() : void {
+        \wp_enqueue_script(
             'vendor-js',
             DPT_ASSET_URI . '/vendor.js',
             [ 'jquery' ],
-            $vendor_js_mod_time,
+            static::get_theme_asset_mod_time( 'vendor.js' ),
             true
         );
 
-        \wp_enqueue_script(
-            'theme-js',
-            DPT_ASSET_URI . '/main.js',
-            [ 'jquery', 'vendor-js' ],
-            $main_js_mod_time,
-            true
-        );
+        // TODO: Replace with settings Settings page variable.
+        $this->enqueue_theme( 'tummavesi' );
 
         /**
          * Add localizations to window.s object.
@@ -105,7 +114,7 @@ class Assets implements Interfaces\Controller {
         \wp_localize_script( 'theme-js', 's', ( new \Strings() )->s() );
 
         \wp_localize_script( 'theme-js', 'themeData', [
-            'assetsUri' => esc_url( get_stylesheet_directory_uri() ),
+            'assetsUri' => esc_url( get_template_directory_uri() ),
         ] );
 
         \wp_dequeue_style( 'wp-block-library' );

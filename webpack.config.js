@@ -18,9 +18,15 @@ const wpThemePath = path.resolve( __dirname );
 const themeName = path.basename( wpThemePath );
 const themePath = `/web/app/themes/${ themeName }`;
 const themePublicPath = `${ themePath }/assets/dist/`;
-const themeEntry = `${ wpThemePath }/assets/scripts/main.js`;
 const themeAdminEntry = `${ wpThemePath }/assets/scripts/admin.js`;
 const themeOutput = `${ wpThemePath }/assets/dist`;
+
+const entryPoints = {
+    main: [ `${ wpThemePath }/assets/scripts/theme-tummavesi.js` ],
+    theme_tunnelma: [ `${ wpThemePath }/assets/scripts/theme-tunnelma.js` ],
+    theme_tummavesi: [ `${ wpThemePath }/assets/scripts/theme-tummavesi.js` ],
+    admin: [ themeAdminEntry ],
+};
 
 // All loaders to use on assets.
 const allModules = {
@@ -216,10 +222,7 @@ module.exports = [
             },
         },
 
-        entry: {
-            main: [ themeEntry ],
-            admin: [ themeAdminEntry ],
-        },
+        entry: entryPoints,
 
         output: {
             path: themeOutput,

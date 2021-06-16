@@ -120,6 +120,10 @@ class SettingsGroup {
                 'title'        => 'Ylätunnisteen custom-skriptit',
                 'instructions' => '',
             ],
+            'hide_search'    => [
+                'title'        => 'Piilota hakutoiminto',
+                'instructions' => '',
+            ],
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
@@ -173,6 +177,14 @@ class SettingsGroup {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['limit_nav_depth']['instructions'] );
 
+        $hide_search_field = ( new Field\TrueFalse( $strings['hide_search']['title'] ) )
+            ->set_key( "${key}_hide_search" )
+            ->set_name( 'hide_search' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['hide_search']['instructions'] );
+
         $tab->add_fields( [
             $logo_field,
             $brand_logo_field,
@@ -180,6 +192,7 @@ class SettingsGroup {
             $lang_nav_display_field,
             $hide_main_nav_field,
             $limit_nav_depth_field,
+            $hide_search_field,
         ] );
 
         if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
