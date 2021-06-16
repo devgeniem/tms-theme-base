@@ -34,11 +34,11 @@
 
                     {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
 
-                    <div class="h4 mt-9 mb-4">
-                        {Strings.s.header.search_title|s}
-                    </div>
-
                     {^Header.hide_search}
+                        <div class="h4 mt-9 mb-4">
+                            {Strings.s.header.search_title|s}
+                        </div>
+
                         {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
                     {/Header.hide_search}
 

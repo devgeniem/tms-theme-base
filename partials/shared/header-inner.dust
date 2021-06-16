@@ -25,7 +25,7 @@
                 {>"shared/header-search-toggle"  /}
             {/Header.hide_search}
 
-            <button class="fly-out-nav__trigger {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+            <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
                 {>"ui/icon" icon="burger" class="icon--large" /}
             </button>
 
