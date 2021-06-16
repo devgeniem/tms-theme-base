@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Removed home icon from breadcrumbs #72
+
 ### Fixed
 
 - TMS-102: Add check Display Search setting #71
