@@ -195,4 +195,13 @@ class Header extends Model {
 
         return is_bool( $status ) ? $status : (bool) $status;
     }
+
+    /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        return Settings::get_setting( 'hide_search' );
+    }
 }

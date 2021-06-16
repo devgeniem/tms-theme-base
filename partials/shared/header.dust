@@ -34,7 +34,9 @@
                         {Strings.s.header.search_title|s}
                     </div>
 
-                    {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
+                    {^Header.hide_search}
+                        {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
+                    {/Header.hide_search}
 
                     {>"ui/icon" icon="tampere-finland" class="is-primary-invert" /}
                 </div>
