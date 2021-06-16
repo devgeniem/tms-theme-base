@@ -195,4 +195,15 @@ class Header extends Model {
 
         return is_bool( $status ) ? $status : (bool) $status;
     }
+
+    /**
+     * Get custom scripts from Site Settings.
+     *
+     * @return false|mixed
+     */
+    public function head_custom_scripts() {
+        $header_scripts = Settings::get_setting( 'header_scripts' );
+
+        return ( ! empty( $header_scripts ) ) ? $header_scripts : false;
+    }
 }
