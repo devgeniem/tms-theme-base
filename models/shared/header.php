@@ -207,7 +207,7 @@ class Header extends Model {
         return ( ! empty( $head_scripts ) ) ? $head_scripts : false;
     }
 
-    /*
+    /**
      * Hide search
      *
      * @return mixed
