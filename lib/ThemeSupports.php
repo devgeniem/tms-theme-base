@@ -38,6 +38,12 @@ class ThemeSupports implements Interfaces\Controller {
         );
 
         \remove_theme_support( 'core-block-patterns' );
+
+        \add_theme_support( 'disable-custom-colors' );
+
+        \add_theme_support( 'editor-color-palette' );
+
+        add_theme_support( 'editor-font-sizes', [] );
     }
 
     /**
