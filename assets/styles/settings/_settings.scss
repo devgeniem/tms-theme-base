@@ -1,61 +1,3 @@
-// Theme Settings
-// https://bulma.io/documentation/customize/variables/
-$mobile: 679px;
-$tablet: 680px;
-
-// Colors
-// ****************************************************************************
-$theme-colors: get_brand_color("tunnelma");
-$primary: map-get($theme-colors, "primary");
-$primary-invert: map-get($theme-colors, "primary-invert");
-$primary-light: map-get($theme-colors, "light");
-$primary-dark: map-get($theme-colors, "dark");
-$primary-dark-invert: map-get($theme-colors, "dark-invert");
-$secondary: map-get($theme-colors, "secondary");
-$secondary-invert: map-get($theme-colors, "secondary-invert");
-$light: map-get($theme-colors, "light");
-$light-invert: map-get($theme-colors, "light-invert");
-$dark: map-get($theme-colors, "dark");
-$dark-invert: map-get($theme-colors, "dark-invert");
-$text: $black;
-$link: $primary;
-$overlay-background: rgba($black, 0.3);
-$modal-overlay-background: rgba($black, 0.97);
-
-// Theme colors
-// can be used in HTML with .has-background-<color> or .has-text-<color> classes
-// NOTE! These colours have a big impact on CSS size
-// Remove all unnecessary colours and add custom ones above.
-
-$colors-palette-primary: get_brand_color("tunnelma");
-$colors-palette-secondary: get_brand_color("grays");
-$colors-palette-tertiary: get_brand_color("tyo");
-
-$colors: (
-    "primary": $colors-palette-primary,
-    "secondary": $colors-palette-secondary,
-    "tertiary": $colors-palette-tertiary,
-    "quaternary": get_brand_color("koti"),
-    "quinary": get_brand_color("kokemus"),
-    "senary": get_brand_color("idea"),
-    "link": get_brand_color("tunnelma"),
-    "black": get_brand_color("black"),
-    "white": get_brand_color("white"),
-    "gray": ($color-tumma-harmaa, $white),
-    // "info": ($info, $info-invert, $info-light, $info-dark),
-    // "success": ($success, $success-invert, $success-light, $success-dark),
-    // "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
-    // "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
-);
-
-$text: $black;
-
-$button-colors: (
-    "primary": $colors-palette-primary,
-    "secondary": $colors-palette-secondary,
-    "tertiary": $colors-palette-tertiary
-);
-$navbar-colors: ("primary": ($primary, $primary-invert));
 
 // Font sizes
 // Default sizes: https://bulma.io/documentation/modifiers/typography-helpers/
@@ -66,7 +8,6 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 $size-8;
 // Image dimensions
 // Default sizes: https://bulma.io/documentation/elements/image/
 $dimensions: 64 180;
-
 
 // Spacing
 // ****************************************************************************
