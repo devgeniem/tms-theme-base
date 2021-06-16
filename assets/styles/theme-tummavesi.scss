@@ -2,7 +2,7 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-@import "theme-header";
+@import "themes/includes";
 
 $primary: $color-tumma-vesi;
 $primary-invert: $color-white;
@@ -11,7 +11,7 @@ $primary-light-invert: $color-white;
 $primary-dark: bulmaDarken($primary, 5);
 $primary-dark-invert: $color-white;
 
-$secondary: bulmaRgba(#C1E6D9, .5);
+$secondary: #e1f3ec;
 $secondary-invert: $color-black;
 $secondary-light: bulmaLighten($secondary, 5);
 $secondary-light-invert: $color-black;

@@ -192,9 +192,9 @@ $button-border-radius: 1.8rem;
 
                 &:hover,
                 &.is-hovered {
+                    color: $light-invert !important;
                     background-color: $light !important;
                     border-color: $light !important;
-                    color: $light-invert !important;
 
                     .icon {
                         fill: $light-invert !important;
@@ -203,9 +203,9 @@ $button-border-radius: 1.8rem;
 
                 &:focus,
                 &.is-focused {
+                    color: $light !important;
                     background-color: $light-invert !important;
                     border-color: $button-border-color-focus !important;
-                    color: $light !important;
 
                     .icon {
                         fill: $light !important;
@@ -244,13 +244,6 @@ $button-border-radius: 1.8rem;
                         }
                     }
                 }
-            }
-
-            @if length($pair) >= 4 {
-                $color-light: nth($pair, 3);
-                $color-dark: nth($pair, 4);
-
-
             }
         }
     }
