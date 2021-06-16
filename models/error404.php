@@ -37,10 +37,17 @@ class Error404 extends BaseModel {
      * @return array[]
      */
     public function links() : array {
-        return [
+        $links = [
             $this->get_home_link(),
-            $this->get_search_link(),
         ];
+
+        $search_link = $this->get_search_link();
+
+        if ( ! empty( $search_link ) ) {
+            $links[] = $search_link;
+        }
+
+        return $links;
     }
 
     /**
