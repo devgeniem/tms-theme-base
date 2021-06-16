@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.2.0] - 2021-06-15
 
 ### Added
 
+- TMS-100: Add Finnish translations #65
 - TMS-83: Add sibling page list #64
 - TMS-62: Add block Notice Banner #63
 - TMS-42: Image Carousel #42

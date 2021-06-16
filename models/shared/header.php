@@ -214,4 +214,13 @@ class Header extends Model {
             'id'      => $exception_id,
         ];
     }
+
+    /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        return Settings::get_setting( 'hide_search' );
+    }
 }
