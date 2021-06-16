@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-101: Setting to hide search #66
 
+### Changed
+
+- TMS-97: Generate multiple themes #68
+
 ## [1.2.0] - 2021-06-15
 
 ### Added
