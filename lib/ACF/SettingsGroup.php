@@ -122,6 +122,10 @@ class SettingsGroup {
                 'title'        => 'Piilota hakutoiminto',
                 'instructions' => '',
             ],
+            'header_scripts'  => [
+                'title'        => 'Ylätunnisteen custom-skriptit',
+                'instructions' => '',
+            ],
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
@@ -192,6 +196,16 @@ class SettingsGroup {
             $limit_nav_depth_field,
             $hide_search_field,
         ] );
+
+        if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
+            $header_scripts_field = ( new Field\Textarea( $strings['header_scripts']['title'] ) )
+                ->set_key( "${key}_header_scripts" )
+                ->set_name( 'header_scripts' )
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['header_scripts']['instructions'] );
+
+            $tab->add_field( $header_scripts_field );
+        }
 
         return $tab;
     }

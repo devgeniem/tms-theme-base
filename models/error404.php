@@ -48,8 +48,12 @@ class Error404 extends BaseModel {
      *
      * @return array
      */
-    private function get_search_link() : array {
+    private function get_search_link() : ?array {
         $home_url = $this->get_home_url();
+
+        if ( Settings::get_setting( 'hide_search' ) ) {
+            return null;
+        }
 
         return [
             'title'   => _x( 'Go to search', 'theme-frontend', 'tms-theme-base' ),
