@@ -10,7 +10,7 @@
                             <article class="entry mb-8 mb-10-desktop">
                                 <header class="entry__header">
                                     {?image}
-                                        <div class="entry__figure mb-6 mb-8-tablet pt-2">
+                                        <div class="entry__figure mb-6 mb-8-tablet pt-2 is-flex is-justify-content-center">
                                             {@image id=image.id size="single" /}
                                         </div>
                                     {/image}
