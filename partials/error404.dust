@@ -10,7 +10,7 @@
                             <article class="entry mb-8 mb-10-desktop">
                                 <header class="entry__header">
                                     {?image}
-                                        <div class="entry__figure mb-6 mb-8-tablet pt-2">
+                                        <div class="entry__figure mb-6 mb-8-tablet pt-2 is-flex is-justify-content-center">
                                             {@image id=image.id size="single" /}
                                         </div>
                                     {/image}
@@ -29,9 +29,9 @@
                                 {/description}
 
                                 {?links}
-                                    <div class="entry__links mt-6 mt-8-tablet has-text-centered">
+                                    <div class="entry__links mt-6 mt-8-tablet is-flex is-justify-content-center">
                                         {#links}
-                                            <a href="{url}" class="button m-1 {?icon}button--icon{/icon} {classes|s}">
+                                            <a href="{url}" class="button m-2 {?icon}button--icon{/icon} {classes|s}">
                                                 {title|s}
                                                 {?icon}{>"ui/icon" /}{/icon}
                                             </a>

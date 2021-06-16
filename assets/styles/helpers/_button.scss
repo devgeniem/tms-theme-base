@@ -223,10 +223,21 @@ $button-border-radius: 1.8rem;
                     }
                 }
 
+                &-invert,
+                &.is-inverted {
+                    color: $primary !important;
+                    background-color: $primary-invert !important;
+                    border-color: $primary !important;
+
+                    .icon {
+                        fill: $primary !important;
+                    }
+
                 &.is-outlined {
                     color: $primary-invert !important;
                     background-color: transparent !important;
                     border-color: $primary-invert !important;
+
 
                     &:hover {
                         border-color: $primary-light !important;

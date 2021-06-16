@@ -23,7 +23,7 @@
                         </div>
                     {/description}
 
-                    {>"ui/button-link" classes="is-primary" icon="chevron-right" icon_class="icon--medium"  /}
+                    {>"ui/button-link" classes="is-primary" icon="chevron-right" icon_classes="icon--medium"  /}
                 </div>
             </div>
         {/rows}
