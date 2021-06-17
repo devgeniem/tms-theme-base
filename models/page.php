@@ -14,6 +14,17 @@ class Page extends BaseModel {
     use Components;
 
     /**
+     * Hero image
+     *
+     * @return int|null
+     */
+    public function hero_image() : ?int {
+        return has_post_thumbnail()
+            ? get_post_thumbnail_id()
+            : null;
+    }
+
+    /**
      * Get post siblings.
      *
      * @return array|array[]|false

@@ -2,14 +2,20 @@
 
 {<content}
     <main class="main-content" id="main-content">
+        {?Page.hero_image}
+            {>"views/page/page-hero" /}
+        {/Page.hero_image}
+
         <section class="section">
             <div class="container">
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
-                            <h1 class="entry__title has-text-centered">
-                                {@title /}
-                            </h1>
+                            {^Page.hero_image}
+                                <h1 class="entry__title has-text-centered">
+                                    {@title /}
+                                </h1>
+                            {/Page.hero_image}
 
                             <div class="entry__content is-content-grid">
                                 {@content /}

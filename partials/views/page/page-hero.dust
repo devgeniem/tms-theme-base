@@ -1,0 +1,15 @@
+<section class="page__hero section is-relative pt-0 pb-0 has-background-cover" {@inlinebg id=Page.hero_image size="fullhd" /}>
+    <div class="overlay overlay--dark-70"></div>
+
+    <div class="is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8 is-offset-2">
+                    <h1 class="entry__title has-text-white has-text-centered">
+                        {@title /}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
