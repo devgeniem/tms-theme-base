@@ -35,14 +35,17 @@ class Constants implements Interfaces\Controller {
             define( 'DPT_ASSET_CACHE_URI', DPT_STYLESHEET_DIR . '/assets/dist' );
         }
 
+        // Returns /app/themes/{current theme} -- no need to reference other domains here.
+        $themes_root = wp_parse_url( \get_template_directory_uri(), PHP_URL_PATH );
+
         // Define the assets path.
         if ( ! defined( 'DPT_ASSETS_URI' ) ) {
-            define( 'DPT_ASSETS_URI', \get_template_directory_uri() . '/assets' );
+            define( 'DPT_ASSETS_URI', $themes_root . '/assets' );
         }
 
         // Define the assets dist path.
         if ( ! defined( 'DPT_ASSET_URI' ) ) {
-            define( 'DPT_ASSET_URI', \get_template_directory_uri() . '/assets/dist' );
+            define( 'DPT_ASSET_URI', $themes_root . '/assets/dist' );
         }
 
         // Set Polylang active state. Use this to check if Polylang plugin is active.
