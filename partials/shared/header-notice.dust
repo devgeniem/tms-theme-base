@@ -1,11 +1,11 @@
 <div class="site-header-notice has-background-primary" data-notice-id="{Header.exception_notice.id}">
     <div class="site-header__wrapper site-header-notice__content pt-3 pb-5 pt-5-tablet pb-5-tablet">
         <div class="is-flex is-align-items-center notice-banner__text has-text-primary-invert">
-            {>"ui/icon" icon="icon-info" class="icon--xxlarge is-large is-primary-invert mr-5" /}
+            {>"ui/icon" icon="icon-info" class="icon--xxlarge is-large is-flex-shrink-0 is-primary-invert mr-3 mr-5-tablet" /}
             <span>{Header.exception_notice.message|s}</span>
         </div>
 
-        <div class="site-header-notice__button-wrapper mt-4 mt-0-tablet">
+        <div class="site-header-notice__button-wrapper mt-4 mt-0-tablet ml-3">
             <button class="button is-inverted button--icon site-header-notice__close">
                 {Strings.s.header.exception_close_button|s}
                 {>"ui/icon" icon="close" class="ml-2 is-primary icon--medium" /}
