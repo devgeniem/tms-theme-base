@@ -24,7 +24,7 @@
                 <div class="column">
                     <div class="hero__box is-relative {box_classes|s}">
                         {?title}
-                            <h1 class="mt-0 h2">
+                            <h1 class="mt-0 h2 no-hyphens">
                                 {title|s}
                             </h1>
                         {/title}
