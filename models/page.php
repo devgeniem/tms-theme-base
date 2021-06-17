@@ -33,6 +33,24 @@ class Page extends BaseModel {
     }
 
     /**
+     * Hooks
+     */
+    public function hooks() : void {
+        add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
+    }
+
+    /**
+     * Hero image
+     *
+     * @return int|null
+     */
+    public function hero_image() : ?int {
+        return has_post_thumbnail()
+            ? get_post_thumbnail_id()
+            : null;
+    }
+
+    /**
      * Get post siblings.
      *
      * @return array|array[]|false

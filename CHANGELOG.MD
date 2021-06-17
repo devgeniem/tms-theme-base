@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-102-1: Fix quote align #74
 - Fixed cross-origin asset loading, added .no-hyphens
 
+### Added
+
+- TMS-106: Add page hero
 
 ## [1.3.1] - 2021-06-16
 
