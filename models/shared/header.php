@@ -217,11 +217,11 @@ class Header extends Model {
     }
 
     /**
-     * Hide search
+     * Check if navigation menu exists
      *
-     * @return mixed
+     * @return bool
      */
-    public function have_nav_menu() {
+    public function have_nav_menu() : bool {
         return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
     }
 }
