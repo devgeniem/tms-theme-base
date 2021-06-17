@@ -6,8 +6,42 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-102-2: Hide menu toggle if navigation does not exist #76
+- TMS-102-1: Add screen reader text to menu toggle #74
+- TMS-102-1: Fix quote align #74
+- Fixed cross-origin asset loading, added .no-hyphens
+
+
+## [1.3.1] - 2021-06-16
+
+### Changed
+
+- Removed home icon from breadcrumbs #72
+
+### Fixed
+
+- TMS-102: Add check Display Search setting #71
+
+## [1.3.0] - 2021-06-16
+
 ### Added
 
+- TMS-102-editor: Disable Gutenberg colors and fonts #70
+- TMS-102-editor: Hide custom links from navigation #70
+- TMS-102-editor: Disable drop cap #70
+- TMS-101: Setting to hide search #66
+
+### Changed
+
+- TMS-97: Generate multiple themes #68
+
+## [1.2.0] - 2021-06-15
+
+### Added
+
+- TMS-100: Add Finnish translations #65
 - TMS-83: Add sibling page list #64
 - TMS-62: Add block Notice Banner #63
 - TMS-42: Image Carousel #42
