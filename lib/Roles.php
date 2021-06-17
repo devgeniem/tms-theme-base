@@ -30,6 +30,11 @@ class Roles implements Controller {
         'update_core',
     ];
 
+    /**
+     * Default Post type 'Post' capabilities.
+     *
+     * @var string[]
+     */
     private $posts_all_capabilities = [
         'edit_post',
         'read_post',
