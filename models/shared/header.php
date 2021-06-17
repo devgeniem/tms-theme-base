@@ -221,7 +221,7 @@ class Header extends Model {
      *
      * @return bool
      */
-    public function have_nav_menu() : bool {
+    public function has_nav_menu() : bool {
         return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
     }
 }
