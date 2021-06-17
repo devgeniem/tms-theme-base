@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- TMS-102-2: Hide menu toggle if navigation does not exist #76
 - TMS-102-1: Add screen reader text to menu toggle #74
 - TMS-102-1: Fix quote align #74
 - Fixed cross-origin asset loading, added .no-hyphens

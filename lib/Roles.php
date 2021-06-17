@@ -30,6 +30,13 @@ class Roles implements Controller {
         'update_core',
     ];
 
+    private $posts_all_capabilities = [
+        'edit_post',
+        'read_post',
+        'delete_post',
+        'edit_posts',
+    ];
+
     /**
      * Pages / page (default page type)
      *
@@ -97,6 +104,42 @@ class Roles implements Controller {
     ];
 
     /**
+     * Base taxonomy capabilities, only for admins.
+     *
+     * @var string[]
+     */
+    private $taxonomy_category_all_capabilities = [
+        'manage_categories',
+        'edit_categories',
+        'delete_categories',
+        'assign_categories',
+    ];
+
+    /**
+     * Base post tag capabilities, only for admins.
+     *
+     * @var string[]
+     */
+    private $taxonomy_post_tag_all_capabilities = [
+        'manage_post_tags',
+        'edit_post_tags',
+        'delete_post_tags',
+        'assign_post_tags',
+    ];
+
+    /**
+     * Material Type taxonomy
+     *
+     * @var string[]
+     */
+    private $taxonomy_material_type_all_capabilities = [
+        'manage_material_types',
+        'edit_material_types',
+        'delete_material_types',
+        'assign_material_types',
+    ];
+
+    /**
      * Hooks
      */
     public function hooks() : void {
@@ -156,6 +199,12 @@ class Roles implements Controller {
             'edit_published_materials'       => true,
             'edit_materials'                 => true,
 
+            // Material Type taxonomy
+            'manage_material_types'          => true,
+            'edit_material_types'            => true,
+            'delete_material_types'          => true,
+            'assign_material_types'          => true,
+
             // Common
             'unfiltered_html'                => true,
         ];
@@ -178,26 +227,23 @@ class Roles implements Controller {
      * Also known as: Verkon Pääkäyttäjä.
      */
     private function modify_superadmin_caps() : void {
-        $role = \Geniem\Roles::get( 'super_administrator' );
+        /**
+         * Administrator role.
+         *
+         * @var \Geniem\Role|null $admin
+         */
+        $admin = \Geniem\Roles::get( 'administrator' );
 
-        if ( ! ( $role instanceof \Geniem\Role ) ) {
-            /**
-             * Administrator role.
-             *
-             * @var \Geniem\Role|null $admin
-             */
-            $admin = \Geniem\Roles::get( 'administrator' );
-
-            if ( ! ( $admin instanceof \Geniem\Role ) ) {
-                return;
-            }
-
-            $role = \Geniem\Roles::create(
-                'super_administrator',
-                _x( 'Super Administrator', 'wp-geniem-roles', 'tms-theme-base' ),
-                $admin->capabilities ?? []
-            );
+        if ( ! ( $admin instanceof \Geniem\Role ) ) {
+            return;
         }
+
+        // Create or get if already created.
+        $role = \Geniem\Roles::create(
+            'super_administrator',
+            _x( 'Super Administrator', 'wp-geniem-roles', 'tms-theme-base' ),
+            $admin->capabilities ?? []
+        );
 
         $role->add_caps( [
             'add_users',
@@ -212,9 +258,16 @@ class Roles implements Controller {
             'manage_sites',
         ] );
 
+        // Post types
+        $role->add_caps( $this->posts_all_capabilities );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+
+        // Taxonomies
+        $role->add_caps( $this->taxonomy_category_all_capabilities );
+        $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
+        $role->add_caps( $this->taxonomy_material_type_all_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -237,8 +290,15 @@ class Roles implements Controller {
             return;
         }
 
+        // Post types
+        $role->add_caps( $this->posts_all_capabilities );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
+
+        // Taxonomies
+        $role->add_caps( $this->taxonomy_category_all_capabilities );
+        $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
+        $role->add_caps( $this->taxonomy_material_type_all_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -262,9 +322,16 @@ class Roles implements Controller {
             return;
         }
 
+        // Post types
+        $role->add_caps( $this->posts_all_capabilities );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
+
+        // Taxonomies
+        $role->add_caps( $this->taxonomy_category_all_capabilities );
+        $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
+        $role->add_caps( $this->taxonomy_material_type_all_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -288,9 +355,13 @@ class Roles implements Controller {
             return;
         }
 
+        // Post types
         $role->add_caps( [ 'edit_others_posts', 'publish_posts', 'read_private_posts' ] );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+
+        // Taxonomies
+        $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -340,6 +411,9 @@ class Roles implements Controller {
             'edit_published_pages',
             'edit_pages',
         ] );
+
+        // Taxonomies
+        $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
 
         $role->remove_caps( $this->remove_from_all );
 
