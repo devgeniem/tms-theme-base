@@ -38,16 +38,19 @@ class ArticleLiftupFormattter implements Formatter {
      * @return array
      */
     public function format( array $data ) : array {
-        if ( $data['highlight_article'] ) {
-            $data['highlight'] = Post::enrich_post( $data['highlight_article'], true );
-        }
-
         $args = [
             'post_type'              => Post::SLUG,
             'posts_per_page'         => ( ! empty( $data['number'] ) ) ? $data['number'] : 12,
             'update_post_meta_cache' => false,
             'no_found_rows'          => true,
         ];
+
+        if ( $data['highlight_article'] ) {
+            $data['highlight']    = Post::enrich_post( $data['highlight_article'], true );
+            $args['post__not_in'] = [
+                $data['highlight_article']->ID,
+            ];
+        }
 
         $is_manual_feed = 'manual' === $data['feed_type'];
         $manual_posts   = [];
