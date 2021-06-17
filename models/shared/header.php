@@ -195,4 +195,33 @@ class Header extends Model {
 
         return is_bool( $status ) ? $status : (bool) $status;
     }
+
+    /**
+     * Get custom scripts from Site Settings.
+     *
+     * @return false|mixed
+     */
+    public function head_custom_scripts() {
+        $head_scripts = Settings::get_setting( 'header_scripts' );
+
+        return ( ! empty( $head_scripts ) ) ? $head_scripts : false;
+    }
+
+    /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        return Settings::get_setting( 'hide_search' );
+    }
+
+    /**
+     * Check if navigation menu exists
+     *
+     * @return bool
+     */
+    public function has_nav_menu() : bool {
+        return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
+    }
 }
