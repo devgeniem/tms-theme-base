@@ -25,10 +25,12 @@
                 {>"shared/header-search-toggle"  /}
             {/Header.hide_search}
 
-            <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
-                {>"ui/icon" icon="burger" class="icon--large" /}
-                <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
-            </button>
+            {?Header.have_nav_menu}
+                <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+                    {>"ui/icon" icon="burger" class="icon--large" /}
+                    <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
+                </button>
+            {/Header.have_nav_menu}
 
             {>"shared/header-brand" /}
         </div>

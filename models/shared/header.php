@@ -215,4 +215,13 @@ class Header extends Model {
     public function hide_search() {
         return Settings::get_setting( 'hide_search' );
     }
+
+    /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function have_nav_menu() {
+        return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
+    }
 }
