@@ -234,4 +234,13 @@ class Header extends Model {
 
         return ( ! empty( $head_scripts ) ) ? $head_scripts : false;
     }
+
+    /**
+     * Check if navigation menu exists
+     *
+     * @return bool
+     */
+    public function have_nav_menu() : bool {
+        return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
+    }
 }
