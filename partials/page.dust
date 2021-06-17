@@ -7,7 +7,7 @@
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
-                            <h1 class="entry__title">
+                            <h1 class="entry__title has-text-centered">
                                 {@title /}
                             </h1>
 

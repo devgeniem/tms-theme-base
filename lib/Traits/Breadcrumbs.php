@@ -176,7 +176,7 @@ trait Breadcrumbs {
         return [
             'title'     => _x( 'Home', 'Breadcrumbs', 'tms-theme-base' ),
             'permalink' => trailingslashit( get_home_url() ),
-            'icon'      => 'icon-koti',
+            'icon'      => '',
         ];
     }
 }

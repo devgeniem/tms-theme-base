@@ -21,33 +21,38 @@
                 </div>
             {/Header.lang_nav_horizontal}
 
-            {>"shared/header-search-toggle"  /}
+            {^Header.hide_search}
+                {>"shared/header-search-toggle"  /}
+            {/Header.hide_search}
 
-            <button class="fly-out-nav__trigger {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+            <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
                 {>"ui/icon" icon="burger" class="icon--large" /}
+                <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
             </button>
 
             {>"shared/header-brand" /}
         </div>
     </div>
 
-    <div id="js-search-toggle-target"
-         class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
-         role="search">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2-tablet is-6-desktop is-offset-3-desktop">
-                    <div class="pt-6 pb-6 pt-8-desktop pb-8-desktop">
-                        <div class="popup__label h4 mb-6">
-                            {Strings.s.header.search_title|s}
-                        </div>
+    {^Header.hide_search}
+        <div id="js-search-toggle-target"
+             class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
+             role="search">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2-tablet is-6-desktop is-offset-3-desktop">
+                        <div class="pt-6 pb-6 pt-8-desktop pb-8-desktop">
+                            <div class="popup__label h4 mb-6">
+                                {Strings.s.header.search_title|s}
+                            </div>
 
-                        {>"ui/search-form" /}
+                            {>"ui/search-form" /}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {/Header.hide_search}
 </div>
 
 {^Header.hide_main_nav}
