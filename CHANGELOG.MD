@@ -4,11 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-[Unreleased]
+## [Unreleased]
 
 ### Added
 
 - TMS-106: Add page hero
+
+### Fixed
+
+- TMS-102-2: Hide menu toggle if navigation does not exist #76
+- TMS-102-1: Add screen reader text to menu toggle #74
+- TMS-102-1: Fix quote align #74
+- Fixed cross-origin asset loading, added .no-hyphens
 
 ## [1.3.1] - 2021-06-16
 
