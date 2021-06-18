@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-95: Add header exception notice #78
 - TMS-94: Add layout Articles #77
 
 ## [1.3.2] - 2021-06-17

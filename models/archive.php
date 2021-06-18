@@ -76,16 +76,16 @@ class Archive extends Home {
             return [];
         }
 
-        $current_year_filter     = static::get_filter_year();
-        $current_month_filter    = static::get_filter_month();
-        $current_category_filter = static::get_filter_category();
+        $year_filter     = static::get_filter_year();
+        $month_filter    = static::get_filter_month();
+        $category_filter = static::get_filter_category();
 
-        $categories = array_map( function ( $item ) use ( $current_category_filter, $current_month_filter, $current_year_filter ) {
-            $item->is_active = $current_category_filter === $item->term_id;
+        $categories = array_map( function ( $item ) use ( $category_filter, $month_filter, $year_filter ) {
+            $item->is_active = $category_filter === $item->term_id;
             $item->url       = add_query_arg(
                 [
-                    'filter-month' => $current_month_filter,
-                    'filter-year'  => $current_year_filter,
+                    'filter-month' => $month_filter,
+                    'filter-year'  => $year_filter,
                 ],
                 get_category_link( $item )
             );
@@ -100,12 +100,12 @@ class Archive extends Home {
                 'name'      => __( 'All', 'tms-theme-base' ),
                 'url'       => add_query_arg(
                     [
-                        'filter-month' => $current_month_filter,
-                        'filter-year'  => $current_year_filter,
+                        'filter-month' => $month_filter,
+                        'filter-year'  => $year_filter,
                     ],
                     get_the_permalink( $home_page )
                 ),
-                'is_active' => empty( $current_category_filter ),
+                'is_active' => empty( $category_filter ),
             ] );
         }
 

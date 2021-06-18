@@ -48,7 +48,7 @@ class AccordionTableFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $tables            = $tablepress_tables['table_post'] ?? [];
 
         if ( ! empty( $tables ) ) {
-            $id = array_search( $table_post_id, $tables );
+            $id = array_search( $table_post_id, $tables, true );
 
             if ( false !== $id ) {
                 $data['table_markup'] = \do_shortcode( '[table id=' . $id . ' responsive="scroll" /]' );

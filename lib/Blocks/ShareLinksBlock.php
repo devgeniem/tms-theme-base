@@ -74,7 +74,7 @@ class ShareLinksBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         $data['share_links'] = $this->get_share_links();
 
         return $data;

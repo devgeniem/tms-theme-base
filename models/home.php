@@ -141,7 +141,7 @@ class Home extends BaseModel {
 
         global $wpdb;
 
-        $years = $wpdb->get_results(
+        $years = $wpdb->get_results( // phpcs:ignore
             "SELECT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' GROUP BY YEAR(post_date) DESC",
             ARRAY_N
         );
@@ -237,18 +237,18 @@ class Home extends BaseModel {
             return [];
         }
 
-        $current_year_filter     = static::get_filter_year();
-        $current_month_filter    = static::get_filter_month();
-        $current_category_filter = static::get_filter_category();
-        $permalink               = get_the_permalink( get_queried_object_id() );
+        $year_filter     = static::get_filter_year();
+        $month_filter    = static::get_filter_month();
+        $category_filter = static::get_filter_category();
+        $permalink       = get_the_permalink( get_queried_object_id() );
 
-        $categories = array_map( function ( $item ) use ( $permalink, $current_category_filter, $current_month_filter, $current_year_filter ) {
-            $item->is_active = $current_category_filter === $item->term_id;
+        $categories = array_map( function ( $item ) use ( $permalink, $category_filter, $month_filter, $year_filter ) {
+            $item->is_active = $category_filter === $item->term_id;
             $item->url       = add_query_arg(
                 [
                     'filter-category' => $item->term_id,
-                    'filter-month'    => $current_month_filter,
-                    'filter-year'     => $current_year_filter,
+                    'filter-month'    => $month_filter,
+                    'filter-year'     => $year_filter,
                 ],
                 $permalink
             );
@@ -260,12 +260,12 @@ class Home extends BaseModel {
             'name'      => __( 'All', 'tms-theme-base' ),
             'url'       => add_query_arg(
                 [
-                    'filter-month' => $current_month_filter,
-                    'filter-year'  => $current_year_filter,
+                    'filter-month' => $month_filter,
+                    'filter-year'  => $year_filter,
                 ],
                 $permalink
             ),
-            'is_active' => empty( $current_category_filter ),
+            'is_active' => empty( $category_filter ),
         ] );
 
         return $categories;

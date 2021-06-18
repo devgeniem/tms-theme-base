@@ -71,7 +71,7 @@ class TableBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         if ( empty( $data['table'] ) || empty( $data['table'][0] ) ) {
             return $data;
         }
@@ -81,7 +81,7 @@ class TableBlock extends BaseBlock {
         $tables            = $tablepress_tables['table_post'] ?? [];
 
         if ( ! empty( $tables ) ) {
-            $id = array_search( $table_post_id, $tables );
+            $id = array_search( $table_post_id, $tables, true );
 
             if ( false !== $id ) {
                 $data['table_markup'] = \do_shortcode( '[table id=' . $id . ' responsive="scroll" /]' );
