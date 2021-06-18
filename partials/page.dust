@@ -2,16 +2,34 @@
 
 {<content}
     <main class="main-content" id="main-content">
-        <section class="section">
+        {?Page.hero_image}
+            {>"views/page/page-hero" /}
+        {/Page.hero_image}
+
+        {?Header.breadcrumbs}
+            <div class="section pt-6 pb-7">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column">
+                            {>"ui/breadcrumbs" breadcrumbs=Header.breadcrumbs /}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/Header.breadcrumbs}
+
+        <section class="section {?Header.hero_image}pt-7{:else}pt-0{/Header.hero_image}">
             <div class="container">
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
-                            <h1 class="entry__title">
-                                {@title /}
-                            </h1>
+                            {^Page.hero_image}
+                                <h1 class="entry__title mt-0 has-text-centered">
+                                    {@title /}
+                                </h1>
+                            {/Page.hero_image}
 
-                            <div class="entry__content is-content-grid">
+                            <div class="entry__content is-content-grid keep-vertical-spacing">
                                 {@content /}
                             </div>
                         </article>
@@ -22,4 +40,10 @@
 
         {>"ui/components" components=Page.components /}
     </main>
+
+    {#Page}
+        {?post_siblings}
+            {>"ui/sibling-navigation" /}
+        {/post_siblings}
+    {/Page}
 {/content}

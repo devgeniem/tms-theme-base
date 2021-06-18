@@ -14,7 +14,7 @@
                 </h2>
             {/title}
 
-            {>"ui/button-link" classes="is-primary is-inverted" icon="chevron-right" icon_class="icon--medium"  /}
+            {>"ui/button-link" classes="is-primary is-inverted is-borderless" icon="chevron-right" icon_classes="icon--medium"  /}
         </div>
     </div>
 {/image}

@@ -12,6 +12,20 @@
 abstract class BaseModel extends \DustPress\Model {
 
     /**
+     * Constructor for DustPress BaseModel class.
+     *
+     * @param array $args   Model arguments.
+     * @param mixed $parent Set model parent.
+     */
+    public function __construct( $args = [], $parent = null ) {
+        parent::__construct( $args, $parent );
+
+        if ( method_exists( $this, 'hooks' ) ) {
+            $this->hooks();
+        }
+    }
+
+    /**
      * This method is run automatically on page load.
      * It initializes the model and run all protected methods.
      *

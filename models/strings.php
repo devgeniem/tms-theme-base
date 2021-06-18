@@ -27,6 +27,7 @@ class Strings extends \DustPress\Model {
                 'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_label'       => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_placeholder' => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
+                'exception_close_button'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
             '404'                => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),
@@ -48,6 +49,7 @@ class Strings extends \DustPress\Model {
                 'next'     => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
+                'goto'     => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
@@ -89,6 +91,9 @@ class Strings extends \DustPress\Model {
                     'theme-frontend',
                     'tms-theme-base'
                 ),
+            ],
+            'sibling_navigation' => [
+                'sibling_navigation' => _x( 'Sibling pages', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
