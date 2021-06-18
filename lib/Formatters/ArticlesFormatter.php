@@ -74,13 +74,11 @@ class ArticlesFormatter implements Formatter {
 
         if ( $wp_query->have_posts() ) {
             foreach ( $wp_query->posts as $post ) {
-                $custom_excerpt = '';
-
                 if ( $is_manual_feed && ! empty( $manual_posts[ $post->ID ]['excerpt'] ) ) {
-                    $custom_excerpt = $manual_posts[ $post->ID ]['excerpt'];
+                    $post->post_excerpt = $manual_posts[ $post->ID ]['excerpt'];
                 }
 
-                $data['posts'][] = Post::enrich_post( $post, true, $data['display_image'], 160, $custom_excerpt );
+                $data['posts'][] = Post::enrich_post( $post, true, $data['display_image'] );
             }
         }
 

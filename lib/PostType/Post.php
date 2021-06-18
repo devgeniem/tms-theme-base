@@ -30,11 +30,10 @@ class Post implements PostType {
     /**
      * Enrich post data
      *
-     * @param \WP_Post $post
-     * @param bool     $display_categories
-     * @param bool     $use_images
-     * @param int      $excerpt_length
-     * @param string   $custom_excerpt
+     * @param \WP_Post $post               The target post object.
+     * @param bool     $display_categories Include categories.
+     * @param bool     $use_images         Include images. Defaults to true.
+     * @param int      $excerpt_length     Set custom excerpt length. Defaults to 160.
      *
      * @return \WP_Post
      */
@@ -42,8 +41,7 @@ class Post implements PostType {
         \WP_Post $post,
         bool $display_categories,
         bool $use_images = true,
-        int $excerpt_length = 160,
-        string $custom_excerpt = ''
+        int $excerpt_length = 160
     ) {
         if ( $use_images ) {
             $post->featured_image = has_post_thumbnail( $post->ID )
@@ -52,16 +50,10 @@ class Post implements PostType {
         }
 
         $post->permalink = get_permalink( $post->ID );
+        $post->excerpt   = get_the_excerpt( $post );
 
-        if ( ! empty( $custom_excerpt ) ) {
-            $post->excerpt = $custom_excerpt;
-        }
-        else {
-            $post->excerpt = get_the_excerpt( $post->ID );
-
-            if ( strlen( $post->excerpt ) > $excerpt_length ) {
-                $post->excerpt = trim( substr( $post->excerpt, 0, $excerpt_length ) );
-            }
+        if ( strlen( $post->excerpt ) > $excerpt_length ) {
+            $post->excerpt = trim( substr( $post->excerpt, 0, $excerpt_length ) );
         }
 
         if ( $display_categories ) {
