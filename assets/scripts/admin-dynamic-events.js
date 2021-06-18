@@ -84,16 +84,19 @@
                 data: {
                     action: 'event_search',
                     params: createQueryObject( paramFields ),
+                    post_id: $( '#post_ID' ).val(),
                 },
                 success: ( response ) => {
                     if ( response ) {
                         const select = eventField.$el.find( 'select' );
+                        select.find( 'option' ).remove();
 
                         response.forEach( ( item ) => {
                             select.append(
                                 $( '<option /> ' )
                                     .attr( 'value', item.id )
-                                    .text( item.name.fi )
+                                    .text( item.select_name )
+                                    .prop( 'selected', item.selected )
                             );
                         } );
                     }

@@ -31,11 +31,21 @@ class LinkedEvents implements Controller {
      * Admin event search callback
      */
     protected function admin_event_search_callback() : void {
-        $params = $_GET['params']; // phpcs:ignore
-        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        $params  = $_GET['params'] ?? []; // phpcs:ignore
+        $post_id = $_GET['post_id'] ?? 0; // phpcs:ignore
+        $event   = get_field( 'event', $post_id );
+        $client  = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
             $events = $client->get_all( 'event', $params );
+
+            $events = array_map( function ( $item ) use ( $event ) {
+                $start_time        = static::get_as_datetime( $item->start_time );
+                $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
+                $item->selected    = $item->id === $event;
+
+                return $item;
+            }, $events );
         }
         catch ( LinkedEventsException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
