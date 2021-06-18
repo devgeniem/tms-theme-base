@@ -77,11 +77,9 @@ class Images implements Interfaces\Controller {
     /**
      * This filters out unnecessary image sizes.
      *
-     * @param array $sizes The filterable sizes array.
-     *
      * @return array The filtered sizes array.
      */
-    private function filter_sizes( $sizes ) : array {
+    private function filter_sizes() : array {
         return [
             'thumbnail',
             'medium',

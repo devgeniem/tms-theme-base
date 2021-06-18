@@ -3,6 +3,7 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\Category;
 
@@ -140,7 +141,7 @@ class Home extends BaseModel {
 
         global $wpdb;
 
-        $years = $wpdb->get_results(
+        $years = $wpdb->get_results( // phpcs:ignore
             "SELECT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' GROUP BY YEAR(post_date) DESC",
             ARRAY_N
         );
@@ -179,7 +180,7 @@ class Home extends BaseModel {
             return null;
         }
 
-        return $this->enrich_article( $highlight, Category::has_multiple() );
+        return Post::enrich_post( $highlight, Category::has_multiple() );
     }
 
     /**
@@ -236,18 +237,18 @@ class Home extends BaseModel {
             return [];
         }
 
-        $current_year_filter     = static::get_filter_year();
-        $current_month_filter    = static::get_filter_month();
-        $current_category_filter = static::get_filter_category();
-        $permalink               = get_the_permalink( get_queried_object_id() );
+        $year_filter     = static::get_filter_year();
+        $month_filter    = static::get_filter_month();
+        $category_filter = static::get_filter_category();
+        $permalink       = get_the_permalink( get_queried_object_id() );
 
-        $categories = array_map( function ( $item ) use ( $permalink, $current_category_filter, $current_month_filter, $current_year_filter ) {
-            $item->is_active = $current_category_filter === $item->term_id;
+        $categories = array_map( function ( $item ) use ( $permalink, $category_filter, $month_filter, $year_filter ) {
+            $item->is_active = $category_filter === $item->term_id;
             $item->url       = add_query_arg(
                 [
                     'filter-category' => $item->term_id,
-                    'filter-month'    => $current_month_filter,
-                    'filter-year'     => $current_year_filter,
+                    'filter-month'    => $month_filter,
+                    'filter-year'     => $year_filter,
                 ],
                 $permalink
             );
@@ -259,12 +260,12 @@ class Home extends BaseModel {
             'name'      => __( 'All', 'tms-theme-base' ),
             'url'       => add_query_arg(
                 [
-                    'filter-month' => $current_month_filter,
-                    'filter-year'  => $current_year_filter,
+                    'filter-month' => $month_filter,
+                    'filter-year'  => $year_filter,
                 ],
                 $permalink
             ),
-            'is_active' => empty( $current_category_filter ),
+            'is_active' => empty( $category_filter ),
         ] );
 
         return $categories;
@@ -288,48 +289,8 @@ class Home extends BaseModel {
         $use_images         = Settings::get_setting( 'archive_use_images' ) ?? true;
 
         return array_map( function ( $article ) use ( $display_categories, $use_images ) {
-            return $this->enrich_article( $article, $display_categories, $use_images );
+            return Post::enrich_post( $article, $display_categories, $use_images );
         }, $wp_query->posts );
-    }
-
-    /**
-     * Enrich article data
-     *
-     * @param WP_Post $article            WP_Post.
-     * @param bool    $display_categories Should category to be displayed.
-     * @param bool    $use_images         Should images be displayed.
-     * @param int     $excerpt_length     Excerpt length.
-     *
-     * @return object
-     */
-    protected function enrich_article(
-        WP_Post $article,
-        bool $display_categories,
-        bool $use_images = true,
-        int $excerpt_length = 160
-    ) {
-        if ( $use_images ) {
-            $article->featured_image = has_post_thumbnail( $article->ID )
-                ? get_post_thumbnail_id( $article->ID )
-                : null;
-        }
-
-        $article->permalink = get_permalink( $article->ID );
-        $article->excerpt   = get_the_excerpt( $article->ID );
-
-        if ( strlen( $article->excerpt ) > $excerpt_length ) {
-            $article->excerpt = trim( substr( $article->excerpt, 0, $excerpt_length ) );
-        }
-
-        if ( $display_categories ) {
-            $categories = Category::get_post_categories( $article->ID );
-
-            if ( ! empty( $categories ) ) {
-                $article->category = $categories[0];
-            }
-        }
-
-        return $article;
     }
 
     /**
