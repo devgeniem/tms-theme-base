@@ -102,4 +102,20 @@ class Single extends BaseModel {
     public function DPCommentsActive() : bool {
         return DPT_COMMENTS_ACTIVE;
     }
+
+    /**
+     * Get comments markup.
+     *
+     * @return false|string
+     */
+    public function Comments() {
+        if ( ! comments_open( get_the_ID() ) ) {
+            return false;
+        }
+
+        ob_start();
+        comments_template();
+
+        return ob_get_clean();
+    }
 }

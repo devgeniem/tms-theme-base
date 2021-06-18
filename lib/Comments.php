@@ -18,45 +18,55 @@ class Comments implements Interfaces\Controller {
      */
     public function hooks() : void {
         \add_filter( 'comment_reply_link', [ $this, 'amend_reply_link_class' ], 10, 4 );
-        \add_filter( 'comment_form_fields', [ $this, 'reorder_form_fields' ], 10, 2 );
-        \add_filter( 'dustpress/comments/tms_comments/get_form_args', [ $this, 'get_form_args' ], 10, 1 );
-        \add_filter( 'dustpress/comments/tms_comments/get_comments_args', [ $this, 'get_comments_args' ], 10, 1 );
+        \add_filter( 'comment_form_fields', [ $this, 'customize_comment_form_fields' ], 10, 2 );
+        \add_filter( 'comment_form_submit_button', [ $this, 'override_comment_form_submit' ], 10, 0 );
     }
 
     /**
      * Customize reply link.
      *
-     * @param string     $link    The HTML markup for the comment reply link.
-     * @param array      $args    An array of arguments overriding the defaults.
-     * @param WP_Comment $comment The object of the comment being replied.
-     * @param WP_Post    $post    The WP_Post object.
+     * @param string      $link    The HTML markup for the comment reply link.
+     * @param array       $args    An array of arguments overriding the defaults.
+     * @param \WP_Comment $comment The object of the comment being replied.
+     * @param \WP_Post    $post    The WP_Post object.
      *
-     * @return mixed
+     * @return string
      */
-    public function amend_reply_link_class( $link, $args, $comment, $post ) { // phpcs:ignore
+    public function amend_reply_link_class( // phpcs:ignore
+        string $link,
+        array $args,
+        \WP_Comment $comment,
+        \WP_Post $post
+    ) : string {
         return str_replace( 'comment-reply-link', 'comment-reply-link button button-primary', $link );
     }
 
     /**
-     * Customize reply link.
+     * Comment form submit button.
      *
-     * @param string $submit_button The HTML markup for the submit button.
-     * @param array  $args          An array of arguments overriding the defaults.
-     *
-     * @return mixed
+     * @return string
      */
-    public function customize_submit_button( $submit_button, $args ) { // phpcs:ignore
-        return $submit_button;
+    public function override_comment_form_submit() : string {
+        return sprintf(
+            '<button name="submit" type="submit" id="submit" class="button button--icon is-primary" >%s %s</button>',
+            __( 'Send Comment', 'tms-theme-base' ),
+            '<svg class="icon icon--chevron-right icon--large is-primary-invert">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>'
+        );
     }
 
     /**
-     * Reorder comment form fields.
+     * Customize comment form fields.
      *
      * @param array $fields Form fields.
      *
      * @return array
      */
-    public function reorder_form_fields( $fields ) {
+    public function customize_comment_form_fields( array $fields ) : array {
+        unset( $fields['url'] );
+        unset( $fields['cookies'] );
+
         $comment_field = $fields['comment'];
         unset( $fields['comment'] );
         $fields['comment'] = $comment_field;
@@ -65,29 +75,69 @@ class Comments implements Interfaces\Controller {
     }
 
     /**
-     * Customize comment args.
+     * Custom wp_list_comments callback.
      *
-     * @param array $args Comment args.
+     * @param \WP_Comment $comment Current comment object.
+     * @param array       $args    Callback args.
+     * @param int         $depth   Comment depth.
      *
-     * @return array
+     * @return void
      */
-    public function get_comments_args( $args ) {
-        $args['reply'] = true;
+    public static function comment_callback( \WP_Comment $comment, array $args, int $depth ) { // phpcs:ignore
+        ?>
+    <div id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment ? 'parent' : '', $comment ); ?>>
+        <?php
+        $container_classes = 'comment__body mb-5 pt-5 pr-6 pb-5 pl-6 has-border has-border-1 has-border-secondary';
+        ?>
 
-        return $args;
-    }
+        <article id="div-comment-<?php comment_ID(); ?>" class="<?php echo esc_attr( $container_classes ); ?>">
+            <div class="comment__content mb-6 has-word-break-break-all keep-vertical-spacing">
+                <?php comment_text(); ?>
+            </div>
 
-    /**
-     * Customize comment form args.
-     *
-     * @param array $args Form args.
-     *
-     * @return array
-     */
-    public function get_form_args( $args ) {
-        $args['remove_input']  = [ 'url', 'cookies' ];
-        $args['class_submit']  = 'button button-primary';
+            <div class="comment__footer is-flex is-justify-content-space-between">
+                <div class="comment__info mr-2">
+                    <?php
+                    echo sprintf(
+                        '<a href="%s" class="%s">%s</a>',
+                        esc_url( get_comment_link( $comment ) ),
+                        'h5 comment__heading mt-0 mb-2 has-text-black',
+                        esc_html( get_comment_author_link( $comment ) )
+                    );
+                    ?>
 
-        return $args;
+                    <p class="comment__date mt-0">
+                        <time datetime="<?php get_comment_time( 'c' ); ?>">
+                            <?php
+                            echo esc_html(
+                                sprintf( '%s - %s', get_comment_time(), get_comment_date( '', $comment ) )
+                            );
+                            ?>
+                        </time>
+                    </p>
+
+                    <?php
+                    edit_comment_link(
+                        __( 'Edit', 'tms-theme-base' ),
+                        ' <span class="edit-link">', '</span>'
+                    );
+                    ?>
+                </div>
+
+                <?php
+                if ( '1' === $comment->comment_approved ) {
+                    comment_reply_link(
+                        [
+                            'depth'     => $depth,
+                            'max_depth' => get_option( 'thread_comments_depth' ),
+                            'before'    => '<div class="comment__reply is-flex is-align-items-center">',
+                            'after'     => '</div>',
+                        ]
+                    );
+                }
+                ?>
+            </div>
+        </article>
+        <?php
     }
 }

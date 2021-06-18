@@ -52,9 +52,9 @@
             </div>
         </section>
 
-        {?SingleBlogArticle.DPCommentsActive}
-            {>"views/single/single-comments" /}
-        {/SingleBlogArticle.DPCommentsActive}
+        {?SingleBlogArticle.Comments}
+            {SingleBlogArticle.Comments|s}
+        {/SingleBlogArticle.Comments}
 
         {?Single.related.posts}
             {>"views/single/single-related" related=Single.related /}

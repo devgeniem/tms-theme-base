@@ -1,4 +1,10 @@
-.dustpress-comments {
+// sass-lint:disable no-ids
+
+.comments-area {
+    .comment > .comment {
+        padding-left: $theme-spacing-oneandhalf;
+    }
+
     .comment-form-comment,
     .comment-form-author,
     .comment-form-email,
@@ -14,6 +20,7 @@
             width: 100%;
             padding: $theme-spacing-half;
             border: 1px solid $secondary;
+            border-color: $color-vaalean-harmaa;
             border-radius: $theme-spacing-quarter;
         }
     }
@@ -22,28 +29,8 @@
         color: $primary;
     }
 
-    .alert-box {
-        padding: $theme-spacing-half $theme-spacing-three-quarters;
-
-        .alert-box__content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .close {
-            margin-left: auto;
-        }
-    }
-
-    .dustpress-comments__error {
-        color: $primary-invert;
-        background-color: $primary;
-    }
-
-    .dustpress-comments__success,
-    .dustpress-comments__warning {
-        color: $secondary-invert;
-        background-color: $secondary;
+    #cancel-comment-reply-link {
+        display: block;
+        margin-top: $theme-spacing-three-quarters;
     }
 }
