@@ -28,6 +28,7 @@ class Roles implements Controller {
         'install_themes',
         'delete_themes',
         'update_core',
+        'customize',
     ];
 
     /**
@@ -212,6 +213,7 @@ class Roles implements Controller {
 
             // Common
             'unfiltered_html'                => true,
+            'edit_theme_options'             => true, // Navigation changes
         ];
 
         $admin = get_role( 'administrator' );
@@ -261,6 +263,7 @@ class Roles implements Controller {
             'manage_network_themes',
             'manage_network_users',
             'manage_sites',
+            'edit_theme_options', // Navigation changes
         ] );
 
         // Post types
@@ -307,6 +310,15 @@ class Roles implements Controller {
 
         $role->remove_caps( $this->remove_from_all );
 
+        // Remove administration pages
+        $role->remove_menu_pages( [
+            'customize.php',
+            'themes.php' => [
+                'themes.php',
+                'customize.php',
+            ],
+        ] );
+
         $role = apply_filters( 'tms/roles/admin', $role );
         $role->rename( _x( 'Administrator', 'wp-geniem-roles', 'tms-theme-base' ) );
     }
@@ -338,7 +350,21 @@ class Roles implements Controller {
         $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
         $role->add_caps( $this->taxonomy_material_type_all_capabilities );
 
+        // Other
+        $role->add_caps( [
+            'edit_theme_options', // Navigation changes
+        ]);
+
         $role->remove_caps( $this->remove_from_all );
+
+        // Remove administration pages
+        $role->remove_menu_pages( [
+            'customize.php',
+            'themes.php' => [
+                'themes.php',
+                'customize.php',
+            ],
+        ] );
 
         $role = apply_filters( 'tms/roles/editor', $role );
         $role->rename( _x( 'Site Manager', 'wp-geniem-roles', 'tms-theme-base' ) );
