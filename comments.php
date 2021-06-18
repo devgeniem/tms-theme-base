@@ -30,9 +30,7 @@ use \TMS\Theme\Base\Comments;
                     <?php endif; ?>
 
                     <div class="comments__form-container">
-                        <?php
-                        comment_form();
-                        ?>
+                        <?php comment_form(); ?>
                     </div>
                 </div>
             </div>
