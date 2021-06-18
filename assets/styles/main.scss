@@ -8,40 +8,17 @@
 /*--------------------------------------------------------------
 # Settings - All project global settings are stored here.
 --------------------------------------------------------------*/
-@import "settings/brand";
-@import "settings/fonts";
 @import "settings/settings";
 
 /*--------------------------------------------------------------
 # Bulma
 --------------------------------------------------------------*/
-@import "~bulma/sass/base/generic";
-@import "helpers/color";
-@import "~bulma/sass/helpers/flexbox";
-@import "~bulma/sass/helpers/float";
-@import "~bulma/sass/helpers/other";
-@import "~bulma/sass/helpers/overflow";
-@import "~bulma/sass/helpers/position";
-@import "~bulma/sass/helpers/typography";
-@import "~bulma/sass/helpers/visibility";
-@import "~bulma/sass/elements/container";
-@import "helpers/button";
-@import "~bulma/sass/elements/image";
-@import "~bulma/sass/elements/table";
-@import "~bulma/sass/components/dropdown";
-@import "~bulma/sass/components/modal";
-@import "~bulma/sass/components/navbar";
-@import "~bulma/sass/grid/columns";
-@import "~bulma/sass/layout/section";
+@import "bulma";
 
 /*--------------------------------------------------------------
 # Base styles
 --------------------------------------------------------------*/
-@import "base/base";
-@import "base/images";
-@import "base/object-fit";
-@import "base/typography";
-@import "base/wp-classes";
+@import "base";
 
 /*--------------------------------------------------------------
 # Utils

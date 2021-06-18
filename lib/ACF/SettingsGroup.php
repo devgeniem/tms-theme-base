@@ -64,6 +64,7 @@ class SettingsGroup {
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
                         $this->get_404_fields( $field_group->get_key() ),
                         $this->get_archive_fields( $field_group->get_key() ),
+                        $this->get_page_fields( $field_group->get_key() ),
                     ]
                 )
             );
@@ -114,6 +115,14 @@ class SettingsGroup {
             'limit_nav_depth'  => [
                 'title'        => 'Pudotusvalikko pois käytöstä',
                 'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
+            ],
+            'header_scripts'  => [
+                'title'        => 'Ylätunnisteen custom-skriptit',
+                'instructions' => '',
+            ],
+            'hide_search'    => [
+                'title'        => 'Piilota hakutoiminto',
+                'instructions' => '',
             ],
         ];
 
@@ -168,6 +177,14 @@ class SettingsGroup {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['limit_nav_depth']['instructions'] );
 
+        $hide_search_field = ( new Field\TrueFalse( $strings['hide_search']['title'] ) )
+            ->set_key( "${key}_hide_search" )
+            ->set_name( 'hide_search' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['hide_search']['instructions'] );
+
         $tab->add_fields( [
             $logo_field,
             $brand_logo_field,
@@ -175,7 +192,18 @@ class SettingsGroup {
             $lang_nav_display_field,
             $hide_main_nav_field,
             $limit_nav_depth_field,
+            $hide_search_field,
         ] );
+
+        if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
+            $header_scripts_field = ( new Field\Textarea( $strings['header_scripts']['title'] ) )
+                ->set_key( "${key}_header_scripts" )
+                ->set_name( 'header_scripts' )
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['header_scripts']['instructions'] );
+
+            $tab->add_field( $header_scripts_field );
+        }
 
         return $tab;
     }
@@ -549,6 +577,41 @@ class SettingsGroup {
         $tab->add_fields( [
             $use_images_field,
             $view_type_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get page fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_page_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'                       => 'Sisältösivut',
+            'enable_sibling_navigation' => [
+                'title'        => 'Rinnakkaissivujen navigointi',
+                'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $display_siblings = ( new Field\TrueFalse( $strings['enable_sibling_navigation']['title'] ) )
+            ->set_key( "${key}_enable_sibling_navigation" )
+            ->set_name( 'enable_sibling_navigation' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['enable_sibling_navigation']['instructions'] );
+
+        $tab->add_fields( [
+            $display_siblings,
         ] );
 
         return $tab;

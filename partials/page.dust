@@ -7,7 +7,7 @@
                 <div class="columns">
                     <div class="column">
                         <article class="entry">
-                            <h1 class="entry__title">
+                            <h1 class="entry__title has-text-centered">
                                 {@title /}
                             </h1>
 
@@ -22,4 +22,10 @@
 
         {>"ui/components" components=Page.components /}
     </main>
+
+    {#Page}
+        {?post_siblings}
+            {>"ui/sibling-navigation" /}
+        {/post_siblings}
+    {/Page}
 {/content}

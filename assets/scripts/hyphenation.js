@@ -91,6 +91,15 @@ export default class Hyphenation {
 
                 elements.each( ( idx, node ) => {
                     const element = $( node );
+
+                    if (
+                        typeof element.innerHTML === 'undefined' ||
+                        element.innerHTML.length < 1 ||
+                        element.hasClass( 'no-hyphens' )
+                    ) {
+                        return;
+                    }
+
                     element.innerHTML = h( element.innerHTML ).replace( regExp, '­' );
                 } );
             }

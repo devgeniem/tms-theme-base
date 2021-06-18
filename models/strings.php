@@ -48,6 +48,7 @@ class Strings extends \DustPress\Model {
                 'next'     => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
+                'goto'     => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
@@ -89,6 +90,9 @@ class Strings extends \DustPress\Model {
                     'theme-frontend',
                     'tms-theme-base'
                 ),
+            ],
+            'sibling_navigation' => [
+                'sibling_navigation' => _x( 'Sibling pages', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }

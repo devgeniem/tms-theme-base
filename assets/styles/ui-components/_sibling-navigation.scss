@@ -1,0 +1,29 @@
+.sibling-navigation {
+    &__container {
+        border-top: 1px solid $secondary;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -$theme-spacing-half;
+
+        @include from($desktop) {
+            margin: -$theme-spacing-three-quarters;
+        }
+    }
+
+    &__item {
+        margin: $theme-spacing-half;
+        border: 1px solid $primary;
+
+        @include from($desktop) {
+            margin: $theme-spacing-three-quarters;
+        }
+
+        &.is-current {
+            background-color: $secondary;
+            border-color: $secondary;
+        }
+    }
+}

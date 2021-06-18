@@ -68,6 +68,8 @@ class Images implements Interfaces\Controller {
         \add_image_size( 'single', 1170, 520, 1 );
         \add_image_size( 'fullhd', 1920, 9999 );
 
+        \add_image_size( 'medium_vertical', 9999, 320 );
+
         \remove_image_size( '1536x1536' );
         \remove_image_size( '2048x2048' );
     }

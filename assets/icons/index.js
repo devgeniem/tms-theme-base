@@ -27,7 +27,7 @@ import './icon-kannykka.svg';
 import './icon-kattaus.svg';
 import './icon-kaupunki.svg';
 import './icon-kavely.svg';
-import './icon-kavu.svg';
+import './icon-kasvu.svg';
 import './icon-kello.svg';
 import './icon-kirja.svg';
 import './icon-koira.svg';
