@@ -56,10 +56,10 @@
             {SingleBlogArticle.Comments|s}
         {/SingleBlogArticle.Comments}
 
-        {?Single.related.posts}
-            {>"views/single/single-related" related=Single.related /}
-        {/Single.related.posts}
+        {?SingleBlogArticle.related.posts}
+            {>"views/single/single-related" related=SingleBlogArticle.related /}
+        {/SingleBlogArticle.related.posts}
 
-        {>"ui/components" components=Single.components /}
+        {>"ui/components" components=SingleBlogArticle.components /}
     </main>
 {/content}

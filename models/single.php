@@ -53,7 +53,7 @@ class Single extends BaseModel {
         $limit      = 4;
 
         $args = [
-            'post_type'      => self::POST_TYPE,
+            'post_type'      => get_post_type( get_the_ID() ),
             'posts_per_page' => $limit,
             'no_found_rows'  => true,
             'post__not_in'   => [ $post_id ],
