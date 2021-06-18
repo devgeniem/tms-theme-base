@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-06-18 13:50+0300\n"
+"POT-Creation-Date: 2021-06-18 14:49+0300\n"
 "PO-Revision-Date: 2021-06-15 10:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -72,7 +72,11 @@ msgstr ""
 msgid "Send Comment"
 msgstr ""
 
-#: lib/Comments.php:121
+#: lib/Comments.php:92
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: lib/Comments.php:123
 msgid "Edit"
 msgstr ""
 
