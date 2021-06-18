@@ -27,6 +27,7 @@ class Strings extends \DustPress\Model {
                 'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_label'       => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_placeholder' => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
+                'exception_close_button'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
             '404'                => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),

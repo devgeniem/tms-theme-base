@@ -1,0 +1,9 @@
+.page {
+    &__hero {
+        height: 18rem;
+
+        @include from($tablet) {
+            height: 32rem;
+        }
+    }
+}

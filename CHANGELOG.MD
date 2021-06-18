@@ -6,13 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-106: Add page hero #75
+- TMS-95: Add header exception notice #78
+- TMS-94: Add layout Articles #77
+
+## [1.3.2] - 2021-06-17
+
 ### Fixed
 
 - TMS-102-2: Hide menu toggle if navigation does not exist #76
 - TMS-102-1: Add screen reader text to menu toggle #74
 - TMS-102-1: Fix quote align #74
 - Fixed cross-origin asset loading, added .no-hyphens
-
 
 ## [1.3.1] - 2021-06-16
 
