@@ -4,7 +4,6 @@
  */
 
 use DustPress\Query;
-use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
 use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
@@ -16,11 +15,6 @@ class Single extends BaseModel {
 
     use Traits\Sharing;
     use Traits\Components;
-
-    /**
-     * Post type
-     */
-    const POST_TYPE = Post::SLUG;
 
     /**
      * Content
