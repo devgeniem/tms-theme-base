@@ -382,6 +382,22 @@ export default class Common {
     }
 
     /**
+     * Set a cookie.
+     *
+     * @param {string}  name Cookie name.
+     * @param {string}  value Cookie value.
+     * @param {number}  duration Cookie duration in days.
+     *
+     * @return {void}
+     */
+    static setCookie( name, value, duration ) {
+        const date = new Date();
+        date.setTime( date.getTime() + ( duration * 24 * 60 * 60 * 1000 ) );
+
+        document.cookie = `${ name }=${ value };expires${ date.toLocaleDateString() };path=/`;
+    }
+
+    /**
      * Hyphenate entry titles.
      *
      * @return {void}
