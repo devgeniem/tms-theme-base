@@ -20,9 +20,9 @@
         </div>
 
         {?category}
-            <span class="pill">
+            <a href="{category.permalink|s}" class="pill {category_link_classes}">
                 {category.name|s}
-            </span>
+            </a>
         {/category}
     </article>
 </div>

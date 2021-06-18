@@ -3,6 +3,7 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\Category;
 
@@ -179,7 +180,7 @@ class Home extends BaseModel {
             return null;
         }
 
-        return $this->enrich_article( $highlight, Category::has_multiple() );
+        return Post::enrich_post( $highlight, Category::has_multiple() );
     }
 
     /**
@@ -288,48 +289,8 @@ class Home extends BaseModel {
         $use_images         = Settings::get_setting( 'archive_use_images' ) ?? true;
 
         return array_map( function ( $article ) use ( $display_categories, $use_images ) {
-            return $this->enrich_article( $article, $display_categories, $use_images );
+            return Post::enrich_post( $article, $display_categories, $use_images );
         }, $wp_query->posts );
-    }
-
-    /**
-     * Enrich article data
-     *
-     * @param WP_Post $article            WP_Post.
-     * @param bool    $display_categories Should category to be displayed.
-     * @param bool    $use_images         Should images be displayed.
-     * @param int     $excerpt_length     Excerpt length.
-     *
-     * @return object
-     */
-    protected function enrich_article(
-        WP_Post $article,
-        bool $display_categories,
-        bool $use_images = true,
-        int $excerpt_length = 160
-    ) {
-        if ( $use_images ) {
-            $article->featured_image = has_post_thumbnail( $article->ID )
-                ? get_post_thumbnail_id( $article->ID )
-                : null;
-        }
-
-        $article->permalink = get_permalink( $article->ID );
-        $article->excerpt   = get_the_excerpt( $article->ID );
-
-        if ( strlen( $article->excerpt ) > $excerpt_length ) {
-            $article->excerpt = trim( substr( $article->excerpt, 0, $excerpt_length ) );
-        }
-
-        if ( $display_categories ) {
-            $categories = Category::get_post_categories( $article->ID );
-
-            if ( ! empty( $categories ) ) {
-                $article->category = $categories[0];
-            }
-        }
-
-        return $article;
     }
 
     /**
