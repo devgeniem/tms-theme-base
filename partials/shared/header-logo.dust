@@ -12,7 +12,7 @@
     </div>
 
     {?Header.tagline}
-        <div class="site-header__tagline is-hidden-mobile is-family-secondary is-size-7">
+        <div class="site-header__tagline is-hidden-mobile mt-3 is-family-secondary is-size-7">
             {Header.tagline|s}
         </div>
     {/Header.tagline}

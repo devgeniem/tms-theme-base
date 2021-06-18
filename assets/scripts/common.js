@@ -288,6 +288,33 @@ export default class Common {
     }
 
     /**
+     * Makes a button element
+     *
+     * @param {string} contents What to add inside the button element.
+     * @param {string} classes CSS Classes to add to the element.
+     * @param {string} type Type of the button, 'button' as default.
+     *
+     * @return {string} Button element HTML.
+     */
+    static makeButton( contents = '', classes = '', type = 'button' ) {
+        const button = document.createElement( 'button' );
+
+        if ( classes.length ) {
+            button.className = classes;
+        }
+
+        if ( type.length ) {
+            button.type = type;
+        }
+
+        if ( contents.length ) {
+            button.insertAdjacentHTML( 'afterbegin', contents );
+        }
+
+        return button.outerHTML;
+    }
+
+    /**
      * Generates a svg container that uses icon with an ID.
      *
      * @param {string} icon Icon ID.
@@ -352,6 +379,22 @@ export default class Common {
             : decodeURIComponent(
                 results[ 1 ].replace( /\+/g, ' ' )
             );
+    }
+
+    /**
+     * Set a cookie.
+     *
+     * @param {string}  name Cookie name.
+     * @param {string}  value Cookie value.
+     * @param {number}  duration Cookie duration in days.
+     *
+     * @return {void}
+     */
+    static setCookie( name, value, duration ) {
+        const date = new Date();
+        date.setTime( date.getTime() + ( duration * 24 * 60 * 60 * 1000 ) );
+
+        document.cookie = `${ name }=${ value };expires${ date.toLocaleDateString() };path=/`;
     }
 
     /**

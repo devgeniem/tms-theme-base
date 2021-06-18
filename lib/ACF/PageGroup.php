@@ -109,10 +109,12 @@ class PageGroup {
                 Layouts\MapLayout::class,
                 Layouts\IconLinksLayout::class,
                 Layouts\SocialMediaLayout::class,
+                Layouts\ImageCarouselLayout::class,
                 Layouts\SubpageLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
                 Layouts\EventsLayout::class,
+                Layouts\ArticlesLayout::class,
             ]
         );
 

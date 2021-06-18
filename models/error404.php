@@ -37,10 +37,17 @@ class Error404 extends BaseModel {
      * @return array[]
      */
     public function links() : array {
-        return [
+        $links = [
             $this->get_home_link(),
-            $this->get_search_link(),
         ];
+
+        $search_link = $this->get_search_link();
+
+        if ( ! empty( $search_link ) ) {
+            $links[] = $search_link;
+        }
+
+        return $links;
     }
 
     /**
@@ -48,8 +55,12 @@ class Error404 extends BaseModel {
      *
      * @return array
      */
-    private function get_search_link() : array {
+    private function get_search_link() : ?array {
         $home_url = $this->get_home_url();
+
+        if ( Settings::get_setting( 'hide_search' ) ) {
+            return null;
+        }
 
         return [
             'title'   => _x( 'Go to search', 'theme-frontend', 'tms-theme-base' ),

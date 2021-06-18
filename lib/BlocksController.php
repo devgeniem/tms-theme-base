@@ -215,6 +215,11 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                 ],
             ],
+            'acf/notice-banner' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];

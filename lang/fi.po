@@ -1,0 +1,374 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: TMS Theme Base\n"
+"POT-Creation-Date: 2021-06-15 10:50+0300\n"
+"PO-Revision-Date: 2021-06-15 11:18+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: fi\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: assets/dist/vendor.js:4571
+msgctxt "text direction"
+msgid "ltr"
+msgstr ""
+
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/PageGroup.php:38
+msgctxt "theme ACF"
+msgid "Page Components"
+msgstr "Sivun komponentit"
+
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/PageGroup.php:92
+#: lib/ACF/PostGroup.php:173
+msgctxt "theme ACF"
+msgid "Components"
+msgstr "Komponentit"
+
+#: lib/ACF/PostGroup.php:129
+msgid "Related posts"
+msgstr "Liittyvät sisällöt"
+
+#: lib/ACF/SettingsGroup.php:37
+msgctxt "theme ACF"
+msgid "Site settings"
+msgstr "Sivuston asetukset"
+
+#: lib/ACF/SettingsGroup.php:389
+msgid "Open map"
+msgstr "Avaa kartta"
+
+#: lib/Admin.php:53
+msgid "Paragraph"
+msgstr "Tekstikappale"
+
+#: lib/Admin.php:54
+msgid "Header"
+msgstr "Ylätunniste"
+
+#: lib/NavigationController.php:29
+msgid "Primary Navigation"
+msgstr "Päänavigaatio"
+
+#: lib/NavigationController.php:30
+msgid "Secondary Navigation"
+msgstr "Toissijainen navigaatio"
+
+#: lib/PostType/Settings.php:60
+msgctxt "theme CPT slugs"
+msgid "site-settings"
+msgstr ""
+
+#: lib/PostType/Settings.php:61
+msgctxt "theme CPT"
+msgid "Site settings"
+msgstr "Sivuston asetukset"
+
+#: lib/Traits/Breadcrumbs.php:177
+msgctxt "Breadcrumbs"
+msgid "Home"
+msgstr "Etusivu"
+
+#: lib/Traits/Sharing.php:75
+msgid "Share on Facebook"
+msgstr "Jaa Facebookissa"
+
+#: lib/Traits/Sharing.php:81
+msgid "Share by email"
+msgstr "Jaa sähköpostilla"
+
+#: lib/Traits/Sharing.php:87
+msgid "Copy link to clipboard"
+msgstr "Kopioi linkki leikepöydälle"
+
+#: lib/Traits/Sharing.php:88
+msgid "Copied to clipboard"
+msgstr "Kopioitu leikepöydälle"
+
+#: lib/Traits/Sharing.php:94
+msgid "Share on Whatsapp"
+msgstr "Jaa WhatsAppissa"
+
+#: lib/Traits/Sharing.php:100
+msgid "Share on Twitter"
+msgstr "Jaa Twitterissä"
+
+#: lib/Traits/Sharing.php:106
+msgid "Share on LinkedIn"
+msgstr "Jaa LinkedInissä"
+
+#: lib/Traits/Sharing.php:112
+msgid "Share on Vkontakte"
+msgstr "Jaa Vkontaktessa"
+
+#: lib/Traits/Sharing.php:118
+msgid "Share on Line"
+msgstr "Jaa Linessä"
+
+#: models/archive.php:100 models/home.php:259
+msgid "All"
+msgstr "Kaikki"
+
+#: models/error404.php:55
+msgctxt "theme-frontend"
+msgid "Go to search"
+msgstr "Siirry hakuun"
+
+#: models/error404.php:69
+msgctxt "theme-frontend"
+msgid "Return to home"
+msgstr "Palaa etusivulle"
+
+#: models/strings.php:20
+msgctxt "theme-frontend"
+msgid "Skip to content"
+msgstr "Siirry sisältöön"
+
+#: models/strings.php:21
+msgctxt "theme-frontend"
+msgid "Main navigation"
+msgstr "Päänavigaatio"
+
+#: models/strings.php:22
+msgctxt "theme-frontend"
+msgid "Open menu"
+msgstr "Avaa valikko"
+
+#: models/strings.php:23
+msgctxt "theme-frontend"
+msgid "Close menu"
+msgstr "Sulje valikko"
+
+#: models/strings.php:24
+msgctxt "theme-frontend"
+msgid "Language navigation"
+msgstr "Kielivalikko"
+
+#: models/strings.php:25
+msgctxt "theme-frontend"
+msgid "Open search form"
+msgstr "Avaa hakulomake"
+
+#: models/strings.php:26 models/strings.php:27
+msgctxt "theme-frontend"
+msgid "Search"
+msgstr "Hae"
+
+#: models/strings.php:28 models/strings.php:29
+msgctxt "theme-frontend"
+msgid "Search from site"
+msgstr "Hae sivustolta"
+
+#: models/strings.php:30 models/strings.php:48
+msgctxt "theme-frontend"
+msgid "Close"
+msgstr "Sulje"
+
+#: models/strings.php:33
+msgctxt "theme-frontend"
+msgid "Page not found"
+msgstr "Sivua ei löytynyt"
+
+#: models/strings.php:35
+msgctxt "theme-frontend"
+msgid "The content were looking for was not found"
+msgstr "Hakemaasi sisältöä ei löytynyt"
+
+#: models/strings.php:39
+msgctxt "theme-frontend"
+msgid "To home page"
+msgstr "Siirry etusivulle"
+
+#: models/strings.php:42
+msgctxt "theme-frontend"
+msgid "Skip video embed"
+msgstr "Ohita video"
+
+#: models/strings.php:45
+msgctxt "theme-frontend"
+msgid "Share Article"
+msgstr "Jaa artikkeli"
+
+#: models/strings.php:49
+msgctxt "theme-frontend"
+msgid "Next"
+msgstr "Seuraava"
+
+#: models/strings.php:50
+msgctxt "theme-frontend"
+msgid "Open"
+msgstr "Avaa"
+
+#: models/strings.php:51
+msgctxt "theme-frontend"
+msgid "Previous"
+msgstr "Edellinen"
+
+#: models/strings.php:52
+msgctxt "theme-frontend"
+msgid "Go to slide"
+msgstr "Siirry diaan"
+
+#: models/strings.php:55
+msgctxt "theme-frontend"
+msgid "Move to tampere.fi"
+msgstr "Siirry tampere.fi"
+
+#: models/strings.php:56
+msgctxt "theme-frontend"
+msgid "Back to top"
+msgstr "Takaisin ylös"
+
+#: models/strings.php:59
+msgctxt "theme-frontend"
+msgid "Opens in a new window"
+msgstr "Avautuu uudessa ikkunassa"
+
+#: models/strings.php:60
+msgctxt "theme-frontend"
+msgid "All"
+msgstr "Kaikki"
+
+#: models/strings.php:63
+msgctxt "theme-frontend"
+msgid "Image:"
+msgstr "Kuva:"
+
+#: models/strings.php:64
+msgctxt "theme-frontend"
+msgid "Text:"
+msgstr "Teksti:"
+
+#: models/strings.php:67
+msgctxt "theme-frontend"
+msgid "Month"
+msgstr "Kuukausi"
+
+#: models/strings.php:68
+msgctxt "theme-frontend"
+msgid "Year"
+msgstr "Vuosi"
+
+#: models/strings.php:69
+msgctxt "theme-frontend"
+msgid "No results"
+msgstr "Ei tuloksia"
+
+#: models/strings.php:70
+msgctxt "theme-frontend"
+msgid "Filter by Category"
+msgstr "Rajaa tyypin mukaan"
+
+#: models/strings.php:73
+msgctxt "theme-frontend"
+msgid "January"
+msgstr "tammikuu"
+
+#: models/strings.php:74
+msgctxt "theme-frontend"
+msgid "February"
+msgstr "helmikuu"
+
+#: models/strings.php:75
+msgctxt "theme-frontend"
+msgid "March"
+msgstr "maaliskuu"
+
+#: models/strings.php:76
+msgctxt "theme-frontend"
+msgid "April"
+msgstr "huhtikuu"
+
+#: models/strings.php:77
+msgctxt "theme-frontend"
+msgid "May"
+msgstr "toukokuu"
+
+#: models/strings.php:78
+msgctxt "theme-frontend"
+msgid "June"
+msgstr "kesäkuu"
+
+#: models/strings.php:79
+msgctxt "theme-frontend"
+msgid "July"
+msgstr "heinäkuu"
+
+#: models/strings.php:80
+msgctxt "theme-frontend"
+msgid "August"
+msgstr "elokuu"
+
+#: models/strings.php:81
+msgctxt "theme-frontend"
+msgid "September"
+msgstr "syyskuu"
+
+#: models/strings.php:82
+msgctxt "theme-frontend"
+msgid "October"
+msgstr "lokakuu"
+
+#: models/strings.php:83
+msgctxt "theme-frontend"
+msgid "November"
+msgstr "marraskuu"
+
+#: models/strings.php:84
+msgctxt "theme-frontend"
+msgid "December"
+msgstr "joulukuu"
+
+#: models/strings.php:87
+msgctxt "theme-frontend"
+msgid "Password:"
+msgstr "Salasana:"
+
+#: models/strings.php:88
+msgctxt "theme-frontend"
+msgid "Enter"
+msgstr "Lähetä"
+
+#: models/strings.php:90
+msgctxt "theme-frontend"
+msgid ""
+"This content is password protected. To view it please enter your password "
+"below:"
+msgstr ""
+"Tämä sisältö on suojattu salasanalla. Syötä salasana nähdäksesi suojattu "
+"sisältö:"
+
+#: models/strings.php:96
+msgctxt "theme-frontend"
+msgid "Sibling pages"
+msgstr "Sisarsivut"
+
+#. Theme Name of the plugin/theme
+msgid "TMS Theme Base"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Tampere Multisite Base Theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Geniem"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://geniem.fi"
+msgstr ""

@@ -1,0 +1,61 @@
+/*!*
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+@import "themes/includes";
+
+$primary: $color-tumma-vesi;
+$primary-invert: $color-white;
+$primary-light: bulmaLighten($primary, 5);
+$primary-light-invert: $color-white;
+$primary-dark: bulmaDarken($primary, 5);
+$primary-dark-invert: $color-white;
+
+$secondary: #e1f3ec;
+$secondary-invert: $color-black;
+$secondary-light: bulmaLighten($secondary, 5);
+$secondary-light-invert: $color-black;
+$secondary-dark: bulmaDarken($secondary, 5);
+$secondary-dark-invert: $color-black;
+
+$light: $primary-light;
+$light-invert: $primary-light-invert;
+$dark: $primary-dark;
+$dark-invert: $primary-dark-invert;
+
+$text: $black;
+$link: $primary;
+
+$overlay-background: rgba($black, 0.3);
+$modal-overlay-background: rgba($black, 0.97);
+
+$mobile: 679px;
+$tablet: 680px;
+
+// Theme colors
+// can be used in HTML with .has-background-<color> or .has-text-<color> classes
+// NOTE! These colours have a big impact on CSS size
+// Remove all unnecessary colours and add custom ones above.
+
+$colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
+$colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
+
+$colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "white": ($color-white, $color-black),
+    "black": ($color-black, $color-white),
+);
+
+$button-colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+);
+
+$navbar-colors: (
+    "primary": $colors-palette-primary
+);
+
+$color-background-primary-light--opaque-light: $secondary;
+
+@import "main";
