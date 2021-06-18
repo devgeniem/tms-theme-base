@@ -1,12 +1,12 @@
 <?php
 /**
- * In this file we define our custom additions to the DustPress Comments plugin's settings.
+ * Copyright (c) 2021. Geniem Oy
  */
 
 namespace TMS\Theme\Base;
 
 /**
- * This class handles the DustPress Comments modifications.
+ * This class handles the Comments section modifications.
  */
 class Comments implements Interfaces\Controller {
 
