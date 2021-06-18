@@ -90,8 +90,10 @@ class Roles implements \TMS\Theme\Base\Interfaces\Controller {
      * @return array  $caps    The user's capabilities, with 'unfiltered_html' potentially added.
      */
     protected function add_unfiltered_html_capability( $caps, $cap, $user_id ) {
-        if ( $cap === 'unfiltered_html' && ( user_can( $user_id, 'administrator' ) || user_can( $user_id, 'editor' ) ) ) {
-            $caps = [ 'unfiltered_html' ];
+        if ( $cap === 'unfiltered_html' ) {
+            if ( user_can( $user_id, 'administrator' ) || user_can( $user_id, 'editor' ) ) {
+                $caps = [ 'unfiltered_html' ];
+            }
         }
 
         return $caps;

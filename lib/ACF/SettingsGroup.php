@@ -117,11 +117,11 @@ class SettingsGroup {
                 'title'        => 'Pudotusvalikko pois käytöstä',
                 'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
             ],
-            'header_scripts'  => [
+            'header_scripts'   => [
                 'title'        => 'Ylätunnisteen custom-skriptit',
                 'instructions' => '',
             ],
-            'hide_search'    => [
+            'hide_search'      => [
                 'title'        => 'Piilota hakutoiminto',
                 'instructions' => '',
             ],
