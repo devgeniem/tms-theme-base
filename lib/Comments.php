@@ -86,11 +86,7 @@ class Comments implements Interfaces\Controller {
     public static function comment_callback( \WP_Comment $comment, array $args, int $depth ) { // phpcs:ignore
         ?>
     <div id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment ? 'parent' : '', $comment ); ?>>
-        <?php
-        $container_classes = 'comment__body mb-5 pt-5 pr-6 pb-5 pl-6 has-border has-border-1 has-border-secondary';
-        ?>
-
-        <article id="div-comment-<?php comment_ID(); ?>" class="<?php echo esc_attr( $container_classes ); ?>">
+        <article id="div-comment-<?php comment_ID(); ?>" class="comment__body">
             <div class="comment__content mb-6 has-word-break-break-all keep-vertical-spacing">
                 <?php comment_text(); ?>
             </div>
@@ -101,16 +97,16 @@ class Comments implements Interfaces\Controller {
                     echo sprintf(
                         '<a href="%s" class="%s">%s</a>',
                         esc_url( get_comment_link( $comment ) ),
-                        'h5 comment__heading mt-0 mb-2 has-text-black',
+                        'h5 comment__heading has-text-black',
                         esc_html( get_comment_author_link( $comment ) )
                     );
                     ?>
 
-                    <p class="comment__date mt-0">
+                    <p class="comment__date mt-2 mb-0">
                         <time datetime="<?php get_comment_time( 'c' ); ?>">
                             <?php
                             echo esc_html(
-                                sprintf( '%s - %s', get_comment_time(), get_comment_date( '', $comment ) )
+                                sprintf( '%s - %s', get_comment_date( '', $comment ), get_comment_time() )
                             );
                             ?>
                         </time>

@@ -1,8 +1,20 @@
 // sass-lint:disable no-ids
 
 .comments-area {
-    .comment > .comment {
-        padding-left: $theme-spacing-oneandhalf;
+    .comment__body {
+        margin-bottom: $theme-spacing-oneandhalf;
+        padding: $theme-spacing-oneandhalf;
+        border: 1px solid $secondary;
+
+        @include from($tablet) {
+            padding: $theme-spacing-oneandhalf $theme-spacing-two;
+        }
+    }
+
+    .comment {
+        > .comment {
+            padding-left: $theme-spacing-oneandhalf;
+        }
     }
 
     .comment-form-comment,
