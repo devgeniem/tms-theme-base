@@ -40,7 +40,7 @@ class ArticlesFormatter implements Formatter {
     public function format( array $data ) : array {
         $args = [
             'post_type'              => Post::SLUG,
-            'posts_per_page'         => ( ! empty( $data['number'] ) ) ? $data['number'] : 12,
+            'posts_per_page'         => $data['number'] ?? 12,
             'update_post_meta_cache' => false,
             'no_found_rows'          => true,
         ];
