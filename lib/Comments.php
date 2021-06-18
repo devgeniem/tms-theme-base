@@ -87,6 +87,12 @@ class Comments implements Interfaces\Controller {
         ?>
     <div id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment ? 'parent' : '', $comment ); ?>>
         <article id="div-comment-<?php comment_ID(); ?>" class="comment__body">
+            <?php if ( '0' === $comment->comment_approved ) : ?>
+                <p class="comment-awaiting-moderation has-text-weight-bold has-text-primary">
+                    (<?php esc_html_e( 'Your comment is awaiting moderation', 'tms-theme-base' ); ?>)
+                </p>
+            <?php endif; ?>
+
             <div class="comment__content mb-6 has-word-break-break-all keep-vertical-spacing">
                 <?php comment_text(); ?>
             </div>
