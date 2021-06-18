@@ -107,6 +107,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
                 'templates'  => [
                     '',
@@ -117,6 +118,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
                 'templates'  => [
                     '',
@@ -127,6 +129,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
                 'templates'  => [
                     '',
@@ -143,6 +146,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/link-list'     => [
@@ -150,6 +154,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/quote'         => [
@@ -157,6 +162,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/grid'          => [
@@ -170,6 +176,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/video'         => [
@@ -177,6 +184,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/image'         => [
@@ -184,6 +192,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/image-gallery' => [
@@ -191,6 +200,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/share-links'   => [
@@ -210,6 +220,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/subpages'      => [

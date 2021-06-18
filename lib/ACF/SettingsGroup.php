@@ -118,7 +118,7 @@ class SettingsGroup {
                 'title'        => 'Pudotusvalikko pois käytöstä',
                 'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
             ],
-            'hide_search'    => [
+            'hide_search'      => [
                 'title'        => 'Piilota hakutoiminto',
                 'instructions' => '',
             ],

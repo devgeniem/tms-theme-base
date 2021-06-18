@@ -13,19 +13,19 @@ use TMS\Theme\Base\PostType\Post;
  *
  * @package TMS\Theme\Base\Formatters
  */
-class ArticleLiftupFormattter implements Formatter {
+class ArticlesFormatter implements Formatter {
 
     /**
      * Define formatter name
      */
-    const NAME = 'ArticleLiftup';
+    const NAME = 'Articles';
 
     /**
      * Hooks
      */
     public function hooks() : void {
         add_filter(
-            'tms/acf/layout/article_liftup/data',
+            'tms/acf/layout/articles/data',
             [ $this, 'format' ]
         );
     }
@@ -40,7 +40,7 @@ class ArticleLiftupFormattter implements Formatter {
     public function format( array $data ) : array {
         $args = [
             'post_type'              => Post::SLUG,
-            'posts_per_page'         => ( ! empty( $data['number'] ) ) ? $data['number'] : 12,
+            'posts_per_page'         => $data['number'] ?? 12,
             'update_post_meta_cache' => false,
             'no_found_rows'          => true,
         ];
@@ -74,13 +74,11 @@ class ArticleLiftupFormattter implements Formatter {
 
         if ( $wp_query->have_posts() ) {
             foreach ( $wp_query->posts as $post ) {
-                $custom_excerpt = '';
-
                 if ( $is_manual_feed && ! empty( $manual_posts[ $post->ID ]['excerpt'] ) ) {
-                    $custom_excerpt = $manual_posts[ $post->ID ]['excerpt'];
+                    $post->post_excerpt = $manual_posts[ $post->ID ]['excerpt'];
                 }
 
-                $data['posts'][] = Post::enrich_post( $post, true, $data['display_image'], 160, $custom_excerpt );
+                $data['posts'][] = Post::enrich_post( $post, true, $data['display_image'] );
             }
         }
 

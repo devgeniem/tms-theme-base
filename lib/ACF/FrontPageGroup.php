@@ -111,8 +111,8 @@ class PageFrontPageGroup {
                 Layouts\TextBlockLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\GridLayout::class,
-                Layouts\ArticleLiftupLayout::class,
                 Layouts\EventsLayout::class,
+                Layouts\ArticlesLayout::class,
             ]
         );
 

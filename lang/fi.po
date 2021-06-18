@@ -1,23 +1,23 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-06-15 10:50+0300\n"
-"PO-Revision-Date: 2021-06-15 11:18+0300\n"
+"POT-Creation-Date: 2021-06-18 15:12+0300\n"
+"PO-Revision-Date: 2021-06-18 15:12+0300\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: fi\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
@@ -27,6 +27,14 @@ msgstr ""
 msgctxt "text direction"
 msgid "ltr"
 msgstr ""
+
+#: comments.php:14
+msgid "Comments"
+msgstr "Kommentit"
+
+#: comments.php:23
+msgid "Reply"
+msgstr "Vastaa"
 
 #: lib/ACF/FrontPageGroup.php:38 lib/ACF/PageGroup.php:38
 msgctxt "theme ACF"
@@ -48,7 +56,7 @@ msgctxt "theme ACF"
 msgid "Site settings"
 msgstr "Sivuston asetukset"
 
-#: lib/ACF/SettingsGroup.php:389
+#: lib/ACF/SettingsGroup.php:416
 msgid "Open map"
 msgstr "Avaa kartta"
 
@@ -60,13 +68,35 @@ msgstr "Tekstikappale"
 msgid "Header"
 msgstr "Ylätunniste"
 
-#: lib/NavigationController.php:29
+#: lib/Comments.php:52
+msgid "Send Comment"
+msgstr "Lähetä kommentti"
+
+#: lib/Comments.php:92
+msgid "Your comment is awaiting moderation"
+msgstr "Kommentti odottaa hyväksyntää"
+
+#: lib/Comments.php:123
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: lib/NavigationController.php:34
 msgid "Primary Navigation"
 msgstr "Päänavigaatio"
 
-#: lib/NavigationController.php:30
+#: lib/NavigationController.php:35
 msgid "Secondary Navigation"
 msgstr "Toissijainen navigaatio"
+
+#: lib/PostType/BlogArticle.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-article"
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:61
+msgctxt "theme CPT"
+msgid "Blog articles"
+msgstr ""
 
 #: lib/PostType/Settings.php:60
 msgctxt "theme CPT slugs"
@@ -119,16 +149,16 @@ msgstr "Jaa Vkontaktessa"
 msgid "Share on Line"
 msgstr "Jaa Linessä"
 
-#: models/archive.php:100 models/home.php:259
+#: models/archive.php:100 models/home.php:260
 msgid "All"
 msgstr "Kaikki"
 
-#: models/error404.php:55
+#: models/error404.php:66
 msgctxt "theme-frontend"
 msgid "Go to search"
 msgstr "Siirry hakuun"
 
-#: models/error404.php:69
+#: models/error404.php:80
 msgctxt "theme-frontend"
 msgid "Return to home"
 msgstr "Palaa etusivulle"
@@ -173,7 +203,7 @@ msgctxt "theme-frontend"
 msgid "Search from site"
 msgstr "Hae sivustolta"
 
-#: models/strings.php:30 models/strings.php:48
+#: models/strings.php:30 models/strings.php:48 models/strings.php:100
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr "Sulje"
@@ -357,6 +387,11 @@ msgctxt "theme-frontend"
 msgid "Sibling pages"
 msgstr "Sisarsivut"
 
+#: models/strings.php:99
+msgctxt "theme-frontend"
+msgid "Comments"
+msgstr "Kommentit"
+
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
 msgstr ""
@@ -372,3 +407,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "theme-frontend"
+#~| msgid "Skip to content"
+#~ msgid "Reply to comment"
+#~ msgstr "Siirry sisältöön"

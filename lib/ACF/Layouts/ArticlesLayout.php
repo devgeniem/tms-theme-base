@@ -7,20 +7,20 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field\Flexible\Layout;
-use TMS\Theme\Base\ACF\Fields\ArticleLiftupFields;
+use TMS\Theme\Base\ACF\Fields\ArticlesFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class ArticleLiftupLayout
+ * Class ArticlesLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class ArticleLiftupLayout extends Layout {
+class ArticlesLayout extends Layout {
 
     /**
      * Layout key
      */
-    const KEY = '_article_liftup';
+    const KEY = '_articles';
 
     /**
      * Create the layout
@@ -31,7 +31,7 @@ class ArticleLiftupLayout extends Layout {
         parent::__construct(
             'Ajankohtaiset nostot',
             $key . self::KEY,
-            'article_liftup'
+            'articles'
         );
 
         $this->add_layout_fields();
@@ -43,7 +43,7 @@ class ArticleLiftupLayout extends Layout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new ArticleLiftupFields(
+        $fields = new ArticlesFields(
             $this->get_label(),
             $this->get_key(),
             $this->get_name()

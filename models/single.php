@@ -4,7 +4,6 @@
  */
 
 use DustPress\Query;
-use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\Category;
 use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
@@ -49,7 +48,7 @@ class Single extends BaseModel {
         $limit      = 4;
 
         $args = [
-            'post_type'      => Post::SLUG,
+            'post_type'      => get_post_type( get_the_ID() ),
             'posts_per_page' => $limit,
             'no_found_rows'  => true,
             'post__not_in'   => [ $post_id ],
@@ -88,5 +87,21 @@ class Single extends BaseModel {
             'posts' => $posts,
             'link'  => get_field( 'related_link' ) ?? '',
         ];
+    }
+
+    /**
+     * Get comments markup.
+     *
+     * @return false|string
+     */
+    public function Comments() {
+        if ( ! comments_open( get_the_ID() ) ) {
+            return false;
+        }
+
+        ob_start();
+        comments_template();
+
+        return ob_get_clean();
     }
 }

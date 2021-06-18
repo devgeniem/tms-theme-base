@@ -52,6 +52,55 @@ $pill-background-color-focus: $dark !default;
         background-color: $pill-background-color-focus;
     }
 
+    &.is-primary {
+        color: $primary-invert;
+        background-color: $primary;
+        border-color: $primary;
+
+        &:hover,
+        &.is-hovered {
+            color: $primary-invert;
+            background-color: bulmaDarken($primary, 2.5%);
+            border-color: transparent;
+        }
+
+        &:focus,
+        &.is-focused {
+            color: $primary;
+            background-color: $primary-invert;
+            border-color: $color-black;
+        }
+
+        &-invert,
+        &.is-inverted {
+            color: $primary;
+            background-color: $primary-invert;
+            border-color: $primary;
+
+            &:hover,
+            &.is-hovered {
+                color: $primary-invert;
+                background-color: bulmaDarken($primary, 2.5%);
+            }
+
+            &:focus,
+            &.is-focused {
+                color: $primary-invert;
+                background-color: $pill-background-color-focus;
+                border-color: $button-border-color-focus;
+            }
+        }
+    }
+
+    &.is-borderless {
+        border-color: transparent !important;
+    }
+
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
+    }
+
     &.is-active {
         color: $pill-color-active;
         background-color: $pill-background-active;
@@ -76,20 +125,6 @@ $pill-background-color-focus: $dark !default;
         &:active {
             background-color: transparent;
             border-color: $pill-background-color-focus;
-        }
-    }
-
-    &.is-outlined--primary {
-        color: $primary;
-        background-color: $white;
-        border: 2px solid $primary-dark;
-
-        &:hover,
-        &:focus,
-        &:active {
-            color: $pill-color-active;
-            background-color: $pill-background-active;
-            border-color: $pill-background-active;
         }
     }
 }
