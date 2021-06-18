@@ -1,4 +1,4 @@
-<section class="section layout-article-liftup">
+<section class="section layout-articles">
     <div class="container">
         <div class="columns">
             <div class="column is-8 is-offset-2 has-text-centered has-text-black">
@@ -9,7 +9,7 @@
                 {/title}
 
                 {?description}
-                    <div class="article-liftup__description mb-6 has-text-weight-semibold">
+                    <div class="article-articles__description mb-6 has-text-weight-semibold">
                         {description|s}
                     </div>
                 {/description}

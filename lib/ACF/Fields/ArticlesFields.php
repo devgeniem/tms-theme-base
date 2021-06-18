@@ -12,11 +12,11 @@ use TMS\Theme\Base\Taxonomy\Category;
 use Geniem\ACF\ConditionalLogicGroup;
 
 /**
- * Class ArticleLiftupFields
+ * Class ArticlesFields
  *
  * @package TMS\Theme\Base\ACF\Fields
  */
-class ArticleLiftupFields extends \Geniem\ACF\Field\Group {
+class ArticlesFields extends \Geniem\ACF\Field\Group {
 
     /**
      * UI Strings.
@@ -60,7 +60,7 @@ class ArticleLiftupFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Ote',
                 'instructions' => '',
             ],
-            'liftup_type'       => [
+            'feed_type'       => [
                 'label'          => 'Listuksen tyyppi',
                 'instructions'   => '',
                 'type_automatic' => 'Automaattinen',
@@ -166,14 +166,14 @@ class ArticleLiftupFields extends \Geniem\ACF\Field\Group {
             ->use_ui()
             ->set_instructions( $this->strings['display_image']['instructions'] );
 
-        $feed_type_field = ( new Field\Radio( $this->strings['liftup_type']['label'] ) )
+        $feed_type_field = ( new Field\Radio( $this->strings['feed_type']['label'] ) )
             ->set_key( "${key}_feed_type" )
             ->set_name( 'feed_type' )
             ->set_choices( [
-                'automatic' => $this->strings['liftup_type']['type_automatic'],
-                'manual'    => $this->strings['liftup_type']['type_manual'],
+                'automatic' => $this->strings['feed_type']['type_automatic'],
+                'manual'    => $this->strings['feed_type']['type_manual'],
             ] )
-            ->set_instructions( $this->strings['liftup_type']['instructions'] );
+            ->set_instructions( $this->strings['feed_type']['instructions'] );
 
         $rule_group_automatic = ( new ConditionalLogicGroup() )
             ->add_rule( $feed_type_field, '==', 'automatic' );

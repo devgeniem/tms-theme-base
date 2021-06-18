@@ -13,19 +13,19 @@ use TMS\Theme\Base\PostType\Post;
  *
  * @package TMS\Theme\Base\Formatters
  */
-class ArticleLiftupFormattter implements Formatter {
+class ArticlesFormatter implements Formatter {
 
     /**
      * Define formatter name
      */
-    const NAME = 'ArticleLiftup';
+    const NAME = 'Articles';
 
     /**
      * Hooks
      */
     public function hooks() : void {
         add_filter(
-            'tms/acf/layout/article_liftup/data',
+            'tms/acf/layout/articles/data',
             [ $this, 'format' ]
         );
     }
