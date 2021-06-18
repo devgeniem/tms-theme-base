@@ -1,4 +1,0 @@
-<div class="dustpress-comments comments-area" data-objectid={ID}{?model} data-model={model}{/model}{?filter_slug}
-     data-filterslug={filter_slug}{/filter_slug}>
-    {>"comments"/}
-</div>

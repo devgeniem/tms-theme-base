@@ -19,7 +19,6 @@ import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 import Home from './home';
-import Comments from './comments';
 
 const globalControllers = {
     Common,
@@ -38,7 +37,6 @@ const globalControllers = {
     PrimaryNav,
     Dropdown,
     Home,
-    Comments,
 };
 
 const templateControllers = {

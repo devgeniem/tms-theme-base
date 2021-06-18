@@ -95,15 +95,6 @@ class Single extends BaseModel {
     }
 
     /**
-     * Returns status of DustPress Comments plugin.
-     *
-     * @return boolean True if DustPress Comments is active.
-     */
-    public function DPCommentsActive() : bool {
-        return DPT_COMMENTS_ACTIVE;
-    }
-
-    /**
      * Get comments markup.
      *
      * @return false|string
