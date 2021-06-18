@@ -20,14 +20,14 @@
     <div class="container">
         {?highlight}
             {#highlight}
-                {>"views/home/home-highlight" category_link_classes="is-outlined is-outlined--primary" /}
+                {>"views/home/home-highlight" category_link_classes="is-primary-invert" /}
             {/highlight}
         {/highlight}
 
         <div class="columns is-multiline mt-8">
             {?posts}
                 {#posts}
-                    {>"views/home/home-grid-item" category_link_classes="is-outlined--primary" /}
+                    {>"views/home/home-grid-item" category_link_classes="is-primary-invert" /}
                 {/posts}
             {/posts}
         </div>

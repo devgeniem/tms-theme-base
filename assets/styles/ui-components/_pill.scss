@@ -28,6 +28,46 @@ $pill-background-color-focus: $dark !default;
         text-decoration: none;
     }
 
+    &.is-primary {
+        color: $primary-invert;
+        background-color: $primary;
+        border-color: $primary;
+
+        &:hover,
+        &.is-hovered {
+            background-color: bulmaDarken($primary, 2.5%) !important;
+            border-color: transparent !important;
+            color: $primary-invert !important;
+        }
+
+        &:focus,
+        &.is-focused {
+            border-color: $color-black !important;
+            color: $primary-invert !important;
+        }
+
+        &-invert,
+        &.is-inverted {
+            color: $primary !important;
+            background-color: $primary-invert !important;
+            border-color: $primary !important;
+
+            &:hover,
+            &.is-hovered {
+                color: $light-invert !important;
+                background-color: $light !important;
+                border-color: $light !important;
+            }
+
+            &:focus,
+            &.is-focused {
+                color: $light !important;
+                background-color: $light-invert !important;
+                border-color: $button-border-color-focus !important;
+            }
+        }
+    }
+
     &.is-white {
         background-color: $white;
         border: 1px solid $pill-background-color;
@@ -67,20 +107,6 @@ $pill-background-color-focus: $dark !default;
         &:active {
             background-color: transparent;
             border-color: $pill-background-color-focus;
-        }
-    }
-
-    &.is-outlined--primary {
-        color: $primary;
-        background-color: $white;
-        border: 2px solid $primary-dark;
-
-        &:hover,
-        &:focus,
-        &:active {
-            color: $pill-color-active;
-            background-color: $pill-background-active;
-            border-color: $pill-background-active;
         }
     }
 }
