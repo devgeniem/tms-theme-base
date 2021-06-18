@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-106: Add page hero
+- TMS-106: Add page hero #75
 - TMS-95: Add header exception notice #78
 - TMS-94: Add layout Articles #77
 
