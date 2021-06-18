@@ -322,6 +322,8 @@ class DynamicEventGroup {
                 Layouts\LogoWallLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\MapLayout::class,
+                Layouts\ArticlesLayout::class,
+                Layouts\ImageCarouselLayout::class,
             ]
         );
 
