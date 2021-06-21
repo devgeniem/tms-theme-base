@@ -1,14 +1,18 @@
 <section class="events section">
     <div class="container">
-        <div class="columns">
-            <div class="column is-8 is-offset-2">
-
+        {?title}
+            <div class="columns">
+                <div class="column is-8 is-offset-2 has-text-centered">
+                    <h2 class="mt-0 mb-6">
+                        {title|s}
+                    </h2>
+                </div>
             </div>
-        </div>
+        {/title}
 
         <div class="columns is-multiline">
             {#events}
-                <div class="column is-4">
+                <div class="column is-6 is-4-desktop">
                     <div class="events__item has-height-100 has-background-secondary">
                         {?image}
                             <div class="image is-16by9" aria-hidden="true">
