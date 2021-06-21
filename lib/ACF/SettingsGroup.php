@@ -585,6 +585,7 @@ class SettingsGroup {
     }
 
     /**
+     * Get events fields
      * Get page fields
      *
      * @param string $key Field group key.
@@ -598,7 +599,7 @@ class SettingsGroup {
             'enable_sibling_navigation' => [
                 'title'        => 'Rinnakkaissivujen navigointi',
                 'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
-            ],
+            ]
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
@@ -620,42 +621,8 @@ class SettingsGroup {
     }
 
     /**
-     * Get exception notice fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_exception_notice_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'  => 'Poikkeusilmotus',
-            'text' => [
-                'title'        => 'Teksti',
-                'instructions' => '',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $exception_text_field = ( new Field\Textarea( $strings['text']['title'] ) )
-            ->set_key( "${key}_exception_text" )
-            ->set_name( 'exception_text' )
-            ->set_rows( 2 )
-            ->set_wrapper_width( 50 )
-            ->set_maxlength( 200 )
-            ->set_instructions( $strings['text']['instructions'] );
-
-        $tab->add_fields( [
-            $exception_text_field,
-        ] );
-
-        return $tab;
-    }
-
-    /**
      * Get events fields
+     * Get page fields
      *
      * @param string $key Field group key.
      *
@@ -694,6 +661,41 @@ class SettingsGroup {
         $tab->add_fields( [
             $image_field,
             $events_page_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get exception notice fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_exception_notice_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'  => 'Poikkeusilmotus',
+            'text' => [
+                'title'        => 'Teksti',
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $exception_text_field = ( new Field\Textarea( $strings['text']['title'] ) )
+            ->set_key( "${key}_exception_text" )
+            ->set_name( 'exception_text' )
+            ->set_rows( 2 )
+            ->set_wrapper_width( 50 )
+            ->set_maxlength( 200 )
+            ->set_instructions( $strings['text']['instructions'] );
+
+        $tab->add_fields( [
+            $exception_text_field,
         ] );
 
         return $tab;

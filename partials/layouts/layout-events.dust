@@ -1,5 +1,11 @@
 <section class="events section">
     <div class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+
+            </div>
+        </div>
+
         <div class="columns is-multiline">
             {#events}
                 <div class="column is-4">
@@ -25,16 +31,19 @@
                                 </span>
                             {/primary_keyword}
 
-                            <div class="mt-2 mb-2">
+                            <div class="is-flex is-align-items-center mt-2 mb-2">
+                                {>"ui/icon" icon="date" class="icon--large is-primary mr-4" /}
                                 {date|s}
                             </div>
 
-                            <div class="mt-2 mb-2">
+                            <div class="is-flex is-align-items-center mt-2 mb-2">
+                                {>"ui/icon" icon="time" class="icon--large is-primary mr-4" /}
                                 {time|s}
                             </div>
 
                             {?location.name}
-                                <div class="mt-2 mb-2">
+                                <div class="is-flex is-align-items-center mt-2 mb-2">
+                                    {>"ui/icon" icon="location" class="icon--large is-primary mr-4" /}
                                     {location.name|s}
                                 </div>
                             {/location.name}

@@ -96,11 +96,6 @@ $pill-background-color-focus: $dark !default;
         border-color: transparent !important;
     }
 
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
-    }
-
     &.is-active {
         color: $pill-color-active;
         background-color: $pill-background-active;
