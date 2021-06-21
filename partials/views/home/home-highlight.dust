@@ -19,13 +19,13 @@
                 {/highlight.post_title}
 
                 {?highlight.category}
-                    <span class="pill is-white">
+                    <a href="{category.permalink|s}" class="pill {category_link_classes}">
                         {highlight.category.name|s}
-                    </span>
+                    </a>
                 {/highlight.category}
 
                 <div class="entry__excerpt mt-5 mb-5">
-                    <span class="is-block has-text-weight-bold">{@strtodate value=highlight.post_date format="d.m.Y" /}</span>
+                    <span class="is-block has-text-weight-bold">{@strtodate value=highlight.post_date /}</span>
                     {highlight.excerpt|s}
                 </div>
             </div>

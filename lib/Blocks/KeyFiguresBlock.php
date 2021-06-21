@@ -89,19 +89,19 @@ class KeyFiguresBlock extends BaseBlock {
             ],
         ];
 
-        $altered_data = $data;
+        $altered = $data;
 
-        foreach ( $altered_data['rows'] as $row_key => $row_data ) {
+        foreach ( $altered['rows'] as $row => $row_data ) {
             $row_layout = $row_data['layout'];
 
-            foreach ( $row_data['numbers'] as $numbers_key => $numbers_data ) {
-                $altered_data['rows'][ $row_key ]['numbers'][ $numbers_key ]['column_class'] = $layouts[ $row_layout ][ $numbers_key ];
+            foreach ( $row_data['numbers'] as $number => $numbers_data ) {
+                $altered['rows'][ $row ]['numbers'][ $number ]['column_class'] = $layouts[ $row_layout ][ $number ];
             }
         }
 
         return apply_filters(
             'tms/block/' . self::KEY . '/data',
-            $altered_data,
+            $altered,
             $data
         );
     }
