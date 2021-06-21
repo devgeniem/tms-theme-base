@@ -9,6 +9,7 @@ use \Geniem\ACF\Exception;
 use \Geniem\ACF\Field;
 use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
+use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -66,6 +67,7 @@ class SettingsGroup {
                         $this->get_archive_fields( $field_group->get_key() ),
                         $this->get_page_fields( $field_group->get_key() ),
                         $this->get_exception_notice_fields( $field_group->get_key() ),
+                        new BlogArticleSettingsTab( '', $field_group->get_key() ),
                     ]
                 )
             );
