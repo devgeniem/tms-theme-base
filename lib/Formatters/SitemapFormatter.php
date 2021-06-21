@@ -76,17 +76,18 @@ class SitemapFormatter implements Formatter {
      *
      * @since 4.8.0
      *
-     * @param array     $attributes   {
-     *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+     * @param array    $attributes   {
+     *                               The HTML attributes applied to the menu item's `<a>` element,
+     *                               empty strings are ignored.
      *
-     *     @type string $href         The href attribute.
-     *     @type string $aria_current The aria-current attribute.
+     * @type string    $href         The href attribute.
+     * @type string    $aria_current The aria-current attribute.
      * }
      *
-     * @param \WP_Post  $page         Page data object.
-     * @param int       $depth        Depth of page, used for padding.
-     * @param array     $args         An array of arguments.
-     * @param int       $current_page ID of the current page.
+     * @param \WP_Post $page         Page data object.
+     * @param int      $depth        Depth of page, used for padding.
+     * @param array    $args         An array of arguments.
+     * @param int      $current_page ID of the current page.
      *
      * @return array
      */
