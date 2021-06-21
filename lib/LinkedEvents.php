@@ -36,6 +36,12 @@ class LinkedEvents implements Controller {
         $event   = get_field( 'event', $post_id );
         $client  = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
+        $empty_params = array_filter( $params, fn( $item ) => empty( $item ) );
+
+        if ( count( $empty_params ) === count( $params ) ) {
+            wp_send_json( [] );
+        }
+
         try {
             $events = $client->get_all( 'event', $params );
 
