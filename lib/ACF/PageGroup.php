@@ -116,6 +116,7 @@ class PageGroup {
                 Layouts\TextBlockLayout::class,
                 Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\SitemapLayout::class,
             ]
         );
 
