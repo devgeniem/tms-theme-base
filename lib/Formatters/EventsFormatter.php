@@ -41,6 +41,44 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
+        $query_params            = $this->format_query_params( $layout );
+        $query_params['include'] = 'organization,location,keywords';
+        $events                  = $this->get_events( $query_params );
+
+        if ( ! $layout['show_images'] ) {
+            $events = array_map( function ( $item ) {
+                $item['image'] = false;
+
+                return $item;
+            }, $events );
+        }
+        else {
+            $default_image = Settings::get_setting( 'events_default_image' );
+
+            if ( ! empty( $default_image ) ) {
+                $events = array_map( function ( $item ) use ( $default_image ) {
+                    if ( empty( $item['image'] ) ) {
+                        $item['image'] = wp_get_attachment_image_url( $default_image, 'large' );
+                    }
+
+                    return $item;
+                }, $events );
+            }
+        }
+
+        $layout['events'] = $events;
+
+        return $layout;
+    }
+
+    /**
+     * Format query params
+     *
+     * @param array $layout ACF Layout data.
+     *
+     * @return array
+     */
+    private function format_query_params( array $layout ) : array {
         $query_params = [
             'start'     => null,
             'end'       => null,
@@ -66,24 +104,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             }
         }
 
-        $query_params['include'] = 'organization,location,keywords';
-        $events                  = $this->get_events( $query_params );
-        $default_image           = Settings::get_setting( 'events_default_image' );
-
-        if ( ! empty( $default_image ) ) {
-            $events = array_map( function ( $item ) use ( $default_image ) {
-                if ( empty( $item['image'] ) ) {
-                    $item['image'] = wp_get_attachment_image_url( $default_image, 'large' );
-                }
-
-                return $item;
-            }, $events );
-
-        }
-
-        $layout['events'] = $events;
-
-        return $layout;
+        return $query_params;
     }
 
     /**
