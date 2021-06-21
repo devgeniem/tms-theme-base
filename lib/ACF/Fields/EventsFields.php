@@ -144,6 +144,12 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['publisher']['instructions'] );
 
+        $text_field = ( new Field\Text( $strings['text']['label'] ) )
+            ->set_key( "${key}_text" )
+            ->set_name( 'text' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['text']['instructions'] );
+
         $sort_field = ( new Field\Select( $strings['sort']['label'] ) )
             ->set_key( "${key}_sort" )
             ->set_name( 'sort' )
@@ -175,6 +181,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             $keyword_field,
             $location_field,
             $publisher_field,
+            $text_field,
             $sort_field,
             $page_size_field,
             $show_images_field,
