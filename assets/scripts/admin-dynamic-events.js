@@ -55,14 +55,23 @@
         /**
          * Search
          *
+         * @param {Object} event Input or change event.
+         *
          * @return {void}
          */
-        const doSearch = () => {
+        const doSearch = ( event ) => {
             const fields = acf.getFields( {
                 parent: $el,
             } );
 
             const eventField = fields.find( ( f ) => f.get( 'name' ) === 'event' );
+            const eventSelectId = eventField.$el.find( 'select:first' ).attr( 'id' );
+
+            if ( typeof event !== 'undefined' && event.type === 'change' ) {
+                if ( $( event.currentTarget ).find( 'select' ).attr( 'id' ) === eventSelectId ) {
+                    return;
+                }
+            }
 
             const paramFields = fields.filter( ( field ) => {
                 if ( filterFields.includes( field.get( 'name' ) ) && ! field.hiddenByTab ) {

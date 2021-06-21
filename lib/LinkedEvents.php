@@ -44,15 +44,22 @@ class LinkedEvents implements Controller {
         }
 
         try {
-            $events = $client->get_all( 'event', $params );
+            $cache_key = 'events-' . md5( wp_json_encode( $params ) );
+            $events    = wp_cache_get( $cache_key );
 
-            $events = array_map( function ( $item ) use ( $event ) {
-                $start_time        = static::get_as_datetime( $item->start_time );
-                $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
-                $item->selected    = $item->id === $event;
+            if ( ! $events ) {
+                $events = $client->get_all( 'event', $params );
 
-                return $item;
-            }, $events );
+                $events = array_map( function ( $item ) use ( $event ) {
+                    $start_time        = static::get_as_datetime( $item->start_time );
+                    $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
+                    $item->selected    = $item->id === $event;
+
+                    return $item;
+                }, $events );
+
+                wp_cache_set( $cache_key, $events, '', MINUTE_IN_SECONDS * 15 );
+            }
         }
         catch ( LinkedEventsException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
