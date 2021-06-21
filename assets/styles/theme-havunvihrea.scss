@@ -4,18 +4,18 @@
 
 @import "themes/includes";
 
-$primary: #22437b;
+$primary: #397368;
 $primary-invert: $color-white;
-$primary-light: bulmaLighten($primary, 5);
+$primary-light: bulmaLighten($primary, 10);
 $primary-light-invert: $color-white;
-$primary-dark: bulmaDarken($primary, 5);
+$primary-dark: bulmaDarken($primary, 10);
 $primary-dark-invert: $color-white;
 
-$secondary: #e1f3ec;
+$secondary: #f1f7e9;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 5);
+$secondary-light: bulmaLighten($secondary, 10);
 $secondary-light-invert: $color-black;
-$secondary-dark: bulmaDarken($secondary, 5);
+$secondary-dark: bulmaDarken($secondary, 10);
 $secondary-dark-invert: $color-black;
 
 $light: $primary-light;

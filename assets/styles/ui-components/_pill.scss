@@ -5,8 +5,8 @@ $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
 $pill-background-active-focus: $primary-dark !default;
-$pill-background-color-hover: $color-siniharmaa-75 !default;
-$pill-background-color-focus: $color-siniharmaa !default;
+$pill-background-color-hover: opacify($secondary-light, .75) !default;
+$pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
