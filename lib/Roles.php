@@ -256,6 +256,7 @@ class Roles implements Controller {
             'add_users',
             'create_sites',
             'create_users',
+            'modify_users',
             'delete_sites',
             'manage_network',
             'manage_network_options',
@@ -307,6 +308,11 @@ class Roles implements Controller {
         $role->add_caps( $this->taxonomy_category_all_capabilities );
         $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
         $role->add_caps( $this->taxonomy_material_type_all_capabilities );
+
+        // Other
+        $role->add_caps( [
+            'modify_users',
+        ] );
 
         $role->remove_caps( $this->remove_from_all );
 
