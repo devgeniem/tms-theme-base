@@ -60,6 +60,7 @@ class SettingsGroup {
                     [
                         $this->get_header_fields( $field_group->get_key() ),
                         $this->get_footer_fields( $field_group->get_key() ),
+                        ( new Fields\ThemeColorTab( '', $field_group->get_key() ) ),
                         $this->get_map_fields( $field_group->get_key() ),
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
                         $this->get_404_fields( $field_group->get_key() ),
