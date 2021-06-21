@@ -45,6 +45,10 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $query_params['include'] = 'organization,location,keywords';
         $events                  = $this->get_events( $query_params );
 
+        if ( empty( $events ) ) {
+            return $layout;
+        }
+
         if ( ! $layout['show_images'] ) {
             $events = array_map( function ( $item ) {
                 $item['image'] = false;
@@ -87,6 +91,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'publisher' => null,
             'sort'      => null,
             'page_size' => null,
+            'text'      => null,
         ];
 
         foreach ( $layout as $key => $value ) {
