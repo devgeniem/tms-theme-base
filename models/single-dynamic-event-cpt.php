@@ -15,7 +15,7 @@ class SingleDynamicEventCpt extends BaseModel {
 
     use Components;
 
-    public function hooks() {
+    public function hooks() : void {
         add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
     }
 
