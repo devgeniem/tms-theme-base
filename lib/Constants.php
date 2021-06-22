@@ -36,7 +36,7 @@ class Constants implements Interfaces\Controller {
         }
 
         // Returns /app/themes/{current theme} -- no need to reference other domains here.
-        $themes_root = wp_parse_url( \get_template_directory_uri(), PHP_URL_PATH );
+        $themes_root = \get_template_directory_uri();
 
         // Define the assets path.
         if ( ! defined( 'DPT_ASSETS_URI' ) ) {
