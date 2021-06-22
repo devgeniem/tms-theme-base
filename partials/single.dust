@@ -52,10 +52,6 @@
             </div>
         </section>
 
-        {?Single.Comments}
-            {Single.Comments|s}
-        {/Single.Comments}
-
         {?Single.related.posts}
             {>"views/single/single-related" related=Single.related /}
         {/Single.related.posts}
