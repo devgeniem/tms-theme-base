@@ -1,7 +1,7 @@
 {?highlight}
-    <div class="columns is-gapless">
-        <div class="column is-8-desktop is-relative">
-            <div class="highlight__image is-absolute-tablet has-top-0-tablet has-right-0-tablet has-bottom-0-tablet has-left-0-tablet has-background-cover" {@inlinebg id=highlight.featured_image size="large" /}>
+    <div class="highlight-article columns is-gapless">
+        <div class="highlight-article__image-container column is-8-desktop is-relative">
+            <div class="highlight-article__image is-absolute-tablet has-top-0-tablet has-right-0-tablet has-bottom-0-tablet has-left-0-tablet has-background-cover" {@inlinebg id=highlight.featured_image size="large" /}>
                 <div class="image is-16by9 is-hidden-tablet">
                     {@image id=highlight.featured_image size="fullhd" class="objecfit-image" /}
                 </div>
@@ -9,7 +9,7 @@
         </div>
 
         <div class="column is-4-desktop has-background-secondary has-text-secondary-invert">
-            <div class="highlight__fields p-6">
+            <div class="highlight-article__fields p-6">
                 {?highlight.category}
                     <a href="{category.permalink|s}" class="pill {category_link_classes}">
                         {highlight.category.name|s}
