@@ -17,7 +17,7 @@ use \TMS\Theme\Base\Interfaces\PostType;
  *
  * @package TMS\Theme\Base\PostType
  */
-class BlogArticle implements PostType {
+class BlogArticle extends Post {
 
     /**
      * This defines the slug of this post type.
@@ -118,7 +118,7 @@ class BlogArticle implements PostType {
         $rewrite = [
             'slug'       => static::SLUG,
             'with_front' => false,
-            'pages'      => false,
+            'pages'      => true,
             'feeds'      => false,
         ];
 

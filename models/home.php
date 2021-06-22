@@ -162,9 +162,9 @@ class Home extends BaseModel {
     /**
      * Get the page title.
      *
-     * @return string
+     * @return string|null
      */
-    public function page_title() : string {
+    public function page_title() : ?string {
         return get_the_title( get_queried_object_id() );
     }
 
