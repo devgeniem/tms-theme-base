@@ -4,7 +4,7 @@
 
 @import "themes/includes";
 
-$primary: $color-tumma-vesi;
+$primary: #22437b;
 $primary-invert: $color-white;
 $primary-light: bulmaLighten($primary, 5);
 $primary-light-invert: $color-white;
@@ -25,17 +25,6 @@ $dark-invert: $primary-dark-invert;
 
 $text: $black;
 $link: $primary;
-
-$overlay-background: rgba($black, 0.3);
-$modal-overlay-background: rgba($black, 0.97);
-
-$mobile: 679px;
-$tablet: 680px;
-
-// Theme colors
-// can be used in HTML with .has-background-<color> or .has-text-<color> classes
-// NOTE! These colours have a big impact on CSS size
-// Remove all unnecessary colours and add custom ones above.
 
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
