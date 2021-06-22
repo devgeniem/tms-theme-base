@@ -49,17 +49,16 @@ class LinkedEvents implements Controller {
 
             if ( ! $events ) {
                 $events = $client->get_all( 'event', $params );
-
-                $events = array_map( function ( $item ) use ( $event ) {
-                    $start_time        = static::get_as_datetime( $item->start_time );
-                    $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
-                    $item->selected    = $item->id === $event;
-
-                    return $item;
-                }, $events );
-
                 wp_cache_set( $cache_key, $events, '', MINUTE_IN_SECONDS * 15 );
             }
+
+            $events = array_map( function ( $item ) use ( $event ) {
+                $start_time        = static::get_as_datetime( $item->start_time );
+                $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
+                $item->selected    = $item->id === $event;
+
+                return $item;
+            }, $events );
         }
         catch ( LinkedEventsException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
