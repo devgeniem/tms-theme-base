@@ -185,7 +185,7 @@ class LinkedEvents implements Controller {
 
         $start_time  = static::get_as_datetime( $event->start_time );
         $end_time    = static::get_as_datetime( $event->end_time );
-        $time_format = 'H:i';
+        $time_format = 'H.i';
 
         if ( $start_time && $end_time ) {
             return sprintf(
