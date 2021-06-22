@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
 "POT-Creation-Date: 2021-06-18 15:12+0300\n"
-"PO-Revision-Date: 2021-06-18 15:12+0300\n"
+"PO-Revision-Date: 2021-06-22 13:15+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -276,7 +276,7 @@ msgstr "Kaikki"
 #: models/strings.php:63
 msgctxt "theme-frontend"
 msgid "Image:"
-msgstr "Kuva:"
+msgstr "Kuvat:"
 
 #: models/strings.php:64
 msgctxt "theme-frontend"
