@@ -1,0 +1,6 @@
+<button class="button-toggle js-toggle is-unstyled is-primary has-text-primary {?class}{class}{/class}"
+        aria-expanded="false"
+        aria-controls={target}>
+    {>"ui/icon" icon="chevron-down" class="icon--medium mr-3" /}
+    {text|s}
+</button>
