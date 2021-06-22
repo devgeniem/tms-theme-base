@@ -31,6 +31,10 @@ trait Breadcrumbs {
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
             case PostType\Post::SLUG:
                 return $this->format_post( $current_id, $breadcrumbs );
+            case 'post-type-archive':
+                return $this->format_post_type_archive( $breadcrumbs );
+            case 'tax-archive':
+                return $this->format_tax_archive( $breadcrumbs );
             default:
                 return $breadcrumbs;
         }
@@ -85,6 +89,50 @@ trait Breadcrumbs {
         else {
             unset( $breadcrumbs['home'] ); // Not showing frontpage on frontpage.
         }
+
+        return $breadcrumbs;
+    }
+
+    /**
+     * Format breadcrumbs for: Post Type Archive
+     *
+     * @param array $breadcrumbs Breadcrumbs array.
+     *
+     * @return array
+     */
+    private function format_post_type_archive( array $breadcrumbs ) : array {
+        $breadcrumbs['home'] = $this->get_home_link();
+
+        $queried_object = get_queried_object();
+
+        $breadcrumbs[] = [
+            'title'     => $queried_object->label,
+            'permalink' => get_post_type_archive_link( $queried_object->name ),
+            'icon'      => false,
+            'is_active' => true,
+        ];
+
+        return $breadcrumbs;
+    }
+
+    /**
+     * Format breadcrumbs for: Archive
+     *
+     * @param array $breadcrumbs Breadcrumbs array.
+     *
+     * @return array
+     */
+    private function format_tax_archive( array $breadcrumbs ) : array {
+        $breadcrumbs['home'] = $this->get_home_link();
+
+        $queried_object = get_queried_object();
+
+        $breadcrumbs[] = [
+            'title'     => $queried_object->name,
+            'permalink' => get_term_link( $queried_object->term_id ),
+            'icon'      => false,
+            'is_active' => true,
+        ];
 
         return $breadcrumbs;
     }

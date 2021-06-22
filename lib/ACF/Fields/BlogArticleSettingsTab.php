@@ -5,6 +5,7 @@
 
 namespace TMS\Theme\Base\ACF\Fields;
 
+use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType\BlogArticle;
@@ -71,8 +72,6 @@ class BlogArticleSettingsTab extends \Geniem\ACF\Field\Tab {
      * Register sub fields.
      *
      * @param string $key Field tab key.
-     *
-     * @throws \Geniem\ACF\Exception
      */
     public function sub_fields( $key ) {
         $strings = $this->strings;
