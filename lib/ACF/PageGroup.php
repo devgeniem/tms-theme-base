@@ -114,6 +114,7 @@ class PageGroup {
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\SitemapLayout::class,
             ]
         );
 
