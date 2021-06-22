@@ -27,16 +27,26 @@ $button-border-color-focus: $black !default;
 $button-border-width: .15rem;
 $button-border-radius: 1.8rem;
 
+@mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
+    color: $button-color-mixin-text !important;
+    background-color: $button-color-mixin-background !important;
+    border-color: $button-color-mixin-border !important;
+
+    .icon {
+        fill: $button-color-mixin-text !important;
+    }
+}
+
 .button {
     @extend %control;
     @extend %unselectable;
 
     height: auto;
-    background-color: $button-background-color !important;
-    border-color: $button-border-color !important;
-    border-width: $button-border-width !important;
-    border-radius: $button-border-radius !important;
-    color: $button-color !important;
+    background-color: $button-background-color;
+    border-color: $button-border-color;
+    border-width: $button-border-width;
+    border-radius: $button-border-radius;
+    color: $button-color;
     cursor: pointer;
     font-weight: $weight-medium;
     font-family: $family-secondary;
@@ -63,77 +73,40 @@ $button-border-radius: 1.8rem;
         fill: $button-color;
     }
 
-    &--icon {
-        .icon {
-            margin-left: .75rem !important;
-            margin-right: -.3rem !important;
-        }
-    }
-
-    // States
-    &:hover,
-    &.is-hovered {
-        border-color: $button-background-color-hover !important;
-        background: $button-background-color-hover !important;
-        color: $button-color-hover !important;
-    }
-
-    &:focus,
-    &.is-focused {
-        border-color: $button-border-color-focus !important;
-        color: $button-color-focus !important;
-    }
-
-    &:active,
-    &.is-active {
-        border-color: $button-border-color-active !important;
-        color: $button-color-active !important;
-    }
-
-    &.is-inverted {
-        border-color: $button-color-inverted !important;
-        color: $button-color-inverted !important;
-        background-color: $button-background-color-inverted !important;
+    &.is-outlined {
+        color: $button-color-inverted;
+        background-color: transparent;
+        border-color: $button-border-color;
 
         .icon {
-            fill: $button-color-inverted !important;
-        }
-
-        &:hover,
-        &.is-hovered {
-            border-color: $button-color-inverted-hover !important;
-            background: $button-background-color-inverted-hover !important;
-            color: $button-color-inverted-hover !important;
-
-            .icon {
-                fill: $button-color-inverted-hover !important;
-            }
-        }
-
-        &:focus,
-        &.is-focused {
-            border-color: $button-border-color-focus !important;
-        }
-
-        &.is-outlined {
-            background-color: transparent !important;
-
-            .icon {
-                fill: $button-color-inverted !important;
-            }
+            fill: $button-color-inverted;
         }
     }
 
     &.is-borderless {
-        border-color: transparent !important;
+        color: $button-color;
+        background-color: $button-background-color;
+        border-color: transparent;
 
-        &:focus,
-        &.is-focused,
-        &:active,
-        &.is-active,
-        &:hover,
-        &.is-hovered {
-            border-color: transparent !important;
+        .icon {
+            fill: $button-color;
+        }
+    }
+
+    &.is-inverted {
+        color: $button-color-inverted;
+        background-color: $button-background-color-inverted;
+        border-color: $button-color-inverted;
+
+        .icon {
+            fill: $button-color-inverted;
+        }
+    }
+
+    &--icon {
+        .icon {
+            margin-left: .75rem !important;
+            margin-right: -.3rem !important;
         }
     }
 
@@ -148,100 +121,117 @@ $button-border-radius: 1.8rem;
 
     // Then the color variation generation
     @each $name, $pair in $button-colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+        $button-pair-primary: nth($pair, 1);
+        $button-pair-primary-invert: nth($pair, 2);
+
+        $button-pair-primary-hover: bulmaDarken($button-pair-primary, 10%);
+        $button-pair-primary-hover-invert: $button-pair-primary-invert;
+
+        $button-pair-primary-active: bulmaDarken($button-pair-primary, 25%);
+        $button-pair-primary-active-invert: $button-pair-primary-invert;
+
+        $button-pair-primary-focus: $button-pair-primary-hover;
+        $button-pair-primary-focus-invert: $button-pair-primary-hover-invert;
 
         &.is-#{$name} {
-            background-color: $color;
-            border-color: transparent;
-            color: $color-invert;
+            @include button_colors($button-pair-primary, $button-pair-primary-invert, transparent);
 
             &:hover,
             &.is-hovered {
-                background-color: bulmaDarken($color, 2.5%);
-                border-color: transparent;
-                color: $color-invert;
+                @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, $button-pair-primary-hover-invert);
             }
 
             &:focus,
             &.is-focused {
-                border-color: transparent;
-                color: $color-invert;
+                @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, $button-pair-primary-focus-invert);
             }
 
             &:active,
             &.is-active {
-                background-color: bulmaDarken($color, 5%);
-                border-color: transparent;
-                color: $color-invert;
+                @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
             }
 
-            .icon {
-                fill: $color-invert;
+            &.is-outlined {
+                @include button_colors(transparent, $button-pair-primary, $button-pair-primary);
+
+                &:hover {
+                    @include button_colors(transparent, $button-pair-primary-hover, $button-pair-primary-hover);
+                }
+
+                &:focus {
+                    @include button_colors(transparent, $button-pair-primary-focus, $button-pair-primary-focus);
+                }
             }
 
-            &-invert,
-            &.is-inverted {
-                color: $primary !important;
-                background-color: $primary-invert !important;
-                border-color: $primary !important;
-
-                .icon {
-                    fill: $primary-invert !important;
-                }
-
-                &:hover,
-                &.is-hovered {
-                    color: $light-invert !important;
-                    background-color: $light !important;
-                    border-color: $light !important;
-
-                    .icon {
-                        fill: $light-invert !important;
-                    }
-                }
+            &.is-borderless {
+                @include button_colors($button-pair-primary, $button-pair-primary-invert, transparent);
+                border-color: transparent !important;
 
                 &:focus,
                 &.is-focused {
-                    color: $dark-invert !important;
-                    background-color: $dark !important;
-                    border-color: $button-border-color-focus !important;
-
-                    .icon {
-                        fill: $dark-invert !important;
-                    }
+                    @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, transparent);
                 }
 
                 &:active,
                 &.is-active {
-                    color: $dark-invert !important;
-                    background-color: $dark !important;
-                    border-color: $dark !important;
+                    @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
+                }
 
-                    .icon {
-                        fill: $dark !important;
-                    }
+                &:hover,
+                &.is-hovered {
+                    @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, transparent);
+                }
+            }
+
+            &-invert,
+            &.is-inverted {
+                @include button_colors($button-pair-primary-invert, $button-pair-primary, $button-pair-primary);
+
+                &:hover,
+                &.is-hovered {
+                    @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, $button-pair-primary-hover-invert);
+                }
+
+                &:focus,
+                &.is-focused {
+                    @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, $button-pair-primary-focus-invert);
+                }
+
+                &:active,
+                &.is-active {
+                    @include button_colors($button-pair-primary-active-invert, $button-pair-primary-active, transparent);
                 }
 
                 &.is-outlined {
-                    color: $primary-invert !important;
-                    background-color: transparent !important;
-                    border-color: $primary-invert !important;
+                    @include button_colors(transparent, $button-pair-primary-invert, $button-pair-primary-invert);
+
+                    &:active {
+                        @include button_colors(transparent, $button-pair-primary-active-invert, $button-pair-primary-active);
+                    }
 
                     &:hover {
-                        border-color: $primary-light !important;
-
-                        .icon {
-                            fill: $primary-invert !important;
-                        }
+                        @include button_colors(transparent, $button-pair-primary-hover-invert, $button-pair-primary-hover);
                     }
 
                     &:focus {
-                        border-color: $button-border-color-focus !important;
+                        @include button_colors(transparent, $button-pair-primary-focus-invert, $button-pair-primary-focus);
+                    }
+                }
 
-                        .icon {
-                            fill: $primary-invert !important;
-                        }
+                &.is-borderless {
+                    @include button_colors($button-pair-primary-invert, $button-pair-primary, transparent);
+
+                    &:focus,
+                    &.is-focused {
+                        @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, transparent);
+                    }
+                    &:active,
+                    &.is-active {
+                        @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
+                    }
+                    &:hover,
+                    &.is-hovered {
+                        @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, transparent);
                     }
                 }
             }

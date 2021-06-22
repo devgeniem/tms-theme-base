@@ -26,7 +26,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
      * @var array
      */
     private $strings = [
-        'tab'       => 'Teeman ulkoasu',
+        'tab'             => 'Teeman ulkoasu',
         'color_selection' => [
             'title'        => 'Väriteeman valinta',
             'instructions' => '',
