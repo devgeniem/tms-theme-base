@@ -61,7 +61,7 @@ class SingleBlogArticle extends Single {
      *
      * @return false|string
      */
-    public function Comments() {
+    public function comments() {
         if ( ! comments_open( get_the_ID() ) ) {
             return false;
         }

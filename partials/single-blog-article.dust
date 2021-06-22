@@ -58,9 +58,9 @@
             </div>
         </section>
 
-        {?SingleBlogArticle.Comments}
-            {SingleBlogArticle.Comments|s}
-        {/SingleBlogArticle.Comments}
+        {?SingleBlogArticle.comments}
+            {SingleBlogArticle.comments|s}
+        {/SingleBlogArticle.comments}
 
         {?SingleBlogArticle.related.posts}
             {>"views/single/single-related" related=SingleBlogArticle.related /}
