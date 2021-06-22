@@ -159,14 +159,24 @@ class Header extends Model {
             return [];
         }
 
-        $breadcrumbs  = [];
-        $home_url     = trailingslashit( get_home_url() );
-        $current_id   = (int) $current_object->ID;
-        $current_type = (string) $current_object->post_type;
-
+        $breadcrumbs         = [];
+        $home_url            = trailingslashit( get_home_url() );
+        $current_id          = 0;
+        $current_type        = '';
         $breadcrumbs['home'] = $this->get_home_link();
 
-        $breadcrumbs = $this->get_ancestors( $current_id, $current_type, $breadcrumbs );
+        if ( is_a( $current_object, 'WP_Post' ) ) {
+            $current_id   = (int) $current_object->ID;
+            $current_type = (string) $current_object->post_type;
+            $breadcrumbs  = $this->get_ancestors( $current_id, $current_type, $breadcrumbs );
+        }
+        elseif ( is_a( $current_object, 'WP_Term' ) ) {
+            $current_type = 'tax-archive';
+        }
+        elseif ( is_post_type_archive() ) {
+            $current_type = 'post-type-archive';
+        }
+
         $breadcrumbs = $this->prepare_by_type( $current_type, $current_id, $home_url, $breadcrumbs );
 
         return (array) apply_filters(

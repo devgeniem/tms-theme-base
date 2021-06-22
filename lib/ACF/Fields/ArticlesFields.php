@@ -60,7 +60,7 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Ote',
                 'instructions' => '',
             ],
-            'feed_type'       => [
+            'feed_type'         => [
                 'label'          => 'Listuksen tyyppi',
                 'instructions'   => '',
                 'type_automatic' => 'Automaattinen',

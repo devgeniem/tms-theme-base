@@ -19,12 +19,18 @@
                                         </div>
 
                                         {>"views/single/single-meta" spacing_class="pt-5 pb-5 p-5-tablet" /}
+
+                                        {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-primary-invert is-borderless" /}
+
+                                        {>"views/single-blog-article/blog-info" /}
                                     {/content.image}
                                 </header>
 
                                 <div class="entry__content is-content-grid keep-vertical-spacing">
                                     {^content.image}
                                         {>"views/single/single-meta" spacing_class="mt-6 mb-6" /}
+
+                                        {>"views/single-blog-article/blog-info" /}
                                     {/content.image}
 
                                     {?content.post_excerpt}

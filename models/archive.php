@@ -3,7 +3,8 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
-use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\PostType\BlogArticle;
+use TMS\Theme\Base\PostType\Post;
 
 /**
  * The Archive class.
@@ -43,15 +44,19 @@ class Archive extends Home {
             return;
         }
 
+        if ( is_category() || is_tag() ) {
+            static::modify_query_post_type( $wp_query );
+        }
+
         static::modify_query_date( $wp_query );
     }
 
     /**
      * Get the page title.
      *
-     * @return string
+     * @return string|null
      */
-    public function page_title() : string {
+    public function page_title() : ?string {
         return single_term_title( '', false );
     }
 
@@ -110,5 +115,16 @@ class Archive extends Home {
         }
 
         return $categories;
+    }
+
+    /**
+     * Modify query post_type param
+     *
+     * @param WP_Query $wp_query Instance of WP_Query.
+     *
+     * @return void
+     */
+    protected static function modify_query_post_type( $wp_query ) {
+        $wp_query->set( 'post_type', [ Post::SLUG, BlogArticle::SLUG ] );
     }
 }

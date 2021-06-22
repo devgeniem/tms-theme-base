@@ -108,6 +108,10 @@ class Strings extends \DustPress\Model {
                 'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
                 'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'blog_article'       => [
+                'toggle_details'    => _x( 'Show description', 'theme-frontend', 'tms-theme-base' ),
+                'archive_link_text' => _x( 'All articles', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }

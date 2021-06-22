@@ -20,6 +20,7 @@ import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 import Home from './home';
 import Sitemap from './sitemap';
+import Toggle from './toggle';
 
 const globalControllers = {
     Common,
@@ -39,6 +40,7 @@ const globalControllers = {
     Dropdown,
     Home,
     Sitemap,
+    Toggle,
 };
 
 const templateControllers = {
