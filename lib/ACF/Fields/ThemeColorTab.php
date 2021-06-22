@@ -72,7 +72,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
 
             $theme_default_color = apply_filters(
                 'tms/theme/theme_default_color',
-                'tunnelma'
+                DEFAULT_THEME_COLOR
             );
 
             $color_theme_select = ( new Field\Select( $this->strings['color_selection']['title'] ) )
