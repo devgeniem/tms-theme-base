@@ -64,6 +64,11 @@ class Constants implements Interfaces\Controller {
         if ( ! defined( 'DPT_LAZYLOADING' ) ) {
             define( 'DPT_LAZYLOADING', true );
         }
+
+        // tms-theme-base Color Theme Default.
+        if ( ! defined( 'DEFAULT_THEME_COLOR' ) ) {
+            define( 'DEFAULT_THEME_COLOR', env( 'DEFAULT_THEME_COLOR' ) ?? 'tunnelma' );
+        }
     }
 
     /**

@@ -105,7 +105,11 @@ class Assets implements Interfaces\Controller {
             true
         );
 
-        $selected_theme = Settings::get_setting( 'theme_color' ) ?? 'tunnelma';
+        $theme_default_color = apply_filters(
+            'tms/theme/theme_default_color',
+            DEFAULT_THEME_COLOR
+        );
+        $selected_theme      = Settings::get_setting( 'theme_color' ) ?? $theme_default_color;
         $this->enqueue_theme( $selected_theme );
 
         /**
