@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-97: Color themes #85
+
+## [1.3.3] - 2021-06-21
+
 ### Added
 
 - TMS-106: Add page hero #75
