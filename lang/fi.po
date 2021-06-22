@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
 "POT-Creation-Date: 2021-06-18 15:12+0300\n"
-"PO-Revision-Date: 2021-06-22 13:15+0300\n"
+"PO-Revision-Date: 2021-06-22 15:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -51,12 +51,12 @@ msgstr "Komponentit"
 msgid "Related posts"
 msgstr "Liittyvät sisällöt"
 
-#: lib/ACF/SettingsGroup.php:37
+#: lib/ACF/SettingsGroup.php:38
 msgctxt "theme ACF"
 msgid "Site settings"
 msgstr "Sivuston asetukset"
 
-#: lib/ACF/SettingsGroup.php:416
+#: lib/ACF/SettingsGroup.php:418
 msgid "Open map"
 msgstr "Avaa kartta"
 
@@ -108,7 +108,7 @@ msgctxt "theme CPT"
 msgid "Site settings"
 msgstr "Sivuston asetukset"
 
-#: lib/Traits/Breadcrumbs.php:177
+#: lib/Traits/Breadcrumbs.php:225
 msgctxt "Breadcrumbs"
 msgid "Home"
 msgstr "Etusivu"
@@ -149,7 +149,8 @@ msgstr "Jaa Vkontaktessa"
 msgid "Share on Line"
 msgstr "Jaa Linessä"
 
-#: models/archive.php:100 models/home.php:260
+#: models/archive-blog-article.php:96 models/archive.php:105
+#: models/home.php:260
 msgid "All"
 msgstr "Kaikki"
 
@@ -391,6 +392,16 @@ msgstr "Sisarsivut"
 msgctxt "theme-frontend"
 msgid "Comments"
 msgstr "Kommentit"
+
+#: models/strings.php:103
+msgctxt "theme-frontend"
+msgid "Show description"
+msgstr "Lisätietoja blogista"
+
+#: models/strings.php:104
+msgctxt "theme-frontend"
+msgid "All articles"
+msgstr "Kaikki artikkelit"
 
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
