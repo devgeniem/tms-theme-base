@@ -28,12 +28,3 @@
         "h6": rem($size-h6, $base_size),
     )
 }
-
-@function get_brand_color($name, $variant: "all") {
-    @if ($variant == "all") {
-        @return map-get($tampere-palettes, $name);
-    }
-
-    $tampere-palettes-selected: map-get($tampere-palettes, $name);
-    @return map-get($tampere-palettes-selected, $variant);
-}
