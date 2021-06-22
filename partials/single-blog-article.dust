@@ -20,59 +20,17 @@
 
                                         {>"views/single/single-meta" spacing_class="pt-5 pb-5 p-5-tablet" /}
 
-                                        <div class="entry__blog-info-container section pt-6 pb-6 mb-8 has-background-secondary has-text-secondary-invert has-text-centered-mobile">
-                                            <div class="container">
-                                                <div class="columns">
-                                                    <div class="column is-10 is-offset-1">
-                                                        <div class="entry__blog-info is-flex-desktop p-5-tablet">
-                                                            {?blog_logo}
-                                                                <div class="entry__blog-logo is-flex-shrink-0 mb-4 mb-0-desktop has-text-centered-mobile">
-                                                                    {@image id=blog_logo size="thumbnail" /}
-                                                                </div>
-                                                            {/blog_logo}
+                                        {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-primary-invert is-borderless" /}
 
-                                                            <div class="entry__blog-description {^page_logo}is-offset-2 pl-6-desktop is-flex-grow-1{/page_logo}">
-                                                                {?blog_title}
-                                                                    <p class="h4 mt-0 mb-5">
-                                                                        {blog_title|s}
-                                                                    </p>
-                                                                {/blog_title}
-
-                                                                {?blog_subtitle}
-                                                                    <p class="h5 mt-5 mb-5 mb-6-desktop">
-                                                                        {blog_subtitle|s}
-                                                                    </p>
-                                                                {/blog_subtitle}
-
-                                                                {?blog_description}
-                                                                    <div class="entry__blog-description-text">
-                                                                        {>"ui/button-toggle" class="mb-4 mb-5-desktop" text=Strings.s.blog_article.toggle_details target="js-archive-description-toggle-target" /}
-
-                                                                        <p id="js-archive-description-toggle-target"
-                                                                           class="is-hidden has-text-left-tablet mt-0 mb-5 mb-0-desktop">{blog_description|s}</p>
-                                                                    </div>
-                                                                {/blog_description}
-                                                            </div>
-
-                                                            {?archive_link}
-                                                                <div class="entry__blog-archive-link is-flex-shrink-0 mt-4 mt-0-desktop">
-                                                                    <a href="{archive_link}" class="button button--icon is-outlined is-inverted">
-                                                                        {Strings.s.blog_article.archive_link_text}
-                                                                        {>"ui/icon" icon="chevron-right" class="icon--medium" /}
-                                                                    </a>
-                                                                </div>
-                                                            {/archive_link}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {>"views/single-blog-article/blog-info" /}
                                     {/content.image}
                                 </header>
 
                                 <div class="entry__content is-content-grid keep-vertical-spacing">
                                     {^content.image}
                                         {>"views/single/single-meta" spacing_class="mt-6 mb-6" /}
+
+                                        {>"views/single-blog-article/blog-info" /}
                                     {/content.image}
 
                                     {?content.post_excerpt}
