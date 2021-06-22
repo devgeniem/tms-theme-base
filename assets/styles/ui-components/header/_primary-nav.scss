@@ -2,6 +2,8 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+$navbar-item-grid-item-border-color: rgba(229, 238, 248, 0.5) !default;
+
 .primary-nav {
     @include list-reset;
     font-family: $family-secondary;
@@ -65,7 +67,7 @@
 
             .navbar-item {
                 padding: 1.411rem 0;
-                border-bottom: 1px solid $color-vaalea-siniharmaa-50;
+                border-bottom: 1px solid $navbar-item-grid-item-border-color;
 
                 &:hover,
                 &:focus {

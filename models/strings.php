@@ -100,6 +100,10 @@ class Strings extends \DustPress\Model {
                 'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
                 'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'sitemap'            => [
+                'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }
