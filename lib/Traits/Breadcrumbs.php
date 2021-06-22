@@ -29,7 +29,7 @@ trait Breadcrumbs {
         switch ( $current_type ) {
             case PostType\Page::SLUG:
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
-            case PostType\Post::SLUG:
+            case PostType\Post::SLUG || PostType\BlogArticle::SLUG:
                 return $this->format_post( $current_id, $breadcrumbs );
             case 'post-type-archive':
                 return $this->format_post_type_archive( $breadcrumbs );
