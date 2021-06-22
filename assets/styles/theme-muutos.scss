@@ -4,19 +4,19 @@
 
 @import "themes/includes";
 
-$primary: #c83e36;
+$primary: #923a6e;
 $primary-invert: $color-white;
-$primary-light: #eb5e58;
+$primary-light: bulmaLighten($primary, 5);
 $primary-light-invert: $color-white;
-$primary-dark: #ae1e20;
+$primary-dark: bulmaDarken($primary, 5);
 $primary-dark-invert: $color-white;
 
-$secondary: #e5eef8;
+$secondary: #fbe3e9;
 $secondary-invert: $color-black;
-$secondary-light: #cad6e2;
+$secondary-light: bulmaLighten($secondary, 5);
 $secondary-light-invert: $color-black;
-$secondary-dark: #585857;
-$secondary-dark-invert: $color-white;
+$secondary-dark: bulmaDarken($secondary, 5);
+$secondary-dark-invert: $color-black;
 
 $light: $primary-light;
 $light-invert: $primary-light-invert;
@@ -44,5 +44,7 @@ $button-colors: (
 $navbar-colors: (
     "primary": $colors-palette-primary
 );
+
+$color-background-primary-light--opaque-light: $secondary;
 
 @import "main";

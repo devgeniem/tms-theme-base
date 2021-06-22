@@ -84,10 +84,18 @@
             color: $color-invert !important;
             background-color: $color !important;
 
+            .icon {
+                fill: $color-invert;
+            }
+
             &-invert,
             &.is-inverted {
                 color: $color !important;
                 background-color: $color-invert !important;
+
+                .icon {
+                    fill: $color;
+                }
             }
         }
 
