@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-59: Sitemap #84
+
 ### Changed
 
 - TMS-97: Color themes #85
