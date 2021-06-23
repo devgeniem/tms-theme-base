@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-72: Dynamic Event #82
 - TMS-59: Sitemap #84
 
 ### Changed
