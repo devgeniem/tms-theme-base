@@ -1,0 +1,80 @@
+{?event.normalized.date}
+    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title icon="date" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            {event.normalized.date|s}
+        </div>
+    </div>
+{/event.normalized.date}
+
+{?event.normalized.time}
+    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title icon="time" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            {event.normalized.time|s}
+        </div>
+    </div>
+{/event.normalized.time}
+
+{?event.normalized.location}
+    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title icon="location" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            <div>{event.normalized.location.name|s}</div>
+            <div>{event.normalized.location.description|s}</div>
+            <div>{event.normalized.location.extra_info|s}</div>
+            {>"ui/link" link=event.normalized.location.info_url classes="is-inline-block mt-2" /}
+        </div>
+    </div>
+{/event.normalized.location}
+
+{?event.normalized.price}
+    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.price_title icon="euro" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            {#event.normalized.price}
+                <div>
+                    {price|s}
+                </div>
+                <div>
+                    {description|s}
+                </div>
+                {>"ui/link" link=info_url /}
+            {/event.normalized.price}
+        </div>
+    </div>
+{/event.normalized.price}
+
+{?event.normalized.provider}
+    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title icon="bullhorn" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            <div>{event.normalized.provider.name|s}</div>
+
+            {?event.normalized.provider.email}
+                <div>
+                <a href="mailto:{event.normalized.provider.email}"
+                   class="has-text-black">
+                    {event.normalized.provider.email|s}
+                </a>
+                </div>
+            {/event.normalized.provider.email}
+
+            {?event.normalized.provider.phone}
+                <div>
+                <a href="tel:{event.normalized.provider.phone}"
+                   class="has-text-black">
+                    {event.normalized.provider.phone|s}
+                </a>
+                </div>
+            {/event.normalized.provider.phone}
+        </div>
+    </div>
+
+    {>"ui/button-link" link=event.normalized.provider.link classes="mt-3" icon="chevron-right" icon_classes="icon--medium" /}
+{/event.normalized.provider}

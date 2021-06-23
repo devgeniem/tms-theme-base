@@ -1,0 +1,46 @@
+<section class="entry__hero has-text-centered">
+    <div class="entry__hero-image is-relative has-background-primary has-text-primary-invert has-background-cover" {@inlinebg id=hero_image size="fullhd" /}>
+        <div class="overlay overlay--dark-70"></div>
+
+        <div class="container is-absolute has-top-50 has-right-0 has-left-0 has-transform-y--50">
+            <div class="columns">
+                <div class="column is-8 is-offset-2">
+                    <h1 class="entry__title mt-0 mb-0 has-text-centered">
+                        {@title /}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry__hero-info section pt-6 pb-6 has-background-secondary has-text-secondary-invert">
+        <div class="container">
+            <div class="columns mt-0 mb-0">
+                <div class="column is-10 is-offset-1">
+                    <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
+                        {?event.normalized.date}
+                            <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
+                                {>"ui/icon" icon="date" class="icon--xlarge is-primary mr-4 mr-6-desktop" /}
+                                {event.normalized.date|s}
+                            </div>
+                        {/event.normalized.date}
+
+                        {?event.normalized.time}
+                            <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
+                                {>"ui/icon" icon="time" class="icon--xlarge is-primary mr-4 mr-6-desktop" /}
+                                {event.normalized.time|s}
+                            </div>
+                        {/event.normalized.time}
+
+                        {?event.normalized.location}
+                            <div class="is-flex is-align-items-center has-width-100-until-desktop">
+                                {>"ui/icon" icon="location" class="icon--xlarge is-primary mr-4 mr-6-desktop" /}
+                                {event.normalized.location.name|s}
+                            </div>
+                        {/event.normalized.location}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
