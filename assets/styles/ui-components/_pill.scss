@@ -85,6 +85,11 @@ $pill-background-color-focus: $dark !default;
     &.is-white {
         background-color: $white;
         border: 1px solid $pill-background-color;
+
+        &:hover,
+        &.is-hovered {
+            text-decoration: underline;
+        }
     }
 
     &.is-active {
