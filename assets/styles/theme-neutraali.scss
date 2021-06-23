@@ -6,9 +6,9 @@
 
 $primary: #f1eeeb;
 $primary-invert: $color-black;
-$primary-light: bulmaLighten($primary, 10);
+$primary-light: bulmaLighten($primary, 5);
 $primary-light-invert: $color-black;
-$primary-dark: bulmaDarken($primary, 10);
+$primary-dark: bulmaDarken($primary, 50);
 $primary-dark-invert: $color-black;
 
 $secondary: $primary;
@@ -23,7 +23,7 @@ $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
 
-$text: $black;
+$text: $color-black;
 $link: $primary-dark;
 
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
@@ -37,12 +37,8 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": $colors-palette-primary,
-    "secondary": $colors-palette-secondary,
-);
-
-$navbar-colors: (
-    "primary": $colors-palette-primary
+    "primary": ($primary, $primary-invert, $color-white, $text),
+    "secondary": ($secondary, $secondary-invert, $color-white, $text),
 );
 
 $color-background-primary-light--opaque-light: $secondary;
