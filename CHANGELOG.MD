@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-74: Events layout #80
+- TMS-109: Color theme selection #87
+- TMS-76: Event view #81
+- TMS-72: Dynamic Event #82
 - TMS-59: Sitemap #84
 
 ### Changed
@@ -16,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- Fixes to codestyle, texts, colors and spacings #88
 - TMS-97: Fix button styles #86
 
 ## [1.3.3] - 2021-06-21

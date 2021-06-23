@@ -6,11 +6,23 @@
             <article class="entry">
                 {>"views/single-dynamic-event/single-dynamic-event-hero" /}
 
+                {?Header.breadcrumbs}
+                    <div class="section pt-6 pb-0">
+                        <div class="container">
+                            <div class="columns">
+                                <div class="column">
+                                    {>"ui/breadcrumbs" breadcrumbs=Header.breadcrumbs /}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/Header.breadcrumbs}
+
                 <section class="section">
                     <div class="container">
                         <div class="columns">
                             <div class="column">
-                                <div class="entry__content is-content-grid mb-8">
+                                <div class="entry__content is-content-grid mb-8 mb-10-desktop keep-vertical-spacing">
                                     {@content /}
                                 </div>
 

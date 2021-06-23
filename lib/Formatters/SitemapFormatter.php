@@ -40,20 +40,18 @@ class SitemapFormatter implements Formatter {
      *
      * @return array
      */
-    public function format( array $data ) : array {
-        $data['sitemap'] = $this->get_sitemap( $data );
+    public function format( array $data = [] ) : array {
+        $data['sitemap'] = $this->get_sitemap();
 
         return $data;
     }
 
     /**
-     * Get current page sitemap.
-     *
-     * @param array $data Layout/block data.
+     * Get sitemap.
      *
      * @return string
      */
-    private function get_sitemap( array $data ) : string {
+    private function get_sitemap() : string {
         $args = [
             'post_type'   => Page::SLUG,
             'title_li'    => '',

@@ -55,14 +55,23 @@
         /**
          * Search
          *
+         * @param {Object} event Input or change event.
+         *
          * @return {void}
          */
-        const doSearch = () => {
+        const doSearch = ( event ) => {
             const fields = acf.getFields( {
                 parent: $el,
             } );
 
             const eventField = fields.find( ( f ) => f.get( 'name' ) === 'event' );
+            const eventSelectId = eventField.$el.find( 'select:first' ).attr( 'id' );
+
+            if ( typeof event !== 'undefined' && event.type === 'change' ) {
+                if ( $( event.currentTarget ).find( 'select' ).attr( 'id' ) === eventSelectId ) {
+                    return;
+                }
+            }
 
             const paramFields = fields.filter( ( field ) => {
                 if ( filterFields.includes( field.get( 'name' ) ) && ! field.hiddenByTab ) {
@@ -84,16 +93,19 @@
                 data: {
                     action: 'event_search',
                     params: createQueryObject( paramFields ),
+                    post_id: $( '#post_ID' ).val(),
                 },
                 success: ( response ) => {
                     if ( response ) {
                         const select = eventField.$el.find( 'select' );
+                        select.find( 'option' ).remove();
 
                         response.forEach( ( item ) => {
                             select.append(
                                 $( '<option /> ' )
                                     .attr( 'value', item.id )
-                                    .text( item.name.fi )
+                                    .text( item.select_name )
+                                    .prop( 'selected', item.selected )
                             );
                         } );
                     }

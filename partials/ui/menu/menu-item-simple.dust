@@ -1,4 +1,4 @@
-<a href="{url}" class="navbar-item">
+<a href="{url}" class="navbar-item has-text-primary">
     {title|s}
 
     {?icon}
