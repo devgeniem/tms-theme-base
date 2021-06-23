@@ -83,21 +83,16 @@ class LinkedEvents implements Controller {
             'name'              => $event->name->{$lang_key},
             'short_description' => $event->short_description->{$lang_key},
             'description'       => nl2br( $event->description->{$lang_key} ),
-
-            'date_title' => __( 'Dates', 'tms-theme-base' ),
-            'date'       => static::get_event_date( $event ),
-
-            'time_title' => __( 'Time', 'tms-theme-base' ),
-            'time'       => static::get_event_time( $event ),
-
-            'location_title' => __( 'Location', 'tms-theme-base' ),
-            'location'       => static::get_event_location( $event, $lang_key ),
-
-            'price_title' => __( 'Price', 'tms-theme-base' ),
-            'price'       => static::get_event_price_info( $event, $lang_key ),
-
-            'provider_title' => __( 'Organizer', 'tms-theme-base' ),
-            'provider'       => static::get_provider_info( $event ),
+            'date_title'        => __( 'Dates', 'tms-theme-base' ),
+            'date'              => static::get_event_date( $event ),
+            'time_title'        => __( 'Time', 'tms-theme-base' ),
+            'time'              => static::get_event_time( $event ),
+            'location_title'    => __( 'Location', 'tms-theme-base' ),
+            'location'          => static::get_event_location( $event, $lang_key ),
+            'price_title'       => __( 'Price', 'tms-theme-base' ),
+            'price'             => static::get_event_price_info( $event, $lang_key ),
+            'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
+            'provider'          => static::get_provider_info( $event ),
         ];
     }
 
