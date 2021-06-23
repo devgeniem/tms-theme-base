@@ -1,0 +1,51 @@
+{>"shared/base" /}
+
+{<content}
+    {#SingleDynamicEventCpt}
+        <main class="main-content" id="main-content">
+            <article class="entry">
+                {>"views/single-dynamic-event/single-dynamic-event-hero" /}
+
+                {?Header.breadcrumbs}
+                    <div class="section pt-6 pb-0">
+                        <div class="container">
+                            <div class="columns">
+                                <div class="column">
+                                    {>"ui/breadcrumbs" breadcrumbs=Header.breadcrumbs /}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/Header.breadcrumbs}
+
+                <section class="section">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="entry__content is-content-grid mb-8 mb-10-desktop keep-vertical-spacing">
+                                    {@content /}
+                                </div>
+
+                                <div class="columns is-multiline is-variable is-8 mb-8">
+                                    <div class="column is-5-desktop is-offset-1-desktop keep-vertical-spacing">
+                                        <p>
+                                            {event.normalized.short_description|s}
+                                        </p>
+
+                                        {event.normalized.description|s}
+                                    </div>
+
+                                    <div class="column is-5-desktop">
+                                        {>"views/single-dynamic-event/single-dynamic-event-info" /}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        {>"ui/components" components=components /}
+    {/SingleDynamicEventCpt}
+{/content}

@@ -1,0 +1,18 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.single-dynamic-event-cpt {
+    .entry {
+        &__hero-image {
+            @include hero-height;
+        }
+
+        &__hero-info {
+            @include from($tablet) {
+                font-size: 1.23rem;
+            }
+        }
+
+    }
+}
