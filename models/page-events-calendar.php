@@ -8,6 +8,7 @@ use Geniem\LinkedEvents\LinkedEventsClient;
 use TMS\Theme\Base\Formatters\EventsFormatter;
 use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
+use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
 
 /**
@@ -129,7 +130,7 @@ class PageEventsCalendar extends BaseModel {
      */
     protected function set_pagination_data( int $event_count ) : void {
         $per_page = get_option( 'posts_per_page' );
-        $paged    = get_query_var( 'paged', 1 );
+        $paged    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
         $this->pagination           = new stdClass();
         $this->pagination->page     = $paged;
@@ -151,5 +152,42 @@ class PageEventsCalendar extends BaseModel {
         }
 
         return null;
+    }
+
+    /**
+     * Calendar pages
+     *
+     * @return array|null
+     */
+    public function calendar_pages() : ?array {
+        if ( ! Settings::get_setting('show_related_events_calendars')) {
+            return null;
+        }
+
+        $the_query = new WP_Query( [
+            'post_type'              => \TMS\Theme\Base\PostType\Page::SLUG,
+            'posts_per_page'         => 100,
+            'update_post_term_cache' => false,
+            'meta_key'               => '_wp_page_template',
+            'meta_value'             => "models/page-events-calendar.php",
+            'no_found_rows'          => true,
+        ] );
+
+        if ( ! $the_query->have_posts() ) {
+            return null;
+        }
+
+        $current_page = get_queried_object_id();
+
+        $pages = array_filter( $the_query->posts, function ( $item ) use ( $current_page ) {
+            return $item->ID !== $current_page;
+        } );
+
+        return array_map( function ( $item ) {
+            return [
+                'url'   => get_the_permalink( $item->ID ),
+                'title' => $item->post_title,
+            ];
+        }, $pages );
     }
 }
