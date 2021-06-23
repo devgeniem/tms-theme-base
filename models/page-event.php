@@ -130,7 +130,7 @@ class PageEvent extends BaseModel {
         if ( ! empty( $event_id ) ) {
             return $event_id;
         }
-        
+
         wp_safe_redirect( $this->get_home_url() );
 
         exit();
