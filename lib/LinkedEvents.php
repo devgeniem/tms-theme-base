@@ -97,6 +97,34 @@ class LinkedEvents implements Controller {
     }
 
     /**
+     * Get event data for json+ld
+     *
+     * @param object $event Event object.
+     *
+     * @return false|string
+     */
+    public static function get_json_ld_data( $event ) {
+        $lang_key   = Localization::get_current_language();
+        $start_time = static::get_as_datetime( $event->start_time );
+        $end_time   = static::get_as_datetime( $event->end_time );
+
+        $event->name        = $event->name->{$lang_key};
+        $event->description = ( $event->description->{$lang_key} );
+
+        if ( $start_time ) {
+            $event->startDate = $start_time->format( 'Y-m-d' );
+        }
+
+        if ( $end_time ) {
+            $event->endDate = $end_time->format( 'Y-m-d' );
+        }
+
+        $event->location->address = $event->location->street_address->{$lang_key};
+
+        return wp_json_encode( $event );
+    }
+
+    /**
      * Get event date
      *
      * @param object $event Event object.
