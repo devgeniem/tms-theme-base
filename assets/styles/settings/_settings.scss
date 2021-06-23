@@ -1,3 +1,19 @@
+// Defaults for all themes (see assets/styles/theme-*.scss).
+$colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "white": ($color-white, $color-black),
+    "black": ($color-black, $color-white),
+) !default;
+
+$button-colors: (
+    "primary": ($primary, $color-white, $text, $text),
+    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
+) !default;
+
+$navbar-colors: (
+    "primary": $colors-palette-primary
+) !default;
 
 // Font sizes
 // Default sizes: https://bulma.io/documentation/modifiers/typography-helpers/

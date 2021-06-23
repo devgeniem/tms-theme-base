@@ -134,12 +134,12 @@ $button-border-radius: 1.8rem;
         $btn-pair-primary-invert: nth($pair, 2);
 
         $btn-pair-primary-text: $btn-pair-primary !default;
-        @if (nth($pair, 3)) {
+        $btn-pair-primary-text-invert: $btn-pair-primary-invert !default;
+
+        @if (length($pair) > 2) {
             $btn-pair-primary-text: nth($pair, 3);
         }
-
-        $btn-pair-primary-text-invert: $btn-pair-primary-invert !default;
-        @if (nth($pair, 4)) {
+        @if (length($pair) > 3) {
             $btn-pair-primary-text-invert: nth($pair, 4);
         }
 

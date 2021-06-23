@@ -23,9 +23,6 @@ $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
 
-$text: $black;
-$link: $primary;
-
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
 
@@ -37,8 +34,8 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": $colors-palette-primary,
-    "secondary": $colors-palette-secondary,
+    "primary": ($primary, $color-white, $color-black, $color-white),
+    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
 );
 
 $navbar-colors: (

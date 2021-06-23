@@ -3,6 +3,7 @@
 // -- Links
 a {
     transition: color $easing $speed, background-color $easing $speed;
+    color: $link;
 
     &:hover,
     &.is-hovered {
