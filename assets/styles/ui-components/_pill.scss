@@ -28,6 +28,20 @@ $pill-background-color-focus: $dark !default;
         text-decoration: none;
     }
 
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
+
+        &.is-bordered {
+            border: 2px solid $black;
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+            }
+        }
+    }
+
     &:hover {
         color: $pill-color-hover;
         background-color: $pill-background-color-hover;
@@ -80,11 +94,6 @@ $pill-background-color-focus: $dark !default;
 
     &.is-borderless {
         border-color: transparent !important;
-    }
-
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
     }
 
     &.is-active {

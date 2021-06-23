@@ -25,6 +25,11 @@ class DynamicEvent implements PostType {
     public const SLUG = 'dynamic-event-cpt';
 
     /**
+     * Cache key
+     */
+    const LINK_LIST_CACHE_KEY = 'dynamic-event-link-list';
+
+    /**
      * This defines what is shown in the url. This can
      * be different than the slug which is used to register the post type.
      *
@@ -68,6 +73,14 @@ class DynamicEvent implements PostType {
      */
     public function hooks() : void {
         add_action( 'init', \Closure::fromCallable( [ $this, 'register' ] ), 15 );
+        add_action(
+            'save_post_' . static::get_post_type(),
+            \Closure::fromCallable( [ $this, 'clear_cache' ] )
+        );
+        add_action(
+            'trash_post',
+            \Closure::fromCallable( [ $this, 'trash_post_callback' ] )
+        );
     }
 
     /**
@@ -146,5 +159,63 @@ class DynamicEvent implements PostType {
         ];
 
         register_post_type( static::SLUG, $args );
+    }
+
+    /**
+     * Called when post is trashed.
+     *
+     * @param int $post_id WP_Post ID.
+     */
+    protected function trash_post_callback( $post_id ) : void {
+        if ( $this->get_post_type() === get_post_type( $post_id ) ) {
+            $this->clear_cache();
+        }
+    }
+
+    /**
+     * Clear cache
+     */
+    protected function clear_cache() : void {
+        wp_cache_delete( self::LINK_LIST_CACHE_KEY );
+    }
+
+    /**
+     * Get link list
+     *
+     * @return array
+     */
+    public static function get_link_list() : array {
+        $cache_key      = self::LINK_LIST_CACHE_KEY;
+        $dynamic_events = wp_cache_get( $cache_key );
+
+        if ( ! empty( $dynamic_events ) ) {
+            return $dynamic_events;
+        }
+
+        $the_query = new \WP_Query( [
+            'post_type'      => self::SLUG,
+            'posts_per_page' => - 1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+            'post_status'    => 'publish',
+        ] );
+
+        $dynamic_events = [];
+
+        if ( ! $the_query->have_posts() ) {
+            return $dynamic_events;
+        }
+
+        foreach ( $the_query->posts as $dynamic_event_id ) {
+            $api_id = get_field( 'event', $dynamic_event_id );
+
+            if ( $api_id ) {
+                $dynamic_events[ $api_id ] = get_permalink( $dynamic_event_id );
+            }
+        }
+
+        wp_cache_set( $cache_key, $dynamic_events, '', HOUR_IN_SECONDS * 2 );
+
+        return $dynamic_events;
     }
 }

@@ -34,9 +34,9 @@ class SingleDynamicEventCpt extends PageEvent {
     /**
      * Get event id
      *
-     * @return string|null
+     * @return string
      */
-    protected function get_event_id() : ?string {
-        return get_field( 'event' );
+    protected function get_event_id() : string {
+        return get_field( 'event' ) ?? '';
     }
 }

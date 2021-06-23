@@ -9,6 +9,7 @@ use Closure;
 use Geniem\LinkedEvents\LinkedEventsClient;
 use Geniem\LinkedEvents\LinkedEventsException;
 use TMS\Theme\Base\Interfaces\Controller;
+use TMS\Theme\Base\PostType\DynamicEvent;
 
 /**
  * Class LinkedEvents
@@ -79,10 +80,24 @@ class LinkedEvents implements Controller {
     public static function normalize_event( $event ) : array {
         $lang_key = Localization::get_current_language();
 
+        if ( ! empty( $event->keywords ) ) {
+            $keywords = [];
+
+            foreach ( $event->keywords as $keyword ) {
+                $keywords[] = [
+                    'name' => $keyword->name->{$lang_key} ?? null,
+                ];
+            }
+        }
+
+        if ( ! empty( $event->images ) ) {
+            $image = $event->images[0]->url;
+        }
+
         return [
-            'name'              => $event->name->{$lang_key},
-            'short_description' => $event->short_description->{$lang_key},
-            'description'       => nl2br( $event->description->{$lang_key} ),
+            'name'              => $event->name->{$lang_key} ?? null,
+            'short_description' => $event->short_description->{$lang_key} ?? null,
+            'description'       => nl2br( $event->description->{$lang_key} ) ?? null,
             'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
             'time_title'        => __( 'Time', 'tms-theme-base' ),
@@ -93,6 +108,10 @@ class LinkedEvents implements Controller {
             'price'             => static::get_event_price_info( $event, $lang_key ),
             'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
             'provider'          => static::get_provider_info( $event ),
+            'keywords'          => $keywords ?? null,
+            'primary_keyword'   => empty( $keywords ) ? null : $keywords[0],
+            'image'             => $image ?? null,
+            'url'               => static::get_event_url( $event->id ),
         ];
     }
 
@@ -108,8 +127,8 @@ class LinkedEvents implements Controller {
         $start_time = static::get_as_datetime( $event->start_time );
         $end_time   = static::get_as_datetime( $event->end_time );
 
-        $event->name        = $event->name->{$lang_key};
-        $event->description = ( $event->description->{$lang_key} );
+        $event->name        = $event->name->{$lang_key} ?? null;
+        $event->description = ( $event->description->{$lang_key} ) ?? null;
 
         if ( $start_time ) {
             $event->startDate = $start_time->format( 'Y-m-d' );
@@ -165,7 +184,7 @@ class LinkedEvents implements Controller {
 
         $start_time  = static::get_as_datetime( $event->start_time );
         $end_time    = static::get_as_datetime( $event->end_time );
-        $time_format = 'H:i';
+        $time_format = 'H.i';
 
         if ( $start_time && $end_time ) {
             return sprintf(
@@ -188,12 +207,12 @@ class LinkedEvents implements Controller {
      */
     public static function get_event_location( $event, $lang_key ) {
         return [
-            'name'        => $event->location->name->{$lang_key},
-            'description' => $event->location->description->{$lang_key},
-            'extra_info'  => $event->location_extra_info->{$lang_key},
+            'name'        => $event->location->name->{$lang_key} ?? null,
+            'description' => $event->location->description->{$lang_key} ?? null,
+            'extra_info'  => $event->location_extra_info->{$lang_key} ?? null,
             'info_url'    => [
                 'title' => __( 'Additional information', 'tms-theme-base' ),
-                'link'  => $event->location->info_url->{$lang_key},
+                'link'  => $event->location->info_url->{$lang_key} ?? null,
             ],
         ];
 
@@ -231,20 +250,20 @@ class LinkedEvents implements Controller {
         }
 
         return array_map( function ( $offer ) use ( $lang_key ) {
-            $price = $offer->price->{$lang_key};
+            $price = $offer->price->{$lang_key} ?? null;
 
             if ( empty( $price ) && $offer->is_free ) {
                 $price = __( 'Free', 'tms-theme-base' );
             }
 
             return [
-                'is_free'     => $offer->is_free,
+                'is_free'     => $offer->is_free ?? null,
                 'price'       => $price,
                 'info_url'    => [
                     'title' => __( 'Additional information', 'tms-theme-base' ),
-                    'url'   => $offer->info_url->{$lang_key},
+                    'url'   => $offer->info_url->{$lang_key} ?? null,
                 ],
-                'description' => $offer->description->{$lang_key},
+                'description' => $offer->description->{$lang_key} ?? null,
             ];
 
         }, $event->offers );
@@ -259,13 +278,41 @@ class LinkedEvents implements Controller {
      */
     public static function get_provider_info( object $event ) : array {
         return [
-            'name'  => $event->provider_name,
-            'email' => $event->provider_email,
-            'phone' => $event->provider_phone,
+            'name'  => $event->provider_name ?? null,
+            'email' => $event->provider_email ?? null,
+            'phone' => $event->provider_phone ?? null,
             'link'  => [
-                'url'   => $event->provider_link,
+                'url'   => $event->provider_link ?? null,
                 'title' => __( 'Additional info', 'tms-theme-base' ),
             ],
         ];
+    }
+
+    /**
+     * Get event url
+     *
+     * @param string $event_id Event's API ID.
+     *
+     * @return string
+     */
+    public static function get_event_url( string $event_id ) : string {
+        $dynamic_events = DynamicEvent::get_link_list();
+
+        if ( isset( $dynamic_events[ $event_id ] ) ) {
+            return $dynamic_events[ $event_id ];
+        }
+
+        $event_page = Settings::get_setting( 'events_page' );
+
+        if ( $event_page ) {
+            return add_query_arg(
+                [
+                    'event-id' => $event_id,
+                ],
+                get_permalink( $event_page )
+            );
+        }
+
+        return '#';
     }
 }
