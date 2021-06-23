@@ -87,4 +87,5 @@ class Page extends BaseModel {
             return $post;
         }, $wp_query->posts );
     }
+
 }
