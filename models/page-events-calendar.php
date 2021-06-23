@@ -160,7 +160,7 @@ class PageEventsCalendar extends BaseModel {
      * @return array|null
      */
     public function calendar_pages() : ?array {
-        if ( ! Settings::get_setting('show_related_events_calendars')) {
+        if ( ! Settings::get_setting( 'show_related_events_calendars' ) ) {
             return null;
         }
 
@@ -169,7 +169,7 @@ class PageEventsCalendar extends BaseModel {
             'posts_per_page'         => 100,
             'update_post_term_cache' => false,
             'meta_key'               => '_wp_page_template',
-            'meta_value'             => "models/page-events-calendar.php",
+            'meta_value'             => 'models/page-events-calendar.php', // phpcs:ignore
             'no_found_rows'          => true,
         ] );
 
