@@ -58,19 +58,19 @@
 
             {?event.normalized.provider.email}
                 <div>
-                <a href="mailto:{event.normalized.provider.email}"
-                   class="has-text-black">
-                    {event.normalized.provider.email|s}
-                </a>
+                    <a href="mailto:{event.normalized.provider.email}"
+                       class="has-text-black">
+                        {event.normalized.provider.email|s}
+                    </a>
                 </div>
             {/event.normalized.provider.email}
 
             {?event.normalized.provider.phone}
                 <div>
-                <a href="tel:{event.normalized.provider.phone}"
-                   class="has-text-black">
-                    {event.normalized.provider.phone|s}
-                </a>
+                    <a href="tel:{event.normalized.provider.phone}"
+                       class="has-text-black">
+                        {event.normalized.provider.phone|s}
+                    </a>
                 </div>
             {/event.normalized.provider.phone}
         </div>
