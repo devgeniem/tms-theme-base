@@ -57,10 +57,10 @@ class Post implements PostType {
         }
 
         if ( $display_categories ) {
-            $categories = Category::get_post_categories( $post->ID );
+            $primary_category = Category::get_primary_category( $post->ID );
 
-            if ( ! empty( $categories ) ) {
-                $post->category = $categories[0];
+            if ( ! empty( $primary_category ) ) {
+                $post->category = $primary_category;
             }
         }
 
