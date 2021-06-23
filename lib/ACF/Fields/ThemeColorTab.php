@@ -34,6 +34,22 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
     ];
 
     /**
+     * Available color themes and their names.
+     *
+     * @var array
+     */
+    public static array $available_themes = [
+        'tunnelma'        => 'Tunnelma (Värimalli on käytössä oletuksena. Punainen ja vaalea siniharmaa.)',
+        'tummavesi'       => 'Tumma Vesi (Tumma vesi ja vaalea petrooli)',
+        'tyo'             => 'Työ (Sininen ja vaalean sininen)',
+        'havu'            => 'Havu (Tumman vihreä)',
+        'teraksensininen' => 'Teräksen sininen (Teräksen sininen ja vaalea "muutos"-pinkki)',
+        'paahde'          => 'Paahde (Keltaoranssi)',
+        'kokemus'         => 'Kokemus (Vaalean vihreä)',
+        'neutraali'       => 'Neutraali (Vaalea, neutraali värimalli, jossa korkea kontrasti)',
+    ];
+
+    /**
      * ThemeColorTab constructor.
      *
      * @param string      $label Label for the field.
@@ -59,16 +75,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
         try {
             $this->set_label( $this->strings['tab'] );
 
-            $theme_colors = apply_filters( 'tms/theme/theme_colors', [
-                'tunnelma'      => 'Tunnelma (oletus, Punainen/vaalean siniharmaa)',
-                'tummavesi'     => 'Tumma Vesi (Tumman sininen/vaalea petrooli)',
-                'tyo'           => 'Työ (Työn sininen/vaalea siniharmaa)',
-                'muutos'        => 'Muutos (Turkoosin sininen/vaalea siniharmaa)',
-                'havunvihrea'   => 'Havun vihreä (Tumma vihreä)',
-                'paahde'        => 'Paahde (Tumma keltainen)',
-                'vaaleanvihrea' => 'Vaalean vihreä (Vaalean vihreä)',
-                'turkoosi'      => 'Turkoosi (Vaalean sininen)',
-            ] );
+            $theme_colors = apply_filters( 'tms/theme/theme_colors', self::$available_themes );
 
             $theme_default_color = apply_filters(
                 'tms/theme/theme_default_color',

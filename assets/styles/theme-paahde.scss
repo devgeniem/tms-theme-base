@@ -6,16 +6,16 @@
 
 $primary: #f2ac58;
 $primary-invert: $color-black;
-$primary-light: bulmaLighten($primary, 5);
+$primary-light: bulmaLighten($primary, 10);
 $primary-light-invert: $color-black;
-$primary-dark: bulmaDarken($primary, 5);
+$primary-dark: bulmaDarken($primary, 10);
 $primary-dark-invert: $color-black;
 
-$secondary: #fffaea;
+$secondary: #f9d2a9;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 5);
+$secondary-light: bulmaLighten($secondary, 10);
 $secondary-light-invert: $color-black;
-$secondary-dark: bulmaDarken($secondary, 5);
+$secondary-dark: bulmaDarken($secondary, 10);
 $secondary-dark-invert: $color-black;
 
 $light: $primary-light;
@@ -24,7 +24,7 @@ $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
 
 $text: $black;
-$link: $primary;
+$link: $primary-dark;
 
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);

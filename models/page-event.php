@@ -120,21 +120,20 @@ class PageEvent extends BaseModel {
     }
 
     /**
-     * Get event id
+     * Get event id or redirect to home.
      *
-     * @return string|null
+     * @return string
      */
-    protected function get_event_id() : ?string {
+    protected function get_event_id() : string {
         $event_id = get_query_var( 'event-id', null );
 
-        if ( empty( $event_id ) ) {
-            wp_safe_redirect( $this->get_home_url() );
-
-            return null;
-        }
-        else {
+        if ( ! empty( $event_id ) ) {
             return $event_id;
         }
+
+        wp_safe_redirect( $this->get_home_url() );
+
+        exit();
     }
 
     /**

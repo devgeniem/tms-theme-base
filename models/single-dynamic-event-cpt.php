@@ -13,6 +13,9 @@ use TMS\Theme\Base\Traits\Components;
  */
 class SingleDynamicEventCpt extends PageEvent {
 
+    /**
+     * Hooks
+     */
     public function hooks() : void {
         add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
     }
@@ -31,9 +34,9 @@ class SingleDynamicEventCpt extends PageEvent {
     /**
      * Get event id
      *
-     * @return string|null
+     * @return string
      */
-    protected function get_event_id() : ?string {
-        return get_field( 'event' );
+    protected function get_event_id() : string {
+        return get_field( 'event' ) ?? '';
     }
 }
