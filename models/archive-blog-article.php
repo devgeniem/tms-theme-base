@@ -10,7 +10,17 @@ use TMS\Theme\Base\PostType\BlogArticle;
 /**
  * The Archive class.
  */
-class ArchiveBlogArticle extends Archive {
+class ArchiveBlogArticle extends Home {
+
+    /**
+     * Hooks
+     */
+    public static function hooks() : void {
+        add_action(
+            'pre_get_posts',
+            [ __CLASS__, 'modify_query' ]
+        );
+    }
 
     /**
      * Get the blog title.
@@ -54,13 +64,46 @@ class ArchiveBlogArticle extends Archive {
      * @return object|null
      */
     public function highlight() : ?object {
-        $highlight = Settings::get_setting( 'blog_archive_highlight' );
+        $highlight = self::get_highlight();
 
         if ( empty( $highlight ) ) {
             return null;
         }
 
         return BlogArticle::enrich_post( $highlight, Category::has_multiple() );
+    }
+
+    /**
+     * Modify query
+     *
+     * @param WP_Query $wp_query Instance of WP_Query.
+     *
+     * @return void
+     */
+    public static function modify_query( WP_Query $wp_query ) : void {
+        if (
+            is_admin() ||
+            ( ! $wp_query->is_main_query() || ! $wp_query->is_post_type_archive( BlogArticle::SLUG ) )
+        ) {
+            return;
+        }
+
+        $highlight = self::get_highlight();
+
+        if ( ! empty( $highlight ) ) {
+            $wp_query->set( 'post__not_in', [ $highlight->ID ] );
+        }
+
+        static::modify_query_date( $wp_query );
+    }
+
+    /**
+     * Get highlight post
+     *
+     * @return mixed
+     */
+    protected static function get_highlight() {
+        return Settings::get_setting( 'blog_archive_highlight' );
     }
 
     /**

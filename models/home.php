@@ -98,6 +98,12 @@ class Home extends BaseModel {
             $wp_query->set( 'cat', $filter_category );
         }
 
+        $highlight = self::get_highlight();
+
+        if ( ! empty( $highlight ) ) {
+            $wp_query->set( 'post__not_in', [ $highlight->ID ] );
+        }
+
         static::modify_query_date( $wp_query );
     }
 
@@ -174,7 +180,7 @@ class Home extends BaseModel {
      * @return object|null
      */
     public function highlight() : ?object {
-        $highlight = get_field( 'highlight', get_option( 'page_for_posts' ) );
+        $highlight = self::get_highlight();
 
         if ( empty( $highlight ) ) {
             return null;
@@ -309,6 +315,15 @@ class Home extends BaseModel {
         $this->pagination->per_page = $per_page;
         $this->pagination->items    = $wp_query->found_posts;
         $this->pagination->max_page = (int) ceil( $wp_query->found_posts / $per_page );
+    }
+
+    /**
+     * Get highlight post
+     *
+     * @return mixed
+     */
+    protected static function get_highlight() {
+        return get_field( 'highlight', get_option( 'page_for_posts' ) );
     }
 
     /**
