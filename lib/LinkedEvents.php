@@ -31,11 +31,33 @@ class LinkedEvents implements Controller {
      * Admin event search callback
      */
     protected function admin_event_search_callback() : void {
-        $params = $_GET['params']; // phpcs:ignore
-        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        $params  = $_GET['params'] ?? []; // phpcs:ignore
+        $post_id = $_GET['post_id'] ?? 0; // phpcs:ignore
+        $event   = get_field( 'event', $post_id );
+        $client  = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+
+        $empty_params = array_filter( $params, fn( $item ) => empty( $item ) );
+
+        if ( count( $empty_params ) === count( $params ) ) {
+            wp_send_json( [] );
+        }
 
         try {
-            $events = $client->get_all( 'event', $params );
+            $cache_key = 'events-' . md5( wp_json_encode( $params ) );
+            $events    = wp_cache_get( $cache_key );
+
+            if ( ! $events ) {
+                $events = $client->get_all( 'event', $params );
+                wp_cache_set( $cache_key, $events, '', MINUTE_IN_SECONDS * 15 );
+            }
+
+            $events = array_map( function ( $item ) use ( $event ) {
+                $start_time        = static::get_as_datetime( $item->start_time );
+                $item->select_name = $item->name->fi . ' - ' . $start_time->format( 'j.n.Y' );
+                $item->selected    = $item->id === $event;
+
+                return $item;
+            }, $events );
         }
         catch ( LinkedEventsException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
@@ -61,19 +83,14 @@ class LinkedEvents implements Controller {
             'name'              => $event->name->{$lang_key},
             'short_description' => $event->short_description->{$lang_key},
             'description'       => nl2br( $event->description->{$lang_key} ),
-
             'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
-
             'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
-
             'location_title'    => __( 'Location', 'tms-theme-base' ),
             'location'          => static::get_event_location( $event, $lang_key ),
-
             'price_title'       => __( 'Price', 'tms-theme-base' ),
             'price'             => static::get_event_price_info( $event, $lang_key ),
-
             'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
             'provider'          => static::get_provider_info( $event ),
         ];

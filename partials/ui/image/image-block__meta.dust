@@ -1,0 +1,12 @@
+<div class="columns image-block__meta pt-2{?author_name} is-reversed{/author_name}">
+    {?author_name}
+        <div class="column is-2 has-text-right image-block__author-name">
+            {author_name|s}
+        </div>
+    {/author_name}
+    {?caption}
+        <div class="column keep-vertical-spacing image-block__caption">
+            {caption|s}
+        </div>
+    {/caption}
+</div>

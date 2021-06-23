@@ -58,6 +58,7 @@
     } @else {
         // This is the default bulma way of color variation generation
         $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
 
         .has-text-#{$name} {
             color: $color !important;
@@ -72,6 +73,30 @@
 
         .has-background-#{$name} {
             background-color: $color !important;
+
+            &-invert,
+            &.is-inverted {
+                background-color: $color-invert !important;
+            }
+        }
+
+        .has-colors-#{$name} {
+            color: $color-invert !important;
+            background-color: $color !important;
+
+            .icon {
+                fill: $color-invert;
+            }
+
+            &-invert,
+            &.is-inverted {
+                color: $color !important;
+                background-color: $color-invert !important;
+
+                .icon {
+                    fill: $color;
+                }
+            }
         }
 
         @if length($pair) >= 4 {

@@ -5,8 +5,8 @@ $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
 $pill-background-active-focus: $primary-dark !default;
-$pill-background-color-hover: $color-siniharmaa-75 !default;
-$pill-background-color-focus: $color-siniharmaa !default;
+$pill-background-color-hover: opacify($secondary-light, .75) !default;
+$pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
@@ -28,11 +28,6 @@ $pill-background-color-focus: $dark !default;
         text-decoration: none;
     }
 
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
-    }
-
     &:hover {
         color: $pill-color-hover;
         background-color: $pill-background-color-hover;
@@ -41,6 +36,55 @@ $pill-background-color-focus: $dark !default;
     &:focus,
     &:active {
         background-color: $pill-background-color-focus;
+    }
+
+    &.is-primary {
+        color: $primary-invert;
+        background-color: $primary;
+        border-color: $primary;
+
+        &:hover,
+        &.is-hovered {
+            color: $primary-invert;
+            background-color: bulmaDarken($primary, 2.5%);
+            border-color: transparent;
+        }
+
+        &:focus,
+        &.is-focused {
+            color: $primary;
+            background-color: $primary-invert;
+            border-color: $color-black;
+        }
+
+        &-invert,
+        &.is-inverted {
+            color: $primary;
+            background-color: $primary-invert;
+            border-color: $primary;
+
+            &:hover,
+            &.is-hovered {
+                color: $primary-invert;
+                background-color: bulmaDarken($primary, 2.5%);
+            }
+
+            &:focus,
+            &.is-focused {
+                color: $primary-invert;
+                background-color: $pill-background-color-focus;
+                border-color: $button-border-color-focus;
+            }
+        }
+    }
+
+    &.is-borderless {
+        border-color: transparent !important;
+    }
+
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
     }
 
     &.is-active {

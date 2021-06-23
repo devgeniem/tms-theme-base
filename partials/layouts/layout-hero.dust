@@ -9,11 +9,11 @@
             <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
 
             <button class="hero__control hero__control--play" aria-hidden="true" tabindex="-1">
-                {>"ui/icon" icon="play" class="icon--xxlarge"  /}
+                {>"ui/icon" icon="play" class="icon--xxxlarge"  /}
             </button>
 
             <button class="hero__control hero__control--pause" aria-hidden="true" tabindex="-1">
-                {>"ui/icon" icon="pause" class="icon--xxlarge"  /}
+                {>"ui/icon" icon="pause" class="icon--xxxlarge"  /}
             </button>
         </div>
     {/video}
@@ -24,7 +24,7 @@
                 <div class="column">
                     <div class="hero__box is-relative {box_classes|s}">
                         {?title}
-                            <h1 class="mt-0 h2">
+                            <h1 class="mt-0 h2 no-hyphens">
                                 {title|s}
                             </h1>
                         {/title}

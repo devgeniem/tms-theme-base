@@ -14,6 +14,13 @@ use TMS\Theme\Base\Traits\Components;
 class SingleDynamicEventCpt extends PageEvent {
 
     /**
+     * Hooks
+     */
+    public function hooks() : void {
+        add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
+    }
+
+    /**
      * Hero image
      *
      * @return false|int

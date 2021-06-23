@@ -5,11 +5,14 @@
 
 use DustPress\Model;
 use TMS\Theme\Base\Settings;
+use TMS\Theme\Base\Traits;
 
 /**
  * Header class
  */
 class Header extends Model {
+
+    use Traits\Breadcrumbs;
 
     /**
      * Get logo
@@ -142,5 +145,102 @@ class Header extends Model {
                 ? ''
                 : trailingslashit( $current_lang )
         );
+    }
+
+    /**
+     * Breadcrumbs
+     *
+     * @return array
+     */
+    public function breadcrumbs() : array {
+        $current_object = get_queried_object();
+
+        if ( $current_object === null || empty( $current_object ) ) {
+            return [];
+        }
+
+        $breadcrumbs  = [];
+        $home_url     = trailingslashit( get_home_url() );
+        $current_id   = (int) $current_object->ID;
+        $current_type = (string) $current_object->post_type;
+
+        $breadcrumbs['home'] = $this->get_home_link();
+
+        $breadcrumbs = $this->get_ancestors( $current_id, $current_type, $breadcrumbs );
+        $breadcrumbs = $this->prepare_by_type( $current_type, $current_id, $home_url, $breadcrumbs );
+
+        return (array) apply_filters(
+            'tms/theme/breadcrumbs/' . $current_type,
+            $this->format_breadcrumbs( $breadcrumbs ),
+            $breadcrumbs,
+            $current_object
+        );
+    }
+
+    /**
+     * Display helper function.
+     *
+     * If subpage / view wants to display the breadcrumbs bar somewhere else,
+     * this method can be overridden with a filter.
+     *
+     * @return bool
+     */
+    public function show_breadcrumbs_in_header() {
+        $default = true;
+        $status  = apply_filters(
+            'tms/theme/breadcrumbs/show_breadcrumbs_in_header',
+            $default,
+            get_queried_object()
+        );
+
+        return is_bool( $status ) ? $status : (bool) $status;
+    }
+
+    /**
+     * Exception notice.
+     *
+     * @return array|bool
+     */
+    public function exception_notice() {
+        $text         = Settings::get_setting( 'exception_text' );
+        $exception_id = md5( $text );
+
+        if ( empty( $text ) || isset( $_COOKIE[ $exception_id ] ) ) {
+            return false;
+        }
+
+        return [
+            'message' => $text,
+            'id'      => $exception_id,
+        ];
+    }
+
+    /**
+     * Get custom scripts from Site Settings.
+     *
+     * @return false|mixed
+     */
+    public function head_custom_scripts() {
+        $head_scripts = Settings::get_setting( 'header_scripts' );
+
+        return ( ! empty( $head_scripts ) ) ? $head_scripts : false;
+    }
+
+    /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        return Settings::get_setting( 'hide_search' );
+    }
+
+    /**
+     * Check if navigation menu exists
+     *
+     * @return bool
+     */
+    public function has_nav_menu() : bool {
+        return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
     }
 }

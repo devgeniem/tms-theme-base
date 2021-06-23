@@ -11,6 +11,7 @@ import Hero from './hero';
 import Table from './table';
 import Image from './image';
 import Modal from './modal';
+import ImageCarousel from './image-carousel';
 import Header from './header';
 import BackToTop from './back-to-top';
 import Hyphenation from './hyphenation';
@@ -18,6 +19,7 @@ import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 import Home from './home';
+import Sitemap from './sitemap';
 
 const globalControllers = {
     Common,
@@ -28,6 +30,7 @@ const globalControllers = {
     Table,
     Image,
     Modal,
+    ImageCarousel,
     Header,
     BackToTop,
     Hyphenation,
@@ -35,6 +38,7 @@ const globalControllers = {
     PrimaryNav,
     Dropdown,
     Home,
+    Sitemap,
 };
 
 const templateControllers = {

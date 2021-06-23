@@ -1,0 +1,65 @@
+{?rows}
+<div class="section image-carousel layout-image-carousel mt-8 mb-8 p-8">
+    <div class="container keep-vertical-spacing">
+        <div class="columns is-multiline">
+
+            {?title}
+                <h3 id="{carousel_id}-title" class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3">
+                    {title|s}
+                </h3>
+            {/title}
+
+            {?description}
+                <div class="image-carousel__description column is-half is-offset-one-quarter has-text-lead has-text-centered mt-0 mb-6">
+                    {description|s}
+                </div>
+            {/description}
+
+            <div class="image-carousel__items column is-full image-carousel__items--primary"
+                id="{carousel_id}" data-slider-for="{carousel_id}-modal-carousel">
+                {#rows}
+                    <div class="image-carousel__item" id="{id}">
+                        {! Modal trigger !}
+                        <button
+                            class="image modal-trigger"
+                            data-modal-button
+                            data-target="{carousel_id}-modal"
+                            aria-controls="{carousel_id}-modal"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            aria-label="{translations.open}"
+                        >
+                            {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                        </button>
+                    </div>
+                {/rows}
+            </div>
+
+        </div>
+    </div>
+
+    {! The modal !}
+    <div id="{carousel_id}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{carousel_id}">
+        <div class="modal-background"></div>
+
+        <button class="button modal-close-button is-primary is-flex is-align-self-flex-end image-carousel__modal-control">
+            <span class="modal-close-button__text">{translations.close}</span>
+            {>"ui/icon" icon="close" class="icon--medium" /}
+        </button>
+        <div class="modal-content">
+
+            {! Slider inside the modal !}
+            <div class="image-carousel__items image-carousel__items--modal column is-full" id="{carousel_id}-modal-carousel" data-slider-for="{carousel_id}">
+                {#rows}
+                    <div class="image-carousel__item" id="{id}-modal">
+                        {@image id=image.id alt=image.alt title=image.description size="fullhd" width="{image.sizes.fullhd-width}" height="{image.sizes.fullhd-height}" loading="" /}
+
+                        {>"ui/image/image-block__meta" /}
+                    </div>
+                {/rows}
+            </div>
+
+        </div>
+    </div>
+</div>
+{/rows}

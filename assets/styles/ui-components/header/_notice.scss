@@ -1,0 +1,16 @@
+.site-header-notice {
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @include from($tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__button-wrapper {
+        text-align: right;
+    }
+}
