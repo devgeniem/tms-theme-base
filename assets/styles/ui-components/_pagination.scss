@@ -2,8 +2,8 @@ $pagination-item-color: $secondary-invert !default;
 $pagination-item-color-current: $primary-invert !default;
 
 $pagination-item-background-color: $secondary !default;
-$pagination-item-background-color-hover: $color-siniharmaa-75 !default;
-$pagination-item-background-color-focus: $color-siniharmaa !default;
+$pagination-item-background-color-hover: opacify($secondary-light, .75) !default;
+$pagination-item-background-color-focus: $secondary-light !default;
 $pagination-item-background-color-current: $primary !default;
 $pagination-item-background-color-current-hover: $primary-dark !default;
 $pagination-item-background-color-current-focus: $primary-dark !default;
