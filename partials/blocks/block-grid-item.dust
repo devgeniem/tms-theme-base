@@ -9,7 +9,7 @@
         {/description}
 
         {?link}
-            <a href="{link.url}" target="{link.target}" class="button {display}-invert ml-auto mr-auto mt-2">{link.title}</a>
+            <a href="{link.url}" target="{link.target}" class="button {button} ml-auto mr-auto mt-2">{link.title}</a>
         {/link}
     </div>
     <div class="image is-square is-clipped">

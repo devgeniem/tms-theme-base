@@ -2,12 +2,14 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+$lang-nav-link-border: $primary !default;
+
 .lang-nav {
     &--horizontal {
         a {
             width: 2.375rem;
             height: 2.375rem;
-            border: 1px solid $primary;
+            border: 1px solid $lang-nav-link-border;
 
             @include from($tablet) {
                 width: 2.2359rem;
