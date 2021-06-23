@@ -193,7 +193,7 @@ class DynamicEvent implements PostType {
         }
 
         $the_query = new \WP_Query( [
-            'post_type'      => DynamicEvent::SLUG,
+            'post_type'      => self::SLUG,
             'posts_per_page' => - 1,
             'fields'         => 'ids',
             'no_found_rows'  => true,

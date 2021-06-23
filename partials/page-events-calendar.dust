@@ -1,0 +1,44 @@
+{>"shared/base" /}
+
+{<content}
+    {#PageEventsCalendar}
+        <main class="main-content section" id="main-content">
+            <div class="container">
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <h1 class="mt-0">
+                            {@title /}
+                        </h1>
+                    </div>
+                </div>
+
+                {?is_grid}
+                    <div class="columns is-multiline">
+                        {#events}
+                            <div class="column is-6 is-4-desktop">
+                                {>"{item_partial}" /}
+                            </div>
+                        {/events}
+                    </div>
+                {:else}
+                    <div class="columns">
+                        <div class="column is-10-desktop is-offset-1-desktop">
+                            {#events}
+                                {>"{item_partial}" /}
+                            {/events}
+                        </div>
+                    </div>
+                {/is_grid}
+
+                {?pagination}
+                    <div class="columns mt-8">
+                        <div class="column has-text-centered">
+                            {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
+                        </div>
+                    </div>
+                {/pagination}
+            </div>
+        </main>
+    {/PageEventsCalendar}
+{/content}
+

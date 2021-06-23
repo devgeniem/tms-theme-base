@@ -38,10 +38,7 @@ class LinkedEvents implements Controller {
         try {
             $events = $client->get_all( 'event', $params );
         }
-        catch ( LinkedEventsException $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
-        catch ( \JsonException $e ) {
+        catch ( LinkedEventsException | \JsonException $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
 
@@ -105,8 +102,8 @@ class LinkedEvents implements Controller {
         $start_time = static::get_as_datetime( $event->start_time );
         $end_time   = static::get_as_datetime( $event->end_time );
 
-        $event->name        = $event->name->{$lang_key};
-        $event->description = ( $event->description->{$lang_key} );
+        $event->name        = $event->name->{$lang_key} ?? null;
+        $event->description = $event->description->{$lang_key} ?? null;
 
         if ( $start_time ) {
             $event->startDate = $start_time->format( 'Y-m-d' );
