@@ -4,5 +4,5 @@
         aria-expanded="false"
         aria-label="{Strings.s.header.open_search|s}">
     {Strings.s.header.search|s}
-    {>"ui/icon" icon="search" class="icon--large is-primary"  /}
+    {>"ui/icon" icon="search" class="icon--large is-primary-invert"  /}
 </button>

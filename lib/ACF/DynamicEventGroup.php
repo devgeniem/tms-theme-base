@@ -168,6 +168,7 @@ class DynamicEventGroup {
             $event_field = ( new Field\Select( $strings['event']['label'] ) )
                 ->set_key( "${key}_event" )
                 ->set_name( 'event' )
+                ->allow_null()
                 ->use_ui()
                 ->set_instructions( $strings['event']['instructions'] );
 
@@ -322,6 +323,8 @@ class DynamicEventGroup {
                 Layouts\SocialMediaLayout::class,
                 Layouts\MapLayout::class,
                 Layouts\EventsLayout::class,
+                Layouts\ArticlesLayout::class,
+                Layouts\ImageCarouselLayout::class,
             ]
         );
 
