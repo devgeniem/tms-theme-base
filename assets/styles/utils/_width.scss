@@ -11,5 +11,11 @@
                 width: 100%;
             }
         }
+
+        &-until-desktop {
+            @include until($desktop) {
+                width: 100%;
+            }
+        }
     }
 }
