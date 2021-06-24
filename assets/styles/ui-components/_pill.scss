@@ -101,6 +101,16 @@ $pill-background-color-focus: $dark !default;
         border-color: transparent !important;
     }
 
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
+
+        &:hover,
+        &.is-hovered {
+            text-decoration: underline;
+        }
+    }
+
     &.is-active {
         color: $pill-color-active;
         background-color: $pill-background-active;

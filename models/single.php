@@ -4,6 +4,8 @@
  */
 
 use DustPress\Query;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
+use TMS\Theme\Base\Taxonomy\BlogTag;
 use TMS\Theme\Base\Taxonomy\Category;
 use TMS\Theme\Base\Taxonomy\PostTag;
 use TMS\Theme\Base\Traits;
@@ -30,8 +32,14 @@ class Single extends BaseModel {
             ? false
             : $single->image;
 
-        $single->categories = Category::get_post_categories( $single->ID );
-        $single->tags       = PostTag::get_post_tags( $single->ID );
+        if ( 'blog-article' === $single->post_type ) {
+            $single->categories = BlogCategory::get_post_categories( $single->ID );
+            $single->tags       = BlogTag::get_post_categories( $single->ID );
+        }
+        else {
+            $single->categories = Category::get_post_categories( $single->ID );
+            $single->tags       = PostTag::get_post_tags( $single->ID );
+        }
 
         return $single;
     }

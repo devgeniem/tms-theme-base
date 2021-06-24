@@ -5,6 +5,9 @@
 
 namespace TMS\Theme\Base;
 
+use TMS\Theme\Base\Taxonomy\BlogCategory;
+use TMS\Theme\Base\Taxonomy\BlogTag;
+
 /**
  * Class Localization
  *
@@ -27,6 +30,13 @@ class Localization implements Interfaces\Controller {
         \add_filter(
             'pll_get_post_types',
             \Closure::fromCallable( [ $this, 'add_cpts_to_polylang' ] ),
+            10,
+            2
+        );
+
+        \add_filter(
+            'pll_get_taxonomies',
+            \Closure::fromCallable( [ $this, 'add_tax_to_polylang' ] ),
             10,
             2
         );
@@ -93,5 +103,20 @@ class Localization implements Interfaces\Controller {
         $post_types[ PostType\BlogArticle::SLUG ] = PostType\BlogArticle::SLUG;
 
         return $post_types;
+    }
+
+    /**
+     * This adds the taxonomies that are not public to Polylang translation.
+     *
+     * @param array   $tax_types   The taxonomy type array.
+     * @param boolean $is_settings A not used boolean flag to see if we're in settings.
+     *
+     * @return array The modified tax_types -array.
+     */
+    protected function add_tax_to_polylang( $tax_types, $is_settings ) : array { // phpcs:ignore
+        $tax_types[ BlogCategory::SLUG ] = BlogCategory::SLUG;
+        $tax_types[ BlogTag::SLUG ]      = BlogTag::SLUG;
+
+        return $tax_types;
     }
 }
