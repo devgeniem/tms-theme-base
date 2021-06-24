@@ -9,7 +9,7 @@ use TMS\Theme\Base\PostType\BlogArticle;
 use TMS\Theme\Base\Traits\Pagination;
 
 /**
- * The Archive class.
+ * The ArchiveBlogArticle class.
  */
 class ArchiveBlogArticle extends Home {
 
