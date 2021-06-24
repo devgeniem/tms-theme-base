@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- TMS-102-3: Fix sibling navigation href #91
 - Fixes to codestyle, texts, colors and spacings #88
 - TMS-97: Fix button styles #86
 
