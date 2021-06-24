@@ -5,7 +5,10 @@
 
 namespace TMS\Theme\Base\PostType;
 
-use \TMS\Theme\Base\Interfaces\PostType;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
+use TMS\Theme\Base\Taxonomy\BlogTag;
+use TMS\Theme\Base\Traits\EnrichPost;
+use TMS\Theme\Base\Traits\Categories;
 
 /**
  * Settings
@@ -18,6 +21,8 @@ use \TMS\Theme\Base\Interfaces\PostType;
  * @package TMS\Theme\Base\PostType
  */
 class BlogArticle extends Post {
+
+    use EnrichPost;
 
     /**
      * This defines the slug of this post type.
@@ -143,9 +148,20 @@ class BlogArticle extends Post {
             'has_archive'   => true,
             'rewrite'       => $rewrite,
             'show_in_rest'  => true,
-            'taxonomies'    => [ 'category', 'post_tag' ],
+            'taxonomies'    => [ BlogCategory::SLUG, BlogTag::SLUG ],
         ];
 
         register_post_type( static::SLUG, $args );
+    }
+
+    /**
+     * Get primary category.
+     *
+     * @param string $post_id Post ID.
+     *
+     * @return \WP_Term|null
+     */
+    public static function get_primary_category( $post_id ) {
+        return BlogCategory::get_primary_category( $post_id );
     }
 }

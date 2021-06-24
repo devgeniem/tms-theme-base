@@ -4,13 +4,16 @@
  */
 
 use TMS\Theme\Base\Settings;
-use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
 use TMS\Theme\Base\PostType\BlogArticle;
+use TMS\Theme\Base\Traits\Pagination;
 
 /**
  * The Archive class.
  */
 class ArchiveBlogArticle extends Home {
+
+    use Pagination;
 
     /**
      * Hooks
@@ -70,7 +73,29 @@ class ArchiveBlogArticle extends Home {
             return null;
         }
 
-        return BlogArticle::enrich_post( $highlight, Category::has_multiple() );
+        return BlogArticle::enrich_post( $highlight, BlogCategory::has_multiple() );
+    }
+
+    /**
+     * Get articles
+     *
+     * @return array|null
+     */
+    public function articles() : ?array {
+        global $wp_query;
+
+        if ( empty( $wp_query->posts ) ) {
+            return [];
+        }
+
+        $this->set_pagination_data( $wp_query );
+
+        $display_categories = BlogCategory::has_multiple();
+        $use_images         = Settings::get_setting( 'archive_use_images' ) ?? true;
+
+        return array_map( function ( $article ) use ( $display_categories, $use_images ) {
+            return BlogArticle::enrich_post( $article, $display_categories, $use_images );
+        }, $wp_query->posts );
     }
 
     /**
@@ -112,7 +137,10 @@ class ArchiveBlogArticle extends Home {
      * @return array
      */
     protected function get_filter_categories() : array {
-        $categories = get_categories();
+        $categories = get_terms( [
+            'taxonomy'   => BlogCategory::SLUG,
+            'hide_empty' => true,
+        ] );
 
         if ( empty( $categories ) ) {
             return [];

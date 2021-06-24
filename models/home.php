@@ -6,11 +6,14 @@
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Traits\Pagination;
 
 /**
  * The Home class.
  */
 class Home extends BaseModel {
+
+    use Pagination;
 
     /**
      * Pagination data.
@@ -324,20 +327,5 @@ class Home extends BaseModel {
      */
     protected static function get_highlight() {
         return get_field( 'highlight', get_option( 'page_for_posts' ) );
-    }
-
-    /**
-     * Returns pagination data.
-     *
-     * @return object
-     */
-    public function pagination() : ?object {
-        if ( isset( $this->pagination->page ) && isset( $this->pagination->max_page ) ) {
-            if ( $this->pagination->page <= $this->pagination->max_page ) {
-                return $this->pagination;
-            }
-        }
-
-        return null;
     }
 }
