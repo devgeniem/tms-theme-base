@@ -48,8 +48,16 @@
                     </div>
                 {/is_grid}
 
+                {?no_results}
+                    <div class="columns">
+                        <div class="column is-6 is-offset-3 has-text-centered is-size-4">
+                            {no_results|s}
+                        </div>
+                    </div>
+                {/no_results}
+
                 {?pagination}
-                    <div class="columns mt-8">
+                    <div class="columns mt-8 mb-4">
                         <div class="column has-text-centered">
                             {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
                         </div>

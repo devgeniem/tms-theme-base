@@ -26,7 +26,7 @@
                 </a>
             </h3>
 
-            <div class="is-flex">
+            <div class="is-flex is-flex-wrap-wrap">
                 <div class="is-flex is-align-items-center mt-2 mb-2 mr-4">
                     <span class="is-flex" aria-label="{Strings.s.event.date|s}">
                         {>"ui/icon" icon="date" class="icon--large is-primary mr-2" /}
@@ -46,7 +46,7 @@
                 {?location.name}
                     <div class="is-flex is-align-items-center mt-2 mb-2">
                         <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                            {>"ui/icon" icon="location" class="icon--large is-primary mr-2" /}
+                            {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2" /}
                         </span>
 
                         {location.name|s}

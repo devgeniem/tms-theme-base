@@ -12,9 +12,6 @@ $pagination-item-background-color-current-focus: $primary-dark !default;
     @include list-reset;
 
     .pagination-item {
-        margin-right: .35rem;
-        margin-left: .35rem;
-
         a {
             display: flex;
             justify-content: center;
@@ -49,6 +46,12 @@ $pagination-item-background-color-current-focus: $primary-dark !default;
                 }
             }
         }
+    }
+
+    .pagination-item,
+    .unavailable,
+    .arrow {
+        margin: 0 .35rem .7rem;
     }
 
     .paginate {

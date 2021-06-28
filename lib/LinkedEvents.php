@@ -109,6 +109,7 @@ class LinkedEvents implements Controller {
             'primary_keyword'   => empty( $keywords ) ? null : $keywords[0],
             'image'             => $image ?? null,
             'url'               => static::get_event_url( $event->id ),
+            'is_virtual_event'  => $event->is_virtualevent,
         ];
     }
 
