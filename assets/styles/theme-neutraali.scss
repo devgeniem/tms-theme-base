@@ -36,9 +36,12 @@ $colors: (
     "black": ($color-black, $color-white),
 );
 
+$button-text-primary: $text;
+$button-text-invert: $text;
+
 $button-colors: (
-    "primary": ($primary, $primary-invert, $color-white, $text),
-    "secondary": ($secondary, $secondary-invert, $color-white, $text),
+    "primary": ($primary, $primary-invert, $color-white, $button-text-primary),
+    "secondary": ($secondary, $secondary-invert, $color-white, $button-text-primary),
 );
 
 $color-background-primary-light--opaque-light: $secondary;

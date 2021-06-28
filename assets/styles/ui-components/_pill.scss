@@ -10,6 +10,8 @@ $pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
+$pill-border-color-focus: $black !default;
+
 .pill {
     font-family: $family-secondary;
     font-size: 85%;
@@ -92,7 +94,7 @@ $pill-background-color-focus: $dark !default;
             &.is-focused {
                 color: $primary-invert;
                 background-color: $pill-background-color-focus;
-                border-color: $button-border-color-focus;
+                border-color: $pill-border-color-focus;
             }
         }
     }
