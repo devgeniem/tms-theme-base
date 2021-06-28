@@ -27,6 +27,11 @@ class MapFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'tms/acf/layout/map/data',
             [ $this, 'format' ]
         );
+
+        add_filter(
+            'tms/acf/block/map/data',
+            [ $this, 'format' ]
+        );
     }
 
     /**
@@ -43,11 +48,13 @@ class MapFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $layout['map_button_text'] = Settings::get_setting( 'map_button_text' );
         $layout['placeholder']     = $placeholder ?: false;
 
-        preg_match( '/src="([^"]+)"/', $layout['embed'], $match );
+        if ( ! empty( $layout['embed'] ) ) {
+            preg_match( '/src="([^"]+)"/', $layout['embed'], $match );
 
-        $layout['embed_url'] = ! empty( $match[1] )
-            ? $match[1]
-            : false;
+            $layout['embed_url'] = ! empty( $match[1] )
+                ? $match[1]
+                : false;
+        }
 
         return $layout;
     }
