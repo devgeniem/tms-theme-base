@@ -46,6 +46,20 @@ $button-border-radius: 1.8rem;
     filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
 }
 
+.button-states {
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused {
+        @extend .button-state-hover;
+    }
+
+    &:focus,
+    &.is-focused {
+        @extend .button-state-focus;
+    }
+}
+
 .button {
     @extend %control;
     @extend %unselectable;
@@ -158,32 +172,18 @@ $button-border-radius: 1.8rem;
             &:focus,
             &.is-focused {
                 @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary);
-                @extend .button-state-hover;
             }
 
-            &:focus,
-            &.is-focused {
-                @extend .button-state-focus;
-            }
+            @extend .button-states;
 
             &.is-outlined {
                 &,
                 &:active,
                 &.is-active {
-                    @include button_colors(transparent, $btn-pair-primary-text, $btn-pair-primary);
+                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
-                &:hover,
-                &.is-hovered,
-                &:focus,
-                &.is-focused {
-                    @extend .button-state-hover;
-                }
-
-                &:focus,
-                &.is-focused {
-                    @extend .button-state-focus;
-                }
+                @extend .button-states;
             }
 
             &.is-borderless {
@@ -194,17 +194,7 @@ $button-border-radius: 1.8rem;
                     border-color: transparent !important;
                 }
 
-                &:hover,
-                &.is-hovered,
-                &:focus,
-                &.is-focused {
-                    @extend .button-state-hover;
-                }
-
-                &:focus,
-                &.is-focused {
-                    @extend .button-state-focus;
-                }
+                @extend .button-states;
             }
 
             &-invert,
@@ -220,32 +210,18 @@ $button-border-radius: 1.8rem;
                 &:focus,
                 &.is-focused {
                     @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-invert);
-                    @extend .button-state-hover;
                 }
 
-                &:focus,
-                &.is-focused {
-                    @extend .button-state-focus;
-                }
+                @extend .button-states;
 
                 &.is-outlined {
                     &,
                     &:active,
                     &.is-active {
-                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-invert);
+                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
-                    &:hover,
-                    &.is-hovered,
-                    &:focus,
-                    &.is-focused {
-                        @extend .button-state-hover;
-                    }
-
-                    &:focus,
-                    &.is-focused {
-                        @extend .button-state-focus;
-                    }
+                    @extend .button-states;
                 }
 
                 &.is-borderless {
@@ -256,17 +232,7 @@ $button-border-radius: 1.8rem;
                         border-color: transparent !important;
                     }
 
-                    &:hover,
-                    &.is-hovered,
-                    &:focus,
-                    &.is-focused {
-                        @extend .button-state-hover;
-                    }
-
-                    &:focus,
-                    &.is-focused {
-                        @extend .button-state-focus;
-                    }
+                    @extend .button-states;
                 }
             }
         }
