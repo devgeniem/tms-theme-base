@@ -59,7 +59,9 @@
                                         <div class="entry__blog-author-text pl-5-desktop">
                                             <p class="h5 mt-4 mt-0-desktop">{post_title|s}</p>
 
-                                            <p>{post_content|s}</p>
+                                            {?post_excerpt}
+                                                <p>{post_excerpt|s}</p>
+                                            {/post_excerpt}
                                         </div>
                                     </div>
                                 {/blog_authors}

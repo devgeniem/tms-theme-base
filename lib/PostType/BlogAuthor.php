@@ -129,7 +129,7 @@ class BlogAuthor implements PostType {
             'supports'      => [
                 'title',
                 'thumbnail',
-                'editor',
+                'excerpt',
             ],
             'hierarchical'  => false,
             'public'        => false,
