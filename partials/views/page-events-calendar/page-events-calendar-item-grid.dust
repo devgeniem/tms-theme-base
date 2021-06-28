@@ -44,7 +44,7 @@
         {?location.name}
             <div class="is-flex is-align-items-center mt-2 mb-2">
                 <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                    {>"ui/icon" icon="location" class="icon--large is-primary mr-2" /}
+                    {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2" /}
                 </span>
 
                 {location.name|s}

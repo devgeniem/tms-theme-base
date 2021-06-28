@@ -45,6 +45,26 @@ class PageEventsCalendar extends BaseModel {
     }
 
     /**
+     * Get no results text
+     *
+     * @return ?string
+     */
+    public function no_results() : ?string {
+        try {
+            $events = $this->get_events();
+
+            return ! empty( $events )
+                ? null
+                : __( 'No results', 'tms-theme-base' );
+        }
+        catch ( Exception $e ) {
+            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+        }
+
+        return null;
+    }
+
+    /**
      * Is grid view
      *
      * @return bool
@@ -73,9 +93,14 @@ class PageEventsCalendar extends BaseModel {
      */
     private function get_events() : array {
         $all_events = $this->do_get_events();
-        $per_page   = get_option( 'posts_per_page' );
-        $paged      = get_query_var( 'paged', 0 );
-        $paged      = $paged > 0 ? -- $paged : $paged;
+
+        if ( empty( $all_events ) ) {
+            return [];
+        }
+
+        $per_page = get_option( 'posts_per_page' );
+        $paged    = get_query_var( 'paged', 0 );
+        $paged    = $paged > 0 ? -- $paged : $paged;
 
         $chunks = array_chunk( $all_events, $per_page );
 
@@ -115,6 +140,15 @@ class PageEventsCalendar extends BaseModel {
         $events    = $data['events'] ?? [];
 
         if ( ! empty( $events ) ) {
+            $events = array_map( function ( $item ) {
+                $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
+                $item['location_icon']     = $item['is_virtual_event']
+                    ? 'globe'
+                    : 'location';
+
+                return $item;
+            }, $events );
+
             wp_cache_set( $cache_key, $events, $cache_group, MINUTE_IN_SECONDS * 15 );
         }
 
