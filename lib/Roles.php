@@ -168,6 +168,18 @@ class Roles implements Controller {
             $this->modify_contributor_caps();
             $this->modify_subscriber_caps();
         }
+
+        add_filter( 'editable_roles', function ( $all_roles ) {
+            // If you are not a super_administrator, you can't promote people to that level.
+            if (
+                array_key_exists( 'super_administrator', $all_roles ) &&
+                ! user_can( get_current_user_id(), 'super_administrator' )
+            ) {
+                unset( $all_roles['super_administrator'] );
+            }
+
+            return $all_roles;
+        }, 10, 1 );
     }
 
     /**
