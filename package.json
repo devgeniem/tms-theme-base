@@ -34,7 +34,7 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.11",
     "eslint": "^6.0.0",
-    "eslint-loader": "^2.2.1",
+    "eslint-loader": "^4.0.2",
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^7.0.1",
     "lint-staged": "^11.0.0",
