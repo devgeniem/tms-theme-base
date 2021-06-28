@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-06-22 15:29+0300\n"
+"POT-Creation-Date: 2021-06-28 12:03+0300\n"
 "PO-Revision-Date: 2021-06-15 10:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -34,6 +34,11 @@ msgstr ""
 
 #: comments.php:23
 msgid "Reply"
+msgstr ""
+
+#: lib/ACF/BlogArticleGroup.php:83
+msgctxt "theme ACF"
+msgid "Kirjoittajat"
 msgstr ""
 
 #: lib/ACF/FrontPageGroup.php:38 lib/ACF/PageGroup.php:38
@@ -88,14 +93,24 @@ msgstr ""
 msgid "Secondary Navigation"
 msgstr ""
 
-#: lib/PostType/BlogArticle.php:60
+#: lib/PostType/BlogArticle.php:65
 msgctxt "theme CPT slugs"
 msgid "blog-article"
 msgstr ""
 
-#: lib/PostType/BlogArticle.php:61
+#: lib/PostType/BlogArticle.php:66
 msgctxt "theme CPT"
 msgid "Blog articles"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-author"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:61
+msgctxt "theme CPT"
+msgid "Blog authors"
 msgstr ""
 
 #: lib/PostType/Settings.php:60
@@ -106,6 +121,22 @@ msgstr ""
 #: lib/PostType/Settings.php:61
 msgctxt "theme CPT"
 msgid "Site settings"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:51 lib/Taxonomy/BlogTag.php:51
+msgid "Separate departments with commas"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:52 lib/Taxonomy/BlogTag.php:52
+msgid "Add or remove departments"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:53 lib/Taxonomy/BlogTag.php:53
+msgid "Choose from most used departments"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:54 lib/Taxonomy/BlogTag.php:54
+msgid "Popular departments"
 msgstr ""
 
 #: lib/Traits/Breadcrumbs.php:225
@@ -149,8 +180,8 @@ msgstr ""
 msgid "Share on Line"
 msgstr ""
 
-#: models/archive-blog-article.php:96 models/archive.php:105
-#: models/home.php:260
+#: models/archive-blog-article.php:167 models/archive.php:116
+#: models/home.php:269
 msgid "All"
 msgstr ""
 
