@@ -40,7 +40,7 @@
                         </div>
                     </div>
 
-                    {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-primary-invert is-borderless" /}
+                    {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-white is-borderless" /}
 
                     {>"views/home/home-filters" /}
 

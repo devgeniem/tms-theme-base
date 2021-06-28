@@ -5,6 +5,7 @@
 
 use TMS\Theme\Base\PostType\BlogArticle;
 use TMS\Theme\Base\PostType\Post;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
 
 /**
  * The Archive class.
@@ -27,7 +28,7 @@ class Archive extends Home {
      * @return int|null
      */
     protected static function get_filter_category() : ?int {
-        return is_category()
+        return is_tax() || is_category()
             ? get_queried_object_id()
             : null;
     }
@@ -75,7 +76,14 @@ class Archive extends Home {
      * @return array
      */
     protected function get_filter_categories() : array {
-        $categories = get_categories();
+        $queried_object = get_queried_object();
+        $taxonomy       = '';
+
+        if ( $queried_object instanceof WP_Term ) {
+            $taxonomy = $queried_object->taxonomy;
+        }
+
+        $categories = get_categories( [ 'taxonomy' => $taxonomy ] );
 
         if ( empty( $categories ) ) {
             return [];
@@ -85,22 +93,25 @@ class Archive extends Home {
         $month_filter    = static::get_filter_month();
         $category_filter = static::get_filter_category();
 
-        $categories = array_map( function ( $item ) use ( $category_filter, $month_filter, $year_filter ) {
+        $categories = array_map( function ( $item ) use ( $category_filter, $month_filter, $year_filter, $taxonomy ) {
             $item->is_active = $category_filter === $item->term_id;
             $item->url       = add_query_arg(
                 [
                     'filter-month' => $month_filter,
                     'filter-year'  => $year_filter,
                 ],
-                get_category_link( $item )
+                get_term_link( $item, $taxonomy )
             );
 
             return $item;
+
         }, $categories );
 
-        $home_page = get_option( 'page_for_posts' );
+        $root_page = $taxonomy === BlogCategory::SLUG
+            ? get_post_type_archive_link( BlogArticle::SLUG )
+            : get_the_permalink( get_option( 'page_for_posts' ) );
 
-        if ( ! empty( $home_page ) ) {
+        if ( ! empty( $root_page ) ) {
             array_unshift( $categories, [
                 'name'      => __( 'All', 'tms-theme-base' ),
                 'url'       => add_query_arg(
@@ -108,7 +119,7 @@ class Archive extends Home {
                         'filter-month' => $month_filter,
                         'filter-year'  => $year_filter,
                     ],
-                    get_the_permalink( $home_page )
+                    $root_page
                 ),
                 'is_active' => empty( $category_filter ),
             ] );
