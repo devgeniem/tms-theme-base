@@ -22,10 +22,16 @@ const themeAdminEntry = `${ wpThemePath }/assets/scripts/admin.js`;
 const themeOutput = `${ wpThemePath }/assets/dist`;
 
 const entryPoints = {
+    admin: [ themeAdminEntry ],
     main: [ `${ wpThemePath }/assets/scripts/theme-tummavesi.js` ],
     theme_tunnelma: [ `${ wpThemePath }/assets/scripts/theme-tunnelma.js` ],
     theme_tummavesi: [ `${ wpThemePath }/assets/scripts/theme-tummavesi.js` ],
-    admin: [ themeAdminEntry ],
+    theme_tyo: [ `${ wpThemePath }/assets/scripts/theme-tyo.js` ],
+    theme_muutos: [ `${ wpThemePath }/assets/scripts/theme-muutos.js` ],
+    theme_havunvihrea: [ `${ wpThemePath }/assets/scripts/theme-havunvihrea.js` ],
+    theme_paahde: [ `${ wpThemePath }/assets/scripts/theme-paahde.js` ],
+    theme_vaaleanvihrea: [ `${ wpThemePath }/assets/scripts/theme-vaaleanvihrea.js` ],
+    theme_turkoosi: [ `${ wpThemePath }/assets/scripts/theme-turkoosi.js` ],
 };
 
 // All loaders to use on assets.

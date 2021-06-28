@@ -1,0 +1,13 @@
+{?sitemap}
+    <div class="sitemap section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+
+                {sitemap|s}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{/sitemap}

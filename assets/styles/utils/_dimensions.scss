@@ -11,5 +11,17 @@
                 width: 100%;
             }
         }
+
+        &-until-desktop {
+            @include until($desktop) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.has-height {
+    &-100 {
+        height: 100%;
     }
 }

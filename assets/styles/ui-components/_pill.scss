@@ -5,8 +5,8 @@ $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
 $pill-background-active-focus: $primary-dark !default;
-$pill-background-color-hover: $color-siniharmaa-75 !default;
-$pill-background-color-focus: $color-siniharmaa !default;
+$pill-background-color-hover: opacify($secondary-light, .75) !default;
+$pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
@@ -26,6 +26,20 @@ $pill-background-color-focus: $dark !default;
     &:focus,
     &:hover {
         text-decoration: none;
+    }
+
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
+
+        &.is-bordered {
+            border: 2px solid $black;
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+            }
+        }
     }
 
     &:hover {
@@ -80,11 +94,6 @@ $pill-background-color-focus: $dark !default;
 
     &.is-borderless {
         border-color: transparent !important;
-    }
-
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
     }
 
     &.is-active {

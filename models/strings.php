@@ -95,6 +95,15 @@ class Strings extends \DustPress\Model {
             'sibling_navigation' => [
                 'sibling_navigation' => _x( 'Sibling pages', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'event'              => [
+                'date'     => _x( 'Event date', 'theme-frontend', 'tms-theme-base' ),
+                'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
+                'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'sitemap'            => [
+                'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 }

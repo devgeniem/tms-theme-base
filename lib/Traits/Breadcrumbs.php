@@ -31,6 +31,8 @@ trait Breadcrumbs {
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
             case PostType\Post::SLUG:
                 return $this->format_post( $current_id, $breadcrumbs );
+            case PostType\DynamicEvent::SLUG:
+                return $this->format_page( $current_id, $home_url, $breadcrumbs );
             default:
                 return $breadcrumbs;
         }
