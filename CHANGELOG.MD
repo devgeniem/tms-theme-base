@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-97: Color themes #85
 - NPM(deps-dev): Bump file-loader from 3.0.1 to 6.2.0 #5
+- NPM(deps-dev): Bump style-loader from 0.23.1 to 2.0.0 #46
 
 ### Fixed
 
