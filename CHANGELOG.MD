@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - NPM(deps-dev): Bump file-loader from 3.0.1 to 6.2.0 #5
 - NPM(deps-dev): Bump style-loader from 0.23.1 to 2.0.0 #46
 - NPM(deps-dev): Bump eslint-loader from 2.2.1 to 4.0.2 #49
+- NPM(deps-dev): Bump webpack-cli from 3.3.12 to 4.7.2 #62
 
 ### Fixed
 
