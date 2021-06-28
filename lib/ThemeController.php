@@ -94,5 +94,6 @@ class ThemeController {
 
         \Archive::hooks();
         \Home::hooks();
+        \ArchiveBlogArticle::hooks();
     }
 }
