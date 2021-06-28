@@ -8,6 +8,7 @@ namespace TMS\Theme\Base\ACF;
 use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
+use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -48,6 +49,7 @@ class BlogArticleGroup extends PostGroup {
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
                     [
                         $this->get_credits_tab( $field_group->get_key() ),
+                        $this->get_authors_tab( $field_group->get_key() ),
                         $this->get_related_posts_tab( $field_group->get_key() ),
                         $this->get_components_tab( $field_group->get_key() ),
                     ]
@@ -64,6 +66,41 @@ class BlogArticleGroup extends PostGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
+    }
+
+    /**
+     * Get authors tab
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_authors_tab( string $key ) : Field\Tab {
+        $strings = [
+            'tab'     => 'Kirjoittajat',
+            'authors' => [
+                'title'        => _x( 'Kirjoittajat', 'theme ACF', 'tms-theme-base' ),
+                'instructions' => '',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $authors_field = ( new Field\PostObject( $strings['authors']['title'] ) )
+            ->set_key( "${key}_authors" )
+            ->set_name( 'authors' )
+            ->set_post_types( [ PostType\BlogAuthor::SLUG ] )
+            ->allow_multiple()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['authors']['instructions'] );
+
+        $tab->add_fields( [
+            $authors_field,
+        ] );
+
+        return $tab;
     }
 }
 

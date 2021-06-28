@@ -128,11 +128,7 @@ class BlogAuthor implements PostType {
             'labels'        => $labels,
             'supports'      => [
                 'title',
-                'comments',
                 'thumbnail',
-                'excerpt',
-                'custom-fields',
-                'revisions',
                 'editor',
             ],
             'hierarchical'  => false,
