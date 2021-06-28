@@ -168,6 +168,18 @@ class Roles implements Controller {
             $this->modify_contributor_caps();
             $this->modify_subscriber_caps();
         }
+
+        add_filter( 'editable_roles', function ( $all_roles ) {
+            // If you are not a super_administrator, you can't promote people to that level.
+            if (
+                array_key_exists( 'super_administrator', $all_roles ) &&
+                ! user_can( get_current_user_id(), 'super_administrator' )
+            ) {
+                unset( $all_roles['super_administrator'] );
+            }
+
+            return $all_roles;
+        }, 10, 1 );
     }
 
     /**
@@ -254,10 +266,13 @@ class Roles implements Controller {
 
         $role->add_caps( [
             'add_users',
+            'edit_user',
+            'promote_user',
             'create_sites',
             'create_users',
             'modify_users',
             'delete_sites',
+            'edit_network_users',
             'manage_network',
             'manage_network_options',
             'manage_network_plugins',
@@ -311,7 +326,13 @@ class Roles implements Controller {
 
         // Other
         $role->add_caps( [
+            'add_users',
+            'edit_user',
+            'list_users',
+            'edit_users',
             'modify_users',
+            'manage_network_users',
+            'promote_user',
         ] );
 
         $role->remove_caps( $this->remove_from_all );
@@ -359,7 +380,7 @@ class Roles implements Controller {
         // Other
         $role->add_caps( [
             'edit_theme_options', // Navigation changes
-        ]);
+        ] );
 
         $role->remove_caps( $this->remove_from_all );
 
