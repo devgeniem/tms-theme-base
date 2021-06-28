@@ -52,7 +52,7 @@
     "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "watch": "webpack --progress --watch --display-error-details --display-reasons --mode development",
+    "watch": "cross-env webpack --progress --watch --mode development",
     "dev": "cross-env webpack --progress --mode development",
     "build": "cross-env NODE_ENV=production webpack --progress --mode production"
   },
