@@ -110,6 +110,7 @@ class PageFrontPageGroup {
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\BlogArticlesLayout::class,
             ]
         );
 
