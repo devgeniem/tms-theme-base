@@ -1,4 +1,6 @@
 $icon-fill: $primary !default;
+$accent: $primary !default;
+$accent-invert: $primary-invert !default;
 
 .icon {
     display: inline-block;
@@ -56,5 +58,13 @@ $icon-fill: $primary !default;
 
     &.is-gray {
         fill: $color-tumma-harmaa;
+    }
+
+    &.is-accent {
+        fill: $accent !important; // sass-lint:disable-line no-important
+    }
+
+    &.is-accent-invert {
+        fill: $accent-invert !important; // sass-lint:disable-line no-important
     }
 }
