@@ -56,6 +56,7 @@ class MapBlock extends BaseBlock {
 
         $group->remove_field( 'title' );
         $group->remove_field( 'description' );
+        $group->get_field( 'embed' )->set_wrapper_width( 100 );
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
