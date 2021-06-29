@@ -9,16 +9,16 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
+use PageOnepager;
 use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
-use TMS\Theme\Base\PostType;
 
 /**
- * Class PageGroup
+ * Class OnepagerGroup
  *
  * @package TMS\Theme\Base\ACF
  */
-class PageGroup {
+class OnepagerGroup {
 
     /**
      * PageGroup constructor.
@@ -38,13 +38,10 @@ class PageGroup {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
 
             $field_group = ( new Group( $group_title ) )
-                ->set_key( 'fg_page_components' );
+                ->set_key( 'fg_onepager_components' );
 
             $rule_group = ( new RuleGroup() )
-                ->add_rule( 'post_type', '==', PostType\Page::SLUG )
-                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageOnepager::TEMPLATE )
-                ->add_rule( 'page_type', '!=', 'posts_page' );
+                ->add_rule( 'page_template', '==', PageOnepager::TEMPLATE );
 
             $field_group
                 ->add_rule_group( $rule_group )
@@ -55,6 +52,7 @@ class PageGroup {
                         'comments',
                         'format',
                         'send-trackbacks',
+                        'editor',
                     ]
                 );
 
@@ -80,7 +78,7 @@ class PageGroup {
     }
 
     /**
-     * Get components fields
+     * Get header fields
      *
      * @param string $key Field group key.
      *
@@ -103,6 +101,7 @@ class PageGroup {
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
+                Layouts\HeroLayout::class,
                 Layouts\ImageBannerLayout::class,
                 Layouts\CallToActionLayout::class,
                 Layouts\ContentColumnsLayout::class,
@@ -111,12 +110,10 @@ class PageGroup {
                 Layouts\IconLinksLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\ImageCarouselLayout::class,
-                Layouts\SubpageLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
                 Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
-                Layouts\SitemapLayout::class,
             ]
         );
 
@@ -128,4 +125,4 @@ class PageGroup {
     }
 }
 
-( new PageGroup() );
+( new OnepagerGroup() );
