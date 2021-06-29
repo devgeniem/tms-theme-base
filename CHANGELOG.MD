@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-117: Map block #97
 - TMS-84: Events calendar template #90
 - TMS-74: Events layout #80
 - TMS-109: Color theme selection #87
