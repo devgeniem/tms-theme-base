@@ -596,14 +596,19 @@ class SettingsGroup {
      */
     protected function get_events_fields( string $key ) : Field\Tab {
         $strings = [
-            'tab'                  => 'Tapahtumat',
-            'events_default_image' => [
+            'tab'                           => 'Tapahtumat',
+            'events_default_image'          => [
                 'title'        => 'Oletuskuva',
                 'instructions' => '',
             ],
-            'events_page'          => [
+            'events_page'                   => [
                 'title'        => 'Tapahtuma-sivu',
                 'instructions' => 'Sivu, jolle on valittu Tapahtuma-sivupohja',
+            ],
+            'show_related_events_calendars' => [
+                'title'        => 'Näytä muut sivuston tapahtumakalenterit',
+                'instructions' => 'Tapahtumakalenterin yläosassa näytetään automaattisesti
+                linkit muille saman sivuston sivuille, joilla on käytössä tapahtumakalenteri-sivupohja',
             ],
         ];
 
@@ -623,9 +628,17 @@ class SettingsGroup {
             ->set_return_format( 'id' )
             ->set_instructions( $strings['events_page']['instructions'] );
 
+        $show_event_calendars_field = ( new Field\TrueFalse( $strings['show_related_events_calendars']['title'] ) )
+            ->set_key( "${key}_show_related_events_calendars" )
+            ->set_name( 'show_related_events_calendars' )
+            ->use_ui()
+            ->set_default_value( false )
+            ->set_instructions( $strings['show_related_events_calendars']['instructions'] );
+
         $tab->add_fields( [
             $image_field,
             $events_page_field,
+            $show_event_calendars_field,
         ] );
 
         return $tab;
