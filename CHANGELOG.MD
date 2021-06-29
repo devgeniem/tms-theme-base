@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-116: Add Notice Banner layout #100
 - TMS-74: Events layout #80
 - TMS-109: Color theme selection #87
 - TMS-76: Event view #81
