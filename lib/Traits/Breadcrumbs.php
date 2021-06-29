@@ -7,6 +7,8 @@
 namespace TMS\Theme\Base\Traits;
 
 use TMS\Theme\Base\PostType;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
+use TMS\Theme\Base\Taxonomy\Category;
 
 /**
  * Trait Breadcrumbs
@@ -29,10 +31,12 @@ trait Breadcrumbs {
         switch ( $current_type ) {
             case PostType\Page::SLUG:
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
-            case PostType\Post::SLUG || PostType\BlogArticle::SLUG:
+            case PostType\Post::SLUG:
                 return $this->format_post( $current_id, $breadcrumbs );
             case PostType\DynamicEvent::SLUG:
                 return $this->format_page( $current_id, $home_url, $breadcrumbs );
+            case PostType\BlogArticle::SLUG:
+                return $this->format_blog_article( $current_id, $breadcrumbs );
             case 'post-type-archive':
                 return $this->format_post_type_archive( $breadcrumbs );
             case 'tax-archive':
@@ -53,12 +57,36 @@ trait Breadcrumbs {
     private function format_post( $current_id, array $breadcrumbs ) : array {
         $breadcrumbs['home'] = $this->get_home_link();
 
-        $categories = \TMS\Theme\Base\Taxonomy\Category::get_post_categories( $current_id );
+        $primary_category = Category::get_post_categories( $current_id );
 
-        if ( ! empty( $categories ) ) {
+        if ( ! empty( $primary_category ) ) {
             $breadcrumbs[] = [
-                'title'     => $categories[0]->name,
-                'permalink' => $categories[0]->url,
+                'title'     => $primary_category[0]->name,
+                'permalink' => $primary_category[0]->url,
+                'icon'      => false,
+            ];
+        }
+
+        return $breadcrumbs;
+    }
+
+    /**
+     * Format breadcrumbs for: Post
+     *
+     * @param int   $current_id  Current page ID.
+     * @param array $breadcrumbs Breadcrumbs array.
+     *
+     * @return array
+     */
+    private function format_blog_article( $current_id, array $breadcrumbs ) : array {
+        $breadcrumbs['home'] = $this->get_home_link();
+
+        $primary_category = BlogCategory::get_primary_category( $current_id );
+
+        if ( ! empty( $primary_category ) ) {
+            $breadcrumbs[] = [
+                'title'     => $primary_category->name,
+                'permalink' => $primary_category->url,
                 'icon'      => false,
             ];
         }
