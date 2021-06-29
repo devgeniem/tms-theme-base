@@ -22,7 +22,7 @@ class InlineBackgroundHelper extends \DustPress\Helper {
     public function output() {
         if ( isset( $this->params->url ) ) {
             return sprintf(
-                'style="background-image: url(%s)"',
+                'style="background-image: url(\'%s\')"',
                 esc_url( $this->params->url )
             );
         }

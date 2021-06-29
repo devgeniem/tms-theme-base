@@ -37,13 +37,14 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Format layout data
      *
      * @param array $layout ACF Layout data.
+     * @param bool  $all    Get all results.
      *
      * @return array
      */
-    public function format( array $layout ) : array {
+    public function format( array $layout, bool $all = false ) : array {
         $query_params            = $this->format_query_params( $layout );
         $query_params['include'] = 'organization,location,keywords';
-        $events                  = $this->get_events( $query_params );
+        $events                  = $this->get_events( $query_params, $all );
 
         if ( empty( $events ) ) {
             return $layout;
@@ -116,14 +117,17 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Get events
      *
      * @param array $query_params API query params.
+     * @param bool  $all          Get all results.
      *
      * @return array|null
      */
-    private function get_events( array $query_params ) : ?array {
+    private function get_events( array $query_params, bool $all = false ) : ?array {
         $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
-            $response = $client->get( 'event', $query_params );
+            $response = $all
+                ? $client->get_all( 'event', $query_params )
+                : $client->get( 'event', $query_params );
 
             if ( empty( $response ) ) {
                 return null;
