@@ -1,5 +1,6 @@
 {?pages}
-    <ul class="pagination is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center" role="menubar" aria-label="Sivutus">
+    <ul class="pagination is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center" role="menubar"
+        aria-label="{S.aria_label}">
         {?prev_page}
             <li class="arrow arrow-left">
                 <a class="paginate" href="{page_link}{prev_page}{hash}" data-page="{prev_page}">
