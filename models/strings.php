@@ -133,7 +133,7 @@ class Strings extends \DustPress\Model {
     /**
      * Add translations to pagination
      *
-     * @param object $data Pagination data
+     * @param object $data Pagination data.
      *
      * @return object
      */
