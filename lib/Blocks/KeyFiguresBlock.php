@@ -96,6 +96,12 @@ class KeyFiguresBlock extends BaseBlock {
 
             foreach ( $row_data['numbers'] as $number => $numbers_data ) {
                 $altered['rows'][ $row ]['numbers'][ $number ]['column_class'] = $layouts[ $row_layout ][ $number ];
+
+                // Setup accent color override.
+                $background_color = $altered['rows'][ $row ]['numbers'][ $number ]['background_color'];
+                $extra_class      = $background_color === 'primary' ? 'has-colors-accent' : '';
+
+                $altered['rows'][ $row ]['numbers'][ $number ]['extra_class'] = $extra_class;
             }
         }
 

@@ -18,6 +18,13 @@ $secondary-light-invert: $color-black;
 $secondary-dark: bulmaDarken($secondary, 10);
 $secondary-dark-invert: $color-black;
 
+$accent: #ad3963;
+$accent-invert: $color-white;
+$accent-light: bulmaLighten($accent, 10);
+$accent-light-invert: $color-white;
+$accent-dark: bulmaDarken($accent, 10);
+$accent-dark-invert: $color-white;
+
 $light: $primary-light;
 $light-invert: $primary-light-invert;
 $dark: $primary-dark;
@@ -25,10 +32,12 @@ $dark-invert: $primary-dark-invert;
 
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
+$colors-palette-accent: ($accent, $accent-invert, $accent-dark, $accent-light);
 
 $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
+    "accent": $colors-palette-accent,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
 );

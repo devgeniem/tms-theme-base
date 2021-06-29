@@ -1,5 +1,8 @@
 // The sites typography styles
 
+$accent-light: $primary-light !default;
+$accent-dark: $primary-dark !default;
+
 // -- Links
 a {
     transition: color $easing $speed, background-color $easing $speed;
@@ -29,6 +32,17 @@ a {
 
         &:active {
             background-color: $primary-dark !important;
+        }
+    }
+
+    &.has-background-accent {
+        &:hover,
+        &:focus {
+            background-color: $accent-light !important;
+        }
+
+        &:active {
+            background-color: $accent-dark !important;
         }
     }
 }

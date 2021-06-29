@@ -97,6 +97,10 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $filtered['display'] = 'is-' . $classes['display'];
             $classes['display']  = 'has-colors-' . $classes['display'];
 
+            if ( $classes['display'] === 'has-colors-primary' ) {
+                $classes['display'] .= ' has-colors-accent';
+            }
+
             $classes                  = array_map( 'trim', $classes );
             $filtered['classes']      = trim( implode( ' ', $classes ) );
             $data['repeater'][ $key ] = $filtered;

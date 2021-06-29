@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.4.0] - 2021-06-29
+
 ### Added
 
 - TMS-82: Roles and Capabilities #61

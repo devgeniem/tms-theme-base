@@ -2,7 +2,7 @@
     {#rows}
         <div class="key-figures__row columns is-gapless mb-0">
             {#numbers}
-                <div class="column {column_class|s} has-background-{background_color|s} has-text-{background_color|s}-invert">
+                <div class="column {column_class|s} has-background-{background_color|s} has-text-{background_color|s}-invert {extra_class}">
                     <div class="key-figures__item is-flex p-9 p-12-desktop is-align-items-center is-justify-content-center is-flex-direction-column">
                         <div class="key-figures__number is-text-huge is-family-secondary has-text-weight-bold">
                             {number|s}
