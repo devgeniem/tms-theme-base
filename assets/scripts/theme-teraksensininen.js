@@ -4,4 +4,4 @@
  */
 
 import './main.js';
-import '../styles/theme-havunvihrea.scss';
+import 'styles/theme-teraksensininen.scss';
