@@ -156,6 +156,7 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_highlight_article" )
             ->set_name( 'highlight_article' )
             ->set_post_types( [ Post::SLUG ] )
+            ->allow_null()
             ->set_instructions( $this->strings['highlight_article']['instructions'] );
 
         $display_image_field = ( new Field\TrueFalse( $this->strings['display_image']['label'] ) )

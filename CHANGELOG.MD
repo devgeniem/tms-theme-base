@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-82: Roles and Capabilities #61
+- TMS-116: Add Notice Banner layout #100
+- TMS-117: Map block #97
+- TMS-84: Events calendar template #90
 - TMS-74: Events layout #80
 - TMS-109: Color theme selection #87
 - TMS-76: Event view #81
@@ -16,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-97: Color themes part 2 #89
 - TMS-97: Color themes #85
 - NPM(deps-dev): Bump file-loader from 3.0.1 to 6.2.0 #5
 - NPM(deps-dev): Bump style-loader from 0.23.1 to 2.0.0 #46
@@ -27,6 +32,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- TMS-102-4: Allow empty value on highlight article field #101
+- TMS-102-4: Remove character limit when displaying excerpts #101
 - TMS-102-3: Fix sibling navigation href #91
 - Fixes to codestyle, texts, colors and spacings #88
 - TMS-97: Fix button styles #86
