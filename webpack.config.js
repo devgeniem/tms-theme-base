@@ -27,11 +27,11 @@ const entryPoints = {
     theme_tunnelma: [ `${ wpThemePath }/assets/scripts/theme-tunnelma.js` ],
     theme_tummavesi: [ `${ wpThemePath }/assets/scripts/theme-tummavesi.js` ],
     theme_tyo: [ `${ wpThemePath }/assets/scripts/theme-tyo.js` ],
-    theme_muutos: [ `${ wpThemePath }/assets/scripts/theme-muutos.js` ],
-    theme_havunvihrea: [ `${ wpThemePath }/assets/scripts/theme-havunvihrea.js` ],
+    theme_havu: [ `${ wpThemePath }/assets/scripts/theme-havu.js` ],
+    theme_teraksensininen: [ `${ wpThemePath }/assets/scripts/theme-teraksensininen.js` ],
     theme_paahde: [ `${ wpThemePath }/assets/scripts/theme-paahde.js` ],
-    theme_vaaleanvihrea: [ `${ wpThemePath }/assets/scripts/theme-vaaleanvihrea.js` ],
-    theme_turkoosi: [ `${ wpThemePath }/assets/scripts/theme-turkoosi.js` ],
+    theme_kokemus: [ `${ wpThemePath }/assets/scripts/theme-kokemus.js` ],
+    theme_neutraali: [ `${ wpThemePath }/assets/scripts/theme-neutraali.js` ],
 };
 
 // All loaders to use on assets.

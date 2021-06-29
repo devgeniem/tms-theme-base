@@ -4,4 +4,4 @@
  */
 
 import './main.js';
-import '../styles/theme-muutos.scss';
+import 'styles/theme-havu.scss';
