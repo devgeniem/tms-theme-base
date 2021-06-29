@@ -1,4 +1,4 @@
-<div class="notice-banner is-align-full {container_classes}">
+<div class="notice-banner mt-6 mb-6 is-align-full {container_classes}">
     <div class="container columns">
         <div class="column is-10 is-offset-1 has-text-black">
             <div class="notice-banner__content pt-3 pr-6 pb-5 pl-6 pt-7-tablet pr-0-tablet pb-7-tablet pl-0-tablet pt-8-fullhd pb-8-fullhd">

@@ -325,6 +325,7 @@ class DynamicEventGroup {
                 Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
                 Layouts\ImageCarouselLayout::class,
+                Layouts\NoticeBannerLayout::class,
             ]
         );
 

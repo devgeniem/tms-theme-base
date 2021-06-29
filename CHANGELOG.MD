@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - NPM(deps-dev): Bump eslint-loader from 2.2.1 to 4.0.2 #49
 - NPM(deps-dev): Bump webpack-cli from 3.3.12 to 4.7.2 #62
 - NPM(deps-dev): Bump @babel/register from 7.13.14 to 7.14.5 #92
+- NPM(deps-dev): Bump clean-webpack-plugin from 2.0.2 to 3.0.0 #93
+- NPM(deps-dev): Bump bulma from 0.9.2 to 0.9.3 #95
 
 ### Fixed
 

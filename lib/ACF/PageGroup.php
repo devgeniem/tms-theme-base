@@ -119,6 +119,7 @@ class PageGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\SitemapLayout::class,
                 Layouts\BlogArticlesLayout::class,
+                Layouts\NoticeBannerLayout::class,
             ]
         );
 
