@@ -34,7 +34,7 @@ class PageEventsCalendarGroup {
      */
     protected function register_fields() : void {
         try {
-            $group_title = _x( 'Kalanterin asetukset', 'theme ACF', 'tms-theme-base' );
+            $group_title = _x( 'Kalenterin asetukset', 'theme ACF', 'tms-theme-base' );
 
             $field_group = ( new Group( $group_title ) )
                 ->set_key( 'fg_page_events_calendar' );
