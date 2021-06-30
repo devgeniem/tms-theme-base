@@ -1,0 +1,72 @@
+{>"shared/base" /}
+
+{<content}
+    <main class="main-content pb-8" id="main-content">
+        {#ArchiveBlogArticle}
+            <section class="section">
+                <div class="container">
+                    <div class="columns">
+                        {?page_logo}
+                            <div class="column is-2 has-text-centered-mobile">
+                                {@image id=page_logo size="thumbnail" /}
+                            </div>
+                        {/page_logo}
+
+                        <div class="column is-8 has-text-centered {^page_logo}is-offset-2{/page_logo}">
+                            {?page_title}
+                                <h1 class="mt-0 mb-8">
+                                    {page_title|s}
+                                </h1>
+                            {/page_title}
+
+                            {?page_subtitle}
+                                <p class="h2 mb-6">
+                                    {page_subtitle|s}
+                                </p>
+                            {/page_subtitle}
+
+                            {?page_description}
+                                <div class="container">
+                                    <div class="columns">
+                                        <div class="column is-10 is-offset-1">
+                                            {>"ui/button-toggle" class="mb-5" text=Strings.s.blog_article.toggle_details target="js-archive-description-toggle-target" /}
+
+                                            <p id="js-archive-description-toggle-target"
+                                               class="is-hidden has-text-left">{page_description|s}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {/page_description}
+                        </div>
+                    </div>
+
+                    {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-white is-borderless" /}
+
+                    {>"views/home/home-filters" /}
+
+                    <div class="columns is-multiline mt-8">
+                        {?articles}
+                            {#articles}
+                                {>"views/home/home-{view_type}-item" /}
+                            {/articles}
+                        {:else}
+                            <div class="column">
+                                <div class="pt-6 pb-6 h4 has-text-centered">
+                                    {Strings.s.home.no_results|s}
+                                </div>
+                            </div>
+                        {/articles}
+                    </div>
+
+                    {?pagination}
+                        <div class="columns mt-8">
+                            <div class="column has-text-centered">
+                                {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
+                            </div>
+                        </div>
+                    {/pagination}
+                </div>
+            </section>
+        {/ArchiveBlogArticle}
+    </main>
+{/content}

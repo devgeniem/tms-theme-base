@@ -32,7 +32,7 @@
     {?content.tags}
         <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.tags}
-                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
+                <a href="{permalink}" class="pill is-outlined mr-2 mb-2">{name|s}</a>
             {/content.tags}
         </div>
     {/content.tags}

@@ -6,11 +6,14 @@
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Traits\Pagination;
 
 /**
  * The Home class.
  */
 class Home extends BaseModel {
+
+    use Pagination;
 
     /**
      * Pagination data.
@@ -98,6 +101,12 @@ class Home extends BaseModel {
             $wp_query->set( 'cat', $filter_category );
         }
 
+        $highlight = self::get_highlight();
+
+        if ( ! empty( $highlight ) ) {
+            $wp_query->set( 'post__not_in', [ $highlight->ID ] );
+        }
+
         static::modify_query_date( $wp_query );
     }
 
@@ -162,9 +171,9 @@ class Home extends BaseModel {
     /**
      * Get the page title.
      *
-     * @return string
+     * @return string|null
      */
-    public function page_title() : string {
+    public function page_title() : ?string {
         return get_the_title( get_queried_object_id() );
     }
 
@@ -174,7 +183,7 @@ class Home extends BaseModel {
      * @return object|null
      */
     public function highlight() : ?object {
-        $highlight = get_field( 'highlight', get_option( 'page_for_posts' ) );
+        $highlight = self::get_highlight();
 
         if ( empty( $highlight ) ) {
             return null;
@@ -312,17 +321,11 @@ class Home extends BaseModel {
     }
 
     /**
-     * Returns pagination data.
+     * Get highlight post
      *
-     * @return object
+     * @return mixed
      */
-    public function pagination() : ?object {
-        if ( isset( $this->pagination->page ) && isset( $this->pagination->max_page ) ) {
-            if ( $this->pagination->page <= $this->pagination->max_page ) {
-                return $this->pagination;
-            }
-        }
-
-        return null;
+    protected static function get_highlight() {
+        return get_field( 'highlight', get_option( 'page_for_posts' ) );
     }
 }

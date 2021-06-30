@@ -1,0 +1,48 @@
+// sass-lint:disable no-ids
+
+.comments-area {
+    .comment__body {
+        margin-bottom: $theme-spacing-oneandhalf;
+        padding: $theme-spacing-oneandhalf;
+        border: 1px solid $secondary;
+
+        @include from($tablet) {
+            padding: $theme-spacing-oneandhalf $theme-spacing-two;
+        }
+    }
+
+    .comment {
+        > .comment {
+            padding-left: $theme-spacing-oneandhalf;
+        }
+    }
+
+    .comment-form-comment,
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url {
+        > label {
+            display: block;
+            margin-bottom: $theme-spacing-quarter;
+        }
+
+        input,
+        textarea {
+            line-height: 1;
+            width: 100%;
+            padding: $theme-spacing-half;
+            border: 1px solid $secondary;
+            border-color: $color-vaalean-harmaa;
+            border-radius: $theme-spacing-quarter;
+        }
+    }
+
+    .required {
+        color: $primary;
+    }
+
+    #cancel-comment-reply-link {
+        display: block;
+        margin-top: $theme-spacing-three-quarters;
+    }
+}

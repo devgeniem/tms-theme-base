@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-06-15 10:50+0300\n"
+"POT-Creation-Date: 2021-06-22 15:29+0300\n"
 "PO-Revision-Date: 2021-06-15 10:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
@@ -26,6 +26,14 @@ msgstr ""
 #: assets/dist/vendor.js:4571
 msgctxt "text direction"
 msgid "ltr"
+msgstr ""
+
+#: comments.php:14
+msgid "Comments"
+msgstr ""
+
+#: comments.php:23
+msgid "Reply"
 msgstr ""
 
 #: lib/ACF/FrontPageGroup.php:38 lib/ACF/PageGroup.php:38
@@ -43,12 +51,12 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: lib/ACF/SettingsGroup.php:37
+#: lib/ACF/SettingsGroup.php:38
 msgctxt "theme ACF"
 msgid "Site settings"
 msgstr ""
 
-#: lib/ACF/SettingsGroup.php:389
+#: lib/ACF/SettingsGroup.php:418
 msgid "Open map"
 msgstr ""
 
@@ -60,12 +68,34 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: lib/NavigationController.php:29
+#: lib/Comments.php:52
+msgid "Send Comment"
+msgstr ""
+
+#: lib/Comments.php:92
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: lib/Comments.php:123
+msgid "Edit"
+msgstr ""
+
+#: lib/NavigationController.php:34
 msgid "Primary Navigation"
 msgstr ""
 
-#: lib/NavigationController.php:30
+#: lib/NavigationController.php:35
 msgid "Secondary Navigation"
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-article"
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:61
+msgctxt "theme CPT"
+msgid "Blog articles"
 msgstr ""
 
 #: lib/PostType/Settings.php:60
@@ -78,7 +108,7 @@ msgctxt "theme CPT"
 msgid "Site settings"
 msgstr ""
 
-#: lib/Traits/Breadcrumbs.php:177
+#: lib/Traits/Breadcrumbs.php:225
 msgctxt "Breadcrumbs"
 msgid "Home"
 msgstr ""
@@ -119,16 +149,17 @@ msgstr ""
 msgid "Share on Line"
 msgstr ""
 
-#: models/archive.php:100 models/home.php:259
+#: models/archive-blog-article.php:96 models/archive.php:105
+#: models/home.php:260
 msgid "All"
 msgstr ""
 
-#: models/error404.php:55
+#: models/error404.php:66
 msgctxt "theme-frontend"
 msgid "Go to search"
 msgstr ""
 
-#: models/error404.php:69
+#: models/error404.php:80
 msgctxt "theme-frontend"
 msgid "Return to home"
 msgstr ""
@@ -173,7 +204,7 @@ msgctxt "theme-frontend"
 msgid "Search from site"
 msgstr ""
 
-#: models/strings.php:30 models/strings.php:48
+#: models/strings.php:30 models/strings.php:48 models/strings.php:100
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr ""
@@ -353,6 +384,21 @@ msgstr ""
 #: models/strings.php:96
 msgctxt "theme-frontend"
 msgid "Sibling pages"
+msgstr ""
+
+#: models/strings.php:99
+msgctxt "theme-frontend"
+msgid "Comments"
+msgstr ""
+
+#: models/strings.php:103
+msgctxt "theme-frontend"
+msgid "Show description"
+msgstr ""
+
+#: models/strings.php:104
+msgctxt "theme-frontend"
+msgid "All articles"
 msgstr ""
 
 #. Theme Name of the plugin/theme

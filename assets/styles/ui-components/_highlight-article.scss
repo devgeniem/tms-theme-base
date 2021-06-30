@@ -1,0 +1,7 @@
+.highlight-article {
+    &__image-container {
+        @include from($desktop) {
+            min-height: 400px;
+        }
+    }
+}
