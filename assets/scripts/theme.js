@@ -19,6 +19,7 @@ import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 import Home from './home';
+import Toggle from './toggle';
 import Sitemap from './sitemap';
 
 const globalControllers = {
@@ -38,6 +39,7 @@ const globalControllers = {
     PrimaryNav,
     Dropdown,
     Home,
+    Toggle,
     Sitemap,
 };
 
