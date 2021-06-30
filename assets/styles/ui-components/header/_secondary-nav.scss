@@ -2,6 +2,9 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+$secondary-navbar-item-navbar-link-color: $black !default;
+$secondary-navbar-item-navbar-link-color-hover: $black !default;
+
 .secondary-menu {
     li {
         &:not(:first-child) {
@@ -16,11 +19,11 @@
     }
 
     a {
-        color: $black;
+        color: $secondary-navbar-item-navbar-link-color;
 
         &:hover,
         &:focus {
-            color: $black;
+            color: $secondary-navbar-item-navbar-link-color-hover;
             text-decoration: underline;
         }
     }

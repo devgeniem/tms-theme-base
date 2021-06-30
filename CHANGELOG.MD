@@ -6,12 +6,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.4.0] - 2021-06-29
+
+### Added
+
+- TMS-82: Roles and Capabilities #61
+- TMS-116: Add Notice Banner layout #100
+- TMS-117: Map block #97
+- TMS-84: Events calendar template #90
+- TMS-74: Events layout #80
+- TMS-109: Color theme selection #87
+- TMS-76: Event view #81
+- TMS-72: Dynamic Event #82
+- TMS-59: Sitemap #84
+
 ### Changed
 
+- TMS-97: Color themes part 2 #89
 - TMS-97: Color themes #85
+- NPM(deps-dev): Bump file-loader from 3.0.1 to 6.2.0 #5
+- NPM(deps-dev): Bump style-loader from 0.23.1 to 2.0.0 #46
+- NPM(deps-dev): Bump eslint-loader from 2.2.1 to 4.0.2 #49
+- NPM(deps-dev): Bump webpack-cli from 3.3.12 to 4.7.2 #62
+- NPM(deps-dev): Bump @babel/register from 7.13.14 to 7.14.5 #92
+- NPM(deps-dev): Bump clean-webpack-plugin from 2.0.2 to 3.0.0 #93
+- NPM(deps-dev): Bump bulma from 0.9.2 to 0.9.3 #95
 
 ### Fixed
 
+- TMS-102-4: Allow empty value on highlight article field #101
+- TMS-102-4: Remove character limit when displaying excerpts #101
+- TMS-102-3: Fix sibling navigation href #91
+- Fixes to codestyle, texts, colors and spacings #88
 - TMS-97: Fix button styles #86
 
 ## [1.3.3] - 2021-06-21

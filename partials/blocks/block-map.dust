@@ -1,0 +1,5 @@
+{?embed}
+    <div class="mt-4 mb-4">
+        {>"shared/map-embed"  /}
+    </div>
+{/embed}

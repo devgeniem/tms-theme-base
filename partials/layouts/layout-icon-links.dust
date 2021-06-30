@@ -6,7 +6,7 @@
                     {#rows}
                         <div class="icon-links__item keep-vertical-spacing">
                             {?icon}
-                                {>"ui/icon" class="icon--xxxlarge is-primary mb-4" /}
+                                {>"ui/icon" class="icon--xxxlarge has-background-primary is-primary-invert icon--rounded mb-4" /}
                             {/icon}
 
                             {?title}

@@ -10,6 +10,8 @@ $pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 
+$pill-border-color-focus: $black !default;
+
 .pill {
     font-family: $family-secondary;
     font-size: 85%;
@@ -26,6 +28,25 @@ $pill-background-color-focus: $dark !default;
     &:focus,
     &:hover {
         text-decoration: none;
+    }
+
+    &.is-white {
+        background-color: $white;
+        border: 1px solid $pill-background-color;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &.is-bordered {
+            border: 2px solid $black;
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+            }
+        }
     }
 
     &:hover {
@@ -73,23 +94,13 @@ $pill-background-color-focus: $dark !default;
             &.is-focused {
                 color: $primary-invert;
                 background-color: $pill-background-color-focus;
-                border-color: $button-border-color-focus;
+                border-color: $pill-border-color-focus;
             }
         }
     }
 
     &.is-borderless {
         border-color: transparent !important;
-    }
-
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
-
-        &:hover,
-        &.is-hovered {
-            text-decoration: underline;
-        }
     }
 
     &.is-active {

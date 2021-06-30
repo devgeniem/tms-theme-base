@@ -3,13 +3,21 @@
 // -- Links
 a {
     transition: color $easing $speed, background-color $easing $speed;
+    color: $link;
 
-    &:focus,
-    &:hover {
+    &:hover,
+    &.is-hovered {
         text-decoration: underline;
     }
 
-    &:focus {
+    &:active,
+    &.is-active {
+        text-decoration: underline;
+    }
+
+    &:focus,
+    &.is-focused {
+        text-decoration: underline;
         outline: .0625rem dotted;
     }
 
