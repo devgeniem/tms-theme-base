@@ -5,27 +5,27 @@
 
 namespace TMS\Theme\Base\Formatters;
 
-use TMS\Theme\Base\Interfaces\Formatter;
-use TMS\Theme\Base\PostType\Post;
+use TMS\Theme\Base\PostType\BlogArticle;
+use TMS\Theme\Base\Taxonomy\BlogCategory;
 
 /**
  * Class SubpagesFormatter
  *
  * @package TMS\Theme\Base\Formatters
  */
-class ArticlesFormatter implements Formatter {
+class BlogArticlesFormatter extends ArticlesFormatter {
 
     /**
      * Define formatter name
      */
-    const NAME = 'Articles';
+    const NAME = 'BlogArticles';
 
     /**
      * Hooks
      */
     public function hooks() : void {
         add_filter(
-            'tms/acf/layout/articles/data',
+            'tms/acf/layout/blog_articles/data',
             [ $this, 'format' ]
         );
     }
@@ -39,14 +39,14 @@ class ArticlesFormatter implements Formatter {
      */
     public function format( array $data ) : array {
         $args = [
-            'post_type'              => Post::SLUG,
+            'post_type'              => BlogArticle::SLUG,
             'posts_per_page'         => $data['number'] ?? 12,
             'update_post_meta_cache' => false,
             'no_found_rows'          => true,
         ];
 
         if ( $data['highlight_article'] ) {
-            $data['highlight']    = Post::enrich_post( $data['highlight_article'], true );
+            $data['highlight']    = BlogArticle::enrich_post( $data['highlight_article'], true );
             $args['post__not_in'] = [
                 $data['highlight_article']->ID,
             ];
@@ -67,42 +67,26 @@ class ArticlesFormatter implements Formatter {
         }
 
         if ( ! $is_manual_feed && ! empty( $data['category'] ) ) {
-            $args['category__in'] = $data['category'];
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => BlogCategory::SLUG,
+                    'terms'    => $data['category'],
+                ],
+            ];
         }
 
         $wp_query = new \WP_Query( $args );
 
         if ( $wp_query->have_posts() ) {
-            foreach ( $wp_query->posts as $post ) {
-                if ( $is_manual_feed && ! empty( $manual_posts[ $post->ID ]['excerpt'] ) ) {
-                    $post->post_excerpt = $manual_posts[ $post->ID ]['excerpt'];
+            foreach ( $wp_query->posts as $post_item ) {
+                if ( $is_manual_feed && ! empty( $manual_posts[ $post_item->ID ]['excerpt'] ) ) {
+                    $post_item->post_excerpt = $manual_posts[ $post_item->ID ]['excerpt'];
                 }
 
-                $data['posts'][] = Post::enrich_post( $post, true, $data['display_image'] );
+                $data['posts'][] = BlogArticle::enrich_post( $post_item, true, $data['display_image'] );
             }
         }
 
         return $data;
-    }
-
-    /**
-     * Format repeater articles.
-     *
-     * @param array $repeater_data Repeater rows.
-     */
-    protected function format_repeater_data( array $repeater_data ) : array {
-        $items = [];
-
-        foreach ( $repeater_data as $repeater_row ) {
-            if ( empty( $repeater_row['article_item']['article'] ) ) {
-                continue;
-            }
-
-            $article_item_excerpt = $repeater_row['article_item']['article_excerpt'];
-
-            $items[ $repeater_row['article_item']['article'] ]['excerpt'] = $article_item_excerpt;
-        }
-
-        return $items;
     }
 }
