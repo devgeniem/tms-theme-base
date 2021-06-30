@@ -28,6 +28,8 @@ class OnepagerGroup {
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
+
+        $this->add_layout_filters();
     }
 
     /**
@@ -122,6 +124,59 @@ class OnepagerGroup {
         }
 
         return $components_field;
+    }
+
+    /**
+     * Add menu_text field to layout fields.
+     */
+    private function add_layout_filters() {
+        $components = [
+            'hero',
+            'image_banner',
+            'call_to_action',
+            'content_columns',
+            'logo_wall',
+            'map',
+            'icon_links',
+            'social_media',
+            'image_carousel',
+            'text_block',
+            'grid',
+            'events',
+            'articles',
+            'textblock',
+        ];
+
+        foreach ( $components as $component ) {
+            add_filter(
+                "tms/acf/layout/fg_onepager_components_$component/fields",
+                function ( $fields ) use ( $component ) {
+                    $menu_text_field = ( new Field\Text( 'Valikkoteksti' ) )
+                        ->set_key( $component . '_menu_text' )
+                        ->set_name( 'menu_text' )
+                        ->set_instructions( '' );
+
+                    array_unshift( $fields, $menu_text_field );
+
+                    return $fields;
+                },
+                10,
+                1
+            );
+
+            add_filter(
+                "tms/acf/layout/$component/data",
+                function ( $data ) {
+                    if ( isset( $data['menu_text'] ) && ! empty( $data['menu_text'] ) ) {
+                        $data['anchor'] = sanitize_title( $data['menu_text'] );
+                    }
+
+                    return $data;
+                },
+                10,
+                1
+            );
+        }
     }
 }
 
