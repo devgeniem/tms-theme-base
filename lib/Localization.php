@@ -89,7 +89,10 @@ class Localization implements Interfaces\Controller {
         if ( ! DPT_PLL_ACTIVE ) {
             return $post_types;
         }
-        $post_types[ PostType\Settings::SLUG ] = PostType\Settings::SLUG;
+
+        $post_types[ PostType\Settings::SLUG ]     = PostType\Settings::SLUG;
+        $post_types[ PostType\Contact::SLUG ]      = PostType\Contact::SLUG;
+        $post_types[ PostType\DynamicEvent::SLUG ] = PostType\DynamicEvent::SLUG;
 
         return $post_types;
     }
