@@ -9,16 +9,16 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
+use PageOnepager;
 use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
-use TMS\Theme\Base\PostType;
 
 /**
- * Class PageGroup
+ * Class OnepagerGroup
  *
  * @package TMS\Theme\Base\ACF
  */
-class PageGroup {
+class OnepagerGroup {
 
     /**
      * PageGroup constructor.
@@ -28,6 +28,8 @@ class PageGroup {
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
+
+        $this->add_layout_filters();
     }
 
     /**
@@ -38,14 +40,10 @@ class PageGroup {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
 
             $field_group = ( new Group( $group_title ) )
-                ->set_key( 'fg_page_components' );
+                ->set_key( 'fg_onepager_components' );
 
             $rule_group = ( new RuleGroup() )
-                ->add_rule( 'post_type', '==', PostType\Page::SLUG )
-                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageOnepager::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
-                ->add_rule( 'page_type', '!=', 'posts_page' );
+                ->add_rule( 'page_template', '==', PageOnepager::TEMPLATE );
 
             $field_group
                 ->add_rule_group( $rule_group )
@@ -56,6 +54,7 @@ class PageGroup {
                         'comments',
                         'format',
                         'send-trackbacks',
+                        'editor',
                     ]
                 );
 
@@ -81,7 +80,7 @@ class PageGroup {
     }
 
     /**
-     * Get components fields
+     * Get header fields
      *
      * @param string $key Field group key.
      *
@@ -104,6 +103,7 @@ class PageGroup {
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
+                Layouts\HeroLayout::class,
                 Layouts\ImageBannerLayout::class,
                 Layouts\CallToActionLayout::class,
                 Layouts\ContentColumnsLayout::class,
@@ -113,14 +113,9 @@ class PageGroup {
                 Layouts\SocialMediaLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\TextBlockLayout::class,
-                Layouts\SubpageLayout::class,
                 Layouts\GridLayout::class,
-                Layouts\TextBlockLayout::class,
                 Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
-                Layouts\SitemapLayout::class,
-                Layouts\BlogArticlesLayout::class,
-                Layouts\NoticeBannerLayout::class,
             ]
         );
 
@@ -130,6 +125,59 @@ class PageGroup {
 
         return $components_field;
     }
+
+    /**
+     * Add menu_text field to layout fields.
+     */
+    private function add_layout_filters() {
+        $components = [
+            'hero',
+            'image_banner',
+            'call_to_action',
+            'content_columns',
+            'logo_wall',
+            'map',
+            'icon_links',
+            'social_media',
+            'image_carousel',
+            'text_block',
+            'grid',
+            'events',
+            'articles',
+            'textblock',
+        ];
+
+        foreach ( $components as $component ) {
+            add_filter(
+                "tms/acf/layout/fg_onepager_components_$component/fields",
+                function ( $fields ) use ( $component ) {
+                    $menu_text_field = ( new Field\Text( 'Valikkoteksti' ) )
+                        ->set_key( $component . '_menu_text' )
+                        ->set_name( 'menu_text' )
+                        ->set_instructions( '' );
+
+                    array_unshift( $fields, $menu_text_field );
+
+                    return $fields;
+                },
+                10,
+                1
+            );
+
+            add_filter(
+                "tms/acf/layout/$component/data",
+                function ( $data ) {
+                    if ( isset( $data['menu_text'] ) && ! empty( $data['menu_text'] ) ) {
+                        $data['anchor'] = sanitize_title( $data['menu_text'] );
+                    }
+
+                    return $data;
+                },
+                10,
+                1
+            );
+        }
+    }
 }
 
-( new PageGroup() );
+( new OnepagerGroup() );

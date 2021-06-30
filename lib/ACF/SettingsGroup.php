@@ -66,9 +66,9 @@ class SettingsGroup {
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
                         $this->get_404_fields( $field_group->get_key() ),
                         $this->get_archive_fields( $field_group->get_key() ),
+                        $this->get_events_fields( $field_group->get_key() ),
                         $this->get_page_fields( $field_group->get_key() ),
                         $this->get_exception_notice_fields( $field_group->get_key() ),
-                        $this->get_events_fields( $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                     ]
                 )
@@ -121,12 +121,12 @@ class SettingsGroup {
                 'title'        => 'Pudotusvalikko pois käytöstä',
                 'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
             ],
-            'hide_search'      => [
-                'title'        => 'Piilota hakutoiminto',
+            'header_scripts'   => [
+                'title'        => 'Ylätunnisteen custom-skriptit',
                 'instructions' => '',
             ],
-            'header_scripts'  => [
-                'title'        => 'Ylätunnisteen custom-skriptit',
+            'hide_search'      => [
+                'title'        => 'Piilota hakutoiminto',
                 'instructions' => '',
             ],
         ];
@@ -596,42 +596,6 @@ class SettingsGroup {
      * @return Field\Tab
      * @throws Exception In case of invalid option.
      */
-    protected function get_page_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'                       => 'Sisältösivut',
-            'enable_sibling_navigation' => [
-                'title'        => 'Rinnakkaissivujen navigointi',
-                'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
-            ]
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $display_siblings = ( new Field\TrueFalse( $strings['enable_sibling_navigation']['title'] ) )
-            ->set_key( "${key}_enable_sibling_navigation" )
-            ->set_name( 'enable_sibling_navigation' )
-            ->set_default_value( false )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['enable_sibling_navigation']['instructions'] );
-
-        $tab->add_fields( [
-            $display_siblings,
-        ] );
-
-        return $tab;
-    }
-
-    /**
-     * Get events fields
-     * Get page fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
     protected function get_events_fields( string $key ) : Field\Tab {
         $strings = [
             'tab'                           => 'Tapahtumat',
@@ -677,6 +641,41 @@ class SettingsGroup {
             $image_field,
             $events_page_field,
             $show_event_calendars_field,
+        ] );
+
+        return $tab;
+    }
+
+    /**
+     * Get page fields
+     *
+     * @param string $key Field group key.
+     *
+     * @return Field\Tab
+     * @throws Exception In case of invalid option.
+     */
+    protected function get_page_fields( string $key ) : Field\Tab {
+        $strings = [
+            'tab'                       => 'Sisältösivut',
+            'enable_sibling_navigation' => [
+                'title'        => 'Rinnakkaissivujen navigointi',
+                'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
+            ],
+        ];
+
+        $tab = ( new Field\Tab( $strings['tab'] ) )
+            ->set_placement( 'left' );
+
+        $display_siblings = ( new Field\TrueFalse( $strings['enable_sibling_navigation']['title'] ) )
+            ->set_key( "${key}_enable_sibling_navigation" )
+            ->set_name( 'enable_sibling_navigation' )
+            ->set_default_value( false )
+            ->use_ui()
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['enable_sibling_navigation']['instructions'] );
+
+        $tab->add_fields( [
+            $display_siblings,
         ] );
 
         return $tab;

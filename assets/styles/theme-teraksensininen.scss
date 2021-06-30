@@ -48,7 +48,8 @@ $button-colors: (
 );
 
 $navbar-colors: (
-    "primary": $colors-palette-primary
+    "primary": $colors-palette-primary,
+    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
 );
 
 $color-background-primary-light--opaque-light: $secondary;
