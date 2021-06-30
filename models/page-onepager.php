@@ -24,7 +24,7 @@ class PageOnepager extends BaseModel {
      * @return void
      */
     public function hooks() : void {
-        add_filter( 'tms/theme/hide_main_nav', '__return_true', 10, 0 );
+        add_filter( 'tms/theme/hide_main_nav', '__return_true' );
     }
 
     /**
