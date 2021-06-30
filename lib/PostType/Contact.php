@@ -17,7 +17,7 @@ class Contact implements PostType {
     /**
      * This defines the slug of this post type.
      */
-    public const SLUG = 'contact';
+    public const SLUG = 'contact-cpt';
 
     /**
      * This defines what is shown in the url. This can
