@@ -4,18 +4,18 @@
 
 @import "themes/includes";
 
-$primary: #3d9ec3;
+$primary: #f1eeeb;
 $primary-invert: $color-black;
 $primary-light: bulmaLighten($primary, 5);
 $primary-light-invert: $color-black;
-$primary-dark: bulmaDarken($primary, 5);
+$primary-dark: bulmaDarken($primary, 50);
 $primary-dark-invert: $color-black;
 
-$secondary: #a5d7e5;
+$secondary: $primary;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 5);
+$secondary-light: bulmaLighten($secondary, 10);
 $secondary-light-invert: $color-black;
-$secondary-dark: bulmaDarken($secondary, 5);
+$secondary-dark: bulmaDarken($secondary, 10);
 $secondary-dark-invert: $color-black;
 
 $light: $primary-light;
@@ -23,8 +23,8 @@ $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
 
-$text: $black;
-$link: $primary;
+$text: $color-black;
+$link: $primary-dark;
 
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
@@ -36,13 +36,12 @@ $colors: (
     "black": ($color-black, $color-white),
 );
 
-$button-colors: (
-    "primary": $colors-palette-primary,
-    "secondary": $colors-palette-secondary,
-);
+$button-text-primary: $text;
+$button-text-invert: $text;
 
-$navbar-colors: (
-    "primary": $colors-palette-primary
+$button-colors: (
+    "primary": ($primary, $primary-invert, $color-white, $button-text-primary),
+    "secondary": ($secondary, $secondary-invert, $color-white, $button-text-primary),
 );
 
 $color-background-primary-light--opaque-light: $secondary;

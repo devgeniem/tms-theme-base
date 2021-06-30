@@ -76,6 +76,7 @@ class ThemeController {
             'Emojis'              => new Emojis(),
             'Formatters'          => new FormatterController(),
             'Images'              => new Images(),
+            'LinkedEvents'        => new LinkedEvents(),
             'Localization'        => new Localization(),
             'Navigation'          => new NavigationController(),
             'PostTypeController'  => new PostTypeController(),

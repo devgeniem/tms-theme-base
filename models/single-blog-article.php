@@ -56,4 +56,19 @@ class SingleBlogArticle extends Single {
         return get_post_type_archive_link( BlogArticle::SLUG );
     }
 
+    /**
+     * Get comments markup.
+     *
+     * @return false|string
+     */
+    public function Comments() {
+        if ( ! comments_open( get_the_ID() ) ) {
+            return false;
+        }
+
+        ob_start();
+        comments_template();
+
+        return ob_get_clean();
+    }
 }

@@ -105,8 +105,12 @@ class Assets implements Interfaces\Controller {
             true
         );
 
-        // TODO: Replace with settings Settings page variable.
-        $this->enqueue_theme( 'tummavesi' );
+        $theme_default_color = apply_filters(
+            'tms/theme/theme_default_color',
+            DEFAULT_THEME_COLOR
+        );
+        $selected_theme      = Settings::get_setting( 'theme_color' ) ?? $theme_default_color;
+        $this->enqueue_theme( $selected_theme );
 
         /**
          * Add localizations to window.s object.

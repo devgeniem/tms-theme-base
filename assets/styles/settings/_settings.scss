@@ -1,3 +1,19 @@
+// Defaults for all themes (see assets/styles/theme-*.scss).
+$colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "white": ($color-white, $color-black),
+    "black": ($color-black, $color-white),
+) !default;
+
+$button-colors: (
+    "primary": ($primary, $color-white, $text, $text),
+    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
+) !default;
+
+$navbar-colors: (
+    "primary": $colors-palette-primary
+) !default;
 
 // Font sizes
 // Default sizes: https://bulma.io/documentation/modifiers/typography-helpers/
@@ -32,3 +48,6 @@ $theme-spacing-six: $theme-spacing * 6;
 $modal-background-background-color: $modal-overlay-background;
 $navbar-item-active-background-color: transparent;
 $navbar-dropdown-item-hover-background-color: transparent;
+
+$navbar-item-color: $color-black !default;
+$navbar-item-hover-color: $color-black !default;

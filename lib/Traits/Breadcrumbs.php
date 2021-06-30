@@ -35,6 +35,8 @@ trait Breadcrumbs {
                 return $this->format_post_type_archive( $breadcrumbs );
             case 'tax-archive':
                 return $this->format_tax_archive( $breadcrumbs );
+            case PostType\DynamicEvent::SLUG:
+                return $this->format_page( $current_id, $home_url, $breadcrumbs );
             default:
                 return $breadcrumbs;
         }

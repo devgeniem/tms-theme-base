@@ -31,6 +31,22 @@
         }
     }
 
+    &-1 {
+        top: 1rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                top: 1rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                top: 1rem !important;
+            }
+        }
+    }
+
     &-50 {
         top: 50% !important;
 
@@ -115,6 +131,38 @@
         }
     }
 
+    &-1 {
+        left: 1rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                left: 1rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                left: 1rem !important;
+            }
+        }
+    }
+
+    &-2 {
+        left: 2rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                left: 2rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                left: 2rem !important;
+            }
+        }
+    }
+
     &-50 {
         left: 50% !important;
 
@@ -145,6 +193,22 @@
         &-desktop {
             @include from($desktop) {
                 bottom: 0 !important;
+            }
+        }
+    }
+
+    &-2 {
+        bottom: 2rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                bottom: 2rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                bottom: 2rem !important;
             }
         }
     }
