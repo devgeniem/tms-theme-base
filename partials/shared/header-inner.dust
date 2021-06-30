@@ -14,11 +14,11 @@
             {/Header.lang_nav_horizontal}
 
             {?Header.lang_nav_horizontal}
-                <div class="is-hidden-desktop">
+            <div class="is-hidden-desktop">
             {/Header.lang_nav_horizontal}
             {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
             {?Header.lang_nav_horizontal}
-                </div>
+            </div>
             {/Header.lang_nav_horizontal}
 
             {^Header.hide_search}
@@ -26,7 +26,8 @@
             {/Header.hide_search}
 
             {?Header.has_nav_menu}
-                <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+                <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}"
+                        data-micromodal-trigger="js-fly-out-nav">
                     {>"ui/icon" icon="burger" class="icon--large" /}
                     <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
                 </button>

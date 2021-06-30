@@ -1,4 +1,4 @@
-<div class="section layout-image-banner">
+<div {?anchor}id="{anchor|s}"{/anchor} class="section layout-image-banner">
     <div class="container">
         <div class="columns">
             <div class="column">
