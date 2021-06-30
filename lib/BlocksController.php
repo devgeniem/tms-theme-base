@@ -123,7 +123,6 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
-
             'core/paragraph'    => [
                 'post_types' => [
                     PostType\Page::SLUG,
