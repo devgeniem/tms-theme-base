@@ -38,7 +38,7 @@ $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
     "accent": $colors-palette-accent,
-    "white": ($color-white, $color-black),
+    "white": ($color-white, $accent),
     "black": ($color-black, $color-white),
 );
 
