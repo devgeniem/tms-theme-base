@@ -103,10 +103,21 @@ class BlocksController implements Interfaces\Controller {
         $blocks = [
             'core/block'        => [],
             'core/template'     => [],
+            'core/list'         => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                ],
+                'templates'  => [
+                    '',
+                ],
+            ],
             'core/heading'      => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
                 'templates'  => [
@@ -117,6 +128,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
                 'templates'  => [
@@ -133,6 +145,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -140,6 +153,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -147,6 +161,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -160,6 +175,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -167,6 +183,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -174,6 +191,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -188,6 +206,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
@@ -207,6 +226,7 @@ class BlocksController implements Interfaces\Controller {
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
                     PostType\DynamicEvent::SLUG,
                 ],
             ],

@@ -111,6 +111,7 @@ class PageFrontPageGroup {
                 Layouts\GridLayout::class,
                 Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\BlogArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
             ]
         );

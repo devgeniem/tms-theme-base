@@ -90,7 +90,7 @@ class ArticlesFormatter implements Formatter {
      *
      * @param array $repeater_data Repeater rows.
      */
-    private function format_repeater_data( array $repeater_data ) : array {
+    protected function format_repeater_data( array $repeater_data ) : array {
         $items = [];
 
         foreach ( $repeater_data as $repeater_row ) {
