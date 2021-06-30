@@ -1,0 +1,20 @@
+{?placeholder}
+    <div class="image is-16by9 map__placeholder-wrapper">
+        {@image id=placeholder size="xlarge" class="objectfit-cover"/}
+
+        <div class="is-overlay">
+            <button class="js-map-layout-toggle button button--icon is-primary is-absolute has-top-50 has-left-50 has-transform-x--50"
+                    data-target="#{id|s}">
+                {map_button_text|s}
+
+                {>"ui/icon" icon="chevron-right" class="icon--medium" /}
+            </button>
+        </div>
+    </div>
+
+    <div id="{id|s}" class="image is-16by9 is-embed-container is-hidden" data-url="{embed_url|s}"></div>
+{:else}
+    <div class="image is-16by9 is-embed-container">
+        {embed|s}
+    </div>
+{/placeholder}

@@ -4,4 +4,4 @@
  */
 
 import './main.js';
-import '../styles/theme-vaaleanvihrea.scss';
+import 'styles/theme-neutraali.scss';

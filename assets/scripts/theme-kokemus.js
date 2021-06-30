@@ -4,4 +4,4 @@
  */
 
 import './main.js';
-import '../styles/theme-turkoosi.scss';
+import 'styles/theme-kokemus.scss';

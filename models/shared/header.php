@@ -99,7 +99,7 @@ class Header extends Model {
      * @return false|mixed
      */
     public function hide_main_nav() {
-        return Settings::get_setting( 'hide_main_nav' ) ?? false;
+        return apply_filters( 'tms/theme/hide_main_nav', Settings::get_setting( 'hide_main_nav' ) ) ?? false;
     }
 
     /**

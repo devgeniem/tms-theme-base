@@ -10,6 +10,28 @@
 class Strings extends \DustPress\Model {
 
     /**
+     * Constructor
+     *
+     * @param array $args   Model arguments.
+     * @param mixed $parent Set model parent.
+     */
+    public function __construct( $args = [], $parent = null ) {
+        parent::__construct( $args, $parent );
+
+        $this->hooks();
+    }
+
+    /**
+     * Hooks
+     */
+    public function hooks() : void {
+        add_filter(
+            'dustpress/pagination/data',
+            \Closure::fromCallable( [ $this, 'add_pagination_translations' ] )
+        );
+    }
+
+    /**
      * Translated strings
      *
      * @return array
@@ -58,6 +80,7 @@ class Strings extends \DustPress\Model {
             'common'             => [
                 'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
                 'all'          => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
+                'read_more'    => _x( 'Read more', 'theme-frontend', 'tms-theme-base' ),
             ],
             'single'             => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
@@ -105,5 +128,18 @@ class Strings extends \DustPress\Model {
                 'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
+    }
+
+    /**
+     * Add translations to pagination
+     *
+     * @param object $data Pagination data.
+     *
+     * @return object
+     */
+    public function add_pagination_translations( $data ) {
+        $data->S->aria_label = __( 'Pagination', 'tms-theme-base' );
+
+        return $data;
     }
 }

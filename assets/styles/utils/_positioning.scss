@@ -147,6 +147,22 @@
         }
     }
 
+    &-2 {
+        left: 2rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                left: 2rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                left: 2rem !important;
+            }
+        }
+    }
+
     &-50 {
         left: 50% !important;
 
@@ -177,6 +193,22 @@
         &-desktop {
             @include from($desktop) {
                 bottom: 0 !important;
+            }
+        }
+    }
+
+    &-2 {
+        bottom: 2rem !important;
+
+        &-tablet {
+            @include from($tablet) {
+                bottom: 2rem !important;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                bottom: 2rem !important;
             }
         }
     }

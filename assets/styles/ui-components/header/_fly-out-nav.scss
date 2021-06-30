@@ -2,6 +2,17 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+$fly-out-nav-trigger-icon: $primary !default;
+$fly-out-nav-trigger-icon-hover: $primary-dark !default;
+$fly-out-nav-primary-link: $primary-invert !default;
+$fly-out-nav-primary-link-hover: $primary-invert !default;
+$fly-out-nav-primary-dropdown-active-background: $primary-invert !default;
+$fly-out-nav-secondary-border-color: $primary-invert !default;
+$fly-out-nav-secondary-link: $primary-invert !default;
+$fly-out-nav-secondary-link-hover: $primary-invert !default;
+$fly-out-nav-search-input-border: $primary !default;
+$fly-out-nav-search-button-icon: $primary !default;
+
 .fly-out-nav {
     z-index: 50;
     display: none;
@@ -55,14 +66,14 @@
             outline: 0;
 
             .icon {
-                fill: $primary-dark;
+                fill: $fly-out-nav-trigger-icon-hover;
             }
         }
 
         .icon {
             width: 2rem;
             height: 1.75rem;
-            fill: $primary;
+            fill: $fly-out-nav-trigger-icon;
         }
     }
 
@@ -106,7 +117,7 @@
 
                 &:hover,
                 &:focus {
-                    color: $primary-invert !important; // sass-lint:disable-line no-important
+                    color: $fly-out-nav-primary-link-hover !important; // sass-lint:disable-line no-important
                 }
             }
         }
@@ -141,11 +152,11 @@
     }
 
     a {
-        color: $primary-invert;
+        color: $fly-out-nav-primary-link;
 
         &:hover,
         &:focus {
-            color: $primary-invert;
+            color: $fly-out-nav-primary-link-hover;
             text-decoration: underline;
             background-color: transparent !important; // sass-lint:disable-line no-important
         }
@@ -161,7 +172,7 @@
                 left: -1.75rem;
                 display: block;
                 width: 1px;
-                background-color: $primary-invert;
+                background-color: $fly-out-nav-primary-dropdown-active-background;
             }
         }
     }
@@ -169,17 +180,18 @@
     .secondary-menu {
         margin: 2rem 0;
         padding: 2rem 0 0 2rem;
-        border-top: 1px solid $primary-invert;
+        border-top: 1px solid $fly-out-nav-secondary-border-color;
 
         .menu-item-secondary {
             margin-bottom: $theme-spacing;
             margin-left: 0 !important; // sass-lint:disable-line no-important
 
             &__link {
-                color: $primary-invert;
+                color: $fly-out-nav-secondary-link;
 
                 &:hover,
                 &:focus {
+                    color: $fly-out-nav-secondary-link-hover;
                     text-decoration: underline;
                 }
             }
@@ -188,17 +200,16 @@
 
     .search-form {
         &__input {
-            border: 1px solid $primary;
+            border: 1px solid $fly-out-nav-search-input-border;
             border-radius: .25rem;
         }
 
         &__button {
             &.is-inverted {
                 .icon {
-                    fill: $primary !important; // sass-lint:disable-line no-important
+                    fill: $fly-out-nav-search-button-icon !important; // sass-lint:disable-line no-important
                 }
             }
         }
     }
 }
-

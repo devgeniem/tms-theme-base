@@ -1,4 +1,4 @@
-<section class="events section">
+<section {?anchor}id="{anchor|s}"{/anchor} class="events section">
     <div class="container">
         {?title}
             <div class="columns">
@@ -45,7 +45,7 @@
 
                             <div class="is-flex is-align-items-center mt-2 mb-2">
                                 <span class="is-flex" aria-label="{Strings.s.event.time|s}">
-                                {>"ui/icon" icon="time" class="icon--large is-primary mr-4" /}
+                                    {>"ui/icon" icon="time" class="icon--large is-primary mr-4" /}
                                 </span>
 
                                 {time|s}

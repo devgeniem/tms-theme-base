@@ -1,4 +1,4 @@
-<section class="section layout-articles">
+<section {?anchor}id="{anchor|s}"{/anchor} class="section layout-articles">
     <div class="container">
         <div class="columns">
             <div class="column is-8 is-offset-2 has-text-centered has-text-black">
