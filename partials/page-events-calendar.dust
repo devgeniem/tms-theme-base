@@ -1,0 +1,70 @@
+{>"shared/base" /}
+
+{<content}
+    {#PageEventsCalendar}
+        <main class="main-content section" id="main-content">
+            <div class="container">
+                <div class="columns mb-8 mb-9-desktop">
+                    <div class="column is-10 is-offset-1 pt-0 pb-0 has-text-centered">
+                        <h1 class="mt-0 mb-0">
+                            {@title /}
+                        </h1>
+                    </div>
+                </div>
+
+                {?calendar_pages}
+                    <div class="columns is-multiline mt-7 mb-7">
+                        {#calendar_pages}
+                            <div class="column is-6 is-4-widescreen">
+                                <a href="{url}" class="is-flex is-align-items-center has-height-100 p-4 p-8-desktop has-background-secondary">
+                                    <span class="h6 pr-4 has-text-secondary-invert">
+                                        {title|s}
+                                    </span>
+
+                                    <span class="ml-auto">
+                                        {>"ui/icon" icon="chevron-right" class="icon--large is-primary" /}
+                                    </span>
+                                </a>
+                            </div>
+                        {/calendar_pages}
+                    </div>
+                {/calendar_pages}
+
+                {?is_grid}
+                    <div class="columns is-multiline">
+                        {#events}
+                            <div class="column is-6 is-4-desktop">
+                                {>"{item_partial}" /}
+                            </div>
+                        {/events}
+                    </div>
+                {:else}
+                    <div class="columns">
+                        <div class="column is-10-desktop is-offset-1-desktop">
+                            {#events}
+                                {>"{item_partial}" /}
+                            {/events}
+                        </div>
+                    </div>
+                {/is_grid}
+
+                {?no_results}
+                    <div class="columns">
+                        <div class="column is-6 is-offset-3 has-text-centered is-size-4">
+                            {no_results|s}
+                        </div>
+                    </div>
+                {/no_results}
+
+                {?pagination}
+                    <div class="columns mt-8 mb-4">
+                        <div class="column has-text-centered">
+                            {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
+                        </div>
+                    </div>
+                {/pagination}
+            </div>
+        </main>
+    {/PageEventsCalendar}
+{/content}
+

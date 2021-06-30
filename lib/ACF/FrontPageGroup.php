@@ -109,7 +109,10 @@ class PageFrontPageGroup {
                 Layouts\LogoWallLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
+                Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\BlogArticlesLayout::class,
+                Layouts\NoticeBannerLayout::class,
             ]
         );
 

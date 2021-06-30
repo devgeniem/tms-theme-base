@@ -17,7 +17,7 @@ class Comments implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \add_filter( 'comment_reply_link', [ $this, 'amend_reply_link_class' ], 10, 4 );
+        \add_filter( 'comment_reply_link', [ $this, 'amend_reply_link_class' ], 10, 1 );
         \add_filter( 'comment_form_fields', [ $this, 'customize_comment_form_fields' ], 10, 2 );
         \add_filter( 'comment_form_submit_button', [ $this, 'override_comment_form_submit' ], 10, 0 );
     }
@@ -25,19 +25,11 @@ class Comments implements Interfaces\Controller {
     /**
      * Customize reply link.
      *
-     * @param string      $link    The HTML markup for the comment reply link.
-     * @param array       $args    An array of arguments overriding the defaults.
-     * @param \WP_Comment $comment The object of the comment being replied.
-     * @param \WP_Post    $post    The WP_Post object.
+     * @param string $link The HTML markup for the comment reply link.
      *
      * @return string
      */
-    public function amend_reply_link_class( // phpcs:ignore
-        string $link,
-        array $args,
-        \WP_Comment $comment,
-        \WP_Post $post
-    ) : string {
+    public function amend_reply_link_class( string $link ) : string {
         return str_replace( 'comment-reply-link', 'comment-reply-link button button-primary', $link );
     }
 
@@ -97,7 +89,7 @@ class Comments implements Interfaces\Controller {
                 <?php comment_text(); ?>
             </div>
 
-            <div class="comment__footer is-flex is-justify-content-space-between">
+            <div class="comment__footer is-flex-tablet is-justify-content-space-between">
                 <div class="comment__info mr-2">
                     <?php
                     echo sprintf(
@@ -132,7 +124,7 @@ class Comments implements Interfaces\Controller {
                         [
                             'depth'     => $depth,
                             'max_depth' => get_option( 'thread_comments_depth' ),
-                            'before'    => '<div class="comment__reply is-flex is-align-items-center">',
+                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">',
                             'after'     => '</div>',
                         ]
                     );

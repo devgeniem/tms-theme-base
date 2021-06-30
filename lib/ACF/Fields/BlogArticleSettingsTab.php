@@ -63,7 +63,7 @@ class BlogArticleSettingsTab extends \Geniem\ACF\Field\Tab {
     public function __construct( $label = '', $key = null, $name = null ) {
         $label = $this->strings['tab'];
 
-        parent::__construct( $label, $key, $name );
+        parent::__construct( $label );
 
         $this->sub_fields( $key );
     }

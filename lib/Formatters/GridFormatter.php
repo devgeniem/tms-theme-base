@@ -92,6 +92,8 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $order_alt
             );
 
+            $filtered['button'] = $classes['display'] === 'primary' ? 'is-primary-invert' : 'is-primary';
+
             $filtered['display'] = 'is-' . $classes['display'];
             $classes['display']  = 'has-colors-' . $classes['display'];
 

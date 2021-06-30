@@ -5,27 +5,19 @@
 
 $button-colors: $colors !default;
 
-$button-color: $primary-invert !default;
-$button-color-hover: $dark-invert !default;
-$button-color-active: $dark-invert !default;
-$button-color-focus: $dark-invert !default;
-$button-color-inverted: $primary !default;
-$button-color-inverted-hover: $light-invert !default;
-$button-color-inverted-active: $dark !default;
-$button-color-inverted-focus: $dark !default;
-$button-background-color: $primary !default;
-$button-background-color-hover: $light !default;
-$button-background-color-active: $dark !default;
-$button-background-color-focus: $dark !default;
-$button-background-color-inverted: $primary-invert !default;
-$button-background-color-inverted-hover: $light !default;
-$button-background-color-inverted-focus: $light !default;
-$button-background-color-inverted-active: $light !default;
-$button-border-color: $button-background-color !default;
-$button-border-color-active: $button-background-color-active !default;
-$button-border-color-focus: $black !default;
-$button-border-width: .15rem;
-$button-border-radius: 1.8rem;
+$button-primary: $primary !default;
+$button-primary-invert: $color-white !default;
+
+$button-text-primary: $button-primary-invert !default;
+$button-border-primary: $button-primary-invert !default;
+$button-background-primary: $button-primary !default;
+
+$button-text-invert: $button-primary !default;
+$button-border-invert: $button-primary !default;
+$button-background-invert: $button-primary-invert !default;
+
+$button-border-width: .15rem !default;
+$button-border-radius: 1.8rem !default;
 
 @mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
     color: $button-color-mixin-text !important;
@@ -37,16 +29,36 @@ $button-border-radius: 1.8rem;
     }
 }
 
+.button-state-focus {
+    outline: .125rem dashed $color-black;
+    outline-offset: .25rem;
+}
+
+.button-state-hover {
+    filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
+}
+
+.button-states {
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused {
+        @extend .button-state-hover;
+    }
+
+    &:focus,
+    &.is-focused {
+        @extend .button-state-focus;
+    }
+}
+
 .button {
     @extend %control;
     @extend %unselectable;
 
     height: auto;
-    background-color: $button-background-color;
-    border-color: $button-border-color;
     border-width: $button-border-width;
     border-radius: $button-border-radius;
-    color: $button-color;
     cursor: pointer;
     font-weight: $weight-medium;
     font-family: $family-secondary;
@@ -70,36 +82,123 @@ $button-border-radius: 1.8rem;
         height: 1rem;
         margin-left: 1.75rem !important;
         margin-right: -.5rem !important;
-        fill: $button-color;
+        fill: $button-text-primary;
+    }
+
+    &,
+    &:active,
+    &.is-active {
+        background-color: $button-background-primary;
+        border-color: $button-border-primary;
+        color: $button-text-primary;
+
+        .icon {
+            fill: $button-text-primary;
+        }
+    }
+
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused {
+        background-color: $button-background-invert;
+        border-color: $button-border-invert;
+        color: $button-text-invert;
+
+        @extend .button-state-hover;
+
+        .icon {
+            fill: $button-text-invert;
+        }
+    }
+
+    &:focus,
+    &.is-focused {
+        @extend .button-state-focus;
     }
 
     &.is-outlined {
-        color: $button-color-inverted;
-        background-color: transparent;
-        border-color: $button-border-color;
+        &,
+        &:active,
+        &.is-active {
+            background-color: transparent;
+            border-color: $button-border-invert;
+            color: $button-text-invert;
 
-        .icon {
-            fill: $button-color-inverted;
+            .icon {
+                fill: $button-text-invert;
+            }
         }
+
+        @extend .button-states;
     }
 
     &.is-borderless {
-        color: $button-color;
-        background-color: $button-background-color;
-        border-color: transparent;
+        &,
+        &:active,
+        &.is-active {
+            background-color: $button-background-primary;
+            border-color: transparent;
+            color: $button-text-primary;
 
-        .icon {
-            fill: $button-color;
+            .icon {
+                fill: $button-text-primary;
+            }
         }
+
+        @extend .button-states;
     }
 
+    &-invert,
     &.is-inverted {
-        color: $button-color-inverted;
-        background-color: $button-background-color-inverted;
-        border-color: $button-color-inverted;
+        background-color: $button-background-invert;
+        border-color: $button-border-invert;
+        color: $button-text-invert;
 
         .icon {
-            fill: $button-color-inverted;
+            fill: $button-text-invert;
+        }
+
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
+            background-color: $button-background-primary;
+            border-color: $button-border-primary;
+            color: $button-text-primary;
+
+            .icon {
+                fill: $button-text-primary;
+            }
+        }
+
+        &:focus,
+        &.is-focused {
+            @extend .button-state-focus;
+        }
+
+        &.is-borderless {
+            background-color: $button-background-invert;
+            border-color: transparent;
+            color: $button-text-invert;
+
+            .icon {
+                fill: $button-text-invert;
+            }
+
+            @extend .button-states;
+        }
+
+        &.is-outlined {
+            background-color: transparent;
+            border-color: $button-text-primary;
+            color: $button-text-primary;
+
+            .icon {
+                fill: $button-text-primary;
+            }
+
+            @extend .button-states;
         }
     }
 
@@ -121,122 +220,97 @@ $button-border-radius: 1.8rem;
 
     // Then the color variation generation
     @each $name, $pair in $button-colors {
-        $button-pair-primary: nth($pair, 1);
-        $button-pair-primary-invert: nth($pair, 2);
+        $btn-pair-primary: nth($pair, 1);
+        $btn-pair-primary-invert: nth($pair, 2);
 
-        $button-pair-primary-hover: bulmaDarken($button-pair-primary, 10%);
-        $button-pair-primary-hover-invert: $button-pair-primary-invert;
+        $btn-pair-primary-text: $btn-pair-primary !default;
+        $btn-pair-primary-text-invert: $btn-pair-primary-invert !default;
 
-        $button-pair-primary-active: bulmaDarken($button-pair-primary, 25%);
-        $button-pair-primary-active-invert: $button-pair-primary-invert;
-
-        $button-pair-primary-focus: $button-pair-primary-hover;
-        $button-pair-primary-focus-invert: $button-pair-primary-hover-invert;
+        @if (length($pair) > 2) {
+            $btn-pair-primary-text: nth($pair, 3);
+        }
+        @if (length($pair) > 3) {
+            $btn-pair-primary-text-invert: nth($pair, 4);
+        }
 
         &.is-#{$name} {
-            @include button_colors($button-pair-primary, $button-pair-primary-invert, transparent);
-
-            &:hover,
-            &.is-hovered {
-                @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, $button-pair-primary-hover-invert);
-            }
-
-            &:focus,
-            &.is-focused {
-                @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, $button-pair-primary-focus-invert);
-            }
-
+            /**
+             * button_colors( background, text, border color )
+             */
+            &,
             &:active,
             &.is-active {
-                @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
+                @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
             }
 
+            &:hover,
+            &.is-hovered,
+            &:focus,
+            &.is-focused {
+                @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary);
+            }
+
+            @extend .button-states;
+
             &.is-outlined {
-                @include button_colors(transparent, $button-pair-primary, $button-pair-primary);
-
-                &:hover {
-                    @include button_colors(transparent, $button-pair-primary-hover, $button-pair-primary-hover);
+                &,
+                &:active,
+                &.is-active {
+                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
-                &:focus {
-                    @include button_colors(transparent, $button-pair-primary-focus, $button-pair-primary-focus);
-                }
+                @extend .button-states;
             }
 
             &.is-borderless {
-                @include button_colors($button-pair-primary, $button-pair-primary-invert, transparent);
-                border-color: transparent !important;
-
-                &:focus,
-                &.is-focused {
-                    @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, transparent);
-                }
-
+                &,
                 &:active,
                 &.is-active {
-                    @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
+                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
+                    border-color: transparent !important;
                 }
 
-                &:hover,
-                &.is-hovered {
-                    @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, transparent);
-                }
+                @extend .button-states;
             }
 
             &-invert,
             &.is-inverted {
-                @include button_colors($button-pair-primary-invert, $button-pair-primary, $button-pair-primary);
-
-                &:hover,
-                &.is-hovered {
-                    @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, $button-pair-primary-hover-invert);
-                }
-
-                &:focus,
-                &.is-focused {
-                    @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, $button-pair-primary-focus-invert);
-                }
-
+                &,
                 &:active,
                 &.is-active {
-                    @include button_colors($button-pair-primary-active-invert, $button-pair-primary-active, transparent);
+                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
                 }
 
+                &:hover,
+                &.is-hovered,
+                &:focus,
+                &.is-focused {
+                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-invert);
+                }
+
+                @extend .button-states;
+
                 &.is-outlined {
-                    @include button_colors(transparent, $button-pair-primary-invert, $button-pair-primary-invert);
-
-                    &:active {
-                        @include button_colors(transparent, $button-pair-primary-active-invert, $button-pair-primary-active);
+                    &,
+                    &:active,
+                    &.is-active {
+                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
-                    &:hover {
-                        @include button_colors(transparent, $button-pair-primary-hover-invert, $button-pair-primary-hover);
-                    }
-
-                    &:focus {
-                        @include button_colors(transparent, $button-pair-primary-focus-invert, $button-pair-primary-focus);
-                    }
+                    @extend .button-states;
                 }
 
                 &.is-borderless {
-                    @include button_colors($button-pair-primary-invert, $button-pair-primary, transparent);
-
-                    &:focus,
-                    &.is-focused {
-                        @include button_colors($button-pair-primary-focus, $button-pair-primary-focus-invert, transparent);
-                    }
+                    &,
                     &:active,
                     &.is-active {
-                        @include button_colors($button-pair-primary-active, $button-pair-primary-active-invert, transparent);
+                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
+                        border-color: transparent !important;
                     }
-                    &:hover,
-                    &.is-hovered {
-                        @include button_colors($button-pair-primary-hover, $button-pair-primary-hover-invert, transparent);
-                    }
+
+                    @extend .button-states;
                 }
             }
         }
     }
-
-
 }

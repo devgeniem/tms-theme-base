@@ -1,5 +1,5 @@
 {?rows}
-<div class="section logo-wall layout-logo-wall mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
+<div class="section logo-wall layout-logo-wall p-8 has-background-secondary has-text-secondary-invert">
     <div class="container keep-vertical-spacing">
 
         {?header}

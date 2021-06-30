@@ -8,7 +8,7 @@ namespace TMS\Theme\Base\Traits;
 use WP_Term;
 
 /**
- * Trait PrimaryCategory
+ * Trait Categories
  *
  * Provides additional post data.
  *
