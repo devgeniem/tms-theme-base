@@ -61,7 +61,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             $this->strings['tab'] = $label;
         }
 
-        parent::__construct( $this->strings['tab'], $key, $name );
+        parent::__construct( $this->strings['tab'] );
 
         $this->sub_fields( $key );
     }
