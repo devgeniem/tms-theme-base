@@ -56,13 +56,6 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": ($primary, $color-white, $color-black, $color-white),
-    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
-);
-
-$navbar-colors: (
-    "primary": $colors-palette-primary,
-    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
     "primary": ($primary, $color-white, $primary, $color-white),
     "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
 );
