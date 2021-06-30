@@ -155,6 +155,7 @@ class BlogArticlesFields extends \Geniem\ACF\Field\Group {
         $highlight_blog_article_field = ( new Field\PostObject( $this->strings['highlight_blog_article']['label'] ) )
             ->set_key( "${key}_highlight_article" )
             ->set_name( 'highlight_article' )
+            ->allow_null()
             ->set_post_types( [ BlogArticle::SLUG ] )
             ->set_instructions( $this->strings['highlight_blog_article']['instructions'] );
 
