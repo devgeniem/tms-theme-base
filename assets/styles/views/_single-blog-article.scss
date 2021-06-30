@@ -1,0 +1,21 @@
+.entry__blog-info-container {
+    width: 100vw;
+    max-width: 100vw;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+}
+
+.is-blog-info-grid {
+    @include from($desktop) {
+        display: grid;
+        grid-template-columns: 150px 3fr 1fr;
+    }
+}
+
+.entry__blog-description-text {
+    grid-column: 2 / 3;
+}
+
+.entry__blog-author-text {
+    grid-column: 2 / 3;
+}

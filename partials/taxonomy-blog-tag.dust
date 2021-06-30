@@ -1,0 +1,9 @@
+{>"shared/base" /}
+
+{<content}
+    <main class="main-content pb-8" id="main-content">
+        {#TaxonomyBlogTag}
+            {>"archive-inner" /}
+        {/TaxonomyBlogTag}
+    </main>
+{/content}
