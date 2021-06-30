@@ -57,6 +57,27 @@ class SingleBlogArticle extends Single {
     }
 
     /**
+     * Get the blog authors.
+     *
+     * @return array
+     */
+    public function blog_authors() : ?array {
+        $authors = get_field( 'authors' );
+
+        if ( empty( $authors ) ) {
+            return [];
+        }
+
+        return array_map( function ( $author ) {
+            $author->featured_image = has_post_thumbnail( $author->ID )
+                ? get_post_thumbnail_id( $author->ID )
+                : null;
+
+            return $author;
+        }, $authors );
+    }
+
+    /**
      * Get comments markup.
      *
      * @return false|string
