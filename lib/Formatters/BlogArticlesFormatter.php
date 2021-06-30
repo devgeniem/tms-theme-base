@@ -78,12 +78,12 @@ class BlogArticlesFormatter extends ArticlesFormatter {
         $wp_query = new \WP_Query( $args );
 
         if ( $wp_query->have_posts() ) {
-            foreach ( $wp_query->posts as $post ) {
-                if ( $is_manual_feed && ! empty( $manual_posts[ $post->ID ]['excerpt'] ) ) {
-                    $post->post_excerpt = $manual_posts[ $post->ID ]['excerpt'];
+            foreach ( $wp_query->posts as $post_item ) {
+                if ( $is_manual_feed && ! empty( $manual_posts[ $post_item->ID ]['excerpt'] ) ) {
+                    $post_item->post_excerpt = $manual_posts[ $post_item->ID ]['excerpt'];
                 }
 
-                $data['posts'][] = BlogArticle::enrich_post( $post, true, $data['display_image'] );
+                $data['posts'][] = BlogArticle::enrich_post( $post_item, true, $data['display_image'] );
             }
         }
 
