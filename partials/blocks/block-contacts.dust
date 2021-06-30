@@ -1,0 +1,78 @@
+{! block !}
+
+{#filled_contacts}
+    <div class="column {column_class|s}">
+        {?additional_info_top}
+            <div>
+                {additional_info_top|s}
+            </div>
+        {/additional_info_top}
+
+        {?title}
+            <div>
+                {title|s}
+            </div>
+        {/title}
+
+        {@isset key1=first_name key2=last_name method="OR" }
+            <div>
+                {first_name|s} {last_name|s}
+            </div>
+        {/isset}
+
+        {?phone_repeater}
+            <div>
+                <div>
+                    {#phone_repeater}
+                        <div>
+                            <div>{phone_text|s}</div>
+                            <div><a href="tel:{phone_number|s}">{phone_number|s}</a></div>
+                        </div>
+                    {/phone_repeater}
+                </div>
+            </div>
+        {/phone_repeater}
+
+        {?email}
+            <div>
+                <a href="mailto:{email|s}">
+                    {email|s}
+                </a>
+            </div>
+        {/email}
+
+        {?office}
+            <div>
+                {office|s}
+            </div>
+        {/office}
+
+        {?domain}
+            <div>
+                {domain|s}
+            </div>
+        {/domain}
+
+        {?unit}
+            <div>
+                {unit|s}
+            </div>
+        {/unit}
+
+        {@isset key1=visiting_address_street key2=visiting_address_zip_code key3=visiting_address_city method="OR" }
+            <div>
+                {visiting_address_street|s}
+                {visiting_address_zip_code|s}
+                {visiting_address_city|s}
+            </div>
+        {/isset}
+
+        {@isset key1=mail_address_street key2=mail_address_zip_code key3=mail_address_city method="OR" }
+            <div>
+                {mail_address_street|s}
+                {mail_address_zip_code|s}
+                {mail_address_city|s}
+            </div>
+        {/isset}
+    </div>
+{/filled_contacts}

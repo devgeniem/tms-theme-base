@@ -227,6 +227,13 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'acf/contacts'      => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];
