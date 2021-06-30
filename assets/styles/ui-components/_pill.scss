@@ -59,6 +59,11 @@ $pill-border-color-focus: $black !default;
         background-color: $pill-background-color-focus;
     }
 
+    &:focus {
+        outline-offset: 2px;
+        outline-width: 2px;
+    }
+
     &.is-primary {
         color: $primary-invert;
         background-color: $primary;

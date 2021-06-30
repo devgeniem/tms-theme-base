@@ -18,9 +18,7 @@
                                             {@image id=content.image.id size="single" /}
                                         </div>
 
-                                        {>"views/single/single-meta" spacing_class="pt-5 pb-5 p-5-tablet" /}
-
-                                        {>"views/archive-blog-article/archive-blog-highlight" category_link_classes="is-primary-invert is-borderless" /}
+                                        {>"views/single/single-meta" spacing_class="pt-5 pt-4-desktop pb-5 p-5-tablet" /}
 
                                         {>"views/single-blog-article/blog-info" /}
                                     {/content.image}
@@ -58,9 +56,9 @@
             </div>
         </section>
 
-        {?SingleBlogArticle.Comments}
-            {SingleBlogArticle.Comments|s}
-        {/SingleBlogArticle.Comments}
+        {?SingleBlogArticle.comments}
+            {SingleBlogArticle.comments|s}
+        {/SingleBlogArticle.comments}
 
         {?SingleBlogArticle.related.posts}
             {>"views/single/single-related" related=SingleBlogArticle.related /}

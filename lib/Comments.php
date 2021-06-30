@@ -89,7 +89,7 @@ class Comments implements Interfaces\Controller {
                 <?php comment_text(); ?>
             </div>
 
-            <div class="comment__footer is-flex is-justify-content-space-between">
+            <div class="comment__footer is-flex-tablet is-justify-content-space-between">
                 <div class="comment__info mr-2">
                     <?php
                     echo sprintf(
@@ -124,7 +124,7 @@ class Comments implements Interfaces\Controller {
                         [
                             'depth'     => $depth,
                             'max_depth' => get_option( 'thread_comments_depth' ),
-                            'before'    => '<div class="comment__reply is-flex is-align-items-center">',
+                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">',
                             'after'     => '</div>',
                         ]
                     );

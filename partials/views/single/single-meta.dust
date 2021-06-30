@@ -13,7 +13,7 @@
             {/content.fields.writing_credits}
 
             {?content.fields.image_credits}
-                <div class="ml-4">
+                <div class="ml-4 ml-6-fullhd">
                     {Strings.s.single.image_credits|s}
                     {content.fields.image_credits|s}
                 </div>
