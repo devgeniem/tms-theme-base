@@ -36,7 +36,7 @@ class Constants implements Interfaces\Controller {
         }
 
         // Returns /app/themes/{current theme} -- no need to reference other domains here.
-        $themes_root = wp_parse_url( \get_template_directory_uri(), PHP_URL_PATH );
+        $themes_root = \get_template_directory_uri();
 
         // Define the assets path.
         if ( ! defined( 'DPT_ASSETS_URI' ) ) {
@@ -64,6 +64,15 @@ class Constants implements Interfaces\Controller {
         if ( ! defined( 'DPT_LAZYLOADING' ) ) {
             define( 'DPT_LAZYLOADING', true );
         }
+
+        if ( ! defined( 'PIRKANMAA_EVENTS_API_URL' ) ) {
+            define( 'PIRKANMAA_EVENTS_API_URL', 'https://pirkanmaaevents.fi/api/v2/' );
+        }
+
+        // tms-theme-base Color Theme Default.
+        if ( ! defined( 'DEFAULT_THEME_COLOR' ) ) {
+            define( 'DEFAULT_THEME_COLOR', env( 'DEFAULT_THEME_COLOR' ) ?? 'tunnelma' );
+        }
     }
 
     /**
@@ -71,5 +80,6 @@ class Constants implements Interfaces\Controller {
      *
      * @return void
      */
-    public function hooks() : void {}
+    public function hooks() : void {
+    }
 }

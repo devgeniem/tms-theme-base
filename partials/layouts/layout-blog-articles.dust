@@ -1,0 +1,3 @@
+<section class="section layout-blog-articles">
+    {>"layouts/layout-articles-inner" /}
+</section>

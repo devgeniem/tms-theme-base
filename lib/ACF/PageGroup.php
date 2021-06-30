@@ -43,6 +43,7 @@ class PageGroup {
             $rule_group = ( new RuleGroup() )
                 ->add_rule( 'post_type', '==', PostType\Page::SLUG )
                 ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
+                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
                 ->add_rule( 'page_type', '!=', 'posts_page' );
 
             $field_group
@@ -113,7 +114,11 @@ class PageGroup {
                 Layouts\SubpageLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\GridLayout::class,
+                Layouts\EventsLayout::class,
                 Layouts\ArticlesLayout::class,
+                Layouts\BlogArticlesLayout::class,
+                Layouts\SitemapLayout::class,
+                Layouts\NoticeBannerLayout::class,
             ]
         );
 

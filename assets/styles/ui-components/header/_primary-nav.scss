@@ -2,7 +2,8 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
-$navbar-item-grid-item-border-color: rgba(229, 238, 248, 0.5) !default;
+$navbar-item-navbar-link-color: $primary-invert !default;
+$navbar-item-grid-item-border-color: $primary !default;
 
 .primary-nav {
     @include list-reset;
@@ -17,7 +18,7 @@ $navbar-item-grid-item-border-color: rgba(229, 238, 248, 0.5) !default;
         font-weight: 800;
         padding-right: 1.1764rem;
         padding-left: 1.1764rem;
-        color: $primary-invert !important; // sass-lint:disable-line no-important
+        color: $navbar-item-navbar-link-color !important; // sass-lint:disable-line no-important
         text-transform: uppercase;
         background-color: transparent !important; // sass-lint:disable-line no-important
 

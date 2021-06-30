@@ -18,11 +18,11 @@
             </button>
         </div>
 
-        <div class="navbar-dropdown is-hidden-touch has-background-primary-invert" id="js-navbar-dropdown-{$idx}">
+        <div class="navbar-dropdown is-hidden-touch has-background-white has-text-black" id="js-navbar-dropdown-{$idx}">
             <div class="container">
                 <div class="columns">
                     <div class="column">
-                        <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-primary has-text-large has-text-decoration-underline">
+                        <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large has-text-decoration-underline">
                             {title|s}
                             {>"ui/icon" icon="chevron-right" class="icon--medium ml-2" /}
                         </a>
