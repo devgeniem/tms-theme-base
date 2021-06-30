@@ -23,19 +23,20 @@
         {/highlight}
     {/highlight}
 
-    <div class="columns is-multiline mt-8">
-        {?posts}
+    {?posts}
+        <div class="columns is-multiline mt-8">
             {#posts}
                 {>"views/home/home-grid-item" category_link_classes="is-primary-invert" /}
             {/posts}
-        {/posts}
-    </div>
+        </div>
+    {/posts}
 
     {?link.url}
         {?link.title}
             <div class="has-text-right">
                 <a href="{link.url}" target="{link.target}" class="has-text-weight-medium ml-auto">
-                    {>"ui/icon" icon="chevron-right" class="is-primary icon--small mr-1" /}{link.title|s}
+                    {>"ui/icon" icon="chevron-right" class="is-primary icon--small mr-1" /}
+                    {link.title|s}
                 </a>
             </div>
         {/link.title}
