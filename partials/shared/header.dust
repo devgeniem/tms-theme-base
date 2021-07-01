@@ -34,9 +34,21 @@
                         {>"ui/icon" icon="close" class="icon--large is-primary-invert" /}
                     </button>
 
-                    {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
+                    {^Header.hide_flyout_primary}
+                        {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
+                    {/Header.hide_flyout_primary}
 
-                    {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                    {^Header.hide_flyout_secondary}
+                        {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                    {/Header.hide_flyout_secondary}
+
+                    {?PageOnepager.component_nav}
+                        <ul class="bulmally-navbar fly-out-nav__primary fly-out-nav__onepager is-family-secondary js-scroll-children">
+                            {#PageOnepager.component_nav}
+                                {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" /}
+                            {/PageOnepager.component_nav}
+                        </ul>
+                    {/PageOnepager.component_nav}
 
                     {^Header.hide_search}
                         <div class="h4 mt-9 mb-4">

@@ -3,9 +3,11 @@
         {>"shared/header-logo" /}
 
         <div class="site-header__end ml-auto">
-            <div class="is-hidden-touch is-hidden-desktop-only">
-                {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
-            </div>
+            {^Header.hide_secondary_nav}
+                <div class="is-hidden-touch is-hidden-desktop-only">
+                    {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                </div>
+            {/Header.hide_secondary_nav}
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-touch">

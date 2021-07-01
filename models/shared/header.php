@@ -99,7 +99,26 @@ class Header extends Model {
      * @return false|mixed
      */
     public function hide_main_nav() {
-        return apply_filters( 'tms/theme/hide_main_nav', Settings::get_setting( 'hide_main_nav' ) ) ?? false;
+        $hide_main_nav = Settings::get_setting( 'hide_main_nav' ) ?? false;
+
+        return apply_filters(
+            'tms/theme/hide_main_nav',
+            $hide_main_nav
+        );
+    }
+
+    /**
+     * Hide secondary navigation
+     *
+     * @return false|mixed
+     */
+    public function hide_secondary_nav() {
+        $hide_secondary_nav = Settings::get_setting( 'hide_secondary_nav' ) ?? false;
+
+        return apply_filters(
+            'tms/theme/hide_secondary_nav',
+            $hide_secondary_nav
+        );
     }
 
     /**
@@ -226,15 +245,6 @@ class Header extends Model {
     }
 
     /**
-     * Hide search
-     *
-     * @return mixed
-     */
-    public function hide_search() {
-        return Settings::get_setting( 'hide_search' );
-    }
-
-    /**
      * Get custom scripts from Site Settings.
      *
      * @return false|mixed
@@ -246,11 +256,43 @@ class Header extends Model {
     }
 
     /**
+     * Hide search
+     *
+     * @return mixed
+     */
+    public function hide_search() {
+        $hide_search = Settings::get_setting( 'hide_search' ) ?? true;
+
+        return apply_filters(
+            'tms/theme/hide_header_search',
+            $hide_search
+        );
+    }
+
+    /**
      * Check if navigation menu exists
      *
      * @return bool
      */
     public function has_nav_menu() : bool {
         return has_nav_menu( 'primary' ) || has_nav_menu( 'secondary' );
+    }
+
+    /**
+     * Hide flyout primary menu.
+     *
+     * @return bool
+     */
+    public function hide_flyout_primary() : bool {
+        return apply_filters( 'tms/theme/hide_flyout_primary', false );
+    }
+
+    /**
+     * Hide flyout secondary menu.
+     *
+     * @return bool
+     */
+    public function hide_flyout_secondary() : bool {
+        return apply_filters( 'tms/theme/hide_flyout_secondary', false );
     }
 }
