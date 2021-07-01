@@ -3,9 +3,11 @@
         {>"shared/header-logo" /}
 
         <div class="site-header__end ml-auto">
-            <div class="is-hidden-touch is-hidden-desktop-only">
-                {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
-            </div>
+            {^Header.hide_secondary_nav}
+                <div class="is-hidden-touch is-hidden-desktop-only">
+                    {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                </div>
+            {/Header.hide_secondary_nav}
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-touch">
@@ -73,19 +75,3 @@
         </div>
     </div>
 {/Header.hide_main_nav}
-
-{?PageOnepager.component_nav}
-    <div class="site-header__nav is-relative is-hidden-touch is-hidden-desktop-only has-background-primary">
-        <div class="container">
-            <div class="columns mt-0 mb-0">
-                <div class="column">
-                    <ul class="menu-depth-1 bulmally-navbar primary-nav">
-                        {#PageOnepager.component_nav}
-                            {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" /}
-                        {/PageOnepager.component_nav}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-{/PageOnepager.component_nav}

@@ -25,6 +25,11 @@ class PageOnepager extends BaseModel {
      */
     public function hooks() : void {
         add_filter( 'tms/theme/hide_main_nav', '__return_true' );
+        add_filter( 'tms/theme/hide_header_search', '__return_true' );
+        add_filter( 'tms/theme/hide_secondary_nav', '__return_true' );
+        add_filter( 'tms/theme/hide_flyout_primary', '__return_true' );
+        add_filter( 'tms/theme/hide_flyout_secondary', '__return_true' );
+        add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', '__return_false' );
     }
 
     /**
