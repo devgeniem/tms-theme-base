@@ -9,6 +9,7 @@ use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\ContactsFields;
 use TMS\Theme\Base\ACF\Fields\ImageFields;
 use TMS\Theme\Base\ACF\Fields\MapFields;
+use TMS\Theme\Base\PostType\Contact;
 use TMS\Theme\Base\Settings;
 
 /**
@@ -74,12 +75,29 @@ class MapBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         if ( empty( $data['contacts'] ) ) {
             return $data;
         }
 
-        $default_image           = Settings::get_setting( 'contact_default_image' );
+        $the_query = new \WP_Query( [
+            'post_type'      => Contact::SLUG,
+            'posts_per_page' => 100,
+            'fields'         => 'ids',
+            'post__in'       => array_map( 'absint', $data['contacts'] ),
+            'no_found_rows'  => true,
+            'meta_key'       => 'last_name',
+            'orderby'        => [
+                'menu_order' => 'ASC',
+                'meta_value' => 'ASC', // phpcs:ignore
+            ],
+        ] );
+
+        if (! $the_query->have_posts() ) {
+            return $data;
+        }
+
+        $default_image           = Settings::get_setting( 'contacts_default_image' );
         $field_keys              = $data['fields'];
         $data['filled_contacts'] = array_map( function ( $id ) use ( $field_keys, $default_image ) {
             $fields = [];
@@ -92,10 +110,16 @@ class MapBlock extends BaseBlock {
                 }
             }
 
-            return $fields;
-        }, $data['contacts'] );
+            if ( isset( $fields['phone_repeater'] ) ) {
+                $fields['phone_repeater'] = array_filter( $fields['phone_repeater'], function ( $item ) {
+                    return ! empty( $item['phone_text'] ) || ! empty( $item['phone_number'] );
+                } );
+            }
 
-        $data['column_class'] = isset( $fields['image'] )
+            return $fields;
+        }, $the_query->posts );
+
+        $data['column_class'] = in_array( 'image', $field_keys, true )
             ? 'is-6'
             : 'is-6 is-3-desktop';
 
