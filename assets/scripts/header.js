@@ -51,6 +51,7 @@ export default class Header {
     docReady() {
         $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
         $( '.site-header-notice__close' ).on( 'click', this.onNoticeClose.bind( this ) );
+        $( '.fly-out-nav .js-scroll-children' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
 
         MicroModal.init( {
             disableScroll: true,
