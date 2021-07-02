@@ -51,7 +51,7 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
                 'instructions' => '',
             ],
             'contacts'    => [
-                'label'        => 'Näytä kuvat',
+                'label'        => 'Yhteystiedot',
                 'instructions' => '',
             ],
             'fields'      => [
