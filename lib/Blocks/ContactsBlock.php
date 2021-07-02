@@ -80,6 +80,7 @@ class MapBlock extends BaseBlock {
             return $data;
         }
 
+
         $the_query = new \WP_Query( [
             'post_type'      => Contact::SLUG,
             'posts_per_page' => 100,
@@ -93,7 +94,7 @@ class MapBlock extends BaseBlock {
             ],
         ] );
 
-        if (! $the_query->have_posts() ) {
+        if ( ! $the_query->have_posts() ) {
             return $data;
         }
 

@@ -218,7 +218,7 @@ class ContactGroup {
 
         $phone_repeater_field->add_field( $phone_number_field );
 
-        $email_field = ( new Field\Text( $strings['email']['title'] ) )
+        $email_field = ( new Field\Email( $strings['email']['title'] ) )
             ->set_key( "${key}_email" )
             ->set_name( 'email' )
             ->set_wrapper_width( 50 )
