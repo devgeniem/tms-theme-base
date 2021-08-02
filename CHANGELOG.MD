@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- TMS-114: Contact CPT #105
+
+- TMS-79: Blog Article CPT #83
+
 ## [1.5.0] - 2021-07-01
 
 ### Added
