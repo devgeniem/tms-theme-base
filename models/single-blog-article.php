@@ -129,13 +129,13 @@ class SingleBlogArticle extends Single {
         }
 
         $posts = apply_filters(
-            'tms/single/related',
+            'tms/single-blog-article/related',
             array_map( function ( $item ) {
                 $categories = wp_get_post_terms( $item->ID, BlogCategory::SLUG );
 
                 if ( ! empty( $categories ) ) {
                     $item->category      = $categories[0]->name;
-                    $item->category_link = get_category_link( $categories[0]->ID );
+                    $item->category_link = get_term_link( $categories[0]->term_id, BlogCategory::SLUG );
                 }
 
                 $item->image_id = $item->image_id === 0
