@@ -9,7 +9,7 @@ use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Taxonomy\BlogCategory;
 
 /**
- * The Single class.
+ * The SingleBlogArticle class.
  */
 class SingleBlogArticle extends Single {
 
