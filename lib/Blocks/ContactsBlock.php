@@ -9,15 +9,16 @@ use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\ContactsFields;
 use TMS\Theme\Base\ACF\Fields\ImageFields;
 use TMS\Theme\Base\ACF\Fields\MapFields;
+use TMS\Theme\Base\Formatters\ContactFormatter;
 use TMS\Theme\Base\PostType\Contact;
 use TMS\Theme\Base\Settings;
 
 /**
- * Class MapBlock
+ * Class ContactsBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class MapBlock extends BaseBlock {
+class ContactsBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
@@ -80,7 +81,6 @@ class MapBlock extends BaseBlock {
             return $data;
         }
 
-
         $the_query = new \WP_Query( [
             'post_type'      => Contact::SLUG,
             'posts_per_page' => 100,
@@ -98,29 +98,14 @@ class MapBlock extends BaseBlock {
             return $data;
         }
 
-        $default_image           = Settings::get_setting( 'contacts_default_image' );
         $field_keys              = $data['fields'];
-        $data['filled_contacts'] = array_map( function ( $id ) use ( $field_keys, $default_image ) {
-            $fields = [];
-
-            foreach ( $field_keys as $field_key ) {
-                $fields[ $field_key ] = get_field( $field_key, $id );
-
-                if ( $field_key === 'image' && empty( $fields[ $field_key ] ) && ! empty( $default_image ) ) {
-                    $fields[ $field_key ] = $default_image;
-                }
-            }
-
-            if ( isset( $fields['phone_repeater'] ) ) {
-                $fields['phone_repeater'] = array_filter( $fields['phone_repeater'], function ( $item ) {
-                    return ! empty( $item['phone_text'] ) || ! empty( $item['phone_number'] );
-                } );
-            }
-
-            return $fields;
-        }, $the_query->posts );
-
-        $data['column_class'] = in_array( 'image', $field_keys, true )
+        $formatter               = new ContactFormatter();
+        $data['filled_contacts'] = $formatter->map_keys(
+            $the_query->posts,
+            $field_keys,
+            Settings::get_setting( 'contacts_default_image' )
+        );
+        $data['column_class']    = in_array( 'image', $field_keys, true )
             ? 'is-6'
             : 'is-6 is-3-desktop';
 

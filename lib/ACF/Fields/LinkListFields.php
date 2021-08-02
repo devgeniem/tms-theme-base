@@ -53,7 +53,7 @@ class LinkListFields extends Field\Group {
             'links'       => [
                 'label'        => 'Linkit',
                 'instructions' => '',
-                'button'       => 'Lisää linkkki',
+                'button'       => 'Lisää linkki',
             ],
             'link'        => [
                 'label'        => 'Linkki',
