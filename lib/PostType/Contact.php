@@ -8,21 +8,16 @@ namespace TMS\Theme\Base\PostType;
 use \TMS\Theme\Base\Interfaces\PostType;
 
 /**
- * Dynamic Event CPT
+ * Contact CPT
  *
  * @package TMS\Theme\Base\PostType
  */
-class DynamicEvent implements PostType {
+class Contact implements PostType {
 
     /**
      * This defines the slug of this post type.
      */
-    public const SLUG = 'dynamic-event-cpt';
-
-    /**
-     * Cache key
-     */
-    const LINK_LIST_CACHE_KEY = 'dynamic-event-link-list';
+    public const SLUG = 'contact-cpt';
 
     /**
      * This defines what is shown in the url. This can
@@ -51,14 +46,14 @@ class DynamicEvent implements PostType {
      *
      * @var string
      */
-    private $icon = 'dashicons-heart';
+    private $icon = 'dashicons-universal-access';
 
     /**
      * Constructor
      */
     public function __construct() {
-        $this->url_slug    = _x( 'dynamic-event', 'theme CPT slugs', 'tms-theme-base' );
-        $this->description = _x( 'dynamic-event', 'theme CPT', 'tms-theme-base' );
+        $this->url_slug    = _x( 'contact', 'theme CPT slugs', 'tms-theme-base' );
+        $this->description = _x( 'contact', 'theme CPT', 'tms-theme-base' );
     }
 
     /**
@@ -67,14 +62,17 @@ class DynamicEvent implements PostType {
      * @return void
      */
     public function hooks() : void {
-        add_action( 'init', \Closure::fromCallable( [ $this, 'register' ] ), 15 );
         add_action(
-            'save_post_' . static::get_post_type(),
-            \Closure::fromCallable( [ $this, 'clear_cache' ] )
+            'init',
+            \Closure::fromCallable( [ $this, 'register' ] ),
+            15
         );
-        add_action(
-            'trash_post',
-            \Closure::fromCallable( [ $this, 'trash_post_callback' ] )
+
+        add_filter(
+            'use_block_editor_for_post_type',
+            \Closure::fromCallable( [ $this, 'disable_gutenberg' ] ),
+            10,
+            2
         );
     }
 
@@ -94,10 +92,10 @@ class DynamicEvent implements PostType {
      */
     private function register() {
         $labels = [
-            'name'                  => 'Dynaamiset tapahtumat',
-            'singular_name'         => 'Dynaaminen tapahtuma',
-            'menu_name'             => 'Dynaamiset tapahtumat',
-            'name_admin_bar'        => 'Dynaamiset tapahtumat',
+            'name'                  => 'Yhteystiedot',
+            'singular_name'         => 'Yhteystieto',
+            'menu_name'             => 'Yhteystiedot',
+            'name_admin_bar'        => 'Yhteystiedot',
             'archives'              => 'Arkistot',
             'attributes'            => 'Ominaisuudet',
             'parent_item_colon'     => 'Vanhempi:',
@@ -134,7 +132,7 @@ class DynamicEvent implements PostType {
             'label'               => $labels['name'],
             'description'         => '',
             'labels'              => $labels,
-            'supports'            => [ 'title', 'editor', 'thumbnail', 'revisions' ],
+            'supports'            => [ 'title', 'revisions' ],
             'hierarchical'        => true,
             'public'              => true,
             'show_ui'             => true,
@@ -146,9 +144,9 @@ class DynamicEvent implements PostType {
             'can_export'          => true,
             'has_archive'         => false,
             'exclude_from_search' => false,
-            'publicly_queryable'  => true,
+            'publicly_queryable'  => false,
             'rewrite'             => $rewrite,
-            'capability_type'     => 'dynamic_event',
+            'capability_type'     => 'contact',
             'map_meta_cap'        => true,
             'show_in_rest'        => true,
         ];
@@ -157,60 +155,14 @@ class DynamicEvent implements PostType {
     }
 
     /**
-     * Called when post is trashed.
+     * Disable Gutenberg for this post type
      *
-     * @param int $post_id WP_Post ID.
-     */
-    protected function trash_post_callback( $post_id ) : void {
-        if ( $this->get_post_type() === get_post_type( $post_id ) ) {
-            $this->clear_cache();
-        }
-    }
-
-    /**
-     * Clear cache
-     */
-    protected function clear_cache() : void {
-        wp_cache_delete( self::LINK_LIST_CACHE_KEY );
-    }
-
-    /**
-     * Get link list
+     * @param boolean $current_status The current Gutenberg status.
+     * @param string  $post_type      The post type.
      *
-     * @return array
+     * @return boolean
      */
-    public static function get_link_list() : array {
-        $cache_key      = self::LINK_LIST_CACHE_KEY;
-        $dynamic_events = wp_cache_get( $cache_key );
-
-        if ( ! empty( $dynamic_events ) ) {
-            return $dynamic_events;
-        }
-
-        $the_query = new \WP_Query( [
-            'post_type'      => self::SLUG,
-            'posts_per_page' => - 1,
-            'fields'         => 'ids',
-            'no_found_rows'  => true,
-            'post_status'    => 'publish',
-        ] );
-
-        $dynamic_events = [];
-
-        if ( ! $the_query->have_posts() ) {
-            return $dynamic_events;
-        }
-
-        foreach ( $the_query->posts as $dynamic_event_id ) {
-            $api_id = get_field( 'event', $dynamic_event_id );
-
-            if ( $api_id ) {
-                $dynamic_events[ $api_id ] = get_permalink( $dynamic_event_id );
-            }
-        }
-
-        wp_cache_set( $cache_key, $dynamic_events, '', HOUR_IN_SECONDS * 2 );
-
-        return $dynamic_events;
+    protected function disable_gutenberg( bool $current_status, string $post_type ) : bool {
+        return $post_type === static::SLUG ? false : $current_status; // phpcs:ignore
     }
 }
