@@ -18,7 +18,7 @@
                                             {@image id=content.image.id size="single" /}
                                         </div>
 
-                                        {>"views/single/single-meta" spacing_class="pt-5 pb-5 p-5-tablet" /}
+                                        {>"views/single/single-meta" spacing_class="pt-5 pt-4-desktop pb-5 p-5-tablet" /}
                                     {/content.image}
                                 </header>
 

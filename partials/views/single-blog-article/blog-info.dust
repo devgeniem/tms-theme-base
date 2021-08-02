@@ -1,0 +1,75 @@
+<div class="entry__blog-info-container section pt-6 pb-6 mb-8 has-background-secondary has-text-secondary-invert has-text-centered-mobile">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-10 is-offset-1">
+                <div class="entry__blog-info is-blog-info-grid p-5-tablet">
+                    {?blog_logo}
+                        <div class="entry__blog-logo is-flex-shrink-0 mb-4 mb-0-desktop has-text-centered-mobile">
+                            {@image id=blog_logo size="thumbnail" /}
+                        </div>
+                    {/blog_logo}
+
+                    <div class="entry__blog-description {^page_logo}is-offset-2 pl-5-desktop is-flex-grow-1{/page_logo}">
+                        {?blog_title}
+                            <p class="h4 mt-0 mb-5">
+                                {blog_title|s}
+                            </p>
+                        {/blog_title}
+
+                        {?blog_subtitle}
+                            <p class="h5 mt-5 mb-5 mb-6-desktop">
+                                {blog_subtitle|s}
+                            </p>
+                        {/blog_subtitle}
+
+                        {@isset key1=blog_description key2=blog_authors method="or"}
+                            {>"ui/button-toggle" class="is-block-desktop mt-8-desktop mr-auto-desktop ml-auto-desktop" text=Strings.s.blog_article.toggle_details target="js-archive-description-toggle-target" /}
+                        {/isset}
+                    </div>
+
+                    {?archive_link}
+                        <div class="entry__blog-archive-link is-flex-shrink-0 mt-4 mt-0-desktop">
+                            <a href="{archive_link}" class="button button--icon is-primary is-outlined">
+                                {Strings.s.blog_article.archive_link_text}
+                                {>"ui/icon" icon="chevron-right" class="icon--medium" /}
+                            </a>
+                        </div>
+                    {/archive_link}
+                </div>
+
+                {@isset key1=blog_description key2=blog_authors method="or"}
+                    <div class="entry__blog-info-expanded p-5 pb-0 pb-5-tablet is-hidden"
+                         id="js-archive-description-toggle-target">
+                        {?blog_description}
+                            <div class="is-blog-info-grid pb-5">
+                                <div class="entry__blog-description-text pl-5-desktop">
+                                    <p class="has-text-left-tablet mt-0 mb-5 mb-0-desktop">{blog_description|s}</p>
+                                </div>
+                            </div>
+                        {/blog_description}
+
+                        {?blog_authors}
+                            <div class="pt-6 has-border has-border-top-1 has-border-gray">
+                                {#blog_authors}
+                                    <div class="is-blog-info-grid blog-info-grid-row-0 mt-6 mt-4-tablet mb-6 mb-4-tablet">
+                                        {?featured_image}
+                                            {@image class="entry__blog-author-thumbnail" id=featured_image size="thumbnail" /}
+                                        {/featured_image}
+
+                                        <div class="entry__blog-author-text pl-5-desktop">
+                                            <p class="h5 mt-4 mt-0-desktop">{post_title|s}</p>
+
+                                            {?post_excerpt}
+                                                <p>{post_excerpt|s}</p>
+                                            {/post_excerpt}
+                                        </div>
+                                    </div>
+                                {/blog_authors}
+                            </div>
+                        {/blog_authors}
+                    </div>
+                {/isset}
+            </div>
+        </div>
+    </div>
+</div>

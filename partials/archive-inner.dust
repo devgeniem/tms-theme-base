@@ -1,0 +1,37 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <h1 class="mt-0 mb-8">
+                    {page_title|s}
+                </h1>
+            </div>
+        </div>
+
+        {>"views/home/home-highlight" category_link_classes="is-primary-invert is-borderless" /}
+
+        {>"views/home/home-filters" /}
+
+        <div class="columns is-multiline mt-8">
+            {?articles}
+                {#articles}
+                    {>"views/home/home-{view_type}-item" /}
+                {/articles}
+            {:else}
+                <div class="column">
+                    <div class="pt-6 pb-6 h4 has-text-centered">
+                        {Strings.s.home.no_results|s}
+                    </div>
+                </div>
+            {/articles}
+        </div>
+
+        {?pagination}
+            <div class="columns mt-8">
+                <div class="column has-text-centered">
+                    {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
+                </div>
+            </div>
+        {/pagination}
+    </div>
+</section>

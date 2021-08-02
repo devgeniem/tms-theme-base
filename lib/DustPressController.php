@@ -32,6 +32,7 @@ class DustPressController implements Interfaces\Controller {
         } );
 
         dustpress()->add_helper( 'inlinebg', new Helpers\InlineBackgroundHelper() );
+        dustpress()->add_helper( 'isset', new Helpers\IssetHelper() );
         dustpress()->add_helper( 'image', new ImageAdvanced() );
         add_filter(
             'dustpress/pagination/data',

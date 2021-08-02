@@ -13,7 +13,7 @@
             {/content.fields.writing_credits}
 
             {?content.fields.image_credits}
-                <div class="ml-4">
+                <div class="ml-4 ml-6-fullhd">
                     {Strings.s.single.image_credits|s}
                     {content.fields.image_credits|s}
                 </div>
@@ -32,7 +32,7 @@
     {?content.tags}
         <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.tags}
-                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
+                <a href="{permalink}" class="pill is-outlined mr-2 mb-2">{name|s}</a>
             {/content.tags}
         </div>
     {/content.tags}

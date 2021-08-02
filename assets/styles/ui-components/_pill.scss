@@ -34,6 +34,11 @@ $pill-border-color-focus: $black !default;
         background-color: $white;
         border: 1px solid $pill-background-color;
 
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+
         &.is-bordered {
             border: 2px solid $black;
 
@@ -52,6 +57,11 @@ $pill-border-color-focus: $black !default;
     &:focus,
     &:active {
         background-color: $pill-background-color-focus;
+    }
+
+    &:focus {
+        outline-offset: 2px;
+        outline-width: 2px;
     }
 
     &.is-primary {

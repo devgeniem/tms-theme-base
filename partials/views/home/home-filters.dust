@@ -29,7 +29,7 @@
                 </label>
 
                 <select name="filter-year" id="filter-year"
-                        class="js-trigger-form-submit p-2 has-border-radius-small has-border-secondary has-border-1">
+                        class="js-trigger-form-submit p-2 has-background-invert has-border-radius-small has-border-gray has-border-1">
                     <option value="">{Strings.s.common.all|s}</option>
 
                     {#filters.years}
@@ -46,7 +46,7 @@
                 </label>
 
                 <select name="filter-month" id="filter-month"
-                        class="js-trigger-form-submit p-2 has-border-radius-small has-border-secondary has-border-1">
+                        class="js-trigger-form-submit p-2 has-border-radius-small has-border-gray has-border-1">
                     <option value="">{Strings.s.common.all|s}</option>
                     {#filters.months}
                         <option value="{key}" {is_selected|s}>

@@ -11,9 +11,18 @@
         border-color: $secondary;
     }
 
+    &-gray {
+        border-color: $color-vaalean-harmaa;
+    }
+
     &-1 {
         border-width: 1px;
         border-style: solid;
+    }
+
+    &-top-1 {
+        border-top-width: 1px;
+        border-top-style: solid;
     }
 
     &-2 {

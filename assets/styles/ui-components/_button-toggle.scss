@@ -1,0 +1,15 @@
+.button-toggle {
+    background-color: unset;
+    border: 0;
+    cursor: pointer;
+
+    .icon {
+        transition: transform .15s linear;
+    }
+
+    &.is-active {
+        .icon {
+            transform: rotate(-180deg);
+        }
+    }
+}
