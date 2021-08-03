@@ -45,4 +45,17 @@
         display: block;
         margin-top: $theme-spacing-three-quarters;
     }
+
+    .comment__author-badge {
+        font-size: .705rem;
+        vertical-align: top;
+
+        &::before {
+            content: "[";
+        }
+
+        &::after {
+            content: "]";
+        }
+    }
 }
