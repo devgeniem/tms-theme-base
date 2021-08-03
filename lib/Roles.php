@@ -110,6 +110,27 @@ class Roles implements Controller {
     ];
 
     /**
+     * Contact / contact-cpt.
+     *
+     * @var array
+     */
+    private $contact_all_capabilities = [
+        'edit_contact',
+        'read_contact',
+        'delete_contact',
+        'edit_others_contacts',
+        'delete_contacts',
+        'publish_contacts',
+        'read_private_contacts',
+        'delete_private_contacts',
+        'delete_published_contacts',
+        'delete_others_contacts',
+        'edit_private_contacts',
+        'edit_published_contacts',
+        'edit_contacts',
+    ];
+
+    /**
      * Base taxonomy capabilities, only for admins.
      *
      * @var string[]
@@ -287,6 +308,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+        $role->add_caps( $this->contact_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -318,6 +340,7 @@ class Roles implements Controller {
         $role->add_caps( $this->posts_all_capabilities );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
+        $role->add_caps( $this->contact_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -371,6 +394,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
+        $role->add_caps( $this->contact_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -417,6 +441,7 @@ class Roles implements Controller {
         $role->add_caps( [ 'edit_others_posts', 'publish_posts', 'read_private_posts' ] );
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
+        $role->add_caps( $this->contact_all_capabilities );
 
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
@@ -468,6 +493,19 @@ class Roles implements Controller {
             'edit_private_pages',
             'edit_published_pages',
             'edit_pages',
+        ] );
+
+        $role->add_caps( [
+            'edit_contact',
+            'read_contact',
+            'delete_contact',
+            'delete_contacts',
+            'read_private_contacts',
+            'delete_private_contacts',
+            'delete_published_contacts',
+            'edit_private_contacts',
+            'edit_published_contacts',
+            'edit_contacts',
         ] );
 
         // Taxonomies
