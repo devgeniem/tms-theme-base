@@ -89,10 +89,13 @@ class PageContacts extends BaseModel {
      * @return string
      */
     public function column_class() : string {
-        $field_keys = get_field( 'fields' );
+        $field_keys   = get_field( 'fields' );
+        $column_class = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet';
 
-        return in_array( 'image', $field_keys, true )
-            ? 'is-6'
-            : 'is-6 is-3-desktop';
+        if ( ! in_array( 'image', $field_keys, true ) ) {
+            $column_class .= ' is-3-desktop';
+        }
+
+        return $column_class;
     }
 }
