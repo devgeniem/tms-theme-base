@@ -105,9 +105,12 @@ class ContactsBlock extends BaseBlock {
             $field_keys,
             Settings::get_setting( 'contacts_default_image' )
         );
-        $data['column_class']    = in_array( 'image', $field_keys, true )
-            ? 'is-6'
-            : 'is-6 is-3-desktop';
+
+        $data['column_class'] = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet';
+
+        if ( ! in_array( 'image', $field_keys, true ) ) {
+            $data['column_class'] .= ' is-3-desktop';
+        }
 
         return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
