@@ -21,7 +21,7 @@ use TMS\Theme\Base\Logger;
 class OnepagerGroup {
     /**
      * Available components in key-value (component key => component class) format.
-     * Filled in the register_fields, overridable with 'tms/acf/onepager_layouts' filter.
+     * Filled in the construct, overridable with 'tms/acf/onepager_layouts' filter.
      *
      * @var array
      */
@@ -36,13 +36,6 @@ class OnepagerGroup {
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
 
-        $this->add_layout_filters();
-    }
-
-    /**
-     * Register fields
-     */
-    protected function register_fields() : void {
         $this->components = apply_filters(
             'tms/acf/onepager_layouts',
             [
@@ -63,6 +56,14 @@ class OnepagerGroup {
                 'textblock'       => false,
             ]
         );
+
+        $this->add_layout_filters();
+    }
+
+    /**
+     * Register fields
+     */
+    protected function register_fields() : void {
 
         try {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
