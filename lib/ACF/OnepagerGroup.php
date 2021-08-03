@@ -19,6 +19,13 @@ use TMS\Theme\Base\Logger;
  * @package TMS\Theme\Base\ACF
  */
 class OnepagerGroup {
+    /**
+     * Available components in key-value (component key => component class) format.
+     * Filled in the register_fields, overridable with 'tms/acf/onepager_layouts' filter.
+     *
+     * @var array
+     */
+    public array $components = [];
 
     /**
      * PageGroup constructor.
@@ -36,6 +43,27 @@ class OnepagerGroup {
      * Register fields
      */
     protected function register_fields() : void {
+        $this->components = apply_filters(
+            'tms/acf/onepager_layouts',
+            [
+                'hero'            => Layouts\HeroLayout::class,
+                'image_banner'    => Layouts\ImageBannerLayout::class,
+                'call_to_action'  => Layouts\CallToActionLayout::class,
+                'content_columns' => Layouts\ContentColumnsLayout::class,
+                'logo_wall'       => Layouts\LogoWallLayout::class,
+                'map'             => Layouts\MapLayout::class,
+                'icon_links'      => Layouts\IconLinksLayout::class,
+                'social_media'    => Layouts\SocialMediaLayout::class,
+                'image_carousel'  => Layouts\ImageCarouselLayout::class,
+                'text_block'      => Layouts\TextBlockLayout::class,
+                'grid'            => Layouts\GridLayout::class,
+                'events'          => Layouts\EventsLayout::class,
+                'articles'        => Layouts\ArticlesLayout::class,
+                'notice_banner'   => Layouts\NoticeBannerLayout::class,
+                'textblock'       => false,
+            ]
+        );
+
         try {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
 
@@ -102,25 +130,13 @@ class OnepagerGroup {
 
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
-            [
-                Layouts\HeroLayout::class,
-                Layouts\ImageBannerLayout::class,
-                Layouts\CallToActionLayout::class,
-                Layouts\ContentColumnsLayout::class,
-                Layouts\LogoWallLayout::class,
-                Layouts\MapLayout::class,
-                Layouts\IconLinksLayout::class,
-                Layouts\SocialMediaLayout::class,
-                Layouts\ImageCarouselLayout::class,
-                Layouts\TextBlockLayout::class,
-                Layouts\GridLayout::class,
-                Layouts\EventsLayout::class,
-                Layouts\ArticlesLayout::class,
-            ]
+            array_values( $this->components )
         );
 
         foreach ( $component_layouts as $component_layout ) {
-            $components_field->add_layout( new $component_layout( $key ) );
+            if ( ! empty( $component_layout ) ) {
+                $components_field->add_layout( new $component_layout( $key ) );
+            }
         }
 
         return $components_field;
@@ -129,25 +145,14 @@ class OnepagerGroup {
     /**
      * Add menu_text field to layout fields.
      */
-    private function add_layout_filters() {
-        $components = [
-            'hero',
-            'image_banner',
-            'call_to_action',
-            'content_columns',
-            'logo_wall',
-            'map',
-            'icon_links',
-            'social_media',
-            'image_carousel',
-            'text_block',
-            'grid',
-            'events',
-            'articles',
-            'textblock',
-        ];
+    private function add_layout_filters() : void {
+        $keys = array_keys( $this->components );
 
-        foreach ( $components as $component ) {
+        foreach ( $keys as $component ) {
+            if ( empty( $component ) ) {
+                continue;
+            }
+
             add_filter(
                 "tms/acf/layout/fg_onepager_components_$component/fields",
                 function ( $fields ) use ( $component ) {
