@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.6.1] - 2021-08-03
+
+### Fixed
+- Remove character limit when displaying excerpts #119
+
 ## [1.6.0] - 2021-08-02
 
 ### Added
