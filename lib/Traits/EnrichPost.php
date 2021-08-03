@@ -39,7 +39,7 @@ trait EnrichPost {
         $post->permalink = get_permalink( $post->ID );
         $post->excerpt   = get_the_excerpt( $post );
 
-        if ( strlen( $post->excerpt ) > $excerpt_length ) {
+        if ( ! has_excerpt( $post->ID ) && strlen( $post->excerpt ) > $excerpt_length ) {
             $post->excerpt = trim( substr( $post->excerpt, 0, $excerpt_length ) );
         }
 
