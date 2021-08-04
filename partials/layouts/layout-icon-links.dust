@@ -1,4 +1,5 @@
-<section class="icon-links section pt-12 pb-12 has-background-primary-light--opaque-light has-text-centered">
+<section {?anchor}id="{anchor|s}"{/anchor}
+         class="icon-links section pt-12 pb-12 has-background-primary-light--opaque-light has-text-centered">
     <div class="container">
         <div class="columns">
             <div class="column">
