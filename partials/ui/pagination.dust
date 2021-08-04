@@ -1,46 +1,47 @@
 {?pages}
-    <ul class="pagination is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center" role="menubar"
-        aria-label="{S.aria_label}">
-        {?prev_page}
-            <li class="arrow arrow-left">
-                <a class="paginate" href="{page_link}{prev_page}{hash}" data-page="{prev_page}">
-                    {>"ui/icon" icon="chevron-left" class="icon--medium" aria-hidden="true" /}
-                    <span class="is-sr-only">{S.prev}</span>
-                </a>
-            </li>
-        {/prev_page}
-        {?hellip_start}
-            <li class="pagination-item">
-                <a class="pagination-item__link" href="{page_link}1{hash}" data-page="{first_page}">{first_page}</a>
-            </li>
+    <div class="pagination-wrapper" role="navigation" aria-label="{S.aria_label}">
+        <ul class="pagination is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center">
+            {?prev_page}
+                <li class="arrow arrow-left">
+                    <a class="paginate" href="{page_link}{prev_page}{hash}" data-page="{prev_page}">
+                        {>"ui/icon" icon="chevron-left" class="icon--medium" aria-hidden="true" /}
+                        <span class="is-sr-only">{S.prev}</span>
+                    </a>
+                </li>
+            {/prev_page}
+            {?hellip_start}
+                <li class="pagination-item">
+                    <a class="pagination-item__link" href="{page_link}1{hash}" data-page="{first_page}">{first_page}</a>
+                </li>
 
-            <li class="unavailable" aria-disabled="true">
-                <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a>
-            </li>
-        {/hellip_start}
-        {#pages}
-            <li class="pagination-item{?active} is-current unavailable{/active}">
-                <a class="pagination-item__link{^active} clickable{/active}" href="{page_link}{page}{hash}"
-                   data-page="{page}">{page}</a>
-            </li>
-        {/pages}
-        {?hellip_end}
-            <li class="unavailable" aria-disabled="true">
-                <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a></li>
+                <li class="unavailable" aria-disabled="true">
+                    <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a>
+                </li>
+            {/hellip_start}
+            {#pages}
+                <li class="pagination-item{?active} is-current unavailable{/active}">
+                    <a class="pagination-item__link{^active} clickable{/active}" href="{page_link}{page}{hash}"
+                       data-page="{page}">{page}</a>
+                </li>
+            {/pages}
+            {?hellip_end}
+                <li class="unavailable" aria-disabled="true">
+                    <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a></li>
 
-            <li class="pagination-item">
-                <a class="pagination-item__link" href="{page_link}{last_page}{hash}" data-page="{last_page}">
-                    {last_page}
-                </a>
-            </li>
-        {/hellip_end}
-        {?next_page}
-            <li class="arrow arrow-right">
-                <a class="paginate" href="{page_link}{next_page}{hash}" data-page="{next_page}">
-                    <span class="is-sr-only">{S.next}</span>
-                    {>"ui/icon" icon="chevron-right" class="icon--medium" aria-hidden="true" /}
-                </a>
-            </li>
-        {/next_page}
-    </ul>
+                <li class="pagination-item">
+                    <a class="pagination-item__link" href="{page_link}{last_page}{hash}" data-page="{last_page}">
+                        {last_page}
+                    </a>
+                </li>
+            {/hellip_end}
+            {?next_page}
+                <li class="arrow arrow-right">
+                    <a class="paginate" href="{page_link}{next_page}{hash}" data-page="{next_page}">
+                        <span class="is-sr-only">{S.next}</span>
+                        {>"ui/icon" icon="chevron-right" class="icon--medium" aria-hidden="true" /}
+                    </a>
+                </li>
+            {/next_page}
+        </ul>
+    </div>
 {/pages}
