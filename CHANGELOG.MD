@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-55: Onepager page template #108
+
 ## [1.6.1] - 2021-08-03
 
 ### Fixed
