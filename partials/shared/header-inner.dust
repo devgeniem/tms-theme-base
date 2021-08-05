@@ -3,9 +3,11 @@
         {>"shared/header-logo" /}
 
         <div class="site-header__end ml-auto">
-            <div class="is-hidden-touch is-hidden-desktop-only">
-                {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
-            </div>
+            {^Header.hide_secondary_nav}
+                <div class="is-hidden-touch is-hidden-desktop-only">
+                    {@menu menu_name="secondary" ul_classes="secondary-menu is-flex is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                </div>
+            {/Header.hide_secondary_nav}
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-touch">
@@ -14,11 +16,11 @@
             {/Header.lang_nav_horizontal}
 
             {?Header.lang_nav_horizontal}
-                <div class="is-hidden-desktop">
+            <div class="is-hidden-desktop">
             {/Header.lang_nav_horizontal}
             {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
             {?Header.lang_nav_horizontal}
-                </div>
+            </div>
             {/Header.lang_nav_horizontal}
 
             {^Header.hide_search}
@@ -26,7 +28,8 @@
             {/Header.hide_search}
 
             {?Header.has_nav_menu}
-                <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}" data-micromodal-trigger="js-fly-out-nav">
+                <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}"
+                        data-micromodal-trigger="js-fly-out-nav">
                     {>"ui/icon" icon="burger" class="icon--large" /}
                     <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
                 </button>
