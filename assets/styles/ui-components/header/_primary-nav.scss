@@ -12,6 +12,10 @@ $navbar-item-grid-item-border-color: $primary !default;
     justify-content: center;
     text-transform: uppercase;
 
+    .navbar-item__single > a {
+        color: inherit;
+    }
+
     > .navbar-item,
     > .has-dropdown > div > .navbar-link {
         font-size: 1.058rem;

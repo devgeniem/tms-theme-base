@@ -1,9 +1,9 @@
 {^sub_menu}
-    {>"ui/menu/menu-item-simple"  /}
+    {>"ui/menu/menu-item-single" /}
 {/sub_menu}
 
 {?sub_menu}
-    <div class="navbar-item has-dropdown">
+    <li class="navbar-item has-dropdown">
         <div class="navbar-dropdown-control">
             <a class="navbar-link dropdown-trigger is-arrowless" href="#">
                 {title|s}
@@ -22,7 +22,8 @@
             <div class="container">
                 <div class="columns">
                     <div class="column">
-                        <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large has-text-decoration-underline">
+                        <a href="{url}"
+                           class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large has-text-decoration-underline">
                             {title|s}
                             {>"ui/icon" icon="chevron-right" class="icon--medium ml-2" /}
                         </a>
@@ -38,5 +39,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </li>
 {/sub_menu}
