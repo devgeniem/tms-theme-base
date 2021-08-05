@@ -63,7 +63,7 @@ class SitemapFormatter implements Formatter {
         $pages = wp_list_pages( $args );
 
         if ( ! empty( $pages ) ) {
-            $pages = '<ul class="sitemap--wrapper" role="navigation">' . $pages . '</ul>';
+            $pages = '<div class="sitemap--wrapper" role="navigation"><ul>' . $pages . '</ul></div>';
         }
 
         return $pages;
