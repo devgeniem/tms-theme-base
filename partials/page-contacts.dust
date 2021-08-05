@@ -9,6 +9,10 @@
                         <h1 class="mt-0 mb-0">
                             {@title /}
                         </h1>
+
+                        <div class="keep-vertical-spacing">
+                            {@content /}
+                        </div>
                     </div>
                 </div>
 
@@ -32,6 +36,8 @@
                     </div>
                 </div>
             </div>
+
+            {>"ui/components" /}
         </main>
     {/PageContacts}
 {/content}
