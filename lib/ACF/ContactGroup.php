@@ -340,7 +340,7 @@ class ContactGroup {
      * @param array $fields array of fields.
      *
      * @return mixed
-     * @throws \Exception
+     * @throws \Exception In case of missing option.
      */
     protected function add_redipress_fields( $fields ) {
         $fields[] = new \Geniem\RediPress\Entity\TextField( [
