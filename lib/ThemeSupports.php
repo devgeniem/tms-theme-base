@@ -46,7 +46,7 @@ class ThemeSupports implements Interfaces\Controller {
         \add_theme_support( 'editor-font-sizes', [] );
 
         \add_filter(
-            'block_editor_settings',
+            'block_editor_settings_all',
             \Closure::fromCallable( [ $this, 'disable_drop_cap' ] )
         );
     }

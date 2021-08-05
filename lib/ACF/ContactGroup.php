@@ -28,6 +28,11 @@ class ContactGroup {
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
+
+        add_filter(
+            'redipress/schema_fields',
+            \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
+        );
     }
 
     /**
@@ -181,18 +186,21 @@ class ContactGroup {
             ->set_key( "${key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $first_name_field = ( new Field\Text( $strings['first_name']['title'] ) )
             ->set_key( "${key}_first_name" )
             ->set_name( 'first_name' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['first_name']['instructions'] );
 
         $last_name_field = ( new Field\Text( $strings['last_name']['title'] ) )
             ->set_key( "${key}_last_name" )
             ->set_name( 'last_name' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['last_name']['instructions'] );
 
         $phone_repeater_field = ( new Field\Repeater( $strings['phone_repeater']['title'] ) )
@@ -235,12 +243,14 @@ class ContactGroup {
             ->set_key( "${key}_domain" )
             ->set_name( 'domain' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['domain']['instructions'] );
 
         $unit_field = ( new Field\Text( $strings['unit']['title'] ) )
             ->set_key( "${key}_unit" )
             ->set_name( 'unit' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['unit']['instructions'] );
 
         $visiting_message_field = ( new Field\Message( $strings['visiting_address']['title'] ) )
@@ -322,6 +332,23 @@ class ContactGroup {
             $additional_info_top,
             $additional_info_bottom,
         ];
+    }
+
+    /**
+     * Add RediPress fields
+     *
+     * @param array $fields array of fields.
+     *
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function add_redipress_fields( $fields ) {
+        $fields[] = new \Geniem\RediPress\Entity\TextField( [
+            'name'     => 'last_name',
+            'sortable' => true,
+        ] );
+
+        return $fields;
     }
 }
 

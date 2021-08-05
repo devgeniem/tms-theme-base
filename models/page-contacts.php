@@ -50,7 +50,6 @@ class PageContacts extends BaseModel {
             'posts_per_page' => 200, // phpcs:ignore
             'post_status'    => 'publish',
             'fields'         => 'ids',
-            'no_found_rows'  => true,
             'meta_key'       => 'last_name',
             'orderby'        => [
                 'menu_order' => 'ASC',
