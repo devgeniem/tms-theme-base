@@ -4,13 +4,13 @@
     {#PageContacts}
         <main class="main-content section" id="main-content">
             <div class="container">
-                <div class="columns mb-8 mb-9-desktop">
+                <div class="columns mb-8">
                     <div class="column is-10 is-offset-1 pt-0 pb-0 has-text-centered">
-                        <h1 class="mt-0 mb-0">
+                        <h1 class="mt-0 mb-6">
                             {@title /}
                         </h1>
 
-                        <div class="keep-vertical-spacing">
+                        <div class="keep-vertical-spacing is-align-wide">
                             {@content /}
                         </div>
                     </div>

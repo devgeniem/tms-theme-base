@@ -32,7 +32,7 @@ class BlocksController implements Interfaces\Controller {
      */
     public function hooks() : void {
         \add_filter(
-            'allowed_block_types',
+            'allowed_block_types_all',
             \Closure::fromCallable( [ $this, 'allowed_block_types' ] ),
             10,
             2

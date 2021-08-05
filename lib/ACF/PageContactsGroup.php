@@ -45,6 +45,7 @@ class PageContactsGroup {
 
             $field_group
                 ->add_rule_group( $rule_group )
+                ->set_menu_order( - 1 )
                 ->set_position( 'normal' )
                 ->set_hidden_elements(
                     [
