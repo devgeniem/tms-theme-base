@@ -54,6 +54,7 @@ $navbar-item-grid-item-border-color: #d9dde1 !default;
 
             &__parent-link {
                 font-weight: 600;
+                color: $primary !important; // sass-lint:disable-line no-important
                 text-transform: none;
             }
         }
