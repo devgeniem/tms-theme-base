@@ -52,6 +52,7 @@ $button-border-radius: 1.8rem !default;
     }
 }
 
+.main-content button,
 .button {
     @extend %control;
     @extend %unselectable;

@@ -247,6 +247,13 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'gravityforms/form' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\Contact::SLUG,
+                ],
+            ],
         ];
 
         $allowed_blocks = [];

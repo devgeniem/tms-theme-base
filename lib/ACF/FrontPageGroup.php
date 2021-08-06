@@ -113,6 +113,7 @@ class PageFrontPageGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\BlogArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
+                Layouts\GravityFormLayout::class,
             ]
         );
 
