@@ -21,7 +21,7 @@ $pill-border-color-focus: $black !default;
     padding: $theme-spacing-half $theme-spacing-three-quarters;
     color: $pill-color;
     background-color: $pill-background-color;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: $theme-spacing-quarter;
 
     &.is-active,
