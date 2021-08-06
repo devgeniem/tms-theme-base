@@ -16,6 +16,12 @@
     }
 
     &__copy-links {
+        justify-content: center;
+
+        @include from($tablet) {
+            justify-content: flex-start;
+        }
+
         li {
             &:not(:last-child) {
                 &::after {

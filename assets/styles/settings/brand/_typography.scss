@@ -66,18 +66,6 @@ html {
 
     .has-text-xsmall {
         font-size: 75%;
-
-        &-tablet {
-            @include from($tablet) {
-                font-size: 75%;
-            }
-        }
-
-        &-desktop {
-            @include from($desktop) {
-                font-size: 75%;
-            }
-        }
     }
 
     h1,
