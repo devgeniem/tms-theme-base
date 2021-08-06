@@ -3,6 +3,18 @@
  */
 
 .site-footer {
+    &__link {
+        .icon {
+            transition: transform $easing $speed;
+        }
+
+        &:hover {
+            .icon {
+                transform: translateX(.118rem);
+            }
+        }
+    }
+
     &__copy-links {
         li {
             &:not(:last-child) {
