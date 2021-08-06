@@ -8,8 +8,8 @@
 $checkbox-radius: $radius !default
 $checkbox-border: .1rem solid $grey-lighter !default
 $checkbox-block-background: $white-ter !default
-$checkbox-checked-width: .1rem !default
-$checkradio-focus: 1px dotted $grey-light !default
+$checkbox-checked-width: .15rem !default
+$checkradio-focus: 1px dotted $primary !default
 $checkradio-top-offset: 0rem !default
 
 =checkbox-size($size)
@@ -75,8 +75,8 @@ $checkradio-top-offset: 0rem !default
             padding-right: $size * 2
 
 
-.main-content input[type="radio"],
-.main-content input[type="checkbox"],
+.gform_wrapper input[type="radio"],
+.gform_wrapper input[type="checkbox"],
 .is-checkradio[type="radio"],
 .is-checkradio[type="checkbox"]
     outline: 0
@@ -143,7 +143,8 @@ $checkradio-top-offset: 0rem !default
         + label
             &::before,
             &:before
-                border: $checkbox-border
+                background: $primary
+                border: .1rem solid $primary-invert
         &[disabled]
             cursor: not-allowed
             + label
@@ -199,7 +200,7 @@ $checkradio-top-offset: 0rem !default
             + label
                 background: darken($checkbox-block-background, 5%)
 
-.main-content input[type="checkbox"],
+.gform_wrapper input[type="checkbox"],
 .is-checkradio[type="checkbox"]
     + label
         &::before,
@@ -212,9 +213,10 @@ $checkradio-top-offset: 0rem !default
             transform: translateY($checkradio-top-offset) rotate(45deg)
             border-width: $checkbox-checked-width
             border-style: solid
-            border-color: $primary
+            border-color: $primary-invert
             border-top: 0
             border-left: 0
+            background: $primary
 
     &.is-circle
         + label
@@ -301,16 +303,18 @@ $checkradio-top-offset: 0rem !default
                     &:after
                         border-color: $color
 
-.main-content input[type="radio"],
+.gform_wrapper input[type="radio"],
 .is-checkradio[type="radio"]
     + label
         &::before,
         &:before
             border-radius: 50%
+            border: .1rem solid $primary
         &::after,
         &:after
             border-radius: 50%
-            background: $primary
+            background: $primary-invert
+            border: .1764rem solid $primary-invert
             left: 0
             transform: scale(0.5)
 

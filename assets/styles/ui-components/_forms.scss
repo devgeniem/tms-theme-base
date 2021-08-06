@@ -20,6 +20,10 @@ form {
  * GravityForms related
  */
 .gform {
+    &_heading {
+        margin-bottom: $theme-spacing;
+    }
+
     &_wrapper {
         .gf_progressbar_wrapper {
             margin-top: $theme-spacing;
