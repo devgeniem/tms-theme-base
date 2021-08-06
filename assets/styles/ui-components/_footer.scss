@@ -33,10 +33,10 @@
     }
 
     .brand-logo {
+        width: 75%;
         height: 2.5rem;
 
         @include from($desktop) {
-            width: 100%;
             height: auto;
         }
     }
