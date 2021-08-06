@@ -64,6 +64,22 @@ html {
         font-size: 85%;
     }
 
+    .has-text-xsmall {
+        font-size: 75%;
+
+        &-tablet {
+            @include from($tablet) {
+                font-size: 75%;
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                font-size: 75%;
+            }
+        }
+    }
+
     h1,
     .h1 {
         font-size: map-get($calculated_sizes, "h1") !important;

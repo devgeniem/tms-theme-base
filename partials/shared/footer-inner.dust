@@ -67,8 +67,8 @@
 
             <div class="columns is-multiline is-vcentered mt-4 mt-0-desktop">
                 <div class="column is-10-desktop">
-                    <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-small">
-                        <li class="is-relative pr-3">
+                    <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-small has-text-xsmall-desktop">
+                        <li class="site-footer__copy-text is-relative pr-3">
                             {copyright|s}
                         </li>
 
