@@ -3,7 +3,7 @@
  */
 
 $navbar-item-navbar-link-color: $primary-invert !default;
-$navbar-item-grid-item-border-color: $primary !default;
+$navbar-item-grid-item-border-color: #d9dde1 !default;
 
 .primary-nav {
     @include list-reset;
@@ -68,7 +68,7 @@ $navbar-item-grid-item-border-color: $primary !default;
 
             .navbar-item {
                 padding: 1.411rem 0;
-                border-bottom: 1px solid $navbar-item-grid-item-border-color;
+                border-bottom: 2px solid $navbar-item-grid-item-border-color;
 
                 &:hover,
                 &:focus {
