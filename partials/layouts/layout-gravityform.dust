@@ -1,0 +1,13 @@
+{?gravityform}
+    <section class="gravityform section" {?anchor}id="{anchor|s}"{/anchor}>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+
+                {gravityform|s}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{/gravityform}

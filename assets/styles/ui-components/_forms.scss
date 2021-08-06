@@ -1,0 +1,50 @@
+/*!*
+ * Copyright (c) 2021. Geniem Oy
+ */
+
+form {
+    label {
+        margin-bottom: $theme-spacing-quarter;
+    }
+
+    input,
+    textarea {
+        line-height: 1;
+        padding: $theme-spacing-half;
+        border: 1px solid $secondary;
+        border-radius: $theme-spacing-quarter;
+    }
+}
+
+/**
+ * GravityForms related
+ */
+.gform {
+    &_wrapper {
+        .gf_progressbar_wrapper {
+            margin-top: $theme-spacing;
+            margin-bottom: $theme-spacing-half;
+        }
+
+        .gform_validation_errors {
+            > h2 {
+                font-size: $body-font-size !important;
+            }
+        }
+
+        .gchoice {
+            display: flex;
+            // To make checkradio click not lose position
+            position: relative;
+        }
+    }
+    &_page {
+        &_footer {
+            padding-top: $theme-spacing-twoandhalf;
+
+            .button {
+                max-width: 45%;
+            }
+        }
+    }
+}
