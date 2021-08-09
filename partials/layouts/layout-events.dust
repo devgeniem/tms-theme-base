@@ -12,7 +12,7 @@
 
         <div class="columns is-multiline">
             {#events}
-                <div class="column is-6 is-4-desktop">
+                <div class="column is-6 is-4-desktop mb-4 mb-0-desktop">
                     <div class="events__item has-height-100 has-background-secondary">
                         {?image}
                             <div class="image is-16by9" aria-hidden="true">
@@ -30,7 +30,7 @@
                             </h3>
 
                             {?primary_keyword}
-                                <span class="pill is-bordered is-white mb-4">
+                                <span class="pill is-primary-invert mb-4">
                                     {primary_keyword|s}
                                 </span>
                             {/primary_keyword}
