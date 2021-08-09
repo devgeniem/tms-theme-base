@@ -114,6 +114,7 @@ class PageFrontPageGroup {
                 Layouts\BlogArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
                 Layouts\GravityFormLayout::class,
+                Layouts\ImageCarouselLayout::class,
             ]
         );
 
