@@ -52,7 +52,7 @@ $button-border-radius: 1.8rem !default;
     }
 }
 
-.main-content button,
+.gform_wrapper button,
 .button {
     @extend %control;
     @extend %unselectable;
