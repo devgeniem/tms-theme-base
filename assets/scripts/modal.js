@@ -169,7 +169,8 @@ export default class Modal {
                 const capContents = [];
 
                 if ( author.trim().length > 1 ) {
-                    const authorClasses = 'column is-2 is-pulled-right has-text-right image-block__author-name';
+                    // eslint-disable-next-line max-len
+                    const authorClasses = 'column is-12 is-2-desktop ml-6 has-text-right image-block__author-name has-text-small';
                     capContents.push( `<div class="${ authorClasses }">${ author }</div>` );
                     capClasses.push( 'is-reversed' );
                 }
