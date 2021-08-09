@@ -260,6 +260,11 @@ $button-border-radius: 1.8rem !default;
                     @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
+                &:hover,
+                &.is-hovered {
+                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
+                }
+
                 @extend .button-states;
             }
 
@@ -298,6 +303,11 @@ $button-border-radius: 1.8rem !default;
                         @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
+                    &:hover,
+                    &.is-hovered {
+                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-text);
+                    }
+
                     @extend .button-states;
                 }
 
@@ -307,6 +317,11 @@ $button-border-radius: 1.8rem !default;
                     &.is-active {
                         @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
                         border-color: transparent !important;
+                    }
+
+                    &:hover,
+                    &.is-hovered {
+                        @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     }
 
                     @extend .button-states;
