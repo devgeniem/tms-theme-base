@@ -60,6 +60,12 @@
                                     {location.name|s}
                                 </div>
                             {/location.name}
+
+                            {?url}
+                                <a href="{url}" class="button is-primary is-outlined is-small is-hidden-desktop mt-4">
+                                    {Strings.s.common.read_more|s}
+                                </a>
+                            {/url}
                         </div>
                     </div>
                 </div>
