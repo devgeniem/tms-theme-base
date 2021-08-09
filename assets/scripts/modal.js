@@ -165,7 +165,7 @@ export default class Modal {
                 const figImgAttrs = 'loading="lazy" tabindex="-1" class="js-gallery-image"';
                 const figImg = `<img src="${ thumb.href }" alt="${ alt }" ${ figImgAttrs }>`;
 
-                const capClasses = [ 'columns', 'image-caption', 'image-block__meta', 'pt-2' ];
+                const capClasses = [ 'columns', 'image-caption', 'image-block__meta', 'pt-2', 'is-multiline' ];
                 const capContents = [];
 
                 if ( author.trim().length > 1 ) {
