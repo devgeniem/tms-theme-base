@@ -12,7 +12,7 @@
 
         <div class="columns is-multiline">
             {#events}
-                <div class="column is-6 is-4-desktop">
+                <div class="column is-6 is-4-desktop mb-4 mb-0-desktop">
                     <div class="events__item has-height-100 has-background-secondary">
                         {?image}
                             <div class="image is-16by9" aria-hidden="true">
