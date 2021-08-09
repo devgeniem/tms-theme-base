@@ -30,7 +30,7 @@
                             </h3>
 
                             {?primary_keyword}
-                                <span class="pill is-bordered is-white mb-4">
+                                <span class="pill is-primary-invert mb-4">
                                     {primary_keyword|s}
                                 </span>
                             {/primary_keyword}
