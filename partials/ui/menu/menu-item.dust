@@ -9,7 +9,7 @@
                 {title|s}
             </a>
 
-            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-dropdown-{$idx}">
+            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-menu-item-{$idx}">
                 <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
 
                 <span aria-hidden="true">
@@ -18,7 +18,7 @@
             </button>
         </div>
 
-        <div class="navbar-dropdown is-hidden-touch" id="js-navbar-dropdown-{$idx}">
+        <div class="navbar-dropdown is-hidden-touch" id="js-navbar-menu-item-{$idx}">
             {#sub_menu}
                 {>"ui/menu/menu-item-simple" /}
             {/sub_menu}

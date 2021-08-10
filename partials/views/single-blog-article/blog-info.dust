@@ -38,7 +38,7 @@
                 </div>
 
                 {@isset key1=blog_description key2=blog_authors method="or"}
-                    <div class="entry__blog-info-expanded p-5 pb-0 pb-5-tablet is-hidden"
+                    <div class="entry__blog-info-expanded pr-5 pl-5 is-hidden"
                          id="js-archive-description-toggle-target">
                         {?blog_description}
                             <div class="is-blog-info-grid pb-5">

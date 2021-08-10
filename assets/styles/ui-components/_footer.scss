@@ -3,7 +3,25 @@
  */
 
 .site-footer {
+    &__link {
+        .icon {
+            transition: transform $easing $speed;
+        }
+
+        &:hover {
+            .icon {
+                transform: translateX(.118rem);
+            }
+        }
+    }
+
     &__copy-links {
+        justify-content: center;
+
+        @include from($tablet) {
+            justify-content: flex-start;
+        }
+
         li {
             &:not(:last-child) {
                 &::after {
@@ -21,10 +39,10 @@
     }
 
     .brand-logo {
+        width: 75%;
         height: 2.5rem;
 
         @include from($desktop) {
-            width: 100%;
             height: auto;
         }
     }

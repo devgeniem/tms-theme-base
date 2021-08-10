@@ -54,7 +54,7 @@
                             {#link_column}
                                 <li class="mb-2">
                                     <a href="{link.url}" target="{link.target}"
-                                       class="is-flex is-align-items-center has-text-primary-invert has-text-decoration-underline">
+                                       class="site-footer__link is-flex is-align-items-center has-text-primary-invert">
                                         {>"ui/icon" icon="chevron-right" class="icon--small is-primary-invert mr-2" /}
                                         <span>{link.title|s}</span>
                                     </a>
@@ -67,8 +67,8 @@
 
             <div class="columns is-multiline is-vcentered mt-4 mt-0-desktop">
                 <div class="column is-10-desktop">
-                    <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-small">
-                        <li class="is-relative pr-3">
+                    <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-xsmall">
+                        <li class="site-footer__copy-text is-relative pr-3">
                             {copyright|s}
                         </li>
 

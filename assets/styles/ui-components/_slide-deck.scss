@@ -8,8 +8,15 @@
     &,
     .slide {
         overflow: hidden;
-        width: 85%;
         margin: auto;
+        padding-right: 7.5%;
+        padding-left: 7.5%;
+
+        @include from($tablet) {
+            width: 85%;
+            padding-right: 0;
+            padding-left: 0;
+        }
 
         figure {
             margin-left: 0 !important;

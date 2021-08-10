@@ -8,7 +8,7 @@
                             {number|s}
                         </div>
 
-                        <div class="key-figures__description has-text-weight-medium is-size-7 is-uppercase is-family-secondary">
+                        <div class="key-figures__description pt-2 has-text-weight-medium is-size-7 is-uppercase is-family-secondary">
                             {description|s}
                         </div>
                     </div>

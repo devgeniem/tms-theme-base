@@ -97,6 +97,7 @@ $fly-out-nav-search-button-icon: $primary !default;
     &__primary {
         position: relative;
         margin-top: 3rem;
+        padding-left: 2rem;
 
         > .navbar-item {
             font-family: $family-secondary;
@@ -178,8 +179,8 @@ $fly-out-nav-search-button-icon: $primary !default;
     }
 
     .secondary-menu {
-        margin: 2rem 0;
-        padding: 2rem 0 0 2rem;
+        margin: 2rem;
+        padding-top: 2rem;
         border-top: 1px solid $fly-out-nav-secondary-border-color;
 
         .menu-item-secondary {
@@ -187,7 +188,12 @@ $fly-out-nav-search-button-icon: $primary !default;
             margin-left: 0 !important; // sass-lint:disable-line no-important
 
             &__link {
+                font-size: .9rem;
                 color: $fly-out-nav-secondary-link;
+
+                @include from($desktop) {
+                    font-size: 1rem;
+                }
 
                 &:hover,
                 &:focus {
