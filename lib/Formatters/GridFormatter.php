@@ -138,8 +138,13 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $image_id = false;
         }
 
-        $link_title = $data['grid_item_relationship']['link_title'] ?? '';
-        $link_title = empty( $link_title ) ? __( 'Read more', 'tms-theme-base' ) : $link_title;
+        $link_title   = $data['grid_item_relationship']['link_title'] ?? '';
+        $link_title   = empty( $link_title ) ? __( 'Read more', 'tms-theme-base' ) : $link_title;
+        $item_excerpt = get_the_excerpt( $item->ID );
+
+        if ( ! has_excerpt( $item->ID ) ) {
+            $item_excerpt = wp_trim_words( get_the_excerpt( $item->ID ), 10 );
+        }
 
         return [
             'title'       => $item->post_title,
@@ -148,7 +153,7 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 'url'    => get_permalink( $item->ID ),
                 'target' => '',
             ],
-            'description' => wp_trim_words( get_the_excerpt( $item->ID ), 10 ),
+            'description' => $item_excerpt,
             'image'       => [
                 'id' => $image_id,
             ],

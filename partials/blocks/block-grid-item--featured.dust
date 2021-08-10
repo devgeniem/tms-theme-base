@@ -13,11 +13,11 @@
         {/title}
 
         {?description}
-            <p class="has-text-small has-text-white">{description|s}</p>
+            <p class="has-text-small has-text-white mt-3 mb-0 mt-5-tablet">{description|s}</p>
         {/description}
 
         {?link}
-            <a href="{link.url}" target="{link.target}" class="button has-width-fit-content is-primary ml-0 mt-1">{link.title}</a>
+            <a href="{link.url}" target="{link.target}" class="button is-small has-width-fit-content is-primary ml-0 mt-4 mt-5-tablet">{link.title}</a>
         {/link}
     </div>
 </div>
