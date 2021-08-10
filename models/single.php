@@ -85,6 +85,10 @@ class Single extends BaseModel {
                     ? false
                     : $item->image_id;
 
+                if ( ! has_excerpt( $item->ID ) ) {
+                    $item->post_excerpt = $this->get_related_excerpt( $item );
+                }
+
                 return $item;
             }, $posts )
         );
@@ -94,5 +98,19 @@ class Single extends BaseModel {
             'posts' => $posts,
             'link'  => get_field( 'related_link' ) ?? '',
         ];
+    }
+
+    /**
+     * Get related post excerpt.
+     *
+     * @param WP_Post $item           Related post item.
+     * @param int     $excerpt_length Target excerpt length.
+     */
+    protected function get_related_excerpt( $item, $excerpt_length = 10 ) : string {
+        $item_excerpt = get_the_excerpt( $item->ID );
+
+        return strlen( $item_excerpt ) > $excerpt_length
+            ? wp_trim_words( $item_excerpt, $excerpt_length, '...' )
+            : $item_excerpt;
     }
 }

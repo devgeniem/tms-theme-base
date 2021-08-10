@@ -1,0 +1,5 @@
+.image-banner {
+    @include tablet-only {
+        min-height: 380px;
+    }
+}
