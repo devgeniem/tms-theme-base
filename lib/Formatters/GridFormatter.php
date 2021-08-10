@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base\Formatters;
 
+use TMS\Theme\Base\Images;
+
 /**
  * Class GridFormatter
  *
@@ -134,8 +136,7 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $image_id = get_post_thumbnail_id( $item->ID ) ?? false;
         if ( ! $image_id || $image_id < 1 ) {
-            // TODO: Replace false with site default image ID.
-            $image_id = false;
+            $image_id = Images::get_default_image_id();
         }
 
         $link_title   = $data['grid_item_relationship']['link_title'] ?? '';
