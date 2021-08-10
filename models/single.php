@@ -4,6 +4,7 @@
  */
 
 use DustPress\Query;
+use TMS\Theme\Base\Images;
 use TMS\Theme\Base\Taxonomy\BlogCategory;
 use TMS\Theme\Base\Taxonomy\BlogTag;
 use TMS\Theme\Base\Taxonomy\Category;
@@ -82,7 +83,7 @@ class Single extends BaseModel {
                 }
 
                 $item->image_id = $item->image_id === 0
-                    ? false
+                    ? Images::get_default_image_id()
                     : $item->image_id;
 
                 if ( ! has_excerpt( $item->ID ) ) {
