@@ -93,7 +93,7 @@ class MapBlock extends BaseBlock {
             ],
         ] );
 
-        if (! $the_query->have_posts() ) {
+        if ( ! $the_query->have_posts() ) {
             return $data;
         }
 
