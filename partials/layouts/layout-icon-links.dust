@@ -17,7 +17,7 @@
                             {/title}
 
                             {?description}
-                                <div class="mb-5">
+                                <div class="icon-links__item-description mb-5">
                                     {description|s}
                                 </div>
                             {/description}

@@ -1,5 +1,9 @@
 .highlight-article {
     &__image-container {
+        @include from($tablet) {
+            min-height: 350px;
+        }
+
         @include from($desktop) {
             min-height: 400px;
         }
