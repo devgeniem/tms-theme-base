@@ -44,6 +44,8 @@ class PageGroup {
                 ->add_rule( 'post_type', '==', PostType\Page::SLUG )
                 ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
                 ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
+                ->add_rule( 'page_template', '!=', \PageOnepager::TEMPLATE )
+                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
                 ->add_rule( 'page_type', '!=', 'posts_page' );
 
             $field_group

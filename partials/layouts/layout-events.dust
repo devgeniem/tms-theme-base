@@ -12,7 +12,7 @@
 
         <div class="columns is-multiline">
             {#events}
-                <div class="column is-6 is-4-desktop">
+                <div class="column is-6 is-4-desktop mb-4 mb-0-desktop">
                     <div class="events__item has-height-100 has-background-secondary">
                         {?image}
                             <div class="image is-16by9" aria-hidden="true">
@@ -30,14 +30,14 @@
                             </h3>
 
                             {?primary_keyword}
-                                <span class="pill is-bordered is-white mb-4">
+                                <span class="pill is-primary-invert mb-4">
                                     {primary_keyword|s}
                                 </span>
                             {/primary_keyword}
 
                             <div class="is-flex is-align-items-center mt-2 mb-2">
                                 <span class="is-flex" aria-label="{Strings.s.event.date|s}">
-                                    {>"ui/icon" icon="date" class="icon--large is-primary mr-4" /}
+                                    {>"ui/icon" icon="date" class="icon--large is-primary mr-4 is-accent" /}
                                 </span>
 
                                 {date|s}
@@ -45,7 +45,7 @@
 
                             <div class="is-flex is-align-items-center mt-2 mb-2">
                                 <span class="is-flex" aria-label="{Strings.s.event.time|s}">
-                                {>"ui/icon" icon="time" class="icon--large is-primary mr-4" /}
+                                    {>"ui/icon" icon="time" class="icon--large is-primary mr-4 is-accent" /}
                                 </span>
 
                                 {time|s}
@@ -54,12 +54,18 @@
                             {?location.name}
                                 <div class="is-flex is-align-items-center mt-2 mb-2">
                                     <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                                        {>"ui/icon" icon="location" class="icon--large is-primary mr-4" /}
+                                        {>"ui/icon" icon="location" class="icon--large is-primary mr-4 is-accent" /}
                                     </span>
 
                                     {location.name|s}
                                 </div>
                             {/location.name}
+
+                            {?url}
+                                <a href="{url}" class="button is-primary is-outlined is-small is-hidden-desktop mt-4">
+                                    {Strings.s.common.read_more|s}
+                                </a>
+                            {/url}
                         </div>
                     </div>
                 </div>

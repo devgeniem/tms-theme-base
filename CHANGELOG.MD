@@ -4,11 +4,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.7.0] - 2021-08-06
+
+### Added
+
+- TMS-55: Onepager page template #108
+
+### Fixed
+- Upgrade deprecated hooks #121
+
+## [1.6.1] - 2021-08-03
+
+### Fixed
+- Remove character limit when displaying excerpts #119
+
+## [1.6.0] - 2021-08-02
+
+### Added
+- TMS-114: Contact CPT #105
+
+## [1.5.1] - 2021-08-02
+
+### Fixed
+
+- Compile potfile #118
+- Fix blog-article related posts query taxonomy #117
+
+## [1.5.0] - 2021-07-01
+
+### Added
+
 - TMS-79: Blog Article CPT #83
 - TMS-78: Blog Article Archive #103
 - TMS-80: Blog Article Authors #104
 - TMS-81: Layout BlogArticles #107
+- TMS-125: Accent color #106
+
+### Changed
+
+- NPM(deps-dev): Bump cross-env from 5.2.1 to 7.0.3 #102
 
 ## [1.4.0] - 2021-06-29
 

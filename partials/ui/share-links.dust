@@ -1,12 +1,12 @@
 {?share_links}
     <ul class="is-flex is-flex-wrap-wrap is-unstyled">
         {#share_links}
-            <li class="mr-5 mb-5">
+            <li class="mr-4 mb-4">
                 <a href="{link}"
-                   class="is-relative is-flex is-align-items-center is-justify-content-center box box--medium box--circle has-background-primary {#extra_classes}{.} {/extra_classes}"
+                   class="is-relative is-flex is-align-items-center is-justify-content-center box box--medium box--circle has-background-primary {#extra_classes}{.} {/extra_classes} has-background-accent"
                    data-callback-text="{callback_text|s}">
                     <span class="is-sr-only">{sr_text|s}</span>
-                    {>"ui/icon" class="icon--large is-primary-invert" /}
+                    {>"ui/icon" class="icon--large icon--xlarge-tablet-only is-primary-invert is-accent-invert" /}
 
 
                     {?callback_text}
