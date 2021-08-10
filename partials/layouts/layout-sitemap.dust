@@ -2,7 +2,7 @@
     <div class="sitemap section">
         <div class="container">
             <div class="columns">
-                <div class="column">
+                <div class="column is-8-desktop is-offset-2-desktop">
 
                 {sitemap|s}
 
