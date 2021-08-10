@@ -139,7 +139,7 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         $link_title = $data['grid_item_relationship']['link_title'] ?? '';
-        $link_title = empty( $link_title ) ? $item->post_title : $link_title;
+        $link_title = empty( $link_title ) ? __( 'Read more', 'tms-theme-base' ) : $link_title;
 
         return [
             'title'       => $item->post_title,
