@@ -1,9 +1,9 @@
 {^sub_menu}
-    {>"ui/menu/menu-item-simple" /}
+    {>"ui/menu/menu-item-single" /}
 {/sub_menu}
 
 {?sub_menu}
-    <div class="navbar-item has-dropdown">
+    <li class="navbar-item has-dropdown">
         <div class="navbar-dropdown-control">
             <a class="navbar-link dropdown-trigger is-arrowless" href="#">
                 {title|s}
@@ -20,8 +20,8 @@
 
         <div class="navbar-dropdown is-hidden-touch" id="js-navbar-menu-item-{$idx}">
             {#sub_menu}
-                {>"ui/menu/menu-item" /}
+                {>"ui/menu/menu-item-simple" /}
             {/sub_menu}
         </div>
-    </div>
+    </li>
 {/sub_menu}

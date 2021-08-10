@@ -1,9 +1,9 @@
 {^sub_menu}
-    {>"ui/menu/menu-item-simple"  /}
+    {>"ui/menu/menu-item-single" /}
 {/sub_menu}
 
 {?sub_menu}
-    <div class="navbar-item has-dropdown">
+    <li class="navbar-item has-dropdown">
         <div class="navbar-dropdown-control">
             <a class="navbar-link dropdown-trigger is-arrowless" href="#">
                 {title|s}
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </li>
 {/sub_menu}
