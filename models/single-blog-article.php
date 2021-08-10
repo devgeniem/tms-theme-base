@@ -142,6 +142,10 @@ class SingleBlogArticle extends Single {
                     ? false
                     : $item->image_id;
 
+                if ( ! has_excerpt( $item->ID ) ) {
+                    $item->post_excerpt = $this->get_related_excerpt( $item );
+                }
+
                 return $item;
             }, $posts )
         );
