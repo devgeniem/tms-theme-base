@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-127: Filter to allowed blocks #133
+- TMS-112: Contacts ACF block #110
 - DR-5: Add Default Content Image setting #134
 
 ### Fixed
