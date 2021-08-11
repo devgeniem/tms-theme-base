@@ -139,8 +139,12 @@ class SingleBlogArticle extends Single {
                 }
 
                 $item->image_id = $item->image_id === 0
-                    ? false
+                    ? \TMS\Theme\Base\Images::get_default_image_id()
                     : $item->image_id;
+
+                if ( ! has_excerpt( $item->ID ) ) {
+                    $item->post_excerpt = $this->get_related_excerpt( $item );
+                }
 
                 return $item;
             }, $posts )
