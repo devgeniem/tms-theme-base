@@ -263,6 +263,12 @@ class BlocksController implements Interfaces\Controller {
             ],
         ];
 
+        $blocks = apply_filters(
+            'tms/gutenberg/blocks',
+            $blocks,
+            $context
+        );
+
         $allowed_blocks = [];
         $post_type      = \get_post_type( $context->post->ID );
         $page_template  = \get_page_template_slug( $context->post->ID );
