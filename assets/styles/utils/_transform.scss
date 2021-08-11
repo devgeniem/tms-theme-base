@@ -62,4 +62,20 @@
             }
         }
     }
+
+    &-xy--50 {
+        transform: translate(-50%, -50%);
+
+        &-tablet {
+            @include from($tablet) {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-desktop {
+            @include from($desktop) {
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
 }

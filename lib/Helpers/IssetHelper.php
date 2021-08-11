@@ -33,18 +33,18 @@ class IssetHelper extends \DustPress\Helper {
             return 'DustPress isset helper error: No keys specified.';
         }
 
-        while ( isset( $this->params->{ 'key' . $key } ) ) {
-            $keys[] = $this->params->{ 'key' . $key };
-            $key++;
+        while ( isset( $this->params->{'key' . $key} ) ) {
+            $keys[] = $this->params->{'key' . $key};
+            $key ++;
         }
 
         $clause = false;
-        $values = array_filter( $keys, function( $key ) {
+        $values = array_filter( $keys, function ( $key ) {
             return ! empty( $key );
-        });
+        } );
 
         if ( isset( $this->params->method ) ) {
-            switch ( $this->params->method ) {
+            switch ( strtolower( $this->params->method ) ) {
                 case 'and':
                     if ( count( $values ) === count( $keys ) ) {
                         $clause = true;
@@ -76,4 +76,5 @@ class IssetHelper extends \DustPress\Helper {
         }
     }
 }
+
 dustpress()->add_helper( 'isset', new IssetHelper() );

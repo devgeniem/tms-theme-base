@@ -31,6 +31,10 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             'title'        => 'Väriteeman valinta',
             'instructions' => '',
         ],
+        'default_image'   => [
+            'title'        => 'Oletuskuva',
+            'instructions' => '',
+        ],
     ];
 
     /**
@@ -89,8 +93,15 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
                 ->set_default_value( $theme_default_color )
                 ->set_instructions( $this->strings['color_selection']['instructions'] );
 
+            $image_field = ( new Field\Image( $this->strings['default_image']['title'] ) )
+                ->set_key( "${key}_default_image" )
+                ->set_name( 'default_image' )
+                ->set_return_format( 'id' )
+                ->set_instructions( $this->strings['default_image']['instructions'] );
+
             $this->add_fields( [
                 $color_theme_select,
+                $image_field,
             ] );
         }
         catch ( \Exception $e ) {

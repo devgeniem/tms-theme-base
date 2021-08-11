@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- TMS-127: Filter to allowed blocks #133
+- TMS-112: Contacts ACF block #110
+- DR-5: Add Default Content Image setting #134
+
+### Fixed
+- a11y: Fix navigation item duplicate ids #122
+- a11y: Skip to content link #123
+- a11y: Prevent duplicate img ids #124
+- a11y: Move ul role attribute to a wrapping div #125
+- a11y: Fix nav element hierarchy #126
+- DR-1: misc appearance fixes and improvements #129
+- DR-2: misc appearance fixes and improvements #130
+- DR-3: misc appearance fixes and improvements #131
+- DR-4: misc appearance fixes and improvements #132
+
 ## [1.7.0] - 2021-08-06
 
 ### Added

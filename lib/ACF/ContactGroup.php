@@ -285,6 +285,22 @@ class ContactGroup {
             ->set_name( 'mail_address_city' )
             ->set_instructions( $strings['mail_address_city']['instructions'] );
 
+        $additional_info_top = ( new Field\Textarea( $strings['additional_info_top']['title'] ) )
+            ->set_key( "${key}_additional_info_top" )
+            ->set_name( 'additional_info_top' )
+            ->set_new_lines( 'wpautop' )
+            ->set_rows( 4 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['additional_info_top']['instructions'] );
+
+        $additional_info_bottom = ( new Field\Textarea( $strings['additional_info_bottom']['title'] ) )
+            ->set_key( "${key}_additional_info_bottom" )
+            ->set_name( 'additional_info_bottom' )
+            ->set_new_lines( 'wpautop' )
+            ->set_rows( 4 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['additional_info_bottom']['instructions'] );
+
         return [
             $image_field,
             $title_field,
@@ -303,6 +319,8 @@ class ContactGroup {
             $mail_address_street_field,
             $mail_address_zip_code_field,
             $mail_address_city_field,
+            $additional_info_top,
+            $additional_info_bottom,
         ];
     }
 }

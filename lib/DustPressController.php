@@ -38,6 +38,10 @@ class DustPressController implements Interfaces\Controller {
             'dustpress/pagination/data',
             \Closure::fromCallable( [ $this, 'disable_pagination_hellip_duplicate_link' ] )
         );
+        add_filter(
+            'dustpress/image/allowed_attributes',
+            \Closure::fromCallable( [ $this, 'disable_image_ids' ] )
+        );
     }
 
     /**
@@ -53,5 +57,18 @@ class DustPressController implements Interfaces\Controller {
         }
 
         return $data;
+    }
+
+    /**
+     * Remove id attribute from image output in order to prevent duplicate ids in site markup.
+     *
+     * @param array $allowed_attributes Allowed attributes.
+     *
+     * @return array
+     */
+    protected function disable_image_ids( $allowed_attributes ) : array {
+        unset( $allowed_attributes['id'] );
+
+        return $allowed_attributes;
     }
 }
