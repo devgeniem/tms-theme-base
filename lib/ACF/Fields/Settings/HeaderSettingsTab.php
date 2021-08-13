@@ -89,8 +89,6 @@ class HeaderSettingsTab extends Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
             $logo_field = ( new Field\Image( $strings['logo']['title'] ) )
                 ->set_key( "${key}_logo" )
                 ->set_name( 'logo' )

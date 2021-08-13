@@ -112,8 +112,6 @@ class FooterSettingsTab extends Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
             $logo_field = ( new Field\Image( $strings['footer_logo']['title'] ) )
                 ->set_key( "${key}_footer_logo" )
                 ->set_name( 'footer_logo' )

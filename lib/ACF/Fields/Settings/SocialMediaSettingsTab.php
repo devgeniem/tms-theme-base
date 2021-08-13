@@ -61,8 +61,6 @@ class SocialMediaSettingsTab extends Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
             $some_channels_field = ( new Field\Checkbox( $strings['some_channels']['title'] ) )
                 ->set_key( "${key}_some_channels" )
                 ->set_name( 'some_channels' )

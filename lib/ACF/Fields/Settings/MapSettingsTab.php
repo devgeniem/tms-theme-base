@@ -65,8 +65,6 @@ class MapSettingsTab extends Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
             $map_placeholder_field = ( new Field\Image( $strings['map_placeholder']['title'] ) )
                 ->set_key( "${key}_map_placeholder" )
                 ->set_name( 'map_placeholder' )

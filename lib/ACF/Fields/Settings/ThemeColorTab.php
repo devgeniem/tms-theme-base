@@ -77,8 +77,6 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
      */
     public function sub_fields( $key ) : void {
         try {
-            $this->set_label( $this->strings['tab'] );
-
             $theme_colors = apply_filters( 'tms/theme/theme_colors', self::$available_themes );
 
             $theme_default_color = apply_filters(
