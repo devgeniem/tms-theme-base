@@ -28,24 +28,24 @@ class ThemeController {
      */
     protected function init_classes() : void {
         $classes = [
-            ACFController::class        => new ACFController(),
-            Admin::class                => new Admin(),
-            Assets::class               => new Assets(),
-            BlocksController::class     => new BlocksController(),
-            Cleanup::class              => new Cleanup(),
-            Constants::class            => new Constants(),
-            DustPressController::class  => new DustPressController(),
-            Emojis::class               => new Emojis(),
-            FormatterController::class  => new FormatterController(),
-            Images::class               => new Images(),
-            LinkedEvents::class         => new LinkedEvents(),
-            Localization::class         => new Localization(),
-            NavigationController::class => new NavigationController(),
-            PostTypeController::class   => new PostTypeController(),
-            Roles::class                => new Roles(),
-            TaxonomyController::class   => new TaxonomyController(),
-            ThemeSupports::class        => new ThemeSupports(),
-            Comments::class             => new Comments(),
+            ACFController::class,
+            Admin::class,
+            Assets::class,
+            BlocksController::class,
+            Cleanup::class,
+            Constants::class,
+            DustPressController::class,
+            Emojis::class,
+            FormatterController::class,
+            Images::class,
+            LinkedEvents::class,
+            Localization::class,
+            NavigationController::class,
+            PostTypeController::class,
+            Roles::class,
+            TaxonomyController::class,
+            ThemeSupports::class,
+            Comments::class,
         ];
 
         $classes = apply_filters(
@@ -54,7 +54,9 @@ class ThemeController {
         );
 
         // Loop through the classes and run hooks methods of all controllers.
-        array_walk( $classes, function ( $instance ) {
+        array_walk( $classes, function ( $class ) {
+            $instance = new $class();
+
             if ( $instance instanceof Interfaces\Controller ) {
                 $instance->hooks();
             }
