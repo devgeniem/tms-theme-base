@@ -11,6 +11,7 @@ use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
 use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Error404SettingsTab;
 use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
 use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\ACF\Fields\MapSettingsTab;
@@ -69,7 +70,7 @@ class SettingsGroup {
                         ( new Fields\ThemeColorTab( '', $field_group->get_key() ) ),
                         new MapSettingsTab( '', $field_group->get_key() ),
                         new SocialMediaSettingsTab( '', $field_group->get_key() ),
-                        $this->get_404_fields( $field_group->get_key() ),
+                        new Error404SettingsTab( '', $field_group->get_key() ),
                         $this->get_archive_fields( $field_group->get_key() ),
                         $this->get_events_fields( $field_group->get_key() ),
                         $this->get_page_fields( $field_group->get_key() ),
@@ -90,72 +91,6 @@ class SettingsGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
-    }
-
-    /**
-     * Get 404 page fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_404_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'             => '404-sivu',
-            '404_title'       => [
-                'title'        => 'Otsikko',
-                'instructions' => '',
-            ],
-            '404_description' => [
-                'title'        => 'Kuvaus',
-                'instructions' => '',
-            ],
-            '404_image'       => [
-                'title'        => 'Kuva',
-                'instructions' => '',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $title_field = ( new Field\Text( $strings['404_title']['title'] ) )
-            ->set_key( "${key}_404_title" )
-            ->set_name( '404_title' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['404_title']['instructions'] );
-
-        $description_field = ( new Field\ExtendedWysiwyg( $strings['404_description']['title'] ) )
-            ->set_key( "${key}_404_description" )
-            ->set_name( '404_description' )
-            ->set_tabs( 'visual' )
-            ->set_toolbar(
-                [
-                    'bold',
-                    'italic',
-                    'link',
-                    'pastetext',
-                    'removeformat',
-                ]
-            )
-            ->disable_media_upload()
-            ->set_height( 200 )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['404_description']['instructions'] );
-
-        $image_field = ( new Field\Image( $strings['404_image']['title'] ) )
-            ->set_key( "${key}_404_image" )
-            ->set_name( '404_image' )
-            ->set_instructions( $strings['404_image']['instructions'] );
-
-        $tab->add_fields( [
-            $title_field,
-            $description_field,
-            $image_field,
-        ] );
-
-        return $tab;
     }
 
     /**
