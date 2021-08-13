@@ -67,6 +67,7 @@ class PostTypeController implements Interfaces\Controller {
 
     /**
      * Get namespace for CPT instances
+     *
      * @return string
      */
     protected function get_namespace() : string {
