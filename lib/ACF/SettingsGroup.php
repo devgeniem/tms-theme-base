@@ -9,6 +9,7 @@ use \Geniem\ACF\Exception;
 use \Geniem\ACF\Field;
 use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
+use TMS\Theme\Base\ACF\Fields\ArchiveSettingsTab;
 use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Error404SettingsTab;
@@ -71,7 +72,7 @@ class SettingsGroup {
                         new MapSettingsTab( '', $field_group->get_key() ),
                         new SocialMediaSettingsTab( '', $field_group->get_key() ),
                         new Error404SettingsTab( '', $field_group->get_key() ),
-                        $this->get_archive_fields( $field_group->get_key() ),
+                        new ArchiveSettingsTab( '', $field_group->get_key() ),
                         $this->get_events_fields( $field_group->get_key() ),
                         $this->get_page_fields( $field_group->get_key() ),
                         $this->get_exception_notice_fields( $field_group->get_key() ),
@@ -91,57 +92,6 @@ class SettingsGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
-    }
-
-    /**
-     * Get archive fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_archive_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'                => 'Arkistot',
-            'archive_use_images' => [
-                'title'        => 'Kuvat käytössä',
-                'instructions' => '',
-            ],
-            'archive_view_type'  => [
-                'title'        => 'Listaustyyli',
-                'instructions' => '',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $use_images_field = ( new Field\TrueFalse( $strings['archive_use_images']['title'] ) )
-            ->set_key( "${key}_archive_use_images" )
-            ->set_name( 'archive_use_images' )
-            ->set_default_value( true )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['archive_use_images']['instructions'] );
-
-        $view_type_field = ( new Field\Radio( $strings['archive_view_type']['title'] ) )
-            ->set_key( "${key}_archive_view_type" )
-            ->set_name( 'archive_view_type' )
-            ->set_choices( [
-                'grid' => 'Ruudukko',
-                'list' => 'Lista',
-            ] )
-            ->set_default_value( 'grid' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['archive_view_type']['instructions'] );
-
-        $tab->add_fields( [
-            $use_images_field,
-            $view_type_field,
-        ] );
-
-        return $tab;
     }
 
     /**
