@@ -14,6 +14,7 @@ use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Error404SettingsTab;
 use TMS\Theme\Base\ACF\Fields\EventsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\ExceptionNoticeSettingsTab;
 use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
 use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\ACF\Fields\MapSettingsTab;
