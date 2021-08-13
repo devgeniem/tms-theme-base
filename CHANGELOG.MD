@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-112: Contacts ACF block #110
 - DR-5: Add Default Content Image setting #134
 
+### Changed
+- TMS-194: Organize setting tabs #135
+
 ### Fixed
 - a11y: Fix navigation item duplicate ids #122
 - a11y: Skip to content link #123
