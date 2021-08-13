@@ -11,6 +11,7 @@ use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
 use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
 use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
@@ -62,7 +63,7 @@ class SettingsGroup {
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
                     [
                         new HeaderSettingsTab( '', $field_group->get_key() ),
-                        $this->get_footer_fields( $field_group->get_key() ),
+                        new FooterSettingsTab( '', $field_group->get_key() ),
                         ( new Fields\ThemeColorTab( '', $field_group->get_key() ) ),
                         $this->get_map_fields( $field_group->get_key() ),
                         $this->get_social_media_sharing_fields( $field_group->get_key() ),
