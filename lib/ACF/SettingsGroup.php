@@ -79,9 +79,9 @@ class SettingsGroup {
                         new ArchiveSettingsTab( '', $field_group->get_key() ),
                         new EventsSettingsTab( '', $field_group->get_key() ),
                         new PageSettingsTab( '', $field_group->get_key() ),
+                        new ExceptionNoticeSettingsTab( '', $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
-                        new ExceptionNoticeSettingsTab( '', $field_group->get_key() ),
                     ]
                 )
             );
