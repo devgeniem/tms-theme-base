@@ -3,19 +3,20 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
+use Geniem\ACF\Field\Tab;
 use TMS\Theme\Base\Logger;
-use TMS\Theme\Base\PostType\BlogArticle;
+use TMS\Theme\Base\PostType;
 
 /**
- * Class ContactsSettingsTab
+ * Class ExceptionNoticeSettingsTab
  *
  * @package TMS\Theme\Base\ACF\Tab
  */
-class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
+class ExceptionNoticeSettingsTab extends Tab {
 
     /**
      * Where should the tab switcher be located
@@ -30,10 +31,10 @@ class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
      * @var array
      */
     protected $strings = [
-        'tab'                    => 'Yhteystiedot',
-        'contacts_default_image' => [
-            'title'        => 'Oletuskuva',
-            'instructions' => 'Yhteystiedon oletuskuva',
+        'tab'  => 'Poikkeusilmotus',
+        'text' => [
+            'title'        => 'Teksti',
+            'instructions' => '',
         ],
     ];
 
@@ -61,16 +62,16 @@ class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
-            $contacts_default_image_field = ( new Field\Image( $strings['contacts_default_image']['title'] ) )
-                ->set_key( "${key}_contacts_default_image" )
-                ->set_name( 'contacts_default_image' )
-                ->set_return_format( 'id' )
-                ->set_instructions( $strings['contacts_default_image']['instructions'] );
+            $exception_text_field = ( new Field\Textarea( $strings['text']['title'] ) )
+                ->set_key( "${key}_exception_text" )
+                ->set_name( 'exception_text' )
+                ->set_rows( 2 )
+                ->set_wrapper_width( 50 )
+                ->set_maxlength( 200 )
+                ->set_instructions( $strings['text']['instructions'] );
 
             $this->add_fields( [
-                $contacts_default_image_field,
+                $exception_text_field,
             ] );
         }
         catch ( Exception $e ) {
