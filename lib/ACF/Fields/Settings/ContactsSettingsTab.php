@@ -3,19 +3,19 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
-use Geniem\ACF\Field\Tab;
 use TMS\Theme\Base\Logger;
+use TMS\Theme\Base\PostType\BlogArticle;
 
 /**
- * Class PageSettingsTab
+ * Class ContactsSettingsTab
  *
  * @package TMS\Theme\Base\ACF\Tab
  */
-class PageSettingsTab extends Tab {
+class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
 
     /**
      * Where should the tab switcher be located
@@ -30,10 +30,10 @@ class PageSettingsTab extends Tab {
      * @var array
      */
     protected $strings = [
-        'tab'                       => 'Sisältösivut',
-        'enable_sibling_navigation' => [
-            'title'        => 'Rinnakkaissivujen navigointi',
-            'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
+        'tab'                    => 'Yhteystiedot',
+        'contacts_default_image' => [
+            'title'        => 'Oletuskuva',
+            'instructions' => 'Yhteystiedon oletuskuva',
         ],
     ];
 
@@ -61,16 +61,16 @@ class PageSettingsTab extends Tab {
         $strings = $this->strings;
 
         try {
-            $display_siblings = ( new Field\TrueFalse( $strings['enable_sibling_navigation']['title'] ) )
-                ->set_key( "${key}_enable_sibling_navigation" )
-                ->set_name( 'enable_sibling_navigation' )
-                ->set_default_value( false )
-                ->use_ui()
-                ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['enable_sibling_navigation']['instructions'] );
+            $this->set_label( $strings['tab'] );
+
+            $contacts_default_image_field = ( new Field\Image( $strings['contacts_default_image']['title'] ) )
+                ->set_key( "${key}_contacts_default_image" )
+                ->set_name( 'contacts_default_image' )
+                ->set_return_format( 'id' )
+                ->set_instructions( $strings['contacts_default_image']['instructions'] );
 
             $this->add_fields( [
-                $display_siblings,
+                $contacts_default_image_field,
             ] );
         }
         catch ( Exception $e ) {

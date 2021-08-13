@@ -9,17 +9,18 @@ use \Geniem\ACF\Exception;
 use \Geniem\ACF\Field;
 use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
-use TMS\Theme\Base\ACF\Fields\ArchiveSettingsTab;
-use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
-use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
-use TMS\Theme\Base\ACF\Fields\Error404SettingsTab;
-use TMS\Theme\Base\ACF\Fields\EventsSettingsTab;
-use TMS\Theme\Base\ACF\Fields\ExceptionNoticeSettingsTab;
-use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
-use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
-use TMS\Theme\Base\ACF\Fields\MapSettingsTab;
-use TMS\Theme\Base\ACF\Fields\PageSettingsTab;
-use TMS\Theme\Base\ACF\Fields\SocialMediaSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\ArchiveSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\HeaderSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\BlogArticleSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\ContactsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\Error404SettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\EventsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\ExceptionNoticeSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\FooterSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\MapSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\PageSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\SocialMediaSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\ThemeColorTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -71,7 +72,7 @@ class SettingsGroup {
                     [
                         new HeaderSettingsTab( '', $field_group->get_key() ),
                         new FooterSettingsTab( '', $field_group->get_key() ),
-                        ( new Fields\ThemeColorTab( '', $field_group->get_key() ) ),
+                        new ThemeColorTab( '', $field_group->get_key() ),
                         new MapSettingsTab( '', $field_group->get_key() ),
                         new SocialMediaSettingsTab( '', $field_group->get_key() ),
                         new Error404SettingsTab( '', $field_group->get_key() ),
@@ -80,6 +81,7 @@ class SettingsGroup {
                         new PageSettingsTab( '', $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
+                        new ExceptionNoticeSettingsTab( '', $field_group->get_key() ),
                     ]
                 )
             );

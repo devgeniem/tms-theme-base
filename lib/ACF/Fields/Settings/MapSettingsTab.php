@@ -3,19 +3,19 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
+use Geniem\ACF\Field\Tab;
 use TMS\Theme\Base\Logger;
-use TMS\Theme\Base\PostType\BlogArticle;
 
 /**
- * Class ContactsSettingsTab
+ * Class MapSettingsTab
  *
  * @package TMS\Theme\Base\ACF\Tab
  */
-class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
+class MapSettingsTab extends Tab {
 
     /**
      * Where should the tab switcher be located
@@ -30,10 +30,14 @@ class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
      * @var array
      */
     protected $strings = [
-        'tab'                    => 'Yhteystiedot',
-        'contacts_default_image' => [
-            'title'        => 'Oletuskuva',
-            'instructions' => 'Yhteystiedon oletuskuva',
+        'tab'             => 'Kartat',
+        'map_placeholder' => [
+            'title'        => 'Kartan placeholder-kuva',
+            'instructions' => '',
+        ],
+        'map_button_text' => [
+            'title'        => 'Kartan näyttämisen toimintakehoite',
+            'instructions' => '',
         ],
     ];
 
@@ -63,14 +67,21 @@ class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
         try {
             $this->set_label( $strings['tab'] );
 
-            $contacts_default_image_field = ( new Field\Image( $strings['contacts_default_image']['title'] ) )
-                ->set_key( "${key}_contacts_default_image" )
-                ->set_name( 'contacts_default_image' )
+            $map_placeholder_field = ( new Field\Image( $strings['map_placeholder']['title'] ) )
+                ->set_key( "${key}_map_placeholder" )
+                ->set_name( 'map_placeholder' )
                 ->set_return_format( 'id' )
-                ->set_instructions( $strings['contacts_default_image']['instructions'] );
+                ->set_instructions( $strings['map_placeholder']['instructions'] );
+
+            $map_button_text_field = ( new Field\Text( $strings['map_button_text']['title'] ) )
+                ->set_key( "${key}_map_button_text" )
+                ->set_name( 'map_button_text' )
+                ->set_default_value( __( 'Open map', 'tms-theme-base' ) )
+                ->set_instructions( $strings['map_button_text']['instructions'] );
 
             $this->add_fields( [
-                $contacts_default_image_field,
+                $map_placeholder_field,
+                $map_button_text_field,
             ] );
         }
         catch ( Exception $e ) {

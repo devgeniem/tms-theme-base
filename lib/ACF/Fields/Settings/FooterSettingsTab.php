@@ -3,7 +3,7 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
