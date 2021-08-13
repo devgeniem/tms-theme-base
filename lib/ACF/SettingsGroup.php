@@ -11,6 +11,7 @@ use \Geniem\ACF\Group;
 use \Geniem\ACF\RuleGroup;
 use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
+use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -60,7 +61,7 @@ class SettingsGroup {
                 apply_filters(
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
                     [
-                        $this->get_header_fields( $field_group->get_key() ),
+                        new HeaderSettingsTab( '', $field_group->get_key() ),
                         $this->get_footer_fields( $field_group->get_key() ),
                         ( new Fields\ThemeColorTab( '', $field_group->get_key() ) ),
                         $this->get_map_fields( $field_group->get_key() ),
@@ -86,133 +87,6 @@ class SettingsGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
-    }
-
-    /**
-     * Get header fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_header_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'              => 'Ylätunniste',
-            'logo'             => [
-                'title'        => 'Logo',
-                'instructions' => '',
-            ],
-            'brand_logo'       => [
-                'title'        => 'Tampere-logo',
-                'instructions' => '',
-            ],
-            'tagline'          => [
-                'title'        => 'Tagline',
-                'instructions' => '',
-            ],
-            'lang_nav_display' => [
-                'title'        => 'Kielivalikko',
-                'instructions' => '',
-            ],
-            'hide_main_nav'    => [
-                'title'        => 'Näytä vain hampurilaisvalikko',
-                'instructions' => 'Kyllä-valinnan ollessa aktiivinen vain hampurilaisvalikko näytetään',
-            ],
-            'limit_nav_depth'  => [
-                'title'        => 'Pudotusvalikko pois käytöstä',
-                'instructions' => 'Päätason elementit toimivat linkkeinä, eivätkä avaa pudotusvalikkoa',
-            ],
-            'header_scripts'   => [
-                'title'        => 'Ylätunnisteen custom-skriptit',
-                'instructions' => '',
-            ],
-            'hide_search'      => [
-                'title'        => 'Piilota hakutoiminto',
-                'instructions' => '',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $logo_field = ( new Field\Image( $strings['logo']['title'] ) )
-            ->set_key( "${key}_logo" )
-            ->set_name( 'logo' )
-            ->set_return_format( 'id' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['logo']['instructions'] );
-
-        $brand_logo_field = ( new Field\Image( $strings['brand_logo']['title'] ) )
-            ->set_key( "${key}_brand_logo" )
-            ->set_name( 'brand_logo' )
-            ->set_wrapper_width( 50 )
-            ->set_return_format( 'id' )
-            ->set_instructions( $strings['brand_logo']['instructions'] );
-
-        $tagline_field = ( new Field\Text( $strings['tagline']['title'] ) )
-            ->set_key( "${key}_tagline" )
-            ->set_name( 'tagline' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['tagline']['instructions'] );
-
-        $lang_nav_display_field = ( new Field\Select( $strings['lang_nav_display']['title'] ) )
-            ->set_key( "${key}_lang_nav_display" )
-            ->set_name( 'lang_nav_display' )
-            ->set_choices( [
-                'hide'       => 'Ei käytössä',
-                'dropdown'   => 'Pudotusvalikko',
-                'horizontal' => 'Vaakavalikko',
-            ] )
-            ->set_default_value( 'horizontal' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['lang_nav_display']['instructions'] );
-
-        $hide_main_nav_field = ( new Field\TrueFalse( $strings['hide_main_nav']['title'] ) )
-            ->set_key( "${key}_hide_main_nav" )
-            ->set_name( 'hide_main_nav' )
-            ->set_default_value( false )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['hide_main_nav']['instructions'] );
-
-        $limit_nav_depth_field = ( new Field\TrueFalse( $strings['limit_nav_depth']['title'] ) )
-            ->set_key( "${key}_limit_nav_depth" )
-            ->set_name( 'limit_nav_depth' )
-            ->set_default_value( false )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['limit_nav_depth']['instructions'] );
-
-        $hide_search_field = ( new Field\TrueFalse( $strings['hide_search']['title'] ) )
-            ->set_key( "${key}_hide_search" )
-            ->set_name( 'hide_search' )
-            ->set_default_value( false )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['hide_search']['instructions'] );
-
-        $tab->add_fields( [
-            $logo_field,
-            $brand_logo_field,
-            $tagline_field,
-            $lang_nav_display_field,
-            $hide_main_nav_field,
-            $limit_nav_depth_field,
-            $hide_search_field,
-        ] );
-
-        if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
-            $header_scripts_field = ( new Field\Textarea( $strings['header_scripts']['title'] ) )
-                ->set_key( "${key}_header_scripts" )
-                ->set_name( 'header_scripts' )
-                ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['header_scripts']['instructions'] );
-
-            $tab->add_field( $header_scripts_field );
-        }
-
-        return $tab;
     }
 
     /**
