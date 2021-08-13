@@ -6,13 +6,4 @@
 // Autoload theme
 require_once __DIR__ . '/lib/autoload.php';
 
-TMS\Theme\Base\ThemeController::instance();
-
-/**
- * Global helper function to fetch the ThemeController instance
- *
- * @return TMS\Theme\Base\ThemeController
- */
-function ThemeController() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
-    return TMS\Theme\Base\ThemeController::instance();
-}
+( new TMS\Theme\Base\ThemeController() );
