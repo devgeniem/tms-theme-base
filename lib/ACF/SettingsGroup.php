@@ -17,6 +17,7 @@ use TMS\Theme\Base\ACF\Fields\EventsSettingsTab;
 use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
 use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\ACF\Fields\MapSettingsTab;
+use TMS\Theme\Base\ACF\Fields\PageSettingsTab;
 use TMS\Theme\Base\ACF\Fields\SocialMediaSettingsTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
@@ -75,8 +76,7 @@ class SettingsGroup {
                         new Error404SettingsTab( '', $field_group->get_key() ),
                         new ArchiveSettingsTab( '', $field_group->get_key() ),
                         new EventsSettingsTab( '', $field_group->get_key() ),
-                        $this->get_page_fields( $field_group->get_key() ),
-                        $this->get_exception_notice_fields( $field_group->get_key() ),
+                        new PageSettingsTab( '', $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
                     ]
@@ -93,41 +93,6 @@ class SettingsGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
-    }
-
-    /**
-     * Get page fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_page_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'                       => 'Sisältösivut',
-            'enable_sibling_navigation' => [
-                'title'        => 'Rinnakkaissivujen navigointi',
-                'instructions' => 'Esitetään sivujen alasivuilla ennen alatunnistetta.',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $display_siblings = ( new Field\TrueFalse( $strings['enable_sibling_navigation']['title'] ) )
-            ->set_key( "${key}_enable_sibling_navigation" )
-            ->set_name( 'enable_sibling_navigation' )
-            ->set_default_value( false )
-            ->use_ui()
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['enable_sibling_navigation']['instructions'] );
-
-        $tab->add_fields( [
-            $display_siblings,
-        ] );
-
-        return $tab;
     }
 
     /**
