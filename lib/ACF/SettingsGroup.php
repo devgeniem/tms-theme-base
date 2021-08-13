@@ -13,6 +13,7 @@ use TMS\Theme\Base\ACF\Fields\ArchiveSettingsTab;
 use TMS\Theme\Base\ACF\Fields\BlogArticleSettingsTab;
 use TMS\Theme\Base\ACF\Fields\ContactsSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Error404SettingsTab;
+use TMS\Theme\Base\ACF\Fields\EventsSettingsTab;
 use TMS\Theme\Base\ACF\Fields\FooterSettingsTab;
 use TMS\Theme\Base\ACF\Fields\HeaderSettingsTab;
 use TMS\Theme\Base\ACF\Fields\MapSettingsTab;
@@ -73,7 +74,7 @@ class SettingsGroup {
                         new SocialMediaSettingsTab( '', $field_group->get_key() ),
                         new Error404SettingsTab( '', $field_group->get_key() ),
                         new ArchiveSettingsTab( '', $field_group->get_key() ),
-                        $this->get_events_fields( $field_group->get_key() ),
+                        new EventsSettingsTab( '', $field_group->get_key() ),
                         $this->get_page_fields( $field_group->get_key() ),
                         $this->get_exception_notice_fields( $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
@@ -92,65 +93,6 @@ class SettingsGroup {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTraceAsString() );
         }
-    }
-
-    /**
-     * Get events fields
-     * Get page fields
-     *
-     * @param string $key Field group key.
-     *
-     * @return Field\Tab
-     * @throws Exception In case of invalid option.
-     */
-    protected function get_events_fields( string $key ) : Field\Tab {
-        $strings = [
-            'tab'                           => 'Tapahtumat',
-            'events_default_image'          => [
-                'title'        => 'Oletuskuva',
-                'instructions' => '',
-            ],
-            'events_page'                   => [
-                'title'        => 'Tapahtuma-sivu',
-                'instructions' => 'Sivu, jolle on valittu Tapahtuma-sivupohja',
-            ],
-            'show_related_events_calendars' => [
-                'title'        => 'Näytä muut sivuston tapahtumakalenterit',
-                'instructions' => 'Tapahtumakalenterin yläosassa näytetään automaattisesti
-                linkit muille saman sivuston sivuille, joilla on käytössä tapahtumakalenteri-sivupohja',
-            ],
-        ];
-
-        $tab = ( new Field\Tab( $strings['tab'] ) )
-            ->set_placement( 'left' );
-
-        $image_field = ( new Field\Image( $strings['events_default_image']['title'] ) )
-            ->set_key( "${key}_events_default_image" )
-            ->set_name( 'events_default_image' )
-            ->set_return_format( 'id' )
-            ->set_instructions( $strings['events_default_image']['instructions'] );
-
-        $events_page_field = ( new Field\PostObject( $strings['events_page']['title'] ) )
-            ->set_key( "${key}_events_page" )
-            ->set_name( 'events_page' )
-            ->set_post_types( [ PostType\Page::SLUG ] )
-            ->set_return_format( 'id' )
-            ->set_instructions( $strings['events_page']['instructions'] );
-
-        $show_event_calendars_field = ( new Field\TrueFalse( $strings['show_related_events_calendars']['title'] ) )
-            ->set_key( "${key}_show_related_events_calendars" )
-            ->set_name( 'show_related_events_calendars' )
-            ->use_ui()
-            ->set_default_value( false )
-            ->set_instructions( $strings['show_related_events_calendars']['instructions'] );
-
-        $tab->add_fields( [
-            $image_field,
-            $events_page_field,
-            $show_event_calendars_field,
-        ] );
-
-        return $tab;
     }
 
     /**
