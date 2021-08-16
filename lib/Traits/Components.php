@@ -20,9 +20,9 @@ trait Components {
      * @return array
      */
     public function components() : array {
-        $content = get_field( 'components' );
+        $content = get_field( 'components' ) ?? [];
 
-        if ( empty( $content ) ) {
+        if ( empty( $content ) || ! is_array( $content ) ) {
             return [];
         }
 
