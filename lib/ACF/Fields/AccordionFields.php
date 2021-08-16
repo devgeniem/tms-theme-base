@@ -89,6 +89,8 @@ class AccordionFields extends Field\Group {
             ->set_key( "${key}_sections" )
             ->set_name( 'sections' )
             ->set_layout( 'block' )
+            ->set_min( 1 )
+            ->set_required()
             ->set_button_label( $strings['sections']['button'] )
             ->set_instructions( $strings['sections']['instructions'] );
 

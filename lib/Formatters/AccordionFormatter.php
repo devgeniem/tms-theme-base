@@ -48,7 +48,7 @@ class AccordionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $section['section_content'] = $this->handle_layouts( $section['section_content'] );
 
             return $section;
-        }, $data['sections'] );
+        }, $data['sections'] ?? [] );
 
         return $data;
     }
