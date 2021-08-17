@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DR-2: misc appearance fixes and improvements #130
 - DR-3: misc appearance fixes and improvements #131
 - DR-4: misc appearance fixes and improvements #132
+- Fixes type error: expected array, got bool #138
 
 ## [1.7.0] - 2021-08-06
 
