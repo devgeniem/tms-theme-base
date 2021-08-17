@@ -1,4 +1,4 @@
-<div class="events__item has-height-100 has-background-secondary">
+<div class="events__item has-height-100 {item_classes.grid.item|s}">
     {?image}
         <div class="image is-relative is-4by3" aria-hidden="true">
             <a href="{url}" aria-hidden="true" tabindex="-1">
@@ -14,7 +14,7 @@
         </div>
     {/image}
 
-    <div class="events__item-inner pt-5 pr-6 pb-6 pl-6">
+    <div class="events__item-inner pt-5 pr-6 pb-6 pl-6 {item_classes.grid.item_inner|s}">
         <h3 class="h5 mt-0 mb-5">
             <a href="{url}" class="has-text-black">
                 {name|s}
@@ -27,7 +27,7 @@
 
         <div class="is-flex is-align-items-center mt-2 mb-2">
             <span class="is-flex" aria-label="{Strings.s.event.date|s}">
-                {>"ui/icon" icon="date" class="icon--large is-primary mr-2 is-accent" /}
+                {>"ui/icon" icon="date" class="icon--large is-primary mr-2 {item_classes.grid.icon|s}" /}
             </span>
 
             {date|s}
@@ -35,7 +35,7 @@
 
         <div class="is-flex is-align-items-center mt-2 mb-2">
             <span class="is-flex" aria-label="{Strings.s.event.time|s}">
-                {>"ui/icon" icon="time" class="icon--large is-primary mr-2 is-accent" /}
+                {>"ui/icon" icon="time" class="icon--large is-primary mr-2 {item_classes.grid.icon|s}" /}
             </span>
 
             {time|s}
@@ -44,7 +44,7 @@
         {?location.name}
             <div class="is-flex is-align-items-center mt-2 mb-2">
                 <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                    {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2 is-accent" /}
+                    {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2 {item_classes.grid.icon|s}" /}
                 </span>
 
                 {location.name|s}

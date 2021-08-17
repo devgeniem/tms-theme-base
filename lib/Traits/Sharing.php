@@ -27,6 +27,28 @@ trait Sharing {
     }
 
     /**
+     * Return share button default class.
+     *
+     * @return mixed|void
+     */
+    public function share_link_classes() {
+        $link_class = apply_filters(
+            'tms/theme/share_links/link_class',
+            'has-background-accent'
+        );
+
+        $icon_class = apply_filters(
+            'tms/theme/share_links/icon_class',
+            'is-accent-invert'
+        );
+
+        return [
+            'link' => $link_class,
+            'icon' => $icon_class,
+        ];
+    }
+
+    /**
      * Get share links
      *
      * @return null|array
