@@ -3,7 +3,6 @@
  * Define the generic Page class.
  */
 
-
 /**
  * The Page class.
  */
