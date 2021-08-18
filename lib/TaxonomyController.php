@@ -49,17 +49,17 @@ class TaxonomyController implements Interfaces\Controller {
      *
      * @return void
      */
-    private function register_taxonomies() {
+    protected function register_taxonomies() {
         $instances = array_map( function ( $field_class ) {
             $field_class = basename( $field_class, '.' . pathinfo( $field_class )['extension'] );
-            $class_name  = __NAMESPACE__ . '\Taxonomy\\' . $field_class;
+            $class_name  = $this->get_namespace() . '\Taxonomy\\' . $field_class;
 
             if ( ! \class_exists( $class_name ) ) {
                 return null;
             }
 
             return new $class_name();
-        }, array_diff( scandir( __DIR__ . '/Taxonomy' ), [ '.', '..' ] ) );
+        }, $this->get_files() );
 
         foreach ( $instances as $instance ) {
             if ( $instance instanceof Interfaces\Taxonomy ) {
@@ -68,5 +68,23 @@ class TaxonomyController implements Interfaces\Controller {
                 $this->classes[ $instance::SLUG ] = $instance;
             }
         }
+    }
+
+    /**
+     * Get namespace for taxonomy instances
+     *
+     * @return string
+     */
+    protected function get_namespace() : string {
+        return __NAMESPACE__;
+    }
+
+    /**
+     * Get custom post type files
+     *
+     * @return array
+     */
+    protected function get_files() : array {
+        return array_diff( scandir( __DIR__ . '/Taxonomy' ), [ '.', '..' ] );
     }
 }

@@ -101,7 +101,6 @@ class PageEvent extends BaseModel {
             : home_url();
     }
 
-
     /**
      * Hero image
      *
@@ -173,6 +172,49 @@ class PageEvent extends BaseModel {
      */
     protected function get_event() {
         return $this->event;
+    }
+
+    /**
+     * Template classes.
+     *
+     * @return array
+     */
+    public function template_classes() {
+        $hero_info_classes = apply_filters(
+            'tms/theme/event/hero_info_classes',
+            'has-background-secondary has-text-secondary-invert'
+        );
+
+        $hero_icon_classes = apply_filters(
+            'tms/theme/event/hero_icon_classes',
+            'is-accent'
+        );
+
+        $info_group_title = apply_filters(
+            'tms/theme/event/group_title',
+            [
+                'title' => 'has-background-secondary',
+                'icon'  => 'is-accent',
+            ]
+        );
+
+        $info_group_classes = apply_filters(
+            'tms/theme/event/info_group_classes',
+            'has-background-secondary--opaque has-text-secondary-invert'
+        );
+
+        $info_button_classes = apply_filters(
+            'tms/theme/event/info_button_classes',
+            ''
+        );
+
+        return [
+            'hero_info'        => $hero_info_classes,
+            'hero_icon'        => $hero_icon_classes,
+            'info_group_title' => $info_group_title,
+            'info_group'       => $info_group_classes,
+            'info_button'      => $info_button_classes,
+        ];
     }
 
     /**

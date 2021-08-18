@@ -2,6 +2,8 @@
 
 $accent-light: $primary-light !default;
 $accent-dark: $primary-dark !default;
+$link-hover: $primary-light !default;
+$link-active: $primary-dark !default;
 
 // -- Links
 a {
@@ -27,22 +29,22 @@ a {
     &.has-background-primary {
         &:hover,
         &:focus {
-            background-color: $primary-light !important;
+            background-color: $link-hover !important;
         }
 
         &:active {
-            background-color: $primary-dark !important;
+            background-color: $link-active !important;
         }
     }
 
     &.has-background-accent {
         &:hover,
         &:focus {
-            background-color: $accent-light !important;
+            background-color: $link-hover !important;
         }
 
         &:active {
-            background-color: $accent-dark !important;
+            background-color: $link-active !important;
         }
     }
 }
