@@ -49,10 +49,14 @@ class Constants implements Interfaces\Controller {
         }
 
         // Set Polylang active state. Use this to check if Polylang plugin is active.
-        define( 'DPT_PLL_ACTIVE', function_exists( 'pll_languages_list' ) );
+        if ( ! defined( 'DPT_PLL_ACTIVE' ) ) {
+            define( 'DPT_PLL_ACTIVE', function_exists( 'pll_languages_list' ) );
+        }
 
         // Set Advanced Custom Fields active state. Use this to check if Advanced Custom Fields plugin is active.
-        define( 'DPT_ACF_ACTIVE', class_exists( 'acf' ) );
+        if ( ! defined( 'DPT_ACF_ACTIVE' ) ) {
+            define( 'DPT_ACF_ACTIVE', class_exists( 'acf' ) );
+        }
 
         // Get the theme version number from the empty theme stylesheet
         if ( ! defined( 'DPT_THEME_VERSION' ) ) {

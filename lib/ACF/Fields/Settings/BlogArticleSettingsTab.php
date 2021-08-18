@@ -3,7 +3,7 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
@@ -77,8 +77,6 @@ class BlogArticleSettingsTab extends \Geniem\ACF\Field\Tab {
         $strings = $this->strings;
 
         try {
-            $this->set_label( $strings['tab'] );
-
             $blog_name_field = ( new Field\Text( $strings['blog_name']['title'] ) )
                 ->set_key( "${key}_blog_name" )
                 ->set_name( 'blog_name' )

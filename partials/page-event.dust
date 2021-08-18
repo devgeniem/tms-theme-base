@@ -16,7 +16,7 @@
                                     <div class="entry__hero-image mt-6 has-background-primary has-text-primary-invert has-background-cover" {@inlinebg url=hero_image /}></div>
                                 {/hero_image}
 
-                                <div class="entry__hero-info section pt-6 pb-6 has-background-secondary has-text-secondary-invert">
+                                <div class="entry__hero-info section pt-6 pb-6 {template_classes.hero_info|s}">
                                     {>"views/single-dynamic-event/single-dynamic-event-hero-meta" /}
                                 </div>
                             </div>

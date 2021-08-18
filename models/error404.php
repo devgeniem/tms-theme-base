@@ -62,12 +62,15 @@ class Error404 extends BaseModel {
             return null;
         }
 
-        return [
-            'title'   => _x( 'Go to search', 'theme-frontend', 'tms-theme-base' ),
-            'url'     => "$home_url?s",
-            'classes' => 'is-inverted',
-            'icon'    => 'search',
-        ];
+        return apply_filters(
+            'tms/theme/error404/search_link',
+            [
+                'title'   => _x( 'Go to search', 'theme-frontend', 'tms-theme-base' ),
+                'url'     => "$home_url?s",
+                'classes' => 'is-inverted',
+                'icon'    => 'search',
+            ]
+        );
     }
 
     /**
@@ -76,11 +79,14 @@ class Error404 extends BaseModel {
      * @return array
      */
     private function get_home_link() : array {
-        return [
-            'title' => _x( 'Return to home', 'theme-frontend', 'tms-theme-base' ),
-            'url'   => $this->get_home_url(),
-            'icon'  => 'chevron-right',
-        ];
+        return apply_filters(
+            'tms/theme/error404/home_link',
+            [
+                'title' => _x( 'Return to home', 'theme-frontend', 'tms-theme-base' ),
+                'url'   => $this->get_home_url(),
+                'icon'  => 'chevron-right',
+            ]
+        );
     }
 
     /**

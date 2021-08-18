@@ -95,7 +95,7 @@ class Localization implements Interfaces\Controller {
      *
      * @return array The modified post_types -array.
      */
-    private function add_cpts_to_polylang( $post_types, $is_settings ) { // phpcs:ignore
+    protected function add_cpts_to_polylang( $post_types, $is_settings ) { // phpcs:ignore
         if ( ! DPT_PLL_ACTIVE ) {
             return $post_types;
         }

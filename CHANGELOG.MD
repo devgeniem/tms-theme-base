@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-192-1: Add filters for assets #137
 - TMS-127: Filter to allowed blocks #133
 - TMS-112: Contacts ACF block #110
 - DR-5: Add Default Content Image setting #134
+
+### Changed
+- TMS-194: Organize setting tabs #135
 
 ### Fixed
 - a11y: Fix navigation item duplicate ids #122
@@ -21,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DR-2: misc appearance fixes and improvements #130
 - DR-3: misc appearance fixes and improvements #131
 - DR-4: misc appearance fixes and improvements #132
+- Fixes type error: expected array, got bool #138
 
 ## [1.7.0] - 2021-08-06
 
