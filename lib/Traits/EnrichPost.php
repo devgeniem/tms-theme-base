@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base\Traits;
 
+use TMS\Theme\Base\Images;
+
 /**
  * Trait EnrichPost
  *
@@ -33,7 +35,7 @@ trait EnrichPost {
         if ( $use_images ) {
             $post->featured_image = has_post_thumbnail( $post->ID )
                 ? get_post_thumbnail_id( $post->ID )
-                : null;
+                : Images::get_default_image_id();
         }
 
         $post->permalink = get_permalink( $post->ID );

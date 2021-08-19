@@ -89,4 +89,13 @@ class Images implements Interfaces\Controller {
             'fullhd',
         ];
     }
+
+    /**
+     * Get default image ID.
+     *
+     * @return string
+     */
+    public static function get_default_image_id() : string {
+        return Settings::get_setting( 'default_image' );
+    }
 }

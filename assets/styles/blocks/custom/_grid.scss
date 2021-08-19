@@ -49,6 +49,10 @@
 
             #{$item}__details {
                 aspect-ratio: auto;
+
+                @include from($tablet) {
+                    max-width: 80%;
+                }
             }
         }
     }

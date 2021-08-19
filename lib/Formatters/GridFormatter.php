@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base\Formatters;
 
+use TMS\Theme\Base\Images;
+
 /**
  * Class GridFormatter
  *
@@ -134,12 +136,16 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $image_id = get_post_thumbnail_id( $item->ID ) ?? false;
         if ( ! $image_id || $image_id < 1 ) {
-            // TODO: Replace false with site default image ID.
-            $image_id = false;
+            $image_id = Images::get_default_image_id();
         }
 
-        $link_title = $data['grid_item_relationship']['link_title'] ?? '';
-        $link_title = empty( $link_title ) ? $item->post_title : $link_title;
+        $link_title   = $data['grid_item_relationship']['link_title'] ?? '';
+        $link_title   = empty( $link_title ) ? __( 'Read more', 'tms-theme-base' ) : $link_title;
+        $item_excerpt = get_the_excerpt( $item->ID );
+
+        if ( ! has_excerpt( $item->ID ) ) {
+            $item_excerpt = wp_trim_words( get_the_excerpt( $item->ID ), 10 );
+        }
 
         return [
             'title'       => $item->post_title,
@@ -148,7 +154,7 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 'url'    => get_permalink( $item->ID ),
                 'target' => '',
             ],
-            'description' => wp_trim_words( get_the_excerpt( $item->ID ), 10 ),
+            'description' => $item_excerpt,
             'image'       => [
                 'id' => $image_id,
             ],

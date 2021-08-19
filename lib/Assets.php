@@ -72,23 +72,39 @@ class Assets implements Interfaces\Controller {
      *
      * @param string $theme Theme file name without prefix 'theme_' or suffix '.js/.css'.
      */
-    private function enqueue_theme( $theme = 'tunnelma' ) : void {
+    protected function enqueue_theme( $theme = 'tunnelma' ) : void {
         $css = sprintf( 'theme_%s.css', $theme );
         $js  = sprintf( 'theme_%s.js', $theme );
 
         \wp_enqueue_style(
             'theme-css',
-            DPT_ASSET_URI . '/' . $css,
+            apply_filters(
+                'tms/theme/theme_css_path',
+                DPT_ASSET_URI . '/' . $css,
+                $css
+            ),
             [],
-            static::get_theme_asset_mod_time( $css ),
+            apply_filters(
+                'tms/theme/asset_mod_time',
+                static::get_theme_asset_mod_time( $css ),
+                $css
+            ),
             'all'
         );
 
         \wp_enqueue_script(
             'theme-js',
-            DPT_ASSET_URI . '/' . $js,
+            apply_filters(
+                'tms/theme/theme_js_path',
+                DPT_ASSET_URI . '/' . $js,
+                $js
+            ),
             [ 'jquery', 'vendor-js' ],
-            static::get_theme_asset_mod_time( $js ),
+            apply_filters(
+                'tms/theme/asset_mod_time',
+                static::get_theme_asset_mod_time( $js ),
+                $js
+            ),
             true
         );
     }
@@ -109,7 +125,12 @@ class Assets implements Interfaces\Controller {
             'tms/theme/theme_default_color',
             DEFAULT_THEME_COLOR
         );
-        $selected_theme      = Settings::get_setting( 'theme_color' ) ?? $theme_default_color;
+
+        $selected_theme = apply_filters(
+            'tms/theme/theme_selected',
+            Settings::get_setting( 'theme_color' ) ?? $theme_default_color
+        );
+
         $this->enqueue_theme( $selected_theme );
 
         /**
@@ -232,7 +253,7 @@ class Assets implements Interfaces\Controller {
      *
      * @return int|string A microtime amount or the theme version.
      */
-    private static function get_theme_asset_mod_time( $filename = '' ) {
+    protected static function get_theme_asset_mod_time( $filename = '' ) {
         return file_exists( DPT_ASSET_CACHE_URI . '/' . $filename )
             ? filemtime( DPT_ASSET_CACHE_URI . '/' . $filename )
             : DPT_THEME_VERSION;

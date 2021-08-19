@@ -42,7 +42,8 @@ class AccordionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         if ( empty( $data['sections'] ) ) {
             return $data;
         }
-        $sections = $data['sections'];
+
+        $sections = $data['sections'] ?? [];
         $sections = array_filter( $sections, fn( $item ) => ! empty( $item['section_content'] ) );
 
         $data['sections'] = array_map( function ( $section ) {

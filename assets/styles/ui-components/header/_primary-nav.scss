@@ -3,7 +3,7 @@
  */
 
 $navbar-item-navbar-link-color: $primary-invert !default;
-$navbar-item-grid-item-border-color: $primary !default;
+$navbar-item-grid-item-border-color: #d9dde1 !default;
 
 .primary-nav {
     @include list-reset;
@@ -11,6 +11,10 @@ $navbar-item-grid-item-border-color: $primary !default;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
+
+    .navbar-item__single > a {
+        color: inherit;
+    }
 
     > .navbar-item,
     > .has-dropdown > div > .navbar-link {
@@ -54,6 +58,7 @@ $navbar-item-grid-item-border-color: $primary !default;
 
             &__parent-link {
                 font-weight: 600;
+                color: $primary !important; // sass-lint:disable-line no-important
                 text-transform: none;
             }
         }
@@ -68,7 +73,7 @@ $navbar-item-grid-item-border-color: $primary !default;
 
             .navbar-item {
                 padding: 1.411rem 0;
-                border-bottom: 1px solid $navbar-item-grid-item-border-color;
+                border-bottom: 2px solid $navbar-item-grid-item-border-color;
 
                 &:hover,
                 &:focus {

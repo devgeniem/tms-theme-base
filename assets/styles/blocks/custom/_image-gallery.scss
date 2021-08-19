@@ -18,12 +18,16 @@
 
         &-close-button {
             position: relative;
-            right: -33% !important;
+            right: -28.5% !important;
             top: -.3rem !important;
 
             background-color: transparent !important;
             border: .125rem solid $white !important;
             color: $white;
+
+            @include from($tablet) {
+                right: -33% !important;
+            }
 
             &:hover,
             &:focus {
@@ -52,6 +56,7 @@
         list-style-type: none;
         position: absolute;
         top: 50%;
+        left: 0;
         width: 100%;
 
         .gallery-button {

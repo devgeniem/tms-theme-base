@@ -95,11 +95,11 @@ class BlocksController implements Interfaces\Controller {
      * fill the array with the block types that the theme supports.
      *
      * @param bool|array $allowed_blocks An empty array.
-     * @param \WP_Post   $post           The post resource data.
+     * @param \WP_Post   $context        The current block editor context.
      *
      * @return array An array of allowed block types.
      */
-    private function allowed_block_types( $allowed_blocks, $post ) {
+    private function allowed_block_types( $allowed_blocks, $context ) {
         $blocks = [
             'core/block'        => [],
             'core/template'     => [],
@@ -256,9 +256,15 @@ class BlocksController implements Interfaces\Controller {
             ],
         ];
 
+        $blocks = apply_filters(
+            'tms/gutenberg/blocks',
+            $blocks,
+            $context
+        );
+
         $allowed_blocks = [];
-        $post_type      = \get_post_type( $post );
-        $page_template  = \get_page_template_slug( $post->ID );
+        $post_type      = \get_post_type( $context->post->ID );
+        $page_template  = \get_page_template_slug( $context->post->ID );
 
         foreach ( $blocks as $block => $rules ) {
             if ( empty( $rules ) ) {

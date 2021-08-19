@@ -87,6 +87,27 @@ class PageEventsCalendar extends BaseModel {
     }
 
     /**
+     * Item template classes.
+     *
+     * @return string
+     */
+    public function item_classes() : array {
+        return apply_filters( 'tms/theme/page_events_calendar/item_classes', [
+            'list' => [
+                'item'        => 'has-background-secondary',
+                'item_inner'  => '',
+                'icon'        => 'is-accent',
+                'description' => '',
+            ],
+            'grid' => [
+                'item'       => 'has-background-secondary',
+                'item_inner' => '',
+                'icon'       => 'is-accent',
+            ],
+        ] );
+    }
+
+    /**
      * Get events
      *
      * @return array
