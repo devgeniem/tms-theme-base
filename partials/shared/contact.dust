@@ -41,7 +41,7 @@
                                         <div>{phone_text|s}</div>
                                         <div>
                                             <a href="tel:{phone_number|s}"
-                                               class="has-text-black has-text-weight-bold">
+                                               class="has-text-paragraph has-text-weight-bold">
                                                 {phone_number|s}
                                             </a>
                                         </div>
@@ -57,7 +57,7 @@
                                 {>"ui/icon" icon="email" class="icon--large is-primary" /}
                             </div>
 
-                            <a href="mailto:{email|s}" class="has-text-black">
+                            <a href="mailto:{email|s}" class="has-text-paragraph">
                                 {email|s}
                             </a>
                         </div>
