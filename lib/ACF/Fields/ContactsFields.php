@@ -51,7 +51,7 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
                 'instructions' => '',
             ],
             'contacts'    => [
-                'label'        => 'Näytä kuvat',
+                'label'        => 'Yhteystiedot',
                 'instructions' => '',
             ],
             'fields'      => [
@@ -96,7 +96,9 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
             ->set_key( "${key}_description" )
+            ->set_name( 'description' )
             ->set_rows( 4 )
+            ->set_new_lines( 'wpautop' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['description']['instructions'] );
 
