@@ -1,4 +1,4 @@
-<button class="button button--icon is-small ml-2" type="submit">
+<button class="button is-primary button--icon is-small ml-2 {class|s}" type="submit">
     {text|s}
 
     {>"ui/icon" icon="search" class="is-primary-invert" /}
