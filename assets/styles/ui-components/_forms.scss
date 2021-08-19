@@ -1,12 +1,15 @@
 /*!*
  * Copyright (c) 2021. Geniem Oy
  */
+$gravityform-input-focus: .125rem dashed $color-black !default
+$gravityform-input-focus-offset: .25rem !default
 
 form {
     label {
         margin-bottom: $theme-spacing-quarter;
     }
 
+    select,
     input,
     textarea {
         line-height: 1;
@@ -40,6 +43,15 @@ form {
             display: flex;
             // To make checkradio click not lose position
             position: relative;
+        }
+
+        select,
+        input,
+        textarea {
+            &:focus {
+                outline: $gravityform-input-focus;
+                outline-offset: $gravityform-input-focus-offset;
+            }
         }
     }
     &_page {
