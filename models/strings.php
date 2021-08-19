@@ -135,6 +135,11 @@ class Strings extends \DustPress\Model {
                 'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'contact_search'     => [
+                'label'             => _x( 'Search contacts', 'theme-frontend', 'tms-theme-base' ),
+                'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
+                'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
+            ],
         ];
     }
 
