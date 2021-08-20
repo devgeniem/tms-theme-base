@@ -187,7 +187,8 @@ class PostGroup {
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
                 Layouts\MapLayout::class,
-            ]
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {
