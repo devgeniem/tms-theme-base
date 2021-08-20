@@ -65,6 +65,7 @@ class Strings extends \DustPress\Model {
             ],
             'share'              => [
                 'share_article' => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+                'share_to_some' => _x( 'Share to some', 'theme-frontend', 'tms-theme-base' ),
             ],
             'gallery'            => [
                 'close'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
@@ -139,6 +140,11 @@ class Strings extends \DustPress\Model {
                 'label'             => _x( 'Search contacts', 'theme-frontend', 'tms-theme-base' ),
                 'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'artist'             => [
+                'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'related_artwork' => _x( 'Related artwork', 'tms-theme-base' ),
             ],
         ];
     }
