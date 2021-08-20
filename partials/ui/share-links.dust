@@ -1,7 +1,7 @@
 {?share_links}
-    <ul class="is-flex is-flex-wrap-wrap is-unstyled">
+    <ul class="is-flex is-flex-wrap-wrap is-unstyled {@eq key=align value="right"}is-justify-content-flex-end{/eq}">
         {#share_links}
-            <li class="mr-4 mb-4">
+            <li class="mb-4 {@eq key=align value="right"}ml-4{:else}mr-4{/eq}">
                 <a href="{link}"
                    class="is-relative is-flex is-align-items-center is-justify-content-center box box--medium box--circle {share_link_classes.link|s} {#extra_classes}{.} {/extra_classes}"
                    data-callback-text="{callback_text|s}">
