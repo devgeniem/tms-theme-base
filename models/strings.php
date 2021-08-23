@@ -144,7 +144,12 @@ class Strings extends \DustPress\Model {
             'artist'             => [
                 'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
-                'related_artwork' => _x( 'Related artwork', 'tms-theme-base' ),
+                'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'artwork'            => [
+                'artist_link' => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
+                'related_art' => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
+                'artwork'     => _x( 'Artwork', 'Breadcrumb text', 'tms-theme-base' ),
             ],
         ];
     }
