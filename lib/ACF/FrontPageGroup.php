@@ -115,7 +115,8 @@ class PageFrontPageGroup {
                 Layouts\NoticeBannerLayout::class,
                 Layouts\GravityFormLayout::class,
                 Layouts\ImageCarouselLayout::class,
-            ]
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {
