@@ -19,6 +19,9 @@ $button-background-invert: $button-primary-invert !default;
 $button-border-width: .15rem !default;
 $button-border-radius: 1.8rem !default;
 
+$button-font-size: .9375rem !default;
+$button-font-size-tablet: .88235rem !default;
+
 @mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
     color: $button-color-mixin-text !important;
     background-color: $button-color-mixin-background !important;
@@ -62,7 +65,7 @@ $button-border-radius: 1.8rem !default;
     cursor: pointer;
     font-weight: $weight-medium;
     font-family: $family-secondary;
-    font-size: .9375rem;
+    font-size: $button-font-size;
 
     justify-content: center;
     padding: .625rem 1.875rem;
@@ -72,7 +75,7 @@ $button-border-radius: 1.8rem !default;
     text-decoration: none !important;
 
     @include from($tablet) {
-        font-size: .88235rem;
+        font-size: $button-font-size-tablet;
         padding-right: 1.764rem;
         padding-left: 1.764rem;
     }
