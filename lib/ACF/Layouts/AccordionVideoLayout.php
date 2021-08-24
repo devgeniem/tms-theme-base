@@ -7,7 +7,6 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\Logger;
 
 /**
@@ -15,7 +14,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class AccordionVideoLayout extends Layout {
+class AccordionVideoLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -58,11 +57,9 @@ class AccordionVideoLayout extends Layout {
                 ->set_name( 'video' )
                 ->set_instructions( $strings['video']['instructions'] );
 
+            $fields   = [ $video_field ];
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    [ $video_field ]
-                )
+                $this->filter_layout_fields( $fields, $key )
             );
         }
         catch ( Exception $e ) {

@@ -7,7 +7,6 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -16,7 +15,7 @@ use TMS\Theme\Base\PostType;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class AccordionTableLayout extends Layout {
+class AccordionTableLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -63,11 +62,9 @@ class AccordionTableLayout extends Layout {
                 ->set_max( 1 )
                 ->set_instructions( $strings['table']['instructions'] );
 
+            $fields   = [ $table_field ];
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    [ $table_field ]
-                )
+                $this->filter_layout_fields( $fields, $key )
             );
         }
         catch ( Exception $e ) {
