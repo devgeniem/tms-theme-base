@@ -45,9 +45,9 @@ class Comments implements Interfaces\Controller {
      * @return int|false
      */
     public static function get_author_override_id( int $comment_id ) {
-        $author_field = get_field( 'fg_comment_fields_author', get_comment( $comment_id ) );
+        $author_id = get_comment_meta( $comment_id, 'author', true );
 
-        return $author_field->ID ?? false;
+        return $author_id ?? false;
     }
 
     /**
