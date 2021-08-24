@@ -22,6 +22,7 @@ export default class Toggle {
         const toggleTrigger = $( event.currentTarget );
         const toggleTarget = $( '#' + toggleTrigger.attr( 'aria-controls' ) );
         const ariaExpandedState = toggleTrigger.attr( 'aria-expanded' ) === 'false';
+        const duration = typeof toggleTrigger.data( 'duration' ) !== undefined ? toggleTrigger.data( 'duration' ) : 400;
 
         if ( toggleTarget.hasClass( 'is-hidden' ) ) {
             toggleTarget.css( 'display', 'none' );
@@ -31,7 +32,7 @@ export default class Toggle {
         toggleTrigger.attr( 'aria-expanded', ariaExpandedState );
         toggleTrigger.toggleClass( 'is-active' );
 
-        toggleTarget.slideToggle();
+        toggleTarget.slideToggle( duration );
     }
 
     /**

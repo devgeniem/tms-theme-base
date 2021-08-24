@@ -197,6 +197,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_publisher_choices( $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'organization' ),
@@ -211,6 +215,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_keyword_choices( array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'keyword', [ 'page_size' => 250 ] ),
@@ -225,6 +233,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_location_choices( array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'place', [ 'data_source' => 'system' ] ),

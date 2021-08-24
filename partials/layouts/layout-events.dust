@@ -12,8 +12,8 @@
 
         <div class="columns is-multiline">
             {#events}
-                <div class="column is-6 is-4-desktop">
-                    <div class="events__item has-height-100 has-background-secondary">
+                <div class="column is-6 is-4-desktop mb-4 mb-0-desktop">
+                    <div class="events__item has-height-100 {classes.event_item_bg}">
                         {?image}
                             <div class="image is-16by9" aria-hidden="true">
                                 <a href="{url}" aria-hidden="true" tabindex="-1">
@@ -30,36 +30,42 @@
                             </h3>
 
                             {?primary_keyword}
-                                <span class="pill is-bordered is-white mb-4">
+                                <span class="pill is-primary-invert mb-4">
                                     {primary_keyword|s}
                                 </span>
                             {/primary_keyword}
 
-                            <div class="is-flex is-align-items-center mt-2 mb-2">
+                            <div class="is-flex is-align-items-center mt-2 mb-2 {classes.event_item_text}">
                                 <span class="is-flex" aria-label="{Strings.s.event.date|s}">
-                                    {>"ui/icon" icon="date" class="icon--large is-primary mr-4 is-accent" /}
+                                    {>"ui/icon" icon="date" class="icon--large is-primary mr-4 {classes.event_item_icon}" /}
                                 </span>
 
                                 {date|s}
                             </div>
 
-                            <div class="is-flex is-align-items-center mt-2 mb-2">
+                            <div class="is-flex is-align-items-center mt-2 mb-2 {classes.event_item_text}">
                                 <span class="is-flex" aria-label="{Strings.s.event.time|s}">
-                                {>"ui/icon" icon="time" class="icon--large is-primary mr-4 is-accent" /}
+                                    {>"ui/icon" icon="time" class="icon--large is-primary mr-4 {classes.event_item_icon}" /}
                                 </span>
 
                                 {time|s}
                             </div>
 
                             {?location.name}
-                                <div class="is-flex is-align-items-center mt-2 mb-2">
+                                <div class="is-flex is-align-items-center mt-2 mb-2 {classes.event_item_text}">
                                     <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                                        {>"ui/icon" icon="location" class="icon--large is-primary mr-4 is-accent" /}
+                                        {>"ui/icon" icon="location" class="icon--large is-primary mr-4 {classes.event_item_icon}" /}
                                     </span>
 
                                     {location.name|s}
                                 </div>
                             {/location.name}
+
+                            {?url}
+                                <a href="{url}" class="button is-primary is-outlined is-small is-hidden-desktop mt-4">
+                                    {Strings.s.common.read_more|s}
+                                </a>
+                            {/url}
                         </div>
                     </div>
                 </div>

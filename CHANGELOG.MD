@@ -6,6 +6,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- TMS-141: Add filters to Call to Action layout #142
+- TMS-113: Contacts template #139
+- TMS-192-1: Add filters for assets #137
+- TMS-127: Filter to allowed blocks #133
+- TMS-112: Contacts ACF block #110
+- DR-5: Add Default Content Image setting #134
+
+### Changed
+- TMS-194: Organize setting tabs #135
+
+### Fixed
+- a11y: Fix navigation item duplicate ids #122
+- a11y: Skip to content link #123
+- a11y: Prevent duplicate img ids #124
+- a11y: Move ul role attribute to a wrapping div #125
+- a11y: Fix nav element hierarchy #126
+- DR-1: misc appearance fixes and improvements #129
+- DR-2: misc appearance fixes and improvements #130
+- DR-3: misc appearance fixes and improvements #131
+- DR-4: misc appearance fixes and improvements #132
+- Fixes type error: expected array, got bool #138
+
+## [1.7.0] - 2021-08-06
+
+### Added
+
+- TMS-55: Onepager page template #108
+
+### Fixed
+- Upgrade deprecated hooks #121
+
 ## [1.6.1] - 2021-08-03
 
 ### Fixed

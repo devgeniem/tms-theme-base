@@ -4,6 +4,9 @@ $pill-color-active: $primary-invert !default;
 $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
+$pill-outlined-color: $pill-color !default;
+$pill-outlined-color-hover: $pill-color-hover !default;
+
 $pill-background-active-focus: $primary-dark !default;
 $pill-background-color-hover: opacify($secondary-light, .75) !default;
 $pill-background-color-focus: $secondary-light !default;
@@ -21,7 +24,7 @@ $pill-border-color-focus: $black !default;
     padding: $theme-spacing-half $theme-spacing-three-quarters;
     color: $pill-color;
     background-color: $pill-background-color;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: $theme-spacing-quarter;
 
     &.is-active,
@@ -119,11 +122,12 @@ $pill-border-color-focus: $black !default;
     }
 
     &.is-outlined {
+        color: $pill-outlined-color;
         background-color: transparent;
         border-color: $pill-background-color;
 
         &:hover {
-            color: $pill-color-hover;
+            color: $pill-outlined-color-hover;
             background-color: transparent;
             border-color: $pill-background-color-hover;
         }

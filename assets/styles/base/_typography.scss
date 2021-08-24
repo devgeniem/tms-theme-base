@@ -2,11 +2,13 @@
 
 $accent-light: $primary-light !default;
 $accent-dark: $primary-dark !default;
+$link-hover: $primary-light !default;
+$link-active: $primary-dark !default;
 
 // -- Links
 a {
-    transition: color $easing $speed, background-color $easing $speed;
     color: $link;
+    transition: color $easing $speed, background-color $easing $speed;
 
     &:hover,
     &.is-hovered {
@@ -27,24 +29,28 @@ a {
     &.has-background-primary {
         &:hover,
         &:focus {
-            background-color: $primary-light !important;
+            background-color: $link-hover !important; // sass-lint:disable-line no-important
         }
 
         &:active {
-            background-color: $primary-dark !important;
+            background-color: $link-active !important; // sass-lint:disable-line no-important
         }
     }
 
     &.has-background-accent {
         &:hover,
         &:focus {
-            background-color: $accent-light !important;
+            background-color: $link-hover !important; // sass-lint:disable-line no-important
         }
 
         &:active {
-            background-color: $accent-dark !important;
+            background-color: $link-active !important; // sass-lint:disable-line no-important
         }
     }
+}
+
+.has-text-paragraph {
+    color: $text !important; // sass-lint:disable-line no-important
 }
 
 .is-text-huge {
@@ -64,5 +70,5 @@ a {
 }
 
 .no-hyphens {
-    hyphens: none !important;
+    hyphens: none !important; // sass-lint:disable-line no-important
 }

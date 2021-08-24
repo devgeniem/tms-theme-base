@@ -14,14 +14,14 @@
 
         <body  class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
 
-        {?Header.exception_notice}
-            {>"shared/header-notice" /}
-        {/Header.exception_notice}
-
         <header id="top" class="site-header">
             <a href="#main-content" class="skip-to-content">
                 {Strings.s.header.skip_to_content|s}
             </a>
+
+            {?Header.exception_notice}
+                {>"shared/header-notice" /}
+            {/Header.exception_notice}
 
             {>"shared/header-inner" /}
         </header>
@@ -34,16 +34,30 @@
                         {>"ui/icon" icon="close" class="icon--large is-primary-invert" /}
                     </button>
 
-                    {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
+                    {^Header.hide_flyout_primary}
+                        {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" menuitem_partial="ui/menu/menu-item" /}
+                    {/Header.hide_flyout_primary}
 
-                    {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                    {^Header.hide_flyout_secondary}
+                        {@menu menu_name="secondary" depth="1" ul_classes="secondary-menu is-unstyled" menuitem_partial="ui/menu/menuitem-secondary" /}
+                    {/Header.hide_flyout_secondary}
+
+                    {?PageOnepager.component_nav}
+                        <ul class="bulmally-navbar fly-out-nav__primary fly-out-nav__onepager is-family-secondary js-scroll-children">
+                            {#PageOnepager.component_nav}
+                                {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" /}
+                            {/PageOnepager.component_nav}
+                        </ul>
+                    {/PageOnepager.component_nav}
 
                     {^Header.hide_search}
-                        <div class="h4 mt-9 mb-4">
-                            {Strings.s.header.search_title|s}
-                        </div>
+                        <div class="search-form-wrapper pl-6">
+                            <div class="h4 mt-9 mb-4">
+                                {Strings.s.header.search_title|s}
+                            </div>
 
-                        {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
+                            {>"search-form" button_class="is-primary is-inverted mb-2 mb-0-tablet" /}
+                        </div>
                     {/Header.hide_search}
 
                     {>"ui/icon" icon="tampere-finland" class="is-primary-invert" /}

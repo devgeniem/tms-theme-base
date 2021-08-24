@@ -32,4 +32,12 @@
 
         }
     }
+
+    &__item-description {
+        @include tablet-only {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 70%;
+        }
+    }
 }

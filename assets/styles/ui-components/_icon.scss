@@ -13,31 +13,73 @@ $accent-invert: $primary-invert !default;
     &--small {
         width: $theme-spacing-half !important; // sass-lint:disable-line no-important
         height: $theme-spacing-half !important; // sass-lint:disable-line no-important
+
+        &-tablet-only {
+            @include tablet-only {
+                width: $theme-spacing-half;
+                height: $theme-spacing-half;
+            }
+        }
     }
 
     &--medium {
         width: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
         height: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
+
+        &-tablet-only {
+            @include tablet-only {
+                width: $theme-spacing-three-quarters;
+                height: $theme-spacing-three-quarters;
+            }
+        }
     }
 
     &--large {
         width: $theme-spacing;
         height: $theme-spacing;
+
+        &-tablet-only {
+            @include tablet-only {
+                width: $theme-spacing;
+                height: $theme-spacing;
+            }
+        }
     }
 
     &--xlarge {
         width: $theme-spacing-oneandhalf;
         height: $theme-spacing-oneandhalf;
+
+        &-tablet-only {
+            @include tablet-only {
+                width: $theme-spacing-oneandhalf;
+                height: $theme-spacing-oneandhalf;
+            }
+        }
     }
 
     &--xxlarge {
         width: 3rem;
         height: 3rem;
+
+        &-tablet-only {
+            @include tablet-only {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
     }
 
     &--xxxlarge {
         width: 4.5rem;
         height: 4.5rem;
+
+        &-tablet-only {
+            @include tablet-only {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+        }
     }
 
     &.is-primary {
