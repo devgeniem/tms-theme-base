@@ -50,12 +50,19 @@ class ArticlesLayout extends Layout {
         );
 
         try {
-            $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
-                )
+            $layout_fields = apply_filters(
+                'tms/acf/layout/' . self::KEY . '/fields',
+                $fields->get_fields(),
+                $this->get_key()
             );
+
+            $layout_fields = apply_filters(
+                'tms/acf/layout/' . $this->get_key() . '/fields',
+                $layout_fields,
+                $this->get_key()
+            );
+
+            $this->add_fields( $layout_fields );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
