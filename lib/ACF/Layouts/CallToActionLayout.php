@@ -50,19 +50,19 @@ class CallToActionLayout extends Layout {
         );
 
         try {
-            $fields = apply_filters(
+            $filtered_fields = apply_filters(
                 'tms/acf/layout/' . self::KEY . '/fields',
                 $fields->get_fields(),
                 $this->get_key()
             );
 
-            $fields = apply_filters(
+            $filtered_fields = apply_filters(
                 'tms/acf/layout/' . $this->get_key() . '/fields',
-                $fields,
+                $filtered_fields,
                 $this->get_key()
             );
 
-            $this->add_fields( $fields );
+            $this->add_fields( $filtered_fields );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
