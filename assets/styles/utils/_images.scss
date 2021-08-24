@@ -1,0 +1,7 @@
+.image {
+    &.is-3by4-desktop {
+        @include from($desktop) {
+            padding-top: 133.3333%;
+        }
+    }
+}
