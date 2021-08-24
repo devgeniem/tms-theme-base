@@ -93,9 +93,9 @@ class Images implements Interfaces\Controller {
     /**
      * Get default image ID.
      *
-     * @return string
+     * @return string|null
      */
-    public static function get_default_image_id() : string {
+    public static function get_default_image_id() : ?string {
         return Settings::get_setting( 'default_image' );
     }
 }
