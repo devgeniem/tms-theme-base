@@ -95,7 +95,7 @@ class FooterSettingsTab extends Tab {
      * @param null   $key   Key.
      * @param null   $name  Name.
      */
-    public function __construct( $label = '', $key = null, $name = null ) {
+    public function __construct( $label = '', $key = null, $name = null ) { // phpcs:ignore
         $label = $this->strings['tab'];
 
         parent::__construct( $label );
