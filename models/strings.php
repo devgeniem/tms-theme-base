@@ -142,7 +142,7 @@ class Strings extends \DustPress\Model {
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
             'artist'             => [
-                'related_artwork' => _x( 'Related artwork', 'tms-theme-base' ),
+                'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
