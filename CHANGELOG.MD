@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-133: Add filters for share button & breadcrumb customization #141
 - TMS-113: Contacts template #139
 - TMS-192-1: Add filters for assets #137
 - TMS-127: Filter to allowed blocks #133
