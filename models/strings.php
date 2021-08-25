@@ -64,7 +64,8 @@ class Strings extends \DustPress\Model {
                 'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
             ],
             'share'              => [
-                'share_article' => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+                'share_article'         => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+                'share_to_social_media' => _x( 'Share to social media', 'theme-frontend', 'tms-theme-base' ),
             ],
             'gallery'            => [
                 'close'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
@@ -146,9 +147,10 @@ class Strings extends \DustPress\Model {
                 'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
             'artwork'            => [
-                'artist_link' => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
-                'related_art' => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
-                'artwork'     => _x( 'Artwork', 'Breadcrumb text', 'tms-theme-base' ),
+                'artist_link'     => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
+                'related_art'     => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
+                'artwork'         => _x( 'Artwork', 'Breadcrumb text', 'tms-theme-base' ),
+                'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }

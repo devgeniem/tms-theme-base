@@ -82,7 +82,8 @@ class SettingsGroup {
                         new ExceptionNoticeSettingsTab( '', $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
-                    ]
+                    ],
+                    $field_group->get_key()
                 )
             );
 

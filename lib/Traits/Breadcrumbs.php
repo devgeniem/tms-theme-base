@@ -28,22 +28,36 @@ trait Breadcrumbs {
      * @return array
      */
     private function prepare_by_type( $current_type, $current_id, $home_url = '', $breadcrumbs = [] ) : array {
+        $breadcrumbs = apply_filters(
+            'tms/base/breadcrumbs/before_prepare',
+            $breadcrumbs,
+            $current_type,
+            $current_id,
+            $home_url,
+        );
+
         switch ( $current_type ) {
             case PostType\Page::SLUG:
-                return $this->format_page( $current_id, $home_url, $breadcrumbs );
+                $breadcrumbs = $this->format_page( $current_id, $home_url, $breadcrumbs );
+                break;
             case PostType\Post::SLUG:
-                return $this->format_post( $current_id, $breadcrumbs );
+                $breadcrumbs = $this->format_post( $current_id, $breadcrumbs );
+                break;
             case PostType\BlogArticle::SLUG:
-                return $this->format_blog_article( $current_id, $breadcrumbs );
+                $breadcrumbs = $this->format_blog_article( $current_id, $breadcrumbs );
+                break;
             case 'post-type-archive':
-                return $this->format_post_type_archive( $breadcrumbs );
+                $breadcrumbs = $this->format_post_type_archive( $breadcrumbs );
+                break;
             case 'tax-archive':
-                return $this->format_tax_archive( $breadcrumbs );
+                $breadcrumbs = $this->format_tax_archive( $breadcrumbs );
+                break;
             case PostType\DynamicEvent::SLUG:
-                return $this->format_page( $current_id, $home_url, $breadcrumbs );
-            default:
-                return $breadcrumbs;
+                $breadcrumbs = $this->format_page( $current_id, $home_url, $breadcrumbs );
+                break;
         }
+
+        return apply_filters( 'tms/base/breadcrumbs/after_prepare', $breadcrumbs );
     }
 
     /**
