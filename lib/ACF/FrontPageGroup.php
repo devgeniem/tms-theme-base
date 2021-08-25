@@ -114,7 +114,8 @@ class PageFrontPageGroup {
                 Layouts\BlogArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
                 Layouts\ImageCarouselLayout::class,
-            ]
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

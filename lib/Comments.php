@@ -124,7 +124,7 @@ class Comments implements Interfaces\Controller {
                         [
                             'depth'     => $depth,
                             'max_depth' => get_option( 'thread_comments_depth' ),
-                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">',
+                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">', // phpcs:ignore
                             'after'     => '</div>',
                         ]
                     );
