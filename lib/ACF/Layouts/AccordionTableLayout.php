@@ -62,7 +62,7 @@ class AccordionTableLayout extends BaseLayout {
                 ->set_max( 1 )
                 ->set_instructions( $strings['table']['instructions'] );
 
-            $fields   = [ $table_field ];
+            $fields = [ $table_field ];
             $this->add_fields(
                 $this->filter_layout_fields( $fields, $key )
             );

@@ -57,7 +57,7 @@ class AccordionVideoLayout extends BaseLayout {
                 ->set_name( 'video' )
                 ->set_instructions( $strings['video']['instructions'] );
 
-            $fields   = [ $video_field ];
+            $fields = [ $video_field ];
             $this->add_fields(
                 $this->filter_layout_fields( $fields, $key )
             );
