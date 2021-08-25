@@ -338,7 +338,8 @@ class DynamicEventGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\NoticeBannerLayout::class,
-            ]
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

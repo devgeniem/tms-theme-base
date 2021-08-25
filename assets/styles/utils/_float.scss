@@ -1,0 +1,29 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.is-pulled-left {
+    &-tablet {
+        @include from($tablet) {
+            float: left;
+        }
+    }
+    &-desktop {
+        @include from($desktop) {
+            float: left;
+        }
+    }
+}
+
+.is-pulled-right {
+    &-tablet {
+        @include from($tablet) {
+            float: right;
+        }
+    }
+    &-desktop {
+        @include from($desktop) {
+            float: right;
+        }
+    }
+}
