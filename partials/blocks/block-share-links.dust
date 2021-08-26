@@ -7,6 +7,6 @@
             </h2>
         {/title}
 
-        {>"ui/share-links" /}
+        {>"ui/share-links" li_class="mr-4" /}
     </div>
 {/share_links}

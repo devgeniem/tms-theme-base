@@ -60,7 +60,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
      * @param string|null $key   Key for the field.
      * @param string|null $name  Name for the field.
      */
-    public function __construct( $label = '', $key = null, $name = null ) {
+    public function __construct( $label = '', $key = null, $name = null ) { // phpcs:ignore
         if ( ! empty( $label ) ) {
             $this->strings['tab'] = $label;
         }
