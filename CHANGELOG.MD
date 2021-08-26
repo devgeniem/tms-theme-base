@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-130: Forms #127
+- TMS-204: Increase menu_order default value #146
 - TMS-133: Add filters for share button & breadcrumb customization #141
 - TMS-141: Add filters to Call to Action layout #142
 - TMS-113: Contacts template #139
