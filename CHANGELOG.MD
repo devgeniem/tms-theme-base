@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-96: Blog comment author #120
 - TMS-130: Forms #127
 - TMS-204: Increase menu_order default value #146
 - TMS-133: Add filters for share button & breadcrumb customization #141
