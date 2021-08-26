@@ -132,7 +132,8 @@ class OnepagerGroup {
 
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
-            array_values( $this->components )
+            array_values( $this->components ),
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

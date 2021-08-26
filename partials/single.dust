@@ -41,7 +41,7 @@
                                                 {Strings.s.share.share_article|s}
                                             </h2>
 
-                                            {>"ui/share-links" share_links=share_links /}
+                                            {>"ui/share-links" share_links=share_links li_class="mr-4" /}
                                         </div>
                                     {/share_links}
                                 </div>
