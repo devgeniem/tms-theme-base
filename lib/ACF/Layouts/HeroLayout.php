@@ -50,12 +50,19 @@ class HeroLayout extends Layout {
         );
 
         try {
-            $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
-                )
+            $filtered_fields = apply_filters(
+                'tms/acf/layout/' . self::KEY . '/fields',
+                $fields->get_fields(),
+                $this->get_key()
             );
+
+            $filtered_fields = apply_filters(
+                'tms/acf/layout/' . $this->get_key() . '/fields',
+                $filtered_fields,
+                $this->get_key()
+            );
+
+            $this->add_fields( $filtered_fields );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
