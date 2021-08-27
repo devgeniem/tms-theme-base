@@ -45,23 +45,39 @@ class FormatterController implements Interfaces\Controller {
     }
 
     /**
+     * Get namespace for formatter instances
+     *
+     * @return string
+     */
+    protected function get_namespace() : string {
+        return __NAMESPACE__;
+    }
+
+    /**
+     * Get formatter files
+     *
+     * @return array
+     */
+    protected function get_formatter_files() : array {
+        return array_diff( scandir( __DIR__ . '/Formatters' ), [ '.', '..' ] );
+    }
+
+    /**
      * This registers all custom post types.
      *
      * @return void
      */
     private function register_formatters() : void {
-        $files = array_diff( scandir( __DIR__ . '/Formatters' ), [ '.', '..' ] );
-
         $instances = array_map( function ( $field_class ) {
             $field_class = basename( $field_class, '.' . pathinfo( $field_class )['extension'] );
-            $class_name  = __NAMESPACE__ . '\Formatters\\' . $field_class;
+            $class_name  = $this->get_namespace() . '\Formatters\\' . $field_class;
 
             if ( ! \class_exists( $class_name ) ) {
                 return null;
             }
 
             return new $class_name();
-        }, $files );
+        }, $this->get_formatter_files() );
 
         foreach ( $instances as $instance ) {
             if ( $instance instanceof Interfaces\Formatter ) {
