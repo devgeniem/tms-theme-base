@@ -59,7 +59,7 @@ class AccordionWysiwygLayout extends BaseLayout {
 
             $fields = [ $text_field ];
             $this->add_fields(
-                $this->filter_layout_fields( $fields, $this->get_key() )
+                $this->filter_layout_fields( $fields, $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {

@@ -43,7 +43,7 @@ class SitemapLayout extends BaseLayout {
     private function add_layout_fields() : void {
         try {
             $this->add_fields(
-                $this->filter_layout_fields( [], $this->get_key() )
+                $this->filter_layout_fields( [], $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {
