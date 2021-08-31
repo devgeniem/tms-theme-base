@@ -6,7 +6,6 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\ACF\Fields\HeroFields;
 use TMS\Theme\Base\Logger;
 
@@ -15,7 +14,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class HeroLayout extends Layout {
+class HeroLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -50,19 +49,9 @@ class HeroLayout extends Layout {
         );
 
         try {
-            $filtered_fields = apply_filters(
-                'tms/acf/layout/' . self::KEY . '/fields',
-                $fields->get_fields(),
-                $this->get_key()
+            $this->add_fields(
+                $this->filter_layout_fields( $fields->get_fields(), $this->get_key() )
             );
-
-            $filtered_fields = apply_filters(
-                'tms/acf/layout/' . $this->get_key() . '/fields',
-                $filtered_fields,
-                $this->get_key()
-            );
-
-            $this->add_fields( $filtered_fields );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
