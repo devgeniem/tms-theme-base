@@ -1,14 +1,22 @@
 {?image}
     <div {?anchor}id="{anchor}"{/anchor} class="image-block {wrapper_class}">
         <div class="image">
+            {?before_main_content}
+                {before_main_content|s}
+            {/before_main_content}
+
             {?is_clickable}
                 <a href="{image_url_orig}" class="has-modal"
-                    {?image_caption}data-modaal-desc="{image_caption}"{/image_caption}>
+                   {?image_caption}data-modaal-desc="{image_caption}"{/image_caption}>
                     {@image id=image.id size="large" alt=image.alt title=image.description /}
                 </a>
             {:else}
                 {@image id=image.id size="large" alt=image.alt title=image.description /}
             {/is_clickable}
+
+            {?after_main_content}
+                {after_main_content|s}
+            {/after_main_content}
         </div>
 
         {>"ui/image/image-block__meta" /}
