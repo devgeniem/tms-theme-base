@@ -6,7 +6,6 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\ACF\Field\TextEditor;
 use TMS\Theme\Base\Logger;
 
@@ -15,7 +14,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class AccordionWysiwygLayout extends Layout {
+class AccordionWysiwygLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -58,11 +57,9 @@ class AccordionWysiwygLayout extends Layout {
                 ->set_name( 'text' )
                 ->set_instructions( $strings['text']['instructions'] );
 
+            $fields = [ $text_field ];
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    [ $text_field ]
-                )
+                $this->filter_layout_fields( $fields, $this->get_key() )
             );
         }
         catch ( Exception $e ) {
