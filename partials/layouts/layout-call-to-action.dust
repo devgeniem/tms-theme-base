@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section call-to-action">
+<div {?anchor}id="{anchor|s}"{/anchor} class="section call-to-action {accent_color|s}">
     <div class="container keep-vertical-spacing">
         {?before_main_content}
             {before_main_content|s}
