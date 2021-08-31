@@ -55,7 +55,8 @@ class VideoBlock extends BaseBlock {
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
-            $group->get_fields()
+            $group->get_fields(),
+            $group->get_key()
         );
     }
 
@@ -77,6 +78,6 @@ class VideoBlock extends BaseBlock {
         $data['id']        = wp_unique_id( 'video-' );
         $data['skip_text'] = ( new \Strings() )->s()['video']['skip_embed'];
 
-        return $data;
+        return apply_filters( 'tms/acf/block/video/data', $data );
     }
 }

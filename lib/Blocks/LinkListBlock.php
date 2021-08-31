@@ -55,7 +55,8 @@ class LinkListBlock extends BaseBlock {
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
-            $group->get_fields()
+            $group->get_fields(),
+            $group->get_key()
         );
     }
 
@@ -86,7 +87,7 @@ class LinkListBlock extends BaseBlock {
             $data['links'][ $key ]['link']['is_external'] = false === strpos( $link['link']['url'], $home_url );
         }
 
-        return $data;
+        return apply_filters( 'tms/acf/block/link_list/data', $data );
     }
 
 }
