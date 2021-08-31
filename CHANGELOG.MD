@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Made possible to filter layouts with layout key #145
+
 ## [1.8.0] - 2021-08-26
 
 ### Added
