@@ -116,13 +116,13 @@ class Assets implements Interfaces\Controller {
         \wp_enqueue_script(
             'vendor-js',
             apply_filters(
-                'tms/theme/vendor_js_path',
+                'tms/theme/theme_js_path',
                 DPT_ASSET_URI . '/vendor.js',
                 'vendor.js'
             ),
             [ 'jquery' ],
             apply_filters(
-                'tms/theme/vendor_mod_time',
+                'tms/theme/asset_mod_time',
                 static::get_theme_asset_mod_time( 'vendor.js' ),
                 'vendor.js'
             ),
