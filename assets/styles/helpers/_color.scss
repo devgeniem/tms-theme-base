@@ -91,9 +91,8 @@
             }
 
             a {
-                &:not(:hover) {
-                    &:not(.button),
-                    &:not(.pill) {
+                &:not(.pill) {
+                    &:not(:hover) {
                         color: inherit;
                     }
                 }
