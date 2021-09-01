@@ -6,12 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.0]
+
 ### Added
 
 - Made possible to filter layouts with layout key #145
 
 ### Fixed
 
+- Added missing accent colors #152
 - Added keys to filters (layouts and blocks) #150
 
 ## [1.8.0] - 2021-08-26
