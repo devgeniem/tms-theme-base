@@ -166,9 +166,10 @@ class BaseBlock {
             'block'      => $block,
             'is_preview' => $is_preview,
             'post_id'    => $post_id,
-            'instance'   => $instance,
             'content'    => $content,
         ];
+
+        unset( $instance );
 
         return $data;
     }
