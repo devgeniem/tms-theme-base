@@ -10,20 +10,16 @@ namespace TMS\Theme\Base\ACF\Layouts;
  */
 class BaseLayout extends \Geniem\ACF\Field\Flexible\Layout {
     /**
-     * Layout key
-     */
-    const KEY = '_base_layout';
-
-    /**
      * Run default filters to our fields.
      *
-     * @param array  $fields ACF Fields.
-     * @param string $key    ACF Group Key.
+     * @param array  $fields   ACF Fields.
+     * @param string $key      ACF Group Key.
+     * @param string $base_key Layout self::KEY.
      *
      * @return array
      */
-    public function filter_layout_fields( $fields, $key ) : array {
-        $filtered = apply_filters( 'tms/acf/layout/' . self::KEY . '/fields', $fields, $key );
+    public function filter_layout_fields( $fields, $key, $base_key = '' ) : array {
+        $filtered = apply_filters( 'tms/acf/layout/' . $base_key . '/fields', $fields, $key );
         $filtered = apply_filters( 'tms/acf/layout/' . $key . '/fields', $filtered, $key );
 
         return $filtered;

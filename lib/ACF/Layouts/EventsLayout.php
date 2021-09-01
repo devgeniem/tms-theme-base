@@ -50,7 +50,7 @@ class EventsLayout extends BaseLayout {
 
         try {
             $this->add_fields(
-                $this->filter_layout_fields( $fields->get_fields(), $this->get_key() )
+                $this->filter_layout_fields( $fields->get_fields(), $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {

@@ -60,7 +60,7 @@ class AccordionImageLayout extends BaseLayout {
         try {
             $fields = [ $image_field ];
             $this->add_fields(
-                $this->filter_layout_fields( $fields, $key )
+                $this->filter_layout_fields( $fields, $key, self::KEY )
             );
         }
         catch ( Exception $e ) {
