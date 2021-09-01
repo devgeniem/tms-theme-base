@@ -90,6 +90,27 @@
                 fill: $color-invert;
             }
 
+            h2,
+            h3,
+            h4 {
+                > a {
+                    &:not(:hover) {
+                        color: inherit;
+                    }
+                }
+            }
+
+            .button {
+                &.is-#{$name} {
+                    color: $color !important;
+                    background-color: $color-invert !important;
+
+                    .icon {
+                        fill: $color !important;
+                    }
+                }
+            }
+
             &-invert,
             &.is-inverted {
                 color: $color !important;
