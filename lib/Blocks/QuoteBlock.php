@@ -55,7 +55,8 @@ class QuoteBlock extends BaseBlock {
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
-            $group->get_fields()
+            $group->get_fields(),
+            self::KEY
         );
     }
 
