@@ -90,6 +90,15 @@
                 fill: $color-invert;
             }
 
+            a {
+                &:not(:hover) {
+                    &:not(.button),
+                    &:not(.pill) {
+                        color: inherit;
+                    }
+                }
+            }
+
             h2,
             h3,
             h4 {
