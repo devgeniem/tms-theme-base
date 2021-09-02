@@ -4,16 +4,6 @@
     background-size: cover;
 }
 
-.has-background-attachment-fixed {
-    background-attachment: fixed;
-
-    &-desktop {
-        @include from($desktop) {
-            background-attachment: fixed;
-        }
-    }
-}
-
 .has-background-secondary {
     &--opaque {
         background-color: rgba($secondary, .5) !important;
