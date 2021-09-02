@@ -1,8 +1,6 @@
 {?video}
     <div class="video is-align-wide mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative" {?anchor}id="{anchor|s}"{/anchor}>
-        {?before_main_content}
-            {before_main_content|s}
-        {/before_main_content}
+        {>"shared/layout-before-main-content" /}
 
         {?alt_text}
             <span class="is-sr-only">{alt_text}</span>
@@ -20,8 +18,6 @@
         {! Skip embed target !}
         <div id="{id}"></div>
 
-        {?after_main_content}
-            {after_main_content|s}
-        {/after_main_content}
+        {>"shared/layout-after-main-content" /}
     </div>
 {/video}
