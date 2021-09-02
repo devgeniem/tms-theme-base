@@ -1,5 +1,5 @@
 {?rows}
-<div {?anchor}id="{anchor|s}"{/anchor} class="section image-carousel layout-image-carousel mt-8 mb-8 p-8">
+<div {?anchor}id="{anchor|s}"{/anchor} class="section image-carousel layout-image-carousel p-8 {accent_color|s}">
     <div class="container keep-vertical-spacing">
         <div class="columns is-multiline">
 
