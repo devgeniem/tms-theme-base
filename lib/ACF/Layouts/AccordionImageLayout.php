@@ -7,7 +7,6 @@ namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\Logger;
 
 /**
@@ -15,7 +14,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class AccordionImageLayout extends Layout {
+class AccordionImageLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -59,11 +58,9 @@ class AccordionImageLayout extends Layout {
             ->set_instructions( $strings['image']['instructions'] );
 
         try {
+            $fields = [ $image_field ];
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    [ $image_field ]
-                )
+                $this->filter_layout_fields( $fields, $key, self::KEY )
             );
         }
         catch ( Exception $e ) {

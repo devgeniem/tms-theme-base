@@ -55,6 +55,7 @@ $button-font-size-tablet: .88235rem !default;
     }
 }
 
+.gform_wrapper button,
 .button {
     @extend %control;
     @extend %unselectable;

@@ -6,7 +6,6 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\Logger;
 
 /**
@@ -14,7 +13,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class SitemapLayout extends Layout {
+class SitemapLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -44,10 +43,7 @@ class SitemapLayout extends Layout {
     private function add_layout_fields() : void {
         try {
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    []
-                )
+                $this->filter_layout_fields( [], $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {

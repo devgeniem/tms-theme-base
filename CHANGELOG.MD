@@ -6,7 +6,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.0]
+
 ### Added
+
+- Made possible to filter layouts with layout key #145
+
+### Fixed
+
+- Added missing accent colors #152
+- Added keys to filters (layouts and blocks) #150
+
+## [1.8.0] - 2021-08-26
+
+### Added
+
+- TMS-96: Blog comment author #120
+- TMS-130: Forms #127
+- TMS-204: Increase menu_order default value #146
 - TMS-133: Add filters for share button & breadcrumb customization #141
 - TMS-141: Add filters to Call to Action layout #142
 - TMS-113: Contacts template #139

@@ -6,7 +6,6 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
-use Geniem\ACF\Field\Flexible\Layout;
 use TMS\Theme\Base\ACF\Fields\NoticeBannerFields;
 use TMS\Theme\Base\Logger;
 
@@ -15,7 +14,7 @@ use TMS\Theme\Base\Logger;
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class NoticeBannerLayout extends Layout {
+class NoticeBannerLayout extends BaseLayout {
 
     /**
      * Layout key
@@ -51,10 +50,7 @@ class NoticeBannerLayout extends Layout {
 
         try {
             $this->add_fields(
-                apply_filters(
-                    'tms/acf/layout/' . $this->get_key() . '/fields',
-                    $fields->get_fields()
-                )
+                $this->filter_layout_fields( $fields->get_fields(), $this->get_key(), self::KEY )
             );
         }
         catch ( Exception $e ) {

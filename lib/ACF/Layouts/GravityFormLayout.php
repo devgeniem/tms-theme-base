@@ -6,20 +6,20 @@
 namespace TMS\Theme\Base\ACF\Layouts;
 
 use Geniem\ACF\Exception;
-use TMS\Theme\Base\ACF\Fields\HeroFields;
+use TMS\Theme\Base\ACF\Fields\GravityFormFields;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class HeroLayout
+ * Class MapLayout
  *
  * @package TMS\Theme\Base\ACF\Layouts
  */
-class HeroLayout extends BaseLayout {
+class GravityFormLayout extends BaseLayout {
 
     /**
      * Layout key
      */
-    const KEY = '_hero';
+    const KEY = '_gravityform';
 
     /**
      * Create the layout
@@ -28,9 +28,9 @@ class HeroLayout extends BaseLayout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Hero',
+            'Lomake',
             $key . self::KEY,
-            'hero'
+            'gravityform'
         );
 
         $this->add_layout_fields();
@@ -42,7 +42,7 @@ class HeroLayout extends BaseLayout {
      * @return void
      */
     private function add_layout_fields() : void {
-        $fields = new HeroFields(
+        $fields = new GravityFormFields(
             $this->get_label(),
             $this->get_key(),
             $this->get_name()

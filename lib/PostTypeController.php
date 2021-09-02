@@ -42,6 +42,11 @@ class PostTypeController implements Interfaces\Controller {
             'init',
             \Closure::fromCallable( [ $this, 'register_cpts' ] )
         );
+
+        add_filter(
+            'wp_insert_post_data',
+            \Closure::fromCallable( [ $this, 'set_menu_order_default' ] )
+        );
     }
 
     /**
@@ -99,5 +104,20 @@ class PostTypeController implements Interfaces\Controller {
 
             return new $class_name();
         }, $this->get_post_type_files() );
+    }
+
+    /**
+     * Set default value for menu_order
+     *
+     * @param array $data An array of slashed, sanitized, and processed post data.
+     *
+     * @return array
+     */
+    protected function set_menu_order_default( $data ) {
+        if ( 0 === intval( $data['menu_order'] ) ) {
+            $data['menu_order'] = apply_filters( 'tms/theme/default_menu_order', 100 );
+        }
+
+        return $data;
     }
 }
