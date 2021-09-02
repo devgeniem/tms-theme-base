@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-134: Add filters & translations for Artwork #148
 
+### Fixed
+
+- TMS-199: Fix button text wrapping in iOS #151
+
+
 ## [1.9.0]
 
 ### Added
