@@ -34,6 +34,7 @@ $colors: (
     "secondary": $colors-palette-secondary,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
+    "accent": ($primary, $primary-invert),
 );
 
 $button-text-primary: $text;
