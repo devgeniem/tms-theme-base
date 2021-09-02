@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-137: Color theme changes #149
 
+### Fixed
+
+- TMS-199: Fix button text wrapping in iOS #151
+
+
 ## [1.9.0]
 
 ### Added
