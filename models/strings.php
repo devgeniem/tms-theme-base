@@ -141,7 +141,9 @@ class Strings extends \DustPress\Model {
                 'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'artist'             => [
+            'artwork'            => [
+                'artist_link'     => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
+                'related_art'     => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
