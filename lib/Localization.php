@@ -22,10 +22,7 @@ class Localization implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \load_theme_textdomain(
-            'tms-theme-base',
-            get_template_directory() . '/lang'
-        );
+        $this->load_theme_textdomains();
 
         \add_filter(
             'pll_get_post_types',
@@ -39,6 +36,16 @@ class Localization implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'add_tax_to_polylang' ] ),
             10,
             2
+        );
+    }
+
+    /**
+     * Load theme translations.
+     */
+    public function load_theme_textdomains() {
+        \load_theme_textdomain(
+            'tms-theme-base',
+            get_template_directory() . '/lang'
         );
     }
 
