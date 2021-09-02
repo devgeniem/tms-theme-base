@@ -81,6 +81,10 @@ class FormatterController implements Interfaces\Controller {
 
         foreach ( $instances as $instance ) {
             if ( $instance instanceof Interfaces\Formatter ) {
+                if ( apply_filters( 'tms/acf/formatter/' . $instance::NAME . '/disable', false ) ) {
+                    continue;
+                }
+
                 $instance->hooks();
 
                 $this->classes[ $instance::NAME ] = $instance;
