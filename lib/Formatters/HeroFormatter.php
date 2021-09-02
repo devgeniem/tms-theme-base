@@ -35,10 +35,6 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
-        if ( apply_filters( 'tms/acf/formatter/' . self::NAME . '/disable', false ) ) {
-            return $layout;
-        }
-
         $button_classes = [ 'mt-4' ];
         $box_classes    = [
             'is-' . $layout['align'],
