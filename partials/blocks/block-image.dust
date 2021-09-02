@@ -1,6 +1,8 @@
 {?image}
     <div {?anchor}id="{anchor}"{/anchor} class="image-block {wrapper_class}">
         <div class="image">
+            {>"shared/layout-before-main-content" /}
+
             {?is_clickable}
                 <a href="{image_url_orig}" class="has-modal"
                     {?image_caption}data-modaal-desc="{image_caption}"{/image_caption}>
@@ -9,6 +11,8 @@
             {:else}
                 {@image id=image.id size="large" alt=image.alt title=image.description /}
             {/is_clickable}
+
+            {>"shared/layout-after-main-content" /}
         </div>
 
         {>"ui/image/image-block__meta" /}

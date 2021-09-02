@@ -1,0 +1,3 @@
+{?after_main_content}
+    {after_main_content|s}
+{/after_main_content}

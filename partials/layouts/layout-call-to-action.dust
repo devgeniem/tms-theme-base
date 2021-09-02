@@ -1,5 +1,7 @@
 <div {?anchor}id="{anchor|s}"{/anchor} class="section call-to-action {accent_color|s}">
     <div class="container keep-vertical-spacing">
+        {>"shared/layout-before-main-content" /}
+
         {#rows}
             <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
                 {?image}
@@ -27,5 +29,7 @@
                 </div>
             </div>
         {/rows}
+
+        {>"shared/layout-after-main-content" /}
     </div>
 </div>
