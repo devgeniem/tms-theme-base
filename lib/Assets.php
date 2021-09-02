@@ -73,8 +73,8 @@ class Assets implements Interfaces\Controller {
      * @param string $theme Theme file name without prefix 'theme_' or suffix '.js/.css'.
      */
     protected function enqueue_theme( $theme = 'tunnelma' ) : void {
-        $css = sprintf( 'theme_%s.css', $theme );
-        $js  = sprintf( 'theme_%s.js', $theme );
+        $css = apply_filters( 'tms/theme/theme_css_file', sprintf( 'theme_%s.css', $theme ) );
+        $js  = apply_filters( 'tms/theme/theme_js_file', sprintf( 'theme_%s.js', $theme ) );
 
         \wp_enqueue_style(
             'theme-css',
@@ -115,9 +115,17 @@ class Assets implements Interfaces\Controller {
     private function enqueue_assets() : void {
         \wp_enqueue_script(
             'vendor-js',
-            DPT_ASSET_URI . '/vendor.js',
+            apply_filters(
+                'tms/theme/theme_js_path',
+                DPT_ASSET_URI . '/vendor.js',
+                'vendor.js'
+            ),
             [ 'jquery' ],
-            static::get_theme_asset_mod_time( 'vendor.js' ),
+            apply_filters(
+                'tms/theme/asset_mod_time',
+                static::get_theme_asset_mod_time( 'vendor.js' ),
+                'vendor.js'
+            ),
             true
         );
 

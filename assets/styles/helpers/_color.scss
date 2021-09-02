@@ -2,6 +2,8 @@
  * Generates .has-text-X and .has-background-X variations from colors.
  * This version can handle our color maps and be smart about color palettes.
  */
+// sass-lint:disable no-important, no-qualifying-elements, force-element-nesting, function-name-format
+
 @each $name, $pair in $colors {
     @if type-of($pair) == "map" {
         // see assets/styles/settings/brand/_colors.scss
@@ -88,6 +90,35 @@
                 fill: $color-invert;
             }
 
+            a {
+                &:not(.pill) {
+                    &:not(:hover) {
+                        color: inherit;
+                    }
+                }
+            }
+
+            h2,
+            h3,
+            h4 {
+                > a {
+                    &:not(:hover) {
+                        color: inherit;
+                    }
+                }
+            }
+
+            .button {
+                &.is-#{$name} {
+                    color: $color !important;
+                    background-color: $color-invert !important;
+
+                    .icon {
+                        fill: $color !important;
+                    }
+                }
+            }
+
             &-invert,
             &.is-inverted {
                 color: $color !important;
@@ -111,12 +142,12 @@
             a.has-text-#{$name}-light {
                 &:hover,
                 &:focus {
-                    color: bulmaDarken($color-light, 10%) !important
+                    color: bulmaDarken($color-light, 10%) !important;
                 }
             }
 
             .has-background-#{$name}-light {
-                background-color: $color-light !important
+                background-color: $color-light !important;
             }
 
             // Dark
@@ -127,12 +158,12 @@
             a.has-text-#{$name}-dark {
                 &:hover,
                 &:focus {
-                    color: bulmaDarken($color-dark, 10%) !important
+                    color: bulmaDarken($color-dark, 10%) !important;
                 }
             }
 
             .has-background-#{$name}-dark {
-                background-color: $color-dark !important
+                background-color: $color-dark !important;
             }
         }
     }

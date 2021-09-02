@@ -36,14 +36,14 @@ class Constants implements Interfaces\Controller {
         }
 
         // Returns /app/themes/{current theme} -- no need to reference other domains here.
-        $themes_root = \get_template_directory_uri();
+        $themes_root = \get_stylesheet_directory_uri();
 
-        // Define the assets path.
+        // Define the assets' path.
         if ( ! defined( 'DPT_ASSETS_URI' ) ) {
             define( 'DPT_ASSETS_URI', $themes_root . '/assets' );
         }
 
-        // Define the assets dist path.
+        // Define the assets' dist path.
         if ( ! defined( 'DPT_ASSET_URI' ) ) {
             define( 'DPT_ASSET_URI', $themes_root . '/assets/dist' );
         }

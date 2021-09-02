@@ -5,7 +5,9 @@
         <div class="is-overlay">
             <button class="js-map-layout-toggle button button--icon is-primary is-absolute has-top-50 has-left-50 has-transform-xy--50"
                     data-target="#{id|s}">
-                {map_button_text|s}
+                <span class="has-width-100">
+                    {map_button_text|s}
+                </span>
 
                 {>"ui/icon" icon="chevron-right" class="icon--medium" /}
             </button>

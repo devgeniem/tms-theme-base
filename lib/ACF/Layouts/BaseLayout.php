@@ -19,9 +19,10 @@ class BaseLayout extends \Geniem\ACF\Field\Flexible\Layout {
      * @return array
      */
     public function filter_layout_fields( $fields, $key, $base_key = '' ) : array {
-        $filtered = apply_filters( 'tms/acf/layout/' . $base_key . '/fields', $fields, $key );
-        $filtered = apply_filters( 'tms/acf/layout/' . $key . '/fields', $filtered, $key );
+        if ( $base_key !== $key && ! empty( $base_key ) ) {
+            $fields = apply_filters( 'tms/acf/layout/' . $base_key . '/fields', $fields, $key );
+        }
 
-        return $filtered;
+        return apply_filters( 'tms/acf/layout/' . $key . '/fields', $fields, $key );
     }
 }
