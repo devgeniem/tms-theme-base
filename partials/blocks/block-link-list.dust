@@ -1,7 +1,5 @@
 <div class="link-list is-relative mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
-    {?before_main_content}
-        {before_main_content|s}
-    {/before_main_content}
+    {>"shared/layout-before-main-content" /}
 
     {?title}
         <h2 class="link-list__title h5 mt-0 mb-6">
@@ -33,7 +31,5 @@
         </ul>
     {/links}
 
-    {?after_main_content}
-        {after_main_content|s}
-    {/after_main_content}
+    {>"shared/layout-after-main-content" /}
 </div>
