@@ -1,7 +1,9 @@
 {?link.url}
     {?link.title}
         <a href="{link.url}" {?link.target}target="{link.target}"{/link.target} class="button {?icon}button--icon{/icon} {classes|s}">
-            {link.title|s}
+            <span class="has-width-100">
+                {link.title|s}
+            </span>
 
             {@eq key=link.target value="_blank"}
                 <span class="is-sr-only"> {Strings.s.common.target_blank|s} </span>

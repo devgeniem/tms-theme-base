@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-134: Add filters & translations for Artwork #148
+
 ### Changed
 
 - TMS-137: Color theme changes #149
