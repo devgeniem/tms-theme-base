@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-199: Fix button text wrapping in iOS #151
+- TMS-139: Add support for secondary content #154
 - TMS-134: Add filters & translations for Artwork #148
+- TMS-140: Add filters to Hero layout #147
 
 ### Changed
 
