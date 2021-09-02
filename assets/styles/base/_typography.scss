@@ -69,6 +69,10 @@ a {
     line-height: 1.1;
 }
 
+.hyphenate {
+    hyphens: auto;
+}
+
 .no-hyphens {
     hyphens: none !important; // sass-lint:disable-line no-important
 }
