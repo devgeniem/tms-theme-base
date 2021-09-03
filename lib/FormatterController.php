@@ -67,8 +67,8 @@ class FormatterController implements Interfaces\Controller {
      *
      * @return void
      */
-    private function register_formatters() : void {
-        $instances = array_map( function ( $field_class ) {
+    protected function register_formatters() : void {
+        $classes = array_map( function ( $field_class ) {
             $field_class = basename( $field_class, '.' . pathinfo( $field_class )['extension'] );
             $class_name  = $this->get_namespace() . '\Formatters\\' . $field_class;
 
@@ -76,15 +76,19 @@ class FormatterController implements Interfaces\Controller {
                 return null;
             }
 
-            return new $class_name();
-        }, $this->get_formatter_files() );
+            return $class_name;
+        }, $this->get_formatter_files() ?? [] );
 
-        foreach ( $instances as $instance ) {
+        $classes = apply_filters( 'tms/theme/base/formatters', $classes );
+
+        if ( empty( $classes ) ) {
+            return;
+        }
+
+        foreach ( $classes as $class ) {
+            $instance = new $class();
+
             if ( $instance instanceof Interfaces\Formatter ) {
-                if ( apply_filters( 'tms/acf/formatter/' . $instance::NAME . '/disable', false ) ) {
-                    continue;
-                }
-
                 $instance->hooks();
 
                 $this->classes[ $instance::NAME ] = $instance;
