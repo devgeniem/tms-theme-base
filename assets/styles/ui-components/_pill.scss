@@ -12,8 +12,16 @@ $pill-background-color-hover: opacify($secondary-light, .75) !default;
 $pill-background-color-focus: $secondary-light !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
-
+$pill-border-color: transparent !default;
+$pill-border-color-hover: transparent !default;
+$pill-border-radius: $theme-spacing-quarter !default;
 $pill-border-color-focus: $black !default;
+$pill-default-border-color-focus: transparent !default;
+
+$pill-transition-easing: $easing !default;
+$pill-transition-speed: $speed !default;
+$pill-hover-shadow-size: 0 4px 8px !default;
+$pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
 
 .pill {
     font-family: $family-secondary;
@@ -24,13 +32,26 @@ $pill-border-color-focus: $black !default;
     padding: $theme-spacing-half $theme-spacing-three-quarters;
     color: $pill-color;
     background-color: $pill-background-color;
-    border: 2px solid transparent;
-    border-radius: $theme-spacing-quarter;
+    border: 2px solid $pill-border-color;
+    border-radius: $pill-border-radius;
 
     &.is-active,
     &:focus,
     &:hover {
         text-decoration: none;
+    }
+
+    &:hover {
+        box-shadow: $pill-hover-shadow-size $pill-hover-shadow-color;
+        transition: box-shadow $pill-transition-easing $pill-transition-speed,
+        border-color $pill-transition-easing $pill-transition-speed,
+        color $pill-transition-easing $pill-transition-speed,
+        background-color $pill-transition-easing $pill-transition-speed;
+    }
+
+    &:focus,
+    &.is-focused {
+        border-color: $pill-default-border-color-focus;
     }
 
     &.is-white {
@@ -55,6 +76,7 @@ $pill-border-color-focus: $black !default;
     &:hover {
         color: $pill-color-hover;
         background-color: $pill-background-color-hover;
+        border-color: $pill-border-color-hover;
     }
 
     &:focus,
