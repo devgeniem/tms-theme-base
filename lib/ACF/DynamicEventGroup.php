@@ -219,9 +219,31 @@ class DynamicEventGroup {
             return $field;
         }
 
+        $response = $this->get_choices(
+            'keyword_set',
+            [
+
+                'data_source' => 'system,tampere',
+                'include'     => 'keywords',
+            ]
+        );
+
+        $keywords = [];
+        $sets     = array_filter( $response, fn( $set ) => $set->usage === 'keyword' );
+
+        foreach ( $sets as $set ) {
+            if ( empty( $set->keywords ) ) {
+                continue;
+            }
+
+            foreach ( $set->keywords as $keyword ) {
+                $keywords[] = $keyword;
+            }
+        }
+
         return $this->fill_choices_from_response(
             $field,
-            $this->get_choices( 'keyword', [ 'page_size' => 250 ] ),
+            $keywords
         );
     }
 
