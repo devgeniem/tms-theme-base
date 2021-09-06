@@ -12,6 +12,7 @@ $fly-out-nav-secondary-link: $primary-invert !default;
 $fly-out-nav-secondary-link-hover: $primary-invert !default;
 $fly-out-nav-search-input-border: $primary !default;
 $fly-out-nav-search-button-icon: $primary !default;
+$fly-out-nav-search-input-background-color: initial !default;
 
 .fly-out-nav {
     z-index: 50;
@@ -106,8 +107,19 @@ $fly-out-nav-search-button-icon: $primary !default;
             padding-left: 0;
 
             > .navbar-dropdown-control {
+                color: $fly-out-nav-primary-link;
+
                 > .navbar-link {
                     padding-left: 0;
+                }
+
+                > .dropdown-toggler {
+                    color: inherit;
+                }
+
+                .icon {
+                    color: inherit;
+                    fill: currentColor;
                 }
             }
 
@@ -207,6 +219,7 @@ $fly-out-nav-search-button-icon: $primary !default;
     .search-form {
         &__input {
             border: 1px solid $fly-out-nav-search-input-border;
+            background-color: $fly-out-nav-search-input-background-color;
             border-radius: .25rem;
         }
 
