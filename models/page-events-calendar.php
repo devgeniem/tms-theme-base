@@ -148,6 +148,10 @@ class PageEventsCalendar extends BaseModel {
             'show_images' => get_field( 'show_images' ),
         ];
 
+        if ( ! empty( get_field( 'starts_today' ) ) && true === get_field( 'starts_today' ) ) {
+            $params['start'] = 'today';
+        }
+
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
         $events      = wp_cache_get( $cache_key, $cache_group );
