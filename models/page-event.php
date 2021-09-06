@@ -43,6 +43,11 @@ class PageEvent extends BaseModel {
             'wp_head',
             Closure::fromCallable( [ $this, 'add_json_ld_data' ] )
         );
+
+        add_filter(
+            'tms/base/breadcrumbs/after_prepare',
+            Closure::fromCallable( [ $this, 'alter_breadcrumbs' ] )
+        );
     }
 
     /**
@@ -233,5 +238,42 @@ class PageEvent extends BaseModel {
             'normalized' => LinkedEvents::normalize_event( $event ),
             'orig'       => $event,
         ];
+    }
+
+    /**
+     * Alter breadcrumbs
+     *
+     * @param array $breadcrumbs Array of breadcrumbs.
+     *
+     * @return array
+     */
+    public function alter_breadcrumbs( array $breadcrumbs ) : array {
+        $referer  = wp_get_referer();
+        $home_url = DPT_PLL_ACTIVE && function_exists( 'pll_current_language' )
+            ? pll_home_url()
+            : home_url();
+
+        if ( false === strpos( $referer, $home_url ) ) {
+            return $breadcrumbs;
+        }
+
+        $parent = get_page_by_path(
+            str_replace( $home_url, '', $referer )
+        );
+
+        if ( empty( $parent ) ) {
+            return $breadcrumbs;
+        }
+
+        $last = array_pop( $breadcrumbs );
+
+        $breadcrumbs[] = [
+            'title'     => $parent->post_title,
+            'permalink' => get_the_permalink( $parent->ID ),
+        ];
+
+        $breadcrumbs[] = $last;
+
+        return $breadcrumbs;
     }
 }
