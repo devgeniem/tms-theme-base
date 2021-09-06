@@ -8,8 +8,6 @@ $sibling-navigation-item-transition-easing: $easing !default;
 $sibling-navigation-item-transition-speed: $speed !default;
 $sibling-navigation-item-hover-shadow-size: 0 4px 8px !default;
 $sibling-navigation-item-hover-shadow-color: rgba(0, 0, 0, .15) !default;
-$sibling-navigation-item-transition-easing: $easing !default;
-$sibling-navigation-item-transition-speed: $speed !default;
 
 .sibling-navigation {
     &__container {
@@ -44,8 +42,8 @@ $sibling-navigation-item-transition-speed: $speed !default;
 
         &:hover,
         &:focus {
-            transition: box-shadow $pagination-item-transition-easing $pagination-item-transition-speed;
             box-shadow: $sibling-navigation-item-hover-shadow-size $sibling-navigation-item-hover-shadow-color;
+            transition: box-shadow $sibling-navigation-item-transition-easing $sibling-navigation-item-transition-speed;
         }
     }
 }
