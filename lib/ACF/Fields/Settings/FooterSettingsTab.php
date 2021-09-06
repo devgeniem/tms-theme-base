@@ -36,7 +36,7 @@ class FooterSettingsTab extends Tab {
             'instructions' => '',
         ],
         'contact_title' => [
-            'title'        => 'Yhteystietojen osoite',
+            'title'        => 'Yhteystietojen otsikko',
             'instructions' => '',
         ],
         'address'       => [
