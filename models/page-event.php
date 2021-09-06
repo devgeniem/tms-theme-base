@@ -7,6 +7,7 @@
 use Geniem\LinkedEvents\LinkedEventsClient;
 use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
+use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
 
 /**
@@ -114,13 +115,16 @@ class PageEvent extends BaseModel {
     public function hero_image() {
         $event = $this->get_event();
 
-        if ( empty( $event ) || empty( $event->images ) ) {
+        if ( empty( $event ) ) {
             return false;
         }
+        $default_image = empty( Settings::get_setting( 'events_default_image' ) )
+            ? null
+            : wp_get_attachment_image_url( Settings::get_setting( 'events_default_image' ), 'large' );
 
         return ! empty( $event->images[0]->url )
             ? $event->images[0]->url
-            : false;
+            : $default_image;
     }
 
     /**
