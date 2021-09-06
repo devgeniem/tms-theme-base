@@ -24,6 +24,9 @@ $button-font-size-tablet: .88235rem !default;
 
 $button-font-weight: $weight-medium !default;
 
+$button-transition-easing: $easing !default;
+$button-transition-speed: $speed !default;
+
 @mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
     color: $button-color-mixin-text !important;
     background-color: $button-color-mixin-background !important;
@@ -41,6 +44,14 @@ $button-font-weight: $weight-medium !default;
 
 .button-state-hover {
     filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
+    transition: filter $button-transition-easing $button-transition-speed,
+    border-color $button-transition-easing $button-transition-speed,
+    color $button-transition-easing $button-transition-speed,
+    background-color $button-transition-easing $button-transition-speed;
+
+    .icon {
+        transition: fill $button-transition-easing $button-transition-speed;
+    }
 }
 
 .button-states {
