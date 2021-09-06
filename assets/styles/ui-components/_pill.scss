@@ -4,9 +4,6 @@ $pill-color-active: $primary-invert !default;
 $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
-$pill-outlined-color: $pill-color !default;
-$pill-outlined-color-hover: $pill-color-hover !default;
-
 $pill-background-active-focus: $primary-dark !default;
 $pill-background-color-hover: opacify($secondary-light, .75) !default;
 $pill-background-color-focus: $secondary-light !default;
@@ -17,6 +14,15 @@ $pill-border-color-hover: transparent !default;
 $pill-border-radius: $theme-spacing-quarter !default;
 $pill-border-color-focus: $black !default;
 $pill-default-border-color-focus: transparent !default;
+
+$pill-outlined-color: $pill-color !default;
+$pill-outlined-color-hover: $pill-color-hover !default;
+$pill-outlined-border-color: $pill-background-color !default;
+$pill-outlined-border-color-hover: $pill-background-color-hover !default;
+$pill-outlined-border-color-focus: $pill-background-color-focus !default;
+$pill-outlined-background-color: transparent !default;
+$pill-outlined-background-color-hover: transparent !default;
+$pill-outlined-background-color-focus: transparent !default;
 
 $pill-transition-easing: $easing !default;
 $pill-transition-speed: $speed !default;
@@ -145,19 +151,19 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
 
     &.is-outlined {
         color: $pill-outlined-color;
-        background-color: transparent;
-        border-color: $pill-background-color;
+        background-color: $pill-outlined-background-color;
+        border-color: $pill-outlined-border-color;
 
         &:hover {
             color: $pill-outlined-color-hover;
-            background-color: transparent;
-            border-color: $pill-background-color-hover;
+            background-color: $pill-outlined-background-color-hover;
+            border-color: $pill-outlined-border-color-hover;
         }
 
         &:focus,
         &:active {
-            background-color: transparent;
-            border-color: $pill-background-color-focus;
+            background-color: $pill-outlined-background-color-focus;
+            border-color: $pill-outlined-border-color-focus;
         }
     }
 }
