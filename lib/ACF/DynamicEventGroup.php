@@ -294,9 +294,6 @@ class DynamicEventGroup {
             catch ( LinkedEventsException $e ) {
                 ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
             }
-            catch ( \JsonException $e ) {
-                ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-            }
         }
 
         return $response ?? [];
