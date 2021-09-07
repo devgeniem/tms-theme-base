@@ -115,6 +115,10 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             }
         }
 
+        if ( ! empty( $layout['starts_today'] ) && true === $layout['starts_today'] ) {
+            $query_params['start'] = 'today';
+        }
+
         return $query_params;
     }
 
