@@ -1,5 +1,5 @@
 {?share_links}
-    <ul class="is-flex is-flex-wrap-wrap is-unstyled {ul_class|s}">
+    <ul class="share-links is-flex is-flex-wrap-wrap is-unstyled {ul_class|s}">
         {#share_links}
             <li class="mb-4 {li_class|s}">
                 <a href="{link}"
