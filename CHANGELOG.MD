@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.11.0]
+
+### Added
+- TMS-208: Event search today-option #155
+
+### Fixed
+- TMS-208: Event search keywords #155
+- TMS-208: Event page breadcrumbs #155
+- TMS-208: Dynamic event breadcrumbs #155
+- TMS-208: Subpage page order #155
+
 ## [1.10.0]
 
 ### Added

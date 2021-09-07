@@ -118,6 +118,7 @@ class PageEvent extends BaseModel {
         if ( empty( $event ) ) {
             return false;
         }
+
         $default_image = empty( Settings::get_setting( 'events_default_image' ) )
             ? null
             : wp_get_attachment_image_url( Settings::get_setting( 'events_default_image' ), 'large' );
