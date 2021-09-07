@@ -84,7 +84,10 @@ class LinkListBlock extends BaseBlock {
             : \home_url();
 
         foreach ( $data['links'] as $key => $link ) {
-            $data['links'][ $key ]['link']['is_external'] = false === strpos( $link['link']['url'], $home_url );
+            $is_external_link     = false === strpos( $link['link']['url'], $home_url );
+            $is_external_selected = $link['link']['target'] === '_blank';
+
+            $data['links'][ $key ]['link']['is_external'] = $is_external_link || $is_external_selected;
         }
 
         return $data;
