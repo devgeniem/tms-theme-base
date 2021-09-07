@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use TMS\Theme\Base\PostType\Page;
+
 /**
  * Class Admin
  *
@@ -37,6 +39,25 @@ class Admin implements Interfaces\Controller {
         \add_action(
             'enqueue_block_editor_assets',
             \Closure::fromCallable( [ $this, 'disable_editor_fullscreen_by_default' ] )
+        );
+
+        add_filter(
+            'gutenberg_can_edit_post_type',
+            \Closure::fromCallable( [ $this, 'disable_gutenberg' ] ),
+            10,
+            2
+        );
+
+        add_filter(
+            'use_block_editor_for_post_type',
+            \Closure::fromCallable( [ $this, 'disable_gutenberg' ] ),
+            10,
+            2
+        );
+
+        add_action(
+            'admin_head',
+            \Closure::fromCallable( [ $this, 'disable_classic_editor' ] )
         );
     }
 
@@ -156,5 +177,70 @@ window.onload = function() {
         }
 
         return $classes;
+    }
+
+    /**
+     * Disable Gutenberg
+     *
+     * @param bool   $can_edit  Whether the post type can be edited or not.
+     * @param string $post_type The post type being checked.
+     *
+     * @return bool
+     */
+    public function disable_gutenberg( $can_edit, $post_type ) {
+        if ( Page::SLUG !== $post_type ) {
+            return $can_edit;
+        }
+
+        if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
+            return $can_edit;
+        }
+
+        if ( $this->disable_gutenberg_from_templates( $_GET['post'] ) ) {
+            $can_edit = false;
+        }
+
+        return $can_edit;
+
+    }
+
+    /**
+     * Disable Gutenberg from defined templates
+     *
+     * @param ?int $post_id \WP_Post ID.
+     *
+     * @return bool
+     */
+    public function disable_gutenberg_from_templates( $post_id ) : bool {
+        if ( empty( $post_id ) ) {
+            return false;
+        }
+
+        $page_template      = get_page_template_slug( $post_id );
+        $excludes_templates = apply_filters(
+            'tms/theme/gutenberg/excluded_templates',
+            [
+                \PageOnepager::TEMPLATE,
+                \PageFrontPage::TEMPLATE,
+                \PageEventsCalendar::TEMPLATE,
+            ]
+        );
+
+        return in_array( $page_template, $excludes_templates, true );
+    }
+
+    /**
+     * Disable classic editor from defined templates
+     */
+    public function disable_classic_editor() {
+        $screen = get_current_screen();
+
+        if ( Page::SLUG !== $screen->id || ! isset( $_GET['post'] ) ) {
+            return;
+        }
+
+        if ( $this->disable_gutenberg_from_templates( $_GET['post'] ) ) {
+            remove_post_type_support( Page::SLUG, 'editor' );
+        }
     }
 }
