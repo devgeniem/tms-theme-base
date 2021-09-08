@@ -4,6 +4,7 @@
 
 $secondary-navbar-item-navbar-link-color: $black !default;
 $secondary-navbar-item-navbar-link-color-hover: $black !default;
+$secondary-navbar-item-font-weight: 600 !default;
 
 .secondary-menu {
     font-size: .9em;
@@ -21,6 +22,7 @@ $secondary-navbar-item-navbar-link-color-hover: $black !default;
     }
 
     a {
+        font-weight: $secondary-navbar-item-font-weight;
         color: $secondary-navbar-item-navbar-link-color;
 
         &:hover,
