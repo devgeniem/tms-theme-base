@@ -6,6 +6,7 @@
 namespace TMS\Theme\Base;
 
 use TMS\Theme\Base\PostType\Page;
+use TMS\Theme\Base\PostType\Post;
 
 /**
  * Class Admin
@@ -59,6 +60,20 @@ class Admin implements Interfaces\Controller {
             'admin_head',
             \Closure::fromCallable( [ $this, 'disable_classic_editor' ] )
         );
+
+        add_action(
+            'init',
+            \Closure::fromCallable( [ $this, 'remove_comments' ] )
+        );
+    }
+
+    /**
+     * Remove comments
+     */
+    function remove_comments() : void {
+        remove_post_type_support( Post::SLUG, 'trackbacks' );
+        remove_post_type_support( Post::SLUG, 'comments' );
+        remove_post_type_support( Page::SLUG, 'comments' );
     }
 
     /**
