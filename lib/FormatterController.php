@@ -86,6 +86,10 @@ class FormatterController implements Interfaces\Controller {
         }
 
         foreach ( $classes as $class ) {
+            if ( empty( $class ) ) {
+                continue;
+            }
+
             $instance = new $class();
 
             if ( $instance instanceof Interfaces\Formatter ) {
