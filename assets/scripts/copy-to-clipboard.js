@@ -24,7 +24,7 @@ export default class CopyToClipboard {
     copyLink( event ) {
         event.preventDefault();
 
-        const target = $( event.target );
+        const target = $( event.currentTarget );
         const callbackText = target.data( 'callback-text' );
 
         navigator.clipboard.writeText( target.attr( 'href' ) );

@@ -13,7 +13,7 @@
                 <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
 
                 <span aria-hidden="true">
-                    {>"ui/icon" icon="chevron-down" class="icon--medium is-primary-invert" /}
+                    {>"ui/icon" icon="chevron-down" class="icon--medium" /}
                 </span>
             </button>
         </div>

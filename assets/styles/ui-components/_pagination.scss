@@ -1,5 +1,7 @@
 $pagination-item-color: $secondary-invert !default;
 $pagination-item-color-current: $primary-invert !default;
+$pagination-item-color-hover: $pagination-item-color !default;
+$pagination-item-color-focus: $pagination-item-color !default;
 
 $pagination-item-background-color: $secondary !default;
 $pagination-item-background-color-hover: opacify($secondary-light, .75) !default;
@@ -7,6 +9,13 @@ $pagination-item-background-color-focus: $secondary-light !default;
 $pagination-item-background-color-current: $primary !default;
 $pagination-item-background-color-current-hover: $primary-dark !default;
 $pagination-item-background-color-current-focus: $primary-dark !default;
+
+$pagination-item-hover-shadow-size: 0 4px 8px !default;
+$pagination-item-hover-shadow-color: rgba(0, 0, 0, .15) !default;
+$pagination-item-border-radius: $theme-spacing-quarter !default;
+
+$pagination-item-transition-easing: $easing !default;
+$pagination-item-transition-speed: $speed !default;
 
 .pagination {
     @include list-reset;
@@ -21,14 +30,24 @@ $pagination-item-background-color-current-focus: $primary-dark !default;
             padding: $theme-spacing-quarter $theme-spacing-half;
             color: $pagination-item-color;
             background-color: $pagination-item-background-color;
-            border-radius: $theme-spacing-quarter;
+            border-radius: $pagination-item-border-radius;
 
             &:focus {
+                color: $pagination-item-color-focus;
                 background-color: $pagination-item-background-color-focus;
             }
 
             &:hover {
+                color: $pagination-item-color-hover;
                 background-color: $pagination-item-background-color-hover;
+            }
+
+            &:not(.hellip) {
+                &:hover,
+                &:focus {
+                    box-shadow: $pagination-item-hover-shadow-size $pagination-item-hover-shadow-color;
+                    transition: box-shadow $pagination-item-transition-easing $pagination-item-transition-speed;
+                }
             }
         }
 

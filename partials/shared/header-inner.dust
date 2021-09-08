@@ -51,7 +51,7 @@
                                 {Strings.s.header.search_title|s}
                             </div>
 
-                            {>"ui/search-form" button_class="is-primary mb-2 mb-0-tablet" /}
+                            {>"ui/search-form" button_class="{Header.colors.search_button} mb-2 mb-0-tablet" /}
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
 </div>
 
 {^Header.hide_main_nav}
-    <div class="site-header__nav is-relative is-hidden-touch is-hidden-desktop-only has-background-primary">
+    <div class="site-header__nav is-relative is-hidden-touch is-hidden-desktop-only {Header.colors.nav|s}">
         <div class="container">
             <div class="columns mt-0 mb-0">
                 <div class="column">

@@ -1,3 +1,14 @@
+$sibling-navigation-item-background-color: transparent !default;
+$sibling-navigation-item-active-background-color: $sibling-navigation-item-background-color !default;
+$sibling-navigation-item-border-color: $primary !default;
+$sibling-navigation-item-active-border-color: $secondary !default;
+$sibling-navigation-item-color: $black !default;
+$sibling-navigation-item-active-color: $black !default;
+$sibling-navigation-item-transition-easing: $easing !default;
+$sibling-navigation-item-transition-speed: $speed !default;
+$sibling-navigation-item-hover-shadow-size: 0 4px 8px !default;
+$sibling-navigation-item-hover-shadow-color: rgba(0, 0, 0, .15) !default;
+
 .sibling-navigation {
     &__container {
         border-top: 1px solid $secondary;
@@ -15,15 +26,24 @@
 
     &__item {
         margin: $theme-spacing-half;
-        border: 1px solid $primary;
+        color: $sibling-navigation-item-color;
+        background-color: $sibling-navigation-item-background-color;
+        border: 1px solid $sibling-navigation-item-border-color;
 
         @include from($desktop) {
             margin: $theme-spacing-three-quarters;
         }
 
         &.is-current {
-            background-color: $secondary;
-            border-color: $secondary;
+            color: $sibling-navigation-item-active-color;
+            background-color: $sibling-navigation-item-active-background-color;
+            border-color: $sibling-navigation-item-active-border-color;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: $sibling-navigation-item-hover-shadow-size $sibling-navigation-item-hover-shadow-color;
+            transition: box-shadow $sibling-navigation-item-transition-easing $sibling-navigation-item-transition-speed;
         }
     }
 }

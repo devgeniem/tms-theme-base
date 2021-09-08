@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - TMS-102-0709: Add translations #158
+- TMS-193: Add filters & variables for customizing theme look & feel #156
 
 ### Fixed
 - TMS-102-0709: External link icons in link list block #158
--
+- TMS-207: Fixed copy to clipboard event target #159
+
 ### Removed
 - TMS-102-0709: Removed comments from pages and posts #158
 - TMS-102-0709: Removed Gutenberg from component templates #158
@@ -20,9 +22,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.11.0]
 
 ### Added
+
 - TMS-208: Event search today-option #155
 
 ### Fixed
+
 - TMS-208: Event search keywords #155
 - TMS-208: Event page breadcrumbs #155
 - TMS-208: Dynamic event breadcrumbs #155
