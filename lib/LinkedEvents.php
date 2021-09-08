@@ -225,7 +225,10 @@ class LinkedEvents implements Controller {
      */
     public static function get_as_datetime( $value ) {
         try {
-            return new \DateTime( $value );
+            $dt = new \DateTime( $value );
+            $dt->setTimezone( new \DateTimeZone( 'Europe/Helsinki' ) );
+
+            return $dt;
         }
         catch ( \Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
