@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- TMS-102-0709: Add translations #158
+
+### Fixed
+- TMS-102-0709: External link icons in link list block #158
+-
+### Removed
+- TMS-102-0709: Removed comments from pages and posts #158
+- TMS-102-0709: Removed Gutenberg from component templates #158
+
 ## [1.11.0]
 
 ### Added
