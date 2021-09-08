@@ -7,12 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-207: Fixed copy to clipboard event target #159
+
 ## [1.11.0]
 
 ### Added
+
 - TMS-208: Event search today-option #155
 
 ### Fixed
+
 - TMS-208: Event search keywords #155
 - TMS-208: Event page breadcrumbs #155
 - TMS-208: Dynamic event breadcrumbs #155
