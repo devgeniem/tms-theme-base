@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-208: Event search today-option #155
+- TMS-193: Add filters & variables for customizing theme look & feel #156
 
 ### Fixed
 
