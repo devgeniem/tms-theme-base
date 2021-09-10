@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.13.0]
+
 ### Fixed
 - TMS-102-0909: Share links block link classes #160
 
