@@ -67,8 +67,8 @@ export default class SlideDeck {
                 nextText = `${ Common.makeIcon( nextIcon ) } <span class="is-sr-only">${ nextText }</span>`;
             }
 
-            controls.innerHTML =
-                `<li>
+            controls.innerHTML
+                = `<li>
                      <button type="button" class="${ buttonClass } button--prev">${ prevText }</button>
                  </li>
                  <li>
@@ -160,8 +160,8 @@ export default class SlideDeck {
 
         // Add classes to the previous, next and current slide
         if (
-            ( ! Common.empty( this.slides[ newNext ] ) ) &&
-            ( ! Common.empty( this.slides[ newPrev ] ) )
+            ( ! Common.empty( this.slides[ newNext ] ) )
+            && ( ! Common.empty( this.slides[ newPrev ] ) )
         ) {
             this.slides[ newNext ].className = 'next slide';
             if ( transition === 'next' ) {
