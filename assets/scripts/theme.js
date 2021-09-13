@@ -99,8 +99,8 @@ class Theme {
             if ( ! this._templateControllers.hasOwnProperty( className ) ) {
                 continue;
             }
-            if ( Theme.documentHasClass( className ) &&
-                typeof this._templateControllers[ className ].init === 'function'
+            if ( Theme.documentHasClass( className )
+                && typeof this._templateControllers[ className ].init === 'function'
             ) {
                 this._templateControllers[ className ].init();
             }
@@ -196,8 +196,8 @@ class Theme {
             if ( ! this._templateControllers.hasOwnProperty( className ) ) {
                 continue;
             }
-            if ( Theme.documentHasClass( className ) &&
-                typeof this._templateControllers[ className ].docReady === 'function'
+            if ( Theme.documentHasClass( className )
+                && typeof this._templateControllers[ className ].docReady === 'function'
             ) {
                 this._templateControllers[ className ].docReady();
             }
