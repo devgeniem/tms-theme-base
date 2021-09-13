@@ -7,14 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Enable redipress MySQL fallback #163
+
 ## [1.13.0]
 
 ### Fixed
+
 - TMS-102-0909: Share links block link classes #160
 
 ## [1.12.0]
 
 ### Added
+
 - TMS-102-0709: Add translations #158
 - TMS-193: Add filters & variables for customizing theme look & feel #156
 
