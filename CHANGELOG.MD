@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- TMS-208-1: Disable event API locations #162
+- TMS-208-1: Allow all keywords on event search #162
+
 ## [1.13.0]
 
 ### Fixed
