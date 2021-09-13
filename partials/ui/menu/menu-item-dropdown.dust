@@ -1,28 +1,28 @@
 {^sub_menu}
-    {>"ui/menu/menu-item-simple"  /}
+    {>"ui/menu/menu-item-single" /}
 {/sub_menu}
 
 {?sub_menu}
-    <div class="navbar-item has-dropdown">
+    <li class="navbar-item has-dropdown">
         <div class="navbar-dropdown-control">
             <a class="navbar-link dropdown-trigger is-arrowless" href="#">
                 {title|s}
             </a>
 
-            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-dropdown-{$idx}">
+            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-menu-item-dropdown-{$idx}">
                 <span class="is-sr-only">{Strings.s.header.open_menu|s}</span>
 
                 <span aria-hidden="true">
-                    {>"ui/icon" icon="chevron-down" class="icon--medium is-primary-invert" /}
+                    {>"ui/icon" icon="chevron-down" class="icon--medium" /}
                 </span>
             </button>
         </div>
 
-        <div class="navbar-dropdown is-hidden-touch has-background-white has-text-black" id="js-navbar-dropdown-{$idx}">
+        <div class="navbar-dropdown is-hidden-touch has-background-white has-text-black" id="js-navbar-menu-item-dropdown-{$idx}">
             <div class="container">
                 <div class="columns">
                     <div class="column">
-                        <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large has-text-decoration-underline">
+                        <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large">
                             {title|s}
                             {>"ui/icon" icon="chevron-right" class="icon--medium ml-2" /}
                         </a>
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </li>
 {/sub_menu}

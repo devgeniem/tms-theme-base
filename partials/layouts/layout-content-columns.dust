@@ -1,4 +1,4 @@
-<div class="section content-columns">
+<div {?anchor}id="{anchor|s}"{/anchor} class="section content-columns">
     <div class="container keep-vertical-spacing">
         {#rows}
             <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|s}">

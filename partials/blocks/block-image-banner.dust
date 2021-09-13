@@ -1,6 +1,8 @@
 {?image}
     <div class="image-banner mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative is-align-full has-background-cover"
          style="background-image: url({image.sizes.large})">
+        {>"shared/layout-before-main-content" /}
+
         <div class="image is-2by1 is-hidden-mobile">
             {@image id=image.id size="large" class="objectfit-image" /}
         </div>
@@ -16,5 +18,7 @@
 
             {>"ui/button-link" classes="is-primary is-inverted is-borderless" icon="chevron-right" icon_classes="icon--medium"  /}
         </div>
+
+        {>"shared/layout-after-main-content" /}
     </div>
 {/image}

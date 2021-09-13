@@ -55,7 +55,8 @@ class AccordionBlock extends BaseBlock {
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
-            $group->get_fields()
+            $group->get_fields(),
+            self::KEY
         );
     }
 
@@ -72,6 +73,10 @@ class AccordionBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
+        if ( ! is_array( $data ) ) {
+            $data = [];
+        }
+
         return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }

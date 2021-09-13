@@ -22,10 +22,7 @@ class Localization implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \load_theme_textdomain(
-            'tms-theme-base',
-            get_template_directory() . '/lang'
-        );
+        $this->load_theme_textdomains();
 
         \add_filter(
             'pll_get_post_types',
@@ -39,6 +36,16 @@ class Localization implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'add_tax_to_polylang' ] ),
             10,
             2
+        );
+    }
+
+    /**
+     * Load theme translations.
+     */
+    public function load_theme_textdomains() {
+        \load_theme_textdomain(
+            'tms-theme-base',
+            get_template_directory() . '/lang'
         );
     }
 
@@ -95,13 +102,16 @@ class Localization implements Interfaces\Controller {
      *
      * @return array The modified post_types -array.
      */
-    private function add_cpts_to_polylang( $post_types, $is_settings ) { // phpcs:ignore
+    protected function add_cpts_to_polylang( $post_types, $is_settings ) { // phpcs:ignore
         if ( ! DPT_PLL_ACTIVE ) {
             return $post_types;
         }
-        $post_types[ PostType\Settings::SLUG ]    = PostType\Settings::SLUG;
-        $post_types[ PostType\BlogArticle::SLUG ] = PostType\BlogArticle::SLUG;
-        $post_types[ PostType\BlogAuthor::SLUG ]  = PostType\BlogAuthor::SLUG;
+
+        $post_types[ PostType\Settings::SLUG ]     = PostType\Settings::SLUG;
+        $post_types[ PostType\Contact::SLUG ]      = PostType\Contact::SLUG;
+        $post_types[ PostType\DynamicEvent::SLUG ] = PostType\DynamicEvent::SLUG;
+        $post_types[ PostType\BlogArticle::SLUG ]  = PostType\BlogArticle::SLUG;
+        $post_types[ PostType\BlogAuthor::SLUG ]   = PostType\BlogAuthor::SLUG;
 
         return $post_types;
     }

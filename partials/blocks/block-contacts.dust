@@ -1,0 +1,21 @@
+<div class="contacts is-align-full">
+    <div class="columns">
+        <div class="column is-8-desktop is-offset-2-desktop has-text-centered">
+            {?title}
+                <h2>
+                    {title|s}
+                </h2>
+            {/title}
+
+            {?description}
+                {description|s}
+            {/description}
+        </div>
+    </div>
+
+    <div class="columns is-mobile is-multiline is-variable is-6">
+        {#filled_contacts}
+            {>"shared/contact" /}
+        {/filled_contacts}
+    </div>
+</div>

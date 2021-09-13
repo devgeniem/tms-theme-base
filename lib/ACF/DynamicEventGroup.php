@@ -197,6 +197,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_publisher_choices( $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'organization' ),
@@ -211,9 +215,35 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_keyword_choices( array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
+        $response = $this->get_choices(
+            'keyword_set',
+            [
+
+                'data_source' => 'system,tampere',
+                'include'     => 'keywords',
+            ]
+        );
+
+        $keywords = [];
+        $sets     = array_filter( $response, fn( $set ) => $set->usage === 'keyword' );
+
+        foreach ( $sets as $set ) {
+            if ( empty( $set->keywords ) ) {
+                continue;
+            }
+
+            foreach ( $set->keywords as $keyword ) {
+                $keywords[] = $keyword;
+            }
+        }
+
         return $this->fill_choices_from_response(
             $field,
-            $this->get_choices( 'keyword', [ 'page_size' => 250 ] ),
+            $keywords
         );
     }
 
@@ -225,6 +255,10 @@ class DynamicEventGroup {
      * @return array
      */
     protected function fill_location_choices( array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'place', [ 'data_source' => 'system' ] ),
@@ -258,9 +292,6 @@ class DynamicEventGroup {
                 );
             }
             catch ( LinkedEventsException $e ) {
-                ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-            }
-            catch ( \JsonException $e ) {
                 ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
             }
         }
@@ -326,7 +357,8 @@ class DynamicEventGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\NoticeBannerLayout::class,
-            ]
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

@@ -1,6 +1,6 @@
 {?event.normalized.date}
-    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title icon="date" /}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {event.normalized.date|s}
@@ -9,8 +9,8 @@
 {/event.normalized.date}
 
 {?event.normalized.time}
-    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title icon="time" /}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title template_classes=template_classes.info_group_title icon="time" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {event.normalized.time|s}
@@ -19,8 +19,8 @@
 {/event.normalized.time}
 
 {?event.normalized.location}
-    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title icon="location" /}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title template_classes=template_classes.info_group_title icon="location" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             <div>{event.normalized.location.name|s}</div>
@@ -32,8 +32,8 @@
 {/event.normalized.location}
 
 {?event.normalized.price}
-    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.price_title icon="euro" /}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.price_title template_classes=template_classes.info_group_title icon="euro" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.price}
@@ -50,8 +50,8 @@
 {/event.normalized.price}
 
 {?event.normalized.provider}
-    <div class="info-group mb-5 has-background-secondary--opaque has-text-secondary-invert">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title icon="bullhorn" /}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title template_classes=template_classes.info_group_title icon="bullhorn" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             <div>{event.normalized.provider.name|s}</div>
@@ -76,5 +76,5 @@
         </div>
     </div>
 
-    {>"ui/button-link" link=event.normalized.provider.link classes="mt-3" icon="chevron-right" icon_classes="icon--medium" /}
+    {>"ui/button-link" link=event.normalized.provider.link classes="mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
 {/event.normalized.provider}

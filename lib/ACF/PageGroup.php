@@ -44,6 +44,8 @@ class PageGroup {
                 ->add_rule( 'post_type', '==', PostType\Page::SLUG )
                 ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
                 ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
+                ->add_rule( 'page_template', '!=', \PageOnepager::TEMPLATE )
+                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
                 ->add_rule( 'page_type', '!=', 'posts_page' );
 
             $field_group
@@ -119,7 +121,9 @@ class PageGroup {
                 Layouts\BlogArticlesLayout::class,
                 Layouts\SitemapLayout::class,
                 Layouts\NoticeBannerLayout::class,
-            ]
+                Layouts\GravityFormLayout::class,
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

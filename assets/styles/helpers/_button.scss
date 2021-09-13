@@ -19,6 +19,14 @@ $button-background-invert: $button-primary-invert !default;
 $button-border-width: .15rem !default;
 $button-border-radius: 1.8rem !default;
 
+$button-font-size: .9375rem !default;
+$button-font-size-tablet: .88235rem !default;
+
+$button-font-weight: $weight-medium !default;
+
+$button-transition-easing: $easing !default;
+$button-transition-speed: $speed !default;
+
 @mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
     color: $button-color-mixin-text !important;
     background-color: $button-color-mixin-background !important;
@@ -36,6 +44,14 @@ $button-border-radius: 1.8rem !default;
 
 .button-state-hover {
     filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
+    transition: filter $button-transition-easing $button-transition-speed,
+    border-color $button-transition-easing $button-transition-speed,
+    color $button-transition-easing $button-transition-speed,
+    background-color $button-transition-easing $button-transition-speed;
+
+    .icon {
+        transition: fill $button-transition-easing $button-transition-speed;
+    }
 }
 
 .button-states {
@@ -52,6 +68,7 @@ $button-border-radius: 1.8rem !default;
     }
 }
 
+.gform_wrapper button,
 .button {
     @extend %control;
     @extend %unselectable;
@@ -60,9 +77,9 @@ $button-border-radius: 1.8rem !default;
     border-width: $button-border-width;
     border-radius: $button-border-radius;
     cursor: pointer;
-    font-weight: $weight-medium;
+    font-weight: $button-font-weight;
     font-family: $family-secondary;
-    font-size: .9375rem;
+    font-size: $button-font-size;
 
     justify-content: center;
     padding: .625rem 1.875rem;
@@ -72,7 +89,7 @@ $button-border-radius: 1.8rem !default;
     text-decoration: none !important;
 
     @include from($tablet) {
-        font-size: .88235rem;
+        font-size: $button-font-size-tablet;
         padding-right: 1.764rem;
         padding-left: 1.764rem;
     }
@@ -259,6 +276,11 @@ $button-border-radius: 1.8rem !default;
                     @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
+                &:hover,
+                &.is-hovered {
+                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
+                }
+
                 @extend .button-states;
             }
 
@@ -297,6 +319,11 @@ $button-border-radius: 1.8rem !default;
                         @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
+                    &:hover,
+                    &.is-hovered {
+                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-text);
+                    }
+
                     @extend .button-states;
                 }
 
@@ -306,6 +333,11 @@ $button-border-radius: 1.8rem !default;
                     &.is-active {
                         @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
                         border-color: transparent !important;
+                    }
+
+                    &:hover,
+                    &.is-hovered {
+                        @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     }
 
                     @extend .button-states;

@@ -31,17 +31,26 @@ class ACFController implements Interfaces\Controller {
      * This method loops through all files in the
      * ACF directory and requires them.
      */
-    private function require_acf_files() : void {
+    protected function require_acf_files() : void {
         $files = array_diff(
-            scandir( __DIR__ . '/ACF' ),
+            scandir( $this->get_base_dir() ),
             [ '.', '..', 'Field', 'Fields', 'Layouts' ]
         );
 
         array_walk(
             $files,
             function ( $file ) {
-                require_once __DIR__ . '/ACF/' . basename( $file );
+                require_once $this->get_base_dir() . '/' . basename( $file );
             }
         );
+    }
+
+    /**
+     * Get ACF base dir
+     *
+     * @return string
+     */
+    protected function get_base_dir() : string {
+        return __DIR__ . '/ACF';
     }
 }

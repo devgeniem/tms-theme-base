@@ -1,5 +1,7 @@
 {?video}
     <div class="video is-align-wide mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative" {?anchor}id="{anchor|s}"{/anchor}>
+        {>"shared/layout-before-main-content" /}
+
         {?alt_text}
             <span class="is-sr-only">{alt_text}</span>
         {/alt_text}
@@ -15,5 +17,7 @@
 
         {! Skip embed target !}
         <div id="{id}"></div>
+
+        {>"shared/layout-after-main-content" /}
     </div>
 {/video}

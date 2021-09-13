@@ -1,0 +1,5 @@
+<li class="navbar-item navbar-item__single">
+    <a href="{url}" class="is-arrowless pr-0 pl-0">
+        {title|s}
+    </a>
+</li>

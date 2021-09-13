@@ -8,12 +8,7 @@ namespace TMS\Theme\Base\PostType;
 use \TMS\Theme\Base\Interfaces\PostType;
 
 /**
- * Settings
- *
- * The settings post type is used to create translatable site settings.
- *
- * There's only one post created in this post type and it can be removed only
- * by super admin. Others can modify, so the settings are updated.
+ * Dynamic Event CPT
  *
  * @package TMS\Theme\Base\PostType
  */

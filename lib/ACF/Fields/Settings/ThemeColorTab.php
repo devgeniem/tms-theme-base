@@ -3,7 +3,7 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Base\ACF\Fields;
+namespace TMS\Theme\Base\ACF\Fields\Settings;
 
 use \Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
@@ -31,6 +31,10 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             'title'        => 'Väriteeman valinta',
             'instructions' => '',
         ],
+        'default_image'   => [
+            'title'        => 'Oletuskuva',
+            'instructions' => '',
+        ],
     ];
 
     /**
@@ -56,7 +60,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
      * @param string|null $key   Key for the field.
      * @param string|null $name  Name for the field.
      */
-    public function __construct( $label = '', $key = null, $name = null ) {
+    public function __construct( $label = '', $key = null, $name = null ) { // phpcs:ignore
         if ( ! empty( $label ) ) {
             $this->strings['tab'] = $label;
         }
@@ -73,8 +77,6 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
      */
     public function sub_fields( $key ) : void {
         try {
-            $this->set_label( $this->strings['tab'] );
-
             $theme_colors = apply_filters( 'tms/theme/theme_colors', self::$available_themes );
 
             $theme_default_color = apply_filters(
@@ -89,8 +91,15 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
                 ->set_default_value( $theme_default_color )
                 ->set_instructions( $this->strings['color_selection']['instructions'] );
 
+            $image_field = ( new Field\Image( $this->strings['default_image']['title'] ) )
+                ->set_key( "${key}_default_image" )
+                ->set_name( 'default_image' )
+                ->set_return_format( 'id' )
+                ->set_instructions( $this->strings['default_image']['instructions'] );
+
             $this->add_fields( [
                 $color_theme_select,
+                $image_field,
             ] );
         }
         catch ( \Exception $e ) {

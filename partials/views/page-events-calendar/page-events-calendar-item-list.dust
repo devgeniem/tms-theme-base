@@ -1,4 +1,4 @@
-<div class="events__item columns is-gapless mt-4 mb-4 has-background-secondary">
+<div class="events__item columns is-gapless mt-4 mb-4 {item_classes.list.item|s}">
     {?image}
         <div class="column is-4 is-relative">
             <a href="{url}" class="is-hidden-mobile is-overlay has-background-cover" aria-hidden="true"
@@ -27,26 +27,26 @@
             </h3>
 
             <div class="is-flex is-flex-wrap-wrap">
-                <div class="is-flex is-align-items-center mt-2 mb-2 mr-4">
+                <div class="is-flex is-align-items-center mt-2 mb-2 mr-4 {item_classes.list.meta_label|s}">
                     <span class="is-flex" aria-label="{Strings.s.event.date|s}">
-                        {>"ui/icon" icon="date" class="icon--large is-primary mr-2 is-accent" /}
+                        {>"ui/icon" icon="date" class="icon--large is-primary mr-2 {item_classes.list.icon|s}" /}
                     </span>
 
                     {date|s}
                 </div>
 
-                <div class="is-flex is-align-items-center mt-2 mb-2 mr-4">
+                <div class="is-flex is-align-items-center mt-2 mb-2 mr-4 {item_classes.list.meta_label|s}">
                     <span class="is-flex" aria-label="{Strings.s.event.time|s}">
-                        {>"ui/icon" icon="time" class="icon--large is-primary mr-2 is-accent" /}
+                        {>"ui/icon" icon="time" class="icon--large is-primary mr-2 {item_classes.list.icon|s}" /}
                     </span>
 
                     {time|s}
                 </div>
 
                 {?location.name}
-                    <div class="is-flex is-align-items-center mt-2 mb-2">
+                    <div class="is-flex is-align-items-center mt-2 mb-2 {item_classes.list.meta_label|s}">
                         <span class="is-flex" aria-label="{Strings.s.event.location|s}">
-                            {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2 is-accent" /}
+                            {>"ui/icon" icon=location_icon class="icon--large is-primary mr-2 {item_classes.list.icon|s}" /}
                         </span>
 
                         {location.name|s}
@@ -54,7 +54,7 @@
                 {/location.name}
             </div>
 
-            <p class="has-text-small">
+            <p class="has-text-small {item_classes.list.description|s}">
                 {short_description|s}
             </p>
 

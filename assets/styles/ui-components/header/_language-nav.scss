@@ -6,10 +6,12 @@ $lang-nav-link-border: $primary !default;
 
 .lang-nav {
     &--horizontal {
+        font-size: .9em;
+
         a {
             width: 2.375rem;
             height: 2.375rem;
-            border: 1px solid $lang-nav-link-border;
+            border: 2px solid $lang-nav-link-border;
 
             @include from($tablet) {
                 width: 2.2359rem;

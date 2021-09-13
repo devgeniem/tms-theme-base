@@ -87,6 +87,27 @@ class PageEventsCalendar extends BaseModel {
     }
 
     /**
+     * Item template classes.
+     *
+     * @return string
+     */
+    public function item_classes() : array {
+        return apply_filters( 'tms/theme/page_events_calendar/item_classes', [
+            'list' => [
+                'item'        => 'has-background-secondary',
+                'item_inner'  => '',
+                'icon'        => 'is-accent',
+                'description' => '',
+            ],
+            'grid' => [
+                'item'       => 'has-background-secondary',
+                'item_inner' => '',
+                'icon'       => 'is-accent',
+            ],
+        ] );
+    }
+
+    /**
      * Get events
      *
      * @return array
@@ -126,6 +147,10 @@ class PageEventsCalendar extends BaseModel {
             'text'        => get_field( 'text' ),
             'show_images' => get_field( 'show_images' ),
         ];
+
+        if ( ! empty( get_field( 'starts_today' ) ) && true === get_field( 'starts_today' ) ) {
+            $params['start'] = 'today';
+        }
 
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );

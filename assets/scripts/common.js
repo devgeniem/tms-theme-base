@@ -22,7 +22,7 @@ export default class Common {
         this.focusStyleContainer = document.getElementById( 'accessible-outline' );
 
         // Scroll to links. Used for smooth-scroll links.
-        this.$scrollToLink = $( '.js-scroll-to' );
+        this.$scrollToLink = $( '.js-scroll-to, .js-scroll-children a' );
     }
 
     /**

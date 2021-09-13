@@ -113,7 +113,10 @@ class PageFrontPageGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\BlogArticlesLayout::class,
                 Layouts\NoticeBannerLayout::class,
-            ]
+                Layouts\ImageCarouselLayout::class,
+                Layouts\GravityFormLayout::class,
+            ],
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

@@ -11,6 +11,123 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - NPM(deps-dev): Bump eslint from 6.8.0 to 7.32.0 #116
 
+## [1.13.0]
+
+### Fixed
+- TMS-102-0909: Share links block link classes #160
+
+## [1.12.0]
+
+### Added
+- TMS-102-0709: Add translations #158
+- TMS-193: Add filters & variables for customizing theme look & feel #156
+
+### Fixed
+- TMS-102-0709: External link icons in link list block #158
+- TMS-207: Fixed copy to clipboard event target #159
+
+### Removed
+- TMS-102-0709: Removed comments from pages and posts #158
+- TMS-102-0709: Removed Gutenberg from component templates #158
+
+## [1.11.0]
+
+### Added
+
+- TMS-208: Event search today-option #155
+
+### Fixed
+
+- TMS-208: Event search keywords #155
+- TMS-208: Event page breadcrumbs #155
+- TMS-208: Dynamic event breadcrumbs #155
+- TMS-208: Subpage page order #155
+
+## [1.10.0]
+
+### Added
+
+- TMS-199: Fix button text wrapping in iOS #151
+- TMS-139: Add support for secondary content #154
+- TMS-134: Add filters & translations for Artwork #148
+- TMS-140: Add filters to Hero layout #147
+
+### Changed
+
+- TMS-137: Color theme changes #149
+
+### Fixed
+
+- TMS-199: Fix button text wrapping in iOS #151
+- TMS-142: Fix to image carousel item height #153
+
+## [1.9.0]
+
+### Added
+
+- Made possible to filter layouts with layout key #145
+
+### Fixed
+
+- Added missing accent colors #152
+- Added keys to filters (layouts and blocks) #150
+
+## [1.8.0] - 2021-08-26
+
+### Added
+
+- TMS-96: Blog comment author #120
+- TMS-130: Forms #127
+- TMS-204: Increase menu_order default value #146
+- TMS-133: Add filters for share button & breadcrumb customization #141
+- TMS-141: Add filters to Call to Action layout #142
+- TMS-113: Contacts template #139
+- TMS-192-1: Add filters for assets #137
+- TMS-127: Filter to allowed blocks #133
+- TMS-112: Contacts ACF block #110
+- DR-5: Add Default Content Image setting #134
+
+### Changed
+- TMS-194: Organize setting tabs #135
+
+### Fixed
+- a11y: Fix navigation item duplicate ids #122
+- a11y: Skip to content link #123
+- a11y: Prevent duplicate img ids #124
+- a11y: Move ul role attribute to a wrapping div #125
+- a11y: Fix nav element hierarchy #126
+- DR-1: misc appearance fixes and improvements #129
+- DR-2: misc appearance fixes and improvements #130
+- DR-3: misc appearance fixes and improvements #131
+- DR-4: misc appearance fixes and improvements #132
+- Fixes type error: expected array, got bool #138
+
+## [1.7.0] - 2021-08-06
+
+### Added
+
+- TMS-55: Onepager page template #108
+
+### Fixed
+- Upgrade deprecated hooks #121
+
+## [1.6.1] - 2021-08-03
+
+### Fixed
+- Remove character limit when displaying excerpts #119
+
+## [1.6.0] - 2021-08-02
+
+### Added
+- TMS-114: Contact CPT #105
+
+## [1.5.1] - 2021-08-02
+
+### Fixed
+
+- Compile potfile #118
+- Fix blog-article related posts query taxonomy #117
+
 ## [1.5.0] - 2021-07-01
 
 ### Added

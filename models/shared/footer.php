@@ -129,4 +129,21 @@ class Footer extends Model {
             Settings::get_setting( 'copyright' )
         );
     }
+
+    /**
+     * Return footer color classes.
+     *
+     * @return array
+     */
+    public function colors() : array {
+        return apply_filters(
+            'tms/theme/footer/colors',
+            [
+                'container'   => 'has-background-primary has-text-primary-invert',
+                'back_to_top' => 'is-primary is-inverted',
+                'link'        => 'has-text-primary-invert',
+                'link_icon'   => 'is-primary-invert',
+            ],
+        );
+    }
 }

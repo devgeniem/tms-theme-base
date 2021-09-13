@@ -1,5 +1,5 @@
-<section
-        class="hero is-relative has-background-cover {container_class|s}" {@inlinebg id=image size="fullhd" /}>
+<section {?anchor}id="{anchor|s}"{/anchor}
+         class="hero is-relative has-background-cover {container_class|s}" {@inlinebg id=image size="fullhd" /}>
     {?use_overlay}
         <div class="overlay overlay--dark-50"></div>
     {/use_overlay}

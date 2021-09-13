@@ -58,7 +58,8 @@ class ShareLinksBlock extends BaseBlock {
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
-            $group->get_fields()
+            $group->get_fields(),
+            self::KEY
         );
     }
 
@@ -75,7 +76,8 @@ class ShareLinksBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
-        $data['share_links'] = $this->get_share_links();
+        $data['share_links']        = $this->get_share_links();
+        $data['share_link_classes'] = $this->share_link_classes();
 
         return $data;
     }
