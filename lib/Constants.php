@@ -77,6 +77,11 @@ class Constants implements Interfaces\Controller {
         if ( ! defined( 'DEFAULT_THEME_COLOR' ) ) {
             define( 'DEFAULT_THEME_COLOR', env( 'DEFAULT_THEME_COLOR' ) ?? 'tunnelma' );
         }
+
+        // Enable redipress fallback.
+        if ( ! defined( 'REDIPRESS_FALLBACK' ) ) {
+            define( 'REDIPRESS_FALLBACK', true );
+        }
     }
 
     /**
