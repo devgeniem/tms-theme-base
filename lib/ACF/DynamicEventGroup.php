@@ -229,9 +229,8 @@ class DynamicEventGroup {
         );
 
         $keywords = [];
-        $sets     = array_filter( $response, fn( $set ) => $set->usage === 'keyword' );
 
-        foreach ( $sets as $set ) {
+        foreach ( $response as $set ) {
             if ( empty( $set->keywords ) ) {
                 continue;
             }
