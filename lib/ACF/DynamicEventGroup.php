@@ -259,6 +259,9 @@ class DynamicEventGroup {
             return $field;
         }
 
+        // Return field without choices due to API problems.
+        return $field;
+
         return $this->fill_choices_from_response(
             $field,
             $this->get_choices( 'place', [ 'data_source' => 'system' ] ),
