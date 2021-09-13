@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- NPM(deps-dev): Bump eslint from 6.8.0 to 7.32.0 #116
+
 ## [1.13.0]
 
 ### Fixed
