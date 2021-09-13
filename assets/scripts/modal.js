@@ -149,9 +149,9 @@ export default class Modal {
                 const youTubeID = this.getYouTubeId( thumb.href );
 
                 // Construct embed code
-                slide.innerHTML = '<div class="image is-16by9">' +
-                    '<iframe class="has-ratio" width="640" height="480" data-src="//www.youtube.com/embed/' +
-                    youTubeID + '?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>';
+                slide.innerHTML = '<div class="image is-16by9">'
+                    + '<iframe class="has-ratio" width="640" height="480" data-src="//www.youtube.com/embed/'
+                    + youTubeID + '?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>';
 
             }
             else {
@@ -231,8 +231,8 @@ export default class Modal {
         modal.gallery.slides.forEach( ( slide, index ) => {
             const image = slide.querySelector( 'img' );
             if (
-                ( image !== null && image.getAttribute( 'src' ) === currentTarget ) ||
-                slide.querySelector( 'iframe' ) !== null
+                ( image !== null && image.getAttribute( 'src' ) === currentTarget )
+                || slide.querySelector( 'iframe' ) !== null
             ) {
                 currentIndex = index;
             }
