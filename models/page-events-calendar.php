@@ -31,6 +31,13 @@ class PageEventsCalendar extends BaseModel {
     protected object $pagination;
 
     /**
+     * Description text
+     */
+    public function description() : ?string {
+        return get_field( 'description' );
+    }
+
+    /**
      * Get events
      */
     public function events() : ?array {
