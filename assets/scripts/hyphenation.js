@@ -93,9 +93,9 @@ export default class Hyphenation {
                     const element = $( node );
 
                     if (
-                        typeof element.innerHTML === 'undefined' ||
-                        element.innerHTML.length < 1 ||
-                        element.hasClass( 'no-hyphens' )
+                        typeof element.innerHTML === 'undefined'
+                        || element.innerHTML.length < 1
+                        || element.hasClass( 'no-hyphens' )
                     ) {
                         return;
                     }

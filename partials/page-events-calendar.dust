@@ -5,10 +5,16 @@
         <main class="main-content section" id="main-content">
             <div class="container">
                 <div class="columns mb-8 mb-9-desktop">
-                    <div class="column is-10 is-offset-1 pt-0 pb-0 has-text-centered">
-                        <h1 class="mt-0 mb-0">
+                    <div class="column is-10 is-offset-1 pt-0 pb-0">
+                        <h1 class="mt-0 mb-0 has-text-centered">
                             {@title /}
                         </h1>
+
+                        {?description}
+                            <div class="mt-5">
+                                {description|s}
+                            </div>
+                        {/description}
                     </div>
                 </div>
 
@@ -16,7 +22,8 @@
                     <div class="columns is-multiline mt-7 mb-7">
                         {#calendar_pages}
                             <div class="column is-6 is-4-widescreen">
-                                <a href="{url}" class="is-flex is-align-items-center has-height-100 p-4 p-8-desktop has-background-secondary">
+                                <a href="{url}"
+                                   class="is-flex is-align-items-center has-height-100 p-4 p-8-desktop has-background-secondary">
                                     <span class="h6 pr-4 has-text-secondary-invert">
                                         {title|s}
                                     </span>
