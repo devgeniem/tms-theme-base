@@ -21,3 +21,7 @@ jobs:
             -   name: eslint
                 run: |
                     npm run lint-ci
+
+            -   name: build assets to see if everything still builds
+                run: |
+                    npm run build
