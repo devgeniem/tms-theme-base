@@ -1,21 +1,21 @@
 <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
     {?event.normalized.date}
         <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
-            {>"ui/icon" icon="date" class="icon--xlarge is-primary mr-4 mr-6-desktop is-accent" /}
+            {>"ui/icon" icon="date" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
             {event.normalized.date|s}
         </div>
     {/event.normalized.date}
 
     {?event.normalized.time}
         <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
-            {>"ui/icon" icon="time" class="icon--xlarge is-primary mr-4 mr-6-desktop is-accent" /}
+            {>"ui/icon" icon="time" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
             {event.normalized.time|s}
         </div>
     {/event.normalized.time}
 
     {?event.normalized.location}
         <div class="is-flex is-align-items-center has-width-100-until-desktop">
-            {>"ui/icon" icon="location" class="icon--xlarge is-primary mr-4 mr-6-desktop is-accent" /}
+            {>"ui/icon" icon="location" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
             {event.normalized.location.name|s}
         </div>
     {/event.normalized.location}

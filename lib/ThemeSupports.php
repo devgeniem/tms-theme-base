@@ -112,6 +112,7 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = 'filter-month';
         $vars[] = 'filter-year';
         $vars[] = 'event-id';
+        $vars[] = \PageContacts::SEARCH_QUERY_VAR;
 
         return $vars;
     }

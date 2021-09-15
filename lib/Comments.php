@@ -20,6 +20,34 @@ class Comments implements Interfaces\Controller {
         \add_filter( 'comment_reply_link', [ $this, 'amend_reply_link_class' ], 10, 1 );
         \add_filter( 'comment_form_fields', [ $this, 'customize_comment_form_fields' ], 10, 2 );
         \add_filter( 'comment_form_submit_button', [ $this, 'override_comment_form_submit' ], 10, 0 );
+        \add_filter( 'get_comment_author', [ $this, 'get_comment_author_name' ], 10, 2 );
+    }
+
+    /**
+     * Get comment author name.
+     *
+     * @param string $author     Original author name.
+     * @param int    $comment_id Comment ID.
+     *
+     * @return string
+     */
+    public function get_comment_author_name( string $author, int $comment_id ) : string {
+        $author_id = $this->get_author_override_id( $comment_id );
+
+        return ! empty( $author_id ) ? get_the_title( $author_id ) : $author;
+    }
+
+    /**
+     * Get comment custom author from meta field.
+     *
+     * @param int $comment_id Comment ID.
+     *
+     * @return int|false
+     */
+    public static function get_author_override_id( int $comment_id ) {
+        $author_id = get_comment_meta( $comment_id, 'author', true );
+
+        return $author_id ?? false;
     }
 
     /**
@@ -91,14 +119,22 @@ class Comments implements Interfaces\Controller {
 
             <div class="comment__footer is-flex-tablet is-justify-content-space-between">
                 <div class="comment__info mr-2">
-                    <?php
-                    echo sprintf(
-                        '<a href="%s" class="%s">%s</a>',
-                        esc_url( get_comment_link( $comment ) ),
-                        'h5 comment__heading has-text-black',
-                        esc_html( get_comment_author_link( $comment ) )
-                    );
-                    ?>
+                    <div class="comment__author">
+                        <?php
+                        echo sprintf(
+                            '<a href="%s" class="%s">%s</a>',
+                            esc_url( get_comment_link( $comment ) ),
+                            'h5 comment__heading has-text-black',
+                            esc_html( get_comment_author_link( $comment ) )
+                        );
+                        ?>
+
+                        <?php if ( ! empty( self::get_author_override_id( $comment->comment_ID ) ) ) : ?>
+                            <div class="comment__author-badge is-inline-flex ml-2">
+                                <?php esc_html_e( 'Blog author', 'tms-theme-base' ); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
                     <p class="comment__date mt-2 mb-0">
                         <time datetime="<?php get_comment_time( 'c' ); ?>">
@@ -124,7 +160,7 @@ class Comments implements Interfaces\Controller {
                         [
                             'depth'     => $depth,
                             'max_depth' => get_option( 'thread_comments_depth' ),
-                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">',
+                            'before'    => '<div class="comment__reply is-flex is-align-items-center mt-4 mt-0-tablet">', // phpcs:ignore
                             'after'     => '</div>',
                         ]
                     );

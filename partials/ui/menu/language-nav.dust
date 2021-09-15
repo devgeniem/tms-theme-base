@@ -4,7 +4,7 @@
             class="lang-nav--horizontal ml-6-desktop is-flex is-unstyled is-uppercase has-text-weight-semibold is-family-secondary">
             {#links.all}
                 <li class="ml-2-desktop">
-                    <a class="is-inline-flex is-justify-content-center is-align-items-center has-border-radius-small {^current_lang}has-text-primary{/current_lang} {?current_lang}has-background-primary has-text-primary-invert{/current_lang}"
+                    <a class="is-inline-flex is-justify-content-center is-align-items-center {Header.colors.lang_nav.link} {^current_lang}{Header.colors.lang_nav.link__default}{/current_lang} {?current_lang}{Header.colors.lang_nav.link__active}{/current_lang}"
                        href="{url}">
                         {slug}
                     </a>

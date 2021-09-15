@@ -36,23 +36,27 @@ class Constants implements Interfaces\Controller {
         }
 
         // Returns /app/themes/{current theme} -- no need to reference other domains here.
-        $themes_root = \get_template_directory_uri();
+        $themes_root = \get_stylesheet_directory_uri();
 
-        // Define the assets path.
+        // Define the assets' path.
         if ( ! defined( 'DPT_ASSETS_URI' ) ) {
             define( 'DPT_ASSETS_URI', $themes_root . '/assets' );
         }
 
-        // Define the assets dist path.
+        // Define the assets' dist path.
         if ( ! defined( 'DPT_ASSET_URI' ) ) {
             define( 'DPT_ASSET_URI', $themes_root . '/assets/dist' );
         }
 
         // Set Polylang active state. Use this to check if Polylang plugin is active.
-        define( 'DPT_PLL_ACTIVE', function_exists( 'pll_languages_list' ) );
+        if ( ! defined( 'DPT_PLL_ACTIVE' ) ) {
+            define( 'DPT_PLL_ACTIVE', function_exists( 'pll_languages_list' ) );
+        }
 
         // Set Advanced Custom Fields active state. Use this to check if Advanced Custom Fields plugin is active.
-        define( 'DPT_ACF_ACTIVE', class_exists( 'acf' ) );
+        if ( ! defined( 'DPT_ACF_ACTIVE' ) ) {
+            define( 'DPT_ACF_ACTIVE', class_exists( 'acf' ) );
+        }
 
         // Get the theme version number from the empty theme stylesheet
         if ( ! defined( 'DPT_THEME_VERSION' ) ) {
@@ -72,6 +76,11 @@ class Constants implements Interfaces\Controller {
         // tms-theme-base Color Theme Default.
         if ( ! defined( 'DEFAULT_THEME_COLOR' ) ) {
             define( 'DEFAULT_THEME_COLOR', env( 'DEFAULT_THEME_COLOR' ) ?? 'tunnelma' );
+        }
+
+        // Enable redipress fallback.
+        if ( ! defined( 'REDIPRESS_FALLBACK' ) ) {
+            define( 'REDIPRESS_FALLBACK', true );
         }
     }
 

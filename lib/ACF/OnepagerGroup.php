@@ -53,6 +53,7 @@ class OnepagerGroup {
                 'events'          => Layouts\EventsLayout::class,
                 'articles'        => Layouts\ArticlesLayout::class,
                 'notice_banner'   => Layouts\NoticeBannerLayout::class,
+                'gravityform'     => Layouts\GravityFormLayout::class,
                 'textblock'       => false,
             ]
         );
@@ -131,7 +132,8 @@ class OnepagerGroup {
 
         $component_layouts = apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
-            array_values( $this->components )
+            array_values( $this->components ),
+            $key
         );
 
         foreach ( $component_layouts as $component_layout ) {

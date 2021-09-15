@@ -247,7 +247,27 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'acf/contacts'      => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\DynamicEvent::SLUG,
+                ],
+            ],
+            'gravityforms/form' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\Contact::SLUG,
+                ],
+            ],
         ];
+
+        $blocks = apply_filters(
+            'tms/gutenberg/blocks',
+            $blocks,
+            $context
+        );
 
         $allowed_blocks = [];
         $post_type      = \get_post_type( $context->post->ID );

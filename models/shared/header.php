@@ -295,4 +295,31 @@ class Header extends Model {
     public function hide_flyout_secondary() : bool {
         return apply_filters( 'tms/theme/hide_flyout_secondary', false );
     }
+
+    /**
+     * Return header color classes.
+     *
+     * @return array
+     */
+    public function colors() : array {
+        return apply_filters(
+            'tms/theme/header/colors',
+            [
+                'search_button' => 'is-primary',
+                'nav'           => [
+                    'container' => 'has-background-primary',
+                ],
+                'fly_out_nav'   => [
+                    'inner'         => 'has-background-primary has-text-secondary-invert',
+                    'close_menu'    => 'is-primary-invert',
+                    'search_button' => 'is-primary is-inverted',
+                ],
+                'lang_nav'      => [
+                    'link'          => 'has-border-radius-small',
+                    'link__default' => 'has-text-primary',
+                    'link__active'  => 'has-background-primary has-text-primary-invert',
+                ],
+            ]
+        );
+    }
 }

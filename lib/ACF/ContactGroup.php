@@ -28,6 +28,11 @@ class ContactGroup {
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
+
+        add_filter(
+            'redipress/schema_fields',
+            \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
+        );
     }
 
     /**
@@ -181,18 +186,21 @@ class ContactGroup {
             ->set_key( "${key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $first_name_field = ( new Field\Text( $strings['first_name']['title'] ) )
             ->set_key( "${key}_first_name" )
             ->set_name( 'first_name' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['first_name']['instructions'] );
 
         $last_name_field = ( new Field\Text( $strings['last_name']['title'] ) )
             ->set_key( "${key}_last_name" )
             ->set_name( 'last_name' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['last_name']['instructions'] );
 
         $phone_repeater_field = ( new Field\Repeater( $strings['phone_repeater']['title'] ) )
@@ -218,7 +226,7 @@ class ContactGroup {
 
         $phone_repeater_field->add_field( $phone_number_field );
 
-        $email_field = ( new Field\Text( $strings['email']['title'] ) )
+        $email_field = ( new Field\Email( $strings['email']['title'] ) )
             ->set_key( "${key}_email" )
             ->set_name( 'email' )
             ->set_wrapper_width( 50 )
@@ -235,12 +243,14 @@ class ContactGroup {
             ->set_key( "${key}_domain" )
             ->set_name( 'domain' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['domain']['instructions'] );
 
         $unit_field = ( new Field\Text( $strings['unit']['title'] ) )
             ->set_key( "${key}_unit" )
             ->set_name( 'unit' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['unit']['instructions'] );
 
         $visiting_message_field = ( new Field\Message( $strings['visiting_address']['title'] ) )
@@ -285,6 +295,22 @@ class ContactGroup {
             ->set_name( 'mail_address_city' )
             ->set_instructions( $strings['mail_address_city']['instructions'] );
 
+        $additional_info_top = ( new Field\Textarea( $strings['additional_info_top']['title'] ) )
+            ->set_key( "${key}_additional_info_top" )
+            ->set_name( 'additional_info_top' )
+            ->set_new_lines( 'wpautop' )
+            ->set_rows( 4 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['additional_info_top']['instructions'] );
+
+        $additional_info_bottom = ( new Field\Textarea( $strings['additional_info_bottom']['title'] ) )
+            ->set_key( "${key}_additional_info_bottom" )
+            ->set_name( 'additional_info_bottom' )
+            ->set_new_lines( 'wpautop' )
+            ->set_rows( 4 )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['additional_info_bottom']['instructions'] );
+
         return [
             $image_field,
             $title_field,
@@ -303,7 +329,26 @@ class ContactGroup {
             $mail_address_street_field,
             $mail_address_zip_code_field,
             $mail_address_city_field,
+            $additional_info_top,
+            $additional_info_bottom,
         ];
+    }
+
+    /**
+     * Add RediPress fields
+     *
+     * @param array $fields array of fields.
+     *
+     * @return mixed
+     * @throws \Exception In case of missing option.
+     */
+    protected function add_redipress_fields( $fields ) {
+        $fields[] = new \Geniem\RediPress\Entity\TextField( [
+            'name'     => 'last_name',
+            'sortable' => true,
+        ] );
+
+        return $fields;
     }
 }
 

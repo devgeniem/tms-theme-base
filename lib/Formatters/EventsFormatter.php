@@ -71,7 +71,12 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             }
         }
 
-        $layout['events'] = $events;
+        $layout['events']  = $events;
+        $layout['classes'] = [
+            'event_item_bg'   => apply_filters( 'tms/theme/layout_events/item_bg_class', 'has-background-secondary' ),
+            'event_item_text' => apply_filters( 'tms/theme/layout_events/item_text_class', '' ),
+            'event_item_icon' => apply_filters( 'tms/theme/layout_events/item_icon_class', '' ),
+        ];
 
         return $layout;
     }
@@ -108,6 +113,10 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                     ? implode( ',', $value )
                     : $value;
             }
+        }
+
+        if ( ! empty( $layout['starts_today'] ) && true === $layout['starts_today'] ) {
+            $query_params['start'] = 'today';
         }
 
         return $query_params;

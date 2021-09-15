@@ -11,8 +11,16 @@
         border-color: $secondary;
     }
 
+    &-secondary-invert {
+        border-color: $secondary-invert;
+    }
+
     &-gray {
         border-color: $color-vaalean-harmaa;
+    }
+
+    &-gray--dark {
+        border-color: $color-tumma-harmaa;
     }
 
     &-1 {
@@ -23,6 +31,11 @@
     &-top-1 {
         border-top-width: 1px;
         border-top-style: solid;
+    }
+
+    &-bottom-1 {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
     }
 
     &-2 {
