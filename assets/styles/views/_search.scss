@@ -1,0 +1,11 @@
+.search {
+    .search-item-meta {
+        &--item {
+            &:not(:first-child) {
+                &::before {
+                    content: '|';
+                }
+            }
+        }
+    }
+}

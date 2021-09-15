@@ -1,0 +1,24 @@
+<div>
+
+    <p>{results.summary|s}</p>
+
+    {#results.posts}
+        <div class="has-background-secondary">
+            {?meta}
+                {meta|s}
+            {/meta}
+
+            <h2>
+                <a href="{permalink}" class="">
+                    {post_title|s}
+                </a>
+            </h2>
+
+            {?post_excerpt}
+                <p>
+                    {post_excerpt|s}
+                </p>
+            {/post_excerpt}
+        </div>
+    {/results.posts}
+</div>
