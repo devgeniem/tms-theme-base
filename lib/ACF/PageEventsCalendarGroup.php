@@ -9,6 +9,7 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
+use TMS\Theme\Base\ACF\Field\TextEditor;
 use TMS\Theme\Base\ACF\Fields\EventsFields;
 use TMS\Theme\Base\Logger;
 
@@ -85,8 +86,12 @@ class PageEventsCalendarGroup {
      */
     protected function get_page_fields( string $key ) : Field\Tab {
         $strings = [
-            'tab'    => 'Tapahtumat',
-            'layout' => [
+            'tab'         => 'Tapahtumat',
+            'description' => [
+                'title'        => 'Kuvausteksti',
+                'instructions' => '',
+            ],
+            'layout'      => [
                 'title'        => 'Asettelu',
                 'instructions' => '',
                 'choices'      => [
@@ -99,6 +104,12 @@ class PageEventsCalendarGroup {
         $tab = ( new Field\Tab( $strings['tab'] ) )
             ->set_placement( 'left' );
 
+        $description_field = ( new TextEditor( $strings['description']['title'] ) )
+            ->set_key( "${key}_description" )
+            ->set_name( 'description' )
+            ->redipress_include_search()
+            ->set_instructions( $strings['description']['instructions'] );
+
         $search_fields = new EventsFields( 'Tapahtumahaku', $key );
         $search_fields->remove_field( 'title' );
         $search_fields->remove_field( 'page_size' );
@@ -110,10 +121,11 @@ class PageEventsCalendarGroup {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['layout']['instructions'] );
 
-        $search_fields   = $search_fields->get_fields();
-        $search_fields[] = $layout_field;
+        $fields   = $search_fields->get_fields();
+        $fields[] = $layout_field;
+        array_unshift( $fields, $description_field );
 
-        $tab->add_fields( $search_fields );
+        $tab->add_fields( $fields );
 
         return $tab;
     }
