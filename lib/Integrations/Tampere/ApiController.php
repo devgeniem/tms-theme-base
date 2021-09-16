@@ -60,7 +60,7 @@ abstract class ApiController {
         $response = \wp_remote_get( $request_url, $request_args );
 
         if ( 200 !== \wp_remote_retrieve_response_code( $response ) ) {
-            ( new Logger() )->error( print_r( $response, true ) );
+            ( new Logger() )->error( print_r( $response, true ) ); // phpcs:ignore
 
             return false;
         }
@@ -93,7 +93,7 @@ abstract class ApiController {
         $basic_auth_key = env( 'TAMPERE_API_AUTH' );
 
         if ( ! empty( $basic_auth_key ) ) {
-            $args['headers']['Authorization'] = 'Basic ' . base64_encode( $basic_auth_key );
+            $args['headers']['Authorization'] = 'Basic ' . base64_encode( $basic_auth_key ); // phpcs:ignore
         }
 
         return $this->do_get( $this->get_slug(), [], [], $args );
@@ -129,7 +129,7 @@ abstract class ApiController {
     /**
      * Get query params from link
      *
-     * @param string $href
+     * @param string $href Link.
      *
      * @return array
      */
