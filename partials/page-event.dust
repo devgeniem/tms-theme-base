@@ -45,7 +45,7 @@
                                 </div>
 
                                 {?share_links}
-                                    <div class="columns is-variable">
+                                    <div class="columns is-variable is-8">
                                         <div class="column is-offset-1-desktop">
                                             <div class="entry__share-links">
                                                 <h2 class="h6 mt-6 mb-6 has-text-secondary-invert">
