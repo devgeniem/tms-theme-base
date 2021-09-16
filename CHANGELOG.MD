@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DR-6 #168
     - Reduce fly-out-nav brand logo size
     - Change logo to a proper vector file
+- Feat/roles #170
+    - Add Dynamic Event capabilities to Admins, Site Managers and Authors
+    - Add TablePress capabilities to Admins and Site Managers
 
 ## [1.14.0]
 
