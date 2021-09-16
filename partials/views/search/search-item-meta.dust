@@ -1,13 +1,13 @@
 {?meta}
-    <div class="search-item-meta is-flex">
+    <div class="search-item__meta is-flex">
         {?meta.date}
-            <div class="search-item-meta--item">
+            <div class="search-item__meta-item">
                 <time datetime="{meta.date.date|s}">{meta.date.date_formatted|s}</time>
             </div>
         {/meta.date}
 
         {?meta.category}
-            <div class="search-item-meta--item">
+            <div class="search-item__meta-item">
                 <a href="{meta.category.permalink}">
                     {meta.category.name|s}
                 </a>

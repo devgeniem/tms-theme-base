@@ -55,10 +55,10 @@ class Search extends BaseModel {
      */
     private function enrich_results( $posts ) {
         foreach ( $posts as $post_item ) {
-            $meta = '';
-
             switch ( $post_item->post_type ) {
                 case Page::SLUG:
+                    $post_item->content_type = __( 'Page', 'tms-theme-base' );
+
                     $meta = dustpress()->render( [
                         'partial' => 'breadcrumbs',
                         'type'    => 'html',
@@ -74,6 +74,8 @@ class Search extends BaseModel {
 
                     break;
                 case Post::SLUG:
+                    $post_item->content_type = __( 'Article', 'tms-theme-base' );
+
                     $meta = $this->format_result_item_meta(
                         $post_item,
                         Post::get_primary_category( $post_item->ID )
@@ -81,6 +83,8 @@ class Search extends BaseModel {
 
                     break;
                 case BlogArticle::SLUG:
+                    $post_item->content_type = __( 'Blog', 'tms-theme-base' );
+
                     $meta = $this->format_result_item_meta(
                         $post_item,
                         BlogArticle::get_primary_category( $post_item->ID )
@@ -93,8 +97,8 @@ class Search extends BaseModel {
                     break;
             }
 
-            $post_item->meta      = $meta;
-            $post_item->permalink = get_permalink( $post_item->ID );
+            $post_item->result_meta = $meta;
+            $post_item->permalink   = get_permalink( $post_item->ID );
         }
 
         return $posts;

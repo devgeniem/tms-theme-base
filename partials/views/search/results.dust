@@ -1,21 +1,28 @@
-<div>
-
+<div class="search-item">
     <p>{results.summary|s}</p>
 
     {#results.posts}
-        <div class="has-background-secondary">
-            {?meta}
-                {meta|s}
-            {/meta}
+        <div class="mb-4 p-4 p-6-tablet p-8-desktop has-background-secondary">
+            {?result_meta}
+                <div class="search-item__meta-container has-text-weight-medium">
+                    {result_meta|s}
+                </div>
+            {/result_meta}
 
-            <h2>
+            <h2 class="h5 mt-4 mb-4 search-item__title">
                 <a href="{permalink}" class="">
                     {post_title|s}
                 </a>
             </h2>
 
+            {?content_type}
+                <span class="pill is-white is-bordered">
+                    {content_type|s}
+                </span>
+            {/content_type}
+
             {?post_excerpt}
-                <p>
+                <p class="mt-4 mb-0">
                     {post_excerpt|s}
                 </p>
             {/post_excerpt}
