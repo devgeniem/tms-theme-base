@@ -1,14 +1,17 @@
 .search-item {
-    a {
-        color: inherit;
+    &__meta-item,
+    &__title {
+        a {
+            color: inherit;
 
-        .is-hovered,
-        &:hover,
-        .is-focused,
-        &:focus,
-        .is-active,
-        &:active {
-            color: $primary-dark;
+            .is-hovered,
+            &:hover,
+            .is-focused,
+            &:focus,
+            .is-active,
+            &:active {
+                color: $primary-dark;
+            }
         }
     }
 
@@ -34,6 +37,10 @@
                 a {
                     padding-right: .25rem;
                     color: inherit;
+
+                    &:not(:hover) {
+                        text-decoration: none;
+                    }
                 }
 
                 &:first-child {
