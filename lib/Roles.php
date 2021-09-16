@@ -131,6 +131,27 @@ class Roles implements Controller {
     ];
 
     /**
+     * Dynamic Event / dynamic-event-cpt.
+     *
+     * @var array
+     */
+    private $dynamic_event_all_capabilities = [
+        'edit_dynamic_event',
+        'read_dynamic_event',
+        'delete_dynamic_event',
+        'edit_others_dynamic_events',
+        'delete_dynamic_events',
+        'publish_dynamic_events',
+        'read_private_dynamic_events',
+        'delete_private_dynamic_events',
+        'delete_published_dynamic_events',
+        'delete_others_dynamic_events',
+        'edit_private_dynamic_events',
+        'edit_published_dynamic_events',
+        'edit_dynamic_events',
+    ];
+
+    /**
      * Base taxonomy capabilities, only for admins.
      *
      * @var string[]
@@ -395,6 +416,7 @@ class Roles implements Controller {
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
