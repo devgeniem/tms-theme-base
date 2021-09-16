@@ -9,12 +9,14 @@ use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
+use TMS\Theme\Base\Traits\Sharing;
 
 /**
  * The PageEvent class.
  */
 class PageEvent extends BaseModel {
 
+    use Sharing;
     use Components;
 
     /**
