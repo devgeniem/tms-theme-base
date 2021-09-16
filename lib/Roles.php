@@ -188,6 +188,23 @@ class Roles implements Controller {
     ];
 
     /**
+     * Tablepress capabilities
+     *
+     * @var string[]
+     */
+    private $tablepress_all_capabilities = [
+        'tablepress_edit_tables',
+        'tablepress_delete_tables',
+        'tablepress_list_tables',
+        'tablepress_add_tables',
+        'tablepress_copy_tables',
+        'tablepress_import_tables',
+        'tablepress_export_tables',
+        'tablepress_access_options_screen',
+        'tablepress_access_about_screen',
+    ];
+
+    /**
      * Hooks
      */
     public function hooks() : void {
@@ -438,6 +455,8 @@ class Roles implements Controller {
                 'customize.php',
             ],
         ] );
+
+        $role->add_caps( $this->tablepress_all_capabilities );
 
         $role = apply_filters( 'tms/roles/editor', $role );
         $role->rename( _x( 'Site Manager', 'wp-geniem-roles', 'tms-theme-base' ) );
