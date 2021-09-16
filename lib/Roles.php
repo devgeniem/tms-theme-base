@@ -379,6 +379,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -483,6 +484,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
