@@ -1,4 +1,10 @@
 .search-item {
+    &__inner {
+        @include from($desktop) {
+            margin-right: 8.06rem;
+        }
+    }
+
     &__meta-item,
     &__title {
         a {
