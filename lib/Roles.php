@@ -397,6 +397,8 @@ class Roles implements Controller {
             'promote_user',
         ] );
 
+        $role->add_caps( $this->tablepress_all_capabilities );
+
         $role->remove_caps( $this->remove_from_all );
 
         // Remove administration pages
