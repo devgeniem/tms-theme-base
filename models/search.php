@@ -40,9 +40,14 @@ class Search extends BaseModel {
         );
 
         return [
-            'summary' => $results_text,
-            'posts'   => $wp_query->have_posts() ? $this->enrich_results( $wp_query->posts ) : [],
-            'query'   => $wp_query,
+            'summary'    => $results_text,
+            'posts'      => $wp_query->have_posts() ? $this->enrich_results( $wp_query->posts ) : [],
+            'pagination' => [
+                'paged'          => $wp_query->query_vars['paged'],
+                'posts_per_page' => $wp_query->query_vars['posts_per_page'],
+                'found_posts'    => $wp_query->found_posts,
+                'max_num_pages'  => $wp_query->max_num_pages,
+            ],
         ];
     }
 

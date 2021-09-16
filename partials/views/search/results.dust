@@ -1,4 +1,4 @@
-<div class="search-item">
+<div class="search__results">
     <p>{results.summary|s}</p>
 
     {#results.posts}
@@ -28,4 +28,8 @@
             {/post_excerpt}
         </div>
     {/results.posts}
+
+    {?results.pagination}
+        {@pagination page=results.pagination.paged per_page=results.pagination.posts_per_page items=results.pagination.found_posts /}
+    {/results.pagination}
 </div>
