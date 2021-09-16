@@ -1,0 +1,51 @@
+.search-item {
+    a {
+        color: inherit;
+
+        .is-hovered,
+        &:hover,
+        .is-focused,
+        &:focus,
+        .is-active,
+        &:active {
+            color: $primary-dark;
+        }
+    }
+
+    &__title {
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__meta-item {
+        &:not(:first-child) {
+            &::before {
+                content: "|";
+                margin-right: .175rem;
+                margin-left: .175rem;
+            }
+        }
+    }
+
+    &__meta-container {
+        .breadcrumbs__nav {
+            li {
+                a {
+                    padding-right: .25rem;
+                    color: inherit;
+                }
+
+                &:first-child {
+                    a {
+                        padding-right: .25rem;
+                    }
+                }
+
+                span {
+                    margin-left: .25rem !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}
