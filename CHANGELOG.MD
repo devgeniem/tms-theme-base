@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-220: Event Calendar template description field #165
+- TMS-203: Add share buttons to Event page template #169
 
 ### Changed
 
