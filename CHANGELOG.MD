@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-220: Event Calendar template description field #165
+- TMS-203: Add share buttons to Event page template #169
+
+### Changed
+
+- DR-6 #168
+    - Reduce fly-out-nav brand logo size
+    - Change logo to a proper vector file
+
 ## [1.14.0]
 
 ### Fixed
