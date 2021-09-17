@@ -21,7 +21,7 @@ class Search extends BaseModel {
     const SEARCH_CPT_QUERY_VAR = 'search_post_types';
 
     /**
-     * This run all class hooks. The method is called in the Setup class.
+     * Hooks
      *
      * @return void
      */
