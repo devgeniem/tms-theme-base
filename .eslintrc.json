@@ -14,6 +14,10 @@
             "warn",
             4
         ],
+        "operator-linebreak": [
+            "error",
+            "before"
+        ],
         "yoda": [
             2,
             "never"

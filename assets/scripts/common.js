@@ -353,11 +353,11 @@ export default class Common {
      * @return {boolean} True or false.
      */
     static empty( param ) {
-        return typeof param === 'undefined' ||
-            param === '' ||
-            param === null ||
-            param === false ||
-            param.length === 0;
+        return typeof param === 'undefined'
+            || param === ''
+            || param === null
+            || param === false
+            || param.length === 0;
     }
 
     /**

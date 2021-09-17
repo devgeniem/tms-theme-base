@@ -7,17 +7,50 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Modified
+### Changed
 - TMS-218: Make page ACF group rules filterable #161
+
+## [1.15.0]
+
+### Added
+
+- TMS-220: Event Calendar template description field #165
+- TMS-203: Add share buttons to Event page template #169
+
+### Changed
+
+- DR-6 #168
+    - Reduce fly-out-nav brand logo size
+    - Change logo to a proper vector file
+- Feat/roles #170
+    - Add Dynamic Event capabilities to Admins, Site Managers and Authors
+    - Add TablePress capabilities to Admins and Site Managers
+
+## [1.14.0]
+
+### Fixed
+
+- TMS-208-1: Disable event API locations #162
+- TMS-208-1: Allow all keywords on event search #162
+
+### Added
+
+- Enable redipress MySQL fallback #163
+
+### Changed
+
+- NPM(deps-dev): Bump eslint from 6.8.0 to 7.32.0 #116
 
 ## [1.13.0]
 
 ### Fixed
+
 - TMS-102-0909: Share links block link classes #160
 
 ## [1.12.0]
 
 ### Added
+
 - TMS-102-0709: Add translations #158
 - TMS-193: Add filters & variables for customizing theme look & feel #156
 

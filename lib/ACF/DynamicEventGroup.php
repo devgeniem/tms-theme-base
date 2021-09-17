@@ -229,9 +229,8 @@ class DynamicEventGroup {
         );
 
         $keywords = [];
-        $sets     = array_filter( $response, fn( $set ) => $set->usage === 'keyword' );
 
-        foreach ( $sets as $set ) {
+        foreach ( $response as $set ) {
             if ( empty( $set->keywords ) ) {
                 continue;
             }
@@ -258,6 +257,9 @@ class DynamicEventGroup {
         if ( ! is_admin() ) {
             return $field;
         }
+
+        // Return field without choices due to API problems.
+        return $field;
 
         return $this->fill_choices_from_response(
             $field,
