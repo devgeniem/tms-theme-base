@@ -97,7 +97,7 @@ class Search extends BaseModel {
 
                     break;
                 default:
-                    $meta = $this->format_result_item_meta( $post_item->ID );
+                    $meta = $this->format_result_item_meta( $post_item );
 
                     break;
             }
