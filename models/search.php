@@ -54,6 +54,20 @@ class Search extends BaseModel {
     }
 
     /**
+     * Get template classes.
+     *
+     * @return array
+     */
+    public function template_classes() {
+        return apply_filters(
+            'tms/theme/search/search_item',
+            [
+                'search_item' => apply_filters( 'tms', 'has-background-secondary' ),
+            ]
+        );
+    }
+
+    /**
      * Enrich results.
      *
      * @param array $posts Posts.
