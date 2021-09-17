@@ -1,3 +1,5 @@
+$search-item-hover: $primary-dark !default;
+
 .search-item {
     &__inner {
         @include from($desktop) {
@@ -13,7 +15,7 @@
             &:hover,
             &:focus,
             &:active {
-                color: $primary-dark;
+                color: $search-item-hover;
             }
         }
     }

@@ -17,7 +17,7 @@
                 </h2>
 
                 {?content_type}
-                    <span class="pill is-white is-bordered">
+                    <span class="pill has-background-primary-invert has-text-primary is-bordered">
                         {content_type|s}
                     </span>
                 {/content_type}

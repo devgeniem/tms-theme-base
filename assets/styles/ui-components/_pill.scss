@@ -75,29 +75,6 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         }
     }
 
-    &.is-white {
-        background-color: $white;
-        border: 1px solid $pill-background-color;
-
-        &:not(span) {
-            &:hover,
-            &:focus {
-                text-decoration: underline;
-            }
-        }
-
-        &.is-bordered {
-            border: 2px solid $black;
-
-            &:not(span) {
-                &:hover,
-                &:focus {
-                    background-color: $white;
-                }
-            }
-        }
-    }
-
     &.is-primary {
         color: $primary-invert;
         background-color: $primary;

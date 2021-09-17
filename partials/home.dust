@@ -13,7 +13,7 @@
                         </div>
                     </div>
 
-                    {>"views/home/home-highlight" category_link_classes="is-white is-borderless" /}
+                    {>"views/home/home-highlight" category_link_classes="has-background-primary-invert has-text-primary" /}
 
                     {>"views/home/home-filters" /}
 
