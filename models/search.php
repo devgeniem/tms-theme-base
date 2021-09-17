@@ -26,8 +26,9 @@ class Search extends BaseModel {
 
         $search_clause = get_search_query();
         $result_count  = $wp_query->found_posts;
-        $results_text  = $wp_query->have_posts()
-            ? sprintf(
+
+        if ( $wp_query->have_posts() ) {
+            $results_text = sprintf(
             // translators: 1. placeholder is number of search results, 2. placeholder contains the search term(s).
                 _nx(
                     '%1$1s result found for "%2$2s"',
@@ -38,8 +39,11 @@ class Search extends BaseModel {
                 ),
                 $result_count,
                 $search_clause
-            )
-            : __( 'No search results', 'tms-theme-base' );
+            );
+        }
+        else {
+            $results_text = __( 'No search results', 'tms-theme-base' );
+        }
 
         return [
             'summary'    => $results_text,
