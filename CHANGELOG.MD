@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Modified
+- TMS-218: Make page ACF group rules filterable #161
+
 ## [1.13.0]
 
 ### Fixed
