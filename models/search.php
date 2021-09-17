@@ -54,6 +54,20 @@ class Search extends BaseModel {
     }
 
     /**
+     * Get template classes.
+     *
+     * @return array
+     */
+    public function template_classes() {
+        return apply_filters(
+            'tms/theme/search/search_item',
+            [
+                'search_item' => apply_filters( 'tms', 'has-background-secondary' ),
+            ]
+        );
+    }
+
+    /**
      * Enrich results.
      *
      * @param array $posts Posts.
@@ -64,7 +78,7 @@ class Search extends BaseModel {
         foreach ( $posts as $post_item ) {
             switch ( $post_item->post_type ) {
                 case Page::SLUG:
-                    $post_item->content_type = __( 'Page', 'tms-theme-base' );
+                    $post_item->content_type = get_post_type_object( Page::SLUG )->labels->singular_name;
 
                     $meta = dustpress()->render( [
                         'partial' => 'breadcrumbs',
@@ -81,7 +95,7 @@ class Search extends BaseModel {
 
                     break;
                 case Post::SLUG:
-                    $post_item->content_type = __( 'Article', 'tms-theme-base' );
+                    $post_item->content_type = get_post_type_object( Post::SLUG )->labels->singular_name;
 
                     $meta = $this->format_result_item_meta(
                         $post_item,
@@ -90,7 +104,7 @@ class Search extends BaseModel {
 
                     break;
                 case BlogArticle::SLUG:
-                    $post_item->content_type = __( 'Blog', 'tms-theme-base' );
+                    $post_item->content_type = get_post_type_object( BlogArticle::SLUG )->labels->singular_name;
 
                     $meta = $this->format_result_item_meta(
                         $post_item,

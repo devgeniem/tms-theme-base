@@ -64,6 +64,11 @@
 
         .has-text-#{$name} {
             color: $color !important;
+
+            &-invert,
+            &.is-inverted {
+                color: $color-invert !important;
+            }
         }
 
         a.has-text-#{$name} {
