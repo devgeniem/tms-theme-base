@@ -36,8 +36,12 @@ class AttachmentGroup {
                 'title' => 'Lisäkentät',
             ],
             'author' => [
-                'title' => 'Tekijän nimi',
+                'title' => 'Kuvaajan nimi',
                 'help'  => 'Muista kuvaoikeudet!',
+            ],
+            'artist' => [
+                'title' => 'Taiteilijan nimi',
+                'help'  => 'Käytetään teoksen otsikon yhteydessä useassa komponentissa ja lohkossa',
             ],
         ];
     }
@@ -62,6 +66,7 @@ class AttachmentGroup {
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
                     [
                         $this->get_author_field( $field_group->get_key() ),
+                        $this->get_artist_field( $field_group->get_key() ),
                     ]
                 )
             );
@@ -91,6 +96,22 @@ class AttachmentGroup {
             ->set_key( $key . '_author_name' )
             ->set_name( 'author_name' )
             ->set_instructions( $this->strings['author']['help'] )
+            ->set_default_value( '' );
+    }
+
+    /**
+     * Artist name.
+     *
+     * @param string $key Group Key.
+     *
+     * @return \Geniem\ACF\Field\Text
+     * @throws \Geniem\ACF\Exception Throw error if mandatory property (field label) is not set.
+     */
+    private function get_artist_field( string $key = '' ) : Field\Text {
+        return ( new Field\Text( $this->strings['artist']['title'] ) )
+            ->set_key( $key . '_artist_name' )
+            ->set_name( 'artist_name' )
+            ->set_instructions( $this->strings['artist']['help'] )
             ->set_default_value( '' );
     }
 }

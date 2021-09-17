@@ -42,30 +42,36 @@ class CallToActionFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'rows'        => [
+            'rows'           => [
                 'label'        => 'Nostot',
                 'instructions' => '',
                 'button'       => 'Lisää rivi',
             ],
-            'layout'      => [
+            'layout'         => [
                 'label'        => 'Asettelu',
                 'instructions' => '',
             ],
-            'image'       => [
+            'image'          => [
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'title'       => [
+            'title'          => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
+            'description'    => [
                 'label'        => 'Teksti',
                 'instructions' => '',
             ],
-            'link'        => [
+            'link'           => [
                 'label'        => 'Linkki',
                 'instructions' => '',
+            ],
+            'display_artist' => [
+                'label'        => 'Kuvan tekijätiedot',
+                'instructions' => 'Näytetäänkö kuvan alla kuvan tekijätiedot?',
+                'on'           => 'Näytetään',
+                'off'          => 'Ei näytetä',
             ],
         ];
 
@@ -113,7 +119,17 @@ class CallToActionFields extends Field\Group {
                 'is-image-first' => 'Kuva ensin',
                 'is-text-first'  => 'Teksti ensin',
             ] )
+            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['layout']['instructions'] );
+
+        $display_artist_field = ( new Field\TrueFalse( $strings['display_artist']['label'] ) )
+            ->set_key( "${key}_display_artist" )
+            ->set_name( 'display_artist' )
+            ->set_wrapper_width( 50 )
+            ->use_ui()
+            ->set_ui_off_text( $strings['display_artist']['off'] )
+            ->set_ui_on_text( $strings['display_artist']['on'] )
+            ->set_instructions( $strings['display_artist']['instructions'] );
 
         $rows_field->add_fields( [
             $image_field,
@@ -121,6 +137,7 @@ class CallToActionFields extends Field\Group {
             $description_field,
             $link_field,
             $layout_field,
+            $display_artist_field,
         ] );
 
         return [

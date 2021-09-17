@@ -42,6 +42,10 @@ class CallToActionFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $layout['rows'][ $row_key ]['container_class']    = 'is-reversed-desktop';
                 $layout['rows'][ $row_key ]['text_column_class'] .= ' is-offset-1-desktop';
             }
+
+            $row = ImageFormatter::get_image_artist( $row, (array) ( $row['image'] ?? null ) );
+
+            $layout['rows'][ $row_key ] = $row;
         }
 
         return $layout;

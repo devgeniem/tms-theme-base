@@ -42,30 +42,36 @@ class ContentColumnsFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'rows'         => [
+            'rows'           => [
                 'label'        => 'Nostot',
                 'instructions' => '',
                 'button'       => 'Lisää rivi',
             ],
-            'layout'       => [
+            'layout'         => [
                 'label'        => 'Asettelu',
                 'instructions' => '',
             ],
-            'aspect_ratio' => [
+            'aspect_ratio'   => [
                 'label'        => 'Mittasuhteet',
                 'instructions' => '',
             ],
-            'image'        => [
+            'image'          => [
                 'label'        => 'Kuva',
                 'instructions' => '',
             ],
-            'title'        => [
+            'title'          => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description'  => [
+            'description'    => [
                 'label'        => 'Teksti',
                 'instructions' => '',
+            ],
+            'display_artist' => [
+                'label'        => 'Kuvan tekijätiedot',
+                'instructions' => 'Näytetäänkö kuvan alla kuvan tekijätiedot?',
+                'on'           => 'Näytetään',
+                'off'          => 'Ei näytetä',
             ],
         ];
 
@@ -80,24 +86,24 @@ class ContentColumnsFields extends Field\Group {
             ->set_button_label( $strings['rows']['button'] )
             ->set_instructions( $strings['rows']['instructions'] );
 
-        $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
-            ->set_name( 'image' )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['image']['instructions'] );
-
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "${key}_title" )
             ->set_name( 'title' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 100 )
             ->set_instructions( $strings['title']['instructions'] );
+
+        $image_field = ( new Field\Image( $strings['image']['label'] ) )
+            ->set_key( "${key}_image" )
+            ->set_name( 'image' )
+            ->set_wrapper_width( 45 )
+            ->set_instructions( $strings['image']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
             ->set_key( "${key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
-            ->set_wrapper_width( 50 )
+            ->set_wrapper_width( 55 )
             ->set_instructions( $strings['description']['instructions'] );
 
         $layout_field = ( new Field\Radio( $strings['layout']['label'] ) )
@@ -107,7 +113,7 @@ class ContentColumnsFields extends Field\Group {
                 'is-image-first' => 'Kuva ensin',
                 'is-text-first'  => 'Teksti ensin',
             ] )
-            ->set_wrapper_width( 25 )
+            ->set_wrapper_width( 33 )
             ->set_instructions( $strings['layout']['instructions'] );
 
         $aspect_ratio_field = ( new Field\Radio( $strings['aspect_ratio']['label'] ) )
@@ -118,15 +124,25 @@ class ContentColumnsFields extends Field\Group {
                 '30-70' => '30/70',
                 '70-30' => '70/30',
             ] )
-            ->set_wrapper_width( 25 )
+            ->set_wrapper_width( 33 )
             ->set_instructions( $strings['aspect_ratio']['instructions'] );
 
+        $display_artist_field = ( new Field\TrueFalse( $strings['display_artist']['label'] ) )
+            ->set_key( "${key}_display_artist" )
+            ->set_name( 'display_artist' )
+            ->set_wrapper_width( 33 )
+            ->use_ui()
+            ->set_ui_off_text( $strings['display_artist']['off'] )
+            ->set_ui_on_text( $strings['display_artist']['on'] )
+            ->set_instructions( $strings['display_artist']['instructions'] );
+
         $rows_field->add_fields( [
-            $image_field,
             $title_field,
+            $image_field,
             $description_field,
             $layout_field,
             $aspect_ratio_field,
+            $display_artist_field,
         ] );
 
         return [
