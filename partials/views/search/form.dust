@@ -1,0 +1,35 @@
+<form action="{form.search_link}" class="search__form is-relative">
+    <div class="search-input-container">
+        <label for="search-input">
+            {Strings.header.search}
+        </label>
+
+        <input type="text" name="s" id="search-input" value="{form.search_term|s}" class="search__term"
+               autocomplete="off">
+
+        <button type="submit" class="search-form__button button button--icon {button_class|s}">
+            {Strings.s.header.search|s}
+            {>"ui/icon" icon="search" class="icon--medium"  /}
+        </button>
+    </div>
+
+    <div class="search-filters">
+        <div class="search-filters">
+            <div class="search-filters__group">
+                {#form.post_types}
+                    <div class="search-filters__label">
+                        {Form.filter_by_post_type}
+                    </div>
+
+                    <div class="search-filters__filter">
+                        <label class="is-block">
+                            <input type="checkbox" name="search_post_types[]" data-name="post_type" value="{slug}"
+                                   {?is_checked}checked{/is_checked}>
+                            {name|s}
+                        </label>
+                    </div>
+                {/form.post_types}
+            </div>
+        </div>
+    </div>
+</form>

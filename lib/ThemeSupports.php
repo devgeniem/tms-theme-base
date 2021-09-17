@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use Search;
+
 /**
  * Class ThemeSupports
  *
@@ -112,6 +114,7 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = 'filter-month';
         $vars[] = 'filter-year';
         $vars[] = 'event-id';
+        $vars[] = Search::SEARCH_CPT_QUERY_VAR;
         $vars[] = \PageContacts::SEARCH_QUERY_VAR;
 
         return $vars;
