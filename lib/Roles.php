@@ -131,6 +131,27 @@ class Roles implements Controller {
     ];
 
     /**
+     * Dynamic Event / dynamic-event-cpt.
+     *
+     * @var array
+     */
+    private $dynamic_event_all_capabilities = [
+        'edit_dynamic_event',
+        'read_dynamic_event',
+        'delete_dynamic_event',
+        'edit_others_dynamic_events',
+        'delete_dynamic_events',
+        'publish_dynamic_events',
+        'read_private_dynamic_events',
+        'delete_private_dynamic_events',
+        'delete_published_dynamic_events',
+        'delete_others_dynamic_events',
+        'edit_private_dynamic_events',
+        'edit_published_dynamic_events',
+        'edit_dynamic_events',
+    ];
+
+    /**
      * Base taxonomy capabilities, only for admins.
      *
      * @var string[]
@@ -164,6 +185,23 @@ class Roles implements Controller {
         'edit_material_types',
         'delete_material_types',
         'assign_material_types',
+    ];
+
+    /**
+     * Tablepress capabilities
+     *
+     * @var string[]
+     */
+    private $tablepress_all_capabilities = [
+        'tablepress_edit_tables',
+        'tablepress_delete_tables',
+        'tablepress_list_tables',
+        'tablepress_add_tables',
+        'tablepress_copy_tables',
+        'tablepress_import_tables',
+        'tablepress_export_tables',
+        'tablepress_access_options_screen',
+        'tablepress_access_about_screen',
     ];
 
     /**
@@ -341,6 +379,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -357,6 +396,8 @@ class Roles implements Controller {
             'manage_network_users',
             'promote_user',
         ] );
+
+        $role->add_caps( $this->tablepress_all_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -395,6 +436,7 @@ class Roles implements Controller {
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -416,6 +458,8 @@ class Roles implements Controller {
                 'customize.php',
             ],
         ] );
+
+        $role->add_caps( $this->tablepress_all_capabilities );
 
         $role = apply_filters( 'tms/roles/editor', $role );
         $role->rename( _x( 'Site Manager', 'wp-geniem-roles', 'tms-theme-base' ) );
@@ -442,6 +486,7 @@ class Roles implements Controller {
         $role->add_caps( $this->pages_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->dynamic_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );

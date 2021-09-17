@@ -43,6 +43,20 @@
                                         {>"views/single-dynamic-event/single-dynamic-event-info" /}
                                     </div>
                                 </div>
+
+                                {?share_links}
+                                    <div class="columns is-variable is-8">
+                                        <div class="column is-offset-1-desktop">
+                                            <div class="entry__share-links">
+                                                <h2 class="h6 mt-6 mb-6 has-text-secondary-invert">
+                                                    {Strings.s.share.share_to_social_media|s}
+                                                </h2>
+
+                                                {>"ui/share-links" ul_class="is-justify-content-flex-start" li_class="mr-4" /}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/share_links}
                             </div>
                         </div>
                     </div>
