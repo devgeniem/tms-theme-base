@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-213: Search results
+    - Add search results template partial
+    - Disable non-interactive pill state styles
+
 ## [1.15.0]
 
 ### Added
