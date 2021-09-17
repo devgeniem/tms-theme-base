@@ -7,8 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-217: Media library additions #172
+    - Added artist to attachment meta
+    - Created ImageFormatter::get_image_artist to dedupe code
+    - Added toggles to CallToAction and ContentColumns Fields
+    - Added display_artist logic to layouts
+    - Added title and artist information to image-block__meta
+
 ### Changed
+
 - TMS-218: Make page ACF group rules filterable #161
+- TMS-217: Media library additions #172
+    - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
 
 ## [1.15.0]
 
