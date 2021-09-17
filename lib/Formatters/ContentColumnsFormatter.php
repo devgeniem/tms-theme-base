@@ -75,6 +75,8 @@ class ContentColumnsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $item['text_col_class'] = implode( ' ', $item['text_col_class'] );
             $item['img_col_class']  = implode( ' ', $item['img_col_class'] );
 
+            $item = ImageFormatter::get_image_artist( $item, (array) ( $item['image'] ?? null ) );
+
             return $item;
         }, $layout['rows'] );
 
