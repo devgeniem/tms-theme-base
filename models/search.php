@@ -55,11 +55,11 @@ class Search extends BaseModel {
      * @param WP_Query $wp_query Instance of WP_Query.
      */
     public static function modify_query( WP_Query $wp_query ) {
-        if ( is_admin() || ( ! $wp_query->is_main_query() || ! $wp_query->is_search() ) ) {
+        if ( is_admin() || ( ! $wp_query->is_main_query() || ! is_search() ) ) {
             return;
         }
 
-        $selected_post_types = get_query_var( 'search_post_types', [] );
+        $selected_post_types = get_query_var( self::SEARCH_CPT_QUERY_VAR, [] );
 
         if ( empty( $selected_post_types ) ) {
             $selected_post_types = array_map( function ( $item ) {
