@@ -46,6 +46,10 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         if ( $image_id > 0 ) {
             $data['image_url_orig'] = $is_clickable ? ( $image['url'] ?? null ) : null;
+
+            if ( empty( $data['caption'] ) && ! empty( $image['caption'] ) ) {
+                $data['caption'] = $image['caption'] ?? '';
+            }
         }
 
         $data = self::get_image_artist( $data, (array) ( $data['image'] ?? null ) );
@@ -54,7 +58,9 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $data['align'] = $block['align'] ?? '';
         }
 
-        $data['image_caption'] = wp_strip_all_tags( $data['caption'] ?? '', true );
+        $data['image_caption'] = trim(
+            wp_strip_all_tags( $data['caption'] ?? '', true )
+        );
 
         if ( ! empty( $data['author_name'] ) ) {
             $data['image_caption'] .= ' (' . $data['author_name'] . ')';
