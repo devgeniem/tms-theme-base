@@ -2,7 +2,7 @@
     <p>{results.summary|s}</p>
 
     {#results.posts}
-        <div class="search-item mb-4 p-6 p-8-desktop has-background-secondary">
+        <div class="search-item mb-4 p-6 p-8-desktop {template_classes.search_item|s}">
             <div class="search-item__inner">
                 {?result_meta}
                     <div class="search-item__meta-container has-text-weight-medium">
@@ -17,7 +17,7 @@
                 </h2>
 
                 {?content_type}
-                    <span class="pill is-white is-bordered">
+                    <span class="pill has-background-primary-invert has-text-primary is-bordered">
                         {content_type|s}
                     </span>
                 {/content_type}

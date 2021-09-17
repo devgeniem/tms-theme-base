@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add search results template partial
     - Disable non-interactive pill state styles
 
+### Changed
+
+- TMS-218: Make page ACF group rules filterable #161
+
 ## [1.15.0]
 
 ### Added

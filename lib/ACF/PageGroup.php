@@ -26,7 +26,8 @@ class PageGroup {
     public function __construct() {
         add_action(
             'init',
-            \Closure::fromCallable( [ $this, 'register_fields' ] )
+            \Closure::fromCallable( [ $this, 'register_fields' ] ),
+            100
         );
     }
 
@@ -36,17 +37,56 @@ class PageGroup {
     protected function register_fields() : void {
         try {
             $group_title = _x( 'Page Components', 'theme ACF', 'tms-theme-base' );
+            $key         = 'fg_page_components';
 
             $field_group = ( new Group( $group_title ) )
-                ->set_key( 'fg_page_components' );
+                ->set_key( $key );
 
-            $rule_group = ( new RuleGroup() )
-                ->add_rule( 'post_type', '==', PostType\Page::SLUG )
-                ->add_rule( 'page_template', '!=', \PageFrontPage::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageOnepager::TEMPLATE )
-                ->add_rule( 'page_template', '!=', \PageEventsCalendar::TEMPLATE )
-                ->add_rule( 'page_type', '!=', 'posts_page' );
+            $rules = apply_filters(
+                'tms/acf/group/' . $key . '/rules',
+                [
+                    [
+                        'param'    => 'post_type',
+                        'operator' => '==',
+                        'value'    => PostType\Page::SLUG,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageFrontPage::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageEventsCalendar::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageOnepager::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageEventsCalendar::TEMPLATE,
+                    ],
+                    [
+                        'param'    => 'page_type',
+                        'operator' => '!=',
+                        'value'    => 'posts_page',
+                    ],
+                ]
+            );
+
+            $rule_group = new RuleGroup();
+
+            foreach ( $rules as $rule ) {
+                $rule_group->add_rule(
+                    $rule['param'],
+                    $rule['operator'],
+                    $rule['value'],
+                );
+            }
 
             $field_group
                 ->add_rule_group( $rule_group )
