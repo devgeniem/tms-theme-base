@@ -26,18 +26,20 @@ class Search extends BaseModel {
 
         $search_clause = get_search_query();
         $result_count  = $wp_query->found_posts;
-        $results_text  = sprintf(
-        // translators: 1. placeholder is number of search results, 2. placeholder contains the search term(s).
-            _nx(
-                '%1$1s result found for "%2$2s"',
-                '%1$1s results found for "%2$2s"',
+        $results_text  = $wp_query->have_posts()
+            ? sprintf(
+            // translators: 1. placeholder is number of search results, 2. placeholder contains the search term(s).
+                _nx(
+                    '%1$1s result found for "%2$2s"',
+                    '%1$1s results found for "%2$2s"',
+                    $result_count,
+                    'search results summary',
+                    'tms-theme-base'
+                ),
                 $result_count,
-                'search results summary',
-                'tms-theme-base'
-            ),
-            $result_count,
-            $search_clause
-        );
+                $search_clause
+            )
+            : __( 'No search results', 'tms-theme-base' );
 
         return [
             'summary'    => $results_text,
@@ -97,7 +99,7 @@ class Search extends BaseModel {
 
                     break;
                 default:
-                    $meta = $this->format_result_item_meta( $post_item->ID );
+                    $meta = $this->format_result_item_meta( $post_item );
 
                     break;
             }

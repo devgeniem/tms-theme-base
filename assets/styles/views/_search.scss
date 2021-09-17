@@ -28,11 +28,14 @@
     }
 
     &__meta-item {
+        font-size: $size-7;
+        font-weight: $weight-medium;
+
         &:not(:first-child) {
             &::before {
                 content: "|";
-                margin-right: .175rem;
-                margin-left: .175rem;
+                margin-right: .1rem;
+                margin-left: .25rem;
             }
         }
     }
