@@ -66,7 +66,7 @@ class Search extends BaseModel {
         return apply_filters(
             'tms/theme/search/search_item',
             [
-                'search_item' => apply_filters( 'tms', 'has-background-secondary' ),
+                'search_item' => 'has-background-secondary',
             ]
         );
     }
