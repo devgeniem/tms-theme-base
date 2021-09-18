@@ -35,24 +35,10 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
 
-        add_filter( 'acf/load_field/name=api_contacts', function ( $field ) {
-            $api      = new PersonApiController();
-            $contacts = $api->validate_result_set( $api->get() );
-
-            if ( empty( $contacts ) ) {
-                return $field;
-            }
-
-            foreach ( $contacts as $contact ) {
-                $field['choices'][ $contact->id ] = sprintf(
-                    '%s %s',
-                    $contact->field_first_names,
-                    $contact->field_last_name
-                );
-            }
-
-            return $field;
-        } );
+        add_filter(
+            'acf/load_field/name=api_contacts',
+            [ $this, 'fill_api_contacts_field_choices' ]
+        );
     }
 
     /**
@@ -156,5 +142,31 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             $contacts_field,
             $fields_field,
         ];
+    }
+
+    /**
+     * Fill API contacts field choices
+     *
+     * @param array $field ACF field.
+     *
+     * @return array
+     */
+    public function fill_api_contacts_field_choices( array $field ) : array {
+        $api      = new PersonApiController();
+        $contacts = $api->validate_result_set( $api->get() );
+
+        if ( empty( $contacts ) ) {
+            return $field;
+        }
+
+        foreach ( $contacts as $contact ) {
+            $field['choices'][ $contact->id ] = sprintf(
+                '%s %s',
+                $contact->field_first_names,
+                $contact->field_last_name
+            );
+        }
+
+        return $field;
     }
 }
