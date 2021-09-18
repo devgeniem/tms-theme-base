@@ -80,22 +80,17 @@ class Search extends BaseModel {
      */
     private function enrich_results( $posts ) {
         foreach ( $posts as $post_item ) {
+            $meta = false;
+
             switch ( $post_item->post_type ) {
                 case Page::SLUG:
                     $post_item->content_type = get_post_type_object( Page::SLUG )->labels->singular_name;
-
-                    $meta = dustpress()->render( [
-                        'partial' => 'breadcrumbs',
-                        'type'    => 'html',
-                        'echo'    => false,
-                        'data'    => [
-                            'breadcrumbs' => $this->format_page(
-                                $post_item->ID,
-                                '',
-                                [ $this->get_home_link() ]
-                            ),
-                        ],
-                    ] );
+                    $post_item->breadcrumbs  = $this->prepare_by_type(
+                        Page::SLUG,
+                        $post_item->ID,
+                        '',
+                        [ $this->get_home_link() ],
+                    );
 
                     break;
                 case Post::SLUG:
