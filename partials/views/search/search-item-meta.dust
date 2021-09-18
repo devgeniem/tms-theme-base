@@ -2,7 +2,7 @@
     <div class="search-item__meta is-flex">
         {?meta.date}
             <div class="search-item__meta-item">
-                <time datetime="{meta.date.date|s}">{@strtodate value=meta.post_date /}</time>
+                <time datetime="{meta.date|s}">{@strtodate value=meta.date /}</time>
             </div>
         {/meta.date}
 
