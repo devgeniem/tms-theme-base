@@ -117,8 +117,8 @@ class Search extends BaseModel {
                     break;
             }
 
-            $post_item->result_meta = $meta;
-            $post_item->permalink   = get_permalink( $post_item->ID );
+            $post_item->meta      = $meta;
+            $post_item->permalink = get_permalink( $post_item->ID );
         }
 
         return $posts;
@@ -130,13 +130,10 @@ class Search extends BaseModel {
      * @param WP_Post      $post_item Result item post object.
      * @param WP_Term|null $tax_term  Related tax term.
      *
-     * @return string|bool Meta as html.
+     * @return array        Meta data.
      */
     private function format_result_item_meta( $post_item, $tax_term = null ) {
-        $meta_data['date'] = [
-            'date_formatted' => get_the_date( '', $post_item->ID ),
-            'date'           => $post_item->post_date,
-        ];
+        $meta_data['date'] = $post_item->post_date;
 
         if ( ! empty( $tax_term ) ) {
             $meta_data['category'] = [
@@ -145,13 +142,6 @@ class Search extends BaseModel {
             ];
         }
 
-        return dustpress()->render( [
-            'partial' => 'search-item-meta',
-            'type'    => 'html',
-            'echo'    => false,
-            'data'    => [
-                'meta' => $meta_data,
-            ],
-        ] );
+        return $meta_data;
     }
 }
