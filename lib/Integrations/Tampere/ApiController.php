@@ -82,9 +82,16 @@ abstract class ApiController {
     /**
      * Get all pages from API
      *
-     * @return array
+     * @return mixed
      */
     public function get() {
+        $cache_key = 'tampere-drupal-' . $this->get_slug();
+        $results   = wp_cache_get( $cache_key );
+
+        if ( $results ) {
+            return $results;
+        }
+
         $args = [
             'headers' => [],
             'timeout' => 30,
@@ -96,7 +103,13 @@ abstract class ApiController {
             $args['headers']['Authorization'] = 'Basic ' . base64_encode( $basic_auth_key ); // phpcs:ignore
         }
 
-        return $this->do_get( $this->get_slug(), [], [], $args );
+        $results = $this->do_get( $this->get_slug(), [], [], $args );
+
+        if ( $results ) {
+            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 2 );
+        }
+
+        return $results;
     }
 
     /**
