@@ -29,7 +29,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
     /**
      * Map api contacts to post like arrays
      *
-     * @param array    $ids           Array of API ID's
+     * @param array    $ids           Array of API ID's.
      * @param array    $field_keys    Array of field keys to be displayed.
      * @param int|null $default_image Default image.
      *
@@ -47,7 +47,10 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return [];
         }
 
-        $contacts = array_map( fn( $contact ) => ( new PersonFacade( $contact ) )->to_contact(), $contacts );
+        $contacts = array_map(
+            fn( $contact ) => ( new PersonFacade( $contact ) )->to_contact( $default_image ),
+            $contacts
+        );
         $contacts = array_filter( $contacts, function ( $contact ) use ( $ids ) {
             return in_array( $contact['id'], $ids, true );
         } );
