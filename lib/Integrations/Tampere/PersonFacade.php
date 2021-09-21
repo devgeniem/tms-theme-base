@@ -18,6 +18,8 @@ class PersonFacade {
     private object $fields;
 
     /**
+     * Constructor
+     *
      * @param object $fields API Contact fields.
      */
     public function __construct( object $fields ) {
@@ -48,6 +50,7 @@ class PersonFacade {
 
     /**
      * Format API response item to contact
+     *
      * @return array
      */
     public function to_contact() : array {
