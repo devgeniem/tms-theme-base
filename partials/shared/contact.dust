@@ -5,7 +5,7 @@
                 {?image}
                     <div class="column is-12-mobile is-12-tablet is-4-desktop">
                         <div class="image is-3by4">
-                            {@image id=image size="medium" class="objectfit-image" /}
+                            <img src="{image}" alt="" class="objectfit-image">
                         </div>
                     </div>
                 {/image}

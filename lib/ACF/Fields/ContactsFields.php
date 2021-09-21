@@ -5,7 +5,9 @@
 
 namespace TMS\Theme\Base\ACF\Fields;
 
+use Exception;
 use Geniem\ACF\Field;
+use TMS\Theme\Base\Integrations\Tampere\PersonApiController;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType\Contact;
 
@@ -29,9 +31,14 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
         try {
             $this->add_fields( $this->sub_fields() );
         }
-        catch ( \Exception $e ) {
+        catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
+
+        add_filter(
+            'acf/load_field/name=api_contacts',
+            [ $this, 'fill_api_contacts_field_choices' ]
+        );
     }
 
     /**
@@ -42,19 +49,23 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'       => [
+            'title'        => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
+            'description'  => [
                 'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
-            'contacts'    => [
+            'contacts'     => [
                 'label'        => 'Yhteystiedot',
                 'instructions' => '',
             ],
-            'fields'      => [
+            'api_contacts' => [
+                'label'        => 'Tampere-sivuston yhteystiedot',
+                'instructions' => '',
+            ],
+            'fields'       => [
                 'label'         => 'Näytettävät kentät',
                 'instructions'  => '',
                 'choices'       => [
@@ -102,6 +113,14 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['description']['instructions'] );
 
+        $api_contacts_field = ( new Field\Select( $strings['api_contacts']['label'] ) )
+            ->set_key( "${key}_api_contacts" )
+            ->set_name( 'api_contacts' )
+            ->allow_multiple()
+            ->allow_null()
+            ->use_ui()
+            ->set_instructions( $strings['api_contacts']['instructions'] );
+
         $contacts_field = ( new Field\Relationship( $strings['contacts']['label'] ) )
             ->set_key( "${key}_contacts" )
             ->set_name( 'contacts' )
@@ -119,8 +138,35 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
         return [
             $title_field,
             $description_field,
+            $api_contacts_field,
             $contacts_field,
             $fields_field,
         ];
+    }
+
+    /**
+     * Fill API contacts field choices
+     *
+     * @param array $field ACF field.
+     *
+     * @return array
+     */
+    public function fill_api_contacts_field_choices( array $field ) : array {
+        $api      = new PersonApiController();
+        $contacts = $api->validate_result_set( $api->get() );
+
+        if ( empty( $contacts ) ) {
+            return $field;
+        }
+
+        foreach ( $contacts as $contact ) {
+            $field['choices'][ $contact->id ] = sprintf(
+                '%s %s',
+                $contact->field_first_names,
+                $contact->field_last_name
+            );
+        }
+
+        return $field;
     }
 }
