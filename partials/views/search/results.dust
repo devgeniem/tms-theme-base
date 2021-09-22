@@ -4,11 +4,17 @@
     {#results.posts}
         <div class="search-item mb-4 p-6 p-8-desktop {template_classes.search_item|s}">
             <div class="search-item__inner">
-                {?result_meta}
+                {?breadcrumbs}
                     <div class="search-item__meta-container has-text-weight-medium">
-                        {result_meta|s}
+                        {>"breadcrumbs" /}
                     </div>
-                {/result_meta}
+                {/breadcrumbs}
+
+                {?meta}
+                    <div class="search-item__meta-container has-text-weight-medium">
+                        {>"views/search/search-item-meta"  /}
+                    </div>
+                {/meta}
 
                 <h2 class="h5 mt-4 mb-4 search-item__title">
                     <a href="{permalink}" class="">

@@ -81,8 +81,9 @@ class Search extends BaseModel {
 
         $search_clause = get_search_query();
         $result_count  = $wp_query->found_posts;
-        $results_text  = $wp_query->have_posts()
-            ? sprintf(
+
+        if ( $wp_query->have_posts() ) {
+            $results_text = sprintf(
             // translators: 1. placeholder is number of search results, 2. placeholder contains the search term(s).
                 _nx(
                     '%1$1s result found for "%2$2s"',
@@ -93,8 +94,11 @@ class Search extends BaseModel {
                 ),
                 $result_count,
                 $search_clause
-            )
-            : __( 'No search results', 'tms-theme-base' );
+            );
+        }
+        else {
+            $results_text = __( 'No search results', 'tms-theme-base' );
+        }
 
         return [
             'summary'    => $results_text,
@@ -117,7 +121,7 @@ class Search extends BaseModel {
         return apply_filters(
             'tms/theme/search/search_item',
             [
-                'search_item' => apply_filters( 'tms', 'has-background-secondary' ),
+                'search_item' => 'has-background-secondary',
             ]
         );
     }
@@ -131,22 +135,17 @@ class Search extends BaseModel {
      */
     private function enrich_results( $posts ) {
         foreach ( $posts as $post_item ) {
+            $meta = false;
+
             switch ( $post_item->post_type ) {
                 case Page::SLUG:
                     $post_item->content_type = get_post_type_object( Page::SLUG )->labels->singular_name;
-
-                    $meta = dustpress()->render( [
-                        'partial' => 'breadcrumbs',
-                        'type'    => 'html',
-                        'echo'    => false,
-                        'data'    => [
-                            'breadcrumbs' => $this->format_page(
-                                $post_item->ID,
-                                '',
-                                [ $this->get_home_link() ]
-                            ),
-                        ],
-                    ] );
+                    $post_item->breadcrumbs  = $this->prepare_by_type(
+                        Page::SLUG,
+                        $post_item->ID,
+                        '',
+                        [ $this->get_home_link() ],
+                    );
 
                     break;
                 case Post::SLUG:
@@ -173,8 +172,8 @@ class Search extends BaseModel {
                     break;
             }
 
-            $post_item->result_meta = $meta;
-            $post_item->permalink   = get_permalink( $post_item->ID );
+            $post_item->meta      = $meta;
+            $post_item->permalink = get_permalink( $post_item->ID );
         }
 
         return $posts;
@@ -186,13 +185,10 @@ class Search extends BaseModel {
      * @param WP_Post      $post_item Result item post object.
      * @param WP_Term|null $tax_term  Related tax term.
      *
-     * @return string|bool Meta as html.
+     * @return array        Meta data.
      */
     private function format_result_item_meta( $post_item, $tax_term = null ) {
-        $meta_data['date'] = [
-            'date_formatted' => get_the_date( '', $post_item->ID ),
-            'date'           => $post_item->post_date,
-        ];
+        $meta_data['date'] = $post_item->post_date;
 
         if ( ! empty( $tax_term ) ) {
             $meta_data['category'] = [
@@ -201,14 +197,7 @@ class Search extends BaseModel {
             ];
         }
 
-        return dustpress()->render( [
-            'partial' => 'search-item-meta',
-            'type'    => 'html',
-            'echo'    => false,
-            'data'    => [
-                'meta' => $meta_data,
-            ],
-        ] );
+        return $meta_data;
     }
 
     /**
