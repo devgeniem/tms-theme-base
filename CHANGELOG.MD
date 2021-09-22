@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.16.0]
+
 ### Added
 
 - fix/display-virtual-event-link: Display virtual event link
-    - Display events virtual link 
+    - Display events virtual link
 - TMS-213: Search results
     - Add search results template partial
     - Disable non-interactive pill state styles
