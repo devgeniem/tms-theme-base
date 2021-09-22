@@ -18,9 +18,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-218: Make page ACF group rules filterable #161
 - TMS-217: Media library additions #172
     - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
+
+## [1.16.0]
+
+### Added
+
+- fix/display-virtual-event-link: Display virtual event link
+    - Display events virtual link
+- TMS-213: Search results
+    - Add search results template partial
+    - Disable non-interactive pill state styles
+
+### Changed
+
+- TMS-218: Make page ACF group rules filterable #161
 
 ## [1.15.0]
 

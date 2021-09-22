@@ -1,4 +1,17 @@
 {>"shared/base" /}
 
 {<content}
+    <main class="main-content" id="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-10 is-offset-1">
+                        {#Search}
+                            {>"views/search/results" /}
+                        {/Search}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 {/content}
