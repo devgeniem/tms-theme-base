@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.17.0] - 2021-09-23
+
 ### Added
 
 - TMS-217: Media library additions #172
@@ -21,7 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-217: Media library additions #172
     - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
 
-## [1.16.0]
+## [1.16.0] - 2021-09-22
 
 ### Added
 
@@ -35,7 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-218: Make page ACF group rules filterable #161
 
-## [1.15.0]
+## [1.15.0] - 2021-09-16
 
 ### Added
 
@@ -51,7 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add Dynamic Event capabilities to Admins, Site Managers and Authors
     - Add TablePress capabilities to Admins and Site Managers
 
-## [1.14.0]
+## [1.14.0] - 2021-09-13
 
 ### Fixed
 
@@ -66,13 +68,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - NPM(deps-dev): Bump eslint from 6.8.0 to 7.32.0 #116
 
-## [1.13.0]
+## [1.13.0] - 2021-09-10
 
 ### Fixed
 
 - TMS-102-0909: Share links block link classes #160
 
-## [1.12.0]
+## [1.12.0] - 2021-09-08
 
 ### Added
 
@@ -87,7 +89,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-102-0709: Removed comments from pages and posts #158
 - TMS-102-0709: Removed Gutenberg from component templates #158
 
-## [1.11.0]
+## [1.11.0] - 2021-09-07
 
 ### Added
 
@@ -100,7 +102,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-208: Dynamic event breadcrumbs #155
 - TMS-208: Subpage page order #155
 
-## [1.10.0]
+## [1.10.0] - 2021-09-02
 
 ### Added
 
@@ -118,7 +120,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-199: Fix button text wrapping in iOS #151
 - TMS-142: Fix to image carousel item height #153
 
-## [1.9.0]
+## [1.9.0] - 2021-09-01
 
 ### Added
 
