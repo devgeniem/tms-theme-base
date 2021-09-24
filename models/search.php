@@ -6,6 +6,7 @@
 use TMS\Theme\Base\PostType\BlogArticle;
 use TMS\Theme\Base\PostType\Page;
 use TMS\Theme\Base\PostType\Post;
+use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Breadcrumbs;
 
 /**
@@ -20,6 +21,10 @@ class Search extends BaseModel {
      */
     const SEARCH_CPT_QUERY_VAR = 'search_post_types';
 
+    const SEARCH_START_DATE = 'search_start_date';
+
+    const SEARCH_END_DATE = 'search_end_date';
+
     /**
      * Hooks
      *
@@ -27,6 +32,13 @@ class Search extends BaseModel {
      */
     public static function hooks() {
         add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+    }
+
+    /**
+     * Page title
+     */
+    public function page_title() : string {
+        return __( 'Search results', 'tms-theme-base' );
     }
 
     /**
@@ -39,13 +51,46 @@ class Search extends BaseModel {
         $searchable_post_types = static::get_searchable_post_types();
 
         foreach ( $searchable_post_types as $key => $post_type ) {
-            $searchable_post_types[ $key ]['is_checked'] = in_array( $post_type['slug'], $posts_types, true );
+            $checked = in_array( 'all', $posts_types, true )
+                ? false
+                : in_array( $post_type['slug'], $posts_types, true );
+
+            $searchable_post_types[ $key ]['is_checked'] = $checked;
+        }
+
+        array_unshift(
+            $searchable_post_types,
+            [
+                'slug'       => 'all',
+                'name'       => __( 'All', 'tms-theme-base' ),
+                'is_checked' => in_array( 'all', $posts_types, true ),
+            ]
+        );
+
+        return [
+            'search_link'         => trailingslashit( get_site_url() ) . '/?s=',
+            'post_types'          => $searchable_post_types,
+            'search_term'         => trim( get_query_var( 's' ) ),
+            'form_start_date'     => get_query_var( self::SEARCH_START_DATE ),
+            'form_end_date'       => get_query_var( self::SEARCH_END_DATE ),
+            'filter_by_post_type' => __( 'Filter by post type', 'tms-theme-base' ),
+            'filter_by_date'      => __( 'Filter by date', 'tms-theme-base' ),
+            'filter_start_date'   => __( 'Start date', 'tms-theme-base' ),
+            'filter_end_date'     => __( 'End date', 'tms-theme-base' ),
+            'filter_results'      => __( 'Filter results', 'tms-theme-base' ),
+        ];
+    }
+
+    public function event_search() : ?array {
+        $page = Settings::get_setting( 'events_search_page' );
+
+        if ( empty( $page ) ) {
+            return null;
         }
 
         return [
-            'search_link' => trailingslashit( get_site_url() ) . '/?s=',
-            'post_types'  => $searchable_post_types,
-            'search_term' => trim( get_query_var( 's', '' ) ),
+            'title' => __( 'Looking for events? Use the event search!', 'tms-theme-base' ),
+            'url'   => get_the_permalink( $page ),
         ];
     }
 
@@ -61,10 +106,44 @@ class Search extends BaseModel {
 
         $selected_post_types = get_query_var( self::SEARCH_CPT_QUERY_VAR, [] );
 
-        if ( empty( $selected_post_types ) ) {
+        if ( empty( $selected_post_types ) || in_array( 'all', $selected_post_types, true ) ) {
             $selected_post_types = array_map( function ( $item ) {
                 return $item['slug'];
             }, static::get_searchable_post_types() );
+        }
+
+        $date_query = [];
+        $start_date = get_query_var( self::SEARCH_START_DATE );
+        $end_date   = get_query_var( self::SEARCH_END_DATE );
+
+        if ( ! empty( $start_date ) ) {
+            $dt = new DateTime( $start_date );
+
+            $date_query[] = [
+                'after'     => [
+                    'year'  => $dt->format( 'Y' ),
+                    'month' => $dt->format( 'm' ),
+                    'day'   => $dt->format( 'd' ),
+                ],
+                'inclusive' => true,
+            ];
+        }
+
+        if ( ! empty( $end_date ) ) {
+            $dt = new DateTime( $end_date );
+
+            $date_query[] = [
+                'before'    => [
+                    'year'  => $dt->format( 'Y' ),
+                    'month' => $dt->format( 'm' ),
+                    'day'   => $dt->format( 'd' ),
+                ],
+                'inclusive' => true,
+            ];
+        }
+
+        if ( ! empty( $date_query ) ) {
+            $wp_query->set( 'date_query', $date_query );
         }
 
         $wp_query->set( 'post_type', $selected_post_types );
@@ -144,7 +223,11 @@ class Search extends BaseModel {
                         Page::SLUG,
                         $post_item->ID,
                         '',
-                        [ $this->get_home_link() ],
+                        $this->get_ancestors(
+                            $post_item->ID,
+                            Page::SLUG,
+                            [ $this->get_home_link() ]
+                        )
                     );
 
                     break;

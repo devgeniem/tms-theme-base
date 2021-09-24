@@ -1,34 +1,85 @@
 <form action="{form.search_link}" class="search__form is-relative">
-    <div class="search-input-container">
-        <label for="search-input">
-            {Strings.header.search}
-        </label>
+    <div class="section pt-4 pb-4">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="search-input-container mt-6 mb-6">
+                        <label for="search-input" class="is-block h6 mb-4">
+                            {Strings.s.header.search}
+                        </label>
 
-        <input type="text" name="s" id="search-input" value="{form.search_term|s}" class="search__term"
-               autocomplete="off">
+                        <div class="is-flex">
+                            <input type="text" name="s" id="search-input" value="{form.search_term|s}"
+                                   class="search__term"
+                                   autocomplete="off">
 
-        <button type="submit" class="search-form__button button button--icon {button_class|s}">
-            {Strings.s.header.search|s}
-            {>"ui/icon" icon="search" class="icon--medium"  /}
-        </button>
+                            <button type="submit" class="search-form__button button button--icon ml-2 {button_class|s}">
+                                {Strings.s.header.search|s}
+                                {>"ui/icon" icon="search" class="icon--medium"  /}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="search-filters">
-        <div class="search-filters">
-            <div class="search-filters__group">
-                {#form.post_types}
-                    <div class="search-filters__label">
-                        {Form.filter_by_post_type}
-                    </div>
+    <div class="section pt-6 pb-6 has-background-secondary">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+                    <div class="search-filters">
+                        <div class="search-filters">
+                            <div class="search-filters__group">
+                                <div class="search-filters__label h6 mb-2">
+                                    {form.filter_by_post_type}
+                                </div>
+                                <div class="is-flex">
 
-                    <div class="search-filters__filter">
-                        <label class="is-block">
-                            <input type="checkbox" name="search_post_types[]" data-name="post_type" value="{slug}"
-                                   {?is_checked}checked{/is_checked}>
-                            {name|s}
-                        </label>
+                                    {#form.post_types}
+                                        <input type="checkbox" name="search_post_types[]"
+                                               class="is-checkradio search-filters__post-type" value="{slug}"
+                                               id="cpt-{slug|s}"
+                                               {?is_checked}checked{/is_checked}>
+                                        <label class="is-block mr-4 mb-4" for="cpt-{slug|s}">
+                                            {name|s}
+                                        </label>
+                                    {/form.post_types}
+                                </div>
+                            </div>
+
+                            <div class="search-filters__group mt-4">
+                                <div class="search-filters__label h6 mb-2">
+                                    {form.filter_by_date}
+                                </div>
+
+                                <div class="search-filters__filter">
+                                    <div class="is-inline-block">
+                                        <label for="start-date">
+                                            <span class="is-sr-only">{form.filter_start_date|s}</span>
+                                        </label>
+                                        <input type="date" name="search_start_date" id="start-date"
+                                               class="has-after-line"
+                                               value="{form.form_start_date}">
+
+                                    </div>
+                                    <div class="is-inline-block">
+                                        <label for="end-date">
+                                            <span class="is-sr-only">{form.filter_end_date|s}</span>
+                                        </label>
+                                        <input type="date" name="search_end_date" id="end-date"
+                                               value="{form.form_end_date}">
+                                    </div>
+
+                                    <button type="submit"
+                                            class="search-form__button button is-pulled-right-desktop {button_class|s}">
+                                        {form.filter_results|s}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                {/form.post_types}
+                </div>
             </div>
         </div>
     </div>
