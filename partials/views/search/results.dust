@@ -1,5 +1,7 @@
 <div class="search__results">
-    <p>{results.summary|s}</p>
+    <p class="mt-6 mb-7">
+        {results.summary|s}
+    </p>
 
     {#results.posts}
         <div class="search-item mb-4 p-6 p-8-desktop {template_classes.search_item|s}">

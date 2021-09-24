@@ -162,6 +162,7 @@ class PageEventsCalendar extends BaseModel {
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
         $events      = wp_cache_get( $cache_key, $cache_group );
+        $events      = false;
 
         if ( ! empty( $events ) ) {
             return $events;

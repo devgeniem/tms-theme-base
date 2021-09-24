@@ -123,33 +123,37 @@ class Strings extends \DustPress\Model {
                 'comments_title' => _x( 'Comments', 'theme-frontend', 'tms-theme-base' ),
                 'close_notice'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'blog_article'       => [
+            'blog_article'   => [
                 'toggle_details'    => _x( 'Show description', 'theme-frontend', 'tms-theme-base' ),
                 'archive_link_text' => _x( 'All articles', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'event'              => [
+            'event'          => [
                 'date'     => _x( 'Event date', 'theme-frontend', 'tms-theme-base' ),
                 'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
                 'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'sitemap'            => [
+            'sitemap'        => [
                 'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'contact_search'     => [
+            'contact_search' => [
                 'label'             => _x( 'Search contacts', 'theme-frontend', 'tms-theme-base' ),
                 'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'artist'             => [
+            'artist'         => [
                 'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
                 'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'artwork'            => [
+            'artwork'        => [
                 'artist_link'     => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_art'     => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'search'         => [
+                'filter_by_post_type' => _x( 'Filter by type', 'theme-frontend', 'tms-theme-base' ),
+                'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
