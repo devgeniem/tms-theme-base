@@ -30,6 +30,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-236: Make Contact CPT ACF field changes #177
     - Set first and last name fields required
 
+- TMS-241: SVG Icons #185
+    - Updated `assets/icons/icon-*.svg`
+
 ## [1.17.0] - 2021-09-23
 
 ### Added
