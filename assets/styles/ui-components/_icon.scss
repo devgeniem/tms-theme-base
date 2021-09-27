@@ -4,9 +4,11 @@ $accent-invert: $primary-invert !default;
 
 .icon {
     display: inline-block;
+    overflow: visible;
     fill: $icon-fill;
 
     &--rounded {
+        padding: .75rem;
         border-radius: 100%;
     }
 
