@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-238: Hide unnecessary heading levels from the Heading block
+
 - TMS-233: Restricted the maximum length of Key Figures block's fields
 
 - TMS-239: Removed unnecessary paragraph format styles
