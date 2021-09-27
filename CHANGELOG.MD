@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-237: Styling fix on contact partial #178
+    - Removed bold text style from phone numbers
+
 - TMS-236: Make Contact CPT ACF field changes #177
     - Set first and last name fields required
 
