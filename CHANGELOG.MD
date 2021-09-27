@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-239: Removed unnecessary paragraph format styles
+
 - TMS-229: Mobile navigation fix #179
     - Changed the main level element to work as link instead of dropdown toggler
     - Made the toggler bigger for easier clickability
