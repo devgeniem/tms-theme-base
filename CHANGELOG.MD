@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-231: Add Error 404 page text alignment setting
+
 ## [1.17.0] - 2021-09-23
 
 ### Added
