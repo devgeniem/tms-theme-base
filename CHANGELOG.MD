@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-232: Front page layout additions #181
+    - Added Subpage and Social media layouts
+
+- TMS-231: Add Error 404 page text alignment setting #180
+
+### Changed
+
+- TMS-239: Removed unnecessary paragraph format styles
+
+- TMS-233: Restricted the maximum length of Key Figures block's fields
+
+- TMS-229: Mobile navigation fix #179
+    - Changed the main level element to work as link instead of dropdown toggler
+    - Made the toggler bigger for easier clickability
+
+- TMS-237: Styling fix on contact partial #178
+    - Removed bold text style from phone numbers
+
+- TMS-236: Make Contact CPT ACF field changes #177
+    - Set first and last name fields required
+
 ## [1.17.0] - 2021-09-23
 
 ### Added
