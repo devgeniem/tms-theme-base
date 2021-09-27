@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-232: Front page layout additions
+    - Added Subpage and Social media layouts
+
 - TMS-231: Add Error 404 page text alignment setting
 
 ### Changed

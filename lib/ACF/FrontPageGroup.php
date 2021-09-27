@@ -117,6 +117,8 @@ class PageFrontPageGroup {
                 Layouts\ImageCarouselLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\GravityFormLayout::class,
+                Layouts\SubpageLayout::class,
+                Layouts\SocialMediaLayout::class,
             ],
             $key
         );
