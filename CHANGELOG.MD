@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-239: Removed unnecessary paragraph format styles
+
 - TMS-229: Mobile navigation fix
     - Changed the main level element to work as link instead of dropdown toggler
     - Made the toggler bigger for easier clickability
@@ -38,9 +40,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Added title and artist information to image-block__meta
 
 ### Changed
-
-- TMS-236: Make Contact CPT ACF field changes
-    - Set first and last name fields required
 
 - TMS-217: Media library additions #172
     - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
