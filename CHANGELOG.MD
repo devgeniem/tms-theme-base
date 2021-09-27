@@ -16,9 +16,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-239: Removed unnecessary paragraph format styles
+- TMS-238: Hide unnecessary heading levels from the Heading block #184
 
-- TMS-233: Restricted the maximum length of Key Figures block's fields
+- TMS-239: Removed unnecessary paragraph format styles #183
+
+- TMS-233: Restricted the maximum length of Key Figures block's fields #182
 
 - TMS-229: Mobile navigation fix #179
     - Changed the main level element to work as link instead of dropdown toggler
