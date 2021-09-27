@@ -23,7 +23,7 @@
                                 </header>
 
                                 {?description}
-                                    <div class="entry__content is-content-grid has-text-centered keep-vertical-spacing">
+                                    <div class="entry__content is-content-grid {alignment} keep-vertical-spacing">
                                         {description|s}
                                     </div>
                                 {/description}
