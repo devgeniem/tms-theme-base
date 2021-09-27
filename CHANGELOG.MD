@@ -18,8 +18,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-236: Make Contact CPT ACF field changes
+    - Set first and last name fields required
+
 - TMS-217: Media library additions #172
     - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
+
 
 ## [1.16.0]
 

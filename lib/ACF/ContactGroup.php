@@ -194,14 +194,16 @@ class ContactGroup {
             ->set_name( 'first_name' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
-            ->set_instructions( $strings['first_name']['instructions'] );
+            ->set_instructions( $strings['first_name']['instructions'] )
+            ->set_required();
 
         $last_name_field = ( new Field\Text( $strings['last_name']['title'] ) )
             ->set_key( "${key}_last_name" )
             ->set_name( 'last_name' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
-            ->set_instructions( $strings['last_name']['instructions'] );
+            ->set_instructions( $strings['last_name']['instructions'] )
+            ->set_required();
 
         $phone_repeater_field = ( new Field\Repeater( $strings['phone_repeater']['title'] ) )
             ->set_key( "${key}_phone_repeater" )
