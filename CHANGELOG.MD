@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-232: Front page layout additions
+    - Added Subpage and Social media layouts
+
 ## [1.17.0] - 2021-09-23
 
 ### Added
