@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-217: Blocks admin title
+    - Added a styled message field for base block to act as its title
+
 ## [1.17.0] - 2021-09-23
 
 ### Added
