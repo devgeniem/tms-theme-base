@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-229: Mobile navigation fix
+    - Changed the main level element to work as link instead of dropdown toggler
+    - Made the toggler bigger for easier clickability
+
 - TMS-237: Styling fix on contact partial
     - Removed bold text style from phone numbers
 
