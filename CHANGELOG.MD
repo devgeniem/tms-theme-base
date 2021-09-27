@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-217: Blocks admin title
+    - Added a styled message field for base block to act as its title
+
 - TMS-232: Front page layout additions
     - Added Subpage and Social media layouts
 

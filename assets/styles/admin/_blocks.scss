@@ -1,0 +1,18 @@
+// Style the block name field to look more like a title
+div {
+    &[data-name="block_name_field"] {
+        label {
+            cursor: default;
+            font-size: 15px;
+        }
+    }
+}
+
+// Hide the block name field from the sidebar
+.components-panel {
+    div {
+        &[data-name="block_name_field"] {
+            display: none;
+        }
+    }
+}
