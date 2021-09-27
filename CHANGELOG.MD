@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-236: Make Contact CPT ACF field changes
+- TMS-236: Make Contact CPT ACF field changes #177
     - Set first and last name fields required
 
 ## [1.17.0] - 2021-09-23
