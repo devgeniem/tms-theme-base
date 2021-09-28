@@ -3,6 +3,8 @@
  * External links controller.
  */
 
+import Common from './common';
+
 // Use jQuery as $ within this file scope.
 const $ = jQuery; // eslint-disable-line no-unused-vars
 
@@ -18,8 +20,8 @@ export default class ExternalLinks {
     docReady() {
         // Add external icon for links pointing outside of the current domain
         const domain = window.location.hostname;
-        const icon = '<span aria-hidden="true"><svg class="icon icon--external icon--medium ml-1"><use xlink:href="#icon-external"></use></svg></span>'; // eslint-disable-line
+        const icon = Common.makeIcon( 'external', 'icon--medium ml-1' );
 
-        $( '#main-content a:not([href*="' + domain + '"])' ).append( icon );
+        $( '#main-content a[href*="//"]:not([href*="' + domain + '"])' ).append( icon );
     }
 }
