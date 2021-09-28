@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-248: Layout changes on blocks and layouts
+    - Image Gallery block zoom effect for thumbnails on hover and focus
+    - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
 - TMS-247: Changed the outline style on elements' focus state
 - TMS-245: Made the WYSIWYG editor taller on Accordion Block
 - TMS-244: Made the site header logo smaller on mobile devices
