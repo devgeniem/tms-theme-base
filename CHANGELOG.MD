@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-244: Made the site header logo smaller on mobile devices
+
 ## [1.18.0] - 2021-09-27
 
 ### Added
