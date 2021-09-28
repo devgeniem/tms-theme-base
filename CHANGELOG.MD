@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes
+
+## [1.18.0] - 2021-09-27
+
 ### Added
 
 - TMS-217: Blocks admin title
@@ -14,23 +20,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-232: Front page layout additions
     - Added Subpage and Social media layouts
-
-- TMS-231: Add Error 404 page text alignment setting
+- TMS-231: Add Error 404 page text alignment setting #180
 
 ### Changed
 
-- TMS-238: Hide unnecessary heading levels from the Heading block
-
-- TMS-233: Restricted the maximum length of Key Figures block's fields
-
-- TMS-239: Removed unnecessary paragraph format styles
-
-- TMS-229: Mobile navigation fix
+- TMS-238: Hide unnecessary heading levels from the Heading block #184
+- TMS-239: Removed unnecessary paragraph format styles #183
+- TMS-233: Restricted the maximum length of Key Figures block's fields #182
+- TMS-229: Mobile navigation fix #179
     - Changed the main level element to work as link instead of dropdown toggler
     - Made the toggler bigger for easier clickability
-
-- TMS-237: Styling fix on contact partial
+- TMS-237: Styling fix on contact partial #178
     - Removed bold text style from phone numbers
+- TMS-236: Make Contact CPT ACF field changes #177
+    - Set first and last name fields required
+- TMS-241: SVG Icons #185
+    - Updated `assets/icons/icon-*.svg`
 
 ## [1.17.0] - 2021-09-23
 
