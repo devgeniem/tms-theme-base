@@ -21,7 +21,7 @@
                     <div class="image-carousel__item" id="{id}">
                         {! Modal trigger !}
                         <button
-                            class="image modal-trigger"
+                            class="image modal-trigger has-zoom-on-hover"
                             data-modal-button
                             data-target="{carousel_id}-modal"
                             aria-controls="{carousel_id}-modal"

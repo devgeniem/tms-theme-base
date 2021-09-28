@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-248: Layout changes on blocks and layouts
+    - Image Gallery block zoom effect for thumbnails on hover and focus
+    - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
+
 ## [1.18.0] - 2021-09-27
 
 ### Added
