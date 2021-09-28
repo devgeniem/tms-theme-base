@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-242: Darkened the `$secondary-invert` colors on multiple themes
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
+
+### Added
+
+- TMS-243: Add handling for external links in the content area #187
 
 ## [1.18.0] - 2021-09-27
 
