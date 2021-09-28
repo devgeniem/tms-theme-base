@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-245: Made the WYSIWYG editor taller on Accordion Block
+
 ## [1.18.0] - 2021-09-27
 
 ### Added
