@@ -55,7 +55,8 @@ class AccordionWysiwygLayout extends BaseLayout {
             $text_field = ( new TextEditor( $strings['text']['label'] ) )
                 ->set_key( "${key}_rows" )
                 ->set_name( 'text' )
-                ->set_instructions( $strings['text']['instructions'] );
+                ->set_instructions( $strings['text']['instructions'] )
+                ->set_height( 200 );
 
             $fields = [ $text_field ];
             $this->add_fields(

@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
 - TMS-252: Change the order of content on single Dynamic Event view #188
 - TMS-244: Made the site header logo smaller on mobile devices #189
+- TMS-245: Made the WYSIWYG editor taller on Accordion Block #190
 
 ### Added
 
