@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-244: Made the site header logo smaller on mobile devices
 - TMS-252: Change the order of content on single Dynamic Event view
 - TMS-242: Darkened the `$secondary-invert` colors on multiple themes
 
