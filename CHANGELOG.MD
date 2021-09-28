@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-246: Add image caption to the Accordion Block
+
 ## [1.18.0] - 2021-09-27
 
 ### Added
