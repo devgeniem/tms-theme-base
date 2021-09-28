@@ -81,6 +81,11 @@ class Search extends BaseModel {
         ];
     }
 
+    /**
+     * Get event search link
+     *
+     * @return array|null
+     */
     public function event_search() : ?array {
         $page = Settings::get_setting( 'events_search_page' );
 
@@ -200,7 +205,11 @@ class Search extends BaseModel {
         return apply_filters(
             'tms/theme/search/search_item',
             [
-                'search_item' => 'has-background-secondary',
+                'search_form'          => 'has-background-secondary',
+                'search_item'          => 'has-background-secondary',
+                'search_item_excerpt'  => '',
+                'search_filter_button' => 'has-text-secondary-invert',
+                'event_search_section' => 'has-border-bottom-1 has-border-divider',
             ]
         );
     }
@@ -257,6 +266,8 @@ class Search extends BaseModel {
 
             $post_item->meta      = $meta;
             $post_item->permalink = get_permalink( $post_item->ID );
+
+            apply_filters( 'tms/theme/base/search_result_item', $post_item );
         }
 
         return $posts;

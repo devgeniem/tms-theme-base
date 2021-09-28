@@ -4,7 +4,7 @@
     </p>
 
     {#results.posts}
-        <div class="search-item mb-4 p-6 p-8-desktop {template_classes.search_item|s}">
+        <div class="search-item mb-6 p-6 p-8-desktop {template_classes.search_item|s}">
             <div class="search-item__inner">
                 {?breadcrumbs}
                     <div class="search-item__meta-container has-text-weight-medium">
@@ -18,20 +18,20 @@
                     </div>
                 {/meta}
 
-                <h2 class="h5 mt-4 mb-4 search-item__title">
+                <h2 class="h5 mt-4 mb-0 search-item__title">
                     <a href="{permalink}" class="">
                         {post_title|s}
                     </a>
                 </h2>
 
                 {?content_type}
-                    <span class="pill has-background-primary-invert has-text-primary is-bordered">
+                    <span class="mt-4 pill has-background-primary-invert has-text-primary is-bordered">
                         {content_type|s}
                     </span>
                 {/content_type}
 
                 {?post_excerpt}
-                    <p class="mt-4 mb-0">
+                    <p class="mt-4 mb-0 {template_classes.search_item_excerpt|s}">
                         {post_excerpt|s}
                     </p>
                 {/post_excerpt}

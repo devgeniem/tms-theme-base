@@ -4,7 +4,7 @@
     <main class="main-content" id="main-content">
         {#Search}
             {?page_title}
-                <div class="section">
+                <div class="section pb-0">
                     <div class="container">
                         <div class="columns">
                             <div class="column is-10 is-offset-1 has-text-centered">
@@ -20,7 +20,7 @@
             {>"views/search/form" /}
 
             {?event_search}
-                <section class="section pt-4 pb-4 has-border-bottom-1 has-border-divider">
+                <section class="section pt-4 pb-4 {template_classes.event_search_section|s}">
                     <div class="container">
                         <div class="columns">
                             <div class="column is-10 is-offset-1 pt-6 pb-6 has-text-centered h6">
