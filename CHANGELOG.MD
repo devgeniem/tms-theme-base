@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- fix/limit-event-api-queries: Limit event API queries #196
 - TMS-249: Changed the sitemap toggler layout #194
 - TMS-248: Layout changes on blocks and layouts #193
     - Image Gallery block zoom effect for thumbnails on hover and focus
