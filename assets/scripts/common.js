@@ -318,10 +318,18 @@ export default class Common {
      * Generates a svg container that uses icon with an ID.
      *
      * @param {string} icon Icon ID.
+     * @param {string} classes CSS Classes to add to the element.
+     *
      * @return {string} Icon HTML String.
      */
-    static makeIcon( icon = '' ) {
-        return `<svg class="icon"><use xlink:href="#icon-${ icon }" /></svg>`;
+    static makeIcon( icon = '', classes = '' ) {
+        let iconClass = 'icon';
+
+        if ( classes.length ) {
+            iconClass += ` ${ classes }`;
+        }
+
+        return `<svg class="${ iconClass }"><use xlink:href="#icon-${ icon }" /></svg>`;
     }
 
     /**

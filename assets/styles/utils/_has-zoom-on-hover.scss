@@ -1,0 +1,13 @@
+.has-zoom-on-hover {
+    > img {
+        transform: scale(1);
+        transition: transform $easing $speed * 2;
+    }
+
+    &:focus,
+    &:hover {
+        > img {
+            transform: scale(1.05);
+        }
+    }
+}

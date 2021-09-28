@@ -103,6 +103,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_name( 'number' )
             ->set_required()
             ->set_wrapper_width( 30 )
+            ->set_maxlength( 10 )
             ->set_instructions( $strings['number']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
@@ -110,6 +111,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_name( 'description' )
             ->set_wrapper_width( 70 )
             ->set_rows( 2 )
+            ->set_maxlength( 200 )
             ->set_instructions( $strings['description']['instructions'] );
 
         $background_color_field = ( new Field\Select( $strings['background_color']['label'] ) )

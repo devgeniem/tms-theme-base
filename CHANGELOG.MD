@@ -7,10 +7,47 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-249: Changed the sitemap toggler layout #194
+- TMS-248: Layout changes on blocks and layouts #193
+    - Image Gallery block zoom effect for thumbnails on hover and focus
+    - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
+- TMS-247: Changed the outline style on elements' focus state #192
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
+- TMS-252: Change the order of content on single Dynamic Event view #188
+- TMS-244: Made the site header logo smaller on mobile devices #189
+- TMS-245: Made the WYSIWYG editor taller on Accordion Block #190
+
 ### Added
 
-- TMS-217: Blocks admin title
+- TMS-234: Blocks admin title
     - Added a styled message field for base block to act as its title
+- TMS-243: Add handling for external links in the content area #187
+- TMS-246: Add image caption to the Accordion Block #191
+
+## [1.18.0] - 2021-09-27
+
+### Added
+
+- TMS-232: Front page layout additions #181
+    - Added Subpage and Social media layouts
+- TMS-231: Add Error 404 page text alignment setting #180
+
+### Changed
+
+- TMS-238: Hide unnecessary heading levels from the Heading block #184
+- TMS-239: Removed unnecessary paragraph format styles #183
+- TMS-233: Restricted the maximum length of Key Figures block's fields #182
+- TMS-229: Mobile navigation fix #179
+    - Changed the main level element to work as link instead of dropdown toggler
+    - Made the toggler bigger for easier clickability
+- TMS-237: Styling fix on contact partial #178
+    - Removed bold text style from phone numbers
+- TMS-236: Make Contact CPT ACF field changes #177
+    - Set first and last name fields required
+- TMS-241: SVG Icons #185
+    - Updated `assets/icons/icon-*.svg`
 
 ## [1.17.0] - 2021-09-23
 
