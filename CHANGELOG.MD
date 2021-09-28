@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-249: Changed the sitemap toggler layout
 - TMS-248: Layout changes on blocks and layouts
     - Image Gallery block zoom effect for thumbnails on hover and focus
     - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
