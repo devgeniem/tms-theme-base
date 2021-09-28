@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-248: Layout changes on blocks and layouts
+    - Image Gallery block zoom effect for thumbnails on hover and focus
+    - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
 - TMS-247: Changed the outline style on elements' focus state
 - TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
 - TMS-252: Change the order of content on single Dynamic Event view #188
