@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-163: Allow Stream logs to Super Administrators
+- fix/limit-event-api-queries: Limit event API queries #196
+- TMS-249: Changed the sitemap toggler layout #194
+- TMS-248: Layout changes on blocks and layouts #193
 - TMS-249: Changed the sitemap toggler layout
 - TMS-248: Layout changes on blocks and layouts
     - Image Gallery block zoom effect for thumbnails on hover and focus
@@ -32,7 +36,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-217: Blocks admin title
     - Added a styled message field for base block to act as its title
 
-- TMS-232: Front page layout additions
+- TMS-232: Front page layout additions #181
     - Added Subpage and Social media layouts
 - TMS-231: Add Error 404 page text alignment setting #180
 
@@ -78,6 +82,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Disable non-interactive pill state styles
 
 ### Changed
+
 - TMS-218: Make page ACF group rules filterable #161
 
 ## [1.15.0] - 2021-09-16
