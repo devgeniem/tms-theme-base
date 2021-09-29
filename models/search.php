@@ -32,6 +32,7 @@ class Search extends BaseModel {
      */
     public static function hooks() {
         add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+        add_filter( 'redipress/scorer', [ __CLASS__, 'set_search_scorer' ], 10, 1 );
         add_filter( 'redipress/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
     }
 
@@ -159,12 +160,23 @@ class Search extends BaseModel {
             'weight',
             [
                 'post_type' => [
-                    Page::SLUG        => 10.0,
-                    Post::SLUG        => 5.0,
-                    BlogArticle::SLUG => 1.0,
+                    Page::SLUG        => 3,
+                    Post::SLUG        => 2,
+                    BlogArticle::SLUG => 1,
                 ],
             ]
         );
+    }
+
+    /**
+     * Set the search scorer to 'DISMAX' for better score readability.
+     *
+     * @param string $scorer The default scorer.
+     *
+     * @return string
+     */
+    public static function set_search_scorer( string $scorer ) : string {
+        return 'DISMAX';
     }
 
     /**
@@ -174,14 +186,14 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public static function set_fields_weight( $fields ) {
+    public static function set_fields_weight( array $fields ) : array {
         // Post title is the most relevant field
         $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
-        $fields[ $post_title ]->weight = 1000;
+        $fields[ $post_title ]->weight = 10;
 
         // Post excerpt is the second most relevant field
         $post_excerpt                    = array_search( 'post_excerpt', array_column( $fields, 'name' ), true );
-        $fields[ $post_excerpt ]->weight = 500;
+        $fields[ $post_excerpt ]->weight = 5;
 
         return $fields;
     }
