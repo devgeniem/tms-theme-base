@@ -32,6 +32,8 @@ class Search extends BaseModel {
      */
     public static function hooks() {
         add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+        add_filter( 'redipress/scorer', [ __CLASS__, 'set_search_scorer' ], 10, 1 );
+        add_filter( 'redipress/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
     }
 
     /**
@@ -81,6 +83,11 @@ class Search extends BaseModel {
         ];
     }
 
+    /**
+     * Get event search link
+     *
+     * @return array|null
+     */
     public function event_search() : ?array {
         $page = Settings::get_setting( 'events_search_page' );
 
@@ -147,6 +154,48 @@ class Search extends BaseModel {
         }
 
         $wp_query->set( 'post_type', $selected_post_types );
+
+        // Set the result weights
+        $wp_query->set(
+            'weight',
+            [
+                'post_type' => [
+                    Page::SLUG        => 3,
+                    Post::SLUG        => 2,
+                    BlogArticle::SLUG => 1,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Set the search scorer to 'DISMAX' for better score readability.
+     *
+     * @param string $scorer The default scorer.
+     *
+     * @return string
+     */
+    public static function set_search_scorer( string $scorer ) : string {
+        return 'DISMAX';
+    }
+
+    /**
+     * Adjust field search weights.
+     *
+     * @param array $fields Fields.
+     *
+     * @return array
+     */
+    public static function set_fields_weight( array $fields ) : array {
+        // Post title is the most relevant field
+        $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
+        $fields[ $post_title ]->weight = 10;
+
+        // Post excerpt is the second most relevant field
+        $post_excerpt                    = array_search( 'post_excerpt', array_column( $fields, 'name' ), true );
+        $fields[ $post_excerpt ]->weight = 5;
+
+        return $fields;
     }
 
     /**
@@ -200,7 +249,11 @@ class Search extends BaseModel {
         return apply_filters(
             'tms/theme/search/search_item',
             [
-                'search_item' => 'has-background-secondary',
+                'search_form'          => 'has-background-secondary',
+                'search_item'          => 'has-background-secondary',
+                'search_item_excerpt'  => '',
+                'search_filter_button' => 'has-text-secondary-invert',
+                'event_search_section' => 'has-border-bottom-1 has-border-divider',
             ]
         );
     }
@@ -257,6 +310,8 @@ class Search extends BaseModel {
 
             $post_item->meta      = $meta;
             $post_item->permalink = get_permalink( $post_item->ID );
+
+            apply_filters( 'tms/theme/base/search_result_item', $post_item );
         }
 
         return $posts;

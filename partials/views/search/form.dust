@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="section pt-6 pb-6 has-background-secondary">
+    <div class="section pt-6 pb-6 {template_classes.search_form|s}">
         <div class="container">
             <div class="columns">
                 <div class="column is-10 is-offset-1">
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <button type="submit"
-                                            class="search-form__button button is-pulled-right-desktop {button_class|s}">
+                                            class="search-form__button button is-pulled-right-desktop {template_classes.search_filter_button|s}">
                                         {form.filter_results|s}
                                     </button>
                                 </div>

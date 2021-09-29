@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-211: Search weights by fields and post types
 - TMS-246: Add image caption to the Accordion Block
 - TMS-243: Add handling for external links in the content area
 
