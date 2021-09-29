@@ -32,6 +32,7 @@ class Search extends BaseModel {
      */
     public static function hooks() {
         add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+        add_filter( 'redipress/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
     }
 
     /**
@@ -152,6 +153,37 @@ class Search extends BaseModel {
         }
 
         $wp_query->set( 'post_type', $selected_post_types );
+
+        // Set the result weights
+        $wp_query->set(
+            'weight',
+            [
+                'post_type' => [
+                    Page::SLUG        => 10.0,
+                    Post::SLUG        => 5.0,
+                    BlogArticle::SLUG => 1.0,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Adjust field search weights.
+     *
+     * @param array $fields Fields.
+     *
+     * @return array
+     */
+    public static function set_fields_weight( $fields ) {
+        // Post title is the most relevant field
+        $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
+        $fields[ $post_title ]->weight = 1000;
+
+        // Post excerpt is the second most relevant field
+        $post_excerpt                    = array_search( 'post_excerpt', array_column( $fields, 'name' ), true );
+        $fields[ $post_excerpt ]->weight = 500;
+
+        return $fields;
     }
 
     /**
