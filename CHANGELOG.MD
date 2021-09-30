@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-257: "All events" -link for Events layout
 - TMS-263: `tms/theme/admin_js_path` filter
 - TMS-214: Events Search page template
 - TMS-211: Search weights by fields and post types
