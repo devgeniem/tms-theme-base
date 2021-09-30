@@ -42,7 +42,7 @@ class PageEventsSearch extends BaseModel {
         return [
             'search_term'      => trim( get_query_var( self::EVENT_SEARCH_TEXT ) ),
             'form_start_date'  => get_query_var( self::EVENT_SEARCH_START_DATE ),
-            'form_end_date'    => get_query_var( self::EVENT_SEARCH_END_DATE ),
+            'form_end_date'    => get_query_var( self::EVENT_SEARCH_END_DATE ), // <- max vuosi
             'seach_term_label' => __( 'Search term', 'tms-theme-base' ),
             'time_frame_label' => __( 'Events from', 'tms-theme-base' ),
             'start_date_label' => __( 'Start date', 'tms-theme-base' ),
@@ -137,11 +137,33 @@ class PageEventsSearch extends BaseModel {
         $paged    = get_query_var( 'paged', 0 );
         $paged    = $paged > 0 ? -- $paged : $paged;
 
-        $chunks = array_chunk( $all_events, $per_page );
+        $chunks      = array_chunk( $all_events, $per_page );
+        $event_count = count( $all_events );
 
-        $this->set_pagination_data( count( $all_events ) );
+        $this->set_pagination_data( $event_count );
 
-        return $chunks[ $paged ];
+        if ( $event_count > 0 ) {
+            $results_text = sprintf(
+            // translators: 1. placeholder is number of search results, 2. placeholder contains the search term(s).
+                _nx(
+                    '%1$1s result found for "%2$2s"',
+                    '%1$1s results found for "%2$2s"',
+                    $event_count,
+                    'search results summary',
+                    'tms-theme-base'
+                ),
+                $event_count,
+                get_query_var( self::EVENT_SEARCH_TEXT )
+            );
+        }
+        else {
+            $results_text = null;
+        }
+
+        return [
+            'summary' => $results_text,
+            'posts'   => $event_count > 0 ? $chunks[ $paged ] : null,
+        ];
     }
 
     /**
