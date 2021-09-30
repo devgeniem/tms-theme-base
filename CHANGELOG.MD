@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.19.0] - 2021-09-30
+
 ### Changed
 
 - TMS-163: Allow Stream logs to Super Administrators #197
