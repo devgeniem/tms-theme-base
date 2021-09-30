@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-263: `tms/theme/admin_js_path` filter
+
 ## [1.19.0] - 2021-09-30
 
 ### Changed

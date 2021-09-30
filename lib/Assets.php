@@ -205,7 +205,11 @@ class Assets implements Interfaces\Controller {
 
         \wp_enqueue_script(
             'admin-js',
-            DPT_ASSET_URI . '/admin.js',
+            apply_filters(
+                'tms/theme/admin_js_path',
+                DPT_ASSET_URI . '/admin.js',
+                '/admin.js'
+            ),
             [
                 'jquery',
                 'wp-data',
