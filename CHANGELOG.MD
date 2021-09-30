@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-260: Background color for Gravity Form layout
+
 ## [1.19.0] - 2021-09-30
 
 ### Changed
