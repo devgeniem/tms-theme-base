@@ -208,7 +208,7 @@ class Assets implements Interfaces\Controller {
             apply_filters(
                 'tms/theme/admin_js_path',
                 DPT_ASSET_URI . '/admin.js',
-                '/admin.js'
+                'admin.js'
             ),
             [
                 'jquery',
