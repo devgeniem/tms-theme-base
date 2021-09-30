@@ -10,7 +10,8 @@
                 aria-controls="{gallery_id}"
                 data-caption="{caption}"
                 data-author="{author_name}"
-                class="image-gallery__image image-gallery__link image is-square"
+                data-image_title_and_artist="{image_title_and_artist}"
+                class="image-gallery__image image-gallery__link image is-square has-zoom-on-hover"
                 aria-expanded="false"
                 aria-label="{translations.open}"
             >

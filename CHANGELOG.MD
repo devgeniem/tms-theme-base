@@ -7,7 +7,69 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.16.0]
+## [1.19.0] - 2021-09-30
+
+### Changed
+
+- TMS-163: Allow Stream logs to Super Administrators #197
+- fix/limit-event-api-queries: Limit event API queries #196
+- TMS-249: Changed the sitemap toggler layout #194
+- TMS-248: Layout changes on blocks and layouts #193
+    - Image Gallery block zoom effect for thumbnails on hover and focus
+    - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
+- TMS-247: Changed the outline style on elements' focus state #192
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
+- TMS-252: Change the order of content on single Dynamic Event view #188
+- TMS-244: Made the site header logo smaller on mobile devices #189
+- TMS-245: Made the WYSIWYG editor taller on Accordion Block #190
+
+### Added
+
+- TMS-234: Blocks admin title
+    - Added a styled message field for base block to act as its title
+- TMS-243: Add handling for external links in the content area #187
+- TMS-246: Add image caption to the Accordion Block #191
+
+## [1.18.0] - 2021-09-27
+
+### Added
+
+- TMS-232: Front page layout additions #181
+    - Added Subpage and Social media layouts
+- TMS-231: Add Error 404 page text alignment setting #180
+
+### Changed
+
+- TMS-238: Hide unnecessary heading levels from the Heading block #184
+- TMS-239: Removed unnecessary paragraph format styles #183
+- TMS-233: Restricted the maximum length of Key Figures block's fields #182
+- TMS-229: Mobile navigation fix #179
+    - Changed the main level element to work as link instead of dropdown toggler
+    - Made the toggler bigger for easier clickability
+- TMS-237: Styling fix on contact partial #178
+    - Removed bold text style from phone numbers
+- TMS-236: Make Contact CPT ACF field changes #177
+    - Set first and last name fields required
+- TMS-241: SVG Icons #185
+    - Updated `assets/icons/icon-*.svg`
+
+## [1.17.0] - 2021-09-23
+
+### Added
+
+- TMS-217: Media library additions #172
+    - Added artist to attachment meta
+    - Created ImageFormatter::get_image_artist to dedupe code
+    - Added toggles to CallToAction and ContentColumns Fields
+    - Added display_artist logic to layouts
+    - Added title and artist information to image-block__meta
+
+### Changed
+
+- TMS-217: Media library additions #172
+    - Renamed author (Tekijän nimi) to photographer (Kuvaajan nimi)
+
+## [1.16.0] - 2021-09-22
 
 ### Added
 
@@ -21,7 +83,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-218: Make page ACF group rules filterable #161
 
-## [1.15.0]
+## [1.15.0] - 2021-09-16
 
 ### Added
 
@@ -37,7 +99,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add Dynamic Event capabilities to Admins, Site Managers and Authors
     - Add TablePress capabilities to Admins and Site Managers
 
-## [1.14.0]
+## [1.14.0] - 2021-09-13
 
 ### Fixed
 
@@ -52,13 +114,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - NPM(deps-dev): Bump eslint from 6.8.0 to 7.32.0 #116
 
-## [1.13.0]
+## [1.13.0] - 2021-09-10
 
 ### Fixed
 
 - TMS-102-0909: Share links block link classes #160
 
-## [1.12.0]
+## [1.12.0] - 2021-09-08
 
 ### Added
 
@@ -73,7 +135,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-102-0709: Removed comments from pages and posts #158
 - TMS-102-0709: Removed Gutenberg from component templates #158
 
-## [1.11.0]
+## [1.11.0] - 2021-09-07
 
 ### Added
 
@@ -86,7 +148,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-208: Dynamic event breadcrumbs #155
 - TMS-208: Subpage page order #155
 
-## [1.10.0]
+## [1.10.0] - 2021-09-02
 
 ### Added
 
@@ -104,7 +166,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-199: Fix button text wrapping in iOS #151
 - TMS-142: Fix to image carousel item height #153
 
-## [1.9.0]
+## [1.9.0] - 2021-09-01
 
 ### Added
 

@@ -38,7 +38,7 @@ $button-transition-speed: $speed !default;
 }
 
 .button-state-focus {
-    outline: .125rem dashed $color-black;
+    outline: .125rem solid $color-black;
     outline-offset: .25rem;
 }
 

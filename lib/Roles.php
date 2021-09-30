@@ -339,6 +339,7 @@ class Roles implements Controller {
             'manage_network_users',
             'manage_sites',
             'edit_theme_options', // Navigation changes
+            'view_stream', // Plugin: Stream
         ] );
 
         // Post types

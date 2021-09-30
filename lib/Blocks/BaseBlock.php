@@ -7,6 +7,7 @@ namespace TMS\Theme\Base\Blocks;
 
 use Exception;
 use \Geniem\ACF\Block;
+use \Geniem\ACF\Field;
 use \Geniem\ACF\Renderer\Dust;
 use \Geniem\ACF\Renderer\CallableRenderer;
 
@@ -75,6 +76,10 @@ class BaseBlock {
         $block->set_mode( $this->mode );
         $block->set_supports( $this->supports );
         $block->set_renderer( $this->get_renderer() );
+
+        // Add the block name as a message field to label the blocks in the content area edit mode
+        $block_name_field = new Field\Message( $this->title, 'block_name_field_' . static::NAME, 'block_name_field' );
+        $block->add_field( $block_name_field );
 
         if ( method_exists( static::class, 'fields' ) ) {
             $block->add_fields( $this->fields() );

@@ -22,10 +22,6 @@
                     <div class="container">
                         <div class="columns">
                             <div class="column">
-                                <div class="entry__content is-content-grid mb-8 mb-10-desktop keep-vertical-spacing">
-                                    {@content /}
-                                </div>
-
                                 <div class="columns is-multiline is-variable is-8 mb-8">
                                     <div class="column is-5-desktop is-offset-1-desktop keep-vertical-spacing">
                                         <p>
@@ -38,6 +34,10 @@
                                     <div class="column is-5-desktop">
                                         {>"views/single-dynamic-event/single-dynamic-event-info" /}
                                     </div>
+                                </div>
+
+                                <div class="entry__content is-content-grid mb-8 mb-10-desktop keep-vertical-spacing">
+                                    {@content /}
                                 </div>
                             </div>
                         </div>

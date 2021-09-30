@@ -55,6 +55,7 @@ import './icon-nasinneula.svg';
 import './icon-nuija.svg';
 import './icon-nuotio.svg';
 import './icon-osaaminen.svg';
+import './icon-osaaminen2.svg';
 import './icon-paikka.svg';
 import './icon-peukku.svg';
 import './icon-puisto.svg';
@@ -91,4 +92,3 @@ import './time.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
-

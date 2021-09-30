@@ -159,6 +159,22 @@ class PageEventsCalendar extends BaseModel {
             $params['start'] = 'today';
         }
 
+        $has_mandatory_params = false;
+        $mandatory_params     = [
+            'keyword',
+            'text',
+        ];
+
+        foreach ( $mandatory_params as $mandatory_param ) {
+            if ( ! empty( $params[ $mandatory_param ] ) ) {
+                $has_mandatory_params = true;
+            }
+        }
+
+        if ( ! $has_mandatory_params ) {
+            return [];
+        }
+
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
         $events      = wp_cache_get( $cache_key, $cache_group );
