@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-214: Events Search page template
 - TMS-234: Blocks admin title
     - Added a styled message field for base block to act as its title
 - TMS-243: Add handling for external links in the content area #187
