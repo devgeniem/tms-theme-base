@@ -20,13 +20,13 @@
 
             <section class="section pt-6 pb-6">
                 <div class="container">
-                    {?events.posts}
-                        {?events.summary}
-                            <p class="mt-4 mb-7">
-                                {events.summary|s}
-                            </p>
-                        {/events.summary}
+                    {?events.summary}
+                        <p class="mt-4 mb-7">
+                            {events.summary|s}
+                        </p>
+                    {/events.summary}
 
+                    {?events.posts}
                         <div class="columns is-multiline">
                             {#events.posts}
                                 <div class="column is-6 is-4-desktop">

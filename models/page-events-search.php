@@ -110,9 +110,16 @@ class PageEventsSearch extends BaseModel {
         try {
             $events = $this->get_events();
 
-            return ! empty( $events )
-                ? null
-                : __( 'No results', 'tms-theme-base' );
+            if ( ! empty( $events['posts'] ) ) {
+                return null;
+            }
+
+            if ( empty( get_query_var( self::EVENT_SEARCH_TEXT ) ) ) {
+                return __( 'No search term given', 'tms-theme-base' );
+            }
+            else {
+                return __( 'No results', 'tms-theme-base' );
+            }
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
@@ -127,9 +134,10 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     private function get_events() : array {
-        $all_events = $this->do_get_events();
+        $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
+        $all_events        = $this->do_get_events();
 
-        if ( empty( $all_events ) ) {
+        if ( empty( $event_search_text ) || empty( $all_events ) ) {
             return [];
         }
 
@@ -153,7 +161,7 @@ class PageEventsSearch extends BaseModel {
                     'tms-theme-base'
                 ),
                 $event_count,
-                get_query_var( self::EVENT_SEARCH_TEXT )
+                $event_search_text
             );
         }
         else {
@@ -172,11 +180,16 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     private function do_get_events() : array {
+        $start_date = get_query_var( self::EVENT_SEARCH_END_DATE );
+        $start_date = ! empty( $start_date ) ? $start_date : 'today';
+        $end_date   = get_query_var( self::EVENT_SEARCH_END_DATE );
+        $end_date   = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
+
         // Set user defined and default search parameters
         $params = [
             'text'        => get_query_var( self::EVENT_SEARCH_TEXT ),
-            'start'       => get_query_var( self::EVENT_SEARCH_START_DATE, 'today' ),
-            'end'         => get_query_var( self::EVENT_SEARCH_END_DATE, false ),
+            'start'       => $start_date,
+            'end'         => $end_date,
             'sort'        => 'start_time',
             'page_size'   => get_option( 'posts_per_page' ),
             'show_images' => true,
