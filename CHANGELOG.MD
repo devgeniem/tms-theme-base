@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-254: Sibling navigation layout fix
 - TMS-253: Site logo link to cover the tagline
 
 ## [1.19.0] - 2021-09-30
