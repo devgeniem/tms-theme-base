@@ -7,6 +7,7 @@ namespace TMS\Theme\Base;
 
 use Closure;
 use PageContacts;
+use PageEventsSearch;
 use Search;
 use function add_action;
 use function add_filter;
@@ -124,6 +125,9 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = Search::SEARCH_START_DATE;
         $vars[] = Search::SEARCH_END_DATE;
         $vars[] = PageContacts::SEARCH_QUERY_VAR;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_TEXT;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_START_DATE;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_END_DATE;
 
         return $vars;
     }

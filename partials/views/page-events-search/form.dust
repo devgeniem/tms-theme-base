@@ -1,0 +1,43 @@
+<form class="is-relative">
+    <div class="section pt-8 pb-8 {template_classes.search_form|s}">
+        <div class="container">
+            <div class="columns is-multiline is-variable is-3-tablet is-6-desktop">
+                <div class="column is-3-tablet is-4-widescreen">
+                    <div class="h6 mb-2">
+                        {form.seach_term_label|s}
+                    </div>
+                    <label for="search-input">
+                        <span class="is-sr-only">{form.seach_term_label|s}</span>
+                    </label>
+                    <input type="text" name="event_search_text" id="search-input" value="{form.search_term|s}"
+                            class="has-width-100"
+                            autocomplete="off">
+                </div>
+
+                <div class="column is-7-tablet is-5-widescreen">
+                    <div class="h6 mb-2">
+                        {form.time_frame_label|s}
+                    </div>
+                    <label for="start-date">
+                        <span class="is-sr-only">{form.start_date_label|s}</span>
+                    </label>
+                    <input type="date" name="event_search_start_date" id="start-date"
+                            class="has-after-line"
+                            value="{form.form_start_date}">
+                    <label for="end-date">
+                        <span class="is-sr-only">{form.end_date_label|s}</span>
+                    </label>
+                    <input type="date" name="event_search_end_date" id="end-date"
+                            value="{form.form_end_date}">
+                </div>
+
+                <div class="column is-2-tablet is-3-widescreen is-align-self-flex-end is-flex">
+                    <button type="submit" class="button button--icon ml-auto-tablet {button_class|s}">
+                        {Strings.s.header.search|s}
+                        {>"ui/icon" icon="search" class="icon--medium"  /}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
