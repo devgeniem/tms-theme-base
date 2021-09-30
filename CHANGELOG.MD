@@ -16,7 +16,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-163: Allow Stream logs to Super Administrators
+- TMS-253: Site logo link to cover the tagline
+
+## [1.19.0] - 2021-09-30
+
+### Changed
+
+- TMS-163: Allow Stream logs to Super Administrators #197
 - fix/limit-event-api-queries: Limit event API queries #196
 - TMS-249: Changed the sitemap toggler layout #194
 - TMS-248: Layout changes on blocks and layouts #193
