@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-261: Handling for paged parent referer URL on single event breadcrumbs
 - TMS-260: Background color for Gravity Form layout
 - TMS-258: Video, Map and Contacts blocks for Blog article CPT
 - TMS-257: "All events" -link for Events layout
