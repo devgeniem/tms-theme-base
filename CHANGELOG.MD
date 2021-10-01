@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-254: Sibling navigation layout fix
+- TMS-256: Site logo link to cover the tagline #199
+- TMS-254: Sibling navigation layout fix #198
 
 ## [1.19.0] - 2021-09-30
 
@@ -29,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-234: Blocks admin title
+- TMS-234: Blocks admin title #195
     - Added a styled message field for base block to act as its title
 - TMS-243: Add handling for external links in the content area #187
 - TMS-246: Add image caption to the Accordion Block #191
