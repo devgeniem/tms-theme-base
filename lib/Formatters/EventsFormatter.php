@@ -40,7 +40,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return array
      */
-    public function format( array $layout, bool $all = false ) : array {
+    public function format( array $layout ) : array {
         $query_params            = $this->format_query_params( $layout );
         $query_params['include'] = 'organization,location,keywords';
         $events                  = $this->get_events( $query_params );
