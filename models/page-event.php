@@ -257,16 +257,17 @@ class PageEvent extends BaseModel {
     public function alter_breadcrumbs( array $breadcrumbs ) : array {
         $referer  = wp_get_referer();
         $home_url = DPT_PLL_ACTIVE && function_exists( 'pll_current_language' )
-            ? pll_home_url()
-            : home_url();
+        ? pll_home_url()
+        : home_url();
 
         if ( false === strpos( $referer, $home_url ) ) {
             return $breadcrumbs;
         }
 
-        $parent = get_page_by_path(
-            str_replace( $home_url, '', $referer )
-        );
+        // Resolve the parent page ignoring f.ex. paging parameters in the URL: /page/2/
+        $parent = str_replace( $home_url, '', $referer );
+        $parent = strpos( $parent, '/' ) !== false ? explode( '/', $parent )[0] : $parent;
+        $parent = get_page_by_path( $parent );
 
         if ( empty( $parent ) ) {
             return $breadcrumbs;
