@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-264: Notice banner linkage
+    - Only description acts as a link
+    - Added a chevron icon after the link
+
 ## [1.19.0] - 2021-09-30
 
 ### Changed

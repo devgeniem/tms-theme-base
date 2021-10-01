@@ -20,4 +20,18 @@
             margin: 0 0 0 $theme-spacing-three;
         }
     }
+
+    &__link-icon {
+        margin-bottom: 0 !important; // sass-lint:disable-line no-important
+        transition: transform $easing $speed;
+    }
+
+    &__link {
+        &:hover,
+        &:focus {
+            .notice-banner__link-icon {
+                transform: translateX(0.118rem);
+            }
+        }
+    }
 }
