@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-259: Change the Excerpt field label and description for Blog Author CPT
+
 ## [1.19.0] - 2021-09-30
 
 ### Changed
