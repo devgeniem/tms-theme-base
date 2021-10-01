@@ -91,7 +91,6 @@ class PasswordPolicy implements Interfaces\Controller {
             );
         }
 
-
         // Password can't be one of breached ones.
         if ( Security::check_password_pwnd_status( $password ) ) {
             $errors->add(
