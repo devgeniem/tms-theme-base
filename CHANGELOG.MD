@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-260: Background color for Gravity Form layout #203
 - TMS-258: Video, Map and Contacts blocks for Blog article CPT #201
 - TMS-257: "All events" -link for Events layout #200
 
