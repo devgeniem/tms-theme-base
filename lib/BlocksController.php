@@ -200,6 +200,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/image-gallery' => [
@@ -245,6 +246,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'acf/contacts'      => [
@@ -252,6 +254,7 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
+                    PostType\BlogArticle::SLUG,
                 ],
             ],
             'gravityforms/form' => [
