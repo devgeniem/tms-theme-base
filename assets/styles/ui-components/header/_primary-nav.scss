@@ -5,6 +5,7 @@
 $navbar-item-navbar-link-color: $primary-invert !default;
 $navbar-item-grid-item-border-color: #d9dde1 !default;
 $navbar-item-has-dropdown-active: $primary-invert !default;
+$navbar-item-dropdown-accent-color: $primary-dark !default;
 
 .primary-nav {
     @include list-reset;
@@ -74,8 +75,12 @@ $navbar-item-has-dropdown-active: $primary-invert !default;
 
             &__parent-link {
                 font-weight: 600;
-                color: $primary !important; // sass-lint:disable-line no-important
+                color: $navbar-item-dropdown-accent-color !important; // sass-lint:disable-line no-important
                 text-transform: none;
+            }
+
+            .icon {
+                fill: $navbar-item-dropdown-accent-color;
             }
         }
 

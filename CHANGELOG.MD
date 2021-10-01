@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-262: Text and UI colors on primary navigation and breadcrumbs
 - TMS-264: Notice banner linkage
     - Only description acts as a link
     - Added a chevron icon after the link
