@@ -257,8 +257,8 @@ class PageEvent extends BaseModel {
     public function alter_breadcrumbs( array $breadcrumbs ) : array {
         $referer  = wp_get_referer();
         $home_url = DPT_PLL_ACTIVE && function_exists( 'pll_current_language' )
-        ? pll_home_url()
-        : home_url();
+            ? pll_home_url()
+            : home_url();
 
         if ( false === strpos( $referer, $home_url ) ) {
             return $breadcrumbs;

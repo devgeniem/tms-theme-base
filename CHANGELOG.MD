@@ -41,11 +41,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-248: Layout changes on blocks and layouts
     - Image Gallery block zoom effect for thumbnails on hover and focus
     - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
+      <<<<<<< HEAD
 - TMS-247: Changed the outline style on elements' focus state
 - TMS-245: Made the WYSIWYG editor taller on Accordion Block
 - TMS-244: Made the site header logo smaller on mobile devices
 - TMS-252: Change the order of content on single Dynamic Event view
-- TMS-242: Darkened the `$secondary-invert` colors on multiple themes
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes =======
+- TMS-247: Changed the outline style on elements' focus state #192
+- TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
+- TMS-252: Change the order of content on single Dynamic Event view #188
+- TMS-244: Made the site header logo smaller on mobile devices #189
+- TMS-245: Made the WYSIWYG editor taller on Accordion Block #190
+
+### Added
+
+- TMS-234: Blocks admin title #195
+    - Added a styled message field for base block to act as its title
+- TMS-243: Add handling for external links in the content area #187
+- TMS-246: Add image caption to the Accordion Block #191
+
+> > > > > > > fix/event-api-lag
 
 ## [1.18.0] - 2021-09-27
 
