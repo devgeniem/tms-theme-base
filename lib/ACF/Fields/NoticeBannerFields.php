@@ -76,7 +76,7 @@ class NoticeBannerFields extends Field\Group {
             ->set_key( "${key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
-            ->set_new_lines( 'wpautop' )
+            ->set_new_lines( 'br' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['description']['instructions'] );
 

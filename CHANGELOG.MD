@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-264: Notice banner linkage #205
+    - Only description acts as a link
+    - Added a chevron icon after the link
 - TMS-262: Text and UI colors on primary navigation and breadcrumbs #204
 - TMS-259: Change the Excerpt field label and description for Blog Author CPT #202
 - TMS-256: Site logo link to cover the tagline #199
