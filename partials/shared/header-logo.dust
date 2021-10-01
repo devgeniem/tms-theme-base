@@ -1,4 +1,4 @@
-<div class="site-header__logo">
+<div class="site-header__logo is-relative">
     <div class="site-header__logo-image">
     {?Header.logo}
         {?Header.home_url}

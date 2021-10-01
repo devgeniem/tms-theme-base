@@ -68,6 +68,13 @@ class BlogAuthor implements PostType {
      */
     public function hooks() : void {
         add_action( 'init', \Closure::fromCallable( [ $this, 'register' ] ), 15 );
+
+        /**
+         * Change the Excerpt field label and description for Blog Author CPT
+         */
+        add_action( 'current_screen', function() {
+            add_filter( 'gettext', \Closure::fromCallable( [ $this, 'modify_blog_author_admin' ] ), 10, 2 );
+        } );
     }
 
     /**
@@ -144,5 +151,28 @@ class BlogAuthor implements PostType {
         ];
 
         register_post_type( static::SLUG, $args );
+    }
+
+    /**
+     * Modify the Excerpt field label and description for Blog Author CPT.
+     *
+     * @param string $translation Translated string.
+     * @param string $original    Original string.
+     *
+     * @return string
+     */
+    private function modify_blog_author_admin( $translation, $original ) : string {
+        if ( \get_current_screen()->post_type !== static::SLUG ) {
+            return $translation;
+        }
+
+        if ( $original === 'Excerpt' ) {
+            $translation = 'Kuvaus';
+        }
+        elseif ( strpos( $original, 'Excerpts are optional' ) !== false ) {
+            $translation = '';
+        }
+
+        return $translation;
     }
 }

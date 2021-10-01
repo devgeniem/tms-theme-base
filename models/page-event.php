@@ -264,9 +264,10 @@ class PageEvent extends BaseModel {
             return $breadcrumbs;
         }
 
-        $parent = get_page_by_path(
-            str_replace( $home_url, '', $referer )
-        );
+        // Resolve the parent page ignoring f.ex. paging parameters in the URL: /page/2/
+        $parent = str_replace( $home_url, '', $referer );
+        $parent = strpos( $parent, '/' ) !== false ? explode( '/', $parent )[0] : $parent;
+        $parent = get_page_by_path( $parent );
 
         if ( empty( $parent ) ) {
             return $breadcrumbs;
