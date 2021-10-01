@@ -170,6 +170,8 @@ class PageEventsCalendar extends BaseModel {
     /**
      * Fetch results from API.
      *
+     * @param array $params API query params.
+     *
      * @return array
      */
     private function do_get_events( array $params ) : array {
