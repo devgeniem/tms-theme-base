@@ -123,32 +123,81 @@ class Strings extends \DustPress\Model {
                 'comments_title' => _x( 'Comments', 'theme-frontend', 'tms-theme-base' ),
                 'close_notice'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'blog_article'   => [
+            'blog_article'       => [
                 'toggle_details'    => _x( 'Show description', 'theme-frontend', 'tms-theme-base' ),
                 'archive_link_text' => _x( 'All articles', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'event'          => [
+            'event'              => [
                 'date'     => _x( 'Event date', 'theme-frontend', 'tms-theme-base' ),
                 'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
                 'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'sitemap'        => [
+            'sitemap'            => [
                 'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'close' => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'contact_search' => [
+            'contact_search'     => [
                 'label'             => _x( 'Search contacts', 'theme-frontend', 'tms-theme-base' ),
                 'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'artwork'        => [
+            'artwork'            => [
                 'artist_link'     => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_art'     => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
             ],
-            'search'         => [
+            'search'             => [
                 'filter_by_post_type' => _x( 'Filter by type', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            // Use the Duet Date Picker keys for strings
+            'datepicker'         => [
+                'buttonLabel'         => _x( 'Pick a date', 'theme-frontend', 'tms-theme-base' ),
+                'placeholder'         => _x( 'dd.mm.yyyy', 'theme-frontend', 'tms-theme-base' ),
+                'selectedDateMessage' => _x( 'The chosen date is', 'theme-frontend', 'tms-theme-base' ),
+                'prevMonthLabel'      => _x( 'Previous month', 'theme-frontend', 'tms-theme-base' ),
+                'nextMonthLabel'      => _x( 'Next month', 'theme-frontend', 'tms-theme-base' ),
+                'monthSelectLabel'    => _x( 'Month', 'theme-frontend', 'tms-theme-base' ),
+                'yearSelectLabel'     => _x( 'Year', 'theme-frontend', 'tms-theme-base' ),
+                'closeLabel'          => _x( 'Close window', 'theme-frontend', 'tms-theme-base' ),
+                'calendarHeading'     => _x( 'Pick a date', 'theme-frontend', 'tms-theme-base' ),
+                'dayNames'            => [
+                    _x( 'Sunday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Monday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Tuesday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Wednesday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Thursday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Friday', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Saturday', 'theme-frontend', 'tms-theme-base' ),
+                ],
+                'monthNames'          => [
+                    _x( 'January', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'February', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'March', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'April', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'May', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'June', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'July', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'August', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'September', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'October', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'November', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'December', 'theme-frontend', 'tms-theme-base' ),
+                ],
+                'monthNamesShort'     => [
+                    _x( 'Jan', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Feb', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Mar', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Apr', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'May', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Jun', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Jul', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Aug', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Sept', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Oct', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Nov', 'theme-frontend', 'tms-theme-base' ),
+                    _x( 'Dec', 'theme-frontend', 'tms-theme-base' ),
+                ],
             ],
         ];
     }
