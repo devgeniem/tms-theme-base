@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-265: Remove overlay from Hero layout if description is empty
 - TMS-264: Notice banner linkage #205
     - Only description acts as a link
     - Added a chevron icon after the link
