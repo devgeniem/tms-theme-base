@@ -39,6 +39,20 @@
                                 <div class="entry__content is-content-grid mb-8 mb-10-desktop keep-vertical-spacing">
                                     {@content /}
                                 </div>
+
+                                {?share_links}
+                                    <div class="columns">
+                                        <div class="column is-10-desktop is-offset-1-desktop">
+                                            <div class="entry__share-links">
+                                                <h2 class="h6 mt-6 mb-6">
+                                                    {Strings.s.share.share_event|s}
+                                                </h2>
+
+                                                {>"ui/share-links" share_links=share_links li_class="mr-4" /}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/share_links}
                             </div>
                         </div>
                     </div>

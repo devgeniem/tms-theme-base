@@ -65,6 +65,7 @@ class Strings extends \DustPress\Model {
             ],
             'share'              => [
                 'share_article'         => _x( 'Share Article', 'theme-frontend', 'tms-theme-base' ),
+                'share_event'           => _x( 'Share Event', 'theme-frontend', 'tms-theme-base' ),
                 'share_to_social_media' => _x( 'Share to social media', 'theme-frontend', 'tms-theme-base' ),
             ],
             'gallery'            => [
