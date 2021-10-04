@@ -26,7 +26,7 @@
                             <span class="is-block">
                                 <duet-date-picker
                                     identifier="start-date"
-                                    name="start-date"
+                                    name="event_search_start_date"
                                     value="{form.form_start_date}"
                                     data-locale="{Header.site_locale}"></duet-date-picker>
                             </span>
@@ -41,7 +41,7 @@
                             <span class="is-block">
                                 <duet-date-picker
                                     identifier="end-date"
-                                    name="end-date"
+                                    name="event_search_end_date"
                                     value="{form.form_end_date}"
                                     data-locale="{Header.site_locale}"></duet-date-picker>
                             </span>
