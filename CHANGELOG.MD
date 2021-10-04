@@ -7,8 +7,33 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-214: Events Search page template
+
 ### Changed
 
+- TMS-264: Notice banner linkage #205
+    - Only description acts as a link
+    - Added a chevron icon after the link
+- TMS-262: Text and UI colors on primary navigation and breadcrumbs #204
+- TMS-259: Change the Excerpt field label and description for Blog Author CPT #202
+- TMS-256: Site logo link to cover the tagline #199
+- TMS-254: Sibling navigation layout fix #198
+
+### Added
+
+- TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
+- TMS-263: `tms/theme/admin_js_path` filter #206
+- TMS-260: Background color for Gravity Form layout #203
+- TMS-258: Video, Map and Contacts blocks for Blog article CPT #201
+- TMS-257: "All events" -link for Events layout #200
+
+## [1.19.0] - 2021-09-30
+
+### Changed
+
+- TMS-163: Allow Stream logs to Super Administrators #197
 - fix/limit-event-api-queries: Limit event API queries #196
 - TMS-249: Changed the sitemap toggler layout #194
 - TMS-248: Layout changes on blocks and layouts #193
@@ -22,8 +47,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-214: Events Search page template
-- TMS-234: Blocks admin title
+- TMS-234: Blocks admin title #195
     - Added a styled message field for base block to act as its title
 - TMS-243: Add handling for external links in the content area #187
 - TMS-246: Add image caption to the Accordion Block #191

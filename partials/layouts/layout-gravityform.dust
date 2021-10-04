@@ -1,5 +1,5 @@
 {?gravityform}
-    <section class="gravityform section" {?anchor}id="{anchor|s}"{/anchor}>
+    <section class="gravityform section has-background-secondary" {?anchor}id="{anchor|s}"{/anchor}>
         <div class="container">
             <div class="columns">
                 <div class="column">
