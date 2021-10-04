@@ -42,7 +42,7 @@ class PageEventsSearch extends BaseModel {
         return [
             'search_term'      => trim( get_query_var( self::EVENT_SEARCH_TEXT ) ),
             'form_start_date'  => get_query_var( self::EVENT_SEARCH_START_DATE ),
-            'form_end_date'    => get_query_var( self::EVENT_SEARCH_END_DATE ), // <- max vuosi
+            'form_end_date'    => get_query_var( self::EVENT_SEARCH_END_DATE ),
             'seach_term_label' => __( 'Search term', 'tms-theme-base' ),
             'time_frame_label' => __( 'Events from', 'tms-theme-base' ),
             'start_date_label' => __( 'Start date', 'tms-theme-base' ),
@@ -180,7 +180,7 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     private function do_get_events() : array {
-        $start_date = get_query_var( self::EVENT_SEARCH_END_DATE );
+        $start_date = get_query_var( self::EVENT_SEARCH_START_DATE );
         $start_date = ! empty( $start_date ) ? $start_date : 'today';
         $end_date   = get_query_var( self::EVENT_SEARCH_END_DATE );
         $end_date   = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
