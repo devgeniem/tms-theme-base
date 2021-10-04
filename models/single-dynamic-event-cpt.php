@@ -7,11 +7,14 @@ use Geniem\LinkedEvents\LinkedEventsClient;
 use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Traits\Components;
+use TMS\Theme\Base\Traits;
 
 /**
  * The SingleDynamicEventCpt class.
  */
 class SingleDynamicEventCpt extends PageEvent {
+
+    use Traits\Sharing;
 
     /**
      * Hooks

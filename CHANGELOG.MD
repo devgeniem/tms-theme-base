@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-266: Add share buttons to single dynamic event template
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
 - TMS-263: `tms/theme/admin_js_path` filter #206
 - TMS-260: Background color for Gravity Form layout #203
