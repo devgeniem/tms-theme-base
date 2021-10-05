@@ -260,7 +260,7 @@ class Search extends BaseModel {
                 'search_form'          => 'has-background-secondary',
                 'search_item'          => 'has-background-secondary',
                 'search_item_excerpt'  => '',
-                'search_filter_button' => 'has-text-secondary-invert',
+                'search_filter_button' => '',
                 'event_search_section' => 'has-border-bottom-1 has-border-divider',
             ]
         );
