@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-267: New site initialization script
 - TMS-266: Add share buttons to single dynamic event template
 - TMS-214: Events Search page template
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs
