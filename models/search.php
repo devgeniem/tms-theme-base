@@ -66,7 +66,7 @@ class Search extends BaseModel {
             [
                 'slug'       => 'all',
                 'name'       => __( 'All', 'tms-theme-base' ),
-                'is_checked' => in_array( 'all', $posts_types, true ),
+                'is_checked' => in_array( 'all', $posts_types, true ) || empty( $posts_types ),
             ]
         );
 
