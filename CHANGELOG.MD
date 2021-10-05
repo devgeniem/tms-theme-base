@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-268: Columns layout on highlight article layout
 - TMS-265: Remove overlay from Hero layout if description is empty #209
 - TMS-264: Notice banner linkage #205
     - Only description acts as a link
