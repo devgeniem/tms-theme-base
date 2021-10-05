@@ -11,14 +11,13 @@
                                 <div class="search-filters__label h6 mb-2">
                                     {form.filter_by_post_type}
                                 </div>
-                                <div class="is-flex">
-
+                                <div class="is-flex is-flex-wrap-wrap">
                                     {#form.post_types}
                                         <input type="checkbox" name="search_post_types[]"
                                                class="is-checkradio search-filters__post-type" value="{slug}"
                                                id="cpt-{slug|s}"
                                                {?is_checked}checked{/is_checked}>
-                                        <label class="is-block mr-4 mb-4" for="cpt-{slug|s}">
+                                        <label class="is-block mr-4 ml-0 mb-2" for="cpt-{slug|s}">
                                             {name|s}
                                         </label>
                                     {/form.post_types}
