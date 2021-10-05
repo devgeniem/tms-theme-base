@@ -49,7 +49,7 @@ class HeroFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $button_classes[]          = 'is-outlined';
         }
         else {
-            $layout['use_overlay'] = true;
+            $layout['use_overlay'] = ! empty( $layout['description'] );
             $box_classes[]         = 'has-text-white';
             $button_classes[]      = 'is-primary';
         }
