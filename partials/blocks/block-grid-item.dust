@@ -12,9 +12,9 @@
             <a href="{link.url}" target="{link.target}" class="button {button} is-small ml-auto mr-auto mt-4 mb-0 mt-4-tablet">{link.title}</a>
         {/link}
     </div>
-    <div class="image is-square is-clipped">
-        {?image.id}
+    {?image.id}
+        <div class="image is-square is-clipped">
             {@image id=image.id size="large" class="objectfit-image" /}
-        {/image.id}
-    </div>
+        </div>
+    {/image.id}
 </div>
