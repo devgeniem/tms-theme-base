@@ -94,6 +94,18 @@ class Header extends Model {
     }
 
     /**
+     * Get site locale
+     *
+     * @return string
+     */
+    public function site_locale() : string {
+        $locale = DPT_PLL_ACTIVE ? pll_current_language( 'locale' ) : get_locale();
+        $locale = $locale === 'fi' ? 'fi-FI' : $locale;
+
+        return $locale;
+    }
+
+    /**
      * Hide main navigation
      *
      * @return false|mixed

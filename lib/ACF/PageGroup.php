@@ -71,6 +71,11 @@ class PageGroup {
                         'value'    => \PageEventsCalendar::TEMPLATE,
                     ],
                     [
+                        'param'    => 'page_template',
+                        'operator' => '!=',
+                        'value'    => \PageEventsSearch::TEMPLATE,
+                    ],
+                    [
                         'param'    => 'page_type',
                         'operator' => '!=',
                         'value'    => 'posts_page',

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-214: Events Search page template
+
 ### Changed
 
 - TMS-264: Notice banner linkage #205
