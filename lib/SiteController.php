@@ -59,7 +59,7 @@ class SiteController implements Interfaces\Controller {
     }
 
     /**
-     * Set the site's first and only page's template.
+     * Set the site's first page's template.
      *
      * @return void
      *
@@ -67,14 +67,8 @@ class SiteController implements Interfaces\Controller {
      */
     protected function init_front_page() : void {
         try {
-            $page_id = get_pages()[0]->ID ?? null;
-
-            if ( empty( $page_id ) ) {
-                throw new \Exception(
-                    'Could not initialize the front page.'
-                );
-            }
-
+            // Get the first page ID, safe to default to (int) 1
+            $page_id      = get_pages()[0]->ID ?? 1;
             $template_set = update_post_meta( $page_id, '_wp_page_template', 'models/page-front-page.php' );
 
             if ( ! $template_set ) {
