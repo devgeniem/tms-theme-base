@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.20.0] - 2021-10-06
+
 ### Changed
 
 - TMS-275: More careful targeting for external links #218
