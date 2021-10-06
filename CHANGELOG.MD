@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-272: Contact CPT set to non-public
+- TMS-273: Remove pointer events from elements inside links and buttons #217
+- TMS-272: Contact CPT set to non-public #216
 - TMS-271: Contacts block heading aligment change #215
 - TMS-269: Print HTML for the image on block grid item only when it's set #213
 - TMS-268: Columns layout on highlight article layout #212
