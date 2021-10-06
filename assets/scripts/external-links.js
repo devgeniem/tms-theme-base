@@ -22,6 +22,6 @@ export default class ExternalLinks {
         const domain = window.location.hostname;
         const icon = Common.makeIcon( 'external', 'icon--medium ml-1' );
 
-        $( '#main-content a[href*="//"]:not([href*="' + domain + '"])' ).append( icon );
+        $( '#main-content a[href*="//"]:not(.button, .logo-wall__link, [href*="' + domain + '"])' ).append( icon );
     }
 }

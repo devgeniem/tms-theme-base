@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-275: Missing anchors for layouts
 - TMS-270: Author capability additions
 - TMS-267: New site initialization script
 - TMS-266: Add share buttons to single dynamic event template
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-275: More careful targeting for external links
 - TMS-273: Remove pointer events from elements inside links and buttons
 - TMS-271: Contacts block heading aligment change
 - TMS-269: Print HTML for the image on block grid item only when it's set
