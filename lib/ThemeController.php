@@ -43,6 +43,7 @@ class ThemeController {
             NavigationController::class,
             PostTypeController::class,
             Roles::class,
+            SiteController::class,
             TaxonomyController::class,
             ThemeSupports::class,
             Comments::class,
