@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-275: More careful targeting for external links #218
 - TMS-273: Remove pointer events from elements inside links and buttons #217
 - TMS-272: Contact CPT set to non-public #216
 - TMS-271: Contacts block heading aligment change #215
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-275: Missing anchors for layouts
 - TMS-270: Author capability additions #214
 - TMS-266: Add share buttons to single dynamic event template #210
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207

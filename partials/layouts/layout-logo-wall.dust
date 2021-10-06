@@ -12,7 +12,7 @@
             {#rows}
                 <div class="logo-wall__item m-3 m-5-tablet m-7-desktop is-inline-flex">
                     {?link.url}
-                        <a href="{link.url}" target="{link.target}" class="is-block">
+                        <a href="{link.url}" target="{link.target}" class="logo-wall__link is-block">
                             {@image id=logo.id size="medium" /}
                         </a>
                     {:else}
