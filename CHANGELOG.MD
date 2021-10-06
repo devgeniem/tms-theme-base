@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-275: More careful targeting for external links
 - TMS-271: Contacts block heading aligment change #215
 - TMS-269: Print HTML for the image on block grid item only when it's set #213
 - TMS-268: Columns layout on highlight article layout #212
@@ -23,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-275: Missing anchors for layouts
 - TMS-270: Author capability additions #214
 - TMS-266: Add share buttons to single dynamic event template #210
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
