@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-278: Size fix for uploaded SVG images embedded via image helper
 - TMS-276: Current menu item indicator to primary navigation
 - TMS-275: Missing anchors for layouts
 - TMS-270: Author capability additions
@@ -27,6 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-278: Back to top -button positioning
 - TMS-277: Flyout navbar search layout fix
 - fix/event-api-lag: Event API lag #211
     - Fetch only current result page at a time in events calender
