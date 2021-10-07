@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-281: Call to action layout order
 - TMS-278: Size fix for uploaded SVG images embedded via image helper
 - TMS-276: Current menu item indicator to primary navigation
 - TMS-275: Missing anchors for layouts

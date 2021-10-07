@@ -4,34 +4,15 @@
 
         {#rows}
             <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
-                {?image}
-                    <div class="column is-6-desktop">
-                        <div class="image is-5by3 {image_class|s}">
-                            {@image id=image.id size="large" class="objectfit-image" /}
-                        </div>
-                        {?display_artist}
-                            {?image_title_and_artist}
-                                <small>{image_title_and_artist|s}</small>
-                            {/image_title_and_artist}
-                        {/display_artist}
-                    </div>
-                {/image}
 
-                <div class="column {text_column_class|s}">
-                    {?title}
-                        <h2 class="call-to-action__title h4 mt-0">
-                            {title|s}
-                        </h2>
-                    {/title}
+                {@eq key=layout value="is-image-first"}
+                    {>"layouts/call-to-action/call-to-action-image" /}
+                    {>"layouts/call-to-action/call-to-action-text" /}
+                {:else}
+                    {>"layouts/call-to-action/call-to-action-text" /}
+                    {>"layouts/call-to-action/call-to-action-image" /}
+                {/eq}
 
-                    {?description}
-                        <div class="call-to-action__description mt-6 mb-6">
-                            {description|s}
-                        </div>
-                    {/description}
-
-                    {>"ui/button-link" classes="is-primary" icon="chevron-right" icon_classes="icon--medium"  /}
-                </div>
             </div>
         {/rows}
 
