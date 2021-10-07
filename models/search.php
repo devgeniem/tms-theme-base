@@ -202,6 +202,7 @@ class Search extends BaseModel {
     public static function set_ignored_query_vars( array $vars ) : array {
         $vars[] = 'search_start_date';
         $vars[] = 'search_end_date';
+        $vars[] = 'search_post_types';
 
         return $vars;
     }
