@@ -1,4 +1,4 @@
-<form class="is-relative">
+<form class="is-relative" action="{form.action}">
     <div class="section pt-8 pb-8 {template_classes.search_form|s}">
         <div class="container">
             <div class="columns is-multiline is-variable is-3-tablet is-6-desktop">

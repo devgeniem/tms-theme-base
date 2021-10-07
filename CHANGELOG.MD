@@ -26,19 +26,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-275: More careful targeting for external links
-- TMS-273: Remove pointer events from elements inside links and buttons
-- TMS-271: Contacts block heading aligment change
-- TMS-269: Print HTML for the image on block grid item only when it's set
-- TMS-268: Columns layout on highlight article layout
-- TMS-265: Remove overlay from Hero layout if description is empty
-- TMS-262: Text and UI colors on primary navigation and breadcrumbs
-- TMS-264: Notice banner linkage
+- fix/event-api-lag: Event API lag #211
+    - Fetch only current result page at a time in events calender
+
+## [1.20.0] - 2021-10-06
+
+### Changed
+
+- TMS-275: More careful targeting for external links #218
+- TMS-273: Remove pointer events from elements inside links and buttons #217
+- TMS-272: Contact CPT set to non-public #216
+- TMS-271: Contacts block heading aligment change #215
+- TMS-269: Print HTML for the image on block grid item only when it's set #213
+- TMS-268: Columns layout on highlight article layout #212
+- TMS-265: Remove overlay from Hero layout if description is empty #209
+- TMS-264: Notice banner linkage #205
     - Only description acts as a link
     - Added a chevron icon after the link
-- TMS-259: Change the Excerpt field label and description for Blog Author CPT
-- TMS-254: Sibling navigation layout fix
-- TMS-253: Site logo link to cover the tagline
+- TMS-262: Text and UI colors on primary navigation and breadcrumbs #204
+- TMS-259: Change the Excerpt field label and description for Blog Author CPT #202
+- TMS-256: Site logo link to cover the tagline #199
+- TMS-254: Sibling navigation layout fix #198
+
+### Added
+
+- TMS-267: New site initialization script #219
+- TMS-275: Missing anchors for layouts #218
+- TMS-270: Author capability additions #214
+- TMS-266: Add share buttons to single dynamic event template #210
+- TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
+- TMS-263: `tms/theme/admin_js_path` filter #206
+- TMS-260: Background color for Gravity Form layout #203
+- TMS-258: Video, Map and Contacts blocks for Blog article CPT #201
+- TMS-257: "All events" -link for Events layout #200
+>>>>>>> TMS-214
 
 ## [1.19.0] - 2021-09-30
 
@@ -174,10 +195,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-193: Add filters & variables for customizing theme look & feel #156
 
 ### Fixed
+
 - TMS-102-0709: External link icons in link list block #158
 - TMS-207: Fixed copy to clipboard event target #159
 
 ### Removed
+
 - TMS-102-0709: Removed comments from pages and posts #158
 - TMS-102-0709: Removed Gutenberg from component templates #158
 
@@ -239,9 +262,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DR-5: Add Default Content Image setting #134
 
 ### Changed
+
 - TMS-194: Organize setting tabs #135
 
 ### Fixed
+
 - a11y: Fix navigation item duplicate ids #122
 - a11y: Skip to content link #123
 - a11y: Prevent duplicate img ids #124
@@ -260,16 +285,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-55: Onepager page template #108
 
 ### Fixed
+
 - Upgrade deprecated hooks #121
 
 ## [1.6.1] - 2021-08-03
 
 ### Fixed
+
 - Remove character limit when displaying excerpts #119
 
 ## [1.6.0] - 2021-08-02
 
 ### Added
+
 - TMS-114: Contact CPT #105
 
 ## [1.5.1] - 2021-08-02
@@ -432,4 +460,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 0.1.0 2021-04-19
 
 ### Added
+
 - TMS-48: Theme boilerplate
