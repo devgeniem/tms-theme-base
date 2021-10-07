@@ -4,7 +4,7 @@
     {#PageEvent}
         <main class="main-content" id="main-content">
             <article class="entry">
-                <section class="section">
+                <section class="section pb-6">
                     <div class="container">
                         <div class="columns">
                             <div class="column is-10 is-offset-1">
@@ -13,12 +13,19 @@
                                 </h1>
 
                                 {?hero_image}
-                                    <div class="entry__hero-image mt-6 has-background-primary has-text-primary-invert has-background-cover" {@inlinebg url=hero_image /}></div>
+                                    <div
+                                        class="entry__hero-image mt-6 has-background-primary has-text-primary-invert has-background-cover" {@inlinebg url=hero_image /}></div>
                                 {/hero_image}
 
                                 <div class="entry__hero-info section pt-6 pb-6 {template_classes.hero_info|s}">
                                     {>"views/single-dynamic-event/single-dynamic-event-hero-meta" /}
                                 </div>
+
+                                {?hero_image_credits}
+                                    <div class="pt-6 has-text-right is-size-7">
+                                        {hero_image_credits|s}
+                                    </div>
+                                {/hero_image_credits}
                             </div>
                         </div>
                     </div>
