@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-280: Logic for the Key figures block text sizing
+
 ### Changed
 
-- fix/event-api-lag: Event API lag #211 
-    - Fetch only current result page at a time in events calender 
+- fix/event-api-lag: Event API lag #211
+    - Fetch only current result page at a time in events calender
 
 ## [1.20.0] - 2021-10-06
 
