@@ -77,20 +77,21 @@ class KeyFiguresBlock extends BaseBlock {
 
         $layouts = [
             '50-50' => [
-                'is-6-tablet',
-                'is-6-tablet',
+                'is-6-desktop',
+                'is-6-desktop',
             ],
             '70-30' => [
-                'is-6-tablet is-8-desktop',
-                'is-6-tablet is-4-desktop',
+                'is-6-desktop is-8-widescreen',
+                'is-6-desktop is-4-widescreen',
             ],
             '30-70' => [
-                'is-6-tablet is-4-desktop',
-                'is-6-tablet is-8-desktop',
+                'is-6-desktop is-4-widescreen',
+                'is-6-desktop is-8-widescreen',
             ],
         ];
 
         $altered = $data;
+        $chars   = 0;
 
         foreach ( $altered['rows'] as $row => $row_data ) {
             $row_layout = $row_data['layout'];
@@ -103,7 +104,22 @@ class KeyFiguresBlock extends BaseBlock {
                 $extra_class      = $background_color === 'primary' ? 'has-colors-accent' : '';
 
                 $altered['rows'][ $row ]['numbers'][ $number ]['extra_class'] = $extra_class;
+
+                // Count the chars in the number field to determine the longest number in the component
+                $num_len = strlen( $numbers_data['number'] );
+                $chars   = $chars < $num_len ? $num_len : $chars;
             }
+        }
+
+        // Set the number text class according to the length of the number field
+        if ( $chars <= 4 ) {
+            $altered['num_class'] = 'is-text-huge';
+        }
+        elseif ( $chars <= 6 ) {
+            $altered['num_class'] = 'is-text-bigger';
+        }
+        elseif ( $chars <= 10 ) {
+            $altered['num_class'] = 'is-text-big';
         }
 
         return apply_filters(
