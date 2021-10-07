@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-278: Back to top -button positioning
 - TMS-277: Flyout navbar search layout fix
+- TMS-301: Add modal gallery caption error handling
 - fix/event-api-lag: Event API lag #211
     - Fetch only current result page at a time in events calender
 
