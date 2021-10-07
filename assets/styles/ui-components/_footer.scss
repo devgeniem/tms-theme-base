@@ -5,6 +5,17 @@
 $footer-copy-link-border-color: $primary-invert !default;
 
 .site-footer {
+    // The logo container is in a fixed 4:3 ratio
+    // &__logo {
+    //     width: 285px;
+    //     height: 213px;
+
+    //     > img {
+    //         @include objectfit-image-contain();
+    //         object-position: left top;
+    //     }
+    // }
+
     &__link {
         .icon {
             transition: transform $easing $speed;
