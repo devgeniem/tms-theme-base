@@ -159,9 +159,9 @@ export default class Modal {
                 // Create an img inside the slide with src of the original thumbnail
                 // being linked to and alt of the nested thumbnail.
                 const alt = thumb.querySelector( 'img' ).getAttribute( 'alt' );
-                const caption = thumb.getAttribute( 'data-caption' );
-                const author = thumb.getAttribute( 'data-author' );
-                const title = thumb.getAttribute( 'data-image_title_and_artist' );
+                const caption = thumb.getAttribute( 'data-caption' ) || '';
+                const author = thumb.getAttribute( 'data-author' ) || '';
+                const title = thumb.getAttribute( 'data-image_title_and_artist' ) || '';
 
                 const figImgAttrs = 'loading="lazy" tabindex="-1" class="js-gallery-image"';
                 const figImg = `<img src="${ thumb.href }" alt="${ alt }" ${ figImgAttrs }>`;
