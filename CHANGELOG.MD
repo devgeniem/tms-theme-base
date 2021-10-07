@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-283: Ignore Link list block's links in external links targeting
 - TMS-282: Maximum height for images inside Modaal
 - TMS-278: Back to top -button positioning
 - TMS-277: Flyout navbar search layout fix
