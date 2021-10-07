@@ -106,6 +106,13 @@ $fly-out-nav-search-input-background-color: initial !default;
             font-weight: 600;
             padding-left: 0;
 
+            &.current-menu-item {
+                > a,
+                .navbar-dropdown-control > a {
+                    text-decoration: underline;
+                }
+            }
+
             > .navbar-dropdown-control {
                 color: $fly-out-nav-primary-link;
 
@@ -134,6 +141,10 @@ $fly-out-nav-search-input-background-color: initial !default;
                 &:hover,
                 &:focus {
                     color: $fly-out-nav-primary-link-hover !important; // sass-lint:disable-line no-important
+                }
+
+                &.current-menu-item {
+                    text-decoration: underline;
                 }
             }
         }
