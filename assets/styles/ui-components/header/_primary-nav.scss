@@ -6,6 +6,7 @@ $navbar-item-navbar-link-color: $primary-invert !default;
 $navbar-item-grid-item-border-color: #d9dde1 !default;
 $navbar-item-has-dropdown-active: $primary-invert !default;
 $navbar-item-dropdown-accent-color: $primary-dark !default;
+$navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
 
 .primary-nav {
     @include list-reset;
@@ -15,6 +16,9 @@ $navbar-item-dropdown-accent-color: $primary-dark !default;
     text-transform: uppercase;
 
     .navbar-item {
+        padding: $theme-spacing-three-quarters 0;
+        border-bottom: 5px solid transparent;
+
         .navbar-dropdown-control {
             color: $navbar-item-navbar-link-color;
 
@@ -26,6 +30,11 @@ $navbar-item-dropdown-accent-color: $primary-dark !default;
                 color: inherit;
                 fill: currentColor;
             }
+        }
+
+        &.current-menu-item {
+            border-bottom-color: $navbar-item-navbar-link-color;
+            background: $navbar-item-navbar-active-bg-color !important; // sass-lint:disable-line no-important
         }
     }
 
@@ -99,6 +108,10 @@ $navbar-item-dropdown-accent-color: $primary-dark !default;
                 &:hover,
                 &:focus {
                     background-color: transparent;
+                }
+
+                &.current-menu-item {
+                    text-decoration: underline;
                 }
             }
         }

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-276: Current menu item indicator to primary navigation
 - TMS-275: Missing anchors for layouts
 - TMS-270: Author capability additions
 - TMS-267: New site initialization script
