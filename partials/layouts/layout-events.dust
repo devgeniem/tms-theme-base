@@ -1,4 +1,4 @@
-<section class="events section">
+<section {?anchor}id="{anchor|s}"{/anchor} class="events section">
     <div class="container">
         {?title}
             <div class="columns">

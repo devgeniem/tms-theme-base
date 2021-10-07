@@ -7,8 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.20.0] - 2021-10-06
+
 ### Changed
 
+- TMS-275: More careful targeting for external links #218
+- TMS-273: Remove pointer events from elements inside links and buttons #217
+- TMS-272: Contact CPT set to non-public #216
+- TMS-271: Contacts block heading aligment change #215
+- TMS-269: Print HTML for the image on block grid item only when it's set #213
+- TMS-268: Columns layout on highlight article layout #212
+- TMS-265: Remove overlay from Hero layout if description is empty #209
 - TMS-264: Notice banner linkage #205
     - Only description acts as a link
     - Added a chevron icon after the link
@@ -19,6 +28,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-267: New site initialization script #219
+- TMS-275: Missing anchors for layouts #218
+- TMS-270: Author capability additions #214
+- TMS-266: Add share buttons to single dynamic event template #210
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
 - TMS-263: `tms/theme/admin_js_path` filter #206
 - TMS-260: Background color for Gravity Form layout #203
