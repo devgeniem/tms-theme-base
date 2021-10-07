@@ -167,13 +167,19 @@ class PageEventsSearch extends BaseModel {
 
         $this->set_pagination_data( $response['meta']->count );
 
-
         return [
             'summary' => $this->get_results_text( $response['meta']->count ?? 0 ),
             'posts'   => $response['events'],
         ];
     }
 
+    /**
+     * Get results text
+     *
+     * @param int $event_count Event count.
+     *
+     * @return string|null
+     */
     protected function get_results_text( $event_count ) : ?string {
         $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
 
