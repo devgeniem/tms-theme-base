@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-282: Maximum height for images inside Modaal
 - TMS-278: Back to top -button positioning
 - TMS-277: Flyout navbar search layout fix
 - TMS-301: Add modal gallery caption error handling
