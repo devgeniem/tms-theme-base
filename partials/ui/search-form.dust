@@ -1,7 +1,7 @@
 <form role="search" method="get" class="search-form is-flex is-flex-wrap-wrap is-align-items-center" action="{Header.search_action|s}">
-    <label class="mb-2 mb-0-tablet">
+    <label class="mb-2 mb-0-tablet mr-2 is-flex-grow-1">
         <span class="is-sr-only"> {Strings.s.header.search_input_label|s} </span>
-        <input type="search" class="search-form__input has-border-radius-small has-background-light mr-2 p-3"
+        <input type="search" class="search-form__input has-border-radius-small has-background-light p-3 has-width-100"
                placeholder="{Strings.s.header.search_input_placeholder|s}" value="{search_query|s}" name="s">
     </label>
 

@@ -52,11 +52,11 @@
 
                     {^Header.hide_search}
                         <div class="search-form-wrapper pl-6">
-                            <div class="h4 mt-9 mb-4">
+                            <div class="h4 mt-9 mb-4 {Header.colors.fly_out_nav.search_title}">
                                 {Strings.s.header.search_title|s}
                             </div>
 
-                            {>"search-form" button_class="{Header.colors.search_button} mb-2 mb-0-tablet" /}
+                            {>"search-form" button_class="{Header.colors.fly_out_nav.search_button} mb-2 mb-0-tablet" /}
                         </div>
                     {/Header.hide_search}
 
