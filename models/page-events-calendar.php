@@ -54,21 +54,10 @@ class PageEventsCalendar extends BaseModel {
     /**
      * Get no results text
      *
-     * @return ?string
+     * @return string
      */
-    public function no_results() : ?string {
-        try {
-            $events = $this->get_events();
-
-            return ! empty( $events )
-                ? null
-                : __( 'No results', 'tms-theme-base' );
-        }
-        catch ( Exception $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
-
-        return null;
+    public function no_results() : string {
+        return __( 'No results', 'tms-theme-base' );
     }
 
     /**
@@ -120,29 +109,6 @@ class PageEventsCalendar extends BaseModel {
      * @return array
      */
     private function get_events() : array {
-        $all_events = $this->do_get_events();
-
-        if ( empty( $all_events ) ) {
-            return [];
-        }
-
-        $per_page = get_option( 'posts_per_page' );
-        $paged    = get_query_var( 'paged', 0 );
-        $paged    = $paged > 0 ? -- $paged : $paged;
-
-        $chunks = array_chunk( $all_events, $per_page );
-
-        $this->set_pagination_data( count( $all_events ) );
-
-        return $chunks[ $paged ];
-    }
-
-    /**
-     * Fetch results from API.
-     *
-     * @return array
-     */
-    private function do_get_events() : array {
         $params = [
             'start'       => get_field( 'start' ),
             'end'         => get_field( 'end' ),
@@ -153,6 +119,8 @@ class PageEventsCalendar extends BaseModel {
             'page_size'   => get_option( 'posts_per_page' ),
             'text'        => get_field( 'text' ),
             'show_images' => get_field( 'show_images' ),
+            'page'        => get_query_var( 'paged', 1 ),
+            'include'     => 'organization,location,keywords',
         ];
 
         if ( ! empty( get_field( 'starts_today' ) ) && true === get_field( 'starts_today' ) ) {
@@ -175,19 +143,45 @@ class PageEventsCalendar extends BaseModel {
             return [];
         }
 
+        $formatter         = new EventsFormatter();
+        $params            = $formatter->format_query_params( $params );
+        $params['include'] = 'organization,location,keywords';
+
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
-        $events      = wp_cache_get( $cache_key, $cache_group );
+        $response    = wp_cache_get( $cache_key, $cache_group );
 
-        if ( ! empty( $events ) ) {
-            return $events;
+        if ( empty( $response ) ) {
+            $response = $this->do_get_events( $params );
+
+            if ( ! empty( $response ) ) {
+                wp_cache_set(
+                    $cache_key,
+                    $response,
+                    $cache_group,
+                    MINUTE_IN_SECONDS * 15
+                );
+            }
         }
 
-        $formatter = new EventsFormatter();
-        $data      = $formatter->format( $params, true );
-        $events    = $data['events'] ?? [];
+        return $response;
+    }
 
-        if ( ! empty( $events ) ) {
+    /**
+     * Fetch results from API.
+     *
+     * @param array $params API query params.
+     *
+     * @return array
+     */
+    private function do_get_events( array $params ) : array {
+        $event_data = $this->do_api_call( $params );
+
+        if ( ! empty( $event_data['meta'] ) ) {
+            $this->set_pagination_data( $event_data['meta']->count );
+        }
+
+        if ( ! empty( $event_data['events'] ) ) {
             $events = array_map( function ( $item ) {
                 $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
                 $item['location_icon']     = $item['is_virtual_event']
@@ -195,12 +189,41 @@ class PageEventsCalendar extends BaseModel {
                     : 'location';
 
                 return $item;
-            }, $events );
-
-            wp_cache_set( $cache_key, $events, $cache_group, MINUTE_IN_SECONDS * 15 );
+            }, $event_data['events'] );
         }
 
-        return $events;
+        return $events ?? [];
+    }
+
+    /**
+     * Do an API call
+     *
+     * @param array $params API query params.
+     *
+     * @return array
+     */
+    protected function do_api_call( array $params ) : array {
+        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+
+        try {
+            $response = $client->get_raw( 'event', $params );
+
+            if ( ! empty( $response ) ) {
+                $meta   = $client->get_response_meta( $response );
+                $events = array_map(
+                    fn( $item ) => LinkedEvents::normalize_event( $item ),
+                    $client->get_response_body( $response ) ?? []
+                );
+            }
+        }
+        catch ( Exception $e ) {
+            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+        }
+
+        return [
+            'events' => $events ?? null,
+            'meta'   => $meta ?? null,
+        ];
     }
 
     /**
