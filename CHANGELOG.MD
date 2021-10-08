@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-278: Size fix for uploaded SVG images embedded via image helper
+
 ### Changed
 
+- TMS-278: Back to top -button positioning #225
 - TMS-277: Flyout navbar search layout fix #224
 - TMS-301: Add modal gallery caption error handling #222
 - fix/event-api-lag: Event API lag #211
