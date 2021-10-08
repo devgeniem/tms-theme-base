@@ -10,9 +10,7 @@ $fly-out-nav-primary-dropdown-active-background: $primary-invert !default;
 $fly-out-nav-secondary-border-color: $primary-invert !default;
 $fly-out-nav-secondary-link: $primary-invert !default;
 $fly-out-nav-secondary-link-hover: $primary-invert !default;
-$fly-out-nav-search-input-border: $primary !default;
 $fly-out-nav-search-button-icon: $primary !default;
-$fly-out-nav-search-input-background-color: initial !default;
 
 .fly-out-nav {
     z-index: 50;
@@ -232,8 +230,7 @@ $fly-out-nav-search-input-background-color: initial !default;
 
     .search-form {
         &__input {
-            border: 1px solid $fly-out-nav-search-input-border;
-            background-color: $fly-out-nav-search-input-background-color;
+            border: none;
             border-radius: .25rem;
         }
 
