@@ -22,7 +22,7 @@
                                 </div>
 
                                 {?hero_image_credits}
-                                    <div class="pt-6 has-text-right is-size-7">
+                                    <div class="pt-6 pr-6 has-text-right is-size-7">
                                         {hero_image_credits|s}
                                     </div>
                                 {/hero_image_credits}
