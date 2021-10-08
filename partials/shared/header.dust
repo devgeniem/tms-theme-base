@@ -12,7 +12,7 @@
             {@wphead /}
         </head>
 
-        <body  class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
+        <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
 
         <header id="top" class="site-header">
             <a href="#main-content" class="skip-to-content">

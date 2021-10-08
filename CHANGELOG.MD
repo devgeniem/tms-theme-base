@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix/event-api-lag: Event API lag #211
     - Fetch only current result page at a time in events calender
 
+### Added
+
+- TMS-276: Current menu item indicator to primary navigation #223
+
 ## [1.20.0] - 2021-10-06
 
 ### Changed

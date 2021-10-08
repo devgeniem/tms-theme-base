@@ -1,4 +1,4 @@
-<li class="navbar-item navbar-item__single">
+<li class="navbar-item navbar-item__single {#classes}{.}{@sep} {/sep}{/classes}">
     <a href="{url}" class="is-arrowless pr-0 pl-0">
         {title|s}
     </a>
