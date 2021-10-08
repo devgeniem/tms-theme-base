@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-289: Filter out draft posts from Home template highlight field
 - TMS-301: Add modal gallery caption error handling #222
 - fix/event-api-lag: Event API lag #211
     - Fetch only current result page at a time in events calender
