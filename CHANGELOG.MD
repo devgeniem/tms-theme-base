@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-287: Add links with icons in external links targeting
 - TMS-280: Logic for the Key figures block text sizing
 - TMS-281: Call to action layout order
 - TMS-278: Size fix for uploaded SVG images embedded via image helper
