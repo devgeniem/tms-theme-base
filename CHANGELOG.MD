@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-289: Filter out draft posts from Home template highlight field
 - TMS-288: Fixed `strtodate`-helper call on home-list-item partial
 - TMS-286: Hyphenation / word-break fix for headings
 - TMS-285: Focus styles for Image gallery block and Image carousel layout
