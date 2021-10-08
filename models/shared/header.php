@@ -312,6 +312,7 @@ class Header extends Model {
                 'fly_out_nav'   => [
                     'inner'         => 'has-background-primary has-text-secondary-invert',
                     'close_menu'    => 'is-primary-invert',
+                    'search_title'  => 'has-text-primary-invert',
                     'search_button' => 'is-primary is-inverted',
                 ],
                 'lang_nav'      => [
