@@ -39,5 +39,14 @@ export default class ExternalLinks {
             // Append new icon (links may have a child element like a span or p in which the icon is appended)
             $( this ).children().first().append( iconNew );
         } );
+
+        // Translations are defined in models/strings.php,
+        // and loaded to windows.s in lib/Assets.php.
+        const translations = window.s.common || {
+            target_blank: 'Opens in a new window',
+        };
+
+        // Add instructional text for screen readers on links which open a new window/tab
+        $( 'a[target="_blank"]' ).append( `<span class="is-sr-only">(${ translations.target_blank })</span>` );
     }
 }
