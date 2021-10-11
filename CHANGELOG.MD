@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-288: Fixed `strtodate`-helper call on home-list-item partial #232
 - TMS-286: Hyphenation / word-break fix for headings #231
 - TMS-285: Focus styles for Image gallery block and Image carousel layout #230
 - TMS-296: Allow Quote block classes to be overridden #234
