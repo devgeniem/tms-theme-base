@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-286: Hyphenation / word-break fix for headings #231
 - TMS-285: Focus styles for Image gallery block and Image carousel layout #230
 - TMS-296: Allow Quote block classes to be overridden #234
 - TMS-283: Ignore Link list block's links in external links targeting #228
