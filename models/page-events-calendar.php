@@ -112,8 +112,6 @@ class PageEventsCalendar extends PageEventsSearch {
         if ( empty( $response ) ) {
             $response = $this->do_get_events( $params );
 
-            $this->set_pagination_data( $response['meta']->count );
-
             if ( ! empty( $response ) ) {
                 wp_cache_set(
                     $cache_key,
