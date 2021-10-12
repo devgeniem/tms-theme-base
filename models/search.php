@@ -66,7 +66,7 @@ class Search extends BaseModel {
             [
                 'slug'       => 'all',
                 'name'       => __( 'All', 'tms-theme-base' ),
-                'is_checked' => in_array( 'all', $posts_types, true ),
+                'is_checked' => in_array( 'all', $posts_types, true ) || empty( $posts_types ),
             ]
         );
 
@@ -261,7 +261,7 @@ class Search extends BaseModel {
                 'search_form'          => 'has-background-secondary',
                 'search_item'          => 'has-background-secondary',
                 'search_item_excerpt'  => '',
-                'search_filter_button' => 'has-text-secondary-invert',
+                'search_filter_button' => '',
                 'event_search_section' => 'has-border-bottom-1 has-border-divider',
             ]
         );

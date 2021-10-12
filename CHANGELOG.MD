@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-214: Events Search page template
+- TMS-287: Add screen reader text for links with target "blank" #235
 - TMS-211: Search weights by fields and post types
 - TMS-214: Events Search page template
 
