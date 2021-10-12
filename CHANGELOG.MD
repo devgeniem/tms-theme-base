@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-308: Remove fixed colors from accordion #238
 - TMS-287: Add screen reader text for links with target "blank" #235
 - TMS-287: Add links with icons in external links targeting #235
 - TMS-280: Logic for the Key figures block text sizing #226
