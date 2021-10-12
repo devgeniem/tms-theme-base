@@ -32,6 +32,9 @@ class Search extends BaseModel {
      */
     public static function hooks() {
         add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+        add_filter( 'redipress/scorer', [ __CLASS__, 'set_search_scorer' ], 10, 1 );
+        add_filter( 'redipress/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
+        add_filter( 'redipress/ignore_query_vars', [ __CLASS__, 'set_ignored_query_vars' ], 10, 1 );
     }
 
     /**
@@ -121,37 +124,87 @@ class Search extends BaseModel {
         $start_date = get_query_var( self::SEARCH_START_DATE );
         $end_date   = get_query_var( self::SEARCH_END_DATE );
 
+        // The date queries are done via meta query to retain full RediPress functionality
         if ( ! empty( $start_date ) ) {
-            $dt = new DateTime( $start_date );
-
             $date_query[] = [
-                'after'     => [
-                    'year'  => $dt->format( 'Y' ),
-                    'month' => $dt->format( 'm' ),
-                    'day'   => $dt->format( 'd' ),
-                ],
-                'inclusive' => true,
+                'key'     => 'post_date',
+                'value'   => $start_date,
+                'compare' => '>=',
+                'type'    => 'DATE',
             ];
         }
 
         if ( ! empty( $end_date ) ) {
-            $dt = new DateTime( $end_date );
-
             $date_query[] = [
-                'before'    => [
-                    'year'  => $dt->format( 'Y' ),
-                    'month' => $dt->format( 'm' ),
-                    'day'   => $dt->format( 'd' ),
-                ],
-                'inclusive' => true,
+                'key'     => 'post_date',
+                'value'   => $end_date,
+                'compare' => '<=',
+                'type'    => 'DATE',
             ];
         }
 
         if ( ! empty( $date_query ) ) {
-            $wp_query->set( 'date_query', $date_query );
+            $wp_query->set( 'meta_query', $date_query );
         }
 
         $wp_query->set( 'post_type', $selected_post_types );
+
+        // Set the result weights
+        $wp_query->set(
+            'weight',
+            [
+                'post_type' => [
+                    Page::SLUG        => 3,
+                    Post::SLUG        => 2,
+                    BlogArticle::SLUG => 1,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Set the search scorer to 'DISMAX' for better score readability.
+     *
+     * @param string $scorer The default scorer.
+     *
+     * @return string
+     */
+    public static function set_search_scorer( string $scorer ) : string {
+        return 'DISMAX';
+    }
+
+    /**
+     * Adjust field search weights for RediPress.
+     *
+     * @param array $fields Search index fields.
+     *
+     * @return array
+     */
+    public static function set_fields_weight( array $fields ) : array {
+        // Post title is the most relevant field
+        $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
+        $fields[ $post_title ]->weight = 10;
+
+        // Post excerpt is the second most relevant field
+        $post_excerpt                    = array_search( 'post_excerpt', array_column( $fields, 'name' ), true );
+        $fields[ $post_excerpt ]->weight = 5;
+
+        return $fields;
+    }
+
+    /**
+     * Add custom query vars to the list of ignored query vars list for RediPress.
+     *
+     * @param array $vars Ignored query vars.
+     *
+     * @return array
+     */
+    public static function set_ignored_query_vars( array $vars ) : array {
+        $vars[] = 'search_start_date';
+        $vars[] = 'search_end_date';
+        $vars[] = 'search_post_types';
+
+        return $vars;
     }
 
     /**
