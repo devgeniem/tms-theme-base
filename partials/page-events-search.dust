@@ -36,13 +36,13 @@
                         </div>
                     {/events.posts}
 
-                    {?no_results}
+                    {^events.posts}
                         <div class="columns">
                             <div class="column is-6 is-offset-3 has-text-centered is-size-4">
                                 {no_results|s}
                             </div>
                         </div>
-                    {/no_results}
+                    {/events.posts}
 
                     {?pagination}
                         <div class="columns mt-8 mb-4">
