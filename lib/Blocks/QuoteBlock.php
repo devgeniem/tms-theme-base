@@ -7,6 +7,9 @@ namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\QuoteFields;
+use TMS\Theme\Base\PostType\BlogArticle;
+use TMS\Theme\Base\PostType\Page;
+use TMS\Theme\Base\PostType\Post;
 
 /**
  * Class QuoteBlock
@@ -73,11 +76,32 @@ class QuoteBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+        $classes = [
+            'container' => [
+                'has-background-secondary',
+                'has-text-secondary-invert',
+                'mt-9',
+                'mb-9',
+            ],
+            'quote'     => [
+                'is-family-secondary',
+                'has-text-weight-medium',
+                'is-size-5',
+                is_singular( [ Page::SLUG, Post::SLUG, BlogArticle::SLUG ] ) ? 'is-size-1' : 'is-size-5',
+            ],
+            'author'    => [
+                'has-text-weight-medium',
+                'is-family-secondary ',
+            ],
+        ];
 
         if ( ! empty( $data['is_wide'] ) ) {
-            $data['extra_classes'] = 'is-align-wide';
+            $classes['container'][] = 'is-align-wide';
         }
+
+        $data['classes'] = $classes;
+
+        $data = apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
 
         return $data;
     }

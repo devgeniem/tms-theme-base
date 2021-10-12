@@ -13,6 +13,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-287: Add screen reader text for links with target "blank" #235
+- TMS-287: Add links with icons in external links targeting #235
+- TMS-280: Logic for the Key figures block text sizing #226
+- TMS-278: Size fix for uploaded SVG images embedded via image helper #225
+- TMS-276: Current menu item indicator to primary navigation #223
+
+### Changed
+
+- TMS-289: Filter out draft posts from Home template highlight field #233
+- TMS-288: Fixed `strtodate`-helper call on home-list-item partial #232
+- TMS-286: Hyphenation / word-break fix for headings #231
+- TMS-285: Focus styles for Image gallery block and Image carousel layout #230
+- TMS-296: Allow Quote block classes to be overridden #234
+- TMS-283: Ignore Link list block's links in external links targeting #228
+- TMS-282: Maximum height for images inside Modaal #227
+- TMS-278: Back to top -button positioning #225
+- TMS-277: Flyout navbar search layout fix #224
+- TMS-301: Add modal gallery caption error handling #222
+>>>>>>> master
 - fix/event-api-lag: Event API lag #211
     - Fetch only current result page at a time in events calender
 
