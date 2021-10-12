@@ -7,6 +7,7 @@
   "dependencies": {
     "@accessible360/accessible-slick": "^1.0.1",
     "@babel/polyfill": "^7.12.1",
+    "@duetds/date-picker": "^1.4.0",
     "@wordpress/keycodes": "^3.0.0",
     "hyphenopoly": "^3.4.0",
     "indicate": "^2.4.0",
@@ -52,12 +53,12 @@
     "webpack-cli": "^4.8.0"
   },
   "scripts": {
-      "lint": "eslint assets/scripts",
-      "lint-fix": "eslint assets/scripts --fix",
-      "lint-ci": "eslint assets/scripts --format checkstyle",
-      "watch": "cross-env webpack --progress --watch --mode development",
-      "dev": "cross-env webpack --progress --mode development",
-      "build": "cross-env NODE_ENV=production webpack --progress --mode production"
+    "lint": "eslint assets/scripts",
+    "lint-fix": "eslint assets/scripts --fix",
+    "lint-ci": "eslint assets/scripts --format checkstyle",
+    "watch": "cross-env webpack --progress --watch --mode development",
+    "dev": "cross-env webpack --progress --mode development",
+    "build": "cross-env NODE_ENV=production webpack --progress --mode production"
   },
   "browserslist": [
     "> 1%",

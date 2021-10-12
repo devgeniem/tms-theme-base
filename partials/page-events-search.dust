@@ -1,0 +1,59 @@
+{>"shared/base" /}
+
+{<content}
+    {#PageEventsSearch}
+        <main class="main-content" id="main-content">
+
+            <div class="section pt-0 pb-6">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-10 is-offset-1 has-text-centered">
+                            <h1>
+                                {@title /}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {>"views/page-events-search/form" /}
+
+            <section class="section pt-6 pb-6">
+                <div class="container">
+                    {?events.summary}
+                        <p class="mt-4 mb-7">
+                            {events.summary|s}
+                        </p>
+                    {/events.summary}
+
+                    {?events.posts}
+                        <div class="columns is-multiline">
+                            {#events.posts}
+                                <div class="column is-6 is-4-desktop">
+                                    {>"views/page-events-calendar/page-events-calendar-item-grid" /}
+                                </div>
+                            {/events.posts}
+                        </div>
+                    {/events.posts}
+
+                    {^events.posts}
+                        <div class="columns">
+                            <div class="column is-6 is-offset-3 has-text-centered is-size-4">
+                                {no_results|s}
+                            </div>
+                        </div>
+                    {/events.posts}
+
+                    {?pagination}
+                        <div class="columns mt-8 mb-4">
+                            <div class="column has-text-centered">
+                                {@pagination page=pagination.page per_page=pagination.per_page items=pagination.items page_var="paged" /}
+                            </div>
+                        </div>
+                    {/pagination}
+                </div>
+            </section>
+        </main>
+    {/PageEventsSearch}
+{/content}
+
