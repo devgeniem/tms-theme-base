@@ -8,6 +8,7 @@ use TMS\Theme\Base\Formatters\EventsFormatter;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
 use TMS\Theme\Base\Traits\Pagination;
+use TMS\Theme\Base\Logger;
 
 /**
  * The PageEventsCalendar class.
@@ -62,6 +63,22 @@ class PageEventsCalendar extends PageEventsSearch {
 
     /**
      * Get events
+     */
+    public function events() : ?array {
+        try {
+            $response = $this->get_events();
+
+            return $response['events'] ?? [];
+        }
+        catch ( Exception $e ) {
+            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
+        }
+
+        return null;
+    }
+
+    /**
+     * Get events
      *
      * @return array
      */
@@ -94,7 +111,8 @@ class PageEventsCalendar extends PageEventsSearch {
 
         if ( empty( $response ) ) {
             $response = $this->do_get_events( $params );
-            $response = $response['events'];
+
+            $this->set_pagination_data( $response['meta']->count );
 
             if ( ! empty( $response ) ) {
                 wp_cache_set(
@@ -105,6 +123,8 @@ class PageEventsCalendar extends PageEventsSearch {
                 );
             }
         }
+
+        $this->set_pagination_data( $response['meta']->count );
 
         return $response;
     }
