@@ -4,31 +4,23 @@
  * Template Name: Tapahtumakalenteri
  */
 
-use Geniem\LinkedEvents\LinkedEventsClient;
 use TMS\Theme\Base\Formatters\EventsFormatter;
-use TMS\Theme\Base\LinkedEvents;
-use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
+use TMS\Theme\Base\Traits\Pagination;
 
 /**
  * The PageEventsCalendar class.
  */
-class PageEventsCalendar extends BaseModel {
+class PageEventsCalendar extends PageEventsSearch {
 
     use Components;
+    use Pagination;
 
     /**
      * Template
      */
     const TEMPLATE = 'models/page-events-calendar.php';
-
-    /**
-     * Pagination data.
-     *
-     * @var object
-     */
-    protected object $pagination;
 
     /**
      * Description text
@@ -38,37 +30,12 @@ class PageEventsCalendar extends BaseModel {
     }
 
     /**
-     * Get events
-     */
-    public function events() : ?array {
-        try {
-            return $this->get_events();
-        }
-        catch ( Exception $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
-
-        return null;
-    }
-
-    /**
      * Get no results text
      *
-     * @return ?string
+     * @return string
      */
-    public function no_results() : ?string {
-        try {
-            $events = $this->get_events();
-
-            return ! empty( $events )
-                ? null
-                : __( 'No results', 'tms-theme-base' );
-        }
-        catch ( Exception $e ) {
-            ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
-        }
-
-        return null;
+    public function no_results() : string {
+        return __( 'No results', 'tms-theme-base' );
     }
 
     /**
@@ -94,55 +61,11 @@ class PageEventsCalendar extends BaseModel {
     }
 
     /**
-     * Item template classes.
-     *
-     * @return string
-     */
-    public function item_classes() : array {
-        return apply_filters( 'tms/theme/page_events_calendar/item_classes', [
-            'list' => [
-                'item'        => 'has-background-secondary',
-                'item_inner'  => '',
-                'icon'        => 'is-accent',
-                'description' => '',
-            ],
-            'grid' => [
-                'item'       => 'has-background-secondary',
-                'item_inner' => '',
-                'icon'       => 'is-accent',
-            ],
-        ] );
-    }
-
-    /**
      * Get events
      *
      * @return array
      */
-    private function get_events() : array {
-        $all_events = $this->do_get_events();
-
-        if ( empty( $all_events ) ) {
-            return [];
-        }
-
-        $per_page = get_option( 'posts_per_page' );
-        $paged    = get_query_var( 'paged', 0 );
-        $paged    = $paged > 0 ? -- $paged : $paged;
-
-        $chunks = array_chunk( $all_events, $per_page );
-
-        $this->set_pagination_data( count( $all_events ) );
-
-        return $chunks[ $paged ];
-    }
-
-    /**
-     * Fetch results from API.
-     *
-     * @return array
-     */
-    private function do_get_events() : array {
+    protected function get_events() : array {
         $params = [
             'start'       => get_field( 'start' ),
             'end'         => get_field( 'end' ),
@@ -153,72 +76,37 @@ class PageEventsCalendar extends BaseModel {
             'page_size'   => get_option( 'posts_per_page' ),
             'text'        => get_field( 'text' ),
             'show_images' => get_field( 'show_images' ),
+            'page'        => get_query_var( 'paged', 1 ),
+            'include'     => 'organization,location,keywords',
         ];
 
         if ( ! empty( get_field( 'starts_today' ) ) && true === get_field( 'starts_today' ) ) {
             $params['start'] = 'today';
         }
 
+        $formatter         = new EventsFormatter();
+        $params            = $formatter->format_query_params( $params );
+        $params['include'] = 'organization,location,keywords';
+
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
-        $events      = wp_cache_get( $cache_key, $cache_group );
-        $events      = false;
+        $response    = wp_cache_get( $cache_key, $cache_group );
 
-        if ( ! empty( $events ) ) {
-            return $events;
-        }
+        if ( empty( $response ) ) {
+            $response = $this->do_get_events( $params );
+            $response = $response['events'];
 
-        $formatter = new EventsFormatter();
-        $data      = $formatter->format( $params, true );
-        $events    = $data['events'] ?? [];
-
-        if ( ! empty( $events ) ) {
-            $events = array_map( function ( $item ) {
-                $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
-                $item['location_icon']     = $item['is_virtual_event']
-                    ? 'globe'
-                    : 'location';
-
-                return $item;
-            }, $events );
-
-            wp_cache_set( $cache_key, $events, $cache_group, MINUTE_IN_SECONDS * 15 );
-        }
-
-        return $events;
-    }
-
-    /**
-     * Set pagination data
-     *
-     * @param int $event_count Event count.
-     *
-     * @return void
-     */
-    protected function set_pagination_data( int $event_count ) : void {
-        $per_page = get_option( 'posts_per_page' );
-        $paged    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-
-        $this->pagination           = new stdClass();
-        $this->pagination->page     = $paged;
-        $this->pagination->per_page = $per_page;
-        $this->pagination->items    = $event_count;
-        $this->pagination->max_page = (int) ceil( $event_count / $per_page );
-    }
-
-    /**
-     * Returns pagination data.
-     *
-     * @return object
-     */
-    public function pagination() : ?object {
-        if ( isset( $this->pagination->page ) && isset( $this->pagination->max_page ) ) {
-            if ( $this->pagination->page <= $this->pagination->max_page ) {
-                return $this->pagination;
+            if ( ! empty( $response ) ) {
+                wp_cache_set(
+                    $cache_key,
+                    $response,
+                    $cache_group,
+                    MINUTE_IN_SECONDS * 15
+                );
             }
         }
 
-        return null;
+        return $response;
     }
 
     /**

@@ -205,7 +205,11 @@ class Assets implements Interfaces\Controller {
 
         \wp_enqueue_script(
             'admin-js',
-            DPT_ASSET_URI . '/admin.js',
+            apply_filters(
+                'tms/theme/admin_js_path',
+                DPT_ASSET_URI . '/admin.js',
+                'admin.js'
+            ),
             [
                 'jquery',
                 'wp-data',
@@ -278,7 +282,7 @@ class Assets implements Interfaces\Controller {
             'icon-auto'            => 'Auto',
             'icon-bussi'           => 'Bussi',
             'icon-chat'            => 'Chat',
-            'icon-finlaysoninalue' => 'Finlaysoninalue',
+            'icon-finlaysoninalue' => 'Finlaysonin alue',
             'icon-haulitorni'      => 'Haulitorni',
             'icon-idea'            => 'Idea',
             'icon-info'            => 'Info',
@@ -289,10 +293,10 @@ class Assets implements Interfaces\Controller {
             'icon-kalastus'        => 'Kalastus',
             'icon-kamera'          => 'Kamera',
             'icon-kannykka'        => 'Kännykkä',
+            'icon-kasvu'           => 'Kasvu',
             'icon-kattaus'         => 'Kattaus',
             'icon-kaupunki'        => 'Kaupunki',
             'icon-kavely'          => 'Kävely',
-            'icon-kavu'            => 'Kavu',
             'icon-kello'           => 'Kello',
             'icon-kirja'           => 'Kirja',
             'icon-koira'           => 'Koira',
@@ -314,6 +318,7 @@ class Assets implements Interfaces\Controller {
             'icon-nuija'           => 'Nuija',
             'icon-nuotio'          => 'Nuotio',
             'icon-osaaminen'       => 'Osaaminen',
+            'icon-osaaminen2'      => 'Osaaminen 2',
             'icon-paikka'          => 'Paikka',
             'icon-peukku'          => 'Peukku',
             'icon-puisto'          => 'Puisto',
@@ -327,7 +332,7 @@ class Assets implements Interfaces\Controller {
             'icon-sieni'           => 'Sieni',
             'icon-sopimus'         => 'Sopimus',
             'icon-soutuvene'       => 'Soutuvene',
-            'icon-sydan'           => 'Sydan',
+            'icon-sydan'           => 'Sydän',
             'icon-tammerkoski'     => 'Tammerkoski',
             'icon-teatteri'        => 'Teatteri',
             'icon-tehdas'          => 'Tehdas',

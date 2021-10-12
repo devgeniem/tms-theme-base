@@ -10,9 +10,7 @@ $fly-out-nav-primary-dropdown-active-background: $primary-invert !default;
 $fly-out-nav-secondary-border-color: $primary-invert !default;
 $fly-out-nav-secondary-link: $primary-invert !default;
 $fly-out-nav-secondary-link-hover: $primary-invert !default;
-$fly-out-nav-search-input-border: $primary !default;
 $fly-out-nav-search-button-icon: $primary !default;
-$fly-out-nav-search-input-background-color: initial !default;
 
 .fly-out-nav {
     z-index: 50;
@@ -106,6 +104,13 @@ $fly-out-nav-search-input-background-color: initial !default;
             font-weight: 600;
             padding-left: 0;
 
+            &.current-menu-item {
+                > a,
+                .navbar-dropdown-control > a {
+                    text-decoration: underline;
+                }
+            }
+
             > .navbar-dropdown-control {
                 color: $fly-out-nav-primary-link;
 
@@ -114,6 +119,9 @@ $fly-out-nav-search-input-background-color: initial !default;
                 }
 
                 > .dropdown-toggler {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    margin-right: 0;
                     color: inherit;
                 }
 
@@ -131,6 +139,10 @@ $fly-out-nav-search-input-background-color: initial !default;
                 &:hover,
                 &:focus {
                     color: $fly-out-nav-primary-link-hover !important; // sass-lint:disable-line no-important
+                }
+
+                &.current-menu-item {
+                    text-decoration: underline;
                 }
             }
         }
@@ -218,8 +230,7 @@ $fly-out-nav-search-input-background-color: initial !default;
 
     .search-form {
         &__input {
-            border: 1px solid $fly-out-nav-search-input-border;
-            background-color: $fly-out-nav-search-input-background-color;
+            border: none;
             border-radius: .25rem;
         }
 

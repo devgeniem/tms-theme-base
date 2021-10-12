@@ -1,0 +1,31 @@
+// Style the block name field to look more like a title
+div {
+    &[data-name="block_name_field"] {
+        label {
+            cursor: default;
+            font-size: 15px;
+        }
+    }
+}
+
+// Hide the block name field from the sidebar
+.components-panel {
+    div {
+        &[data-name="block_name_field"] {
+            display: none;
+        }
+    }
+}
+
+// Hide h1, h5 and h6 levels from the Heading block
+.block-library-heading-level-toolbar {
+    .components-toolbar-group {
+        button {
+            &:first-child,
+            &:nth-child(5),
+            &:nth-child(6) {
+                display: none;
+            }
+        }
+    }
+}

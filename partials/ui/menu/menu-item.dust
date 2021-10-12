@@ -3,9 +3,9 @@
 {/sub_menu}
 
 {?sub_menu}
-    <li class="navbar-item has-dropdown">
+    <li class="navbar-item has-dropdown {#classes}{.}{@sep} {/sep}{/classes}">
         <div class="navbar-dropdown-control">
-            <a class="navbar-link dropdown-trigger is-arrowless" href="#">
+            <a class="navbar-link is-arrowless" href="{url}">
                 {title|s}
             </a>
 

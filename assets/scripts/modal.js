@@ -159,8 +159,9 @@ export default class Modal {
                 // Create an img inside the slide with src of the original thumbnail
                 // being linked to and alt of the nested thumbnail.
                 const alt = thumb.querySelector( 'img' ).getAttribute( 'alt' );
-                const caption = thumb.getAttribute( 'data-caption' );
-                const author = thumb.getAttribute( 'data-author' );
+                const caption = thumb.getAttribute( 'data-caption' ) || '';
+                const author = thumb.getAttribute( 'data-author' ) || '';
+                const title = thumb.getAttribute( 'data-image_title_and_artist' ) || '';
 
                 const figImgAttrs = 'loading="lazy" tabindex="-1" class="js-gallery-image"';
                 const figImg = `<img src="${ thumb.href }" alt="${ alt }" ${ figImgAttrs }>`;
@@ -174,8 +175,12 @@ export default class Modal {
                     capContents.push( `<div class="${ authorClasses }">${ author }</div>` );
                     capClasses.push( 'is-reversed' );
                 }
-                if ( caption.trim().length > 1 ) {
-                    capContents.push( `<div class="column keep-vertical-spacing">${ caption }</div>` );
+                if ( title.trim().length > 1 || caption.trim().length > 1 ) {
+                    const capStrings = [
+                        `<strong class="is-block has-text-white">${ title }</strong>`,
+                        caption,
+                    ];
+                    capContents.push( `<div class="column keep-vertical-spacing">${ capStrings.join( ' ' ) }</div>` );
                 }
 
                 const figCap = capContents.length > 0

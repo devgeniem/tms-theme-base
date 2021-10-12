@@ -1,4 +1,4 @@
-<section class="events section">
+<section {?anchor}id="{anchor|s}"{/anchor} class="events section">
     <div class="container">
         {?title}
             <div class="columns">
@@ -71,5 +71,18 @@
                 </div>
             {/events}
         </div>
+
+        {?all_events_link}
+            <div class="columns">
+                <div class="column is-12 has-text-right">
+                    <div class="mt-0 mb-6">
+                        <a href="{all_events_link.url}" class="is-size-7">
+                            {>"ui/icon" icon="chevron-right" class="icon--small" /}
+                            {all_events_link.title|s}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {/all_events_link}
     </div>
 </section>

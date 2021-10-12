@@ -339,6 +339,7 @@ class Roles implements Controller {
             'manage_network_users',
             'manage_sites',
             'edit_theme_options', // Navigation changes
+            'view_stream', // Plugin: Stream
         ] );
 
         // Post types
@@ -490,6 +491,18 @@ class Roles implements Controller {
 
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
+
+        // Other
+        $role->add_caps( [ 'edit_theme_options' ] );
+
+        // Remove administration pages
+        $role->remove_menu_pages( [
+            'customize.php',
+            'themes.php' => [
+                'themes.php',
+                'customize.php',
+            ],
+        ] );
 
         $role->remove_caps( $this->remove_from_all );
 

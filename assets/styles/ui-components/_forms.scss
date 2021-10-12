@@ -1,7 +1,7 @@
 /*!*
  * Copyright (c) 2021. Geniem Oy
  */
-$gravityform-input-focus: .125rem dashed $color-black !default
+$gravityform-input-focus: .125rem solid $color-black !default
 $gravityform-input-focus-offset: .25rem !default
 
 form {
@@ -22,6 +22,41 @@ form {
 /**
  * GravityForms related
  */
+.container {
+    // GForms inside a wrapper need a different layout
+    .gform_wrapper {
+        @extend .is-align-wide;
+        margin: $theme-spacing-two -1 * $theme-spacing-oneandhalf;
+        padding: $theme-spacing-oneandhalf;
+        background: $secondary;
+
+        @include from($desktop) {
+            margin: $theme-spacing-two 0;
+            padding: 3rem 0;
+        }
+
+        > * {
+            @include from($desktop) {
+                padding: 0 3.95rem;
+            }
+
+            @include from($widescreen) {
+                padding: 0 3rem;
+            }
+        }
+    }
+
+    .gform {
+        &_heading {
+            h2 {
+                @include from($desktop) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
 .gform {
     &_heading {
         margin-bottom: $theme-spacing;

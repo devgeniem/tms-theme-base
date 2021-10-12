@@ -21,6 +21,8 @@ import Dropdown from './dropdown';
 import Home from './home';
 import Toggle from './toggle';
 import Sitemap from './sitemap';
+import ExternalLinks from './external-links';
+import DatePicker from './date-picker';
 
 const globalControllers = {
     Common,
@@ -41,6 +43,8 @@ const globalControllers = {
     Home,
     Toggle,
     Sitemap,
+    ExternalLinks,
+    DatePicker,
 };
 
 const templateControllers = {

@@ -41,39 +41,39 @@ class EventsFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'        => [
+            'title'           => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'start'        => [
+            'start'           => [
                 'label'        => 'Alkupäivämäärä',
                 'instructions' => '',
             ],
-            'end'          => [
+            'end'             => [
                 'label'        => 'Loppupäivämäärä',
                 'instructions' => '',
             ],
-            'starts_today' => [
+            'starts_today'    => [
                 'label'        => 'Alkaa tänään',
                 'instructions' => 'Alkupäivämääränä käytetään kuluvaa päivää',
             ],
-            'keyword'      => [
+            'keyword'         => [
                 'label'        => 'Avainsana',
                 'instructions' => '',
             ],
-            'location'     => [
+            'location'        => [
                 'label'        => 'Tapahtumapaikka',
                 'instructions' => '',
             ],
-            'publisher'    => [
+            'publisher'       => [
                 'label'        => 'Julkaisija',
                 'instructions' => '',
             ],
-            'text'         => [
+            'text'            => [
                 'label'        => 'Vapaasanahaku',
                 'instructions' => '',
             ],
-            'sort'         => [
+            'sort'            => [
                 'label'        => 'Järjestys',
                 'instructions' => '',
                 'choices'      => [
@@ -87,12 +87,16 @@ class EventsFields extends \Geniem\ACF\Field\Group {
                     'last_modified_time'  => 'Viimeksi muokattu (nouseva)',
                 ],
             ],
-            'page_size'    => [
+            'page_size'       => [
                 'label'        => 'Näytettävien tapahtumien määrä',
                 'instructions' => '',
             ],
-            'show_images'  => [
+            'show_images'     => [
                 'label'        => 'Näytä kuvat',
+                'instructions' => '',
+            ],
+            'all_events_link' => [
+                'label'        => '"Katso kaikki tapahtumat" -linkki',
                 'instructions' => '',
             ],
         ];
@@ -186,6 +190,12 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['show_images']['instructions'] );
 
+        $all_events_link_field = ( new Field\Link( $strings['all_events_link']['label'] ) )
+            ->set_key( "${key}_all_events_link" )
+            ->set_name( 'all_events_link' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['all_events_link']['instructions'] );
+
         return [
             $title_field,
             $start_field,
@@ -198,6 +208,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             $sort_field,
             $page_size_field,
             $show_images_field,
+            $all_events_link_field,
         ];
     }
 }

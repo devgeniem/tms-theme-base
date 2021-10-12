@@ -94,6 +94,18 @@ class Header extends Model {
     }
 
     /**
+     * Get site locale
+     *
+     * @return string
+     */
+    public function site_locale() : string {
+        $locale = DPT_PLL_ACTIVE ? pll_current_language( 'locale' ) : get_locale();
+        $locale = $locale === 'fi' ? 'fi-FI' : $locale;
+
+        return $locale;
+    }
+
+    /**
      * Hide main navigation
      *
      * @return false|mixed
@@ -312,6 +324,7 @@ class Header extends Model {
                 'fly_out_nav'   => [
                     'inner'         => 'has-background-primary has-text-secondary-invert',
                     'close_menu'    => 'is-primary-invert',
+                    'search_title'  => 'has-text-primary-invert',
                     'search_button' => 'is-primary is-inverted',
                 ],
                 'lang_nav'      => [

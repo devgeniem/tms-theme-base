@@ -6,6 +6,11 @@
     &__image {
         overflow: hidden;
 
+        &:focus {
+            outline: .125rem solid $color-black;
+            outline-offset: .25rem;
+        }
+
         img {
             width: 100% !important;
             height: 100% !important;

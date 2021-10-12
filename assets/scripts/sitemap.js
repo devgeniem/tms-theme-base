@@ -37,7 +37,9 @@ export default class Sitemap {
         children.toggle();
         Common.toggleAriaHidden( children[ 0 ] );
 
-        Sitemap.toggleButtonText( target, children.is( ':visible' ) );
+        target.toggleClass( 'is-active' );
+
+        Sitemap.toggleButtonText( target.find( '.button-text' ), children.is( ':visible' ) );
     }
 
     /**
@@ -63,9 +65,14 @@ export default class Sitemap {
 
         if ( link.parent( 'li' ).hasClass( 'page_item_has_children' ) ) {
             // Add toggler button and bind toggling functionality to it.
+            const icon = Common.makeIcon( 'chevron-down', 'icon--small' );
+            const buttonTextClass = 'button-text is-sr-only has-pointer-events-none';
+            let button = `<span class="${ buttonTextClass }">${ Sitemap.translations().open }</span>`;
+            button += `<span class="has-pointer-events-none" aria-hidden="true">${ icon }</span>`;
+
             const toggler = $( Common.makeButton(
-                Sitemap.translations().open,
-                'ml-3 button is-primary p-1 sitemap--toggle'
+                button,
+                'ml-3 button is-primary pt-1 pb-1 pl-3 pr-3 button-toggle sitemap--toggle'
             ) );
 
             // ID for children ul, to attach aria-controls labels.
@@ -87,7 +94,7 @@ export default class Sitemap {
                 'aria-hidden': true,
             } );
 
-            Sitemap.toggleButtonText( link.siblings( 'button' ), children.is( ':visible' ) );
+            Sitemap.toggleButtonText( link.siblings( 'button' ).find( '.button-text' ), children.is( ':visible' ) );
         }
     }
 
