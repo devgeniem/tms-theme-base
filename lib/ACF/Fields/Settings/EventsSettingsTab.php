@@ -44,6 +44,10 @@ class EventsSettingsTab extends Tab {
             'title'        => 'Tapahtuma-sivu',
             'instructions' => 'Sivu, jolle on valittu Tapahtuma-sivupohja',
         ],
+        'events_search_page'            => [
+            'title'        => 'Tapahtumahaku-sivu',
+            'instructions' => 'Sivu, jolle on valittu Tapahtumahaku-sivupohja.',
+        ],
         'show_related_events_calendars' => [
             'title'        => 'Näytä muut sivuston tapahtumakalenterit',
             'instructions' => 'Tapahtumakalenterin yläosassa näytetään automaattisesti
@@ -91,6 +95,13 @@ class EventsSettingsTab extends Tab {
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_page']['instructions'] );
 
+            $events_search_page_field = ( new Field\PostObject( $strings['events_search_page']['title'] ) )
+                ->set_key( "${key}_events_search_page" )
+                ->set_name( 'events_search_page' )
+                ->set_post_types( [ PostType\Page::SLUG ] )
+                ->set_return_format( 'id' )
+                ->set_instructions( $strings['events_search_page']['instructions'] );
+
             $show_event_calendars_field = ( new Field\TrueFalse( $strings['show_related_events_calendars']['title'] ) )
                 ->set_key( "${key}_show_related_events_calendars" )
                 ->set_name( 'show_related_events_calendars' )
@@ -102,6 +113,7 @@ class EventsSettingsTab extends Tab {
                 $image_field,
                 $image_credits_field,
                 $events_page_field,
+                $events_search_page_field,
                 $show_event_calendars_field,
             ] );
         }

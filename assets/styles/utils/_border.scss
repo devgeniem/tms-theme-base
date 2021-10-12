@@ -23,6 +23,14 @@
         border-color: $color-tumma-harmaa;
     }
 
+    &-divider {
+        border-color: $divider;
+    }
+
+    &-divider-invert {
+        border-color: $divider-invert;
+    }
+
     &-1 {
         border-width: 1px;
         border-style: solid;
