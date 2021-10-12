@@ -1,6 +1,6 @@
 {?highlight}
     <div class="highlight-article columns is-desktop is-gapless">
-        <div class="highlight-article__image-container column is-8-desktop is-relative">
+        <div class="highlight-article__image-container column is-6-desktop is-7-widescreen is-relative">
             <div class="highlight-article__image is-absolute-tablet has-top-0-tablet has-right-0-tablet has-bottom-0-tablet has-left-0-tablet has-background-cover" {@inlinebg id=highlight.featured_image size="large" /}>
                 <div class="image is-16by9 is-hidden-tablet">
                     {@image id=highlight.featured_image size="fullhd" class="objecfit-image" /}
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="column is-4-desktop has-background-secondary has-text-secondary-invert">
+        <div class="column is-6-desktop is-5-widescreen has-background-secondary has-text-secondary-invert">
             <div class="highlight-article__fields p-5 pt-9-desktop pr-6-desktop pb-9-desktop pl-6-desktop">
                 {?highlight.post_title}
                     <h2 class="mt-0 mt-3-desktop mb-4 mb-5-desktop">

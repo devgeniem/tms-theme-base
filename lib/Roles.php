@@ -492,6 +492,18 @@ class Roles implements Controller {
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
 
+        // Other
+        $role->add_caps( [ 'edit_theme_options' ] );
+
+        // Remove administration pages
+        $role->remove_menu_pages( [
+            'customize.php',
+            'themes.php' => [
+                'themes.php',
+                'customize.php',
+            ],
+        ] );
+
         $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/author', $role );

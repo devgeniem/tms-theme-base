@@ -1,4 +1,4 @@
-<a href="{url}" class="navbar-item">
+<a href="{url}" class="navbar-item {#classes}{.}{@sep} {/sep}{/classes}">
     {title|s}
 
     {?icon}

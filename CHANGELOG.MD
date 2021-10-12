@@ -10,9 +10,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-214: Events Search page template
+- TMS-287: Add screen reader text for links with target "_blank" #235
+- TMS-287: Add links with icons in external links targeting #235
+- TMS-280: Logic for the Key figures block text sizing #226
+- TMS-278: Size fix for uploaded SVG images embedded via image helper #225
+- TMS-276: Current menu item indicator to primary navigation #223
 
 ### Changed
 
+- TMS-289: Filter out draft posts from Home template highlight field #233
+- TMS-288: Fixed `strtodate`-helper call on home-list-item partial #232
+- TMS-286: Hyphenation / word-break fix for headings #231
+- TMS-285: Focus styles for Image gallery block and Image carousel layout #230
+- TMS-296: Allow Quote block classes to be overridden #234
+- TMS-283: Ignore Link list block's links in external links targeting #228
+- TMS-282: Maximum height for images inside Modaal #227
+- TMS-278: Back to top -button positioning #225
+- TMS-277: Flyout navbar search layout fix #224
+- TMS-301: Add modal gallery caption error handling #222
+- fix/event-api-lag: Event API lag #211
+    - Fetch only current result page at a time in events calender
+
+## [1.20.0] - 2021-10-06
+
+### Changed
+
+- TMS-275: More careful targeting for external links #218
+- TMS-273: Remove pointer events from elements inside links and buttons #217
+- TMS-272: Contact CPT set to non-public #216
+- TMS-271: Contacts block heading aligment change #215
+- TMS-269: Print HTML for the image on block grid item only when it's set #213
+- TMS-268: Columns layout on highlight article layout #212
+- TMS-265: Remove overlay from Hero layout if description is empty #209
 - TMS-264: Notice banner linkage #205
     - Only description acts as a link
     - Added a chevron icon after the link
@@ -23,6 +52,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-267: New site initialization script #219
+- TMS-275: Missing anchors for layouts #218
+- TMS-270: Author capability additions #214
+- TMS-266: Add share buttons to single dynamic event template #210
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
 - TMS-263: `tms/theme/admin_js_path` filter #206
 - TMS-260: Background color for Gravity Form layout #203

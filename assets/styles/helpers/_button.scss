@@ -346,3 +346,13 @@ $button-transition-speed: $speed !default;
         }
     }
 }
+
+// Disable pointer events for elements inside links and buttons
+// to prevent targeting problems with JavaScript
+a,
+button,
+.button {
+    * {
+        pointer-events: none;
+    }
+}
