@@ -131,6 +131,25 @@ class PageEvent extends BaseModel {
     }
 
     /**
+     * Hero image credits
+     *
+     * @return string|null
+     */
+    public function hero_image_credits() : ?string {
+        $event = $this->get_event();
+
+        if ( empty( $event ) ) {
+            return null;
+        }
+
+        if ( ! empty( $event->images[0]->url ) ) {
+            return $event->images[0]->photographer_name ?? null;
+        }
+
+        return Settings::get_setting( 'events_default_image_credits' ) ?? null;
+    }
+
+    /**
      * Get event id or redirect to home.
      *
      * @return string
