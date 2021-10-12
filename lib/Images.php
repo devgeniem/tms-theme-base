@@ -36,6 +36,13 @@ class Images implements Interfaces\Controller {
             'intermediate_image_sizes',
             \Closure::fromCallable( [ $this, 'filter_sizes' ] )
         );
+
+        \add_filter(
+            'wp_get_attachment_image_src',
+            \Closure::fromCallable( [ $this, 'set_svg_dimensions' ] ),
+            10,
+            4
+        );
     }
 
     /**
@@ -97,5 +104,65 @@ class Images implements Interfaces\Controller {
      */
     public static function get_default_image_id() : ?string {
         return Settings::get_setting( 'default_image' );
+    }
+
+    /**
+     * Get the dimensions for SVG images.
+     *
+     * @param array|false  $image         Array of image data.
+     * @param int          $attachment_id Image attachment ID.
+     * @param string|int[] $size          Requested image size.
+     * @param boolean      $icon          Whether the image should be treated as an icon.
+     *
+     * @return array|false
+     */
+    private function set_svg_dimensions( $image, int $attachment_id, $size, bool $icon  ) { // phpcs:ignore
+        // Faulty image or has size, bail early
+        if ( ! is_array( $image ) || $image[1] > 1 ) {
+            return $image;
+        }
+
+        // Not SVG, bail early
+        if ( ! preg_match( '/\.svg$/i', $image[0] ) ) {
+            return $image;
+        }
+
+        // Size is already OK
+        if ( is_array( $size ) ) {
+            $image[1] = $size[0];
+            $image[2] = $size[1];
+        }
+
+        else {
+            // Get the file ignoring SSL
+            $context = stream_context_create([
+                'ssl' => [
+                    'verify_peer'      => false,
+                    'verify_peer_name' => false,
+                ],
+            ] );
+
+            libxml_set_streams_context( $context );
+            $xml = simplexml_load_file( $image[0] );
+
+            // Set dimensions
+            if ( $xml !== false ) {
+                $attr     = $xml->attributes();
+                $viewbox  = explode( ' ', $attr->viewBox );
+                $image[1] = isset( $attr->width ) && preg_match( '/\d+/', $attr->width, $value )
+                    ? (int) $value[0]
+                    : ( count( $viewbox ) === 4 ? (int) $viewbox[2] : null );
+                $image[2] = isset( $attr->height ) && preg_match( '/\d+/', $attr->height, $value )
+                    ? (int) $value[0]
+                    : ( count( $viewbox ) === 4 ? (int) $viewbox[3] : null );
+            }
+            // Could not load the xml
+            else {
+                $image[1] = null;
+                $image[2] = null;
+            }
+        }
+
+        return $image;
     }
 }

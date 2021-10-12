@@ -100,12 +100,8 @@ $slick-loading-background-color: #fff !default;
             transition: opacity $easing $speed;
 
             &:focus {
-                outline: none;
-
-                @include from($tablet) {
-                    outline: 3px solid $primary;
-                    outline-offset: -3px;
-                }
+                outline: .125rem solid $color-black;
+                outline-offset: .25rem;
             }
 
             img {

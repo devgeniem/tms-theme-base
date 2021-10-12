@@ -43,6 +43,23 @@ html {
     }
 }
 
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 @mixin breakpoint_typography($base, $calculated_sizes) {
     body {
         font-size: $base;
@@ -74,7 +91,6 @@ html {
         font-family: $font-family-header;
         font-weight: 800;
         line-height: 1.22;
-        hyphens: auto;
     }
 
     h2,
@@ -83,7 +99,6 @@ html {
         font-family: $font-family-header;
         font-weight: 800;
         line-height: 1.2;
-        hyphens: auto;
     }
 
     h3,
@@ -92,7 +107,6 @@ html {
         font-family: $font-family-header;
         font-weight: 800;
         line-height: 1.22;
-        hyphens: auto;
     }
 
     h4,
@@ -101,7 +115,6 @@ html {
         font-family: $font-family-header;
         font-weight: 800;
         line-height: 1.22;
-        hyphens: auto;
     }
 
     h5,
@@ -110,7 +123,6 @@ html {
         font-family: $font-family-header;
         font-weight: $weight-semibold;
         line-height: 1.22;
-        hyphens: auto;
     }
 
     h6,
@@ -119,7 +131,6 @@ html {
         font-family: $font-family-header;
         font-weight: $weight-semibold;
         line-height: 1.22;
-        hyphens: auto;
     }
 }
 
