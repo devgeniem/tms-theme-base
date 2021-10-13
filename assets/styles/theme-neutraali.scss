@@ -31,12 +31,14 @@ $link: $primary-dark;
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
 
+$accent: $primary-invert;
+
 $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
-    "accent": ($primary, $primary-invert),
+    "accent": ($primary-invert, $primary),
 );
 
 $button-text-primary: $text;
