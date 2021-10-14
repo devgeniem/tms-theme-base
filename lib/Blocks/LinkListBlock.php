@@ -72,9 +72,7 @@ class LinkListBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
-
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         if ( empty( $data['links'] ) ) {
             return $data;
         }
@@ -90,7 +88,7 @@ class LinkListBlock extends BaseBlock {
             $data['links'][ $key ]['link']['is_external'] = $is_external_link || $is_external_selected;
         }
 
-        return $data;
+        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 
 }
