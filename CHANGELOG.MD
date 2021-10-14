@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-302: Add missing block filters #240
 - TMS-250: Display event image credits #229
 - TMS-214: Events Search page template
 - TMS-287: Add screen reader text for links with target "blank" #235
