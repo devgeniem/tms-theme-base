@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.21.1] - 2021-10-14
+
+### Changed
+
+- fix/events-layout-default-page: Add default page to events layout #241
+
+## [1.21.0] - 2021-10-14
+
 ### Added
 
 - TMS-287: Add screen reader text for links with target "blank"
@@ -25,6 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-258: Video, Map and Contacts blocks for Blog article CPT
 - TMS-257: "All events" -link for Events layout
 - TMS-263: `tms/theme/admin_js_path` filter
+- TMS-302: Add missing block filters #240
 - TMS-250: Display event image credits #229
 - TMS-214: Events Search page template
 - TMS-287: Add screen reader text for links with target "blank" #235
@@ -36,7 +45,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-<<<<<<< HEAD
 - TMS-289: Filter out draft posts from Home template highlight field
 - TMS-288: Fixed `strtodate`-helper call on home-list-item partial
 - TMS-286: Hyphenation / word-break fix for headings
@@ -46,7 +54,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-278: Back to top -button positioning
 - TMS-277: Flyout navbar search layout fix
 - TMS-301: Add modal gallery caption error handling
-=======
+- TMS-308: Remove fixed colors from accordion #238
 - TMS-287: Add screen reader text for links with target "blank" #235
 - TMS-287: Add links with icons in external links targeting #235
 - TMS-280: Logic for the Key figures block text sizing #226
@@ -56,7 +64,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-288: Fixed `strtodate`-helper call on home-list-item partial #232
 - TMS-286: Hyphenation / word-break fix for headings #231
 - TMS-285: Focus styles for Image gallery block and Image carousel layout #230
->>>>>>> fix/events-calendar-pagination
 - TMS-296: Allow Quote block classes to be overridden #234
 - TMS-283: Ignore Link list block's links in external links targeting #228
 - TMS-282: Maximum height for images inside Modaal #227

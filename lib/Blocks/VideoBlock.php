@@ -72,12 +72,10 @@ class VideoBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
-
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
         $data['id']        = wp_unique_id( 'video-' );
         $data['skip_text'] = ( new \Strings() )->s()['video']['skip_embed'];
 
-        return apply_filters( 'tms/acf/block/video/data', $data );
+        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }
