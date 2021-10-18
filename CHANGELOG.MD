@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali
+
 ### Added
 
 - TMS-330: Add missing Finnish translations

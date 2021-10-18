@@ -51,4 +51,26 @@ $button-colors: (
 
 $color-background-primary-light--opaque-light: $secondary;
 
+// Overrides
+$fly-out-nav-trigger-icon: $primary-dark;
+$fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
+
+.site-header,
+.main-content {
+    .button {
+        &.is-primary.is-outlined {
+            &,
+            &:active,
+            &.is-active {
+                border-color: $primary-dark !important; // sass-lint:disable-line no-important
+                color: $primary-dark !important; // sass-lint:disable-line no-important
+
+                .icon {
+                    fill: $primary-dark !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}
+
 @import "main";
