@@ -45,6 +45,7 @@ class ThemeController {
             PostTypeController::class,
             Roles::class,
             Security::class,
+            SiteController::class,
             TaxonomyController::class,
             ThemeSupports::class,
             Comments::class,
@@ -66,6 +67,7 @@ class ThemeController {
 
         \Archive::hooks();
         \Home::hooks();
+        \Search::hooks();
         \ArchiveBlogArticle::hooks();
     }
 }

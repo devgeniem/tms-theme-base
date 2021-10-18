@@ -7,8 +7,54 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.21.1] - 2021-10-14
+
 ### Changed
 
+- fix/events-layout-default-page: Add default page to events layout #241
+
+## [1.21.0] - 2021-10-14
+
+### Added
+
+- TMS-302: Add missing block filters #240
+- TMS-250: Display event image credits #229
+- TMS-214: Events Search page template
+- TMS-287: Add screen reader text for links with target "blank" #235
+- TMS-211: Search weights by fields and post types
+- TMS-214: Events Search page template
+
+### Changed
+
+- TMS-308: Remove fixed colors from accordion #238
+- TMS-287: Add screen reader text for links with target "blank" #235
+- TMS-287: Add links with icons in external links targeting #235
+- TMS-280: Logic for the Key figures block text sizing #226
+- TMS-278: Size fix for uploaded SVG images embedded via image helper #225
+- TMS-276: Current menu item indicator to primary navigation #223
+- TMS-289: Filter out draft posts from Home template highlight field #233
+- TMS-288: Fixed `strtodate`-helper call on home-list-item partial #232
+- TMS-286: Hyphenation / word-break fix for headings #231
+- TMS-285: Focus styles for Image gallery block and Image carousel layout #230
+- TMS-296: Allow Quote block classes to be overridden #234
+- TMS-283: Ignore Link list block's links in external links targeting #228
+- TMS-282: Maximum height for images inside Modaal #227
+- TMS-278: Back to top -button positioning #225
+- TMS-277: Flyout navbar search layout fix #224
+- TMS-301: Add modal gallery caption error handling #222
+- fix/event-api-lag: Event API lag #211
+    - Fetch only current result page at a time in events calender
+
+## [1.20.0] - 2021-10-06
+
+### Changed
+
+- TMS-275: More careful targeting for external links #218
+- TMS-273: Remove pointer events from elements inside links and buttons #217
+- TMS-272: Contact CPT set to non-public #216
+- TMS-271: Contacts block heading aligment change #215
+- TMS-269: Print HTML for the image on block grid item only when it's set #213
+- TMS-268: Columns layout on highlight article layout #212
 - TMS-265: Remove overlay from Hero layout if description is empty #209
 - TMS-264: Notice banner linkage #205
     - Only description acts as a link
@@ -20,6 +66,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-267: New site initialization script #219
+- TMS-275: Missing anchors for layouts #218
+- TMS-270: Author capability additions #214
 - TMS-266: Add share buttons to single dynamic event template #210
 - TMS-261: Handling for paged parent referer URL on single event breadcrumbs #207
 - TMS-263: `tms/theme/admin_js_path` filter #206
@@ -148,10 +197,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-193: Add filters & variables for customizing theme look & feel #156
 
 ### Fixed
+
 - TMS-102-0709: External link icons in link list block #158
 - TMS-207: Fixed copy to clipboard event target #159
 
 ### Removed
+
 - TMS-102-0709: Removed comments from pages and posts #158
 - TMS-102-0709: Removed Gutenberg from component templates #158
 
@@ -213,9 +264,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DR-5: Add Default Content Image setting #134
 
 ### Changed
+
 - TMS-194: Organize setting tabs #135
 
 ### Fixed
+
 - a11y: Fix navigation item duplicate ids #122
 - a11y: Skip to content link #123
 - a11y: Prevent duplicate img ids #124
@@ -234,16 +287,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-55: Onepager page template #108
 
 ### Fixed
+
 - Upgrade deprecated hooks #121
 
 ## [1.6.1] - 2021-08-03
 
 ### Fixed
+
 - Remove character limit when displaying excerpts #119
 
 ## [1.6.0] - 2021-08-02
 
 ### Added
+
 - TMS-114: Contact CPT #105
 
 ## [1.5.1] - 2021-08-02
@@ -406,4 +462,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 0.1.0 2021-04-19
 
 ### Added
+
 - TMS-48: Theme boilerplate

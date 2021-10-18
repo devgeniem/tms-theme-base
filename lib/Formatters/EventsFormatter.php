@@ -37,14 +37,15 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Format layout data
      *
      * @param array $layout ACF Layout data.
-     * @param bool  $all    Get all results.
      *
      * @return array
      */
-    public function format( array $layout, bool $all = false ) : array {
+    public function format( array $layout ) : array {
         $query_params            = $this->format_query_params( $layout );
         $query_params['include'] = 'organization,location,keywords';
-        $events                  = $this->get_events( $query_params, $all );
+        $query_params['page']    = 1;
+
+        $events = $this->get_events( $query_params );
 
         if ( empty( $events ) ) {
             return $layout;
@@ -88,7 +89,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return array
      */
-    private function format_query_params( array $layout ) : array {
+    public function format_query_params( array $layout ) : array {
         $query_params = [
             'start'     => null,
             'end'       => null,
@@ -98,6 +99,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'sort'      => null,
             'page_size' => null,
             'text'      => null,
+            'page'      => null,
         ];
 
         foreach ( $layout as $key => $value ) {
@@ -126,23 +128,23 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Get events
      *
      * @param array $query_params API query params.
-     * @param bool  $all          Get all results.
      *
      * @return array|null
      */
-    private function get_events( array $query_params, bool $all = false ) : ?array {
+    private function get_events( array $query_params ) : ?array {
         $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
-            $response = $all
-                ? $client->get_all( 'event', $query_params )
-                : $client->get( 'event', $query_params );
+            $response = $client->get( 'event', $query_params );
 
             if ( empty( $response ) ) {
                 return null;
             }
 
-            return array_map( fn( $item ) => LinkedEvents::normalize_event( $item ), $response );
+            return array_map(
+                fn( $item ) => LinkedEvents::normalize_event( $item ),
+                $response
+            );
         }
         catch ( \Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );

@@ -12,4 +12,10 @@
         right: 1px !important;
         top: -7% !important;
     }
+
+    .modaal-gallery-item {
+        img {
+            max-height: 75vh;
+        }
+    }
 }

@@ -36,9 +36,17 @@ class EventsSettingsTab extends Tab {
             'title'        => 'Oletuskuva',
             'instructions' => '',
         ],
+        'events_default_image_credits'  => [
+            'title'        => 'Oletuskuvan kuvaajatieto',
+            'instructions' => '',
+        ],
         'events_page'                   => [
             'title'        => 'Tapahtuma-sivu',
             'instructions' => 'Sivu, jolle on valittu Tapahtuma-sivupohja',
+        ],
+        'events_search_page'            => [
+            'title'        => 'Tapahtumahaku-sivu',
+            'instructions' => 'Sivu, jolle on valittu Tapahtumahaku-sivupohja.',
         ],
         'show_related_events_calendars' => [
             'title'        => 'Näytä muut sivuston tapahtumakalenterit',
@@ -55,9 +63,7 @@ class EventsSettingsTab extends Tab {
      * @param null   $name  Name.
      */
     public function __construct( $label = '', $key = null, $name = null ) { // phpcs:ignore
-        $label = $this->strings['tab'];
-
-        parent::__construct( $label );
+        parent::__construct( $this->strings['tab'] );
 
         $this->sub_fields( $key );
     }
@@ -77,12 +83,24 @@ class EventsSettingsTab extends Tab {
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_default_image']['instructions'] );
 
+            $image_credits_field = ( new Field\Text( $strings['events_default_image_credits']['title'] ) )
+                ->set_key( "${key}_events_default_image_credits" )
+                ->set_name( 'events_default_image_credits' )
+                ->set_instructions( $strings['events_default_image_credits']['instructions'] );
+
             $events_page_field = ( new Field\PostObject( $strings['events_page']['title'] ) )
                 ->set_key( "${key}_events_page" )
                 ->set_name( 'events_page' )
                 ->set_post_types( [ PostType\Page::SLUG ] )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_page']['instructions'] );
+
+            $events_search_page_field = ( new Field\PostObject( $strings['events_search_page']['title'] ) )
+                ->set_key( "${key}_events_search_page" )
+                ->set_name( 'events_search_page' )
+                ->set_post_types( [ PostType\Page::SLUG ] )
+                ->set_return_format( 'id' )
+                ->set_instructions( $strings['events_search_page']['instructions'] );
 
             $show_event_calendars_field = ( new Field\TrueFalse( $strings['show_related_events_calendars']['title'] ) )
                 ->set_key( "${key}_show_related_events_calendars" )
@@ -93,7 +111,9 @@ class EventsSettingsTab extends Tab {
 
             $this->add_fields( [
                 $image_field,
+                $image_credits_field,
                 $events_page_field,
+                $events_search_page_field,
                 $show_event_calendars_field,
             ] );
         }

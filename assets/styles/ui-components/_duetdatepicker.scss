@@ -1,0 +1,41 @@
+:root {
+    --duet-color-primary: #{$primary};
+    --duet-color-text: #{$text};
+    --duet-color-text-active: #{$primary-invert};
+    --duet-color-placeholder: #{$grey};
+    --duet-color-button: #{$white};
+    --duet-color-surface: #{$white};
+    --duet-color-overlay: rgba(0, 0, 0, 0.8);
+    --duet-color-border: #{$secondary};
+    --duet-font: #{$family-primary};
+    --duet-font-normal: 400;
+    --duet-font-bold: 800;
+    --duet-radius: #{$theme-spacing-quarter};
+    --duet-z-index: 600;
+}
+
+.duet-date {
+    &__input {
+        padding: $theme-spacing-half 60px $theme-spacing-half $theme-spacing-half;
+        line-height: 1;
+    }
+
+    &__toggle {
+        box-shadow: none;
+    }
+}
+
+.line {
+    display: block;
+    height: 100%;
+
+    &::after {
+        content: "";
+        position: relative;
+        top: 50%;
+        display: block;
+        width: 1rem;
+        height: .117rem;
+        background-color: $text;
+    }
+}

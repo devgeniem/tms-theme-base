@@ -231,6 +231,10 @@ window.onload = function() {
             return false;
         }
 
+        if ( get_option( 'page_for_posts' ) === $post_id ) {
+            return true;
+        }
+
         $page_template      = get_page_template_slug( $post_id );
         $excludes_templates = apply_filters(
             'tms/theme/gutenberg/excluded_templates',
@@ -238,6 +242,7 @@ window.onload = function() {
                 \PageOnepager::TEMPLATE,
                 \PageFrontPage::TEMPLATE,
                 \PageEventsCalendar::TEMPLATE,
+                \PageEventsSearch::TEMPLATE,
             ]
         );
 
