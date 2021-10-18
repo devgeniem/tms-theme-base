@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-331: Fix radio button color contrast
 - TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali
 
 ### Added
