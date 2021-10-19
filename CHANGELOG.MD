@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-331: Fix radio button color contrast
+- TMS-337: Disable Hyphenation JS class #245
+- TMS-331: Fix radio button color contrast #244
 
 ### Added
 
