@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-337: Disable Hyphenation JS class
+
 ### Added
 
 - Tampere-logo -field renamed to Tampere.Finland-logo
