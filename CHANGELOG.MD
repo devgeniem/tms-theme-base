@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-332: Various changes to theme colours
 - TMS-337: Disable Hyphenation JS class
 - TMS-331: Fix radio button color contrast
 - TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali
