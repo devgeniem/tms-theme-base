@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-332: Various changes to theme colours
+
 ### Added
 
 - TMS-330: Add missing Finnish translations

@@ -1,0 +1,19 @@
+// Use a low-level selector for easier overriding
+.site-header,
+.main-content {
+    // Button styles
+    .button {
+        &.is-primary.is-outlined {
+            &,
+            &:active,
+            &.is-active {
+                border-color: $primary-dark !important; // sass-lint:disable-line no-important
+                color: $primary-dark !important; // sass-lint:disable-line no-important
+
+                .icon {
+                    fill: $primary-dark !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}

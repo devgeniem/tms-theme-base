@@ -31,14 +31,15 @@ $link: $primary-dark;
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
 
-$accent: $primary;
+$accent: $primary-invert;
+$accent-invert: $color-white;
 
 $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
-    "accent": ($primary, $primary-invert),
+    "accent": ($accent, $accent-invert),
 );
 
 $button-text-primary: $text;
@@ -51,4 +52,5 @@ $button-colors: (
 
 $color-background-primary-light--opaque-light: $secondary;
 
+@import "themes/theme-neutraali-overrides";
 @import "main";

@@ -1,4 +1,4 @@
-<div class="entry__blog-info-container section pt-6 pb-6 mb-8 has-background-secondary has-text-secondary-invert has-text-centered-mobile">
+<div class="entry__blog-info-container section pt-6 pb-6 mb-8 has-colors-secondary has-text-centered-mobile">
     <div class="container">
         <div class="columns">
             <div class="column is-10 is-offset-1">
@@ -29,7 +29,7 @@
 
                     {?archive_link}
                         <div class="entry__blog-archive-link is-flex-shrink-0 mt-4 mt-0-desktop">
-                            <a href="{archive_link}" class="button button--icon is-primary is-outlined">
+                            <a href="{archive_link}" class="button button--icon is-outlined">
                                 {Strings.s.blog_article.archive_link_text}
                                 {>"ui/icon" icon="chevron-right" class="icon--medium" /}
                             </a>

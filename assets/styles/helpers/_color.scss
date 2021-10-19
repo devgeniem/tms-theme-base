@@ -92,7 +92,7 @@
             background-color: $color !important;
 
             .icon {
-                fill: $color-invert;
+                fill: $color-invert !important;
             }
 
             a {
@@ -121,6 +121,10 @@
                     .icon {
                         fill: $color !important;
                     }
+                }
+
+                &.is-outlined {
+                    border-color: $color-invert;
                 }
             }
 
