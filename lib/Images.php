@@ -110,13 +110,13 @@ class Images implements Interfaces\Controller {
      * Get the dimensions for SVG images.
      *
      * @param array|false  $image         Array of image data.
-     * @param int          $attachment_id Image attachment ID.
+     * @param int|string   $attachment_id Image attachment ID.
      * @param string|int[] $size          Requested image size.
      * @param boolean      $icon          Whether the image should be treated as an icon.
      *
      * @return array|false
      */
-    private function set_svg_dimensions( $image, int $attachment_id, $size, bool $icon  ) { // phpcs:ignore
+    private function set_svg_dimensions( $image, $attachment_id, $size, bool $icon  ) { // phpcs:ignore
         // Faulty image or has size, bail early
         if ( ! is_array( $image ) || $image[1] > 1 ) {
             return $image;
