@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Tampere-logo -field renamed to Tampere.Finland-logo
 - TMS-330: Add missing Finnish translations
 
 ## [1.21.1] - 2021-10-14
