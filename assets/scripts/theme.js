@@ -14,7 +14,8 @@ import Modal from './modal';
 import ImageCarousel from './image-carousel';
 import Header from './header';
 import BackToTop from './back-to-top';
-import Hyphenation from './hyphenation';
+// Hyphenation is disabled because of JS errors caused by the used library
+// import Hyphenation from './hyphenation';
 import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
@@ -36,7 +37,8 @@ const globalControllers = {
     ImageCarousel,
     Header,
     BackToTop,
-    Hyphenation,
+    // Hyphenation is disabled because of JS errors caused by the used library
+    // Hyphenation,
     FlyOutNav,
     PrimaryNav,
     Dropdown,
