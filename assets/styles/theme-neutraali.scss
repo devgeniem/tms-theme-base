@@ -71,6 +71,12 @@ $fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
             }
         }
     }
+
+    .button-toggle {
+        .icon {
+            fill: currentColor;
+        }
+    }
 }
 
 @import "main";

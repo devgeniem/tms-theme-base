@@ -329,7 +329,7 @@ class Header extends Model {
                 ],
                 'lang_nav'      => [
                     'link'          => 'has-border-radius-small',
-                    'link__default' => 'has-text-primary',
+                    'link__default' => 'has-text-accent',
                     'link__active'  => 'has-background-primary has-text-primary-invert',
                 ],
             ]
