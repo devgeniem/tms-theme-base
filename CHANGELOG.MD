@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.22.0] - 2021-10-20
+
 ### Changed
 
 - TMS-332: Various changes to theme colours #246
