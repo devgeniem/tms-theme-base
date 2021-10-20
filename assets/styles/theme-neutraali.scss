@@ -32,13 +32,14 @@ $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-lig
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
 
 $accent: $primary-invert;
+$accent-invert: $color-white;
 
 $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
-    "accent": ($primary-invert, $primary),
+    "accent": ($accent, $accent-invert),
 );
 
 $button-text-primary: $text;
