@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-333: Font family set via utility class instead of CSS for misc elements
+
 ## [1.22.0] - 2021-10-20
 
 ### Changed
