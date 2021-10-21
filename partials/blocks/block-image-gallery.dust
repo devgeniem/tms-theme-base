@@ -22,7 +22,7 @@
     <!-- Markup of the modal -->
     <div role="dialog" id="{gallery_id}" class="modal" aria-modal="true" aria-labelledby="{gallery_id}">
         <div class="modal-background"></div>
-        <button class="button modal-close-button" aria-controls="{gallery_id}">
+        <button class="button button--icon is-white is-outlined modal-close-button" aria-controls="{gallery_id}">
             {translations.close}
             {>"ui/icon" icon="close" class="icon--medium" /}
         </button>

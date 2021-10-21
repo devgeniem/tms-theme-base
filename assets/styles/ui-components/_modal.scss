@@ -29,6 +29,28 @@
         }
     }
 
+    .modal-close-button {
+        color: $white !important; // sass-lint:disable-line no-important
+        border: .125rem solid $white !important; // sass-lint:disable-line no-important
+        cursor: pointer;
+
+        .icon {
+            fill: $white !important; // sass-lint:disable-line no-important
+        }
+
+        &:hover,
+        &:focus {
+            color: $white !important; // sass-lint:disable-line no-important
+            border: .125rem solid $white !important; // sass-lint:disable-line no-important
+            outline: .125rem solid $white;
+            outline-offset: .25rem;
+
+            .icon {
+                fill: $white !important; // sass-lint:disable-line no-important
+            }
+        }
+    }
+
     &--slider {
         .slick-arrow {
             position: absolute;
@@ -57,11 +79,6 @@
                 @include until($desktop) {
                     margin-left: .5rem !important; // sass-lint:disable-line no-important
                 }
-            }
-
-            &:hover,
-            &:focus {
-                border: .125rem solid $primary;
             }
 
             @include from($desktop) {
@@ -100,7 +117,7 @@
         }
     }
 
-    .image-carousel__modal-control {
+    .slick-arrow {
         &:hover,
         &:focus {
             border-color: $primary-invert !important; // sass-lint:disable-line no-important
