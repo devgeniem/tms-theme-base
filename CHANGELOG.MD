@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-343: Display close text on smaller devices #251
+
 ## [1.22.0] - 2021-10-20
 
 ### Changed
