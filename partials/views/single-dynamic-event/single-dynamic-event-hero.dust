@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="entry__hero-info section pt-6 pb-6 has-background-secondary has-text-secondary-invert">
+    <div class="entry__hero-info section pt-6 pb-6 {template_classes.hero_info|s}">
         <div class="container">
             <div class="columns mt-0 mb-0">
                 <div class="column is-10 is-offset-1">
