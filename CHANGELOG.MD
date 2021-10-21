@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-349: Allow dynamic event view override
 - TMS-343: Display close text on smaller devices #251
 - TMS-342: Fix articles layout image overlap #248
 - TMS-341: Accordion text change #247
