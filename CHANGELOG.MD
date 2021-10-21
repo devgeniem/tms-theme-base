@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-342: Fix articles layout image overlap
+- TMS-342: Fix articles layout image overlap #248
 
 ## [1.22.0] - 2021-10-20
 
