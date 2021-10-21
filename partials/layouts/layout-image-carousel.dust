@@ -42,7 +42,8 @@
     <div id="{carousel_id}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{carousel_id}">
         <div class="modal-background"></div>
 
-        <button class="button modal-close-button is-primary is-flex is-align-self-flex-end image-carousel__modal-control">
+        <button
+            class="button button--icon modal-close-button is-white is-outlined is-flex is-align-self-flex-end image-carousel__modal-control">
             <span class="modal-close-button__text">{translations.close}</span>
             {>"ui/icon" icon="close" class="icon--medium" /}
         </button>
