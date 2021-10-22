@@ -205,6 +205,24 @@ class Roles implements Controller {
     ];
 
     /**
+     * Gravity Forms suppressed capabilities
+     *
+     * @var array|string[]
+     */
+    private array $gravity_forms_suppressed_capabilities = [
+        'gravityforms_create_form',
+        'gravityforms_delete_forms',
+        'gravityforms_edit_forms',
+        'gravityforms_preview_forms',
+        'gravityforms_view_entries',
+        'gravityforms_edit_entries',
+        'gravityforms_delete_entries',
+        'gravityforms_view_entry_notes',
+        'gravityforms_edit_entry_notes',
+        'gravityforms_export_entries',
+    ];
+
+    /**
      * Hooks
      */
     public function hooks() : void {
@@ -448,6 +466,8 @@ class Roles implements Controller {
         $role->add_caps( [
             'edit_theme_options', // Navigation changes
         ] );
+
+        $role->add_caps( $this->gravity_forms_suppressed_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
