@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-333: Font family set via utility class instead of CSS for misc elements #254
+- TMS-348: Make post type url slugs translatable with Polylang #253
 - TMS-343: Display close text on smaller devices #251
 - TMS-342: Fix articles layout image overlap #248
 - TMS-341: Accordion text change #247
