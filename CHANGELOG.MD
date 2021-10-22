@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-349: Allow dynamic event view override #252
 - TMS-333: Font family set via utility class instead of CSS for misc elements #254
 - TMS-348: Make post type url slugs translatable with Polylang #253
 - TMS-343: Display close text on smaller devices #251
