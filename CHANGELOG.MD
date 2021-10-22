@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-341: Accordion text change
 - TMS-348: Make post type url slugs translatable with Polylang
+- TMS-345: Add suppressed Gravity Forms capabilities for site manager role
+- TMS-348: Make post type url slugs translatable with Polylang #253
 - TMS-343: Display close text on smaller devices #251
 - TMS-342: Fix articles layout image overlap #248
 - TMS-349: Allow dynamic event view override
