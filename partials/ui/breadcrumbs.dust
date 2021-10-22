@@ -1,6 +1,6 @@
 {?breadcrumbs}
 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
-    <ul class="breadcrumbs__nav is-relative is-flex m-0 p-0">
+    <ul class="breadcrumbs__nav is-relative is-flex m-0 p-0 is-family-secondary">
         {#breadcrumbs}
             <li class="{?is_active}is-active{/is_active} {?class}{class}{/class}">
                 {?permalink}

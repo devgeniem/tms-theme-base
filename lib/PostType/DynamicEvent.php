@@ -30,7 +30,7 @@ class DynamicEvent implements PostType {
      *
      * @var string
      */
-    private $url_slug = '';
+    private $url_slug = 'dynamic-event';
 
     /**
      * Define the CPT description
@@ -57,7 +57,6 @@ class DynamicEvent implements PostType {
      * Constructor
      */
     public function __construct() {
-        $this->url_slug    = _x( 'dynamic-event', 'theme CPT slugs', 'tms-theme-base' );
         $this->description = _x( 'dynamic-event', 'theme CPT', 'tms-theme-base' );
     }
 
@@ -124,7 +123,7 @@ class DynamicEvent implements PostType {
         ];
 
         $rewrite = [
-            'slug'       => static::SLUG,
+            'slug'       => $this->url_slug,
             'with_front' => true,
             'pages'      => true,
             'feeds'      => true,

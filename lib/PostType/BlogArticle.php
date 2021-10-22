@@ -35,7 +35,7 @@ class BlogArticle extends Post {
      *
      * @var string
      */
-    private $url_slug = '';
+    private $url_slug = 'blog-article';
 
     /**
      * Define the CPT description
@@ -62,7 +62,6 @@ class BlogArticle extends Post {
      * Constructor
      */
     public function __construct() {
-        $this->url_slug    = _x( 'blog-article', 'theme CPT slugs', 'tms-theme-base' );
         $this->description = _x( 'Blog articles', 'theme CPT', 'tms-theme-base' );
     }
 
@@ -121,7 +120,7 @@ class BlogArticle extends Post {
         ];
 
         $rewrite = [
-            'slug'       => static::SLUG,
+            'slug'       => $this->url_slug,
             'with_front' => false,
             'pages'      => true,
             'feeds'      => false,
