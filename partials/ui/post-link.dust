@@ -1,4 +1,4 @@
-<a href="{url}" class="post-link {classes|s}" {?image_id}{@inlinebg id=image_id size="medium_large" /}{/image_id}>
+<a href="{url}" class="post-link is-family-secondary {classes|s}" {?image_id}{@inlinebg id=image_id size="medium_large" /}{/image_id}>
     {?image_id}
         <div class="overlay overlay--dark-gradient"></div>
     {/image_id}
