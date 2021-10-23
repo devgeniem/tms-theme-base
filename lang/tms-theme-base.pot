@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-10-18 12:54+0300\n"
+"POT-Creation-Date: 2021-10-22 08:13+0300\n"
 "PO-Revision-Date: 2021-06-15 10:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,11 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
-
-#: assets/dist/vendor.js:4571
-msgctxt "text direction"
-msgid "ltr"
-msgstr ""
+"X-Poedit-SearchPathExcluded-3: assets/dist\n"
 
 #: comments.php:14
 msgid "Comments"
