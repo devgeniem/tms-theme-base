@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-344: Refresh image carousel if images are not loaded
+- TMS-344: Refresh image carousel if images are not loaded #256
 - TMS-345: Add suppressed Gravity Forms capabilities for site manager role #255
 - TMS-349: Allow dynamic event view override #252
 - TMS-333: Font family set via utility class instead of CSS for misc elements #254
