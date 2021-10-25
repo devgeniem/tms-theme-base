@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.23.0] - 2021-10-25
+
 ### Changed
 
 - TMS-344: Refresh image carousel if images are not loaded #256
