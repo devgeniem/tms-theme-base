@@ -118,6 +118,18 @@ export default class ImageCarousel {
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
         } );
 
+        let allLoaded = true;
+
+        carousel.find( 'img' ).each( ( idx, el ) => {
+            if ( ! $( el ).prop( 'complete' ) ) {
+                allLoaded = false;
+            }
+        } );
+
+        if ( ! allLoaded ) {
+            carousel.slick( 'refresh' );
+        }
+
         return carousel;
     }
 
