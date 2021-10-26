@@ -54,6 +54,12 @@
                     max-width: 80%;
                 }
             }
+
+            .button {
+                &:focus {
+                    outline-color: $white;
+                }
+            }
         }
     }
 }
