@@ -1,5 +1,5 @@
 {?icon}
-    <svg class="icon {?icon}icon--{icon}{/icon}{?class} {class}{/class}">
+    <svg class="icon {?icon}icon--{icon}{/icon}{?class} {class}{/class}" {?aria_hidden}aria-hidden="true"{/aria_hidden}>
         <use xlink:href="#icon-{icon}"></use>
     </svg>
 {/icon}
