@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-318: accessibility fixes
-  - Mark notice banner icons as decorative
+  - Mark SVG icons as decorative
 - fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.23.0] - 2021-10-25
