@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-318: accessibility fixes
   - Mark SVG icons as decorative
   - More visible outlines for grid buttons
+  - Increase accordion click area
 - fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.23.0] - 2021-10-25

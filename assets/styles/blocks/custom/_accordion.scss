@@ -17,6 +17,10 @@
     &__row {
         border: 1px solid $secondary-light;
         border-radius: $theme-spacing-quarter;
+
+        &:hover {
+            border-color: darken($secondary-light, 15%);
+        }
     }
 
     &__title-button {
