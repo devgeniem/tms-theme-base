@@ -38,6 +38,13 @@ $footer-copy-link-border-color: $primary-invert !default;
                 }
             }
         }
+
+        a {
+            &:hover,
+            &:focus {
+                text-decoration: none !important; // sass-lint:disable-line no-important
+            }
+        }
     }
 
     .brand-logo {
