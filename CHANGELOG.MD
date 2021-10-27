@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - Mark SVG icons as decorative
   - More visible outlines for grid buttons
   - Increase accordion click area
+  - External link indicator for IconLinksLayout
 - fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.23.0] - 2021-10-25
