@@ -75,6 +75,10 @@ class KeyFiguresBlock extends BaseBlock {
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
         $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
 
+        if ( empty( $data['rows'] ) ) {
+            return $data;
+        }
+
         $layouts = [
             '50-50' => [
                 'is-6-desktop',
@@ -95,6 +99,10 @@ class KeyFiguresBlock extends BaseBlock {
 
         foreach ( $altered['rows'] as $row => $row_data ) {
             $row_layout = $row_data['layout'];
+
+            if ( empty( $row_data['numbers'] ) ) {
+                continue;
+            }
 
             foreach ( $row_data['numbers'] as $number => $numbers_data ) {
                 $altered['rows'][ $row ]['numbers'][ $number ]['column_class'] = $layouts[ $row_layout ][ $number ];
