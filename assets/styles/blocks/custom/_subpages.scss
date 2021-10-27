@@ -8,4 +8,11 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    a {
+        &:focus {
+            outline: .0625rem solid $text;
+            outline-offset: .25rem;
+        }
+    }
 }

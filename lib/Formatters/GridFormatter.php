@@ -192,8 +192,8 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public static function grid_item_visuals_selector(
-        int    $counter,
-        bool   $highlight_first,
+        int $counter,
+        bool $highlight_first,
         string $display_default,
         string $display_alt,
         string $order_default,
