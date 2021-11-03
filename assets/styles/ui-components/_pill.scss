@@ -30,16 +30,16 @@ $pill-hover-shadow-size: 0 4px 8px !default;
 $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
 
 .pill {
+    display: inline-block;
+    padding: $theme-spacing-half $theme-spacing-three-quarters;
+    border: 2px solid $pill-border-color;
+    border-radius: $pill-border-radius;
+    background-color: $pill-background-color;
+    color: $pill-color;
     font-family: $family-secondary;
     font-size: 85%;
     font-weight: 500;
     line-height: 1.1;
-    display: inline-block;
-    padding: $theme-spacing-half $theme-spacing-three-quarters;
-    color: $pill-color;
-    background-color: $pill-background-color;
-    border: 2px solid $pill-border-color;
-    border-radius: $pill-border-radius;
 
     &:not(span) {
         &.is-active,
@@ -54,14 +54,15 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         }
 
         &:hover {
-            color: $pill-color-hover;
-            background-color: $pill-background-color-hover;
+            transition:
+                box-shadow $pill-transition-easing $pill-transition-speed,
+                border-color $pill-transition-easing $pill-transition-speed,
+                color $pill-transition-easing $pill-transition-speed,
+                background-color $pill-transition-easing $pill-transition-speed;
             border-color: $pill-border-color-hover;
+            background-color: $pill-background-color-hover;
             box-shadow: $pill-hover-shadow-size $pill-hover-shadow-color;
-            transition: box-shadow $pill-transition-easing $pill-transition-speed,
-            border-color $pill-transition-easing $pill-transition-speed,
-            color $pill-transition-easing $pill-transition-speed,
-            background-color $pill-transition-easing $pill-transition-speed;
+            color: $pill-color-hover;
         }
 
         &:focus,
@@ -70,62 +71,62 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         }
 
         &:focus {
-            outline-width: 2px;
             outline-offset: 2px;
+            outline-width: 2px;
         }
     }
 
     &.is-primary {
-        color: $primary-invert;
-        background-color: $primary;
         border-color: $primary;
+        background-color: $primary;
+        color: $primary-invert;
 
         &:not(span) {
             &:hover,
             &.is-hovered {
-                color: $primary-invert;
-                background-color: bulmaDarken($primary, 2.5%);
                 border-color: transparent;
+                background-color: bulmaDarken($primary, 2.5%);
+                color: $primary-invert;
             }
 
             &:focus,
             &.is-focused {
-                color: $primary;
-                background-color: $primary-invert;
                 border-color: $color-black;
+                background-color: $primary-invert;
+                color: $primary;
             }
         }
 
         &-invert,
         &.is-inverted {
-            color: $primary;
-            background-color: $primary-invert;
             border-color: $primary;
+            background-color: $primary-invert;
+            color: $primary;
 
             &:not(span) {
                 &:hover,
                 &.is-hovered {
-                    color: $primary-invert;
                     background-color: bulmaDarken($primary, 2.5%);
+                    color: $primary-invert;
                 }
 
                 &:focus,
                 &.is-focused {
-                    color: $primary-invert;
-                    background-color: $pill-background-color-focus;
                     border-color: $pill-border-color-focus;
+                    background-color: $pill-background-color-focus;
+                    color: $primary-invert;
                 }
             }
         }
     }
 
     &.is-borderless {
-        border-color: transparent !important;
+        border-color: transparent !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-active {
-        color: $pill-color-active;
         background-color: $pill-background-active;
+        color: $pill-color-active;
 
         &:not(span) {
             &:hover,
@@ -136,21 +137,21 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     }
 
     &.is-outlined {
-        color: $pill-outlined-color;
-        background-color: $pill-outlined-background-color;
         border-color: $pill-outlined-border-color;
+        background-color: $pill-outlined-background-color;
+        color: $pill-outlined-color;
 
         &:not(span) {
             &:hover {
-                color: $pill-outlined-color-hover;
-                background-color: $pill-outlined-background-color-hover;
                 border-color: $pill-outlined-border-color-hover;
+                background-color: $pill-outlined-background-color-hover;
+                color: $pill-outlined-color-hover;
             }
 
             &:focus,
             &:active {
-                background-color: $pill-outlined-background-color-focus;
                 border-color: $pill-outlined-border-color-focus;
+                background-color: $pill-outlined-background-color-focus;
             }
         }
     }

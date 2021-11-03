@@ -1,4 +1,4 @@
-/*!
+/**
  *  Copyright (c) 2021. Geniem Oy
  */
 
@@ -10,9 +10,10 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
 
 .primary-nav {
     @include list-reset;
-    font-family: $family-secondary;
+
     display: flex;
     justify-content: center;
+    font-family: $family-secondary;
     text-transform: uppercase;
 
     .navbar-item {
@@ -27,14 +28,14 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
             }
 
             .icon {
-                color: inherit;
                 fill: currentColor;
+                color: inherit;
             }
         }
 
         &.current-menu-item {
             border-bottom-color: $navbar-item-navbar-link-color;
-            background: $navbar-item-navbar-active-bg-color !important; // sass-lint:disable-line no-important
+            background: $navbar-item-navbar-active-bg-color !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 
@@ -44,13 +45,13 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
 
     > .navbar-item,
     > .has-dropdown > div > .navbar-link {
-        font-size: 1.058rem;
-        font-weight: 800;
         padding-right: 1.1764rem;
         padding-left: 1.1764rem;
-        color: $navbar-item-navbar-link-color !important; // sass-lint:disable-line no-important
+        background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+        color: $navbar-item-navbar-link-color !important; /* stylelint-disable-line declaration-no-important */
+        font-size: 1.058rem;
+        font-weight: 800;
         text-transform: uppercase;
-        background-color: transparent !important; // sass-lint:disable-line no-important
 
         &:hover,
         &:focus {
@@ -63,7 +64,7 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
         &:hover,
         &:focus {
             > div > .navbar-link {
-                color: $navbar-item-has-dropdown-active !important; // sass-lint:disable-line no-important
+                color: $navbar-item-has-dropdown-active !important; /* stylelint-disable-line declaration-no-important */
             }
         }
     }
@@ -74,7 +75,7 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
         }
 
         .dropdown-toggler {
-            margin-right: 0 !important; // sass-lint:disable-line no-important
+            margin-right: 0 !important; /* stylelint-disable-line declaration-no-important */
         }
 
         .navbar-dropdown {
@@ -83,8 +84,8 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
             box-shadow: 0 .0588rem .5rem rgba($black, .1); // sass-lint:disable-line no-color-literals
 
             &__parent-link {
+                color: $navbar-item-dropdown-accent-color !important; /* stylelint-disable-line declaration-no-important */
                 font-weight: 600;
-                color: $navbar-item-dropdown-accent-color !important; // sass-lint:disable-line no-important
                 text-transform: none;
             }
 
@@ -94,11 +95,11 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
         }
 
         .navbar-grid {
+            display: grid;
+            grid-column-gap: $gap;
+            grid-template-columns: 25% 25% 25% 25%;
             font-size: .8823rem;
             font-weight: 600;
-            display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
-            grid-column-gap: $gap;
             text-transform: none;
 
             .navbar-item {

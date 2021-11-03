@@ -13,8 +13,8 @@ $accent-invert: $primary-invert !default;
     }
 
     &--small {
-        width: $theme-spacing-half !important; // sass-lint:disable-line no-important
-        height: $theme-spacing-half !important; // sass-lint:disable-line no-important
+        width: $theme-spacing-half !important; /* stylelint-disable-line declaration-no-important */
+        height: $theme-spacing-half !important; /* stylelint-disable-line declaration-no-important */
 
         &-tablet-only {
             @include tablet-only {
@@ -25,8 +25,8 @@ $accent-invert: $primary-invert !default;
     }
 
     &--medium {
-        width: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
-        height: $theme-spacing-three-quarters !important; // sass-lint:disable-line no-important
+        width: $theme-spacing-three-quarters !important; /* stylelint-disable-line declaration-no-important */
+        height: $theme-spacing-three-quarters !important; /* stylelint-disable-line declaration-no-important */
 
         &-tablet-only {
             @include tablet-only {
@@ -85,19 +85,19 @@ $accent-invert: $primary-invert !default;
     }
 
     &.is-primary {
-        fill: $primary !important; // sass-lint:disable-line no-important
+        fill: $primary !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-primary-light {
-        fill: $primary-light !important; // sass-lint:disable-line no-important
+        fill: $primary-light !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-primary-invert {
-        fill: $primary-invert !important; // sass-lint:disable-line no-important
+        fill: $primary-invert !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-black {
-        fill: $black !important; // sass-lint:disable-line no-important
+        fill: $black !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-gray {
@@ -105,10 +105,10 @@ $accent-invert: $primary-invert !default;
     }
 
     &.is-accent {
-        fill: $accent !important; // sass-lint:disable-line no-important
+        fill: $accent !important; /* stylelint-disable-line declaration-no-important */
     }
 
     &.is-accent-invert {
-        fill: $accent-invert !important; // sass-lint:disable-line no-important
+        fill: $accent-invert !important; /* stylelint-disable-line declaration-no-important */
     }
 }

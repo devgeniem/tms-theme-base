@@ -1,11 +1,12 @@
-/*!/
- / Bulma's extension to display better checkbox and radio inputs
- / https://github.com/Wikiki/bulma-checkradio
- / MIT Licensed https://github.com/Wikiki/bulma-checkradio/blob/master/LICENSE
- /
- / Modified to fit TMS themes.
+/**
+ * Bulma's extension to display better checkbox and radio inputs
+ * https://github.com/Wikiki/bulma-checkradio
+ * MIT Licensed https://github.com/Wikiki/bulma-checkradio/blob/master/LICENSE
+ *
+ * Modified to fit TMS themes.
+ */
 
-// sass-lint:disable-all
+/* stylelint-disable */
 
 $checkbox-radius: $radius !default
 $checkbox-border: .1rem solid $grey-lighter !default
@@ -24,10 +25,12 @@ $checkradio-top-offset: 0rem !default
         font-size: $size
         // line-height: $newSize
         padding-left: $size * 2
+
         &::before,
         &:before
             width: $newSize
             height: $newSize
+
         &::after,
         &:after
             width: $width
@@ -43,6 +46,7 @@ $checkradio-top-offset: 0rem !default
                 height: 1.25 * $size
                 left: .175rem
                 top: .175rem
+
             &::after,
             &:after
                 top: .2rem + $size * 0.125
@@ -52,6 +56,7 @@ $checkradio-top-offset: 0rem !default
         + label
             padding-left: 0
             padding-right: $size * 2
+
             &::after,
             &:after
                 left: auto
@@ -67,6 +72,7 @@ $checkradio-top-offset: 0rem !default
         font-size: $size
         line-height: $newSize
         padding-left: $size * 2
+
         &::before,
         &:before,
         &::after,
@@ -96,6 +102,7 @@ $checkradio-top-offset: 0rem !default
         margin: .5em
         padding: 0 .5rem .2rem 0
         border-radius: $checkbox-radius
+
         &:first-of-type
             margin-left: 0
 
@@ -125,6 +132,7 @@ $checkradio-top-offset: 0rem !default
         + label
             margin-right: 0rem
             margin-left: 0.5rem
+
             &::before,
             &:before
                 left: auto
@@ -149,23 +157,29 @@ $checkradio-top-offset: 0rem !default
             &:before
                 background: $primary
                 border: .1rem solid $primary-invert
+
         &[disabled]
             cursor: not-allowed
+
             + label
                 opacity: 0.5
+
         + label
             &::before,
             &:before
                 animation-name: none
+
             &::after,
             &:after
                 display: inline-block
 
     &[disabled]
         cursor: not-allowed
+
         + label
             opacity: 0.5
             cursor: not-allowed
+
             &:hover,
             &:before,
             &::before,
@@ -175,6 +189,7 @@ $checkradio-top-offset: 0rem !default
 
         &:hover
             cursor: not-allowed
+
             &::before,
             &:before
                 animation-name: none
@@ -195,11 +210,13 @@ $checkradio-top-offset: 0rem !default
 
     &.is-block
         display: none !important
+
         + label
             width: 100% !important
             background: $checkbox-block-background
-            color: findColorInvert( $checkbox-block-background )
+            color: findColorInvert($checkbox-block-background)
             padding-right: .75em
+
         &:hover:not([disabled])
             + label
                 background: darken($checkbox-block-background, 5%)
@@ -229,10 +246,13 @@ $checkradio-top-offset: 0rem !default
                 border-radius: 50%
 
     +checkbox-size($size-normal)
+
     &.is-small
         +checkbox-size($size-small)
+
     &.is-medium
         +checkbox-size($size-medium)
+
     &.is-large
         +checkbox-size($size-large)
 
@@ -246,26 +266,31 @@ $checkradio-top-offset: 0rem !default
                     &:before
                         border-color: transparent !important
                         background-color: $color !important
+
             &:hover:not([disabled])
                 + label
                     &::before,
                     &:before
                         border-color: $color !important
+
             &:checked
                 + label
                     &::after,
                     &:after
                         border-color: $color !important
+
                 &.has-background-color
                     + label
                         &::before,
                         &:before
                             border-color: transparent !important
                             background-color: $color !important
+
                         &::after,
                         &:after
                             border-color: $color-invert !important
                             background-color: $color !important
+
             &.is-block
                 &:hover:not([disabled])
                     + label
@@ -274,17 +299,21 @@ $checkradio-top-offset: 0rem !default
                         &::before,
                         &:before
                             border-color: $color !important
+
                 &:checked
                     + label
                         color: $color-invert
                         border-color: $color !important
                         background: $color
+
                         &::after,
                         &:after
                             border-color: $color-invert !important
+
                     &:hover:not([disabled])
                         + label
                             background: darken($color, 5%)
+
                             &::after,
                             &:after,
                             &::before,
@@ -298,6 +327,7 @@ $checkradio-top-offset: 0rem !default
                 display: inline-block
                 transform: rotate(90deg)
                 border-bottom: none
+
         @each $name, $pair in $colors
             $color: nth($pair, 1)
             $color-invert: nth($pair, 2)
@@ -314,6 +344,7 @@ $checkradio-top-offset: 0rem !default
         &:before
             border-radius: 50%
             border: .1rem solid $text
+
         &::after,
         &:after
             border-radius: 50%
@@ -329,6 +360,7 @@ $checkradio-top-offset: 0rem !default
                 &:before
                     border-color: $text !important
                     background-color: $text !important
+
                 &::after,
                 &:after
                     border-color: $text !important
@@ -337,16 +369,20 @@ $checkradio-top-offset: 0rem !default
     &.is-rtl
         + label
             padding-left: 0
+
             &::after,
             &:after
                 left: auto
                 right: 0
 
     +radio-size($size-normal)
+
     &.is-small
         +radio-size($size-small)
+
     &.is-medium
         +radio-size($size-medium)
+
     &.is-large
         +radio-size($size-large)
 
@@ -360,23 +396,27 @@ $checkradio-top-offset: 0rem !default
                     &:before
                         border-color: $color !important
                         background-color: $color !important
+
             &:hover:not([disabled])
                 + label
                     &::before,
                     &:before
                         border-color: $color !important
+
             &:checked
                 + label
                     &::after,
                     &:after
                         border-color: $color !important
                         background-color: $color !important
+
                 &.has-background-color
                     + label
                         &::before,
                         &:before
                             border-color: $color !important
                             background-color: $color !important
+
                         &::after,
                         &:after
                             border-color: $color-invert !important

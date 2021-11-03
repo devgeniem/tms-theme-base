@@ -1,4 +1,4 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
 
@@ -30,23 +30,23 @@
     }
 
     .modal-close-button {
-        color: $white !important; // sass-lint:disable-line no-important
-        border: .125rem solid $white !important; // sass-lint:disable-line no-important
+        border: .125rem solid $white !important; /* stylelint-disable-line declaration-no-important */
+        color: $white !important; /* stylelint-disable-line declaration-no-important */
         cursor: pointer;
 
         .icon {
-            fill: $white !important; // sass-lint:disable-line no-important
+            fill: $white !important; /* stylelint-disable-line declaration-no-important */
         }
 
         &:hover,
         &:focus {
-            color: $white !important; // sass-lint:disable-line no-important
-            border: .125rem solid $white !important; // sass-lint:disable-line no-important
+            border: .125rem solid $white !important; /* stylelint-disable-line declaration-no-important */
             outline: .125rem solid $white;
             outline-offset: .25rem;
+            color: $white !important; /* stylelint-disable-line declaration-no-important */
 
             .icon {
-                fill: $white !important; // sass-lint:disable-line no-important
+                fill: $white !important; /* stylelint-disable-line declaration-no-important */
             }
         }
     }
@@ -54,21 +54,21 @@
     &--slider {
         .slick-arrow {
             position: absolute;
-            top: 50% !important; // sass-lint:disable-line no-important
+            top: 50% !important; /* stylelint-disable-line declaration-no-important */
             transform: translateY(-50%);
         }
 
         .control {
             &:focus {
-                border-color: $primary-invert !important; // sass-lint:disable-line no-important
+                border-color: $primary-invert !important; /* stylelint-disable-line declaration-no-important */
             }
         }
 
         .modal-close-button {
             position: absolute;
+            z-index: 10;
             top: $theme-spacing-half;
             right: $theme-spacing;
-            z-index: 10;
 
             @include from($tablet) {
                 top: $theme-spacing;
@@ -77,7 +77,7 @@
 
             .icon {
                 @include until($desktop) {
-                    margin-left: .5rem !important; // sass-lint:disable-line no-important
+                    margin-left: .5rem !important; /* stylelint-disable-line declaration-no-important */
                 }
             }
 
@@ -99,7 +99,7 @@
             }
 
             .slick-track {
-                display: flex !important; // sass-lint:disable-line no-important
+                display: flex !important; /* stylelint-disable-line declaration-no-important */
 
                 @include from($desktop) {
                     align-items: center;
@@ -120,7 +120,7 @@
     .slick-arrow {
         &:hover,
         &:focus {
-            border-color: $primary-invert !important; // sass-lint:disable-line no-important
+            border-color: $primary-invert !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 

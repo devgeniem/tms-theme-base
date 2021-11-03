@@ -10,11 +10,11 @@ $fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
             &,
             &:active,
             &.is-active {
-                border-color: $primary-dark !important; // sass-lint:disable-line no-important
-                color: $primary-dark !important; // sass-lint:disable-line no-important
+                border-color: $primary-dark !important; /* stylelint-disable-line declaration-no-important */
+                color: $primary-dark !important; /* stylelint-disable-line declaration-no-important */
 
                 .icon {
-                    fill: $primary-dark !important; // sass-lint:disable-line no-important
+                    fill: $primary-dark !important; /* stylelint-disable-line declaration-no-important */
                 }
             }
         }

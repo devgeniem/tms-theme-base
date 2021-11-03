@@ -1,7 +1,7 @@
-/*!
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-
+/* stylelint-disable declaration-no-important */
 .logo-wall {
     &__item {
         width: fit-content !important;
@@ -9,8 +9,8 @@
         height: auto !important;
 
         @include from($tablet) {
-            max-width: 15rem !important;
             min-width: 3rem !important;
+            max-width: 15rem !important;
             max-height: max-content !important;
         }
     }

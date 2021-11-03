@@ -11,35 +11,36 @@ html {
 }
 
 $skip-to-content-shadow: rgba($black, .6);
+
 .skip-to-content {
     position: absolute;
-    overflow: hidden;
     width: 1px;
     height: 1px;
     margin: -1px;
     padding: 0;
-    white-space: nowrap;
-    border: 0;
+    overflow: hidden;
     clip: rect(0 0 0 0);
+    border: 0;
+    white-space: nowrap;
 
     &:active,
     &:focus {
-        font-size: .875rem;
-        font-weight: 700;
+        display: block;
+        z-index: 100000;
         top: $theme-spacing;
         left: $theme-spacing;
-        z-index: 100000;
-        display: block;
-        overflow: visible;
         width: auto;
         height: auto;
         margin: 0;
         padding: $theme-spacing-half;
-        color: $link;
-        text-decoration: none;
-        white-space: normal;
+        overflow: visible;
+        clip: auto;
         background: $white;
         box-shadow: 0 0 2px 2px $skip-to-content-shadow;
-        clip: auto;
+        color: $link;
+        font-size: .875rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: normal;
     }
 }

@@ -1,5 +1,5 @@
-/*!
- *  Copyright (c) 2021. Geniem Oy
+/**
+ * Copyright (c) 2021. Geniem Oy
  */
 
 $footer-copy-link-border-color: $primary-invert !default;
@@ -10,7 +10,8 @@ $footer-copy-link-border-color: $primary-invert !default;
             transition: transform $easing $speed;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             .icon {
                 transform: translateX(.118rem);
             }
@@ -28,11 +29,11 @@ $footer-copy-link-border-color: $primary-invert !default;
             &:not(:last-child) {
                 &::after {
                     content: "";
+                    display: block;
                     position: absolute;
                     top: .3rem;
                     right: -.1rem;
                     bottom: .3rem;
-                    display: block;
                     width: 1px;
                     background-color: $footer-copy-link-border-color;
                 }

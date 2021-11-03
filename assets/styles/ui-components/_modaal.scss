@@ -1,16 +1,16 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-
+/* stylelint-disable declaration-no-important */
 .modaal-container {
     background: transparent !important;
-    color: $color-white !important;
     box-shadow: none !important;
+    color: $color-white !important;
 
     .modaal-close {
         position: absolute !important;
-        right: 1px !important;
         top: -7% !important;
+        right: 1px !important;
     }
 
     .modaal-gallery-item {

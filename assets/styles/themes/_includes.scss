@@ -1,4 +1,4 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
 
@@ -7,5 +7,5 @@
 @import "~indicate/dist/indicate.css";
 @import "../settings/brand";
 
-$overlay-background: rgba($black, 0.3) !default;
-$modal-overlay-background: rgba($black, 0.97) !default;
+$overlay-background: rgba($black, .3) !default;
+$modal-overlay-background: rgba($black, .97) !default;

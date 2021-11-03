@@ -22,10 +22,10 @@ $search-item-hover: $primary-dark !default;
 
     &::after {
         content: "";
+        display: block;
         position: absolute;
         top: 50%;
         right: -1.5rem;
-        display: block;
         width: 1rem;
         height: .117rem;
         background-color: $text;
@@ -78,7 +78,8 @@ $search-item-hover: $primary-dark !default;
                     padding-right: .25rem;
                     color: inherit;
 
-                    &:not(:hover) {
+                    &:not(:hover),
+                    &:not(:focus) {
                         text-decoration: none;
                     }
                 }
@@ -90,7 +91,7 @@ $search-item-hover: $primary-dark !default;
                 }
 
                 span {
-                    margin-left: .25rem !important; // sass-lint:disable-line no-important
+                    margin-left: .25rem !important; /* stylelint-disable-line declaration-no-important */
                 }
             }
         }

@@ -1,4 +1,4 @@
-/*!
+/**
  *  Copyright (c) 2021. Geniem Oy
  */
 
@@ -22,8 +22,8 @@ $secondary-navbar-item-font-weight: 600 !default;
     }
 
     a {
-        font-weight: $secondary-navbar-item-font-weight;
         color: $secondary-navbar-item-navbar-link-color;
+        font-weight: $secondary-navbar-item-font-weight;
 
         &:hover,
         &:focus {

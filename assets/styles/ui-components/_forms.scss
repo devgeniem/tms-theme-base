@@ -1,8 +1,9 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-$gravityform-input-focus: .125rem solid $color-black !default
-$gravityform-input-focus-offset: .25rem !default
+/* stylelint-disable declaration-no-important */
+$gravityform-input-focus: .125rem solid $color-black !default;
+$gravityform-input-focus-offset: .25rem !default;
 
 form {
     label {
@@ -12,10 +13,10 @@ form {
     select,
     input,
     textarea {
-        line-height: 1;
         padding: $theme-spacing-half;
         border: 1px solid $secondary;
         border-radius: $theme-spacing-quarter;
+        line-height: 1;
     }
 }
 
@@ -26,6 +27,7 @@ form {
     // GForms inside a wrapper need a different layout
     .gform_wrapper {
         @extend .is-align-wide;
+
         margin: $theme-spacing-two -1 * $theme-spacing-oneandhalf;
         padding: $theme-spacing-oneandhalf;
         background: $secondary;
@@ -89,6 +91,7 @@ form {
             }
         }
     }
+
     &_page {
         &_footer {
             padding-top: $theme-spacing-twoandhalf;

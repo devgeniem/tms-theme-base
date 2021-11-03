@@ -7,8 +7,8 @@ $link-active: $primary-dark !default;
 
 // -- Links
 a {
-    color: $link;
     transition: color $easing $speed, background-color $easing $speed;
+    color: $link;
 
     &:hover,
     &.is-hovered {
@@ -22,35 +22,35 @@ a {
 
     &:focus,
     &.is-focused {
-        text-decoration: underline;
         outline: .0625rem dotted;
+        text-decoration: underline;
     }
 
     &.has-background-primary {
         &:hover,
         &:focus {
-            background-color: $link-hover !important; // sass-lint:disable-line no-important
+            background-color: $link-hover !important; /* stylelint-disable-line declaration-no-important */
         }
 
         &:active {
-            background-color: $link-active !important; // sass-lint:disable-line no-important
+            background-color: $link-active !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 
     &.has-background-accent {
         &:hover,
         &:focus {
-            background-color: $link-hover !important; // sass-lint:disable-line no-important
+            background-color: $link-hover !important; /* stylelint-disable-line declaration-no-important */
         }
 
         &:active {
-            background-color: $link-active !important; // sass-lint:disable-line no-important
+            background-color: $link-active !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 }
 
 .has-text-paragraph {
-    color: $text !important; // sass-lint:disable-line no-important
+    color: $text !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .is-text-big {
@@ -90,5 +90,5 @@ a {
 }
 
 .no-hyphens {
-    hyphens: none !important; // sass-lint:disable-line no-important
+    hyphens: none !important; /* stylelint-disable-line declaration-no-important */
 }

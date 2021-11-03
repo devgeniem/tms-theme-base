@@ -6,8 +6,8 @@
 
         @include from($tablet) {
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             text-align: initial;
         }
     }
@@ -22,7 +22,7 @@
     }
 
     &__link-icon {
-        margin-bottom: 0 !important; // sass-lint:disable-line no-important
+        margin-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
         transition: transform $easing $speed;
     }
 
@@ -30,7 +30,7 @@
         &:hover,
         &:focus {
             .notice-banner__link-icon {
-                transform: translateX(0.118rem);
+                transform: translateX(.118rem);
             }
         }
     }

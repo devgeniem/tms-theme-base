@@ -33,8 +33,8 @@
 // Styleguide Base.wp-classes.aligments
 
 .alignleft {
-    float: left;
     margin: 0 $theme-spacing-half $theme-spacing 0;
+    float: left;
 }
 
 .aligncenter {
@@ -43,8 +43,8 @@
 }
 
 .alignright {
-    float: right;
     margin: 0 0 $theme-spacing $theme-spacing-half;
+    float: right;
 
     p & {
         margin-top: $theme-spacing-quarter;
@@ -52,8 +52,8 @@
 }
 
 .alignnone {
-    float: none;
     margin: 0 0 $theme-spacing;
+    float: none;
 }
 
 .alignleft,
@@ -88,8 +88,8 @@
 }
 
 .wp-caption-text {
-    font-size: $size-small;
     padding-top: $theme-spacing-quarter;
+    font-size: $size-small;
     text-align: center;
 }
 
@@ -134,10 +134,10 @@
 //
 // Styleguide Base.wp-classes.gallery
 
-.gallery  {
+.gallery {
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: $theme-spacing;
+    grid-template-columns: 1fr;
 
     &.is-gapless {
         grid-gap: 0;

@@ -5,7 +5,7 @@
     --duet-color-placeholder: #{$grey};
     --duet-color-button: #{$white};
     --duet-color-surface: #{$white};
-    --duet-color-overlay: rgba(0, 0, 0, 0.8);
+    --duet-color-overlay: rgba(0, 0, 0, .8);
     --duet-color-border: #{$secondary};
     --duet-font: #{$family-primary};
     --duet-font-normal: 400;
@@ -31,9 +31,9 @@
 
     &::after {
         content: "";
+        display: block;
         position: relative;
         top: 50%;
-        display: block;
         width: 1rem;
         height: .117rem;
         background-color: $text;

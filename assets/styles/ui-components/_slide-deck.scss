@@ -1,16 +1,15 @@
-/*!
+/**
  * Copyright (c) 2021. Geniem Oy
  * Slide deck, used in an image gallery lightbox
  */
-
+/* stylelint-disable declaration-no-important */
 .slide-deck {
-
     &,
     .slide {
-        overflow: hidden;
         margin: auto;
         padding-right: 7.5%;
         padding-left: 7.5%;
+        overflow: hidden;
 
         @include from($tablet) {
             width: 85%;
@@ -19,14 +18,14 @@
         }
 
         figure {
-            margin-left: 0 !important;
             margin-right: 0 !important;
+            margin-left: 0 !important;
         }
 
         img {
             display: block;
-            margin: 0 auto;
             max-height: 75vh;
+            margin: 0 auto;
         }
     }
 
