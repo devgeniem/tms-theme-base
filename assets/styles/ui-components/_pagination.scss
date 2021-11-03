@@ -23,38 +23,38 @@ $pagination-item-transition-speed: $speed !default;
     .pagination-item {
         a {
             display: flex;
-            justify-content: center;
             align-content: center;
+            justify-content: center;
             width: 2.2352rem;
             height: 2.2352rem;
             padding: $theme-spacing-quarter $theme-spacing-half;
-            color: $pagination-item-color;
-            background-color: $pagination-item-background-color;
             border-radius: $pagination-item-border-radius;
+            background-color: $pagination-item-background-color;
+            color: $pagination-item-color;
 
             &:focus {
-                color: $pagination-item-color-focus;
                 background-color: $pagination-item-background-color-focus;
+                color: $pagination-item-color-focus;
             }
 
             &:hover {
-                color: $pagination-item-color-hover;
                 background-color: $pagination-item-background-color-hover;
+                color: $pagination-item-color-hover;
             }
 
             &:not(.hellip) {
                 &:hover,
                 &:focus {
-                    box-shadow: $pagination-item-hover-shadow-size $pagination-item-hover-shadow-color;
                     transition: box-shadow $pagination-item-transition-easing $pagination-item-transition-speed;
+                    box-shadow: $pagination-item-hover-shadow-size $pagination-item-hover-shadow-color;
                 }
             }
         }
 
         &.is-current {
             a {
-                color: $pagination-item-color-current;
                 background-color: $pagination-item-background-color-current;
+                color: $pagination-item-color-current;
 
                 &:hover {
                     background-color: $pagination-item-background-color-current-hover;
@@ -75,11 +75,10 @@ $pagination-item-transition-speed: $speed !default;
 
     .paginate {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         height: 100%;
         padding: 0 .35rem;
-
     }
 
     .hellip {

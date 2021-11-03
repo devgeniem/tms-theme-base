@@ -1,5 +1,6 @@
 // Only add breakpoints here you actually need to avoid excess CSS generation
 // sass-lint:disable variable-name-format
+/* stylelint-disable declaration-no-important */
 
 .has-width-fit-content {
     width: fit-content !important;
@@ -45,7 +46,7 @@ $margins_paddings_sides: (
     // m-4, p-3
     @each $level, $amount in $margins_paddings_levels {
         .#{$shorthand}-#{$level} {
-            #{$property}: #{$amount} !important; // sass-lint:disable-line no-important
+            #{$property}: #{$amount} !important;
         }
     }
 
@@ -54,7 +55,7 @@ $margins_paddings_sides: (
         @each $level, $amount in $margins_paddings_levels {
             @media screen and (min-width: #{$breakpoint_px}) {
                 .#{$shorthand}-#{$level}-#{$breakpoint} {
-                    #{$property}: #{$amount} !important; // sass-lint:disable-line no-important
+                    #{$property}: #{$amount} !important;
                 }
             }
         }
@@ -64,7 +65,7 @@ $margins_paddings_sides: (
     @each $side, $side_short in $margins_paddings_sides {
         @each $level, $amount in $margins_paddings_levels {
             .#{$shorthand}#{$side_short}-#{$level} {
-                #{$property}-#{$side}: #{$amount} !important; // sass-lint:disable-line no-important
+                #{$property}-#{$side}: #{$amount} !important;
             }
         }
     }
@@ -75,7 +76,7 @@ $margins_paddings_sides: (
             @each $level, $amount in $margins_paddings_levels {
                 @media screen and (min-width: #{$breakpoint_px}) {
                     .#{$shorthand}#{$side_short}-#{$level}-#{$breakpoint} {
-                        #{$property}-#{$side}: #{$amount} !important; // sass-lint:disable-line no-important
+                        #{$property}-#{$side}: #{$amount} !important;
                     }
                 }
             }

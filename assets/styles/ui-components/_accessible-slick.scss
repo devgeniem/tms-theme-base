@@ -1,8 +1,7 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-
-// sass-lint:disable no-vendor-prefixes, no-important
+/* stylelint-disable declaration-no-important, max-nesting-depth, a11y/no-display-none */
 
 $slick-dot-color: #000 !default;
 $slick-dot-color-active: $slick-dot-color !default;
@@ -14,18 +13,12 @@ $slick-loading-background-color: #fff !default;
 
 .slick {
     &-slider {
-        position: relative;
         display: block;
+        position: relative;
         box-sizing: border-box;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-
         margin: 0 0 30px;
-
         user-select: none;
-        -ms-touch-action: pan-y;
+        -webkit-touch-callout: none;
         touch-action: pan-y;
         -webkit-tap-highlight-color: transparent;
 
@@ -42,15 +35,11 @@ $slick-loading-background-color: #fff !default;
     }
 
     &-list {
-        position: relative;
         display: block;
-        overflow: hidden;
+        position: relative;
         margin: 0;
         padding: 0;
-
-        &:focus {
-            outline: none;
-        }
+        overflow: hidden;
 
         &:focus-within {
             @include until($tablet) {
@@ -68,20 +57,20 @@ $slick-loading-background-color: #fff !default;
     }
 
     &-track {
+        display: block;
         position: relative;
         top: 0;
         left: 0;
-        display: block;
         margin-right: auto;
         margin-left: auto;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             content: "";
             display: table;
         }
 
-        &:after {
+        &::after {
             clear: both;
         }
 
@@ -92,12 +81,12 @@ $slick-loading-background-color: #fff !default;
         .modal-trigger {
             margin: .5rem !important;
             padding: 0 !important;
-            background: transparent !important;
-            border: 0 !important;
-            cursor: pointer;
             overflow: hidden;
-            opacity: 1;
             transition: opacity $easing $speed;
+            border: 0 !important;
+            opacity: 1;
+            background: transparent !important;
+            cursor: pointer;
 
             &:focus {
                 outline: .125rem solid $color-black;
@@ -119,9 +108,9 @@ $slick-loading-background-color: #fff !default;
 
     &-slide {
         display: none;
-        float: left;
         height: 100%;
         min-height: 1px;
+        float: left;
 
         img {
             display: block;
@@ -168,7 +157,6 @@ $slick-loading-background-color: #fff !default;
             margin-left: 0 !important;
             padding-right: .5rem !important;
             padding-left: .5rem !important;
-
             transform: translate(0, -50%);
 
             .icon {
@@ -201,35 +189,32 @@ $slick-loading-background-color: #fff !default;
     }
 
     &-dots {
+        display: block;
         position: absolute;
         bottom: -30px;
-
-        display: block;
         width: 100%;
         margin: 0;
         padding: 0;
-
         list-style: none;
         text-align: center;
 
         li {
-            position: relative;
             display: inline-block;
+            position: relative;
             margin: 0 5px;
             padding: 0;
 
             button {
-                font-size: 0px; // sass-lint:disable-line zero-unit
-                line-height: 0px; // sass-lint:disable-line zero-unit
                 display: block;
                 width: 20px;
                 height: 20px;
                 margin-top: -4px;
                 margin-left: -4px;
-
-                color: transparent;
-                background: transparent;
                 border: 0;
+                background: transparent;
+                color: transparent;
+                font-size: 0; // sass-lint:disable-line zero-unit
+                line-height: 0px; // sass-lint:disable-line zero-unit
                 cursor: pointer;
 
                 // Hover and focus states
@@ -242,7 +227,7 @@ $slick-loading-background-color: #fff !default;
 
                 &:focus {
                     .slick-dot-icon {
-                        &:before {
+                        &::before {
                             color: $primary;
                         }
                     }
@@ -250,18 +235,18 @@ $slick-loading-background-color: #fff !default;
 
                 // Inner dot icons
                 .slick-dot-icon {
-                    color: $slick-dot-color;
                     opacity: $slick-opacity-not-active;
+                    color: $slick-dot-color;
 
-                    &:before {
-                        font-size: $slick-dot-size;
-                        line-height: 1;
+                    &::before {
                         content: "x";
                         position: absolute;
                         top: 0;
                         left: 0;
-                        text-align: center;
                         transition: all .05s linear;
+                        font-size: $slick-dot-size;
+                        line-height: 1;
+                        text-align: center;
                     }
                 }
             }
@@ -271,19 +256,19 @@ $slick-loading-background-color: #fff !default;
                 button {
                     &:focus {
                         .slick-dot-icon {
-                            color: $primary;
                             opacity: 1;
+                            color: $primary;
                         }
                     }
 
                     .slick-dot-icon {
-                        color: $primary-invert;
                         opacity: $slick-opacity-active;
+                        color: $primary-invert;
 
-                        &:before {
-                            font-size: 18px;
+                        &::before {
                             margin-top: -3px;
                             margin-left: -2px;
+                            font-size: 18px;
                         }
                     }
                 }
@@ -339,19 +324,18 @@ $slick-loading-background-color: #fff !default;
     }
 }
 
-
 /**
  Improved .sr-only class by ffoodd: https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
  */
 .slick-sr-only {
     position: absolute !important;
-    overflow: hidden !important;
     width: 1px !important;
     height: 1px !important;
     margin: -1px !important;
     padding: 0 !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+    overflow: hidden !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
     clip-path: inset(50%) !important;
 }

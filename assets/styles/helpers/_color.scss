@@ -2,7 +2,7 @@
  * Generates .has-text-X and .has-background-X variations from colors.
  * This version can handle our color maps and be smart about color palettes.
  */
-// sass-lint:disable no-important, no-qualifying-elements, force-element-nesting, function-name-format
+/* stylelint-disable declaration-no-important */
 
 @each $name, $pair in $colors {
     @if type-of($pair) == "map" {
@@ -47,17 +47,18 @@
         }
 
         .has-colors-#{$name} {
-            color: map-get($pair, "primary-invert") !important;
             background-color: map-get($pair, "primary") !important;
+            color: map-get($pair, "primary-invert") !important;
 
             &-invert,
             &.is-inverted {
-                color: map-get($pair, "primary") !important;
                 background-color: map-get($pair, "primary-invert") !important;
+                color: map-get($pair, "primary") !important;
             }
         }
+    }
 
-    } @else {
+    @else {
         // This is the default bulma way of color variation generation
         $color: nth($pair, 1);
         $color-invert: nth($pair, 2);
@@ -88,8 +89,8 @@
         }
 
         .has-colors-#{$name} {
-            color: $color-invert !important;
             background-color: $color !important;
+            color: $color-invert !important;
 
             .icon {
                 fill: $color-invert !important;
@@ -97,7 +98,8 @@
 
             a {
                 &:not(.pill) {
-                    &:not(:hover) {
+                    &:not(:hover),
+                    &:not(:focus) {
                         color: inherit;
                     }
                 }
@@ -107,7 +109,8 @@
             h3,
             h4 {
                 > a {
-                    &:not(:hover) {
+                    &:not(:hover),
+                    &:not(:focus) {
                         color: inherit;
                     }
                 }
@@ -115,8 +118,8 @@
 
             .button {
                 &.is-#{$name} {
-                    color: $color !important;
                     background-color: $color-invert !important;
+                    color: $color !important;
 
                     .icon {
                         fill: $color !important;
@@ -130,8 +133,8 @@
 
             &-invert,
             &.is-inverted {
-                color: $color !important;
                 background-color: $color-invert !important;
+                color: $color !important;
 
                 .icon {
                     fill: $color;

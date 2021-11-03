@@ -1,8 +1,8 @@
 .sitemap {
     &--toggle {
         .icon {
-            margin-right: 0 !important; // sass-lint:disable-line no-important
-            margin-left: 0 !important; // sass-lint:disable-line no-important
+            margin-right: 0 !important; /* stylelint-disable-line declaration-no-important */
+            margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 }

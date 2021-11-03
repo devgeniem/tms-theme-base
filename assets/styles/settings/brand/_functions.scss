@@ -16,7 +16,7 @@
     $size-h1: $size-h2 * $scale_value;
 
     @if ($as_list) {
-        @return ($size-h1 $size-h2 $size-h3 $size-h4 $size-h5 $size-h6)
+        @return ($size-h1 $size-h2 $size-h3 $size-h4 $size-h5 $size-h6);
     }
 
     @return (
@@ -26,5 +26,5 @@
         "h4": rem($size-h4, $base_size),
         "h5": rem($size-h5, $base_size),
         "h6": rem($size-h6, $base_size),
-    )
+    );
 }

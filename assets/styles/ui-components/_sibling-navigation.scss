@@ -26,24 +26,24 @@ $sibling-navigation-item-hover-shadow-color: rgba(0, 0, 0, .15) !default;
 
     &__item {
         margin: $theme-spacing-half;
-        color: $sibling-navigation-item-color;
-        background-color: $sibling-navigation-item-background-color;
         border: 1px solid $sibling-navigation-item-border-color;
+        background-color: $sibling-navigation-item-background-color;
+        color: $sibling-navigation-item-color;
 
         @include from($desktop) {
             margin: $theme-spacing-three-quarters;
         }
 
         &.is-current {
-            color: $sibling-navigation-item-active-color;
-            background-color: $sibling-navigation-item-active-background-color;
             border-color: $sibling-navigation-item-active-border-color;
+            background-color: $sibling-navigation-item-active-background-color;
+            color: $sibling-navigation-item-active-color;
         }
 
         &:hover,
         &:focus {
-            box-shadow: $sibling-navigation-item-hover-shadow-size $sibling-navigation-item-hover-shadow-color;
             transition: box-shadow $sibling-navigation-item-transition-easing $sibling-navigation-item-transition-speed;
+            box-shadow: $sibling-navigation-item-hover-shadow-size $sibling-navigation-item-hover-shadow-color;
         }
     }
 }

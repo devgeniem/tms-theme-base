@@ -1,7 +1,7 @@
 .post-link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: $theme-spacing-oneandhalf $theme-spacing;
 
     @include from($desktop) {

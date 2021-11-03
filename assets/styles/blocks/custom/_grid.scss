@@ -1,7 +1,7 @@
-/*!
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-
+/* stylelint-disable declaration-no-important */
 .grid {
     &__item {
         $item: &;
@@ -24,14 +24,14 @@
                     // Addition lines for 2 line or multiline ellipsis
                     // https://caniuse.com/css-line-clamp
                     display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    white-space: normal;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    line-height: 1.76;
                     // lines (1rem per line) * body size * line-height
                     max-height: calc((3rem * #{$body-size}) * 1.76);
+                    overflow: hidden;
+                    line-height: 1.76;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    -webkit-line-clamp: 3;
+                    box-orient: vertical;
                 }
             }
         }

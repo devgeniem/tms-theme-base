@@ -21,8 +21,8 @@
 
     &__title-button {
         width: 100%;
-        border: 0;
         transition: background-color ease-in .2s, color ease-in .2s;
+        border: 0;
         appearance: none;
 
         &[aria-expanded="true"] {

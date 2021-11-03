@@ -1,7 +1,8 @@
 /**
  * Button class generator
- * sass-lint:disable no-important
  */
+
+/* stylelint-disable declaration-no-important */
 
 $button-colors: $colors !default;
 
@@ -28,9 +29,9 @@ $button-transition-easing: $easing !default;
 $button-transition-speed: $speed !default;
 
 @mixin button_colors($button-color-mixin-background, $button-color-mixin-text, $button-color-mixin-border) {
-    color: $button-color-mixin-text !important;
-    background-color: $button-color-mixin-background !important;
     border-color: $button-color-mixin-border !important;
+    background-color: $button-color-mixin-background !important;
+    color: $button-color-mixin-text !important;
 
     .icon {
         fill: $button-color-mixin-text !important;
@@ -44,10 +45,11 @@ $button-transition-speed: $speed !default;
 
 .button-state-hover {
     filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
-    transition: filter $button-transition-easing $button-transition-speed,
-    border-color $button-transition-easing $button-transition-speed,
-    color $button-transition-easing $button-transition-speed,
-    background-color $button-transition-easing $button-transition-speed;
+    transition:
+        filter $button-transition-easing $button-transition-speed,
+        border-color $button-transition-easing $button-transition-speed,
+        color $button-transition-easing $button-transition-speed,
+        background-color $button-transition-easing $button-transition-speed;
 
     .icon {
         transition: fill $button-transition-easing $button-transition-speed;
@@ -73,40 +75,38 @@ $button-transition-speed: $speed !default;
     @extend %control;
     @extend %unselectable;
 
+    justify-content: center;
     height: auto;
+    padding: .625rem 1.875rem;
     border-width: $button-border-width;
     border-radius: $button-border-radius;
-    cursor: pointer;
-    font-weight: $button-font-weight;
     font-family: $family-secondary;
     font-size: $button-font-size;
-
-    justify-content: center;
-    padding: .625rem 1.875rem;
-
+    font-weight: $button-font-weight;
     text-align: center;
-    white-space: normal;
     text-decoration: none !important;
+    white-space: normal;
+    cursor: pointer;
 
     @include from($tablet) {
-        font-size: $button-font-size-tablet;
         padding-right: 1.764rem;
         padding-left: 1.764rem;
+        font-size: $button-font-size-tablet;
     }
 
     .icon {
         width: 1rem;
         height: 1rem;
-        margin-left: 1.75rem !important;
         margin-right: -.5rem !important;
+        margin-left: 1.75rem !important;
         fill: $button-text-primary;
     }
 
     &,
     &:active,
     &.is-active {
-        background-color: $button-background-primary;
         border-color: $button-border-primary;
+        background-color: $button-background-primary;
         color: $button-text-primary;
 
         .icon {
@@ -118,8 +118,8 @@ $button-transition-speed: $speed !default;
     &.is-hovered,
     &:focus,
     &.is-focused {
-        background-color: $button-background-invert;
         border-color: $button-border-invert;
+        background-color: $button-background-invert;
         color: $button-text-invert;
 
         @extend .button-state-hover;
@@ -138,8 +138,8 @@ $button-transition-speed: $speed !default;
         &,
         &:active,
         &.is-active {
-            background-color: transparent;
             border-color: $button-border-invert;
+            background-color: transparent;
             color: $button-text-invert;
 
             .icon {
@@ -154,8 +154,8 @@ $button-transition-speed: $speed !default;
         &,
         &:active,
         &.is-active {
-            background-color: $button-background-primary;
             border-color: transparent;
+            background-color: $button-background-primary;
             color: $button-text-primary;
 
             .icon {
@@ -168,8 +168,8 @@ $button-transition-speed: $speed !default;
 
     &-invert,
     &.is-inverted {
-        background-color: $button-background-invert;
         border-color: $button-border-invert;
+        background-color: $button-background-invert;
         color: $button-text-invert;
 
         .icon {
@@ -180,8 +180,8 @@ $button-transition-speed: $speed !default;
         &.is-hovered,
         &:focus,
         &.is-focused {
-            background-color: $button-background-primary;
             border-color: $button-border-primary;
+            background-color: $button-background-primary;
             color: $button-text-primary;
 
             .icon {
@@ -195,8 +195,8 @@ $button-transition-speed: $speed !default;
         }
 
         &.is-borderless {
-            background-color: $button-background-invert;
             border-color: transparent;
+            background-color: $button-background-invert;
             color: $button-text-invert;
 
             .icon {
@@ -207,8 +207,8 @@ $button-transition-speed: $speed !default;
         }
 
         &.is-outlined {
-            background-color: transparent;
             border-color: $button-text-primary;
+            background-color: transparent;
             color: $button-text-primary;
 
             .icon {
@@ -221,8 +221,8 @@ $button-transition-speed: $speed !default;
 
     &--icon {
         .icon {
-            margin-left: .75rem !important;
             margin-right: -.3rem !important;
+            margin-left: .75rem !important;
         }
     }
 
@@ -230,6 +230,7 @@ $button-transition-speed: $speed !default;
         padding: .36rem 1.5rem !important;
         border-radius: 1.7rem !important;
 
+        //noinspection Stylelint
         .icon {
             display: none;
         }
@@ -246,6 +247,7 @@ $button-transition-speed: $speed !default;
         @if (length($pair) > 2) {
             $btn-pair-primary-text: nth($pair, 3);
         }
+
         @if (length($pair) > 3) {
             $btn-pair-primary-text-invert: nth($pair, 4);
         }
@@ -277,7 +279,9 @@ $button-transition-speed: $speed !default;
                 }
 
                 &:hover,
-                &.is-hovered {
+                &.is-hovered,
+                &:focus,
+                &.is-focused {
                     @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                 }
 
@@ -289,6 +293,7 @@ $button-transition-speed: $speed !default;
                 &:active,
                 &.is-active {
                     @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
+
                     border-color: transparent !important;
                 }
 
@@ -320,7 +325,9 @@ $button-transition-speed: $speed !default;
                     }
 
                     &:hover,
-                    &.is-hovered {
+                    &.is-hovered,
+                    &:focus,
+                    &.is-focused {
                         @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-text);
                     }
 
@@ -332,11 +339,14 @@ $button-transition-speed: $speed !default;
                     &:active,
                     &.is-active {
                         @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
+
                         border-color: transparent !important;
                     }
 
                     &:hover,
-                    &.is-hovered {
+                    &.is-hovered,
+                    &:focus,
+                    &.is-focused {
                         @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     }
 

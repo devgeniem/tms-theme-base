@@ -1,4 +1,4 @@
-/*!
+/**
  *  Copyright (c) 2021. Geniem Oy
  */
 
@@ -12,9 +12,9 @@ $fly-out-nav-secondary-link: $primary-invert !default;
 $fly-out-nav-secondary-link-hover: $primary-invert !default;
 $fly-out-nav-search-button-icon: $primary !default;
 
-.fly-out-nav {
-    z-index: 50;
+.fly-out-nav { /* stylelint-disable-line a11y/no-display-none */
     display: none;
+    z-index: 50;
 
     @include from($desktop) {
         display: none;
@@ -34,11 +34,11 @@ $fly-out-nav-search-button-icon: $primary !default;
 
     &__inner {
         position: absolute;
+        z-index: 3;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 3;
         padding: 1rem;
 
         @include from($tablet) {
@@ -53,15 +53,17 @@ $fly-out-nav-search-button-icon: $primary !default;
 
     &__trigger {
         margin-left: 1rem;
-        background-color: transparent;
         border: 0;
+        background-color: transparent;
         cursor: pointer;
 
         @include from($tablet) {
             margin-left: 0;
         }
 
-        &:hover {
+        /* stylelint-disable-next-line a11y/no-outline-none */
+        &:hover,
+        &:focus { /* stylelint-disable-line a11y/no-outline-none */
             outline: 0;
 
             .icon {
@@ -78,13 +80,13 @@ $fly-out-nav-search-button-icon: $primary !default;
 
     &__close {
         position: absolute;
+        z-index: 3;
         top: 1rem;
         right: 1rem;
-        z-index: 3;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: transparent;
         border: 0;
+        background-color: transparent;
         cursor: pointer;
 
         @include from($tablet) {
@@ -99,10 +101,10 @@ $fly-out-nav-search-button-icon: $primary !default;
         padding-left: 2rem;
 
         > .navbar-item {
+            padding-left: 0;
             font-family: $family-secondary;
             font-size: 1.223rem;
             font-weight: 600;
-            padding-left: 0;
 
             &.current-menu-item {
                 > a,
@@ -126,8 +128,8 @@ $fly-out-nav-search-button-icon: $primary !default;
                 }
 
                 .icon {
-                    color: inherit;
                     fill: currentColor;
+                    color: inherit;
                 }
             }
 
@@ -138,7 +140,7 @@ $fly-out-nav-search-button-icon: $primary !default;
 
                 &:hover,
                 &:focus {
-                    color: $fly-out-nav-primary-link-hover !important; // sass-lint:disable-line no-important
+                    color: $fly-out-nav-primary-link-hover !important; /* stylelint-disable-line declaration-no-important */
                 }
 
                 &.current-menu-item {
@@ -149,12 +151,12 @@ $fly-out-nav-search-button-icon: $primary !default;
 
         .navbar-item,
         .navbar-link {
-            display: block !important; // sass-lint:disable-line no-important
+            display: block !important; /* stylelint-disable-line declaration-no-important */
 
             &:hover,
             &:focus,
             &:active {
-                background-color: transparent !important; // sass-lint:disable-line no-important
+                background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
             }
         }
 
@@ -163,16 +165,16 @@ $fly-out-nav-search-button-icon: $primary !default;
             &:hover,
             &.is-active {
                 .navbar-link {
-                    background-color: transparent !important; // sass-lint:disable-line no-important
+                    background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
                 }
             }
         }
 
         .navbar-dropdown {
-            position: static !important; // sass-lint:disable-line no-important
-            background-color: transparent !important; // sass-lint:disable-line no-important
-            border: 0 !important; // sass-lint:disable-line no-important
-            box-shadow: none !important; // sass-lint:disable-line no-important
+            position: static !important; /* stylelint-disable-line declaration-no-important */
+            border: 0 !important; /* stylelint-disable-line declaration-no-important */
+            background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+            box-shadow: none !important; /* stylelint-disable-line declaration-no-important */
         }
     }
 
@@ -181,9 +183,9 @@ $fly-out-nav-search-button-icon: $primary !default;
 
         &:hover,
         &:focus {
+            background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
             color: $fly-out-nav-primary-link-hover;
             text-decoration: underline;
-            background-color: transparent !important; // sass-lint:disable-line no-important
         }
     }
 
@@ -191,11 +193,11 @@ $fly-out-nav-search-button-icon: $primary !default;
         &.is-active {
             &::after {
                 content: "";
+                display: block;
                 position: absolute;
                 top: .85rem;
                 bottom: 1.25rem;
                 left: -1.75rem;
-                display: block;
                 width: 1px;
                 background-color: $fly-out-nav-primary-dropdown-active-background;
             }
@@ -209,11 +211,11 @@ $fly-out-nav-search-button-icon: $primary !default;
 
         .menu-item-secondary {
             margin-bottom: $theme-spacing;
-            margin-left: 0 !important; // sass-lint:disable-line no-important
+            margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
 
             &__link {
-                font-size: .9rem;
                 color: $fly-out-nav-secondary-link;
+                font-size: .9rem;
 
                 @include from($desktop) {
                     font-size: 1rem;
@@ -237,7 +239,7 @@ $fly-out-nav-search-button-icon: $primary !default;
         &__button {
             &.is-inverted {
                 .icon {
-                    fill: $fly-out-nav-search-button-icon !important; // sass-lint:disable-line no-important
+                    fill: $fly-out-nav-search-button-icon !important; /* stylelint-disable-line declaration-no-important */
                 }
             }
         }

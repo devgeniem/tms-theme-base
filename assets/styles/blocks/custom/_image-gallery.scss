@@ -1,7 +1,7 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
-
+/* stylelint-disable declaration-no-important */
 .image-gallery {
     &__image {
         overflow: hidden;
@@ -23,8 +23,8 @@
 
         &-close-button {
             position: relative;
-            right: -28.5% !important;
             top: -.3rem !important;
+            right: -28.5% !important;
 
             @include from($tablet) {
                 right: -33% !important;
@@ -32,31 +32,31 @@
         }
 
         &-content {
-            width: 100% !important; // To override Bulma
+            width: 100% !important;
             color: $color-white;
 
-            &:focus {
-                text-decoration: underline;
+            &:focus { /* stylelint-disable-line a11y/no-outline-none */
                 outline: none;
+                text-decoration: underline;
             }
         }
     }
 
     .gallery-controls {
         display: flex;
-        justify-content: space-between;
-        list-style-type: none;
         position: absolute;
         top: 50%;
         left: 0;
+        justify-content: space-between;
         width: 100%;
+        list-style-type: none;
 
         .gallery-button {
             height: auto;
             margin: 0 $theme-spacing-half;
             padding: $theme-spacing-half;
-            text-decoration: none;
             text-align: center;
+            text-decoration: none;
 
             .icon {
                 margin: 0 !important;
@@ -68,6 +68,7 @@
                         padding-right: 5px !important;
                     }
                 }
+
                 &--next {
                     .icon {
                         padding-left: 5px !important;

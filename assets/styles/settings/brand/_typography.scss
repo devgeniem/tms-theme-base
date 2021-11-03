@@ -1,6 +1,7 @@
 /**
  * Typography
  */
+/* stylelint-disable declaration-no-important */
 @import "functions";
 
 $base-sizes: (
@@ -9,9 +10,9 @@ $base-sizes: (
     "desktop": ("base_size": 17px, "scale_value": 1.165, "break_point": $desktop)
 ) !default;
 
-$family-sans-serif: "Montserrat", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-sans-serif: "Montserrat", blinkmacsystemfont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
-$family-primary: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-primary: "Open Sans", blinkmacsystemfont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $family-secondary: $family-sans-serif;
 
 $font-family-header: $family-secondary;
@@ -67,10 +68,10 @@ h6,
     }
 
     .has-text-lead {
-        font-size: map-get($calculated_sizes, "h6") !important;
-        line-height: 1.62;
         font-family: $family-sans-serif;
+        font-size: map-get($calculated_sizes, "h6") !important;
         font-weight: 600;
+        line-height: 1.62;
     }
 
     .has-text-large {
@@ -87,48 +88,48 @@ h6,
 
     h1,
     .h1 {
-        font-size: map-get($calculated_sizes, "h1") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h1") !important;
         font-weight: 800;
         line-height: 1.22;
     }
 
     h2,
     .h2 {
-        font-size: map-get($calculated_sizes, "h2") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h2") !important;
         font-weight: 800;
         line-height: 1.2;
     }
 
     h3,
     .h3 {
-        font-size: map-get($calculated_sizes, "h3") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h3") !important;
         font-weight: 800;
         line-height: 1.22;
     }
 
     h4,
     .h4 {
-        font-size: map-get($calculated_sizes, "h4") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h4") !important;
         font-weight: 800;
         line-height: 1.22;
     }
 
     h5,
     .h5 {
-        font-size: map-get($calculated_sizes, "h5") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h5") !important;
         font-weight: $weight-semibold;
         line-height: 1.22;
     }
 
     h6,
     .h6 {
-        font-size: map-get($calculated_sizes, "h6") !important;
         font-family: $font-family-header;
+        font-size: map-get($calculated_sizes, "h6") !important;
         font-weight: $weight-semibold;
         line-height: 1.22;
     }
@@ -141,7 +142,9 @@ h6,
 
     @if ($base-size-breakpoint == "mobile") {
         @include breakpoint_typography($calc-base_size, $calculated_sizes);
-    } @else {
+    }
+
+    @else {
         $breakpoint: map-get($base-size-values, "break_point");
 
         @include from($breakpoint) {

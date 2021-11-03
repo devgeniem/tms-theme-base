@@ -1,5 +1,3 @@
-// sass-lint:disable no-ids
-
 .comments-area {
     .comment__body {
         margin-bottom: $theme-spacing-oneandhalf;
@@ -28,12 +26,11 @@
 
         input,
         textarea {
-            line-height: 1;
             width: 100%;
             padding: $theme-spacing-half;
-            border: 1px solid $secondary;
-            border-color: $color-vaalean-harmaa;
+            border: 1px solid $color-vaalean-harmaa;
             border-radius: $theme-spacing-quarter;
+            line-height: 1;
         }
     }
 

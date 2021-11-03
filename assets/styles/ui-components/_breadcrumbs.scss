@@ -1,4 +1,4 @@
-/*!*
+/**
  * Copyright (c) 2021. Geniem Oy
  */
 
@@ -11,15 +11,17 @@ $tms-breadcrumb-item-color-separator: $color-black !default;
     .breadcrumbs {
         &__nav {
             font-size: $size-7;
-            line-height: 1.2;
             font-weight: $weight-medium;
+            line-height: 1.2;
 
             a {
                 color: $tms-breadcrumb-item-color-link;
                 text-decoration: underline;
 
                 &.is-hovered,
-                &:hover {
+                &:hover,
+                &.is-focused,
+                &:focus {
                     color: $tms-breadcrumb-item-color-hover;
                 }
 
