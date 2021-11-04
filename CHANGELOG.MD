@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-360: Filter for overriding grid fields' settings in other themes
 - TMS-305: Image banner spacing #258
 - fix/events-calendar-default-image: Fix events calendar default image
 
