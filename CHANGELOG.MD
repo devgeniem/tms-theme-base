@@ -14,7 +14,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - More visible outlines for grid buttons
   - Increase accordion click area
   - External link indicator for IconLinksLayout
-- fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.23.0] - 2021-10-25
 
@@ -28,6 +27,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-343: Display close text on smaller devices #251
 - TMS-342: Fix articles layout image overlap #248
 - TMS-341: Accordion text change #247
+- TMS-305: Image banner spacing #258
+- fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.22.0] - 2021-10-20
 
