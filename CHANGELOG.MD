@@ -9,13 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-363: Fix search form action
 - TMS-318: accessibility fixes
   - Mark SVG icons as decorative
   - More visible outlines for grid buttons
   - Increase accordion click area
   - External link indicator for IconLinksLayout
-- TMS-305: Image banner spacing #258
-- fix/events-calendar-default-image: Fix events calendar default image
 
 ### Added
 
@@ -36,6 +35,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-342: Fix articles layout image overlap #248
 - TMS-349: Allow dynamic event view override
 - TMS-343: Display close text on smaller devices #251
+- TMS-341: Accordion text change #247
+- TMS-305: Image banner spacing #258
 
 ## [1.22.0] - 2021-10-20
 
