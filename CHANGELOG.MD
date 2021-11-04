@@ -14,7 +14,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - More visible outlines for grid buttons
   - Increase accordion click area
   - External link indicator for IconLinksLayout
+- TMS-305: Image banner spacing #258
 - fix/events-calendar-default-image: Fix events calendar default image
+
+### Added
+
+- TMS-360: Filter for overriding grid fields' settings in other themes
 
 ## [1.23.0] - 2021-10-25
 

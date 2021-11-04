@@ -213,6 +213,8 @@ class GridFields extends Field\Group {
             $description_field,
             $image_field,
         ] );
+        // apply filter for overwriting fields in other themes
+        $grid_item_custom = apply_filters( 'tms/acf/grid_fields', $grid_item_custom );
 
         return $grid_item_custom;
     }
