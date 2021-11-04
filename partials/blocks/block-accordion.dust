@@ -16,9 +16,9 @@
             <ul class="accordion__list is-unstyled">
                 {#sections}
                     <li class="accordion__row mb-2 mb-4-tablet">
-                        <h3 class="accordion__row-title m-0 pt-5 pb-5 pr-4 pl-4 pr-6-tablet pl-6-tablet">
+                        <h3 class="accordion__row-title m-0">
                             <button id="accordion-title-button-{ID}"
-                                    class="accordion__title-button is-flex is-align-items-center p-0 has-background-transparent"
+                                    class="accordion__title-button is-flex is-align-items-center pt-5 pb-5 pr-4 pl-4 pr-6-tablet pl-6-tablet has-background-transparent"
                                     aria-expanded="false"
                                     aria-controls="accordion-content-{ID}">
                                 <span class="accordion__row-title-text h6 has-text-left has-text-paragraph">
