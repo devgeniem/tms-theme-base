@@ -20,7 +20,7 @@
                     {/link}
                 </div>
 
-                {>"ui/icon" aria_hidden="true" class="icon--xxlarge is-large ml-12-desktop {icon_classes}" /}
+                {>"ui/icon" class="icon--xxlarge is-large ml-12-desktop {icon_classes}" /}
             </div>
         </div>
     </div>
