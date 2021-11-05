@@ -68,7 +68,7 @@
                     {?Header.limit_nav_depth}
                         {@menu menu_name="primary" depth="1" ul_classes="bulmally-navbar primary-nav primary-nav--simple" menuitem_partial="ui/menu/menu-item-single" /}
                     {:else}
-                        {@menu menu_name="primary" depth="2" ul_id="js-primary-menu" ul_classes="bulmally-navbar primary-nav primary-nav--dropdown" menuitem_partial="ui/menu/menu-item-dropdown" /}
+                        {@menu menu_name="primary" depth="2" ul_id="js-primary-menu" ul_classes="bulmally-navbar primary-nav primary-nav--dropdown" menuitem_partial="ui/menu/menu-item-dropdown" data=Header.strings /}
                     {/Header.limit_nav_depth}
                 </div>
             </div>

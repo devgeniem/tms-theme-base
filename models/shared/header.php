@@ -340,4 +340,13 @@ class Header extends Model {
             ]
         );
     }
+
+    /**
+     * Header strings
+     *
+     * @return array
+     */
+    public function strings() {
+        return ( new Strings() )->s()['header'];
+    }
 }
