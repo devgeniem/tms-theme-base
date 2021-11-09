@@ -1,6 +1,6 @@
 <div class="subpages is-align-full mt-6 mb-6 {container_classes|s}">
     <div class="container columns">
-        <div class="column is-8 is-offset-2 has-text-centered has-text-black">
+        <div class="column is-8 is-offset-2 has-text-centered has-text-paragraph">
             {?title}
                 <h2 class="mt-0 mb-6">
                     {title|s}

@@ -9,7 +9,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-363: Fix search form action
+- TMS-374: Fix event search form styles
+
+## [1.25.0] - 2021-11-05
+
+### Changed
+
+- TMS-318-1: Add screen reader texts
+
+## [1.24.0] - 2021-11-05
+
+### Changed
+
+- TMS-363: Fix search form action #263
 - TMS-318: accessibility fixes
   - Mark SVG icons as decorative
   - More visible outlines for grid buttons
