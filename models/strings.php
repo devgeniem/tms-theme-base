@@ -45,6 +45,8 @@ class Strings extends \DustPress\Model {
                 'close_menu'               => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
                 'language_navigation'      => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
                 'open_search'              => _x( 'Open search form', 'theme-frontend', 'tms-theme-base' ),
+                'open_lang_nav'            => _x( 'Open language navigation', 'theme-frontend', 'tms-theme-base' ),
+                'current_lang'             => _x( 'Current language: ', 'theme-frontend', 'tms-theme-base' ),
                 'search'                   => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'search_input_label'       => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
