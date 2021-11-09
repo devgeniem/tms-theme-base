@@ -49,7 +49,6 @@ export default class Header {
      * @return {void}
      */
     docReady() {
-        $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
         $( '.site-header-notice__close' ).on( 'click', this.onNoticeClose.bind( this ) );
         $( '.fly-out-nav .js-scroll-children' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
 

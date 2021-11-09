@@ -4,6 +4,7 @@
         {?Header.home_url}
             <a href="{Header.home_url}" class="is-block">
                 {@image id=Header.logo size="medium" /}
+                <span class="is-sr-only">{Strings.s.header.home}</span>
             </a>
         {:else}
             {@image id=Header.logo size="large" /}
