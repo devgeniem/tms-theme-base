@@ -21,7 +21,11 @@
             {#pages}
                 <li class="pagination-item{?active} is-current unavailable{/active}">
                     <a class="pagination-item__link{^active} clickable{/active}" href="{page_link}{page}{hash}"
-                       data-page="{page}">{page}</a>
+                       {?active}aria-current="true" {/active}
+                       aria-label="{S.page_aria_label|s} {page}"
+                       data-page="{page}">
+                        {page}
+                    </a>
                 </li>
             {/pages}
             {?hellip_end}
