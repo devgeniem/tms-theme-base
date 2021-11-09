@@ -16,10 +16,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - Increase accordion click area
   - External link indicator for IconLinksLayout
 
-### Added
-
-- TMS-360: Filter for overriding grid fields' settings in other themes
-
 ## [1.23.0] - 2021-10-25
 
 ### Changed
