@@ -4,6 +4,9 @@
 
         {#rows}
             <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
+
+            {@eq key=layout value="is-image-first"}
+
                 {?image}
                     <div class="column is-6-desktop">
                         <div class="image is-5by3 {image_class|s}">
@@ -32,6 +35,12 @@
 
                     {>"ui/button-link" classes="is-primary" icon="chevron-right" icon_classes="icon--medium"  /}
                 </div>
+
+
+            {:else}
+            <p>ELSE</p>
+            {/eq}
+
             </div>
         {/rows}
 
