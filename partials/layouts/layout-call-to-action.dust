@@ -4,18 +4,22 @@
 
         {#rows}
             <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
-
-                {@eq key=layout value="is-image-first"}
+            {@eq key=layout value="is-image-first"}
+                {?image}
                     {>"layouts/call-to-action/call-to-action-image" /}
-                    {>"layouts/call-to-action/call-to-action-text" /}
-                {:else}
-                    {>"layouts/call-to-action/call-to-action-text" /}
+                {/image}
+                {>"layouts/call-to-action/call-to-action-text" /}
+            {:else}
+                {>"layouts/call-to-action/call-to-action-text" /}
+                {?image}
                     {>"layouts/call-to-action/call-to-action-image" /}
-                {/eq}
+                {/image}
 
+            {/eq}
             </div>
         {/rows}
 
         {>"shared/layout-after-main-content" /}
+        
     </div>
 </div>
