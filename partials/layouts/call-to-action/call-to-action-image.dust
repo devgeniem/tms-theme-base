@@ -1,0 +1,10 @@
+<div class="column is-6-desktop">
+    <div class="image is-5by3 {image_class|s}">
+        {@image id=image.id size="large" class="objectfit-image" /}
+    </div>
+    {?display_artist}
+        {?image_title_and_artist}
+            <small>{image_title_and_artist|s}</small>
+        {/image_title_and_artist}
+    {/display_artist}
+</div>
