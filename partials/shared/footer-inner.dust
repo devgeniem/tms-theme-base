@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="column is-12 is-2-desktop mt-6 mt-0-desktop has-text-centered has-text-right-desktop">
-                    <a href="{brand_logo_url}">
+                    <a href="{brand_logo_url}" class="is-block">
                         <span class="is-sr-only">{Strings.s.footer.to_main_site|s}</span>
                         {>"ui/icon" icon="tampere-vaakuna" class="brand-logo {Footer.colors.link_icon|s}" /}
                     </a>
