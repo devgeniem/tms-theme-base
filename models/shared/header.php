@@ -196,7 +196,7 @@ class Header extends Model {
         }
 
         $breadcrumbs         = [];
-        $home_url            = trailingslashit( get_home_url() );
+        $home_url            = trailingslashit( $this->home_url() );
         $current_id          = 0;
         $current_type        = '';
         $breadcrumbs['home'] = $this->get_home_link();

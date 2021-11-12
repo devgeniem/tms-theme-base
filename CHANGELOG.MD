@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-381: Fix footer's logo link
 - TMS-318-0911: Add screen reader texts to pagination
 - TMS-362: Fix selection for img/text first in layout-call-to-action
+- fix/search-action: Fix search action
 
 ## [1.25.1] - 2021-11-09
 

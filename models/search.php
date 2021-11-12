@@ -70,8 +70,28 @@ class Search extends BaseModel {
             ]
         );
 
+        $home_url = DPT_PLL_ACTIVE
+            ? pll_home_url()
+            : home_url();
+
+        $home_url    = trailingslashit( $home_url );
+        $search_link = $home_url;
+
+        if ( DPT_PLL_ACTIVE ) {
+            $default_lang = pll_default_language();
+            $current_lang = pll_current_language();
+
+            if ( $current_lang !== $default_lang ) {
+                $search_link = sprintf(
+                    '%s%s',
+                    $home_url,
+                    trailingslashit( $current_lang )
+                );
+            }
+        }
+
         return [
-            'search_link'         => trailingslashit( get_site_url() ) . '/?s=',
+            'search_link'         => $search_link,
             'post_types'          => $searchable_post_types,
             'search_term'         => trim( get_query_var( 's' ) ),
             'form_start_date'     => get_query_var( self::SEARCH_START_DATE ),
@@ -89,7 +109,8 @@ class Search extends BaseModel {
      *
      * @return array|null
      */
-    public function event_search() : ?array {
+    public
+    function event_search() : ?array {
         $page = Settings::get_setting( 'events_search_page' );
 
         if ( empty( $page ) ) {
@@ -107,7 +128,10 @@ class Search extends BaseModel {
      *
      * @param WP_Query $wp_query Instance of WP_Query.
      */
-    public static function modify_query( WP_Query $wp_query ) {
+    public
+    static function modify_query(
+        WP_Query $wp_query
+    ) {
         if ( is_admin() || ( ! $wp_query->is_main_query() || ! is_search() ) ) {
             return;
         }
@@ -169,7 +193,10 @@ class Search extends BaseModel {
      *
      * @return string
      */
-    public static function set_search_scorer( string $scorer ) : string {
+    public
+    static function set_search_scorer(
+        string $scorer
+    ) : string {
         return 'DISMAX';
     }
 
@@ -180,7 +207,10 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public static function set_fields_weight( array $fields ) : array {
+    public
+    static function set_fields_weight(
+        array $fields
+    ) : array {
         // Post title is the most relevant field
         $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
         $fields[ $post_title ]->weight = 10;
@@ -199,7 +229,10 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public static function set_ignored_query_vars( array $vars ) : array {
+    public
+    static function set_ignored_query_vars(
+        array $vars
+    ) : array {
         $vars[] = 'search_start_date';
         $vars[] = 'search_end_date';
         $vars[] = 'search_post_types';
@@ -213,7 +246,8 @@ class Search extends BaseModel {
      * @throws Exception If global $post is not available or $id param is not defined.
      * @global WP_Query $wp_query The main query object.
      */
-    public function results() {
+    public
+    function results() {
         global $wp_query;
 
         $search_clause = get_search_query();
@@ -254,7 +288,8 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public function template_classes() {
+    public
+    function template_classes() {
         return apply_filters(
             'tms/theme/search/search_item',
             [
@@ -274,7 +309,10 @@ class Search extends BaseModel {
      *
      * @return mixed
      */
-    private function enrich_results( $posts ) {
+    private
+    function enrich_results(
+        $posts
+    ) {
         foreach ( $posts as $post_item ) {
             $meta = false;
 
@@ -334,7 +372,10 @@ class Search extends BaseModel {
      *
      * @return array        Meta data.
      */
-    private function format_result_item_meta( $post_item, $tax_term = null ) {
+    private
+    function format_result_item_meta(
+        $post_item, $tax_term = null
+    ) {
         $meta_data['date'] = $post_item->post_date;
 
         if ( ! empty( $tax_term ) ) {
@@ -352,7 +393,8 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    protected static function get_searchable_post_types() : array {
+    protected
+    static function get_searchable_post_types() : array {
         $post_types = get_post_types( [], 'objects' );
 
         return [
