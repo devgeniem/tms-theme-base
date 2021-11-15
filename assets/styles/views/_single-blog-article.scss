@@ -13,7 +13,11 @@
 }
 
 .entry__blog-description-text {
-    grid-column: 2 / 3;
+    grid-column: 2 / 2;
+}
+
+.entry__blog-description {
+    grid-column: 2 / 2;
 }
 
 .entry__blog-author-text {
