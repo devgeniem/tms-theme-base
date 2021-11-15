@@ -70,8 +70,12 @@ class Search extends BaseModel {
             ]
         );
 
+        $search_link = DPT_PLL_ACTIVE
+            ? pll_home_url()
+            : home_url();
+
         return [
-            'search_link'         => trailingslashit( get_site_url() ) . '/?s=',
+            'search_link'         => $search_link,
             'post_types'          => $searchable_post_types,
             'search_term'         => trim( get_query_var( 's' ) ),
             'form_start_date'     => get_query_var( self::SEARCH_START_DATE ),

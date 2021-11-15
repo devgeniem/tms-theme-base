@@ -163,24 +163,7 @@ class Header extends Model {
      * @return string|void
      */
     public function search_action() {
-        $home_url = trailingslashit( $this->home_url() );
-
-        if ( ! DPT_PLL_ACTIVE ) {
-            return $home_url;
-        }
-
-        $default_lang = pll_default_language( 'slug' );
-        $current_lang = pll_current_language( 'slug' );
-
-        if ( $current_lang === $default_lang ) {
-            return $home_url;
-        }
-
-        return sprintf(
-            '%s%s',
-            $home_url,
-            trailingslashit( $current_lang )
-        );
+        return trailingslashit( $this->home_url() );
     }
 
     /**
