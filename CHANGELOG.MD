@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-387: Fix search action link when changing language
+
 ## [1.26.0] - 2021-11-11
 
 ### Changed
