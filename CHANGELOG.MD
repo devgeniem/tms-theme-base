@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-387: Fix search action link when changing language
+
+## [1.26.0] - 2021-11-11
+
+### Changed
+
+- TMS-362: Fix selection for img/text first in layout-call-to-action
 - TMS-381: Fix footer's logo link
 - TMS-318-0911: Add screen reader texts to pagination
 - TMS-362: Fix selection for img/text first in layout-call-to-action

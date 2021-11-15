@@ -70,25 +70,9 @@ class Search extends BaseModel {
             ]
         );
 
-        $home_url = DPT_PLL_ACTIVE
+        $search_link = DPT_PLL_ACTIVE
             ? pll_home_url()
             : home_url();
-
-        $home_url    = trailingslashit( $home_url );
-        $search_link = $home_url;
-
-        if ( DPT_PLL_ACTIVE ) {
-            $default_lang = pll_default_language();
-            $current_lang = pll_current_language();
-
-            if ( $current_lang !== $default_lang ) {
-                $search_link = sprintf(
-                    '%s%s',
-                    $home_url,
-                    trailingslashit( $current_lang )
-                );
-            }
-        }
 
         return [
             'search_link'         => $search_link,
