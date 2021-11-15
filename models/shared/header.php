@@ -13,6 +13,7 @@ use TMS\Theme\Base\Traits;
 class Header extends Model {
 
     use Traits\Breadcrumbs;
+    use Traits\Links;
 
     /**
      * Get logo
@@ -160,10 +161,10 @@ class Header extends Model {
     /**
      * Get search action
      *
-     * @return string|void
+     * @return string
      */
     public function search_action() {
-        return trailingslashit( $this->home_url() );
+        return $this->get_search_action();
     }
 
     /**

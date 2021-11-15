@@ -8,6 +8,7 @@ use TMS\Theme\Base\PostType\Page;
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Breadcrumbs;
+use TMS\Theme\Base\Traits\Links;
 
 /**
  * The Search class.
@@ -15,6 +16,7 @@ use TMS\Theme\Base\Traits\Breadcrumbs;
 class Search extends BaseModel {
 
     use Breadcrumbs;
+    use Links;
 
     /**
      * Cpt query var name.
@@ -70,12 +72,8 @@ class Search extends BaseModel {
             ]
         );
 
-        $search_link = DPT_PLL_ACTIVE
-            ? pll_home_url()
-            : home_url();
-
         return [
-            'search_link'         => $search_link,
+            'search_link'         => $this->get_search_action(),
             'post_types'          => $searchable_post_types,
             'search_term'         => trim( get_query_var( 's' ) ),
             'form_start_date'     => get_query_var( self::SEARCH_START_DATE ),
