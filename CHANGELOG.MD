@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-388: Fix blog info layout
+- TMS-387: Fix search action link when changing language
 
 ## [1.26.0] - 2021-11-11
 
