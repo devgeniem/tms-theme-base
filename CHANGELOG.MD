@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-318-0911: Add screen reader texts to pagination
+- TMS-388: Fix blog info layout
+- TMS-387: Fix search action link when changing language
+
+## [1.26.0] - 2021-11-11
+
+### Changed
+
+- TMS-362: Fix selection for img/text first in layout-call-to-action
+- TMS-381: Fix footer's logo link
 
 ## [1.25.1] - 2021-11-09
 
