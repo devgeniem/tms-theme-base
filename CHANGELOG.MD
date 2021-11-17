@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.27.0] - 2021-11-17
+
 ### Changed
 
 - TMS-318-0911: Add screen reader texts to pagination
