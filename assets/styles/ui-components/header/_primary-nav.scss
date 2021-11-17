@@ -6,7 +6,7 @@ $navbar-item-navbar-link-color: $primary-invert !default;
 $navbar-item-grid-item-border-color: #d9dde1 !default;
 $navbar-item-has-dropdown-active: $primary-invert !default;
 $navbar-item-dropdown-accent-color: $primary-dark !default;
-$navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
+$navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !default;
 
 .primary-nav {
     @include list-reset;
@@ -33,8 +33,8 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .15);
         }
 
         &.current-menu-item {
-            border-bottom-color: $navbar-item-navbar-link-color;
             background: $navbar-item-navbar-active-bg-color !important; // sass-lint:disable-line no-important
+            border-bottom-color: $navbar-item-navbar-link-color;
         }
     }
 
