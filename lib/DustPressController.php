@@ -57,7 +57,7 @@ class DustPressController implements Interfaces\Controller {
             $data->hellip_end = false;
         }
 
-        $data->S->page_aria_label = __( 'Go to Page', 'pagination', 'tms-theme-base' );
+        $data->S->page_aria_label = _x( 'Go to Page', 'pagination', 'tms-theme-base' );
 
         return $data;
     }

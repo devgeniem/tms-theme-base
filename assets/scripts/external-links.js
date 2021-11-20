@@ -37,7 +37,12 @@ export default class ExternalLinks {
             $( this ).find( '.icon' ).remove();
 
             // Append new icon (links may have a child element like a span or p in which the icon is appended)
-            $( this ).children().first().append( iconNew );
+            if ( $( this ).children().length > 0 ) {
+                $( this ).children().first().append( iconNew );
+            }
+            else {
+                $( this ).append( iconNew );
+            }
         } );
 
         // Translations are defined in models/strings.php,
