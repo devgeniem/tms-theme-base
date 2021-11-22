@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-339: External link icons
 - TMS-398: Fix checkbox styles
 
 ## [1.27.0] - 2021-11-17
