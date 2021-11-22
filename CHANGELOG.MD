@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-401: Fix nav underlining for currrent menu parent
 - TMS-339: External link icons
 - TMS-398: Fix checkbox styles
 
@@ -26,12 +27,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-362: Fix selection for img/text first in layout-call-to-action
 - TMS-381: Fix footer's logo link
-<<<<<<< HEAD
-- TMS-318-0911: Add screen reader texts to pagination
-- TMS-362: Fix selection for img/text first in layout-call-to-action
-- fix/search-action: Fix search action
-=======
->>>>>>> TMS-339
 
 ## [1.25.1] - 2021-11-09
 

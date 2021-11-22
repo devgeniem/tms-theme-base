@@ -104,7 +104,8 @@ $fly-out-nav-search-button-icon: $primary !default;
             font-weight: 600;
             padding-left: 0;
 
-            &.current-menu-item {
+            &.current-menu-item,
+            &.current-menu-parent {
                 > a,
                 .navbar-dropdown-control > a {
                     text-decoration: underline;
