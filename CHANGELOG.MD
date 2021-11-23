@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-411: Grid featured item button states #281
+- TMS-412: Scroll to form after submission
 - TMS-402: Fix spacing for page without hero
 - TMS-401: Fix nav underlining for currrent menu parent
 - TMS-339: External link icons
