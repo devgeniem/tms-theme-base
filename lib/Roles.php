@@ -513,7 +513,7 @@ class Roles implements Controller {
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
 
         // Other
-        $role->add_caps( [ 'edit_theme_options' ] );
+        $role->add_caps( [ 'edit_theme_options', 'unfiltered_html' ] );
 
         // Remove administration pages
         $role->remove_menu_pages( [
@@ -589,6 +589,9 @@ class Roles implements Controller {
         // Taxonomies
         $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
 
+        // Other
+        $role->add_caps( [ 'unfiltered_html' ] );
+
         $role->remove_caps( $this->remove_from_all );
 
         $role = apply_filters( 'tms/roles/contributor', $role );
@@ -627,7 +630,10 @@ class Roles implements Controller {
     protected function add_unfiltered_html_capability( $caps, $cap, $user_id ) : array {
         if (
             $cap === 'unfiltered_html' &&
-            ( user_can( $user_id, 'administrator' ) || user_can( $user_id, 'editor' ) )
+            ( user_can( $user_id, 'administrator' ) ||
+            user_can( $user_id, 'editor' ) ||
+            user_can( $user_id, 'author' ) ||
+            user_can( $user_id, 'contributor' ) )
         ) {
             $caps = [ 'unfiltered_html' ];
         }
