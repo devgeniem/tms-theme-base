@@ -91,9 +91,9 @@ class BlogArticle extends Post {
     private function register() {
         $labels = [
             'name'                  => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
-            'singular_name'         => __( 'Blog Article', 'tms-theme-base' ),
-            'menu_name'             => __( 'Blog Articles', 'tms-theme-base' ),
-            'name_admin_bar'        => __( 'Blog Articles', 'tms-theme-base' ),
+            'singular_name'         => _x( 'Blog Article', 'theme CPT', 'tms-theme-base' ),
+            'menu_name'             => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
+            'name_admin_bar'        => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
             'archives'              => 'Arkistot',
             'attributes'            => 'Ominaisuudet',
             'parent_item_colon'     => 'Vanhempi:',

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-11-24 14:37+0200\n"
-"PO-Revision-Date: 2021-11-24 14:59+0200\n"
+"POT-Creation-Date: 2021-11-24 15:46+0200\n"
+"PO-Revision-Date: 2021-11-24 15:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -193,12 +193,14 @@ msgstr "Päänavigaatio"
 msgid "Secondary Navigation"
 msgstr "Toissijainen navigaatio"
 
-#: lib/PostType/BlogArticle.php:65
+#: lib/PostType/BlogArticle.php:65 lib/PostType/BlogArticle.php:93
+#: lib/PostType/BlogArticle.php:95 lib/PostType/BlogArticle.php:96
 msgctxt "theme CPT"
 msgid "Blog Articles"
 msgstr "Blogiartikkelit"
 
 #: lib/PostType/BlogArticle.php:94
+msgctxt "theme CPT"
 msgid "Blog Article"
 msgstr "Blogiartikkeli"
 
