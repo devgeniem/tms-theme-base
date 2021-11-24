@@ -62,7 +62,7 @@ class BlogArticle extends Post {
      * Constructor
      */
     public function __construct() {
-        $this->description = _x( 'Blog articles', 'theme CPT', 'tms-theme-base' );
+        $this->description = _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' );
     }
 
     /**
@@ -90,10 +90,10 @@ class BlogArticle extends Post {
      */
     private function register() {
         $labels = [
-            'name'                  => 'Blogiartikkelit',
-            'singular_name'         => 'Blogiartikkeli',
-            'menu_name'             => 'Blogiartikkelit',
-            'name_admin_bar'        => 'Blogiartikkelit',
+            'name'                  => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
+            'singular_name'         => _x( 'Blog Article', 'theme CPT', 'tms-theme-base' ),
+            'menu_name'             => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
+            'name_admin_bar'        => _x( 'Blog Articles', 'theme CPT', 'tms-theme-base' ),
             'archives'              => 'Arkistot',
             'attributes'            => 'Ominaisuudet',
             'parent_item_colon'     => 'Vanhempi:',
