@@ -11,7 +11,7 @@ const $ = jQuery;
 
 export default class ImageCarousel {
     cache() {
-        this.carousels = $( '.image-carousel__items--primary' );
+        this.carousels = $( '.image-carousel' );
     }
 
     initCarousels() {
@@ -32,7 +32,7 @@ export default class ImageCarousel {
         const prevSrText = `<span class="is-sr-only">${ translations.previous }</span>`;
         const nextSrText = `<span class="is-sr-only">${ translations.next }</span>`;
 
-        const arrowClass = 'button button--icon is-primary image-carousel__modal-control';
+        const arrowClass = 'button button--icon image-carousel__modal-control';
 
         const buttons = {
             prevArrow: Common.makeButton( icons.prev + prevSrText, `${ arrowClass } slick-prev` ),
@@ -47,18 +47,19 @@ export default class ImageCarousel {
     /**
      * Constructs the carousel, or two if we have sync defined.
      *
-     * @param {HTMLElement} element Main carousel element.
+     * @param {HTMLElement} container Main carousel element.
      * @param {Object} buttons Buttons to use.
      * @param {Object} translations Translations.
      * @return {*|jQuery|HTMLElement} Constructed main carousel.
      */
-    constructCarousel( element = undefined, buttons = {}, translations = {} ) {
-        const carousel = $( element );
+    constructCarousel( container = undefined, buttons = {}, translations = {} ) {
+        const $container = $( container );
+        const carousel = $container.find( '.image-carousel__items--primary' );
         const modalCarouselId = '#' + carousel.attr( 'data-slider-for' ) || false;
 
         const carouselOptions = {
-            prevArrow: buttons.prevArrow,
-            nextArrow: buttons.nextArrow,
+            prevArrow: $container.find( '.slick-prev' ),
+            nextArrow: $container.find( '.slick-next' ),
             customPaging( slider, i ) {
                 const dotIcon = '<span class="slick-dot-icon" aria-hidden="true"></span>';
                 const srLabel = `<span class="is-sr-only">${ translations.goto } ${ i + 1 }</span>`;
@@ -85,8 +86,8 @@ export default class ImageCarousel {
                 slidesToScroll: 1,
                 fade: true,
                 asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
-                prevArrow: carouselOptions.prevArrow,
-                nextArrow: carouselOptions.nextArrow,
+                prevArrow: buttons.prevArrow,
+                nextArrow: buttons.nextArrow,
                 regionLabel: 'modal image carousel',
                 arrowsPlacement: 'afterSlides',
             } );

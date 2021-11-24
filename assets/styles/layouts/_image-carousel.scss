@@ -12,4 +12,40 @@
             }
         }
     }
+
+    &__modal-control {
+        &.slick-arrow {
+            background-color: $white;
+
+            .icon {
+                fill: $black;
+            }
+
+            &:hover {
+                background-color: darken($white, 10%);
+
+                .icon {
+                    fill: $black;
+                }
+            }
+
+            &:focus {
+                outline-color: $white;
+            }
+        }
+    }
+
+    .slick-slider {
+        margin-bottom: 0;
+    }
+
+    .slick-next {
+        right: -1rem;
+        transform: translateX(100%) translateY(-50%);
+    }
+
+    .slick-prev {
+        left: -1rem;
+        transform: translateX(-100%) translateY(-50%);
+    }
 }
