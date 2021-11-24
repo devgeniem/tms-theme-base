@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-407: Fix Blog Author to show up in serach results
 - TMS-408: Fix translations for Blog Article CPT
 - TMS-413: Tampere logo focus styles
 - TMS-410: Allow hero video to be used with keyboard #280

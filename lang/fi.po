@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2021-11-24 15:46+0200\n"
-"PO-Revision-Date: 2021-11-24 15:47+0200\n"
+"POT-Creation-Date: 2021-11-24 16:27+0200\n"
+"PO-Revision-Date: 2021-11-24 16:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -212,7 +212,17 @@ msgstr ""
 #: lib/PostType/BlogAuthor.php:61
 msgctxt "theme CPT"
 msgid "Blog authors"
-msgstr ""
+msgstr "Blogin kirjoittajat"
+
+#: lib/PostType/BlogAuthor.php:96
+msgctxt "theme CPT"
+msgid "Blog Authors"
+msgstr "Blogin kirjoittajat"
+
+#: lib/PostType/BlogAuthor.php:97
+msgctxt "theme CPT"
+msgid "Blog Author"
+msgstr "Blogin kirjoittaja"
 
 #: lib/PostType/Contact.php:55
 msgctxt "theme CPT slugs"
@@ -384,7 +394,7 @@ msgid "Share on Line"
 msgstr "Jaa Linessä"
 
 #: models/archive-blog-article.php:167 models/archive.php:116
-#: models/home.php:269 models/search.php:70
+#: models/home.php:269 models/search.php:71
 msgid "All"
 msgstr "Kaikki"
 
@@ -410,11 +420,11 @@ msgstr "Hakusana"
 msgid "Events from"
 msgstr "Tapahtumat ajalta"
 
-#: models/page-events-search.php:53 models/search.php:83
+#: models/page-events-search.php:53 models/search.php:84
 msgid "Start date"
 msgstr "Alkamispäivä"
 
-#: models/page-events-search.php:54 models/search.php:84
+#: models/page-events-search.php:54 models/search.php:85
 msgid "End date"
 msgstr "Päättymispäivä"
 
@@ -422,7 +432,7 @@ msgstr "Päättymispäivä"
 msgid "No search term given"
 msgstr "Hakusanaa ei annettu"
 
-#: models/page-events-search.php:190 models/search.php:228
+#: models/page-events-search.php:190 models/search.php:229
 #, php-format
 msgctxt "search results summary"
 msgid "%1$1s result found for \"%2$2s\""
@@ -430,27 +440,27 @@ msgid_plural "%1$1s results found for \"%2$2s\""
 msgstr[0] "%1$1s tulos haulle “%2$2s”"
 msgstr[1] "%1$1s tulosta haulle “%2$2s”"
 
-#: models/search.php:46
+#: models/search.php:47
 msgid "Search results"
 msgstr "Hakutulokset"
 
-#: models/search.php:81
+#: models/search.php:82
 msgid "Filter by post type"
 msgstr "Rajaa tyypin mukaan"
 
-#: models/search.php:82
+#: models/search.php:83
 msgid "Filter by date"
 msgstr "Rajaa päivämäärän mukaan"
 
-#: models/search.php:85
+#: models/search.php:86
 msgid "Filter results"
 msgstr "Rajaa hakua"
 
-#: models/search.php:102
+#: models/search.php:103
 msgid "Looking for events? Use the event search!"
 msgstr "Etsitkö tapahtumia? Käytä tapahtumahakua!"
 
-#: models/search.php:239
+#: models/search.php:240
 msgid "No search results"
 msgstr "Ei hakutuloksia"
 

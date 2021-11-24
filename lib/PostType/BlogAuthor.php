@@ -93,8 +93,8 @@ class BlogAuthor implements PostType {
      */
     private function register() {
         $labels = [
-            'name'                  => 'Blogin kirjoittajat',
-            'singular_name'         => 'Blogin kirjoittaja',
+            'name'                  => _x( 'Blog Authors', 'theme CPT', 'tms-theme-base' ),
+            'singular_name'         => _x( 'Blog Author', 'theme CPT', 'tms-theme-base' ),
             'menu_name'             => 'Kirjoittajat',
             'name_admin_bar'        => 'Kirjoittajat',
             'archives'              => 'Arkistot',
