@@ -55,4 +55,11 @@ $footer-copy-link-border-color: $primary-invert !default;
             height: auto;
         }
     }
+
+    &__tampere-vaakuna {
+        &:focus {
+            outline-style: solid;
+            outline-color: $primary-invert;
+        }
+    }
 }
