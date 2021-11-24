@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-408: Fix translations for Blog Article CPT
 - TMS-410: Allow hero video to be used with keyboard #280
 - TMS-402: Fix spacing for page without hero
 - TMS-401: Fix nav underlining for currrent menu parent
