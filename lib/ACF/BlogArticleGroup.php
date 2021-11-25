@@ -95,7 +95,6 @@ class BlogArticleGroup extends PostGroup {
             ->allow_multiple()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['authors']['instructions'] )
-            ->redipress_add_queryable()
             ->redipress_queryable_filter( function ( $post_object_array ) {
 
                 if ( ! empty( $post_object_array ) && is_object( $post_object_array[0] ) ) {
@@ -119,7 +118,7 @@ class BlogArticleGroup extends PostGroup {
                         $title = \get_the_title( $id );
 
                         if ( ! empty( $title ) ) {
-                            $names_string = $title;
+                            $names_string = $names_string . $title . ' ';
                         }
                     }
                 }
