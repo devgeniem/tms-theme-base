@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-406: Add unfiltered_html capability to authors and editors
+- TMS-190: OWASP ASVS hardening #208
+- TMS-350: Add translations
 
 ### Changed
 
