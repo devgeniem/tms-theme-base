@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-412: Scroll to form after submission #283
 - TMS-414: Image carousel tab index
 - TMS-415: Contrast fixes
 - TMS-408: Fix translations for Blog Article CPT
