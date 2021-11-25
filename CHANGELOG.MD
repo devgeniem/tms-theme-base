@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-407: Blog Articles are included in search results when searching by Blog Authors name
 - TMS-411: Grid featured item button states #281
 - TMS-412: Scroll to form after submission #283
 - TMS-414: Image carousel tab index
