@@ -21,7 +21,7 @@
         <section class="section {?Header.hero_image}pt-7{:else}{?Header.breadcrumbs}pt-0{:else}pt-10{/Header.breadcrumbs}{/Header.hero_image}">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-12">
                         <article class="entry">
                             {^Page.hero_image}
                                 <h1 class="entry__title mt-0 has-text-centered">
