@@ -161,7 +161,7 @@ msgstr ""
 
 #: lib/PostType/BlogArticle.php:66
 msgctxt "theme CPT"
-msgid "Blog articles"
+msgid "Blog Articles"
 msgstr ""
 
 #: lib/PostType/BlogAuthor.php:60
