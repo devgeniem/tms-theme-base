@@ -12,7 +12,7 @@
                         <a class="notice-banner__link {text_color}" href={link.url} {?link.target} target="{link.target}"{/link.target}>
                             <p>
                                 {description|s}
-                                {>"ui/icon" icon="chevron-right" class="icon--small ml-2 notice-banner__link-icon {icon_classes}" /}
+                                {>"ui/icon" icon="chevron-right" aria_hidden="true" class="icon--small ml-2 notice-banner__link-icon {icon_classes}" /}
                             </p>
                         </a>
                     {:else}
@@ -20,7 +20,7 @@
                     {/link}
                 </div>
 
-                {>"ui/icon" icon=icon class="icon--xxlarge is-large ml-12-desktop {icon_classes}" /}
+                {>"ui/icon" class="icon--xxlarge is-large ml-12-desktop {icon_classes}" /}
             </div>
         </div>
     </div>

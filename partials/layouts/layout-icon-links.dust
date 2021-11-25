@@ -22,7 +22,7 @@
                                 </div>
                             {/description}
 
-                            {>"ui/button-link" classes="is-small is-primary is-outlined" icon="" /}
+                            {>"ui/button-link" classes="is-small is-primary is-outlined" icon=link.icon /}
                         </div>
                     {/rows}
                 </div>

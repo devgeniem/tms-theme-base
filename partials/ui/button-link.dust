@@ -5,6 +5,7 @@
                 {link.title|s}
             </span>
 
+
             {?icon}
                 {>"ui/icon" class=icon_classes /}
             {/icon}

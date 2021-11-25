@@ -126,7 +126,9 @@ export default class Common {
         this.cache();
         this.events();
         this.objectFitFallback();
-        this.hyphenateElements();
+
+        // Hyphenation is disabled because of JS errors caused by the used library
+        // this.hyphenateElements();
     }
 
     /**

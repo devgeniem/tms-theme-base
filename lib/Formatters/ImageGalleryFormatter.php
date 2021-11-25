@@ -46,6 +46,22 @@ class ImageGalleryFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return $item;
         }, $data['rows'] );
 
+        $row_count    = count( $data['rows'] );
+        $column_class = 'gallery-columns-2 gallery-columns-3-tablet';
+        $align_class  = 'is-align-full';
+
+        if ( 1 === $row_count ) {
+            $column_class = 'gallery-columns-1';
+            $align_class  = '';
+        }
+        elseif ( 2 === $row_count ) {
+            $column_class = 'gallery-columns-2';
+            $align_class  = 'is-align-wide';
+        }
+
+        $data['column_class'] = $column_class;
+        $data['align_class']  = $align_class;
+
         unset( $data['__filter_attributes'] );
 
         $data['gallery_id']   = wp_unique_id( 'image-gallery-' );

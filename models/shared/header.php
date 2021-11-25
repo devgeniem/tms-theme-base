@@ -163,18 +163,23 @@ class Header extends Model {
      * @return string|void
      */
     public function search_action() {
+        $home_url = trailingslashit( $this->home_url() );
+
         if ( ! DPT_PLL_ACTIVE ) {
-            return '/';
+            return $home_url;
         }
 
         $default_lang = pll_default_language( 'slug' );
         $current_lang = pll_current_language( 'slug' );
 
+        if ( $current_lang === $default_lang ) {
+            return $home_url;
+        }
+
         return sprintf(
-            '/%s',
-            $current_lang === $default_lang
-                ? ''
-                : trailingslashit( $current_lang )
+            '%s%s',
+            $home_url,
+            trailingslashit( $current_lang )
         );
     }
 
@@ -329,7 +334,7 @@ class Header extends Model {
                 ],
                 'lang_nav'      => [
                     'link'          => 'has-border-radius-small',
-                    'link__default' => 'has-text-primary',
+                    'link__default' => 'has-text-accent',
                     'link__active'  => 'has-background-primary has-text-primary-invert',
                 ],
             ]

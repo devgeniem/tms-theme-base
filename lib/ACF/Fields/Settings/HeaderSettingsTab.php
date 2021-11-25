@@ -36,7 +36,7 @@ class HeaderSettingsTab extends Tab {
             'instructions' => '',
         ],
         'brand_logo'       => [
-            'title'        => 'Tampere-logo',
+            'title'        => 'Tampere.Finland-logo',
             'instructions' => '',
         ],
         'tagline'          => [

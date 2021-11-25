@@ -7,6 +7,46 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.24.0] - 2021-11-05
+
+### Changed
+
+- TMS-363: Fix search form action #263
+- TMS-318: accessibility fixes
+  - Mark SVG icons as decorative
+  - More visible outlines for grid buttons
+  - Increase accordion click area
+  - External link indicator for IconLinksLayout
+
+## [1.23.0] - 2021-10-25
+
+### Changed
+
+- TMS-344: Refresh image carousel if images are not loaded #256
+- TMS-345: Add suppressed Gravity Forms capabilities for site manager role #255
+- TMS-349: Allow dynamic event view override #252
+- TMS-333: Font family set via utility class instead of CSS for misc elements #254
+- TMS-348: Make post type url slugs translatable with Polylang #253
+- TMS-343: Display close text on smaller devices #251
+- TMS-342: Fix articles layout image overlap #248
+- TMS-341: Accordion text change #247
+- TMS-305: Image banner spacing #258
+- fix/events-calendar-default-image: Fix events calendar default image
+
+## [1.22.0] - 2021-10-20
+
+### Changed
+
+- TMS-332: Various changes to theme colours #246
+- TMS-337: Disable Hyphenation JS class #245
+- TMS-331: Fix radio button color contrast #244
+- TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali #243
+
+### Added
+
+- Tampere-logo -field renamed to Tampere.Finland-logo
+- TMS-330: Add missing Finnish translations
+
 ## [1.21.1] - 2021-10-14
 
 ### Changed

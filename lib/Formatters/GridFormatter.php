@@ -76,7 +76,7 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $item
             );
 
-            if ( is_array( $filtered['link'] ) && isset( $filtered['link']['url'] ) ) {
+            if ( ! empty( $filtered ) && is_array( $filtered['link'] ) && isset( $filtered['link']['url'] ) ) {
                 $filtered['link']['is_external'] = false === strpos( $filtered['link']['url'], $home_url );
             }
 

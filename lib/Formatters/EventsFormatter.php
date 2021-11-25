@@ -51,28 +51,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return $layout;
         }
 
-        if ( ! $layout['show_images'] ) {
-            $events = array_map( function ( $item ) {
-                $item['image'] = false;
-
-                return $item;
-            }, $events );
-        }
-        else {
-            $default_image = Settings::get_setting( 'events_default_image' );
-
-            if ( ! empty( $default_image ) ) {
-                $events = array_map( function ( $item ) use ( $default_image ) {
-                    if ( empty( $item['image'] ) ) {
-                        $item['image'] = wp_get_attachment_image_url( $default_image, 'large' );
-                    }
-
-                    return $item;
-                }, $events );
-            }
-        }
-
-        $layout['events']  = $events;
+        $layout['events']  = $this->format_events( $events, $layout['show_images'] );
         $layout['classes'] = [
             'event_item_bg'   => apply_filters( 'tms/theme/layout_events/item_bg_class', 'has-background-secondary' ),
             'event_item_text' => apply_filters( 'tms/theme/layout_events/item_text_class', '' ),
@@ -80,6 +59,39 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         ];
 
         return $layout;
+    }
+
+    /**
+     * Format events
+     *
+     * @param array $events      Array of events.
+     * @param bool  $show_images Show images flag.
+     *
+     * @return array
+     */
+    public function format_events( array $events, bool $show_images = true ) : array {
+        if ( ! $show_images ) {
+            return array_map( function ( $item ) {
+                $item['image'] = false;
+
+                return $item;
+            }, $events );
+        }
+
+        $default_image     = Settings::get_setting( 'events_default_image' );
+        $default_image_url = wp_get_attachment_image_url( $default_image, 'large' );
+
+        if ( ! empty( $default_image ) ) {
+            $events = array_map( function ( $item ) use ( $default_image_url ) {
+                if ( empty( $item['image'] ) ) {
+                    $item['image'] = $default_image_url;
+                }
+
+                return $item;
+            }, $events );
+        }
+
+        return $events;
     }
 
     /**
