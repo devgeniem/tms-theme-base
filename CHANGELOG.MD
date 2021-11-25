@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-411: Grid featured item button states #281
 - TMS-412: Scroll to form after submission #283
 - TMS-414: Image carousel tab index
 - TMS-415: Contrast fixes
