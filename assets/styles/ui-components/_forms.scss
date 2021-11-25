@@ -74,6 +74,11 @@ form {
             }
         }
 
+        .gfield_required {
+            font-style: normal !important; // sass-lint:disable-line no-important
+            color: $black;
+        }
+
         .gchoice {
             display: flex;
             // To make checkradio click not lose position
