@@ -22,8 +22,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-407: Fix Blog Author to show up in serach results
 - TMS-408: Fix translations for Blog Article CPT
 - TMS-410: Allow hero video to be used with keyboard #280
+- TMS-407-2: Blog Articles are included in search results when searching by Blog Authors name
 - TMS-411: Grid featured item button states #281
-- TMS-412: Scroll to form after submission
 - TMS-412: Scroll to form after submission #283
 - TMS-413: Tampere logo focus styles
 - TMS-414: Image carousel tab index
