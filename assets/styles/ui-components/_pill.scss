@@ -112,8 +112,8 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
                 &:focus,
                 &.is-focused {
                     color: $primary-invert;
-                    background-color: $pill-background-color-focus;
-                    border-color: $pill-border-color-focus;
+                    background-color: bulmaDarken($primary, 2.5%);
+                    border-color: bulmaDarken($primary, 2.5%);
                 }
             }
         }
