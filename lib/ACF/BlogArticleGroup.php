@@ -94,14 +94,45 @@ class BlogArticleGroup extends PostGroup {
             ->set_post_types( [ PostType\BlogAuthor::SLUG ] )
             ->allow_multiple()
             ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['authors']['instructions'] );
+            ->set_instructions( $strings['authors']['instructions'] )
+            ->redipress_add_queryable()
+            ->redipress_queryable_filter( function ( $post_object_array ) {
+
+                if ( ! empty( $post_object_array ) && is_object( $post_object_array[0] ) ) {
+
+                    $ids = array_map( function ( $post_object ) {
+                        return $post_object->ID;
+                    }, $post_object_array );
+
+                    return $ids;
+                }
+                return [];
+            })
+            ->redipress_set_field_type( 'Tag' )
+            ->redipress_include_search( function( $ids ) {
+
+                $names_string = '';
+
+                if ( ! empty( $ids ) ) {
+
+                    foreach ( $ids as $id ) {
+                        $title = \get_the_title( $id );
+
+                        if ( ! empty( $title ) ) {
+                            $names_string = $title;
+                        }
+                    }
+                }
+
+                return $names_string;
+            });
 
         $tab->add_fields( [
             $authors_field,
         ] );
-
         return $tab;
     }
 }
 
 ( new BlogArticleGroup() );
+
