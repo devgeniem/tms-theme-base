@@ -15,26 +15,37 @@
                 </div>
             {/description}
 
-            <div class="image-carousel__items column is-full image-carousel__items--primary"
-                id="{carousel_id}" data-slider-for="{carousel_id}-modal-carousel">
-                {#rows}
-                    <div class="image-carousel__item" id="{id}">
-                        {! Modal trigger !}
-                        <button
-                            class="image modal-trigger has-zoom-on-hover"
-                            data-modal-button
-                            data-target="{carousel_id}-modal"
-                            aria-controls="{carousel_id}-modal"
-                            aria-expanded="false"
-                            aria-haspopup="true"
-                            aria-label="{translations.open}"
-                        >
-                            {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
-                        </button>
-                    </div>
-                {/rows}
-            </div>
+            <div class="image-carousel__inner column is-full ">
+                <button class="button button--icon is-primary slick-prev slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-left" /}
+                    <span class="is-sr-only">{Strings.s.gallery.previous|s}</span>
+                </button>
 
+                <div class="image-carousel__items image-carousel__items--primary"
+                     id="{carousel_id}" data-slider-for="{carousel_id}-modal-carousel">
+                    {#rows}
+                        <div class="image-carousel__item" id="{id}">
+                            {! Modal trigger !}
+                            <button
+                                class="image modal-trigger has-zoom-on-hover"
+                                data-modal-button
+                                data-target="{carousel_id}-modal"
+                                aria-controls="{carousel_id}-modal"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-label="{translations.open}"
+                            >
+                                {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                            </button>
+                        </div>
+                    {/rows}
+                </div>
+
+                <button class="button button--icon is-primary slick-next slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-right" /}
+                    <span class="is-sr-only">{Strings.s.gallery.next|s}</span>
+                </button>
+            </div>
         </div>
     </div>
 

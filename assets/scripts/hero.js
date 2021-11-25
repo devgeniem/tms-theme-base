@@ -91,13 +91,14 @@ export default class Hero {
             el.play();
             this.container.toggleClass( 'has-video-playing' );
             this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
+            const pauseBtn = this.container.find( '.hero__control--pause' );
+
+            pauseBtn.focus();
 
             window.setTimeout( () => {
-                this.container
-                    .find( '.hero__control--pause' )
-                    .fadeOut( 200, function() {
-                        $( this ).prop( 'style', '' );
-                    } );
+                pauseBtn.fadeOut( 200, function() {
+                    $( this ).prop( 'style', '' );
+                } );
             }, 1000 );
         }
     }
@@ -113,6 +114,7 @@ export default class Hero {
         if ( el && ! el.paused ) {
             el.pause();
             this.container.toggleClass( 'has-video-playing' );
+            this.container.find( '.hero__control--play' ).focus();
         }
     }
 

@@ -37,6 +37,7 @@ class ThemeController {
             DustPressController::class,
             Emojis::class,
             FormatterController::class,
+            GravityForms::class,
             Images::class,
             LinkedEvents::class,
             Localization::class,

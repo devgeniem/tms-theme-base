@@ -13,6 +13,7 @@ use TMS\Theme\Base\Traits;
 class Header extends Model {
 
     use Traits\Breadcrumbs;
+    use Traits\Links;
 
     /**
      * Get logo
@@ -160,27 +161,10 @@ class Header extends Model {
     /**
      * Get search action
      *
-     * @return string|void
+     * @return string
      */
     public function search_action() {
-        $home_url = trailingslashit( $this->home_url() );
-
-        if ( ! DPT_PLL_ACTIVE ) {
-            return $home_url;
-        }
-
-        $default_lang = pll_default_language( 'slug' );
-        $current_lang = pll_current_language( 'slug' );
-
-        if ( $current_lang === $default_lang ) {
-            return $home_url;
-        }
-
-        return sprintf(
-            '%s%s',
-            $home_url,
-            trailingslashit( $current_lang )
-        );
+        return $this->get_search_action();
     }
 
     /**
@@ -339,5 +323,14 @@ class Header extends Model {
                 ],
             ]
         );
+    }
+
+    /**
+     * Header strings
+     *
+     * @return array
+     */
+    public function strings() {
+        return ( new Strings() )->s()['header'];
     }
 }

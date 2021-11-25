@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="column is-2-tablet is-3-widescreen is-align-self-flex-end is-flex">
-                    <button type="submit" class="button button--icon ml-auto-tablet {button_class|s}">
+                    <button type="submit" class="button button--icon is-primary ml-auto-tablet">
                         {Strings.s.header.search|s}
                         {>"ui/icon" icon="search" class="icon--medium"  /}
                     </button>

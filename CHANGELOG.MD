@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-406: Add unfiltered_html capability to authors and editors
+
+### Changed
+
+- TMS-411: Grid featured item button states #281
+- TMS-412: Scroll to form after submission #283
+- TMS-414: Image carousel tab index
+- TMS-415: Contrast fixes
+- TMS-408: Fix translations for Blog Article CPT
+- TMS-413: Tampere logo focus styles
+- TMS-410: Allow hero video to be used with keyboard #280
+- TMS-402: Fix spacing for page without hero
+- TMS-401: Fix nav underlining for currrent menu parent
+- TMS-339: External link icons
+- TMS-398: Fix checkbox styles
+
+## [1.27.0] - 2021-11-17
+
+### Changed
+
+- TMS-318-0911: Add screen reader texts to pagination
+- TMS-388: Fix blog info layout
+- TMS-387: Fix search action link when changing language
+
+## [1.26.0] - 2021-11-11
+
+### Changed
+
+- TMS-362: Fix selection for img/text first in layout-call-to-action
+- TMS-381: Fix footer's logo link
+
+## [1.25.1] - 2021-11-09
+
+### Changed
+
+- TMS-374: Fix event search form styles #267
+
+## [1.25.0] - 2021-11-05
+
+### Changed
+
+- TMS-318-1: Add screen reader texts
+
 ## [1.24.0] - 2021-11-05
 
 ### Changed
