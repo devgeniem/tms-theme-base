@@ -3,7 +3,6 @@
  * Define the search class.
  */
 
-use TMS\Theme\Base\PostType\BlogAuthor;
 use TMS\Theme\Base\PostType\BlogArticle;
 use TMS\Theme\Base\PostType\Page;
 use TMS\Theme\Base\PostType\Post;
@@ -392,10 +391,6 @@ class Search extends BaseModel {
             [
                 'slug' => BlogArticle::SLUG,
                 'name' => $post_types[ BlogArticle::SLUG ]->labels->singular_name,
-            ],
-            [
-                'slug' => BlogAuthor::SLUG,
-                'name' => $post_types[ BlogAuthor::SLUG ]->labels->singular_name,
             ],
         ];
     }
