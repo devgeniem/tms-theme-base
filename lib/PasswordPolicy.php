@@ -5,6 +5,10 @@
 
 namespace TMS\Theme\Base;
 
+use function add_action;
+use function add_filter;
+use function is_wp_error;
+
 /**
  * Password Policy
  */
@@ -16,10 +20,10 @@ class PasswordPolicy implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \add_action( 'user_profile_update_errors', [ $this, 'validate_profile_update' ], 0, 3 );
-        \add_action( 'validate_password_reset', [ $this, 'validate_strong_password' ], 0, 2 );
-        \add_action( 'resetpass_form', [ $this, 'validate_resetpass_form' ], 10 );
-        \add_filter( 'random_password', [ $this, 'generate_random_password' ], 10, 4 );
+        add_action( 'user_profile_update_errors', [ $this, 'validate_profile_update' ], 0, 3 );
+        add_action( 'validate_password_reset', [ $this, 'validate_strong_password' ], 0, 2 );
+        add_action( 'resetpass_form', [ $this, 'validate_resetpass_form' ], 10 );
+        add_filter( 'random_password', [ $this, 'generate_random_password' ], 10, 4 );
     }
 
     /**
@@ -70,23 +74,23 @@ class PasswordPolicy implements Interfaces\Controller {
      * @return \WP_Error
      */
     public function validate_strong_password( $errors, $user_data ) {
-        $password = $this->get_post_var( 'pass1' ) ?? false;
+        $password = $this->get_post_var( 'pass1' ) ?? '';
         $username = $this->get_post_var( 'user_login' ) ?? $user_data->user_login;
 
         // No password set / already got a password error
-        if ( ! $password || ( \is_wp_error( $errors ) && $errors->get_error_data( 'pass' ) ) ) {
+        if ( empty( $password ) || ( is_wp_error( $errors ) && $errors->get_error_data( 'pass' ) ) ) {
             return $errors;
         }
 
         $password_ok = $this->check_password_strength( $password, $username );
 
         // Error
-        if ( ! $password_ok && \is_wp_error( $errors ) ) {
+        if ( ! $password_ok && is_wp_error( $errors ) ) {
             $errors->add(
                 'pass',
                 apply_filters(
                     'error_message',
-                    'Salasanan tulee olla vähintään 12 merkkiä pitkä, maksimissaan 128 merkkiä.'
+                    __( 'Salasanan tulee olla vähintään 12 merkkiä pitkä, maksimissaan 128 merkkiä.', 'tms-theme-base' )
                 )
             );
         }
@@ -97,7 +101,7 @@ class PasswordPolicy implements Interfaces\Controller {
                 'pass',
                 apply_filters(
                     'error_message',
-                    'Valittu salasana on vaarantunut. Valitse toinen salasana.'
+                    __( 'Valittu salasana on vaarantunut. Valitse toinen salasana.', 'tms-theme-base' )
                 )
             );
         }
@@ -139,14 +143,16 @@ class PasswordPolicy implements Interfaces\Controller {
      * Overwrite the default WordPress password generation making sure
      * it adheres to the requirements set in this class.
      *
-     * @param string $password            The generated password.
+     * @param string $old_password        The generated password.
      * @param int    $length              The length of password to generate.
      * @param bool   $special_chars       Whether to include standard special characters.
      * @param bool   $extra_special_chars Whether to include other special characters.
      *
      * @return string
      */
-    public function generate_random_password( $password, $length, $special_chars, $extra_special_chars ) {
+    public function generate_random_password( $old_password, $length, $special_chars, $extra_special_chars = false ) {
+        unset( $old_password );
+
         // Define character libraries
         $sets   = [];
         $sets[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -156,6 +162,11 @@ class PasswordPolicy implements Interfaces\Controller {
         // Passwords are generated for password reset URLs also, which don't support special characters
         if ( $special_chars ) {
             $sets[] = '!@#$%^&*()';
+        }
+
+        // Extra special umlauts.
+        if ( $extra_special_chars ) {
+            $sets[] = 'ÄäÖöÅå';
         }
 
         // Reset the OG password
