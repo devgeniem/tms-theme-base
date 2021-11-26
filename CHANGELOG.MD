@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-409: Layouts call to action and content columns uses images author name instead of artist name
 - TMS-417: Prevent horizontal scrolling #289
 
 ## [1.28.0] - 2021-11-26
