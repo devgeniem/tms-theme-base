@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-417: Prevent horizontal scrolling #289
+
 ## [1.28.0] - 2021-11-26
 
 ### Added
