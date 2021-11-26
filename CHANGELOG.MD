@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.28.0] - 2021-11-26
+
 ### Added
 
 - TMS-406: Add unfiltered_html capability to authors and editors
