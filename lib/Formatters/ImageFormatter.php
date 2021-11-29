@@ -103,6 +103,15 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             );
         }
 
+        if ( ! empty( $row['author_name'] ) && ! empty( $row['image_title'] ) ) {
+            $row['image_author_and_artist'] = sprintf(
+                '%s: %s',
+                $row['author_name'],
+                $row['image_title']
+            );
+        }
+
         return $row;
     }
+
 }

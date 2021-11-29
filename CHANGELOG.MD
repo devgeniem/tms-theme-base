@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-479: Fix date span selection modal's close icon position on focus
+- TMS-409: Layouts call to action and content columns uses images author name instead of artist name
 - TMS-417: Prevent horizontal scrolling #289
 
 ## [1.28.0] - 2021-11-26
@@ -18,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-406: Add unfiltered_html capability to authors and editors
 - TMS-190: OWASP ASVS hardening #208
+- TMS-350: Add translations
 
 ### Changed
 
