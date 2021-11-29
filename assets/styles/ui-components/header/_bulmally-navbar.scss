@@ -26,6 +26,11 @@
         transition: transform $speed $easing;
         cursor: pointer;
 
+        &:focus {
+            outline: .0588rem dotted $primary-invert;
+            outline-offset: .25rem;
+        }
+
         &[aria-expanded="true"] {
             transform: rotate(180deg);
         }
