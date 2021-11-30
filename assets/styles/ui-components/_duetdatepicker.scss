@@ -27,7 +27,6 @@
     &__mobile{
         right: 2px !important;
         top: 2px !important;
-       
     }
 
     &__close{
@@ -35,6 +34,7 @@
             box-shadow: 0 0 0 2px var(--duet-color-border);
         }
     }
+
     &__day.is-today{
         box-shadow: inset 0 0 0 2px var(--duet-color-border);
     }
