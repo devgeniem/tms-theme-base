@@ -92,6 +92,15 @@ export default class ImageCarousel {
                 arrowsPlacement: 'afterSlides',
             } );
 
+            // console.log( modalCarousel.find( '.slick-list' ) ); // eslint-disable-line no-console
+            modalCarousel.find( '.image-carousel__item' ).each( ( idx, el ) => {
+                // console.log( el ); // eslint-disable-line no-console
+                $( el ).attr( 'aria-label', $( el ).attr( 'id' ) ).attr( 'role', 'group' ).attr( 'tabindex', '0' );
+
+            } );
+
+            // $( 'main' ).attr( 'aria-hidden', 'true' );
+
             // Bind next/prev handlers to arrow keys.
             document.addEventListener( 'keydown', ( event = undefined ) => {
                 const e = event || window.event;
