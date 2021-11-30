@@ -10,7 +10,7 @@
     .modaal-close {
         position: absolute !important;
         right: 1px !important;
-        top: -25% !important;
+        top: -3rem !important;
 
         @include from($tablet) {
             top: -10% !important;
