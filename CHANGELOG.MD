@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-478: Hero button aria labels #294
+
 ### Changed
 
 - TMS-409: Layouts call to action and content columns uses images author name instead of artist name
