@@ -330,14 +330,8 @@ export default class Common {
         if ( classes.length ) {
             iconClass += ` ${ classes }`;
         }
-        // $('.'+iconClass).count();
-        const iconTitle = 'icon-title-' + Math.random().toString( 16 ).slice( 2 );
-        console.log( iconTitle ); // eslint-disable-line no-console
 
-        return `<svg class="${ iconClass }" aria-labelledby="${ iconTitle }">
-        <title id="${ iconTitle }">${ icon }</title>
-        <use xlink:href="#icon-${ icon }" />
-        </svg>`;
+        return `<svg class="${ iconClass }"><use xlink:href="#icon-${ icon }" /></svg>`;
     }
 
     /**
