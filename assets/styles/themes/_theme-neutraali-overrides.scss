@@ -20,3 +20,17 @@ $fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
         }
     }
 }
+
+.lang-nav--horizontal {
+    a {
+        color: $primary-invert !important;
+
+        &:hover,
+        &:focus {
+            color: $white !important;
+            background-color: $primary !important;
+            outline-color: $black;
+        }
+    }
+
+}

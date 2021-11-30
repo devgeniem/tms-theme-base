@@ -1,0 +1,16 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.lang-nav--horizontal {
+    a {
+        color: $primary-invert !important;
+
+        &:hover,
+        &:focus {
+            color: $primary-invert !important;
+            background-color: $primary !important;
+        }
+    }
+
+}
