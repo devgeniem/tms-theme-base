@@ -10,7 +10,15 @@
     .modaal-close {
         position: absolute !important;
         right: 1px !important;
-        top: -7% !important;
+        top: -25% !important;
+
+        @include from($tablet) {
+            top: -10% !important;
+        }
+
+        @include from($widescreen) {
+            top: -7% !important;
+        }
     }
 
     .modaal-gallery-item {
