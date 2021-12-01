@@ -7,14 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-420 #299
+    - Remove unintended caption text margin regardless of element type
+    - Fix image accordion close button alignment in mobile and tablet
+
+## [1.29.0] - 2021-11-30
+
 ### Added
 
 - TMS-478: Hero button aria labels #294
 
 ### Changed
 
-- TMS-409: Layouts call to action and content columns uses images author name instead of artist name
 - TMS-479: Fix date span selection modal's close icon position on focus
+- TMS-409: Layouts call to action and content columns uses images author name instead of artist name
 - TMS-417: Prevent horizontal scrolling #289
 - TMS-477: Fix active pill hover colors #296
 
@@ -28,19 +36,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-339: External link icons
-- TMS-398: Fix checkbox styles
-- TMS-401: Fix nav underlining for currrent menu parent
-- TMS-402: Fix spacing for page without hero
-- TMS-408: Fix translations for Blog Article CPT
-- TMS-410: Allow hero video to be used with keyboard #280
-- TMS-407-2: Blog Articles are included in search results when searching by Blog Authors name
 - TMS-411: Grid featured item button states #281
 - TMS-412: Scroll to form after submission #283
-- TMS-413: Tampere logo focus styles
 - TMS-414: Image carousel tab index
 - TMS-415: Contrast fixes
-- TMS-417: Prevent horizontal scrolling #289
+- TMS-408: Fix translations for Blog Article CPT
+- TMS-413: Tampere logo focus styles
+- TMS-410: Allow hero video to be used with keyboard #280
+- TMS-402: Fix spacing for page without hero
+- TMS-401: Fix nav underlining for currrent menu parent
+- TMS-339: External link icons
+- TMS-398: Fix checkbox styles
 
 ## [1.27.0] - 2021-11-17
 
@@ -84,8 +90,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-341: Accordion text change
-- TMS-348: Make post type url slugs translatable with Polylang
 - TMS-344: Refresh image carousel if images are not loaded #256
 - TMS-345: Add suppressed Gravity Forms capabilities for site manager role #255
 - TMS-349: Allow dynamic event view override #252
@@ -93,19 +97,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-348: Make post type url slugs translatable with Polylang #253
 - TMS-343: Display close text on smaller devices #251
 - TMS-342: Fix articles layout image overlap #248
-- TMS-349: Allow dynamic event view override
-- TMS-343: Display close text on smaller devices #251
 - TMS-341: Accordion text change #247
 - TMS-305: Image banner spacing #258
+- fix/events-calendar-default-image: Fix events calendar default image
 
 ## [1.22.0] - 2021-10-20
 
 ### Changed
 
-- TMS-332: Various changes to theme colours
-- TMS-337: Disable Hyphenation JS class
-- TMS-331: Fix radio button color contrast
-- TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali
+- TMS-332: Various changes to theme colours #246
+- TMS-337: Disable Hyphenation JS class #245
+- TMS-331: Fix radio button color contrast #244
+- TMS-329: Change outlined button and fly-out-nav-trigger element color on theme neutraali #243
 
 ### Added
 
@@ -122,43 +125,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-287: Add screen reader text for links with target "blank"
-- TMS-287: Add links with icons in external links targeting
-- TMS-280: Logic for the Key figures block text sizing
-- TMS-281: Call to action layout order
-- TMS-278: Size fix for uploaded SVG images embedded via image helper
-- TMS-276: Current menu item indicator to primary navigation
-- TMS-275: Missing anchors for layouts
-- TMS-270: Author capability additions
-- TMS-267: New site initialization script
-- TMS-266: Add share buttons to single dynamic event template
-- TMS-214: Events Search page template
-- TMS-261: Handling for paged parent referer URL on single event breadcrumbs
-- TMS-260: Background color for Gravity Form layout
-- TMS-258: Video, Map and Contacts blocks for Blog article CPT
-- TMS-257: "All events" -link for Events layout
-- TMS-263: `tms/theme/admin_js_path` filter
 - TMS-302: Add missing block filters #240
 - TMS-250: Display event image credits #229
 - TMS-214: Events Search page template
 - TMS-287: Add screen reader text for links with target "blank" #235
 - TMS-211: Search weights by fields and post types
 - TMS-214: Events Search page template
-- TMS-211: Search weights by fields and post types
-- TMS-246: Add image caption to the Accordion Block
-- TMS-243: Add handling for external links in the content area
 
 ### Changed
 
-- TMS-289: Filter out draft posts from Home template highlight field
-- TMS-288: Fixed `strtodate`-helper call on home-list-item partial
-- TMS-286: Hyphenation / word-break fix for headings
-- TMS-285: Focus styles for Image gallery block and Image carousel layout
-- TMS-283: Ignore Link list block's links in external links targeting
-- TMS-282: Maximum height for images inside Modaal
-- TMS-278: Back to top -button positioning
-- TMS-277: Flyout navbar search layout fix
-- TMS-301: Add modal gallery caption error handling
 - TMS-308: Remove fixed colors from accordion #238
 - TMS-287: Add screen reader text for links with target "blank" #235
 - TMS-287: Add links with icons in external links targeting #235
@@ -208,7 +183,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-260: Background color for Gravity Form layout #203
 - TMS-258: Video, Map and Contacts blocks for Blog article CPT #201
 - TMS-257: "All events" -link for Events layout #200
->>>>>>> TMS-214
 
 ## [1.19.0] - 2021-09-30
 
@@ -218,16 +192,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - fix/limit-event-api-queries: Limit event API queries #196
 - TMS-249: Changed the sitemap toggler layout #194
 - TMS-248: Layout changes on blocks and layouts #193
-- TMS-249: Changed the sitemap toggler layout
-- TMS-248: Layout changes on blocks and layouts
     - Image Gallery block zoom effect for thumbnails on hover and focus
     - Image Carousel layout zoom effect for thumbnails on hover and focus and different styling for disabled slides
-      <<<<<<< HEAD
-- TMS-247: Changed the outline style on elements' focus state
-- TMS-245: Made the WYSIWYG editor taller on Accordion Block
-- TMS-244: Made the site header logo smaller on mobile devices
-- TMS-252: Change the order of content on single Dynamic Event view
-- TMS-242: Darkened the `$secondary-invert` colors on multiple themes =======
 - TMS-247: Changed the outline style on elements' focus state #192
 - TMS-242: Darkened the `$secondary-invert` colors on multiple themes #186
 - TMS-252: Change the order of content on single Dynamic Event view #188
@@ -241,14 +207,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-243: Add handling for external links in the content area #187
 - TMS-246: Add image caption to the Accordion Block #191
 
-> > > > > > > fix/event-api-lag
-
 ## [1.18.0] - 2021-09-27
 
 ### Added
-
-- TMS-217: Blocks admin title
-    - Added a styled message field for base block to act as its title
 
 - TMS-232: Front page layout additions #181
     - Added Subpage and Social media layouts
