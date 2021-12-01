@@ -92,15 +92,6 @@ export default class ImageCarousel {
                 arrowsPlacement: 'afterSlides',
             } );
 
-            // console.log( modalCarousel.attr( 'class' ) ); // eslint-disable-line no-console
-            // modalCarousel.find( '.image-carousel__item' ).each( ( idx, el ) => {
-            //     $( el ).attr( 'aria-label', $( el ).attr( 'id' ) ).attr( 'role', 'group' ).attr( 'tabindex', '0' );
-            // } );
-
-            // modalCarousel.attr( 'tabindex', '0' );
-
-            // $( 'main' ).attr( 'aria-hidden', 'true' );
-
             // Bind next/prev handlers to arrow keys.
             document.addEventListener( 'keydown', ( event = undefined ) => {
                 const e = event || window.event;
@@ -118,6 +109,7 @@ export default class ImageCarousel {
             } );
 
             modalCarousel.on( 'setPosition', ( event, slick ) => {
+                //Make only the current slide focusable, for screenreaders
                 $( slick.$slider ).find( '.slick-slide' ).attr( 'tabindex', '0' );
                 $( slick.$slider ).find( '.slick-slide:not(.slick-current)' ).removeAttr( 'tabindex' );
             } );
