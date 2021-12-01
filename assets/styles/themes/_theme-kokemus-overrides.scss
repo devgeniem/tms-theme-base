@@ -38,9 +38,22 @@
     }
 }
 
+.breadcrumbs {
+    &__nav {
+        a {
+            color: darken($primary, 27%) !important;
+
+            &:hover,
+            &:focus {
+                color: darken($primary, 35%) !important;
+            }
+        }
+    }
+}
+
 .icon-links .icon-links {
     &__item {
-        > a.is-primary.is-outlined {
+        > a.is-primary.is-outlined { // sass-lint:disable-line no-qualifying-elements
             color: $black !important;
             border-color: $black !important;
         }
@@ -83,6 +96,55 @@
         &:focus {
             .icon {
                 fill: $primary !important;
+            }
+        }
+    }
+}
+
+.layout-articles {
+    &__read-more {
+        color: darken($primary, 70%) !important;
+
+        .icon {
+            fill: darken($primary, 70%) !important;
+        }
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button {
+        color: $black !important;
+        background-color: transparent !important;
+        border-color: $black !important;
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+            background-color: $primary !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.entry {
+    &__content {
+        > p {
+            > a {
+                color: darken($primary, 27%) !important;
+
+                &:hover,
+                &:focus {
+                    color: darken($primary, 43%) !important;
+                }
             }
         }
     }

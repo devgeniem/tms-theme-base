@@ -34,7 +34,7 @@
     {?link.url}
         {?link.title}
             <div class="has-text-right">
-                <a href="{link.url}" target="{link.target}" class="has-text-weight-medium ml-auto">
+                <a href="{link.url}" target="{link.target}" class="layout-articles__read-more has-text-weight-medium ml-auto">
                     {>"ui/icon" icon="chevron-right" class="is-primary icon--small mr-1" /}
                     {link.title|s}
                 </a>

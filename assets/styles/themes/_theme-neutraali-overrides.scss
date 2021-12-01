@@ -120,3 +120,43 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
         }
     }
 }
+
+.layout-articles {
+    &__read-more {
+        color: darken($primary, 70%) !important;
+
+        .icon {
+            fill: darken($primary, 70%) !important;
+        }
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button {
+        border-color: $black !important;
+    }
+}
+
+.entry {
+    &__content {
+        > p {
+            > a {
+                color: darken($primary, 70%) !important;
+
+                &:hover,
+                &:focus {
+                    color: $black !important;
+                }
+            }
+        }
+    }
+}
