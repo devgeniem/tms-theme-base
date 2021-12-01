@@ -14,7 +14,7 @@
            aria-expanded="false"
            aria-label="{translations.open}"
         >
-            {@image id=image.id size="large" alt=image.alt title=image.description /}
+            {@image id=image.id size="large" alt=image.alt title=image.alt /}
         </a>
 
     {/rows}
