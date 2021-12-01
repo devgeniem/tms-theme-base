@@ -56,6 +56,8 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'event_item_bg'   => apply_filters( 'tms/theme/layout_events/item_bg_class', 'has-background-secondary' ),
             'event_item_text' => apply_filters( 'tms/theme/layout_events/item_text_class', '' ),
             'event_item_icon' => apply_filters( 'tms/theme/layout_events/item_icon_class', '' ),
+            'all_events_link' => apply_filters( 'tms/theme/layout_events/all_events_link', 'is-size-7' ),
+            'event_item_pill' => apply_filters( 'tms/theme/layout_events/event_item', 'is-primary-invert' ),
         ];
 
         return $layout;
