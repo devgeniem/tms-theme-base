@@ -92,12 +92,12 @@ export default class ImageCarousel {
                 arrowsPlacement: 'afterSlides',
             } );
 
-            // console.log( modalCarousel.find( '.slick-list' ) ); // eslint-disable-line no-console
-            modalCarousel.find( '.image-carousel__item' ).each( ( idx, el ) => {
-                // console.log( el ); // eslint-disable-line no-console
-                $( el ).attr( 'aria-label', $( el ).attr( 'id' ) ).attr( 'role', 'group' ).attr( 'tabindex', '0' );
+            // console.log( modalCarousel.attr( 'class' ) ); // eslint-disable-line no-console
+            // modalCarousel.find( '.image-carousel__item' ).each( ( idx, el ) => {
+            //     $( el ).attr( 'aria-label', $( el ).attr( 'id' ) ).attr( 'role', 'group' ).attr( 'tabindex', '0' );
+            // } );
 
-            } );
+            // modalCarousel.attr( 'tabindex', '0' );
 
             // $( 'main' ).attr( 'aria-hidden', 'true' );
 
