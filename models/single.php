@@ -75,7 +75,9 @@ class Single extends BaseModel {
         $posts = apply_filters(
             'tms/single/related',
             array_map( function ( $item ) {
-                $categories = wp_get_post_terms( $item->ID, Category::SLUG );
+                $categories = apply_filters( 'tms/single/related_display_categories', true )
+                    ? wp_get_post_terms( $item->ID, Category::SLUG )
+                    : [];
 
                 if ( ! empty( $categories ) ) {
                     $item->category      = $categories[0]->name;
