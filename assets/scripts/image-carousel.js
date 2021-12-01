@@ -116,6 +116,11 @@ export default class ImageCarousel {
                     modalCarousel.slick( 'slickNext' );
                 }
             } );
+
+            modalCarousel.on( 'setPosition', ( event, slick ) => {
+                $( slick.$slider ).find( '.slick-slide' ).attr( 'tabindex', '0' );
+                $( slick.$slider ).find( '.slick-slide:not(.slick-current)' ).removeAttr( 'tabindex' );
+            } );
         }
 
         // Start the main carousel.
