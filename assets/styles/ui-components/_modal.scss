@@ -106,8 +106,11 @@
                 }
             }
 
-            .slick-current {
+            .slick-slide{
                 padding:10px;
+            }
+
+            .slick-current {
                 &:focus {
                     outline:0;
                     .image-carousel__item {
