@@ -18,10 +18,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-478: Hero button aria labels #294
-- TMS-420: Image block fixes #299
-    - Remove unintended caption text margin regardless of element type
-    - Fix image accordion close button alignment in mobile and tablet
-
 ### Changed
 
 - TMS-479: Fix date span selection modal's close icon position on focus
