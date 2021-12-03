@@ -43,6 +43,7 @@ export default class ExternalLinks {
             else {
                 $( this ).append( iconNew );
             }
+            $( this ).children( '.icon' ).attr( 'aria-hidden', 'true' );
         } );
 
         // Translations are defined in models/strings.php,

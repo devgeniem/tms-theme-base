@@ -1,6 +1,7 @@
 $pill-background-color: $secondary !default;
 $pill-color: $secondary-invert !default;
 $pill-color-active: $primary-invert !default;
+$pill-color-active-hover: $primary-invert !default;
 $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
@@ -130,6 +131,7 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         &:not(span) {
             &:hover,
             &:focus {
+                color: $pill-color-active-hover !important;
                 background-color: $pill-background-active-focus;
             }
         }

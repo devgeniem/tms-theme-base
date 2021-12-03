@@ -8,11 +8,11 @@
         <div class="is-overlay is-clipped" aria-hidden="true" tabindex="-1">
             <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
 
-            <button class="hero__control hero__control--play">
+            <button class="hero__control hero__control--play" aria-label="{Strings.s.video.play|s}">
                 {>"ui/icon" icon="play" class="icon--xxxlarge"  /}
             </button>
 
-            <button class="hero__control hero__control--pause">
+            <button class="hero__control hero__control--pause" aria-label="{Strings.s.video.pause|s}">
                 {>"ui/icon" icon="pause" class="icon--xxxlarge"  /}
             </button>
         </div>

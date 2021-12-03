@@ -7,10 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-481: Fix accessibility for screenreaders: image carousel modal, external link icon, img title swiched from description to alt text in image gallery.
+
+## [1.29.0] - 2021-11-30
+
+### Added
+
+- TMS-478: Hero button aria labels #294
+
 ### Changed
 
+- TMS-479: Fix date span selection modal's close icon position on focus
 - TMS-409: Layouts call to action and content columns uses images author name instead of artist name
 - TMS-417: Prevent horizontal scrolling #289
+- TMS-477: Fix active pill hover colors #296
 
 ## [1.28.0] - 2021-11-26
 

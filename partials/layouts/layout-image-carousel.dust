@@ -35,7 +35,7 @@
                                 aria-haspopup="true"
                                 aria-label="{translations.open}"
                             >
-                                {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                                {@image id=image.id alt=image.alt title=image.alt size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
                             </button>
                         </div>
                     {/rows}
