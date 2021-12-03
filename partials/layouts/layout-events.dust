@@ -76,7 +76,7 @@
             <div class="columns">
                 <div class="column is-12 has-text-right">
                     <div class="mt-0 mb-6">
-                        <a href="{all_events_link.url}" class="is-size-7">
+                        <a href="{all_events_link.url}" class="events__more-link is-size-7">
                             {>"ui/icon" icon="chevron-right" class="icon--small" /}
                             {all_events_link.title|s}
                         </a>
