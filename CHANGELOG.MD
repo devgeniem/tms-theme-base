@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-481: Fix accessibility for screenreaders: image carousel modal, external link icon, img title swiched from description to alt text in image gallery.
+
 ## [1.29.0] - 2021-11-30
 
 ### Added

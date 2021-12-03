@@ -105,6 +105,21 @@
                     align-items: center;
                 }
             }
+
+            .slick-slide{
+                padding:0.588rem;
+            }
+
+            .slick-current {
+                &:focus {
+                    outline:0;
+                    .image-carousel__item {
+                        outline: .125rem solid $white;
+                        outline-offset: .25rem;
+                    }
+                }
+            }
+           
         }
 
         .image-carousel__item {
