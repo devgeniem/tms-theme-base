@@ -9,9 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-420 #299
-    - Remove unintended caption text margin regardless of element type
-    - Fix image accordion close button alignment in mobile and tablet
+- TMS-420: Additional filters and miscellaneous theme fixes #299
 
 ## [1.29.0] - 2021-11-30
 
