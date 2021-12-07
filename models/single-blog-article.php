@@ -85,22 +85,11 @@ class SingleBlogArticle extends Single {
      * @return array
      */
     public function classes() : ?array {
-        $classes['info_section'] = apply_filters(
-            'tms/theme/blogs/info_section_classes',
-            'has-colors-secondary'
-        );
-
-        $classes['info_section_button'] = apply_filters(
-            'tms/theme/blogs/info_section_button_classes',
-            'is-outlined'
-        );
-
-        $classes['info_section_authors'] = apply_filters(
-            'tms/theme/blogs/info_section_authors',
-            'has-border has-border-top-1 has-border-gray'
-        );
-
-        return $classes;
+        return apply_filters( 'tms/theme/single_blog/classes', [
+            'info_section'         => 'has-colors-secondary',
+            'info_section_button'  => 'is-outlined',
+            'info_section_authors' => 'has-border has-border-top-1 has-border-gray',
+        ] );
     }
 
     /**
