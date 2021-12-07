@@ -1,0 +1,66 @@
+<div class="section pt-6 pb-6 {template_classes.search_form|s}">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-10 is-offset-1">
+                <div class="search-filters">
+                    <div class="search-filters">
+                        <div class="search-filters__group">
+                            <div class="search-filters__label h6 mb-2">
+                                {form.filter_by_post_type}
+                            </div>
+                            <div class="is-flex is-flex-wrap-wrap">
+                                {#form.post_types}
+                                    <input type="checkbox" name="search_post_types[]"
+                                           class="is-checkradio search-filters__post-type" value="{slug}"
+                                           id="cpt-{slug|s}"
+                                           {?is_checked}checked{/is_checked}>
+                                    <label class="is-block mr-4 ml-0 mb-2" for="cpt-{slug|s}">
+                                        {name|s}
+                                    </label>
+                                {/form.post_types}
+                            </div>
+                        </div>
+
+                        <div class="search-filters__group mt-4">
+                            <div class="search-filters__label h6 mb-2">
+                                {form.filter_by_date}
+                            </div>
+
+                            <div class="search-filters__filter">
+                                <div class="is-inline-block">
+                                    <label for="start-date">
+                                        <span class="is-sr-only">{form.filter_start_date|s}</span>
+                                    </label>
+                                    <span class="is-block has-after-line">
+                                            <duet-date-picker
+                                                identifier="start-date"
+                                                name="search_start_date"
+                                                value="{form.form_start_date}"
+                                                data-locale="{Header.site_locale}"></duet-date-picker>
+                                        </span>
+                                </div>
+                                <div class="is-inline-block">
+                                    <label for="end-date">
+                                        <span class="is-sr-only">{form.filter_end_date|s}</span>
+                                    </label>
+                                    <span class="is-block">
+                                            <duet-date-picker
+                                                identifier="end-date"
+                                                name="search_end_date"
+                                                value="{form.form_end_date}"
+                                                data-locale="{Header.site_locale}"></duet-date-picker>
+                                        </span>
+                                </div>
+
+                                <button type="submit"
+                                        class="search-form__button button is-pulled-right-desktop {template_classes.search_filter_button|s}">
+                                    {form.filter_results|s}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
