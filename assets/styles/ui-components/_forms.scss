@@ -16,6 +16,10 @@ form {
         padding: $theme-spacing-half;
         border: 1px solid $secondary;
         border-radius: $theme-spacing-quarter;
+
+        &::placeholder {
+            color: lighten($black, 10%);
+        }
     }
 }
 
