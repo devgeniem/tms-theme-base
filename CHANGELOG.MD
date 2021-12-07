@@ -12,11 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-420 #299
     - Remove unintended caption text margin regardless of element type
     - Fix image accordion close button alignment in mobile and tablet
-
-- TMS-481: Fix accessibility for screenreaders 
+- TMS-481: Fix accessibility for screenreaders
     - Image carousel modal
-    - External link icon 
+    - External link icon
     - Img title swiched from description to alt text in image gallery
+- TMS-420: Additional filters and miscellaneous theme fixes #299
+- TMS-481: Fix accessibility for screenreaders: image carousel modal, external link icon, img title swiched from
+  description to alt text in image gallery.
 
 ## [1.29.0] - 2021-11-30
 
