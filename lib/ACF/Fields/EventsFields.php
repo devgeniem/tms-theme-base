@@ -75,17 +75,18 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ],
             'sort'            => [
                 'label'        => 'Järjestys',
-                'instructions' => '',
+                'instructions' => 'Järjestys pakotettu: Päättymisaika (nouseva)',
                 'choices'      => [
-                    '-start_time'         => 'Alkamisaika (laskeva)',
-                    'start_time'          => 'Alkamisaika (nouseva)',
-                    '-end_time'           => 'Päättymisaika (laskeva)',
                     'end_time'            => 'Päättymisaika (nouseva)',
-                    '-duration'           => 'Kesto (laskeva)',
+                    '-end_time'           => 'Päättymisaika (laskeva)',
+                    'start_time'          => 'Alkamisaika (nouseva)',
+                    '-start_time'         => 'Alkamisaika (laskeva)',
                     'duration'            => 'Kesto (nouseva)',
-                    '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
+                    '-duration'           => 'Kesto (laskeva)',
                     'last_modified_time'  => 'Viimeksi muokattu (nouseva)',
+                    '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
                 ],
+                'default'      => 'end_time',
             ],
             'page_size'       => [
                 'label'        => 'Näytettävien tapahtumien määrä',
@@ -170,6 +171,8 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_sort" )
             ->set_name( 'sort' )
             ->set_choices( $strings['sort']['choices'] )
+            ->set_default_value( $strings['sort']['default'] )
+            ->disable()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['sort']['instructions'] );
 
