@@ -103,6 +103,10 @@ class GridFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $classes['display'] .= ' has-colors-accent';
             }
 
+            if ( ! empty( $filtered['image'] ) ) {
+                $classes['display'] .= ' has-image';
+            }
+
             $classes                  = array_map( 'trim', $classes );
             $filtered['classes']      = trim( implode( ' ', $classes ) );
             $data['repeater'][ $key ] = $filtered;
