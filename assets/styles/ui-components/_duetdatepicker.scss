@@ -1,16 +1,29 @@
+$duet-color-primary: $primary !default;
+$duet-color-text: $text !default;
+$duet-color-text-active: $primary-invert !default;
+$duet-color-text-placeholder: $grey !default;
+$duet-color-button: $white !default;
+$duet-color-surface: $white !default;
+$duet-color-overlay: rgba(0, 0, 0, 0.8) !default;
+$duet-color-border: $primary-dark !default;
+$duet-font: $family-primary !default;
+$duet-font-normal: $weight-normal !default;
+$duet-font-bold: 800 !default;
+$duet-radius: $theme-spacing-quarter !default;
+
 :root {
-    --duet-color-primary: #{$primary};
-    --duet-color-text: #{$text};
-    --duet-color-text-active: #{$primary-invert};
-    --duet-color-placeholder: #{$grey};
-    --duet-color-button: #{$white};
-    --duet-color-surface: #{$white};
-    --duet-color-overlay: rgba(0, 0, 0, 0.8);
-    --duet-color-border: #{$primary-dark};
-    --duet-font: #{$family-primary};
-    --duet-font-normal: 400;
-    --duet-font-bold: 800;
-    --duet-radius: #{$theme-spacing-quarter};
+    --duet-color-primary: #{$duet-color-primary};
+    --duet-color-text: #{$duet-color-text};
+    --duet-color-text-active: #{$duet-color-text-active};
+    --duet-color-placeholder: #{$duet-color-text-placeholder};
+    --duet-color-button: #{$duet-color-button};
+    --duet-color-surface: #{$duet-color-surface};
+    --duet-color-overlay: $duet-color-overlay;
+    --duet-color-border: #{$duet-color-border};
+    --duet-font: #{$duet-font};
+    --duet-font-normal: $duet-font-normal;
+    --duet-font-bold: $duet-font-bold;
+    --duet-radius: #{$duet-radius};
     --duet-z-index: 600;
 }
 

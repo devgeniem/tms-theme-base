@@ -2,6 +2,11 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+$table-row-background-color-even: $white !default;
+$table-row-background-color-odd: $secondary !default;
+$table-row-background-color-even-hover: darken($table-row-background-color-even, 1) !default;
+$table-row-background-color-odd-hover: darken($table-row-background-color-odd, 4) !default;
+
 .tablepress {
     font-size: .9375rem;
 
@@ -16,7 +21,7 @@
         th {
             font-weight: 600;
             padding: $theme-spacing $theme-spacing-half;
-            background-color: transparent;
+            background-color: transparent !important;
             border: 0;
 
             &.sorting {
@@ -60,13 +65,13 @@
 
             &.even {
                 td {
-                    background-color: $secondary;
+                    background-color: $table-row-background-color-even;
                 }
             }
 
             &.odd {
                 td {
-                    background-color: $white;
+                    background-color: $table-row-background-color-odd;
                 }
             }
         }
@@ -80,14 +85,14 @@
 
             &:hover {
                 td {
-                    background-color: darken($white, 1);
+                    background-color: $table-row-background-color-even-hover;
                 }
             }
 
             &.even {
                 &:hover {
                     td {
-                        background-color: darken($secondary, 4);
+                        background-color: $table-row-background-color-odd-hover;
                     }
                 }
             }

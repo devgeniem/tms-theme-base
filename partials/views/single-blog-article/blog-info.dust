@@ -1,4 +1,5 @@
-<div class="entry__blog-info-container section pt-6 pb-6 mb-8 has-colors-secondary has-text-centered-mobile">
+<div
+    class="entry__blog-info-container section pt-6 pb-6 mb-8 has-text-centered-mobile {SingleBlogArticle.classes.info_section|s}">
     <div class="container">
         <div class="columns">
             <div class="column is-10 is-offset-1">
@@ -29,7 +30,8 @@
 
                     {?archive_link}
                         <div class="entry__blog-archive-link is-flex-shrink-0 mt-4 mt-0-desktop">
-                            <a href="{archive_link}" class="button button--icon is-outlined">
+                            <a href="{archive_link}"
+                               class="button button--icon {SingleBlogArticle.classes.info_section_button|s}">
                                 {Strings.s.blog_article.archive_link_text}
                                 {>"ui/icon" icon="chevron-right" class="icon--medium" /}
                             </a>
@@ -49,9 +51,10 @@
                         {/blog_description}
 
                         {?blog_authors}
-                            <div class="pt-6 has-border has-border-top-1 has-border-gray">
+                            <div class="pt-6 {SingleBlogArticle.classes.info_section_authors|s}">
                                 {#blog_authors}
-                                    <div class="is-blog-info-grid blog-info-grid-row-0 mt-6 mt-4-tablet mb-6 mb-4-tablet">
+                                    <div
+                                        class="is-blog-info-grid blog-info-grid-row-0 mt-6 mt-4-tablet mb-6 mb-4-tablet">
                                         {?featured_image}
                                             {@image class="entry__blog-author-thumbnail" id=featured_image size="thumbnail" /}
                                         {/featured_image}
