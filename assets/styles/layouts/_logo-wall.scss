@@ -14,4 +14,9 @@
             max-height: max-content !important;
         }
     }
+
+    &__link {
+        outline-offset: .25rem;
+
+    }
 }

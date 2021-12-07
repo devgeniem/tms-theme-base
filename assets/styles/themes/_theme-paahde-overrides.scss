@@ -1,0 +1,246 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+.site-header {
+    &__logo-image {
+        > a {
+            &:focus {
+                outline-color: $black;
+            }
+        }
+    }
+}
+
+.lang-nav--horizontal {
+    a {
+        color: $primary-invert !important;
+
+        &:hover,
+        &:focus {
+            color: $primary-invert !important;
+            background-color: $primary !important;
+        }
+    }
+
+}
+
+.language-nav {
+    .dropdown-trigger {
+        .button {
+            color: $black !important;
+            border-color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.breadcrumbs {
+    &__nav {
+        a {
+            color: darken($primary, 33%) !important;
+
+            &:hover,
+            &:focus {
+                color: darken($primary, 40%) !important;
+            }
+        }
+    }
+}
+
+.icon-links .icon-links {
+    &__item {
+        > a.is-primary.is-outlined {
+            color: $black !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.link-list {
+    &__links {
+        a {
+            color: darken($primary, 50%);
+
+            .icon {
+                fill: darken($primary, 50%) !important;
+            }
+        }
+
+    }
+}
+
+.search-item {
+    &__title {
+        > a {
+            &:hover,
+            &:focus {
+                color: lighten($black, 25%);
+            }
+        }
+    }
+
+    &__meta-item {
+        > a {
+            &:hover,
+            &:focus {
+                color: darken($primary, 70%) !important;
+            }
+        }
+    }
+}
+
+.logo-wall {
+    &__link {
+        outline-color: $black !important;
+    }
+}
+
+.share-links {
+    a {
+        &:focus,
+        &:focus {
+            .icon {
+                fill: $primary !important;
+            }
+        }
+    }
+}
+
+.layout-articles {
+    &__read-more {
+        color: darken($primary, 70%) !important;
+
+        .icon {
+            fill: darken($primary, 70%) !important;
+        }
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button {
+        color: $black !important;
+        background-color: transparent !important;
+        border-color: $black !important;
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+            background-color: $primary !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.entry {
+    &__content {
+        > p {
+            > a {
+                color: darken($primary, 30%) !important;
+
+                &:hover,
+                &:focus {
+                    color: darken($primary, 43%) !important;
+                }
+            }
+        }
+    }
+}
+
+.textblock {
+    &__inner {
+        > p {
+            > a {
+                color: darken($primary, 30%) !important;
+
+                &:hover,
+                &:focus {
+                    color: darken($primary, 43%) !important;
+                }
+            }
+        }
+    }
+}
+
+.subpages {
+    &__items {
+        a {
+            &.has-background-image {
+                color: $white !important;
+
+                &:hover,
+                &:focus {
+                    color: $white !important;
+                }
+            }
+
+            &.has-background-primary {
+                &:hover,
+                &:focus {
+                    color: $white !important;
+
+                    .icon {
+                        fill: $white !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.events {
+    &__item-inner {
+        > .button.is-primary {
+            color: $black !important;
+            border-color: $black !important;
+
+            &:hover,
+            &:focus {
+                color: $black !important;
+            }
+        }
+    }
+}
+
+.search-form {
+    &__button {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+    }
+}
+
+.materials {
+    .has-border-secondary {
+        border-color: darken($secondary, 30%);
+    }
+
+    .button.is-primary {
+        color: $black !important;
+        border-color: $black !important;
+    }
+}
+
+.events {
+    &__more-link {
+        color: $black;
+
+        .icon {
+            fill: $black;
+        }
+    }
+}
