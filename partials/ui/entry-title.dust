@@ -1,0 +1,5 @@
+{^hero_image}
+    <h1 class="entry__title mt-0 has-text-centered">
+        {@title /}
+    </h1>
+{/hero_image}
