@@ -10,7 +10,11 @@
                 <strong class="is-block">{image_title_and_artist|s}</strong>
             {/image_title_and_artist}
 
-            {caption|s}
+            {?caption}
+                <div class="keep-vertical-spacing">
+                    {caption|s}
+                </div>
+            {/caption}
         </div>
     {/caption}
 </div>

@@ -30,7 +30,7 @@
                             </h3>
 
                             {?primary_keyword}
-                                <span class="pill is-primary-invert mb-4">
+                                <span class="pill mb-4 {classes.event_item_pill|s}">
                                     {primary_keyword|s}
                                 </span>
                             {/primary_keyword}
@@ -76,7 +76,7 @@
             <div class="columns">
                 <div class="column is-12 has-text-right">
                     <div class="mt-0 mb-6">
-                        <a href="{all_events_link.url}" class="events__more-link is-size-7">
+                        <a href="{all_events_link.url}" class="events__more-link {classes.all_events_link|s}">
                             {>"ui/icon" icon="chevron-right" class="icon--small" /}
                             {all_events_link.title|s}
                         </a>
