@@ -1,0 +1,20 @@
+ <div class="navbar-dropdown is-hidden-touch has-background-white has-text-black" id="js-navbar-menu-item-dropdown-{$idx}">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <a href="{url}" class="navbar-dropdown__parent-link is-inline-block mb-2 has-text-black has-text-large">
+                    {title|s}
+                    {>"ui/icon" icon="chevron-right" class="icon--medium ml-2" /}
+                </a>
+
+                <div class="navbar-dropdown-items">
+                    <div class="navbar-grid">
+                        {#sub_menu}
+                            {>"ui/menu/menu-item-simple" icon="chevron-right" /}
+                        {/sub_menu}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
