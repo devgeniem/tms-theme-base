@@ -146,4 +146,17 @@ class Footer extends Model {
             ],
         );
     }
+    /**
+     * Return footer typography classes.
+     *
+     * @return array
+     */
+    public function typography() : array {
+        return apply_filters(
+            'tms/theme/footer/typgraphy',
+            [
+                'column' => 'has-text-weight-medium is-family-secondary has-text-small',
+            ],
+        );
+    }
 }
