@@ -315,6 +315,7 @@ class Header extends Model {
                     'close_menu'    => 'is-primary-invert',
                     'search_title'  => 'has-text-primary-invert',
                     'search_button' => 'is-primary is-inverted',
+                    'brand_icon_color' => 'is-primary-invert',
                 ],
                 'lang_nav'      => [
                     'link'          => 'has-border-radius-small',
