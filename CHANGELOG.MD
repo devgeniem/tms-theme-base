@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.30.0] - 2021-12-07
+
 ### Changed
 
 - TMS-420 #299
@@ -17,6 +19,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - External link icon
     - Img title swiched from description to alt text in image gallery
 - TMS-483: Separate template file for page title for overriding in child theme
+- TMS-230: Force event query sort param to end_time #304
+- TMS-483: Separate template file for page title for overriding in child theme..
 - TMS-420: Additional filters and miscellaneous theme fixes #299
 - TMS-481: Fix accessibility for screenreaders: image carousel modal, external link icon, img title swiched from
   description to alt text in image gallery.
