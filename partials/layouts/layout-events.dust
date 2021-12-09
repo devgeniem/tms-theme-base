@@ -29,11 +29,7 @@
                                 </a>
                             </h3>
 
-                            {?primary_keyword}
-                                <span class="pill mb-4 {classes.event_item_pill|s}">
-                                    {primary_keyword|s}
-                                </span>
-                            {/primary_keyword}
+                             {>"ui/event-item-pill" /}
 
                             <div class="is-flex is-align-items-center mt-2 mb-2 {classes.event_item_text}">
                                 <span class="is-flex" aria-label="{Strings.s.event.date|s}">

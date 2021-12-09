@@ -1,0 +1,5 @@
+{?primary_keyword}
+    <span class="pill mb-4 {classes.event_item_pill|s}">
+        {primary_keyword|s}
+    </span>
+{/primary_keyword}
