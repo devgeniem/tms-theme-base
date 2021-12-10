@@ -60,7 +60,7 @@
                         </div>
                     {/Header.hide_search}
 
-                    {>"ui/icon" icon="tampere-finland" class="brand-logo pl-6 is-primary-invert" /}
+                    {>"ui/icon" icon="tampere-finland" class="brand-logo pl-6 {Header.colors.fly_out_nav.brand_icon_color}" /}
                 </div>
             </div>
         </nav>
