@@ -13,7 +13,7 @@
         <div class="columns is-multiline">
             {#related.posts}
                 <div class="column is-6 is-3-widescreen">
-                    <div class="related-post__item mb-4 mb-0-tablet">
+                    <div class="related-posts__item mb-4 mb-0-tablet">
                         {?image_id}
                             <div class="image is-4by3">
                                 <a href="{permalink}" aria-hidden="true" tabindex="-1">
@@ -30,7 +30,7 @@
                             </h3>
                         {/post_title}
 
-                        <div class="mt-5">
+                        <div class="related-posts__excerpt mt-5">
                             <span class="has-text-weight-bold">{@strtodate value=post_date /}</span>
                             {post_excerpt|s}
                         </div>
@@ -47,7 +47,7 @@
         {?related.link}
             <div class="columns">
                 <div class="column has-text-right-tablet">
-                    <a href="{related.link.url}" class="is-inline-flex is-align-items-center mt-4-tablet mt-6-desktop">
+                    <a href="{related.link.url}" class="related-posts__read-more is-inline-flex is-align-items-center mt-4-tablet mt-6-desktop">
                         {>"ui/icon" icon="chevron-right" class="icon--small is-primary mr-2" /}
                         {related.link.title|s}
                     </a>
