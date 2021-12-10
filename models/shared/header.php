@@ -311,10 +311,10 @@ class Header extends Model {
                     'container' => 'has-background-primary',
                 ],
                 'fly_out_nav'   => [
-                    'inner'         => 'has-background-primary has-text-secondary-invert',
-                    'close_menu'    => 'is-primary-invert',
-                    'search_title'  => 'has-text-primary-invert',
-                    'search_button' => 'is-primary is-inverted',
+                    'inner'            => 'has-background-primary has-text-secondary-invert',
+                    'close_menu'       => 'is-primary-invert',
+                    'search_title'     => 'has-text-primary-invert',
+                    'search_button'    => 'is-primary is-inverted',
                     'brand_icon_color' => 'is-primary-invert',
                 ],
                 'lang_nav'      => [
