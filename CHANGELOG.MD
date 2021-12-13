@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-366: Cookiebot setup
+
 ### Changed 
 
 - fix/event-lang: Add language param to API queries #309
