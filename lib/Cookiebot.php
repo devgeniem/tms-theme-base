@@ -35,9 +35,17 @@ class Cookiebot implements Controller {
      */
 
     private function add_data_attribute( $tag, $handle ) {
-        var_dump( $handle );
         $scripts_to_ignore_by_cookiebot = [
+            'jquery-core',
+            'dustpress',
+            'jquery.jsonview',
+            'hoverintent-js',
+            'admin-bar',
+            'dustpress_debugger',
+            'tms-plugin-materials-public-js',
+            'vendor-js',
             'theme-js',
+            'ina-logout-js'
         ];
         if ( ! in_array( $handle, $scripts_to_ignore_by_cookiebot, true ) ) {
             return $tag;
