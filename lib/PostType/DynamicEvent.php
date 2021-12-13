@@ -170,7 +170,10 @@ class DynamicEvent implements PostType {
      * Clear cache
      */
     protected function clear_cache() : void {
-        wp_cache_delete( self::LINK_LIST_CACHE_KEY );
+        $lang_slug = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
+        $cache_key = self::LINK_LIST_CACHE_KEY . '-' . $lang_slug;
+
+        wp_cache_delete( $cache_key );
     }
 
     /**
@@ -179,7 +182,8 @@ class DynamicEvent implements PostType {
      * @return array
      */
     public static function get_link_list() : array {
-        $cache_key      = self::LINK_LIST_CACHE_KEY;
+        $lang_slug      = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
+        $cache_key      = self::LINK_LIST_CACHE_KEY . '-' . $lang_slug;
         $dynamic_events = wp_cache_get( $cache_key );
 
         if ( ! empty( $dynamic_events ) ) {

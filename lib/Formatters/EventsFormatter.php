@@ -41,9 +41,12 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
-        $query_params            = $this->format_query_params( $layout );
-        $query_params['include'] = 'organization,location,keywords';
-        $query_params['page']    = 1;
+        $query_params             = $this->format_query_params( $layout );
+        $query_params['include']  = 'organization,location,keywords';
+        $query_params['page']     = 1;
+        $query_params['language'] = function_exists( 'pll_current_language' )
+            ? pll_current_language()
+            : get_locale();
 
         $events = $this->get_events( $query_params );
 
@@ -137,6 +140,10 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         // Force sort param
         $query_params['sort'] = 'end_time';
+
+        $query_params['language'] = DPT_PLL_ACTIVE
+            ? pll_current_language()
+            : get_locale();
 
         return $query_params;
     }

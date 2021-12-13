@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed 
 
+- fix/event-lang: Add language param to API queries #309
 - TMS-421: Fixes for overriding partials in child themes
 
 ## [1.30.0] - 2021-12-07
