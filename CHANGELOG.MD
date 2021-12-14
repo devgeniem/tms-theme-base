@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed 
 
+- TMS-564: Image metadata formatting. 
 - TMS-561: Adjust sitemap button styles #311
 
 ## [1.30.2] - 2021-12-14
