@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-561: Adjust sitemap button styles #311
+- TMS-567: Use mb_substr for special character support #311
+
 ## [1.30.2] - 2021-12-14
 
 ### Added
@@ -15,7 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.30.1] - 2021-12-13
 
-### Changed 
+### Changed
 
 - fix/event-lang: Add language param to API queries #309
 - TMS-421: Fixes for overriding partials in child themes
