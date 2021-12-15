@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-573: Escape search query #315
+
 ## [1.30.3] - 2021-12-15
 
 ### Changed
