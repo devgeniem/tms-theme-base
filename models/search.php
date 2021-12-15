@@ -75,7 +75,7 @@ class Search extends BaseModel {
         return [
             'search_link'         => $this->get_search_action(),
             'post_types'          => $searchable_post_types,
-            'search_term'         => trim( get_query_var( 's' ) ),
+            'search_term'         => trim( get_search_query() ),
             'form_start_date'     => get_query_var( self::SEARCH_START_DATE ),
             'form_end_date'       => get_query_var( self::SEARCH_END_DATE ),
             'filter_by_post_type' => __( 'Filter by post type', 'tms-theme-base' ),
