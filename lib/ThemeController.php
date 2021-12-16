@@ -34,6 +34,7 @@ class ThemeController {
             BlocksController::class,
             Cleanup::class,
             Constants::class,
+            Cookiebot::class,
             DustPressController::class,
             Emojis::class,
             FormatterController::class,

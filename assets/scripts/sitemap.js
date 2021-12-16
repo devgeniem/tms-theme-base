@@ -72,7 +72,7 @@ export default class Sitemap {
 
             const toggler = $( Common.makeButton(
                 button,
-                'ml-3 button is-primary pt-1 pb-1 pl-3 pr-3 button-toggle sitemap--toggle'
+                'ml-3 button is-primary button-toggle sitemap--toggle'
             ) );
 
             // ID for children ul, to attach aria-controls labels.
