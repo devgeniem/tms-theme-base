@@ -4,7 +4,8 @@
             {author_name|s}.
         </div>
     {/author_name}
-    {?caption}
+
+    {@isset key1=caption key2=image_title_and_artist method="OR" }
         <div class="column keep-vertical-spacing image-block__caption">
             {?image_title_and_artist}
                 <strong class="is-block">{image_title_and_artist|s}</strong>
@@ -16,5 +17,5 @@
                 </div>
             {/caption}
         </div>
-    {/caption}
+    {/isset}
 </div>

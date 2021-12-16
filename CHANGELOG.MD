@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-576: Fix issue where image title text was not displayed if image has no caption
 - TMS-562: Adjust dynamic event layout #314
 - TMS-573: Escape search query #315
 
