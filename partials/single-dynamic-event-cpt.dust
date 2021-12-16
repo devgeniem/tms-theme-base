@@ -20,14 +20,20 @@
 
                 <section class="section">
                     <div class="container">
+                        {?event.normalized.short_description}
+                            <div class="columns">
+                                <div class="column is-8 is-6-desktop is-offset-2 is-offset-3-desktop mb-6-desktop">
+                                    <p>
+                                        {event.normalized.short_description|s}
+                                    </p>
+                                </div>
+                            </div>
+                        {/event.normalized.short_description}
+
                         <div class="columns">
                             <div class="column">
                                 <div class="columns is-multiline is-variable is-8 mb-8">
                                     <div class="column is-5-desktop is-offset-1-desktop keep-vertical-spacing">
-                                        <p>
-                                            {event.normalized.short_description|s}
-                                        </p>
-
                                         {event.normalized.description|s}
                                     </div>
 
