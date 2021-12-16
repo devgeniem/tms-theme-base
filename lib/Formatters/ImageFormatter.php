@@ -98,9 +98,6 @@ class ImageFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         if ( ! empty( $row['artist_name'] ) ) {
             $row['image_title_and_artist'] .= sprintf( '%s: ', $row['artist_name'] );
         }
-        elseif ( ! empty( $row['author_name'] ) ) {
-            $row['image_title_and_artist'] .= sprintf( '%s: ', $row['author_name'] );
-        }
 
         if ( ! empty( $row['image_title'] ) ) {
             $row['image_title_and_artist'] .= sprintf( '%s.', $row['image_title'] );

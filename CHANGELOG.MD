@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-576-2: Don't display image author text as artist text
+
 ## [1.30.4] - 2021-12-16
 
 ### Added
