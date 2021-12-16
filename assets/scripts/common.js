@@ -408,6 +408,17 @@ export default class Common {
     }
 
     /**
+     * Check if cookie exists.
+     *
+     * @param {string} name Cookie name.
+     *
+     * @return {boolean} True if the cookie exists
+     */
+    static cookieExists( name ) {
+        return document.cookie.split( ';' ).some( ( item ) => item.trim().startsWith( `${ name }=` ) );
+    }
+
+    /**
      * Hyphenate entry titles.
      *
      * @return {void}

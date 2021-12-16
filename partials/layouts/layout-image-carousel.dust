@@ -4,7 +4,8 @@
         <div class="columns is-multiline">
 
             {?title}
-                <h3 id="{carousel_id}-title" class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3">
+                <h3 id="{carousel_id}-title"
+                    class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3 {carousel_title_class|s}">
                     {title|s}
                 </h3>
             {/title}
