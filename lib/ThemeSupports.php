@@ -58,6 +58,8 @@ class ThemeSupports implements Interfaces\Controller {
             'block_editor_settings_all',
             Closure::fromCallable( [ $this, 'disable_drop_cap' ] )
         );
+
+        \add_action( 'wp_head', \Closure::fromCallable( [ $this, 'detect_js' ] ), 0 );
     }
 
     /**
@@ -130,5 +132,14 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = PageEventsSearch::EVENT_SEARCH_END_DATE;
 
         return $vars;
+    }
+
+    /**
+     * Handles JavaScript detection
+     *
+     * Converts class `no-js` into `js` to the root `<html>` element when JavaScript is detected.
+     */
+    private function detect_js() {
+        echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
     }
 }
