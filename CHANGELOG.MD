@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-576: Add some swedish translations
+
 ### Changed
 
 - TMS-576: Fix issue where image title text was not displayed if image has no caption
