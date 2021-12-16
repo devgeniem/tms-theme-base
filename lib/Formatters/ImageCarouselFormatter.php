@@ -52,9 +52,8 @@ class ImageCarouselFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         unset( $data['__filter_attributes'] );
 
-        $data['carousel_id']          = wp_unique_id( 'image-carousel-' );
-        $data['carousel_title_class'] = '';
-        $data['translations']         = ( new \Strings() )->s()['gallery'] ?? [];
+        $data['carousel_id']  = wp_unique_id( 'image-carousel-' );
+        $data['translations'] = ( new \Strings() )->s()['gallery'] ?? [];
 
         return $data;
     }
