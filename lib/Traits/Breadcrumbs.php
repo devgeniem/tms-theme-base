@@ -76,10 +76,17 @@ trait Breadcrumbs {
         if ( ! empty( $primary_category ) ) {
             $breadcrumbs[] = [
                 'title'     => $primary_category[0]->name,
-                'permalink' => $primary_category[0]->url,
+                'permalink' => $primary_category[0]->permalink,
                 'icon'      => false,
             ];
         }
+
+        $breadcrumbs[] = [
+            'title'     => get_the_title( $current_id ),
+            'permalink' => false,
+            'icon'      => false,
+            'is_active' => true,
+        ];
 
         return $breadcrumbs;
     }
@@ -104,6 +111,22 @@ trait Breadcrumbs {
                 'icon'      => false,
             ];
         }
+        else {
+            $post_type = get_post_type_object( PostType\BlogArticle::SLUG );
+
+            $breadcrumbs[] = [
+                'title'     => esc_html( $post_type->labels->singular_name ),
+                'permalink' => get_post_type_archive_link( PostType\BlogArticle::SLUG ),
+                'icon'      => false,
+            ];
+        }
+
+        $breadcrumbs[] = [
+            'title'     => get_the_title( $current_id ),
+            'permalink' => false,
+            'icon'      => false,
+            'is_active' => true,
+        ];
 
         return $breadcrumbs;
     }
@@ -191,9 +214,9 @@ trait Breadcrumbs {
      * @return array
      */
     public function get_ancestors(
-        int $queried_object_id = null,
+        int    $queried_object_id = null,
         string $object_type = 'page',
-        array $breadcrumbs = []
+        array  $breadcrumbs = []
     ) : array {
         $home_url          = trailingslashit( get_home_url() );
         $ancestors         = get_ancestors( $queried_object_id, $object_type );
