@@ -213,11 +213,7 @@ trait Breadcrumbs {
      *
      * @return array
      */
-    public function get_ancestors(
-        int    $queried_object_id = null,
-        string $object_type = 'page',
-        array  $breadcrumbs = []
-    ) : array {
+    public function get_ancestors( int $queried_object_id = null, string $object_type = 'page', array $breadcrumbs = [] ) : array { // phpcs:ignore
         $home_url          = trailingslashit( get_home_url() );
         $ancestors         = get_ancestors( $queried_object_id, $object_type );
         $ancestors_reverse = array_reverse( $ancestors );
