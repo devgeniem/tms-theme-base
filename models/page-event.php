@@ -42,6 +42,30 @@ class PageEvent extends BaseModel {
             Closure::fromCallable( [ $this, 'alter_title' ] )
         );
 
+        // og:title.
+        add_filter(
+            'the_seo_framework_title_from_custom_field',
+            Closure::fromCallable( [ $this, 'alter_title' ] )
+        );
+
+        // og:image.
+        add_filter(
+            'the_seo_framework_image_generation_params',
+            Closure::fromCallable( [ $this, 'alter_image' ] )
+        );
+
+        // og:description.
+        add_filter(
+            'the_seo_framework_custom_field_description',
+            Closure::fromCallable( [ $this, 'alter_desc' ] )
+        );
+
+        // og:url.
+        add_filter(
+            'the_seo_framework_ogurl_output',
+            Closure::fromCallable( [ $this, 'alter_url' ] )
+        );
+
         add_action(
             'wp_head',
             Closure::fromCallable( [ $this, 'add_json_ld_data' ] )
@@ -96,6 +120,83 @@ class PageEvent extends BaseModel {
         }
 
         return $title;
+    }
+
+    /**
+     * Add image for og:image.
+     *
+     * @param array $params An array of SEO framework image parameters.
+     *
+     * @return array
+     */
+    protected function alter_image( $params ) {
+        $event = $this->get_event();
+
+        if ( $event ) {
+            // Ensure our custom generator is ran first.
+            $params['cbs'] = array_merge(
+                [ 'tms' => Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
+                $params['cbs']
+            );
+        }
+
+        return $params;
+    }
+
+    /**
+     * Custom generator for The SEO Framework og images.
+     *
+     * @yield array : {
+     *     string url: The image URL,
+     *     int     id: The image ID,
+     * }
+     */
+    protected function seo_image_generator() {
+        $event = $this->get_event();
+        $image = $event->images[0];
+
+        if ( $image ) {
+            yield [
+                'url' => $image->url ?? '',
+                'id'  => $image->id ?? '',
+            ];
+        }
+    }
+
+    /**
+     * This sets the content of og:description.
+     *
+     * @param string $description The original description.
+     *
+     * @return string
+     */
+    protected function alter_desc( $description ) {
+        $event = $this->get_event();
+        $event = LinkedEvents::normalize_event( $event );
+
+        if ( $event ) {
+            $description = $event['short_description'];
+        }
+
+        return $description;
+    }
+
+    /**
+     * This sets the content of og:url.
+     *
+     * @param string $url The original URL.
+     *
+     * @return string
+     */
+    protected function alter_url( $url ) {
+        $event = $this->get_event();
+
+        if ( $event ) {
+            $event = LinkedEvents::normalize_event( $event );
+            $url   = $event['url'];
+        }
+
+        return $url;
     }
 
     /**
