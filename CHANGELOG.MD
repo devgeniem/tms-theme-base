@@ -7,6 +7,50 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-565: Add og-tags for events #321
+
+### Changed
+
+- TMS-568: Do not cache notice banner closed state #319
+- TMS-421: Fixes for overriding partials in child themes #308
+- TMS-576-2: Don't display image author text as artist text #318
+- TMS-572: Display hellip on the end of stripped excerpts #320
+
+## [1.30.4] - 2021-12-16
+
+### Added
+
+- TMS-576: Add some swedish translations
+
+### Changed
+
+- TMS-576: Fix issue where image title text was not displayed if image has no caption
+- TMS-562: Adjust dynamic event layout #314
+- TMS-573: Escape search query #315
+
+## [1.30.3] - 2021-12-15
+
+### Changed
+
+- TMS-564: Image metadata formatting.
+- TMS-561: Adjust sitemap button styles #311
+- TMS-567: Use mb_substr for special character support #312
+
+## [1.30.2] - 2021-12-14
+
+### Added
+
+- TMS-366: Cookiebot setup
+
+## [1.30.1] - 2021-12-13
+
+### Changed
+
+- fix/event-lang: Add language param to API queries #309
+- TMS-421: Fixes for overriding partials in child themes
+
 ## [1.30.0] - 2021-12-07
 
 ### Changed

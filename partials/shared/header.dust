@@ -1,5 +1,5 @@
 <!doctype html>
-    <html class="{#WP.document_class}{.}{@sep} {/sep}{/WP.document_class}" lang="{WP.language}">
+    <html class="no-js {#WP.document_class}{.}{@sep} {/sep}{/WP.document_class}" lang="{WP.language}">
         <head>
             <meta charset="utf-8">
             <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -60,7 +60,7 @@
                         </div>
                     {/Header.hide_search}
 
-                    {>"ui/icon" icon="tampere-finland" class="brand-logo pl-6 is-primary-invert" /}
+                    {>"ui/icon" icon="tampere-finland" class="brand-logo pl-6 {Header.colors.fly_out_nav.brand_icon_color}" /}
                 </div>
             </div>
         </nav>
