@@ -130,18 +130,12 @@ class PageEvent extends BaseModel {
      * @return array
      */
     protected function alter_image( $params ) {
-
-        if ( ! is_page_template( static::TEMPLATE ) ) {
-            return $params;
-        }
-
         $event = $this->get_event();
 
         if ( $event ) {
-
             // Ensure our custom generator is ran first.
             $params['cbs'] = array_merge(
-                [ 'nuhe' => Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
+                [ 'tms' => Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
                 $params['cbs']
             );
         }
