@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-421: Fixes for overriding partials in child themes #308
 - TMS-576-2: Don't display image author text as artist text #318
+- TMS-572: Display hellip on the end of stripped excerpts
 
 ## [1.30.4] - 2021-12-16
 
