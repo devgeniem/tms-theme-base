@@ -107,7 +107,7 @@ trait Breadcrumbs {
         if ( ! empty( $primary_category ) ) {
             $breadcrumbs[] = [
                 'title'     => $primary_category->name,
-                'permalink' => $primary_category->url,
+                'permalink' => $primary_category->permalink,
                 'icon'      => false,
             ];
         }
