@@ -41,7 +41,7 @@
 
     {^Header.hide_search}
         <div id="js-search-toggle-target"
-             class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
+             class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 {Header.colors.search_popup_container}"
              role="search">
             <div class="container">
                 <div class="columns">
