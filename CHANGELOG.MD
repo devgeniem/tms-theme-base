@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-494: Fix breadcrumb trail for articles and blogs #322
+
 ## [1.30.5]
 
 ### Added
@@ -15,7 +19,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-494: Fix breadcrumb trail for articles and blogs
 - TMS-568: Do not cache notice banner closed state #319
 - TMS-421: Fixes for overriding partials in child themes #308
 - TMS-576-2: Don't display image author text as artist text #318
