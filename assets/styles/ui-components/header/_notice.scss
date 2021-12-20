@@ -1,4 +1,8 @@
 .site-header-notice {
+    .js & {
+        display: none;
+    }
+
     .notice-banner__text {
         display: flex;
         flex-direction: column;

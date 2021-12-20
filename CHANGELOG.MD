@@ -13,6 +13,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-494: Fix breadcrumb trail for articles and blogs #322
+
+## [1.30.5]
+
+### Added
+
+- TMS-565: Add og-tags for events #321
+
+### Changed
+
+- TMS-568: Do not cache notice banner closed state #319
+- TMS-421: Fixes for overriding partials in child themes #308
+- TMS-576-2: Don't display image author text as artist text #318
+- TMS-572: Display hellip on the end of stripped excerpts #320
+
+## [1.30.4] - 2021-12-16
+
+### Added
+
+- TMS-576: Add some swedish translations
+
+### Changed
+
+- TMS-576: Fix issue where image title text was not displayed if image has no caption
+- TMS-562: Adjust dynamic event layout #314
 - TMS-573: Escape search query #315
 
 ## [1.30.3] - 2021-12-15
