@@ -168,3 +168,11 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
         }
     }
 }
+
+.events {
+    &__item-inner {
+        .icon {
+            fill: $accent !important;
+        }
+    }
+}
