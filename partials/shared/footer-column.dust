@@ -5,7 +5,7 @@
         </h2>
     {/column_title}
 
-    <ul class="is-unstyled has-text-weight-medium is-family-secondary has-text-small">
+    <ul class="is-unstyled {Footer.typography.column}">
         {#link_column}
             <li class="mb-2">
                 <a href="{link.url}" target="{link.target}"
