@@ -21,8 +21,10 @@ use TMS\Theme\Base\ACF\Fields\Settings\MapSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Settings\PageSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Settings\SocialMediaSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Settings\ThemeColorTab;
+use TMS\Theme\Base\ACF\Fields\Settings\SitemapSettingsTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
+
 
 /**
  * Class SettingsGroup
@@ -82,6 +84,7 @@ class SettingsGroup {
                         new ExceptionNoticeSettingsTab( '', $field_group->get_key() ),
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
+                        new SitemapSettingsTab( '', $field_group->get_key() ),
                     ],
                     $field_group->get_key()
                 )

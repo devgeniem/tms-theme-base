@@ -6,6 +6,7 @@
 namespace TMS\Theme\Base;
 
 use TMS\Theme\Base\Interfaces\Controller;
+use TMS\Theme\Base\Settings;
 
 /**
  * Class Cookiebot
@@ -20,6 +21,10 @@ class Cookiebot implements Controller {
     public function hooks() : void {
         add_filter( 'script_loader_tag',
             \Closure::fromCallable( [ $this, 'add_data_attribute' ] ),
+        10, 2 );
+
+        add_filter( 'the_seo_framework_sitemap_additional_urls',
+            \Closure::fromCallable( [ $this, 'add_cb_urls_to_sitemap' ] ),
         10, 2 );
 
     }
@@ -53,4 +58,30 @@ class Cookiebot implements Controller {
         $tag = str_replace( '>', ' data-cookieconsent="ignore">', $tag );
         return $tag;
     }
+
+
+    /**
+     * Add custom URLs to sitemap for Cookiebot's scanner
+     *
+     * @param string $custom_urls URL array to add.
+     * @return array Custom urls array for Cookiebot scanner.
+     */
+    private function add_cb_urls_to_sitemap( $custom_urls = [] ) {
+
+        $columns = Settings::get_setting( 'sitemap_links' );
+
+        if ( empty( $columns ) ) {
+            return null;
+        }
+
+        foreach ( $columns as $col ) {
+            if ( ! empty( $col['sitemap_link']['url'] ) ) {
+                $custom_urls [] = $col['sitemap_link']['url'];
+            }
+        }
+
+        return $custom_urls;
+    }
+
+
 }
