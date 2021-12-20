@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-494: Fix breadcrumb trail for articles and blogs #322
+- TMS-492: Fix breadcrumb trail for articles and blogs #323
 
 ## [1.30.5]
 

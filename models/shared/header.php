@@ -306,21 +306,23 @@ class Header extends Model {
         return apply_filters(
             'tms/theme/header/colors',
             [
-                'search_button' => 'is-primary',
-                'nav'           => [
+                'search_button'          => 'is-primary',
+                'search_popup_container' => 'has-background-secondary has-text-secondary-invert',
+                'nav'                    => [
                     'container' => 'has-background-primary',
                 ],
-                'fly_out_nav'   => [
+                'fly_out_nav'            => [
                     'inner'            => 'has-background-primary has-text-secondary-invert',
                     'close_menu'       => 'is-primary-invert',
                     'search_title'     => 'has-text-primary-invert',
                     'search_button'    => 'is-primary is-inverted',
                     'brand_icon_color' => 'is-primary-invert',
                 ],
-                'lang_nav'      => [
-                    'link'          => 'has-border-radius-small',
-                    'link__default' => 'has-text-accent',
-                    'link__active'  => 'has-background-primary has-text-primary-invert',
+                'lang_nav'               => [
+                    'dropdown_toggle' => 'is-primary is-outlined',
+                    'link'            => 'has-border-radius-small',
+                    'link__default'   => 'has-text-accent',
+                    'link__active'    => 'has-background-primary has-text-primary-invert',
                 ],
             ]
         );

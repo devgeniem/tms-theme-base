@@ -2,7 +2,7 @@
     <nav class="language-nav ml-4 ml-6-desktop" aria-label="{Strings.s.header.language_navigation|s}">
         <div class="dropdown">
             <div class="dropdown-trigger">
-                <button class="button button--icon is-primary is-outlined"
+                <button class="button button--icon {Header.colors.lang_nav.dropdown_toggle}"
                         aria-haspopup="true" aria-controls="lang-dropdown-menu">
                     <span class="is-uppercase">
                         <span class="is-sr-only">
