@@ -63,9 +63,23 @@ export default class Header {
         $( '.site-header-notice__close' ).on( 'click', this.onNoticeClose.bind( this ) );
         $( '.fly-out-nav .js-scroll-children' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
 
+        const modalTrigger = $( '.fly-out-nav__trigger' );
+
         MicroModal.init( {
             disableScroll: true,
-            onShow: this.onFlyOutMenuOpen.bind( this ),
+            onShow: () => {
+                const isDisabled = modalTrigger.attr( 'disabled' );
+
+                modalTrigger.attr( 'disabled', ! isDisabled );
+                this.onFlyOutMenuOpen.bind( this );
+            },
+            onClose: () => {
+                const isDisabled = modalTrigger.attr( 'disabled' );
+
+                window.setTimeout( () => {
+                    modalTrigger.attr( 'disabled', ! isDisabled );
+                }, 25 );
+            },
         } );
 
         this.maybeShowGeneralNotification();
