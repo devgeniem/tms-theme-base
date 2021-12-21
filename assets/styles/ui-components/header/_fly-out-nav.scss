@@ -57,7 +57,7 @@ $fly-out-nav-search-button-icon: $primary !default;
         border: 0;
         cursor: pointer;
 
-        @include from($tablet) {
+        @include from($desktop) {
             margin-left: 0;
         }
 

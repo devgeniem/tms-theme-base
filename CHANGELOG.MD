@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- fix/fly-out-navigation-trigger: Fix issue where user was unable to close fly out navigation in mobile #326
+
+## [1.31.0] - 2021-12-21
+
 ### Added
 
 - TMS-579: Added Site settings tab for adding URLs to sitemap to make Cookiebot scan sites that are in subfolders.
