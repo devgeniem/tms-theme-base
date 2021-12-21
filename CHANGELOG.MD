@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-579: Added Site settings tab for adding URLs to sitemap to make Cookiebot scan sites that are in subfolders.
+- fix/head-scripts-order: Run custom scripts after wp_head
 
 ### Changed
 

@@ -35,12 +35,12 @@ class SitemapSettingsTab extends Tab {
             'title'        => 'Sivukartan osoitteet',
             'instructions' => 'Syötä osoitteet, jotka lisätään sivukarttaan.',
         ],
-        'sitemap_links' => [
+        'sitemap_links'             => [
             'title'        => 'Sivukartan linkit',
             'instructions' => 'Linkit jotka lisätään sivukarttaan Cookiebottia varten.',
             'button_label' => 'Lisää linkki',
         ],
-        'sitemap_link'  => [
+        'sitemap_link'              => [
             'title'        => 'Linkki',
             'instructions' => '',
         ],

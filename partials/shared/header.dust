@@ -5,11 +5,11 @@
             <meta http-equiv="x-ua-compatible" content="ie=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+            {@wphead /}
+
             {?Header.head_custom_scripts}
                 {Header.head_custom_scripts|s}
             {/Header.head_custom_scripts}
-
-            {@wphead /}
         </head>
 
         <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
