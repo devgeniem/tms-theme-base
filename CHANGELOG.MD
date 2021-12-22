@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Revert "Downgrade image-webpack-loader"
+- fix/mobile-nav: Fix issue where user was unable to close fly out navigation in mobile
+
 ## [1.31.2]
 
 ### Changed
