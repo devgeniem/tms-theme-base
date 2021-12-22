@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.1]
+
 ### Changed
 
 - fix/fly-out-navigation-trigger: Fix issue where user was unable to close fly out navigation in mobile #326
