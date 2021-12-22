@@ -41,7 +41,7 @@
     "lint-staged": "^11.2.6",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "postcss-font-magician": "^2.3.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.3.1",
