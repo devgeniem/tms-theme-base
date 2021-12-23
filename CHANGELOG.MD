@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.3] - 2021-12-23
+
 ### Changed
 
 - Revert "Downgrade image-webpack-loader"
