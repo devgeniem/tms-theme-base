@@ -1,1 +1,1 @@
-import './favicon.png';
+// import './favicon.png';
