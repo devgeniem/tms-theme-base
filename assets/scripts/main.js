@@ -10,3 +10,4 @@ window.Theme = Theme;
 
 import '../fonts';
 import '../icons';
+import '../images';
