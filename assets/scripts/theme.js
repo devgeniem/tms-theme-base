@@ -125,7 +125,7 @@ class Theme {
     /**
      * This method returns a controller by its class name if it is found.
      *
-     * @param  {string} name The class name of a controller.
+     * @param {string} name The class name of a controller.
      * @return {Object|boolean} The controller instance or false if not found.
      */
     getController( name ) {

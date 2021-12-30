@@ -325,8 +325,8 @@ export default class Modal {
      * focusable element inside the modal. If a user navigates backwards
      * using shift + tab, the loop is handled properly to the opposite direction.
      *
-     * @param {KeyboardEvent|Event} e Key press event.
-     * @param {Element} modal The modal that is currently visible.
+     * @param {KeyboardEvent|Event} e     Key press event.
+     * @param {Element}             modal The modal that is currently visible.
      * @return {void}
      */
     handleModalTabbing( e, modal ) {
