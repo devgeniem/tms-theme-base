@@ -29,6 +29,7 @@ export default class PrimaryNav {
      * @return {void}
      */
     events() {
+
         if ( this.dropdownTogglers ) {
             for ( let i = 0; i < this.dropdownTogglers.length; i++ ) {
                 this.dropdownTogglers[ i ].addEventListener( 'click', ( event ) => this.toggleDropdown( event ) );
@@ -36,6 +37,8 @@ export default class PrimaryNav {
         }
 
         $( this.navbarMenu ).find( '.dropdown-trigger' ).on( 'click', this.dropdownLinkClick.bind( this ) );
+
+        this.clickOutsideNav();
     }
 
     /**
@@ -47,7 +50,6 @@ export default class PrimaryNav {
      */
     dropdownLinkClick( event ) {
         event.preventDefault();
-
         $( event.target ).next( '.dropdown-toggler' ).click();
     }
 
@@ -100,10 +102,25 @@ export default class PrimaryNav {
     }
 
     /**
+     * Clickicng outside nav closes dropdowns
+     *
+     * @return {void}
+     */
+    clickOutsideNav() {
+        const primaryNav = this;
+        $( document ).on( 'click', function( event ) {
+            if ( ! $( event.target ).closest( '#js-primary-menu' ).length ) {
+                // the click occured outside '#element'
+                primaryNav.closeOpenDropdowns();
+            }
+        } );
+    }
+
+    /**
      * Set the 'is-active' state for an ancestor of an element
      * with the matching class name.
      *
-     * @param {HTMLElement} child A child element to start the search from.
+     * @param {HTMLElement} child     A child element to start the search from.
      * @param {HTMLElement} className A target class name for the ancestor.
      *
      * @return {void}

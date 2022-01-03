@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-419: Clicking outside nav closes it's dropdowns
+
 ## [1.31.3] - 2021-12-23
 
 ### Changed
