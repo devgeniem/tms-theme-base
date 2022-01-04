@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-419: Clicking outside nav closes it's dropdowns
+- TMS-492: Add filters & variables for language nav customization #323
 
 ## [1.31.3] - 2021-12-23
 
