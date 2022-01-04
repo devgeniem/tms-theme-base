@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-419: Clicking outside nav closes it's dropdowns
+
+## [1.31.3] - 2021-12-23
+
+### Changed
+
+- Revert "Downgrade image-webpack-loader"
+- fix/mobile-nav: Fix issue where user was unable to close fly out navigation in mobile
+
+## [1.31.2]
+
+### Changed
+
+- Downgrade image-webpack-loader
+
+## [1.31.1]
+
+### Changed
+
 - fix/fly-out-navigation-trigger: Fix issue where user was unable to close fly out navigation in mobile #326
 
 ## [1.31.0] - 2021-12-21
