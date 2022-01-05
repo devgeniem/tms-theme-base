@@ -137,7 +137,6 @@ export default class ImageCarousel {
                     const trimmed = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + tempTranslations.centered + ')';
                     $( this ).attr( 'aria-label', trimmed );
                 }
-
             } );
 
         } );
