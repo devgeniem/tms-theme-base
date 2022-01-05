@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
 "POT-Creation-Date: 2021-11-24 15:46+0200\n"
-"PO-Revision-Date: 2021-11-24 15:47+0200\n"
+"PO-Revision-Date: 2022-01-05 16:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -138,12 +138,9 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: lib/DustPressController.php:60
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Go to slide"
 msgctxt "pagination"
 msgid "Go to Page"
-msgstr "Siirry diaan"
+msgstr "Siirry sivulle"
 
 #: lib/Formatters/GridFormatter.php:143
 msgid "Read more"
