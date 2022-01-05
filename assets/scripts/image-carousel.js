@@ -123,6 +123,23 @@ export default class ImageCarousel {
             // This way user can't open the "wrong" image and get confused of the results.
             $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
+
+            const tempTranslations = {
+                centered: 'keksitetty',
+                slide: 'dia',
+            };
+
+            $( '.slick-track' ).find( '.slick-slide' ).each( function() {
+                const thisElem = $( this );
+                const newStr = thisElem.attr( 'aria-label' ).replace( 'slide', tempTranslations.slide );
+
+                if ( newStr.includes( 'centered' ) ) {
+                    const trimmed = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + tempTranslations.centered + ')';
+                    $( this ).attr( 'aria-label', trimmed );
+                }
+
+            } );
+
         } );
 
         let allLoaded = true;
