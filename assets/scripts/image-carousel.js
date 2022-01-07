@@ -47,9 +47,9 @@ export default class ImageCarousel {
     /**
      * Constructs the carousel, or two if we have sync defined.
      *
-     * @param {HTMLElement} container Main carousel element.
-     * @param {Object} buttons Buttons to use.
-     * @param {Object} translations Translations.
+     * @param {HTMLElement} container    Main carousel element.
+     * @param {Object}      buttons      Buttons to use.
+     * @param {Object}      translations Translations.
      * @return {*|jQuery|HTMLElement} Constructed main carousel.
      */
     constructCarousel( container = undefined, buttons = {}, translations = {} ) {
@@ -112,6 +112,9 @@ export default class ImageCarousel {
                 //Make only the current slide focusable, for screenreaders
                 $( slick.$slider ).find( '.slick-slide' ).attr( 'tabindex', '0' );
                 $( slick.$slider ).find( '.slick-slide:not(.slick-current)' ).removeAttr( 'tabindex' );
+
+                // Transalate Slick Slider stuff
+                this.translateCarousels( translations );
             } );
         }
 
@@ -124,21 +127,8 @@ export default class ImageCarousel {
             $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
 
-            const tempTranslations = {
-                centered: 'keksitetty',
-                slide: 'dia',
-            };
-
-            $( '.slick-track' ).find( '.slick-slide' ).each( function() {
-                const thisElem = $( this );
-                const newStr = thisElem.attr( 'aria-label' ).replace( 'slide', tempTranslations.slide );
-
-                if ( newStr.includes( 'centered' ) ) {
-                    const trimmed = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + tempTranslations.centered + ')';
-                    $( this ).attr( 'aria-label', trimmed );
-                }
-            } );
-
+            // Transalate Slick Slider stuff
+            this.translateCarousels( translations );
         } );
 
         let allLoaded = true;
@@ -154,6 +144,27 @@ export default class ImageCarousel {
         }
 
         return carousel;
+    }
+
+    translateCarousels( translations ) {
+        $( '.slick-track' ).find( '.slick-slide' ).each( function() {
+            const thisElem = $( this );
+            let newStr = thisElem.attr( 'aria-label' ).replace( 'slide', translations.slide );
+
+            if ( newStr.includes( 'centered' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + translations.centered + ')';
+                thisElem.attr( 'aria-label', newStr );
+            }
+
+            // Clean up other than .slick-current slide
+            if ( ! thisElem.hasClass( 'slick-current' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim();
+            }
+
+            thisElem.attr( 'aria-label', newStr );
+
+        } );
+
     }
 
     docReady() {

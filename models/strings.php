@@ -79,6 +79,8 @@ class Strings extends \DustPress\Model {
                 'open'     => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
                 'previous' => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
                 'goto'     => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
+                'centered' => _x( 'Keskitetty', 'theme-frontend', 'tms-theme-base' ),
+                'slide'    => _x( 'Dia', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
