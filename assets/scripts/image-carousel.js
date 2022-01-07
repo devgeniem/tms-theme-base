@@ -74,7 +74,7 @@ export default class ImageCarousel {
 
         if ( modalCarouselId ) {
             // Add necessary things to the original carousel to support linking with another carousel.
-            carouselOptions.regionLabel = 'main image carousel';
+            carouselOptions.regionLabel = translations.main_carousel;
             carouselOptions.asNavFor = modalCarouselId;
 
             const modalCarousel = $( modalCarouselId );
@@ -88,7 +88,7 @@ export default class ImageCarousel {
                 asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
                 prevArrow: buttons.prevArrow,
                 nextArrow: buttons.nextArrow,
-                regionLabel: 'modal image carousel',
+                regionLabel: translations.modal_carousel,
                 arrowsPlacement: 'afterSlides',
             } );
 
