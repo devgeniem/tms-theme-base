@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-526: Social media embed skip link 
+- TMS-534: Filter for removing available Gravity Forms fields
 - TMS-515: Slick slider translations for carousels
 - TMS-625: Hyphenate breadcrumbs
 - TMS-419: Clicking outside nav closes it's dropdowns
