@@ -27,7 +27,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-526: Social media embed skip link 
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
 - TMS-515: Slick slider translations for carousels #332
