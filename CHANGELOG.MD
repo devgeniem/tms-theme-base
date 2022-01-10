@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-631: Disable user list REST endpoints
+- TMS-631: Disable user list REST endpoints #334
 
 ### Changed
 
