@@ -8,6 +8,9 @@ $tms-breadcrumb-item-color-active: $primary-light !default;
 $tms-breadcrumb-item-color-separator: $color-black !default;
 
 .breadcrumb {
+    hyphens: auto;
+    white-space: normal;
+
     .breadcrumbs {
         &__nav {
             font-size: $size-7;
