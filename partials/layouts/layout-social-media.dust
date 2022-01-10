@@ -20,9 +20,15 @@
         <div class="columns">
             <div class="column">
                 {?flocker_embed}
+                     {! Skip embed !}
+                    <a href="#{id}" class="skip-to-content">
+                        {skip_text|s}
+                    </a>
                     <div class="social-media__flocker-embed">
                         {flocker_embed|s}
                     </div>
+                    {! Skip embed target !}
+                    <div id="{id}"></div>
                 {/flocker_embed}
             </div>
         </div>
