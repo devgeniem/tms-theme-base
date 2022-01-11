@@ -68,8 +68,10 @@ class SubpagesFormatter implements Formatter {
             'update_post_term_cache' => false,
             'no_found_rows'          => true,
             'fields'                 => 'ids',
-            'order'                  => 'ASC',
-            'orderby'                => 'menu_order',
+            'orderby'                => [
+                'menu_order' => 'ASC',
+                'date'       => 'DESC',
+            ],
         ];
 
         $wp_query = new WP_Query( $args );

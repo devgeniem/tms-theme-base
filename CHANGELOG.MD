@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-525: Subpages orderby parameters
 - TMS-526: Social media embed skip link 
 - TMS-534: Filter for removing available Gravity Forms fields
 - TMS-515: Slick slider translations for carousels
