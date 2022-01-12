@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-631: Disable user list REST endpoints #334
+
 ### Changed
 
+- TMS-526: Social media embed skip link 
+- TMS-515: Slick slider translations for carousels
 - TMS-419: Clicking outside nav closes it's dropdowns
 - TMS-492: Add filters & variables for language nav customization #323
 

@@ -25,6 +25,7 @@ class Security implements Interfaces\Controller {
     public function hooks() : void {
         add_filter( 'check_password', [ $this, 'check_password' ], 10, 4 );
         add_action( 'all_admin_notices', [ $this, 'check_password_notice' ], 10 );
+        add_filter( 'rest_endpoints', [ $this, 'disable_user_endpoint' ] );
     }
 
     /**
@@ -116,5 +117,24 @@ class Security implements Interfaces\Controller {
 
             echo wp_kses( $warning, 'post' );
         }
+    }
+
+    /**
+     * Disable user endpoint.
+     *
+     * @param array $endpoints REST API endpoints.
+     *
+     * @return array
+     */
+    public function disable_user_endpoint( $endpoints ) {
+        if ( isset( $endpoints['/wp/v2/users'] ) ) {
+            unset( $endpoints['/wp/v2/users'] );
+        }
+
+        if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+            unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+        }
+
+        return $endpoints;
     }
 }
