@@ -30,7 +30,7 @@
 
         {?Header.breadcrumbs}
         {?Header.show_breadcrumbs_in_header}
-        <div class="section pt-6 pb-7">
+        <div class="breadcrumbs-container section pt-6 pb-7">
             <div class="container">
                 {>"ui/breadcrumbs" breadcrumbs=Header.breadcrumbs /}
             </div>

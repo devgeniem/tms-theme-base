@@ -9,6 +9,7 @@ import './chevron-right.svg';
 import './chevron-up.svg';
 import './close.svg';
 import './date.svg';
+import './droplet.svg';
 import './email.svg';
 import './euro.svg';
 import './external.svg';
