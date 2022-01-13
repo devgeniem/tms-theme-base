@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.5] - 2022-01-13
+
+### Changed
+
+- Exclude favicon from build for now.
+
 ## [1.31.4] - 2022-01-13
 
 ### Added
