@@ -7,7 +7,7 @@
                 {>"views/single-dynamic-event/single-dynamic-event-hero" /}
 
                 {?Header.breadcrumbs}
-                    <div class="section pt-6 pb-0">
+                    <div class="breadcrumbs-container section pt-6 pb-7">
                         <div class="container">
                             <div class="columns">
                                 <div class="column">
