@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-522: Indicate module with tables in accordions
 - TMS-526: Social media embed skip link 
 - TMS-515: Slick slider translations for carousels
 - TMS-419: Clicking outside nav closes it's dropdowns
