@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.5] - 2022-01-13
+
+### Changed
+
+- Exclude favicon from build for now.
+
+## [1.31.4] - 2022-01-13
+
 ### Added
 
 - TMS-631: Disable user list REST endpoints #334
@@ -14,11 +22,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-525: Subpages orderby parameters
-- TMS-526: Social media embed skip link 
+- TMS-526: Social media embed skip link
 - TMS-534: Filter for removing available Gravity Forms fields
 - TMS-515: Slick slider translations for carousels
 - TMS-625: Hyphenate breadcrumbs
 - TMS-419: Clicking outside nav closes it's dropdowns
+- TMS-419: Clicking outside nav closes it's dropdowns #330
 - TMS-492: Add filters & variables for language nav customization #323
 
 ## [1.31.3] - 2021-12-23
