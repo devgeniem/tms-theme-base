@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-522: Indicate module 
+  - Fix Indicate with tables in accordions
+  - Indicate tables are focusable for using with keyboard
+
 ## [1.31.5] - 2022-01-13
 
 ### Changed
@@ -21,6 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-526: Social media embed skip link 
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
 - TMS-515: Slick slider translations for carousels #332
