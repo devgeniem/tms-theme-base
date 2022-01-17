@@ -323,7 +323,6 @@ window.onload = function() {
             foreach ( $field_groups[ $advanced_fields_idx ]['fields'] as $field_idx => $field ) {
 
                 if (
-                    $field['data-type'] === 'fileupload' ||
                     $field['data-type'] === 'date' ||
                     $field['data-type'] === 'time' ||
                     $field['data-type'] === 'captcha' ||
