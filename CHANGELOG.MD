@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-534-2: Filter for removing available Gravity Forms fields
 - TMS-522: Indicate module 
   - Fix Indicate with tables in accordions
   - Indicate tables are focusable for using with keyboard
@@ -27,12 +28,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-525: Subpages orderby parameters
-- TMS-526: Social media embed skip link
-- TMS-534: Filter for removing available Gravity Forms fields
-- TMS-515: Slick slider translations for carousels
 - TMS-625: Hyphenate breadcrumbs
-- TMS-419: Clicking outside nav closes it's dropdowns
+- TMS-525: Subpages orderby parameters #337
+- TMS-526: Social media embed skip link #335
+- TMS-515: Slick slider translations for carousels #332
 - TMS-419: Clicking outside nav closes it's dropdowns #330
 - TMS-492: Add filters & variables for language nav customization #323
 
