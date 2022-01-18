@@ -251,3 +251,11 @@ $table-row-background-color-odd-hover: darken($table-row-background-color-odd, 4
 }
 
 // sass-lint:enable-all
+
+table.idc-element {
+    
+    &:focus {
+        outline: 0.0625rem dotted;
+        outline-offset: -0.0625rem;
+    }
+}

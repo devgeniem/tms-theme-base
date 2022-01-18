@@ -47,9 +47,9 @@ export default class ImageCarousel {
     /**
      * Constructs the carousel, or two if we have sync defined.
      *
-     * @param {HTMLElement} container Main carousel element.
-     * @param {Object} buttons Buttons to use.
-     * @param {Object} translations Translations.
+     * @param {HTMLElement} container    Main carousel element.
+     * @param {Object}      buttons      Buttons to use.
+     * @param {Object}      translations Translations.
      * @return {*|jQuery|HTMLElement} Constructed main carousel.
      */
     constructCarousel( container = undefined, buttons = {}, translations = {} ) {
@@ -74,7 +74,7 @@ export default class ImageCarousel {
 
         if ( modalCarouselId ) {
             // Add necessary things to the original carousel to support linking with another carousel.
-            carouselOptions.regionLabel = 'main image carousel';
+            carouselOptions.regionLabel = translations.main_carousel;
             carouselOptions.asNavFor = modalCarouselId;
 
             const modalCarousel = $( modalCarouselId );
@@ -88,7 +88,7 @@ export default class ImageCarousel {
                 asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
                 prevArrow: buttons.prevArrow,
                 nextArrow: buttons.nextArrow,
-                regionLabel: 'modal image carousel',
+                regionLabel: translations.modal_carousel,
                 arrowsPlacement: 'afterSlides',
             } );
 
@@ -112,6 +112,9 @@ export default class ImageCarousel {
                 //Make only the current slide focusable, for screenreaders
                 $( slick.$slider ).find( '.slick-slide' ).attr( 'tabindex', '0' );
                 $( slick.$slider ).find( '.slick-slide:not(.slick-current)' ).removeAttr( 'tabindex' );
+
+                // Transalate Slick Slider stuff
+                this.translateCarousels( translations );
             } );
         }
 
@@ -123,6 +126,9 @@ export default class ImageCarousel {
             // This way user can't open the "wrong" image and get confused of the results.
             $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
+
+            // Transalate Slick Slider stuff
+            this.translateCarousels( translations );
         } );
 
         let allLoaded = true;
@@ -138,6 +144,27 @@ export default class ImageCarousel {
         }
 
         return carousel;
+    }
+
+    translateCarousels( translations ) {
+        $( '.slick-track' ).find( '.slick-slide' ).each( function() {
+            const thisElem = $( this );
+            let newStr = thisElem.attr( 'aria-label' ).replace( 'slide', translations.slide );
+
+            if ( newStr.includes( 'centered' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + translations.centered + ')';
+                thisElem.attr( 'aria-label', newStr );
+            }
+
+            // Clean up other than .slick-current slide
+            if ( ! thisElem.hasClass( 'slick-current' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim();
+            }
+
+            thisElem.attr( 'aria-label', newStr );
+
+        } );
+
     }
 
     docReady() {
