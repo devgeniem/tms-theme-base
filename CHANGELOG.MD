@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-540: Notice banner block added for Dynaminc Event
+
 ### Changed
 
 - TMS-534-2: Filter for removing available Gravity Forms fields
