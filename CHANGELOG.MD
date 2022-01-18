@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-625: Fix breadcrumb word wrap #333
 - TMS-522: Indicate module 
   - Fix Indicate with tables in accordions
   - Indicate tables are focusable for using with keyboard
