@@ -31,8 +31,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-625: Hyphenate breadcrumbs
-- TMS-419: Clicking outside nav closes it's dropdowns
 - TMS-526: Social media embed skip link
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
@@ -193,10 +191,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-363: Fix search form action #263
 - TMS-318: accessibility fixes
-  - Mark SVG icons as decorative
-  - More visible outlines for grid buttons
-  - Increase accordion click area
-  - External link indicator for IconLinksLayout
+    - Mark SVG icons as decorative
+    - More visible outlines for grid buttons
+    - Increase accordion click area
+    - External link indicator for IconLinksLayout
 
 ## [1.23.0] - 2021-10-25
 
