@@ -92,3 +92,5 @@ import './time.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
+import './cafesara.svg';
+import './veistospuisto.svg';
