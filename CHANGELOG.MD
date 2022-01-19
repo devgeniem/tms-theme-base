@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-506: Add identifying class to comments section #345
 - TMS-513: Add Sara Hilden icons #340
 - TMS-497: Fix translation #331
 

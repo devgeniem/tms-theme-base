@@ -6,7 +6,7 @@
 use \TMS\Theme\Base\Comments;
 ?>
 
-<section class="section has-border has-border-secondary has-border-top-1">
+<section class="section section--comments has-border has-border-secondary has-border-top-1">
     <div class="columns">
         <div class="column is-10 is-offset-1">
             <div class="is-content-grid">
