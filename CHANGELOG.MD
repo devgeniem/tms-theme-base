@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-497: Fix translation #331
+
 ## [1.31.6]
 
 ### Added
@@ -15,7 +19,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-497: Fix translation #331
 - TMS-638: Fix fly out nav height #344
 - TMS-625: Fix breadcrumb word wrap #333
 - TMS-522: Indicate module
