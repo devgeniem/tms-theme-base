@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-01-10 15:03+0200\n"
-"PO-Revision-Date: 2022-01-10 15:04+0200\n"
+"POT-Creation-Date: 2022-01-12 10:08+0200\n"
+"PO-Revision-Date: 2022-01-12 10:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -23,36 +23,9 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 
-#: assets/dist/vendor.js:1
-msgid "-"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "entries"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "values"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "keys"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "Wrong index!"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "Wrong offset!"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "Wrong length!"
-msgstr ""
-
-#: assets/dist/vendor.js:1
-msgid "iterator"
+#: assets/dist/vendor.js:4821
+msgctxt "text direction"
+msgid "ltr"
 msgstr ""
 
 #: comments.php:14
@@ -138,12 +111,19 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: lib/DustPressController.php:60
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Go to slide"
 msgctxt "pagination"
 msgid "Go to Page"
-msgstr "Siirry diaan"
+msgstr "Siirry sivulle"
+
+#: lib/DustPressController.php:61
+msgctxt "pagination"
+msgid "Next"
+msgstr "Seuraava"
+
+#: lib/DustPressController.php:62
+msgctxt "pagination"
+msgid "Previous"
+msgstr "Edellinen"
 
 #: lib/Formatters/GridFormatter.php:147
 msgid "Read more"
@@ -278,15 +258,15 @@ msgctxt "wp-geniem-roles"
 msgid "Subscriber"
 msgstr ""
 
-#: lib/Security.php:112
+#: lib/Security.php:113
 msgid "WARNING"
 msgstr ""
 
-#: lib/Security.php:113
+#: lib/Security.php:114
 msgid "Your password has been compromised."
 msgstr ""
 
-#: lib/Security.php:114
+#: lib/Security.php:115
 msgid "Please change your password <strong>as soon as possible</strong>."
 msgstr ""
 
@@ -948,6 +928,114 @@ msgstr "Jou"
 msgid "Pagination"
 msgstr "Sivutus"
 
+#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
+#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
+msgid "Add Row"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
+msgid "Multisite Post Object"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
+msgid "Multisite Relationship"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
+msgid "Multisite taxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
+msgid "Multitaxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
+#, php-format
+msgctxt "No terms"
+msgid "No %s"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
+msgid "PHP"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
+msgid "Instructions"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
+msgid ""
+"This field can only be used with ACF Codifier. Doesn't do anything if "
+"defined in the admin side."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:57
+#, fuzzy
+#| msgctxt "theme-frontend"
+#| msgid "Skip to content"
+msgid "Reply to comment"
+msgstr "Siirry sisältöön"
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:58
+msgid "Your browser does not support this type of form handling."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:185
+#, fuzzy
+#| msgid "Comments"
+msgid "comment-page"
+msgstr "Kommentit"
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:238
+msgid ""
+"DustPress Comments: The 'get_comments_args' function is not defined in the "
+"model."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:244
+msgid ""
+"DustPress Comments: The 'get_form_args' function is not defined in the model."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:248
+msgid "DustPress Comments: The model class {"
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:264
+msgid ""
+"DustPress Comments: The 'get_comments_args' filter return value is not an "
+"array or it is empty."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:268
+msgid ""
+"DustPress Comments: The 'get_form_args' filter return value is not an array "
+"or it is empty."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:297
+#, fuzzy
+#| msgid "Comments"
+msgid "Comment sent."
+msgstr "Kommentit"
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:299
+#, fuzzy
+#| msgid "Your comment is awaiting moderation"
+msgid "Comment is waiting for approval."
+msgstr "Kommentti odottaa hyväksyntää"
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:344
+#: wp-content/plugins/dustpress-comments/classes/comments.php:676
+#, fuzzy
+#| msgid "Comments"
+msgid "all-comments"
+msgstr "Kommentit"
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:574
+msgid "Processing comments..."
+msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
 msgstr ""
@@ -963,29 +1051,3 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "theme-frontend"
-#~| msgid "Skip to content"
-#~ msgid "Reply to comment"
-#~ msgstr "Siirry sisältöön"
-
-#, fuzzy
-#~| msgid "Comments"
-#~ msgid "comment-page"
-#~ msgstr "Kommentit"
-
-#, fuzzy
-#~| msgid "Comments"
-#~ msgid "Comment sent."
-#~ msgstr "Kommentit"
-
-#, fuzzy
-#~| msgid "Your comment is awaiting moderation"
-#~ msgid "Comment is waiting for approval."
-#~ msgstr "Kommentti odottaa hyväksyntää"
-
-#, fuzzy
-#~| msgid "Comments"
-#~ msgid "all-comments"
-#~ msgstr "Kommentit"
