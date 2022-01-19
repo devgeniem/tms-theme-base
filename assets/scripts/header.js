@@ -66,6 +66,7 @@ export default class Header {
 
         MicroModal.init( {
             disableScroll: true,
+            onShow: this.onFlyOutMenuOpen.bind( this ),
         } );
 
         this.maybeShowGeneralNotification();

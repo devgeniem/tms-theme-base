@@ -239,6 +239,7 @@ class BlocksController implements Interfaces\Controller {
             'acf/notice-banner' => [
                 'post_types' => [
                     PostType\Page::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'acf/map'           => [

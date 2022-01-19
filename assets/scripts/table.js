@@ -16,7 +16,16 @@ export default class Table {
      */
     docReady() {
         if ( document.getElementsByTagName( 'table' ).length > 0 ) {
-            new Indicate( document.getElementsByTagName( 'table' ), { arrows: true } );
+
+            const allTables = document.getElementsByTagName( 'table' );
+            const indicate = new Indicate( allTables, { arrows: true } );
+
+            //make tables tabbable for scrolling with keyboard
+            for ( const table of indicate.targetElements ) {
+                table.setAttribute( 'tabindex', '0' );
+            }
+
         }
+
     }
 }
