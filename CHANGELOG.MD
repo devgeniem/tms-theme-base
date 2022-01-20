@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+
+## [1.31.7] - 2022-01-20
+
+### Changed
+
+- TMS-506: Add identifying class to comments section #345
+- TMS-513: Add Sara Hilden icons #340
+- TMS-497: Fix translation #331
+
+## [1.31.6]
+
 ### Added
 
 - TMS-540: Notice banner block added for Dynaminc Event
@@ -17,6 +31,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-522: Indicate module 
   - Fix Indicate with tables in accordions
   - Indicate tables are focusable for using with keyboard
+- TMS-638: Fix fly out nav height #344
+- TMS-625: Fix breadcrumb word wrap #333
+- TMS-522: Indicate module
+    - Fix Indicate with tables in accordions
+    - Indicate tables are focusable for using with keyboard
 
 ## [1.31.5] - 2022-01-13
 
@@ -32,7 +51,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+<<<<<<< HEAD
 - TMS-625: Hyphenate breadcrumbs
+=======
+>>>>>>> TMS-604
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
 - TMS-515: Slick slider translations for carousels #332
