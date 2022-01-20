@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+
 ## [1.31.7] - 2022-01-20
 
 ### Changed
