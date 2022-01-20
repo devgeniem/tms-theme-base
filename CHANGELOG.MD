@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.7] - 2022-01-20
+
 ### Changed
 
 - TMS-506: Add identifying class to comments section #345
