@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+ - TMS-646: Tables allowed for Author
 ## [1.31.7] - 2022-01-20
 
 ### Changed
