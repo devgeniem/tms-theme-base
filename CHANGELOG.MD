@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+
+- TMS-647: Build optimizations
+- TMS-646: Tables allowed for Author
 
 ### Changed
 
@@ -51,10 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-<<<<<<< HEAD
 - TMS-625: Hyphenate breadcrumbs
-=======
->>>>>>> TMS-604
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
 - TMS-515: Slick slider translations for carousels #332
