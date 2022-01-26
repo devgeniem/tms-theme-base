@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- TMS-424: Option for navigation dropdown trigger only #348
+
+## [1.31.9] - 2022-01-25
+- Hotfix SCSS to prevent build error
+
+## [1.31.8] - 2022-01-25
+
+### Changed
+
+- TMS-646: Tables allowed for Author
+
 ## [1.31.7] - 2022-01-20
 
 ### Changed
