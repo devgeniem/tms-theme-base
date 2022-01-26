@@ -19,6 +19,12 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
         padding: $theme-spacing-three-quarters 0;
         border-bottom: 5px solid transparent;
 
+        &--trigger-only {
+            .navbar-dropdown__parent-link {
+                display: none !important;
+            }
+        }
+
         .navbar-dropdown-control {
             color: $navbar-item-navbar-link-color;
 
