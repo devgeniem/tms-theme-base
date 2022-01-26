@@ -113,12 +113,17 @@ class Error404SettingsTab extends Tab {
                 ->set_instructions( $strings['404_alignment']['instructions'] )
                 ->set_choices( $strings['404_alignment']['choices'] );
 
-            $this->add_fields( [
-                $title_field,
-                $description_field,
-                $image_field,
-                $alignment_field,
-            ] );
+            $this->add_fields(
+                apply_filters(
+                    'tms/acf/tab/error404/fields',
+                    [
+                        $title_field,
+                        $description_field,
+                        $image_field,
+                        $alignment_field,
+                    ]
+                )
+            );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
