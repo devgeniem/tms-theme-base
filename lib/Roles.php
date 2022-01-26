@@ -526,6 +526,8 @@ class Roles implements Controller {
 
         $role->remove_caps( $this->remove_from_all );
 
+        $role->add_caps( $this->tablepress_all_capabilities );
+
         $role = apply_filters( 'tms/roles/author', $role );
         $role->rename( _x( 'Author', 'wp-geniem-roles', 'tms-theme-base' ) );
     }
