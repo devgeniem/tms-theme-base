@@ -16,7 +16,7 @@ class Header extends Model {
     use Traits\Links;
 
     /**
-     *
+     * Hooks.
      */
     public function hooks() {
         add_filter(

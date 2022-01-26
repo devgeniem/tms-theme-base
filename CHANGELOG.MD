@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+
+### Added
+
+- TMS-424: Option for navigation dropdown trigger only #348
+
 ## [1.31.9] - 2022-01-25
 - Hotfix SCSS to prevent build error
 
@@ -38,7 +46,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-534-2: Filter for removing available Gravity Forms fields
-- TMS-522: Indicate module 
+- TMS-522: Indicate module
   - Fix Indicate with tables in accordions
   - Indicate tables are focusable for using with keyboard
 - TMS-638: Fix fly out nav height #344
