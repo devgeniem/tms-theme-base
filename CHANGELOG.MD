@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-650: Force event location name to use 'fi'
+- TMS-650: Force event location name to use 'fi' #352
 
 ## [1.31.9] - 2022-01-25
 - Hotfix SCSS to prevent build error
