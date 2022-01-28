@@ -205,8 +205,10 @@ class LinkedEvents implements Controller {
      * @return array
      */
     public static function get_event_location( $event, $lang_key ) {
+        $lang_key_fixed = 'fi';
+
         return [
-            'name'        => $event->location->name->{$lang_key} ?? null,
+            'name'        => $event->location->name->{$lang_key_fixed} ?? null,
             'description' => $event->location->description->{$lang_key} ?? null,
             'extra_info'  => $event->location_extra_info->{$lang_key} ?? null,
             'info_url'    => [
@@ -327,7 +329,8 @@ class LinkedEvents implements Controller {
      * @return array|null
      */
     public static function get_virtual_event_link( object $event, string $lang_key ) : ?array {
-        $url = $event->virtualevent_url->{$lang_key} ?? null;
+        $lang_key = 'fi';
+        $url      = $event->virtualevent_url->{$lang_key} ?? null;
 
         if ( empty( $url ) ) {
             return null;
