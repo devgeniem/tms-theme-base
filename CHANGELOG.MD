@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-424: Option for navigation dropdown trigger only #348
+- Feat/dart-sass #349
 
 ## [1.31.9] - 2022-01-25
 - Hotfix SCSS to prevent build error
