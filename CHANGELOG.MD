@@ -8,8 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+
 - TMS-424: Option for navigation dropdown trigger only #348
 - Feat/dart-sass #349
+
+### Changed
+
+- TMS-650: Force event location name to use 'fi'
 
 ## [1.31.9] - 2022-01-25
 - Hotfix SCSS to prevent build error
