@@ -205,6 +205,7 @@ class LinkedEvents implements Controller {
      * @return array
      */
     public static function get_event_location( $event, $lang_key ) {
+        // Location name uses fixed lang key 'fi'
         $lang_key_fixed = 'fi';
 
         return [
@@ -329,6 +330,7 @@ class LinkedEvents implements Controller {
      * @return array|null
      */
     public static function get_virtual_event_link( object $event, string $lang_key ) : ?array {
+        // Force language to 'fi'
         $lang_key = 'fi';
         $url      = $event->virtualevent_url->{$lang_key} ?? null;
 

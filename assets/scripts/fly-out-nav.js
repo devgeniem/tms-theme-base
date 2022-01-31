@@ -35,7 +35,10 @@ export default class FlyOutNav {
             }
         }
 
-        $( '.fly-out-nav .navbar-item--trigger-only' ).on( 'click', this.dropdownLinkClick.bind( this ) );
+        const $triggerItem = $( '.fly-out-nav .navbar-item--trigger-only' );
+
+        $triggerItem.on( 'click', this.dropdownLinkClick.bind( this ) );
+        $( '.menu-item', $triggerItem ).on( 'click', this.dropdownChildLinkClick.bind( this ) );
     }
 
     /**
@@ -51,6 +54,15 @@ export default class FlyOutNav {
         if ( toggler.length > 0 ) {
             toggler.get( 0 ).click();
         }
+    }
+
+    /**
+     * Handle dropdown child click.
+     *
+     * @param {Event} event A click event.
+     */
+    dropdownChildLinkClick( event ) {
+        event.stopPropagation();
     }
 
     /**
