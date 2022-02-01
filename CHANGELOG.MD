@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.12] - 2022-02-01
+
+### Changed
+
+- Fix typo in Site Settings
+
 ## [1.31.11] - 2022-02-01
 
 - hotfix/primary-nav-child-items: Fix flyout nav trigger only child links #353
