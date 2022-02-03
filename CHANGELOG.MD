@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.13] - 2022-02-03
+
+- hotfix/body-margin: Fix body margin #355
+
 ## [1.31.12] - 2022-02-01
 
 ### Changed
