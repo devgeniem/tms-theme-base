@@ -38,7 +38,10 @@ class Error404 extends BaseModel {
         $alignment = Settings::get_setting( '404_alignment' );
         $alignment = is_array( $alignment ) ? reset( $alignment ) : 'has-text-centered';
 
-        return $alignment;
+        return apply_filters(
+            'tms/theme/error404/alignment',
+            $alignment
+        );
     }
 
     /**

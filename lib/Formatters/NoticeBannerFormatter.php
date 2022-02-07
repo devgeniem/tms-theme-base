@@ -42,7 +42,8 @@ class NoticeBannerFormatter implements Formatter {
      * @return array
      */
     public function format( array $data ) : array {
-        $data['text_color'] = $data['background_color'] === 'primary'
+        $data['background_color'] = $data['background_color'] ?? 'primary';
+        $data['text_color']       = $data['background_color'] === 'primary'
             ? 'has-text-primary-invert'
             : 'has-text-black';
 
