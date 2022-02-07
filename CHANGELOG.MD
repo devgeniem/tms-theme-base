@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-547: Make fly out nav overridable #339
 - TMS-604: Allow subpages `background_image` field to be removed
+- TMS-543: Convert pagination hellip a into span #356
 - Migrate to dart sass #354
 
 ## [1.31.13] - 2022-02-03
