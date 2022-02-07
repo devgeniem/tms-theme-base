@@ -16,6 +16,18 @@ class Header extends Model {
     use Traits\Links;
 
     /**
+     * Hooks.
+     */
+    public function hooks() {
+        add_filter(
+            'dustpress/menu/item/classes',
+            Closure::fromCallable( [ $this, 'menu_item_classes' ] ),
+            10,
+            2
+        );
+    }
+
+    /**
      * Get logo
      *
      * @return mixed|null
@@ -295,6 +307,26 @@ class Header extends Model {
      */
     public function hide_flyout_secondary() : bool {
         return apply_filters( 'tms/theme/hide_flyout_secondary', false );
+    }
+
+    /**
+     * Setup item classes.
+     *
+     * @param array  $classes Classes.
+     * @param object $item    Menu item object.
+     *
+     * @return array Classes.
+     */
+    public function menu_item_classes( $classes, $item ) : array {
+        if ( apply_filters( 'tms/theme/nav_parent_link_is_trigger_only', false ) ) {
+            $item_is_top_level_parent = '0' === $item->menu_item_parent && ! empty( $item->sub_menu );
+
+            if ( $item_is_top_level_parent ) {
+                $classes[] = 'navbar-item--trigger-only';
+            }
+        }
+
+        return $classes;
     }
 
     /**

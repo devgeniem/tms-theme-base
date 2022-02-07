@@ -45,7 +45,7 @@ class SubpagesFormatter implements Formatter {
      */
     public function format( array $data ) : array {
         $data['subpages']     = $this->get_subpages( $data );
-        $data['icon_classes'] = $data['background_color'] === 'primary'
+        $data['icon_classes'] = ( $data['background_color'] ?? 'primary' ) === 'primary'
             ? 'is-primary-invert'
             : 'is-primary-light';
 
@@ -98,8 +98,10 @@ class SubpagesFormatter implements Formatter {
                 $item['image_id'] = get_post_thumbnail_id( $post_id );
             }
             else {
-                $item_classes[] = 'has-background-' . $data['background_color'];
-                $item_classes[] = 'has-text-' . $data['background_color'] . '-invert';
+                if ( ! empty( $data['background_color'] ) ) {
+                    $item_classes[] = 'has-background-' . $data['background_color'];
+                    $item_classes[] = 'has-text-' . $data['background_color'] . '-invert';
+                }
             }
 
             $item['classes'] = implode( ' ', $item_classes );
