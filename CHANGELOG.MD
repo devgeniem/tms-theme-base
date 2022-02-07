@@ -7,16 +7,85 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+
+## [1.31.13] - 2022-02-03
+
+- hotfix/body-margin: Fix body margin #355
+
+## [1.31.12] - 2022-02-01
+
+### Changed
+
+- Fix typo in Site Settings
+
+## [1.31.11] - 2022-02-01
+
+- hotfix/primary-nav-child-items: Fix flyout nav trigger only child links #353
+
+## [1.31.10] - 2022-01-28
+
+
+### Added
+
+- TMS-424: Option for navigation dropdown trigger only #348
+- Feat/dart-sass #349
+
+### Changed
+
+- TMS-650: Force event location name to use 'fi' #352
+
+## [1.31.9] - 2022-01-25
+- Hotfix SCSS to prevent build error
+
+## [1.31.8] - 2022-01-25
+
+### Changed
+
+- TMS-646: Tables allowed for Author
+
+## [1.31.7] - 2022-01-20
+
+### Changed
+
+- TMS-506: Add identifying class to comments section #345
+- TMS-513: Add Sara Hilden icons #340
+- TMS-497: Fix translation #331
+
+## [1.31.6]
+
+### Added
+
+- TMS-540: Notice banner block added for Dynaminc Event
+
+### Changed
+
+- TMS-638: Fix fly out nav height #344
+- TMS-625: Fix breadcrumb word wrap #333
+- TMS-522: Indicate module
+    - Fix Indicate with tables in accordions
+    - Indicate tables are focusable for using with keyboard
+
+## [1.31.5] - 2022-01-13
+
+### Changed
+
+- Exclude favicon from build for now.
+
+## [1.31.4] - 2022-01-13
+
 ### Added
 
 - TMS-631: Disable user list REST endpoints #334
 
 ### Changed
 
-- TMS-525: Subpages orderby parameters
-- TMS-526: Social media embed skip link 
-- TMS-515: Slick slider translations for carousels
-- TMS-419: Clicking outside nav closes it's dropdowns
+- TMS-525: Subpages orderby parameters #337
+- TMS-526: Social media embed skip link #335
+- TMS-515: Slick slider translations for carousels #332
+- TMS-419: Clicking outside nav closes it's dropdowns #330
 - TMS-492: Add filters & variables for language nav customization #323
 
 ## [1.31.3] - 2021-12-23

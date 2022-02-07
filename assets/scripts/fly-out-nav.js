@@ -35,13 +35,34 @@ export default class FlyOutNav {
             }
         }
 
-        $( '.fly-out-nav .dropdown-trigger' ).on( 'click', this.dropdownLinkClick.bind( this ) );
+        const $triggerItem = $( '.fly-out-nav .navbar-item--trigger-only' );
+
+        $triggerItem.on( 'click', this.dropdownLinkClick.bind( this ) );
+        $( '.menu-item', $triggerItem ).on( 'click', this.dropdownChildLinkClick.bind( this ) );
     }
 
+    /**
+     * Handle dropdown click.
+     *
+     * @param {Event} event A click event.
+     */
     dropdownLinkClick( event ) {
         event.preventDefault();
 
-        $( event.target ).next( '.dropdown-toggler' ).click();
+        const toggler = $( event.target ).next( '.dropdown-toggler' );
+
+        if ( toggler.length > 0 ) {
+            toggler.get( 0 ).click();
+        }
+    }
+
+    /**
+     * Handle dropdown child click.
+     *
+     * @param {Event} event A click event.
+     */
+    dropdownChildLinkClick( event ) {
+        event.stopPropagation();
     }
 
     /**
@@ -52,6 +73,8 @@ export default class FlyOutNav {
      * @return {void}
      */
     toggleDropdown( event ) {
+        event.stopPropagation();
+
         const target = event.currentTarget;
         const containerId = target.getAttribute( 'aria-controls' );
         const dropdownMenu = this.navbarMenu.querySelector( `#${ containerId }` );
@@ -65,7 +88,7 @@ export default class FlyOutNav {
      * Set the 'is-active' state for an ancestor of an element
      * with the matching class name.
      *
-     * @param {HTMLElement} child A child element to start the search from.
+     * @param {HTMLElement} child     A child element to start the search from.
      * @param {HTMLElement} className A target class name for the ancestor.
      *
      * @return {void}

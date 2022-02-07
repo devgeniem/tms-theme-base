@@ -1,3 +1,4 @@
+import './arrow-right.svg';
 import './building.svg';
 import './bullhorn.svg';
 import './burger.svg';
@@ -9,6 +10,7 @@ import './chevron-up.svg';
 import './close.svg';
 import './date.svg';
 import './droplet.svg';
+import './download.svg';
 import './email.svg';
 import './euro.svg';
 import './external.svg';
@@ -93,3 +95,5 @@ import './time.svg';
 import './twitter.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
+import './cafesara.svg';
+import './veistospuisto.svg';
