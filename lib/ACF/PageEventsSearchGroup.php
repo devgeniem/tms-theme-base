@@ -98,7 +98,6 @@ class PageEventsSearchGroup {
             ->use_ajax()
             ->allow_null()
             ->allow_multiple()
-            ->set_wrapper_width( 50 )
             ->set_instructions( $strings['keyword']['instructions'] );
 
         $tab->add_field( $keyword_field );

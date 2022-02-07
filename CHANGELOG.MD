@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-656: Add keyword filter to events search page
 - TMS-604: Allow subpages `background_image` field to be removed
 - TMS-653: Improve home view filter usability in mobile
+- TMS-656: Add keyword filter to events search page #357
+
+### Changed
+
+- TMS-547: Make fly out nav overridable #339
+- TMS-604: Allow subpages `background_image` field to be removed
+- TMS-543: Convert pagination hellip a into span #356
+- Migrate to dart sass #354
 
 ## [1.31.13] - 2022-02-03
 
@@ -28,6 +36,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - hotfix/primary-nav-child-items: Fix flyout nav trigger only child links #353
 
 ## [1.31.10] - 2022-01-28
+<<<<<<< HEAD
+=======
+
+>>>>>>> TMS-656
 
 ### Added
 
