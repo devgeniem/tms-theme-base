@@ -93,6 +93,14 @@ $fly-out-nav-search-button-icon: $primary !default;
         }
     }
 
+    .navbar-item {
+        white-space: normal !important;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
     &__primary {
         position: relative;
         margin-top: 3rem;
