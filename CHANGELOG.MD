@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-656: Add keyword filter to events search page
 - TMS-604: Allow subpages `background_image` field to be removed
+- TMS-653: Improve home view filter usability in mobile
 
 ## [1.31.13] - 2022-02-03
 
