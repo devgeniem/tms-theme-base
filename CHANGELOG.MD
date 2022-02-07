@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-656: Add keyword filter to events search page
+- TMS-656: Add keyword filter to events search page #357
 
 ## [1.31.13] - 2022-02-03
 
