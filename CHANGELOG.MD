@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+
 ## [1.31.13] - 2022-02-03
 
 - hotfix/body-margin: Fix body margin #355
@@ -22,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - hotfix/primary-nav-child-items: Fix flyout nav trigger only child links #353
 
 ## [1.31.10] - 2022-01-28
+
 
 ### Added
 
