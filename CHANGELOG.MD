@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-653: Improve home view filter usability in mobile
+
 ## [1.31.13] - 2022-02-03
 
 - hotfix/body-margin: Fix body margin #355
