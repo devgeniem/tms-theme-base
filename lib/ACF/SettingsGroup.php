@@ -112,7 +112,7 @@ class SettingsGroup {
      */
     protected function get_exception_notice_fields( string $key ) : Field\Tab {
         $strings = [
-            'tab'  => 'Poikkeusilmotus',
+            'tab'  => 'Poikkeusilmoitus',
             'text' => [
                 'title'        => 'Teksti',
                 'instructions' => '',

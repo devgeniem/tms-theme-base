@@ -7,14 +7,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-
 ### Changed
 
 - TMS-604: Allow subpages `background_image` field to be removed
 
+## [1.31.13] - 2022-02-03
+
+- hotfix/body-margin: Fix body margin #355
+
+## [1.31.12] - 2022-02-01
+
+### Changed
+
+- Fix typo in Site Settings
+
+## [1.31.11] - 2022-02-01
+
+- hotfix/primary-nav-child-items: Fix flyout nav trigger only child links #353
+
+## [1.31.10] - 2022-01-28
+
+
 ### Added
 
 - TMS-424: Option for navigation dropdown trigger only #348
+- Feat/dart-sass #349
+
+### Changed
+
+- TMS-650: Force event location name to use 'fi' #352
 
 ## [1.31.9] - 2022-01-25
 - Hotfix SCSS to prevent build error
