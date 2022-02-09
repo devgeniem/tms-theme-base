@@ -1,3 +1,4 @@
+import './arrow-down.svg';
 import './arrow-right.svg';
 import './building.svg';
 import './bullhorn.svg';
