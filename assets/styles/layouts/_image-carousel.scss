@@ -44,12 +44,12 @@
     }
 
     .slick-next {
-        right: 0;
+        right: 0.5rem;
         transform: translateX(100%) translateY(-50%);
     }
 
     .slick-prev {
-        left: 0;
+        left: 0.5rem;
         transform: translateX(-100%) translateY(-50%);
     }
 }
