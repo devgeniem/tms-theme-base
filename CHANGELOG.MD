@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-654: Fix long navigation link text overflow #358
 - TMS-653: Improve home view filter usability in mobile #359
 - TMS-711: Image carousel mobile fix
 - TMS-470: Gravity form submit button as button
