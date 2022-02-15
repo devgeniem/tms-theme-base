@@ -24,6 +24,7 @@ import Toggle from './toggle';
 import Sitemap from './sitemap';
 import ExternalLinks from './external-links';
 import DatePicker from './date-picker';
+import GravityFormsPatch from './gravity-forms-patch';
 
 const globalControllers = {
     Common,
@@ -47,6 +48,7 @@ const globalControllers = {
     Sitemap,
     ExternalLinks,
     DatePicker,
+    GravityFormsPatch,
 };
 
 const templateControllers = {
