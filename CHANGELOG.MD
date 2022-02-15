@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-470-2: Gravity Forms block JS patch for multifile upload
 ### Changed
 
 - TMS-711: Image carousel mobile fix 
