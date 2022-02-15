@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-653: Improve home view filter usability in mobile
+### Changed
+
+- TMS-653: Improve home view filter usability in mobile #359
+- TMS-711: Image carousel mobile fix
+- TMS-470: Gravity form submit button as button
+- TMS-547: Make fly out nav overridable #339
+- TMS-604: Allow subpages `background_image` field to be removed
+- TMS-543: Convert pagination hellip a into span #356
+- Migrate to dart sass #354
 
 ## [1.31.13] - 2022-02-03
 

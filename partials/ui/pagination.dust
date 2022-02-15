@@ -30,7 +30,8 @@
             {/pages}
             {?hellip_end}
                 <li class="unavailable" aria-disabled="true">
-                    <a class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</a></li>
+                    <span class="pagination-item__link hellip" href="#" tabindex="-1">&hellip;</span>
+                </li>
 
                 <li class="pagination-item">
                     <a class="pagination-item__link" href="{page_link}{last_page}{hash}" data-page="{last_page}">
