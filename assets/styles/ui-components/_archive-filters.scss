@@ -1,0 +1,24 @@
+.archive-filters {
+    &__select-container {
+        display: flex;
+        flex-direction: column;
+        gap: $theme-spacing-oneandhalf;
+
+        @include until($tablet) {
+            width: 100%;
+        }
+
+        @include from($tablet) {
+            flex-direction: row;
+        }
+
+        select {
+            width: 100%;
+            color: inherit;
+
+            @include until($desktop) {
+                font-size: 1em;
+            }
+        }
+    }
+}
