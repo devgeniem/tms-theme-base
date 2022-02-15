@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.14] - 2022-02-15
+
 ### Changed
 
 - TMS-654: Fix long navigation link text overflow #358
