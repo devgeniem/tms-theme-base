@@ -138,7 +138,7 @@ class PageEventsSearch extends BaseModel {
             'sort'        => 'end_time',
             'page_size'   => get_option( 'posts_per_page' ),
             'show_images' => true,
-            'keyword'     => [],
+            'keyword'     => get_field( 'keyword' ) ?? [],
             'location'    => '',
             'publisher'   => '',
             'page'        => get_query_var( 'paged', 1 ),
