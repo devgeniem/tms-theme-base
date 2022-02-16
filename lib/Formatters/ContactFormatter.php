@@ -35,6 +35,13 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         );
     }
 
+    /**
+     * Format view data
+     *
+     * @param array $data ACF data.
+     *
+     * @return array
+     */
     public function format( array $data ) {
         if ( empty( $data['contacts'] ) ) {
             return $data;
