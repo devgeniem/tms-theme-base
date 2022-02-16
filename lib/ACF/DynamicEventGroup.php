@@ -360,6 +360,7 @@ class DynamicEventGroup {
                 Layouts\ImageCarouselLayout::class,
                 Layouts\NoticeBannerLayout::class,
                 Layouts\TextBlockLayout::class,
+                Layouts\ContactsLayout::class,
             ],
             $key
         );
