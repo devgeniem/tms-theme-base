@@ -91,8 +91,7 @@ class Search extends BaseModel {
      *
      * @return array|null
      */
-    public
-    function event_search() : ?array {
+    public function event_search() : ?array {
         $page = Settings::get_setting( 'events_search_page' );
 
         if ( empty( $page ) ) {
@@ -110,8 +109,7 @@ class Search extends BaseModel {
      *
      * @param WP_Query $wp_query Instance of WP_Query.
      */
-    public
-    static function modify_query(
+    public static function modify_query(
         WP_Query $wp_query
     ) {
         if ( is_admin() || ( ! $wp_query->is_main_query() || ! is_search() ) ) {
@@ -175,8 +173,7 @@ class Search extends BaseModel {
      *
      * @return string
      */
-    public
-    static function set_search_scorer(
+    public static function set_search_scorer(
         string $scorer
     ) : string {
         return 'DISMAX';
@@ -189,8 +186,7 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public
-    static function set_fields_weight(
+    public static function set_fields_weight(
         array $fields
     ) : array {
         // Post title is the most relevant field
@@ -211,8 +207,7 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public
-    static function set_ignored_query_vars(
+    public static function set_ignored_query_vars(
         array $vars
     ) : array {
         $vars[] = 'search_start_date';
@@ -228,8 +223,7 @@ class Search extends BaseModel {
      * @throws Exception If global $post is not available or $id param is not defined.
      * @global WP_Query $wp_query The main query object.
      */
-    public
-    function results() {
+    public function results() {
         global $wp_query;
 
         $search_clause = get_search_query();
@@ -270,8 +264,7 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public
-    function template_classes() {
+    public function template_classes() {
         return apply_filters(
             'tms/theme/search/search_item',
             [
@@ -291,8 +284,7 @@ class Search extends BaseModel {
      *
      * @return mixed
      */
-    private
-    function enrich_results(
+    private function enrich_results(
         $posts
     ) {
         foreach ( $posts as $post_item ) {
@@ -354,8 +346,7 @@ class Search extends BaseModel {
      *
      * @return array        Meta data.
      */
-    private
-    function format_result_item_meta(
+    private function format_result_item_meta(
         $post_item, $tax_term = null
     ) {
         $meta_data['date'] = $post_item->post_date;
@@ -375,8 +366,7 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    protected
-    static function get_searchable_post_types() : array {
+    protected static function get_searchable_post_types() : array {
         $post_types = get_post_types( [], 'objects' );
 
         return [
