@@ -18,6 +18,11 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
     .navbar-item {
         padding: $theme-spacing-three-quarters 0;
         border-bottom: 5px solid transparent;
+        white-space: normal !important;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
 
         &--trigger-only {
             .navbar-dropdown__parent-link {
