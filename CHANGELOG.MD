@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-470-2: Gravity Forms block JS patch for multifile upload #363
 - TMS-656: Add keyword filter to events search page #357
 
+### Changed
+
+- TMS-724: Fix for IconLinksFormatter if key `icon` is not set
 ## [1.31.14] - 2022-02-15
 
 ### Changed
