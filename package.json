@@ -8,7 +8,7 @@
     "@accessible360/accessible-slick": "^1.0.1",
     "@babel/polyfill": "^7.12.1",
     "@duetds/date-picker": "^1.4.0",
-    "@wordpress/keycodes": "^3.0.0",
+    "@wordpress/keycodes": "^3.3.1",
     "hyphenopoly": "^3.4.0",
     "indicate": "^2.4.0",
     "micromodal": "^0.4.6",
@@ -18,7 +18,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.17.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.16.0",
     "@babel/register": "^7.14.5",
