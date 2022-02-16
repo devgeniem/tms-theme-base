@@ -9,15 +9,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-304: Add image carousel as a gutenberg block
 - TMS-656: Add keyword filter to events search page
 - TMS-604: Allow subpages `background_image` field to be removed
 - TMS-653: Improve home view filter usability in mobile
 - TMS-656: Add keyword filter to events search page #357
 - TMS-470-2: Gravity Forms block JS patch for multifile upload
+- TMS-470-2: Gravity Forms block JS patch for multifile upload #363
+- TMS-656: Add keyword filter to events search page #357
+
+## [1.31.14] - 2022-02-15
 
 ### Changed
 
-- TMS-711: Image carousel mobile fix 
+- TMS-654: Fix long navigation link text overflow #358
+- TMS-653: Improve home view filter usability in mobile #359
+- TMS-711: Image carousel mobile fix
 - TMS-470: Gravity form submit button as button
 - TMS-547: Make fly out nav overridable #339
 - TMS-604: Allow subpages `background_image` field to be removed
