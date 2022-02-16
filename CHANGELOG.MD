@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-653: Improve home view filter usability in mobile
 - TMS-656: Add keyword filter to events search page #357
 - TMS-470-2: Gravity Forms block JS patch for multifile upload
+- TMS-470-3: Gravity Forms JS fix for forms as layouts and bloks in same page
 - TMS-470-2: Gravity Forms block JS patch for multifile upload #363
 - TMS-656: Add keyword filter to events search page #357
 
