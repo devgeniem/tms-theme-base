@@ -1,0 +1,9 @@
+<div {?anchor}id="{anchor|s}"{/anchor} class="section layout-contacts">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {>"blocks/block-contacts" /}
+            </div>
+        </div>
+    </div>
+</div>
