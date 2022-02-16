@@ -79,52 +79,6 @@ class ContactsBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
-        $field_keys    = $data['fields'];
-        $formatter     = new ContactFormatter();
-        $default_image = Settings::get_setting( 'contacts_default_image' );
-
-        if ( ! empty( $data['contacts'] ) ) {
-            $the_query = new WP_Query( [
-                'post_type'      => Contact::SLUG,
-                'posts_per_page' => 100,
-                'fields'         => 'ids',
-                'post__in'       => array_map( 'absint', $data['contacts'] ),
-                'no_found_rows'  => true,
-                'meta_key'       => 'last_name',
-                'orderby'        => [
-                    'menu_order' => 'ASC',
-                    'meta_value' => 'ASC', // phpcs:ignore
-                ],
-            ] );
-
-            if ( $the_query->have_posts() ) {
-                $filled_contacts = $formatter->map_keys(
-                    $the_query->posts,
-                    $field_keys,
-                    $default_image
-                );
-            }
-        }
-
-        if ( ! empty( $data['api_contacts'] ) ) {
-            $filled_api_contacts = $formatter->map_api_contacts(
-                $data['api_contacts'],
-                $field_keys,
-                $default_image
-            );
-        }
-
-        $data['filled_contacts'] = array_merge(
-            $filled_contacts ?? [],
-            $filled_api_contacts ?? []
-        );
-
-        $data['column_class'] = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet';
-
-        if ( ! in_array( 'image', $field_keys, true ) ) {
-            $data['column_class'] .= ' is-3-desktop';
-        }
-
         return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }

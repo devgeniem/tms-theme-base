@@ -119,6 +119,7 @@ class PageFrontPageGroup {
                 Layouts\GravityFormLayout::class,
                 Layouts\SubpageLayout::class,
                 Layouts\SocialMediaLayout::class,
+                Layouts\ContactsLayout::class,
             ],
             $key
         );
