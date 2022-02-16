@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Patch for Gravity Forms' block. Ensures that multifile upload works with block also.
  * Hopefully temporary.
