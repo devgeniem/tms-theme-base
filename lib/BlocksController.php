@@ -211,6 +211,14 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'acf/image-carousel' => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                    PostType\DynamicEvent::SLUG,
+                ],
+            ],
             'acf/share-links'   => [
                 'post_types' => [
                     PostType\Page::SLUG,
