@@ -56,6 +56,13 @@ class Assets implements Interfaces\Controller {
             10,
             0
         );
+
+        \add_filter(
+            'tms/theme/acc_icons',
+            \Closure::fromCallable( [ $this, 'get_accessibility_icons' ] ),
+            10,
+            0
+        );
     }
 
     /**
@@ -342,6 +349,46 @@ class Assets implements Interfaces\Controller {
             'icon-tori'            => 'Tori',
             'icon-wifi'            => 'Wifi',
             'icon-alykas'          => 'Älykas',
+        ];
+    }
+
+    /**
+     * Get available accessibility icon choices.
+     *
+     * @return string[]
+     */
+    protected function get_accessibility_icons() {
+        return [
+            'aaniopastus' => 'Ääniopastus',
+            'avustaja' => 'Avustaja',
+            'hissi' => 'Hissi',
+            'induktiosilmukka' => 'Induktiosilmukka',
+            'info' => 'Info',
+            'internet' => 'Internet',
+            'isa' => 'ISA',
+            'kahvila' => 'Kahvila',
+            'kauppa' => 'Kauppa',
+            'kokoustilaa' => 'Kokoustilaa',
+            'lainattavia-valineita' => 'Lainattavia välineitä',
+            'lastenhoitotila' => 'Lastenhoitotila',
+            'latauspiste' => 'Latauspiste',
+            'lipunmyynti' => 'Lipunmyynti',
+            'luiska' => 'Luiska',
+            'nakovammaisia_helpottavat_palvelut' => 'Näkövammaisia helpottavat palvelut',
+            'opaskoirat_sallittu' => 'Opaskoirat sallittu',
+            'pistekirjoitus' => 'Pistekirjoitus',
+            'porrashissi' => 'Porrashissi',
+            'portaat' => 'Portaat',
+            'pyoratuolihissi' => 'Pyörätuolihissi',
+            'rollaattori' => 'Rollaattori',
+            'sahkomopon_sailytys' => 'Sähkömopon säilytys',
+            'sailytyslokerot' => 'Säilytyslokerot',
+            'suuri_teksti' => 'Suuri teksti',
+            'vaatesailytys' => 'Vaatesäilytys',
+            'viitomakielinen_palvelu' => 'Viittomakielinen palvelu',
+            'wc_oikea' => 'WC Oikea',
+            'wc_vasen' => 'WC Vasen',
+            'wc' => 'WC',
         ];
     }
 }

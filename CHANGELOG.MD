@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-422: Add accessibility icons -block
 - TMS-304: Add image carousel as a gutenberg block
 - TMS-656: Add keyword filter to events search page
 - TMS-604: Allow subpages `background_image` field to be removed
@@ -23,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-724: Fix for IconLinksFormatter if key `icon` is not set
+- 
 ## [1.31.14] - 2022-02-15
 
 ### Changed

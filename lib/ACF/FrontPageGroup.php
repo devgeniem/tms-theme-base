@@ -120,6 +120,7 @@ class PageFrontPageGroup {
                 Layouts\SubpageLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\ContactsLayout::class,
+                Layouts\AccessibilityIconLinksLayout::class,
             ],
             $key
         );

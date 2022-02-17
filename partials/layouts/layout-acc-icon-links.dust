@@ -1,0 +1,32 @@
+<section {?anchor}id="{anchor|s}"{/anchor}
+         class="acc-icon-links section pt-12 pb-7">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="acc-icon-links__grid columns is-flex-wrap-wrap">
+                    {#rows}
+                        <div class="acc-icon-links__item column is-6-tablet keep-vertical-spacing pb-5">
+                            {?acc_icon}
+                                {>"ui/icon" icon=acc_icon class="icon--xxxlarge" /}
+                            {/acc_icon}
+
+                            {?title}
+                                <h2 class="h4 mt-0 mb-4 mt-4">
+                                    {title|s}
+                                </h2>
+                            {/title}
+
+                            {?description}
+                                <div class="acc-icon-links__item-description mb-4">
+                                    {description|s}
+                                </div>
+                            {/description}
+
+                            {>"ui/link" classes="is-small is-primary" icon=link.icon /}
+                        </div>
+                    {/rows}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
