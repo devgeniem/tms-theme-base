@@ -1,0 +1,18 @@
+/*!
+ *  Copyright (c) 2021. Geniem Oy
+ */
+
+ .acc-icon-links {
+    &__grid {
+        @include from($tablet) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        @include from($tablet) {
+            flex: 50%;
+        }
+    }
+}
