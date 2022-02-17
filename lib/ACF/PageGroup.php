@@ -167,6 +167,7 @@ class PageGroup {
                 Layouts\SitemapLayout::class,
                 Layouts\NoticeBannerLayout::class,
                 Layouts\GravityFormLayout::class,
+                Layouts\ContactsLayout::class,
             ],
             $key
         );
