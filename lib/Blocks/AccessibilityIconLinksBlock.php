@@ -40,7 +40,7 @@ class AccessibilityIconLinksBlock extends BaseBlock {
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Saavutettavuusikoninostot';
+        $this->title = 'Saavutettavuus- ja palveluikonit';
 
         parent::__construct();
     }

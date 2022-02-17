@@ -28,7 +28,7 @@ class AccessibilityIconLinksLayout extends BaseLayout {
      */
     public function __construct( string $key ) {
         parent::__construct(
-            'Saavutettavuusikoninostot',
+            'Saavutettavuus- ja palveluikonit',
             $key . self::KEY,
             'acc_icon_links'
         );
