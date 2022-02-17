@@ -359,6 +359,7 @@ class DynamicEventGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\NoticeBannerLayout::class,
+                Layouts\ContactsLayout::class,
             ],
             $key
         );
