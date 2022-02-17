@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.31.15] - 2022-02-17
+
 ### Added
 
 - TMS-722: Contacts Layout #364
