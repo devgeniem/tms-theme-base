@@ -25,6 +25,11 @@ class AccessibilityIconLinksFormatter implements \TMS\Theme\Base\Interfaces\Form
             'tms/acf/layout/acc_icon_links/data',
             [ $this, 'format' ]
         );
+
+        add_filter(
+            'tms/acf/block/acc_icon_links/data',
+            [ $this, 'format' ]
+        );
     }
 
     /**
