@@ -45,13 +45,11 @@ class AccessibilityIconLinksFormatter implements \TMS\Theme\Base\Interfaces\Form
         }
 
         foreach ( $layout['rows'] as $key => $row ) {
-            if ( ! empty( $layout['rows'][ $key ]['link']['icon'] ) ) {
-                $layout['rows'][ $key ]['link']['icon'] = '';
+            if ( empty( $layout['rows'][ $key ]['link'] ) ) {
+                continue;
             }
-            if ( isset( $row['link']['target'] ) && '_blank' === $row['link']['target'] ) {
-                $layout['rows'][ $key ]['link']['icon'] = 'external';
-                $layout['rows'][ $key ]['icon_classes'] = 'icon--medium is-inline-block';
-            }
+
+            $layout['rows'][ $key ]['link']['icon'] = 'chevron-right';
         }
 
         return $layout;

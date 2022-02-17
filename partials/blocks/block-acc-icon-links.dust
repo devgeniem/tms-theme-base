@@ -19,7 +19,7 @@
                     </div>
                 {/description}
 
-                {>"ui/link" classes="is-small is-primary" icon=link.icon /}
+                {>"ui/link" classes="is-small is-primary" use_icon="true" icon=link.icon /}
             </div>
         {/rows}
     </div>

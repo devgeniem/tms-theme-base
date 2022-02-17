@@ -2,6 +2,9 @@
     {?link.title}
         <a href="{link.url}" target="{link.target}" class="{classes|s}">
             {link.title|s}
+            {?use_icon}
+                {>"ui/icon" class="icon--medium is-primary" /}
+            {/use_icon}
         </a>
     {/link.title}
 {/link.url}
