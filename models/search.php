@@ -357,19 +357,30 @@ class Search extends BaseModel {
     protected static function get_searchable_post_types() : array {
         $post_types = get_post_types( [], 'objects' );
 
-        return [
-            [
-                'slug' => Page::SLUG,
-                'name' => $post_types[ Page::SLUG ]->labels->singular_name,
-            ],
-            [
-                'slug' => Post::SLUG,
-                'name' => $post_types[ Post::SLUG ]->labels->singular_name,
-            ],
-            [
-                'slug' => BlogArticle::SLUG,
-                'name' => $post_types[ BlogArticle::SLUG ]->labels->singular_name,
-            ],
-        ];
+        $ret_post_types = [];
+
+        foreach ( $post_types as $key => $type ) {
+
+            if ( $key !== Page::SLUG && $key !== Post::SLUG && $key !== BlogArticle::SLUG ) {
+                continue;
+            }
+
+            $posts = new \WP_Query( [
+                'post_type'      => $key,
+                'posts_per_page' => 1,
+                'fields'         => 'ids',
+            ] );
+
+            if ( ! $posts->have_posts() ) {
+                continue;
+            }
+
+            $ret_post_types[] = [
+                'slug' => $key,
+                'name' => $type->labels->singular_name,
+            ];
+        }
+
+        return $ret_post_types;
     }
 }
