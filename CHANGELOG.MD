@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-713: Limit search filtering for post types with posts.
 - TMS-422: Add accessibility icons -block
 - TMS-304: Add image carousel as a gutenberg block
 - TMS-656: Add keyword filter to events search page
@@ -18,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-470-2: Gravity Forms block JS patch for multifile upload
 - TMS-470-3: Gravity Forms JS fix for forms as layouts and bloks in same page
 - TMS-722: Contacts Layout #364
+
+## [1.31.15] - 2022-02-17
+
+### Added
+
+- TMS-722: Contacts Layout #364
+- TMS-470-3: Gravity Forms JS fix for forms as layouts and bloks in same page
 - TMS-470-2: Gravity Forms block JS patch for multifile upload #363
 - TMS-656: Add keyword filter to events search page #357
 
