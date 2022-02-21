@@ -43,13 +43,41 @@ class TextBlockFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
+            'title' => [
+                'label'        => 'Otsikko',
+                'instructions' => '',
+            ],
             'text' => [
                 'label'        => 'Sisältö',
+                'instructions' => '',
+            ],
+            'link' => [
+                'label'        => 'Linkki',
+                'instructions' => '',
+            ],
+            'background_color' => [
+                'label'        => 'Taustaväri',
+                'instructions' => '',
+            ],
+            'width' => [
+                'label'        => 'Leveys',
                 'instructions' => '',
             ],
         ];
 
         $key = $this->get_key();
+
+        $title_field = ( new Field\Text( $strings['title']['label'] ) )
+            ->set_key( "${key}_title" )
+            ->set_name( 'title' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['title']['instructions'] );
+
+        $link_field = ( new Field\Link( $strings['link']['label'] ) )
+            ->set_key( "${key}_link" )
+            ->set_name( 'link' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['link']['instructions'] );
 
         $text_field = ( new TextEditor( $strings['text']['label'] ) )
             ->set_key( "${key}_text" )
@@ -58,6 +86,50 @@ class TextBlockFields extends Field\Group {
             ->set_height( 300 )
             ->set_instructions( $strings['text']['instructions'] );
 
-        return [ $text_field ];
+        $background_color_field = ( new Field\Radio( $strings['background_color']['label'] ) )
+            ->set_key( "${key}_background_color" )
+            ->set_name( 'background_color' )
+            ->set_wrapper_width( 50 )
+            ->set_layout( 'horizontal' )
+            ->set_choices( [
+                'no_color'  => 'Ei taustaväriä',
+                'primary'   => 'Pääväri',
+                'secondary' => 'Toissijainen väri',
+            ] )
+            ->set_instructions( $strings['background_color']['instructions'] );
+
+        $width_field = ( new Field\Radio( $strings['width']['label'] ) )
+            ->set_key( "${key}_width" )
+            ->set_name( 'width' )
+            ->set_wrapper_width( 50 )
+            ->set_layout( 'horizontal' )
+            ->set_choices( [
+                'is-align-full' => '100%',
+                'is-align-wide' => '75%',
+                'is-align-half' => '50%',
+            ] )
+            ->set_instructions( $strings['width']['instructions'] );
+
+        return [
+            $title_field,
+            $link_field,
+            $text_field,
+            $background_color_field,
+            $width_field,
+        ];
     }
 }
+
+
+// Otsikko
+// Teksti (olemassa oleva kenttä)
+// Painike
+// Taustaväri
+// Pääväri
+// Toissijainen väri
+// Leveys
+// 50%
+// 75%
+// 100%
+// has-background-primary
+// has-background-secondary
