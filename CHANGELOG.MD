@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-714: Replace events and articles layout link with button-link
 - TMS-304: Add image carousel as a gutenberg block
 
 ## [1.31.15] - 2022-02-17

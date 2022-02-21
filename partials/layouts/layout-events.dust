@@ -20,10 +20,7 @@
             <div class="columns">
                 <div class="column is-12 has-text-right">
                     <div class="mt-0 mb-6">
-                        <a href="{all_events_link.url}" class="events__more-link {classes.all_events_link|s}">
-                            {>"ui/icon" icon="chevron-right" class="icon--small" /}
-                            {all_events_link.title|s}
-                        </a>
+                        {>"ui/button-link" link=all_events_link classes="is-primary events__more" icon="chevron-right" icon_classes="icon--medium"  /}
                     </div>
                 </div>
             </div>
