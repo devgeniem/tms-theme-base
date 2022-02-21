@@ -119,17 +119,3 @@ class TextBlockFields extends Field\Group {
         ];
     }
 }
-
-
-// Otsikko
-// Teksti (olemassa oleva kenttä)
-// Painike
-// Taustaväri
-// Pääväri
-// Toissijainen väri
-// Leveys
-// 50%
-// 75%
-// 100%
-// has-background-primary
-// has-background-secondary
