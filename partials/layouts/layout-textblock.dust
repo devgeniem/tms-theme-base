@@ -7,7 +7,7 @@
                         {title|html}
                     </h2>
                 {/title}
-                    {text|kses}
+                {text|kses}
                 {?link}
                     {>"ui/button-link" classes="mt-4 {link_class|attr}" icon="chevron-right" icon_classes="icon--medium"  /}
                 {/link}
