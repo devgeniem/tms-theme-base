@@ -169,6 +169,7 @@ class PageGroup {
                 Layouts\GravityFormLayout::class,
                 Layouts\ContactsLayout::class,
                 Layouts\AccessibilityIconLinksLayout::class,
+                Layouts\ShareLinksLayout::class,
             ],
             $key
         );

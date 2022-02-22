@@ -7,7 +7,6 @@ namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\ShareLinksFields;
-use TMS\Theme\Base\Traits;
 
 /**
  * Class ShareLinksBlock
@@ -15,8 +14,6 @@ use TMS\Theme\Base\Traits;
  * @package TMS\Theme\Base\Blocks
  */
 class ShareLinksBlock extends BaseBlock {
-
-    use Traits\Sharing;
 
     /**
      * The block name (slug, not shown in admin).
@@ -76,10 +73,9 @@ class ShareLinksBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
-        $data['share_links']        = $this->get_share_links();
-        $data['share_link_classes'] = $this->share_link_classes();
+        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
 
-        return $data;
+        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 
 }
