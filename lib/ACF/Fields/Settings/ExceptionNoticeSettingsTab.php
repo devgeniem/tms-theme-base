@@ -36,6 +36,10 @@ class ExceptionNoticeSettingsTab extends Tab {
             'title'        => 'Teksti',
             'instructions' => '',
         ],
+        'cta_link' => [
+            'title'        => 'Painikkeen url',
+            'instructions' => '',
+        ],
     ];
 
     /**
@@ -70,8 +74,15 @@ class ExceptionNoticeSettingsTab extends Tab {
                 ->set_maxlength( 200 )
                 ->set_instructions( $strings['text']['instructions'] );
 
+            $exception_cta_link_field = ( new Field\URL( $strings['cta_link']['title'] ) )
+                ->set_key( "${key}_exception_cta_link" )
+                ->set_name( 'exception_cta_link' )
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['cta_link']['instructions'] );
+
             $this->add_fields( [
                 $exception_text_field,
+                $exception_cta_link_field,
             ] );
         }
         catch ( Exception $e ) {
