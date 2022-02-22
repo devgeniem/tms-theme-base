@@ -118,6 +118,7 @@ class PageFrontPageGroup {
                 Layouts\SubpageLayout::class,
                 Layouts\SocialMediaLayout::class,
                 Layouts\ContactsLayout::class,
+                Layouts\ShareLinksLayout::class,
             ],
             $key
         );

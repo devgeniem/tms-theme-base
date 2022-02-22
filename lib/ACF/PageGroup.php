@@ -168,6 +168,7 @@ class PageGroup {
                 Layouts\NoticeBannerLayout::class,
                 Layouts\GravityFormLayout::class,
                 Layouts\ContactsLayout::class,
+                Layouts\ShareLinksLayout::class,
             ],
             $key
         );

@@ -1,0 +1,19 @@
+{?share_links}
+    <section class="section layout-share-links">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="share-links">
+                        {?title}
+                            <h2 class="h6 mt-0 mb-6">
+                                {title|s}
+                            </h2>
+                        {/title}
+        
+                        {>"ui/share-links" li_class="mr-4" /}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{/share_links}

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-715: Add ShareLinksLayout
 - TMS-712: Add fields to TextBlockLayout
 - TMS-714: Replace events and articles layout link with button-link
 - TMS-713: Limit search filtering for post types with posts.
