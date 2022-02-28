@@ -23,7 +23,7 @@
             </div>
 
             {?category}
-                <span class="pill">
+                <span class="pill{?hide_categories} is-hidden{/hide_categories}">
                     {category.name|s}
                 </span>
             {/category}

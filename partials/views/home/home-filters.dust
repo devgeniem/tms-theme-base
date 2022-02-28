@@ -1,20 +1,22 @@
 <div class="archive-filters columns mt-6">
     <div class="column is-8">
-        <div class="h6 mb-4">
-            {Strings.s.home.filter_by_category|s}
-        </div>
+        {?filters.categories}
+            <div class="h6 mb-4">
+                {Strings.s.home.filter_by_category|s}
+            </div>
 
-        <div>
-            {#filters.categories}
-                <a href="{url}" class="pill mr-2 mb-2 {?is_active}is-active{/is_active}">
-                    {?is_active}
-                        {>"ui/icon" icon="checkmark" class="icon--medium mr-2 is-primary-invert" /}
-                    {/is_active}
+            <div>
+                {#filters.categories}
+                    <a href="{url}" class="pill mr-2 mb-2 {?is_active}is-active{/is_active}">
+                        {?is_active}
+                            {>"ui/icon" icon="checkmark" class="icon--medium mr-2 is-primary-invert" /}
+                        {/is_active}
 
-                    {name|s}
-                </a>
-            {/filters.categories}
-        </div>
+                        {name|s}
+                    </a>
+                {/filters.categories}
+            </div>
+        {/filters.categories}
     </div>
 
     <div class="column is-4">
