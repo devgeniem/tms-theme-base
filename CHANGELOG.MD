@@ -7,10 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.32.1] - 2022-02-24
+
 ### Added
 
 - TMS-718: Add cta-button to exception notice
 - TMS-715: Add ShareLinksLayout
+
+## [1.32.0] - 2022-02-24
+
+### Added
+
 - TMS-712: Add fields to TextBlockLayout
 - TMS-714: Replace events and articles layout link with button-link
 - TMS-713: Limit search filtering for post types with posts.
