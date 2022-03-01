@@ -135,7 +135,7 @@ class PageEventsSearch extends BaseModel {
             'text'        => $event_search_text,
             'start'       => $start_date,
             'end'         => $end_date,
-            'sort'        => 'end_time',
+            'sort'        => '',
             'page_size'   => get_option( 'posts_per_page' ),
             'show_images' => true,
             'keyword'     => get_field( 'keyword' ) ?? [],
