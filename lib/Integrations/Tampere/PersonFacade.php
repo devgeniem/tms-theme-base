@@ -58,13 +58,13 @@ class PersonFacade {
     public function to_contact( string $default_image ) : array {
         $fields = $this->fields;
 
-        return [
+        $data = [
             'id'                        => $fields->id ?? '',
             'image'                     => $fields->field_image->field_media_image->image_full_url ?? $default_image,
             'first_name'                => $fields->field_first_names ?? '',
             'last_name'                 => $fields->field_last_name ?? '',
             'title'                     => $fields->field_hr_title->name ?? '',
-            'phone_repeater'            => '',
+            'phone_repeater'            => [],
             'email'                     => $fields->field_email ?? '',
             'additional_info_top'       => $fields->field_additional_information ?? '',
             'visiting_address_street'   => $fields->field_address_street->address_line1 ?? '',
@@ -77,5 +77,23 @@ class PersonFacade {
             'unit'                      => $fields->field_hr_organizational_unit->name ?? '',
             'office'                    => $fields->field_place->title ?? '',
         ];
+
+        if ( ! empty( $fields->field_phone ) ) {
+            $data['phone_repeater'][] = [
+                'phone_text'   => $fields->phone_supplementary ?? '',
+                'phone_number' => $fields->field_phone,
+            ];
+        }
+
+        if ( ! empty( $fields->field_additinal_phones ) ) {
+            foreach ( $fields->field_additinal_phones as $phone ) {
+                $data['phone_repeater'][] = [
+                    'phone_text'   => $phone->telephone_supplementary ?? '',
+                    'phone_number' => $phone->telephone_number,
+                ];
+            }
+        }
+
+        return $data;
     }
 }
