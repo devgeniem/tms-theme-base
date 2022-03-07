@@ -78,6 +78,20 @@ class PersonFacade {
             'office'                    => $fields->field_place->title ?? '',
         ];
 
+        $data = $this->handle_phone_numbers( $data, $fields );
+
+        return $data;
+    }
+
+    /**
+     * Handle contact phone numbers
+     *
+     * @param array  $data   Normalized contact data.
+     * @param object $fields API contact fields.
+     *
+     * @return array
+     */
+    private function handle_phone_numbers( array $data, $fields ) : array {
         if ( ! empty( $fields->field_phone ) ) {
             $data['phone_repeater'][] = [
                 'phone_text'   => $fields->phone_supplementary ?? '',
