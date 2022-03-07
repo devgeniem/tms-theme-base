@@ -2,15 +2,19 @@
  * Copyright (c) 2021. Geniem Oy
  */
 
-$tms-breadcrumb-item-color-link: $primary !default;
-$tms-breadcrumb-item-color-hover: $primary-dark !default;
+$tms-breadcrumb-item-color-link: $primary-dark !default;
+$tms-breadcrumb-item-color-hover: bulmaDarken($primary-dark, 15) !default;
 $tms-breadcrumb-item-color-active: $primary-light !default;
 $tms-breadcrumb-item-color-separator: $color-black !default;
 
 .breadcrumb {
+    hyphens: auto;
+    white-space: normal;
+
     .breadcrumbs {
         &__nav {
-            font-family: $family-secondary;
+            margin-top: -$theme-spacing-quarter !important;
+            margin-bottom: -$theme-spacing-quarter !important;
             font-size: $size-7;
             line-height: 1.2;
             font-weight: $weight-medium;
@@ -28,6 +32,11 @@ $tms-breadcrumb-item-color-separator: $color-black !default;
                 &:active {
                     color: $tms-breadcrumb-item-color-active;
                 }
+            }
+
+            > li {
+                margin-top: $theme-spacing-quarter;
+                margin-bottom: $theme-spacing-quarter;
             }
         }
     }

@@ -80,6 +80,19 @@ class SingleBlogArticle extends Single {
     }
 
     /**
+     * Output HTML classes.
+     *
+     * @return array
+     */
+    public function classes() : ?array {
+        return apply_filters( 'tms/theme/single_blog/classes', [
+            'info_section'         => 'has-colors-secondary',
+            'info_section_button'  => 'is-outlined',
+            'info_section_authors' => 'has-border has-border-top-1 has-border-gray',
+        ] );
+    }
+
+    /**
      * Get comments markup.
      *
      * @return false|string

@@ -5,6 +5,15 @@
 
 namespace TMS\Theme\Base;
 
+use Closure;
+use PageContacts;
+use PageEventsSearch;
+use Search;
+use function add_action;
+use function add_filter;
+use function add_theme_support;
+use function remove_theme_support;
+
 /**
  * Class ThemeSupports
  *
@@ -19,36 +28,40 @@ class ThemeSupports implements Interfaces\Controller {
      * @return void
      */
     public function hooks() : void {
-        \add_action(
+        add_action(
             'after_setup_theme',
-            \Closure::fromCallable( [ $this, 'add_supported_functionality' ] ),
+            Closure::fromCallable( [ $this, 'add_supported_functionality' ] ),
             0
         );
 
-        \add_filter(
+        add_filter(
             'get_site_icon_url',
-            \Closure::fromCallable( [ $this, 'favicon_url' ] ),
+            Closure::fromCallable( [ $this, 'favicon_url' ] ),
             10,
             3
         );
 
-        \add_filter(
+        add_filter(
             'query_vars',
-            \Closure::fromCallable( [ $this, 'query_vars' ] )
+            Closure::fromCallable( [ $this, 'query_vars' ] )
         );
 
-        \remove_theme_support( 'core-block-patterns' );
+        remove_action( 'wp_scheduled_auto_draft_delete', 'wp_delete_auto_drafts' );
 
-        \add_theme_support( 'disable-custom-colors' );
+        remove_theme_support( 'core-block-patterns' );
 
-        \add_theme_support( 'editor-color-palette' );
+        add_theme_support( 'disable-custom-colors' );
 
-        \add_theme_support( 'editor-font-sizes', [] );
+        add_theme_support( 'editor-color-palette' );
 
-        \add_filter(
+        add_theme_support( 'editor-font-sizes', [] );
+
+        add_filter(
             'block_editor_settings_all',
-            \Closure::fromCallable( [ $this, 'disable_drop_cap' ] )
+            Closure::fromCallable( [ $this, 'disable_drop_cap' ] )
         );
+
+        \add_action( 'wp_head', \Closure::fromCallable( [ $this, 'detect_js' ] ), 0 );
     }
 
     /**
@@ -58,13 +71,13 @@ class ThemeSupports implements Interfaces\Controller {
      */
     private function add_supported_functionality() : void {
         // http://codex.wordpress.org/Function_Reference/add_theme_support#Title_Tag
-        \add_theme_support( 'title-tag' );
+        add_theme_support( 'title-tag' );
 
         // http://codex.wordpress.org/Post_Thumbnails
-        \add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'post-thumbnails' );
 
         // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
-        \add_theme_support(
+        add_theme_support(
             'html5',
             [
                 'caption',
@@ -112,8 +125,23 @@ class ThemeSupports implements Interfaces\Controller {
         $vars[] = 'filter-month';
         $vars[] = 'filter-year';
         $vars[] = 'event-id';
-        $vars[] = \PageContacts::SEARCH_QUERY_VAR;
+        $vars[] = Search::SEARCH_CPT_QUERY_VAR;
+        $vars[] = Search::SEARCH_START_DATE;
+        $vars[] = Search::SEARCH_END_DATE;
+        $vars[] = PageContacts::SEARCH_QUERY_VAR;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_TEXT;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_START_DATE;
+        $vars[] = PageEventsSearch::EVENT_SEARCH_END_DATE;
 
         return $vars;
+    }
+
+    /**
+     * Handles JavaScript detection
+     *
+     * Converts class `no-js` into `js` to the root `<html>` element when JavaScript is detected.
+     */
+    private function detect_js() {
+        echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
     }
 }

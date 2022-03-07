@@ -38,10 +38,11 @@ $button-transition-speed: $speed !default;
 }
 
 .button-state-focus {
-    outline: .125rem dashed $color-black;
+    outline: .125rem solid $color-black;
     outline-offset: .25rem;
 }
 
+.button-state-focus,
 .button-state-hover {
     filter: drop-shadow(0 .25rem .5rem rgba($black, .15));
     transition: filter $button-transition-easing $button-transition-speed,
@@ -277,6 +278,7 @@ $button-transition-speed: $speed !default;
                 }
 
                 &:hover,
+                &:focus,
                 &.is-hovered {
                     @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                 }
@@ -320,6 +322,7 @@ $button-transition-speed: $speed !default;
                     }
 
                     &:hover,
+                    &:focus,
                     &.is-hovered {
                         @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-text);
                     }
@@ -336,6 +339,7 @@ $button-transition-speed: $speed !default;
                     }
 
                     &:hover,
+                    &:focus,
                     &.is-hovered {
                         @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     }
@@ -344,5 +348,15 @@ $button-transition-speed: $speed !default;
                 }
             }
         }
+    }
+}
+
+// Disable pointer events for elements inside links and buttons
+// to prevent targeting problems with JavaScript
+a,
+button,
+.button {
+    * {
+        pointer-events: none;
     }
 }

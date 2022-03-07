@@ -14,13 +14,17 @@ import Modal from './modal';
 import ImageCarousel from './image-carousel';
 import Header from './header';
 import BackToTop from './back-to-top';
-import Hyphenation from './hyphenation';
+// Hyphenation is disabled because of JS errors caused by the used library
+// import Hyphenation from './hyphenation';
 import FlyOutNav from './fly-out-nav';
 import PrimaryNav from './primary-nav';
 import Dropdown from './dropdown';
 import Home from './home';
 import Toggle from './toggle';
 import Sitemap from './sitemap';
+import ExternalLinks from './external-links';
+import DatePicker from './date-picker';
+import GravityFormsPatch from './gravity-forms-patch';
 
 const globalControllers = {
     Common,
@@ -34,13 +38,17 @@ const globalControllers = {
     ImageCarousel,
     Header,
     BackToTop,
-    Hyphenation,
+    // Hyphenation is disabled because of JS errors caused by the used library
+    // Hyphenation,
     FlyOutNav,
     PrimaryNav,
     Dropdown,
     Home,
     Toggle,
     Sitemap,
+    ExternalLinks,
+    DatePicker,
+    GravityFormsPatch,
 };
 
 const templateControllers = {
@@ -119,7 +127,7 @@ class Theme {
     /**
      * This method returns a controller by its class name if it is found.
      *
-     * @param  {string} name The class name of a controller.
+     * @param {string} name The class name of a controller.
      * @return {Object|boolean} The controller instance or false if not found.
      */
     getController( name ) {

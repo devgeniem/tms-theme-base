@@ -7,9 +7,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8 is-offset-2">
-                    <h1 class="entry__title has-text-white has-text-centered">
-                        {@title /}
-                    </h1>
+                    {>"ui/entry-title" class="mt-0 has-text-centered has-text-white" /}
                 </div>
             </div>
         </div>

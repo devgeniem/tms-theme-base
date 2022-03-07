@@ -92,11 +92,32 @@ class HomeGroup {
             ->allow_null()
             ->set_instructions( $strings['highlight']['instructions'] );
 
+        // Filter out drafts
+        add_filter(
+            'acf/fields/post_object/query/name=highlight',
+            \Closure::fromCallable( [ $this, 'filter_out_drafts' ] ),
+            10,
+            1
+        );
+
         $tab->add_fields( [
             $higlight_field,
         ] );
 
         return $tab;
+    }
+
+    /**
+     * Show only published posts on the highlight field.
+     *
+     * @param array $options Field options array.
+     *
+     * @return array
+     */
+    protected function filter_out_drafts( array $options ) : array {
+        $options['post_status'] = [ 'publish' ];
+
+        return $options;
     }
 }
 

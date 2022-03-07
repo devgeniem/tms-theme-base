@@ -1,0 +1,98 @@
+$search-item-hover: $primary-dark !default;
+
+.search {
+    &__term {
+        width: 60%;
+    }
+}
+
+.search-filters {
+    &__post-type {
+        + label {
+            &::before {
+                background-color: $primary-invert;
+            }
+        }
+    }
+}
+
+.has-after-line {
+    position: relative;
+    margin-right: 1.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -1.5rem;
+        display: block;
+        width: 1rem;
+        height: .117rem;
+        background-color: $text;
+    }
+}
+
+.search-item {
+    &__inner {
+        @include from($desktop) {
+            margin-right: 8.06rem;
+        }
+    }
+
+    &__meta-item,
+    &__title {
+        a {
+            color: inherit;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $search-item-hover;
+            }
+        }
+    }
+
+    &__title {
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__meta-item {
+        font-size: $size-7;
+        font-weight: $weight-medium;
+
+        &:not(:first-child) {
+            &::before {
+                content: "|";
+                margin-right: .1rem;
+                margin-left: .25rem;
+            }
+        }
+    }
+
+    &__meta-container {
+        .breadcrumbs__nav {
+            li {
+                a {
+                    padding-right: .25rem;
+                    color: inherit;
+
+                    &:not(:hover) {
+                        text-decoration: none;
+                    }
+                }
+
+                &:first-child {
+                    a {
+                        padding-right: .25rem;
+                    }
+                }
+
+                span {
+                    margin-left: .25rem !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}

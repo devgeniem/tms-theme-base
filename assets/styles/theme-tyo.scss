@@ -13,7 +13,7 @@ $primary-dark-invert: $color-white;
 
 $secondary: #e5eef8;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 15);
+$secondary-light: #d4dae2;
 $secondary-light-invert: $color-black;
 $secondary-dark: bulmaDarken($secondary, 15);
 $secondary-dark-invert: $color-black;
@@ -22,6 +22,8 @@ $light: $primary-light;
 $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
+$divider: $color-vaalean-harmaa;
+$divider-invert: $color-tumma-harmaa;
 
 $text: $black;
 $link: $primary;

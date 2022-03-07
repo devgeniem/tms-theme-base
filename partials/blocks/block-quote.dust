@@ -1,11 +1,13 @@
 {?quote}
-    <div class="quote has-background-secondary has-text-secondary-invert mt-9 mb-9 pr-5 pl-5 pt-8 pb-8 pr-9-tablet pl-9-tablet pr-11-desktop pl-11-desktop has-text-centered has-text-left-desktop {extra_classes|s}">
-        <blockquote class="quote__content p-0 m-0 is-family-secondary has-text-weight-medium is-size-5">
+    <div
+        class="quote {#classes.container}{.}{@sep} {/sep}{/classes.container} pr-5 pl-5 pt-8 pb-8 pr-9-tablet pl-9-tablet pr-11-desktop pl-11-desktop has-text-centered has-text-left-desktop">
+        <blockquote class="quote__content p-0 m-0 {#classes.quote}{.}{@sep} {/sep}{/classes.quote}">
             {quote|s}
         </blockquote>
 
         {?author}
-            <div class="quote__author is-uppercase has-text-weight-medium mt-5 is-family-secondary has-text-weight-medium is-size-7 has-text-centered">
+            <div
+                class="quote__author mt-5 is-uppercase is-size-7 has-text-centered {#classes.author}{.}{@sep} {/sep}{/classes.author}">
                 {author|s}
             </div>
         {/author}

@@ -1,8 +1,16 @@
-<section {?anchor}id="{anchor|s}"{/anchor} class="section layout-textblock">
+<section {?anchor}id="{anchor|attr}"{/anchor} class="section layout-textblock{bg_color_class|attr}{text_color_class|attr}">
     <div class="container keep-vertical-spacing">
         <div class="is-content-grid">
-            <div class="textblock__inner is-align-full keep-vertical-spacing">
-                {text|s}
+            <div class="textblock__inner keep-vertical-spacing{width_class|attr}">
+                {?title}
+                    <h2 class="mb-6">
+                        {title|html}
+                    </h2>
+                {/title}
+                {text|kses}
+                {?link}
+                    {>"ui/button-link" classes="mt-4 {link_class|attr}" icon="chevron-right" icon_classes="icon--medium"  /}
+                {/link}
             </div>
         </div>
     </div>

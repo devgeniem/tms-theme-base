@@ -1,0 +1,17 @@
+{?meta}
+    <div class="search-item__meta is-flex">
+        {?meta.date}
+            <div class="search-item__meta-item is-family-secondary">
+                <time datetime="{meta.date|s}">{@strtodate value=meta.date /}</time>
+            </div>
+        {/meta.date}
+
+        {?meta.category}
+            <div class="search-item__meta-item is-family-secondary">
+                <a href="{meta.category.permalink}">
+                    {meta.category.name|s}
+                </a>
+            </div>
+        {/meta.category}
+    </div>
+{/meta}

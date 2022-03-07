@@ -9,12 +9,14 @@ use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
+use TMS\Theme\Base\Traits\Sharing;
 
 /**
  * The PageEvent class.
  */
 class PageEvent extends BaseModel {
 
+    use Sharing;
     use Components;
 
     /**
@@ -38,6 +40,30 @@ class PageEvent extends BaseModel {
         add_filter(
             'the_seo_framework_title_from_generation',
             Closure::fromCallable( [ $this, 'alter_title' ] )
+        );
+
+        // og:title.
+        add_filter(
+            'the_seo_framework_title_from_custom_field',
+            Closure::fromCallable( [ $this, 'alter_title' ] )
+        );
+
+        // og:image.
+        add_filter(
+            'the_seo_framework_image_generation_params',
+            Closure::fromCallable( [ $this, 'alter_image' ] )
+        );
+
+        // og:description.
+        add_filter(
+            'the_seo_framework_custom_field_description',
+            Closure::fromCallable( [ $this, 'alter_desc' ] )
+        );
+
+        // og:url.
+        add_filter(
+            'the_seo_framework_ogurl_output',
+            Closure::fromCallable( [ $this, 'alter_url' ] )
         );
 
         add_action(
@@ -97,6 +123,83 @@ class PageEvent extends BaseModel {
     }
 
     /**
+     * Add image for og:image.
+     *
+     * @param array $params An array of SEO framework image parameters.
+     *
+     * @return array
+     */
+    protected function alter_image( $params ) {
+        $event = $this->get_event();
+
+        if ( $event ) {
+            // Ensure our custom generator is ran first.
+            $params['cbs'] = array_merge(
+                [ 'tms' => Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
+                $params['cbs']
+            );
+        }
+
+        return $params;
+    }
+
+    /**
+     * Custom generator for The SEO Framework og images.
+     *
+     * @yield array : {
+     *     string url: The image URL,
+     *     int     id: The image ID,
+     * }
+     */
+    protected function seo_image_generator() {
+        $event = $this->get_event();
+        $image = $event->images[0];
+
+        if ( $image ) {
+            yield [
+                'url' => $image->url ?? '',
+                'id'  => $image->id ?? '',
+            ];
+        }
+    }
+
+    /**
+     * This sets the content of og:description.
+     *
+     * @param string $description The original description.
+     *
+     * @return string
+     */
+    protected function alter_desc( $description ) {
+        $event = $this->get_event();
+        $event = LinkedEvents::normalize_event( $event );
+
+        if ( $event ) {
+            $description = $event['short_description'];
+        }
+
+        return $description;
+    }
+
+    /**
+     * This sets the content of og:url.
+     *
+     * @param string $url The original URL.
+     *
+     * @return string
+     */
+    protected function alter_url( $url ) {
+        $event = $this->get_event();
+
+        if ( $event ) {
+            $event = LinkedEvents::normalize_event( $event );
+            $url   = $event['url'];
+        }
+
+        return $url;
+    }
+
+    /**
      * Get home url
      *
      * @return mixed|string
@@ -126,6 +229,25 @@ class PageEvent extends BaseModel {
         return ! empty( $event->images[0]->url )
             ? $event->images[0]->url
             : $default_image;
+    }
+
+    /**
+     * Hero image credits
+     *
+     * @return string|null
+     */
+    public function hero_image_credits() : ?string {
+        $event = $this->get_event();
+
+        if ( empty( $event ) ) {
+            return null;
+        }
+
+        if ( ! empty( $event->images[0]->url ) ) {
+            return $event->images[0]->photographer_name ?? null;
+        }
+
+        return Settings::get_setting( 'events_default_image_credits' ) ?? null;
     }
 
     /**
@@ -262,9 +384,10 @@ class PageEvent extends BaseModel {
             return $breadcrumbs;
         }
 
-        $parent = get_page_by_path(
-            str_replace( $home_url, '', $referer )
-        );
+        // Resolve the parent page ignoring f.ex. paging parameters in the URL: /page/2/
+        $parent = str_replace( $home_url, '', $referer );
+        $parent = strpos( $parent, '/' ) !== false ? explode( '/', $parent )[0] : $parent;
+        $parent = get_page_by_path( $parent );
 
         if ( empty( $parent ) ) {
             return $breadcrumbs;

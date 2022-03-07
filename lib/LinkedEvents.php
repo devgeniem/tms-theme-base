@@ -92,24 +92,25 @@ class LinkedEvents implements Controller {
         }
 
         return [
-            'name'              => $event->name->{$lang_key} ?? null,
-            'short_description' => $event->short_description->{$lang_key} ?? null,
-            'description'       => nl2br( $event->description->{$lang_key} ) ?? null,
-            'date_title'        => __( 'Dates', 'tms-theme-base' ),
-            'date'              => static::get_event_date( $event ),
-            'time_title'        => __( 'Time', 'tms-theme-base' ),
-            'time'              => static::get_event_time( $event ),
-            'location_title'    => __( 'Location', 'tms-theme-base' ),
-            'location'          => static::get_event_location( $event, $lang_key ),
-            'price_title'       => __( 'Price', 'tms-theme-base' ),
-            'price'             => static::get_event_price_info( $event, $lang_key ),
-            'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
-            'provider'          => static::get_provider_info( $event ),
-            'keywords'          => $keywords ?? null,
-            'primary_keyword'   => empty( $keywords ) ? null : $keywords[0],
-            'image'             => $image ?? null,
-            'url'               => static::get_event_url( $event->id ),
-            'is_virtual_event'  => $event->is_virtualevent,
+            'name'               => $event->name->{$lang_key} ?? null,
+            'short_description'  => $event->short_description->{$lang_key} ?? null,
+            'description'        => nl2br( $event->description->{$lang_key} ) ?? null,
+            'date_title'         => __( 'Dates', 'tms-theme-base' ),
+            'date'               => static::get_event_date( $event ),
+            'time_title'         => __( 'Time', 'tms-theme-base' ),
+            'time'               => static::get_event_time( $event ),
+            'location_title'     => __( 'Location', 'tms-theme-base' ),
+            'location'           => static::get_event_location( $event, $lang_key ),
+            'price_title'        => __( 'Price', 'tms-theme-base' ),
+            'price'              => static::get_event_price_info( $event, $lang_key ),
+            'provider_title'     => __( 'Organizer', 'tms-theme-base' ),
+            'provider'           => static::get_provider_info( $event ),
+            'keywords'           => $keywords ?? null,
+            'primary_keyword'    => empty( $keywords ) ? null : $keywords[0],
+            'image'              => $image ?? null,
+            'url'                => static::get_event_url( $event->id ),
+            'is_virtual_event'   => $event->is_virtualevent,
+            'virtual_event_link' => static::get_virtual_event_link( $event, $lang_key ),
         ];
     }
 
@@ -204,8 +205,11 @@ class LinkedEvents implements Controller {
      * @return array
      */
     public static function get_event_location( $event, $lang_key ) {
+        // Location name uses fixed lang key 'fi'
+        $lang_key_fixed = 'fi';
+
         return [
-            'name'        => $event->location->name->{$lang_key} ?? null,
+            'name'        => $event->location->name->{$lang_key_fixed} ?? null,
             'description' => $event->location->description->{$lang_key} ?? null,
             'extra_info'  => $event->location_extra_info->{$lang_key} ?? null,
             'info_url'    => [
@@ -315,5 +319,29 @@ class LinkedEvents implements Controller {
         }
 
         return '#';
+    }
+
+    /**
+     * Get virtual event link
+     *
+     * @param object $event    Event object.
+     * @param string $lang_key Current language key.
+     *
+     * @return array|null
+     */
+    public static function get_virtual_event_link( object $event, string $lang_key ) : ?array {
+        // Force language to 'fi'
+        $lang_key = 'fi';
+        $url      = $event->virtualevent_url->{$lang_key} ?? null;
+
+        if ( empty( $url ) ) {
+            return null;
+        }
+
+        return [
+            'url'    => $url,
+            'title'  => __( 'Virtual event', 'tms-theme-base' ),
+            'target' => '_blank',
+        ];
     }
 }

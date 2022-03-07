@@ -34,15 +34,20 @@ class ThemeController {
             BlocksController::class,
             Cleanup::class,
             Constants::class,
+            Cookiebot::class,
             DustPressController::class,
             Emojis::class,
             FormatterController::class,
+            GravityForms::class,
             Images::class,
             LinkedEvents::class,
             Localization::class,
             NavigationController::class,
+            PasswordPolicy::class,
             PostTypeController::class,
             Roles::class,
+            Security::class,
+            SiteController::class,
             TaxonomyController::class,
             ThemeSupports::class,
             Comments::class,
@@ -64,6 +69,7 @@ class ThemeController {
 
         \Archive::hooks();
         \Home::hooks();
+        \Search::hooks();
         \ArchiveBlogArticle::hooks();
     }
 }

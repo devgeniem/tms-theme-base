@@ -13,6 +13,19 @@ use TMS\Theme\Base\Traits;
 class Header extends Model {
 
     use Traits\Breadcrumbs;
+    use Traits\Links;
+
+    /**
+     * Hooks.
+     */
+    public function hooks() {
+        add_filter(
+            'dustpress/menu/item/classes',
+            Closure::fromCallable( [ $this, 'menu_item_classes' ] ),
+            10,
+            2
+        );
+    }
 
     /**
      * Get logo
@@ -94,6 +107,18 @@ class Header extends Model {
     }
 
     /**
+     * Get site locale
+     *
+     * @return string
+     */
+    public function site_locale() : string {
+        $locale = DPT_PLL_ACTIVE ? pll_current_language( 'locale' ) : get_locale();
+        $locale = $locale === 'fi' ? 'fi-FI' : $locale;
+
+        return $locale;
+    }
+
+    /**
      * Hide main navigation
      *
      * @return false|mixed
@@ -148,22 +173,10 @@ class Header extends Model {
     /**
      * Get search action
      *
-     * @return string|void
+     * @return string
      */
     public function search_action() {
-        if ( ! DPT_PLL_ACTIVE ) {
-            return '/';
-        }
-
-        $default_lang = pll_default_language( 'slug' );
-        $current_lang = pll_current_language( 'slug' );
-
-        return sprintf(
-            '/%s',
-            $current_lang === $default_lang
-                ? ''
-                : trailingslashit( $current_lang )
-        );
+        return $this->get_search_action();
     }
 
     /**
@@ -297,6 +310,26 @@ class Header extends Model {
     }
 
     /**
+     * Setup item classes.
+     *
+     * @param array  $classes Classes.
+     * @param object $item    Menu item object.
+     *
+     * @return array Classes.
+     */
+    public function menu_item_classes( $classes, $item ) : array {
+        if ( apply_filters( 'tms/theme/nav_parent_link_is_trigger_only', false ) ) {
+            $item_is_top_level_parent = '0' === $item->menu_item_parent && ! empty( $item->sub_menu );
+
+            if ( $item_is_top_level_parent ) {
+                $classes[] = 'navbar-item--trigger-only';
+            }
+        }
+
+        return $classes;
+    }
+
+    /**
      * Return header color classes.
      *
      * @return array
@@ -305,21 +338,34 @@ class Header extends Model {
         return apply_filters(
             'tms/theme/header/colors',
             [
-                'search_button' => 'is-primary',
-                'nav'           => [
+                'search_button'          => 'is-primary',
+                'search_popup_container' => 'has-background-secondary has-text-secondary-invert',
+                'nav'                    => [
                     'container' => 'has-background-primary',
                 ],
-                'fly_out_nav'   => [
-                    'inner'         => 'has-background-primary has-text-secondary-invert',
-                    'close_menu'    => 'is-primary-invert',
-                    'search_button' => 'is-primary is-inverted',
+                'fly_out_nav'            => [
+                    'inner'            => 'has-background-primary has-text-secondary-invert',
+                    'close_menu'       => 'is-primary-invert',
+                    'search_title'     => 'has-text-primary-invert',
+                    'search_button'    => 'is-primary is-inverted',
+                    'brand_icon_color' => 'is-primary-invert',
                 ],
-                'lang_nav'      => [
-                    'link'          => 'has-border-radius-small',
-                    'link__default' => 'has-text-primary',
-                    'link__active'  => 'has-background-primary has-text-primary-invert',
+                'lang_nav'               => [
+                    'dropdown_toggle' => 'is-primary is-outlined',
+                    'link'            => 'has-border-radius-small',
+                    'link__default'   => 'has-text-accent',
+                    'link__active'    => 'has-background-primary has-text-primary-invert',
                 ],
             ]
         );
+    }
+
+    /**
+     * Header strings
+     *
+     * @return array
+     */
+    public function strings() {
+        return ( new Strings() )->s()['header'];
     }
 }

@@ -1,0 +1,920 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMS Theme Base\n"
+"POT-Creation-Date: 2022-01-10 15:07+0200\n"
+"PO-Revision-Date: 2022-01-10 15:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: assets/dist\n"
+
+#: comments.php:14
+msgid "Comments"
+msgstr ""
+
+#: comments.php:23
+msgid "Reply"
+msgstr ""
+
+#: lib/ACF/BlogArticleGroup.php:83
+msgctxt "theme ACF"
+msgid "Kirjoittajat"
+msgstr ""
+
+#: lib/ACF/CommentGroup.php:83
+msgctxt "theme ACF"
+msgid "Blogikirjoittaja"
+msgstr ""
+
+#: lib/ACF/DynamicEventGroup.php:55
+msgctxt "theme ACF"
+msgid "Tiedot"
+msgstr ""
+
+#: lib/ACF/Fields/Settings/MapSettingsTab.php:77
+msgid "Open map"
+msgstr ""
+
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:70
+#: lib/ACF/PageGroup.php:39
+msgctxt "theme ACF"
+msgid "Page Components"
+msgstr ""
+
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:123
+#: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
+msgctxt "theme ACF"
+msgid "Components"
+msgstr ""
+
+#: lib/ACF/PageContactsGroup.php:38
+msgctxt "theme ACF"
+msgid "Yhteystietojen asetukset"
+msgstr ""
+
+#: lib/ACF/PageEventsCalendarGroup.php:38
+msgctxt "theme ACF"
+msgid "Kalenterin asetukset"
+msgstr ""
+
+#: lib/ACF/PostGroup.php:129
+msgid "Related posts"
+msgstr ""
+
+#: lib/ACF/SettingsGroup.php:51
+msgctxt "theme ACF"
+msgid "Site settings"
+msgstr ""
+
+#: lib/Admin.php:89
+msgid "Paragraph"
+msgstr ""
+
+#: lib/Admin.php:90
+msgid "Header"
+msgstr ""
+
+#: lib/Comments.php:72
+msgid "Send Comment"
+msgstr ""
+
+#: lib/Comments.php:112
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+#: lib/Comments.php:134
+msgid "Blog author"
+msgstr ""
+
+#: lib/Comments.php:151
+msgid "Edit"
+msgstr ""
+
+#: lib/DustPressController.php:60
+msgctxt "pagination"
+msgid "Go to Page"
+msgstr ""
+
+#: lib/Formatters/GridFormatter.php:147
+msgid "Read more"
+msgstr ""
+
+#: lib/LinkedEvents.php:98
+msgid "Dates"
+msgstr ""
+
+#: lib/LinkedEvents.php:100
+msgid "Time"
+msgstr ""
+
+#: lib/LinkedEvents.php:102
+msgid "Location"
+msgstr ""
+
+#: lib/LinkedEvents.php:104
+msgid "Price"
+msgstr ""
+
+#: lib/LinkedEvents.php:106
+msgid "Organizer"
+msgstr ""
+
+#: lib/LinkedEvents.php:213 lib/LinkedEvents.php:265
+msgid "Additional information"
+msgstr ""
+
+#: lib/LinkedEvents.php:258
+msgid "Free"
+msgstr ""
+
+#: lib/LinkedEvents.php:288
+msgid "Additional info"
+msgstr ""
+
+#: lib/LinkedEvents.php:338
+msgid "Virtual event"
+msgstr ""
+
+#: lib/NavigationController.php:34
+msgid "Primary Navigation"
+msgstr ""
+
+#: lib/NavigationController.php:35
+msgid "Secondary Navigation"
+msgstr ""
+
+#: lib/PasswordPolicy.php:93
+msgid ""
+"Salasanan tulee olla vähintään 12 merkkiä pitkä, maksimissaan 128 merkkiä."
+msgstr ""
+
+#: lib/PasswordPolicy.php:104
+msgid "Valittu salasana on vaarantunut. Valitse toinen salasana."
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:65 lib/PostType/BlogArticle.php:93
+#: lib/PostType/BlogArticle.php:95 lib/PostType/BlogArticle.php:96
+msgctxt "theme CPT"
+msgid "Blog Articles"
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:94
+msgctxt "theme CPT"
+msgid "Blog Article"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-author"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:61
+msgctxt "theme CPT"
+msgid "Blog authors"
+msgstr ""
+
+#: lib/PostType/Contact.php:55
+msgctxt "theme CPT slugs"
+msgid "contact"
+msgstr ""
+
+#: lib/PostType/Contact.php:56
+msgctxt "theme CPT"
+msgid "contact"
+msgstr ""
+
+#: lib/PostType/DynamicEvent.php:60
+msgctxt "theme CPT"
+msgid "dynamic-event"
+msgstr ""
+
+#: lib/PostType/Settings.php:60
+msgctxt "theme CPT slugs"
+msgid "site-settings"
+msgstr ""
+
+#: lib/PostType/Settings.php:61
+msgctxt "theme CPT"
+msgid "Site settings"
+msgstr ""
+
+#: lib/Roles.php:340
+msgctxt "wp-geniem-roles"
+msgid "Super Administrator"
+msgstr ""
+
+#: lib/Roles.php:433
+msgctxt "wp-geniem-roles"
+msgid "Administrator"
+msgstr ""
+
+#: lib/Roles.php:486
+msgctxt "wp-geniem-roles"
+msgid "Site Manager"
+msgstr ""
+
+#: lib/Roles.php:530
+msgctxt "wp-geniem-roles"
+msgid "Author"
+msgstr ""
+
+#: lib/Roles.php:598
+msgctxt "wp-geniem-roles"
+msgid "Contributor"
+msgstr ""
+
+#: lib/Roles.php:618
+msgctxt "wp-geniem-roles"
+msgid "Subscriber"
+msgstr ""
+
+#: lib/Security.php:112
+msgid "WARNING"
+msgstr ""
+
+#: lib/Security.php:113
+msgid "Your password has been compromised."
+msgstr ""
+
+#: lib/Security.php:114
+msgid "Please change your password <strong>as soon as possible</strong>."
+msgstr ""
+
+#: lib/SiteController.php:96
+msgid "News"
+msgstr ""
+
+#: lib/SiteController.php:127
+msgid "Main menu"
+msgstr ""
+
+#: lib/SiteController.php:161
+msgid "Site settings"
+msgstr ""
+
+#: lib/SiteController.php:170 models/strings.php:58
+msgctxt "theme-frontend"
+msgid "Page not found"
+msgstr ""
+
+#: lib/SiteController.php:176
+msgctxt "theme-frontend"
+msgid ""
+"Sorry, the page you requested was not found. Please check that you spelled "
+"the address correctly. Or did you follow a link?"
+msgstr ""
+
+#: lib/SiteController.php:177
+msgctxt "theme-frontend"
+msgid ""
+"The page might not exist anymore or its name has changed. You might want to "
+"try to find the page you were looking for by"
+msgstr ""
+
+#: lib/SiteController.php:178
+msgctxt "theme-frontend"
+msgid "– returning to the front page of the site"
+msgstr ""
+
+#: lib/SiteController.php:179
+msgctxt "theme-frontend"
+msgid ""
+"– removing all characters after the last slash (/) in the address and try "
+"the shorter version of the address."
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:51
+msgid "Erottele kategoriat pilkulla"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:52
+msgid "Lisää tai poista kategoria"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:53 lib/Taxonomy/BlogCategory.php:54
+msgid "Suositut kategoriat"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:51
+msgid "Erottele avainsanat pilkulla"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:52
+msgid "Lisää tai poista avainsana"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:53 lib/Taxonomy/BlogTag.php:54
+msgid "Suositut avainsanat"
+msgstr ""
+
+#: lib/Traits/Breadcrumbs.php:288
+msgctxt "Breadcrumbs"
+msgid "Home"
+msgstr ""
+
+#: lib/Traits/Sharing.php:97
+msgid "Share on Facebook"
+msgstr ""
+
+#: lib/Traits/Sharing.php:103
+msgid "Share by email"
+msgstr ""
+
+#: lib/Traits/Sharing.php:109
+msgid "Copy link to clipboard"
+msgstr ""
+
+#: lib/Traits/Sharing.php:110
+msgid "Copied to clipboard"
+msgstr ""
+
+#: lib/Traits/Sharing.php:116
+msgid "Share on Whatsapp"
+msgstr ""
+
+#: lib/Traits/Sharing.php:122
+msgid "Share on Twitter"
+msgstr ""
+
+#: lib/Traits/Sharing.php:128
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: lib/Traits/Sharing.php:134
+msgid "Share on Vkontakte"
+msgstr ""
+
+#: lib/Traits/Sharing.php:140
+msgid "Share on Line"
+msgstr ""
+
+#: models/archive-blog-article.php:167 models/archive.php:116
+#: models/home.php:269 models/search.php:70
+msgid "All"
+msgstr ""
+
+#: models/error404.php:78
+msgctxt "theme-frontend"
+msgid "Go to search"
+msgstr ""
+
+#: models/error404.php:95
+msgctxt "theme-frontend"
+msgid "Return to home"
+msgstr ""
+
+#: models/page-events-calendar.php:39 models/page-events-search.php:118
+msgid "No results"
+msgstr ""
+
+#: models/page-events-search.php:51
+msgid "Search term"
+msgstr ""
+
+#: models/page-events-search.php:52
+msgid "Events from"
+msgstr ""
+
+#: models/page-events-search.php:53 models/search.php:83
+msgid "Start date"
+msgstr ""
+
+#: models/page-events-search.php:54 models/search.php:84
+msgid "End date"
+msgstr ""
+
+#: models/page-events-search.php:117
+msgid "No search term given"
+msgstr ""
+
+#: models/page-events-search.php:190 models/search.php:228
+#, php-format
+msgctxt "search results summary"
+msgid "%1$1s result found for \"%2$2s\""
+msgid_plural "%1$1s results found for \"%2$2s\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: models/search.php:46
+msgid "Search results"
+msgstr "Sökresultat"
+
+#: models/search.php:81
+msgid "Filter by post type"
+msgstr ""
+
+#: models/search.php:82
+msgid "Filter by date"
+msgstr ""
+
+#: models/search.php:85
+msgid "Filter results"
+msgstr ""
+
+#: models/search.php:102
+msgid "Looking for events? Use the event search!"
+msgstr ""
+
+#: models/search.php:239
+msgid "No search results"
+msgstr "Inga re­sul­tat fun­na"
+
+#: models/strings.php:42
+msgctxt "theme-frontend"
+msgid "Skip to content"
+msgstr ""
+
+#: models/strings.php:43
+msgctxt "theme-frontend"
+msgid "Main navigation"
+msgstr ""
+
+#: models/strings.php:44
+msgctxt "theme-frontend"
+msgid "Open menu"
+msgstr ""
+
+#: models/strings.php:45
+msgctxt "theme-frontend"
+msgid "Close menu"
+msgstr ""
+
+#: models/strings.php:46
+msgctxt "theme-frontend"
+msgid "Language navigation"
+msgstr ""
+
+#: models/strings.php:47
+msgctxt "theme-frontend"
+msgid "Open search form"
+msgstr ""
+
+#: models/strings.php:48
+msgctxt "theme-frontend"
+msgid "Open language navigation"
+msgstr ""
+
+#: models/strings.php:49
+msgctxt "theme-frontend"
+msgid "Current language: "
+msgstr ""
+
+#: models/strings.php:50 models/strings.php:51 models/strings.php:155
+#: models/strings.php:156
+msgctxt "theme-frontend"
+msgid "Search"
+msgstr "Sök"
+
+#: models/strings.php:52 models/strings.php:53
+msgctxt "theme-frontend"
+msgid "Search from site"
+msgstr "Sök på webbplatsen"
+
+#: models/strings.php:54 models/strings.php:80 models/strings.php:138
+#: models/strings.php:151
+msgctxt "theme-frontend"
+msgid "Close"
+msgstr ""
+
+#: models/strings.php:55 models/strings.php:64
+msgctxt "theme-frontend"
+msgid "To home page"
+msgstr ""
+
+#: models/strings.php:60
+msgctxt "theme-frontend"
+msgid "The content were looking for was not found"
+msgstr ""
+
+#: models/strings.php:67
+msgctxt "theme-frontend"
+msgid "Skip video embed"
+msgstr ""
+
+#: models/strings.php:68
+msgctxt "theme-frontend"
+msgid "Play video"
+msgstr ""
+
+#: models/strings.php:69
+msgctxt "theme-frontend"
+msgid "Pause video"
+msgstr ""
+
+#: models/strings.php:72
+msgctxt "theme-frontend"
+msgid "Skip social media embed"
+msgstr "Hoppa över inbäddning av sociala medier"
+
+#: models/strings.php:75
+msgctxt "theme-frontend"
+msgid "Share Article"
+msgstr ""
+
+#: models/strings.php:76
+msgctxt "theme-frontend"
+msgid "Share Event"
+msgstr ""
+
+#: models/strings.php:77
+msgctxt "theme-frontend"
+msgid "Share to social media"
+msgstr ""
+
+#: models/strings.php:81
+msgctxt "theme-frontend"
+msgid "Next"
+msgstr ""
+
+#: models/strings.php:82 models/strings.php:150
+msgctxt "theme-frontend"
+msgid "Open"
+msgstr ""
+
+#: models/strings.php:83
+msgctxt "theme-frontend"
+msgid "Previous"
+msgstr ""
+
+#: models/strings.php:84
+msgctxt "theme-frontend"
+msgid "Go to slide"
+msgstr ""
+
+#: models/strings.php:85
+msgctxt "theme-frontend"
+msgid "Centered"
+msgstr ""
+
+#: models/strings.php:86
+msgctxt "theme-frontend"
+msgid "Slide"
+msgstr ""
+
+#: models/strings.php:87
+msgctxt "theme-frontend"
+msgid "Image carousel"
+msgstr ""
+
+#: models/strings.php:88
+msgctxt "theme-frontend"
+msgid "Modal image carousel"
+msgstr ""
+
+#: models/strings.php:89
+msgctxt "theme-frontend"
+msgid "Main image carousel"
+msgstr ""
+
+#: models/strings.php:92
+msgctxt "theme-frontend"
+msgid "Move to tampere.fi"
+msgstr ""
+
+#: models/strings.php:93
+msgctxt "theme-frontend"
+msgid "Back to top"
+msgstr "Till början av sidan"
+
+#: models/strings.php:96
+msgctxt "theme-frontend"
+msgid "Opens in a new window"
+msgstr ""
+
+#: models/strings.php:97
+msgctxt "theme-frontend"
+msgid "All"
+msgstr ""
+
+#: models/strings.php:98
+msgctxt "theme-frontend"
+msgid "Read more"
+msgstr ""
+
+#: models/strings.php:101
+msgctxt "theme-frontend"
+msgid "Image:"
+msgstr ""
+
+#: models/strings.php:102
+msgctxt "theme-frontend"
+msgid "Text:"
+msgstr ""
+
+#: models/strings.php:105 models/strings.php:174
+msgctxt "theme-frontend"
+msgid "Month"
+msgstr ""
+
+#: models/strings.php:106 models/strings.php:175
+msgctxt "theme-frontend"
+msgid "Year"
+msgstr ""
+
+#: models/strings.php:107
+msgctxt "theme-frontend"
+msgid "No results"
+msgstr ""
+
+#: models/strings.php:108
+msgctxt "theme-frontend"
+msgid "Filter by Category"
+msgstr ""
+
+#: models/strings.php:111 models/strings.php:188
+msgctxt "theme-frontend"
+msgid "January"
+msgstr ""
+
+#: models/strings.php:112 models/strings.php:189
+msgctxt "theme-frontend"
+msgid "February"
+msgstr ""
+
+#: models/strings.php:113 models/strings.php:190
+msgctxt "theme-frontend"
+msgid "March"
+msgstr ""
+
+#: models/strings.php:114 models/strings.php:191
+msgctxt "theme-frontend"
+msgid "April"
+msgstr ""
+
+#: models/strings.php:115 models/strings.php:192 models/strings.php:206
+msgctxt "theme-frontend"
+msgid "May"
+msgstr ""
+
+#: models/strings.php:116 models/strings.php:193
+msgctxt "theme-frontend"
+msgid "June"
+msgstr ""
+
+#: models/strings.php:117 models/strings.php:194
+msgctxt "theme-frontend"
+msgid "July"
+msgstr ""
+
+#: models/strings.php:118 models/strings.php:195
+msgctxt "theme-frontend"
+msgid "August"
+msgstr ""
+
+#: models/strings.php:119 models/strings.php:196
+msgctxt "theme-frontend"
+msgid "September"
+msgstr ""
+
+#: models/strings.php:120 models/strings.php:197
+msgctxt "theme-frontend"
+msgid "October"
+msgstr ""
+
+#: models/strings.php:121 models/strings.php:198
+msgctxt "theme-frontend"
+msgid "November"
+msgstr ""
+
+#: models/strings.php:122 models/strings.php:199
+msgctxt "theme-frontend"
+msgid "December"
+msgstr ""
+
+#: models/strings.php:125
+msgctxt "theme-frontend"
+msgid "Password:"
+msgstr ""
+
+#: models/strings.php:126
+msgctxt "theme-frontend"
+msgid "Enter"
+msgstr ""
+
+#: models/strings.php:128
+msgctxt "theme-frontend"
+msgid ""
+"This content is password protected. To view it please enter your password "
+"below:"
+msgstr ""
+
+#: models/strings.php:134
+msgctxt "theme-frontend"
+msgid "Sibling pages"
+msgstr ""
+
+#: models/strings.php:137
+msgctxt "theme-frontend"
+msgid "Comments"
+msgstr ""
+
+#: models/strings.php:141
+msgctxt "theme-frontend"
+msgid "Show description"
+msgstr ""
+
+#: models/strings.php:142
+msgctxt "theme-frontend"
+msgid "All articles"
+msgstr ""
+
+#: models/strings.php:145
+msgctxt "theme-frontend"
+msgid "Event date"
+msgstr ""
+
+#: models/strings.php:146
+msgctxt "theme-frontend"
+msgid "Event time"
+msgstr ""
+
+#: models/strings.php:147
+msgctxt "theme-frontend"
+msgid "Event location"
+msgstr ""
+
+#: models/strings.php:154
+msgctxt "theme-frontend"
+msgid "Search contacts"
+msgstr "Sök kontaktuppgifter"
+
+#: models/strings.php:159
+msgctxt "theme-frontend"
+msgid "Show artist"
+msgstr ""
+
+#: models/strings.php:160
+msgctxt "theme-frontend"
+msgid "Artwork by the same artist"
+msgstr ""
+
+#: models/strings.php:161
+msgctxt "theme-frontend"
+msgid "Related artwork"
+msgstr ""
+
+#: models/strings.php:164
+msgctxt "theme-frontend"
+msgid "Filter by type"
+msgstr ""
+
+#: models/strings.php:165
+msgctxt "theme-frontend"
+msgid "Publish date"
+msgstr ""
+
+#: models/strings.php:169 models/strings.php:177
+msgctxt "theme-frontend"
+msgid "Pick a date"
+msgstr ""
+
+#: models/strings.php:170
+msgctxt "theme-frontend"
+msgid "dd.mm.yyyy"
+msgstr ""
+
+#: models/strings.php:171
+msgctxt "theme-frontend"
+msgid "The chosen date is"
+msgstr ""
+
+#: models/strings.php:172
+msgctxt "theme-frontend"
+msgid "Previous month"
+msgstr ""
+
+#: models/strings.php:173
+msgctxt "theme-frontend"
+msgid "Next month"
+msgstr ""
+
+#: models/strings.php:176
+msgctxt "theme-frontend"
+msgid "Close window"
+msgstr ""
+
+#: models/strings.php:179
+msgctxt "theme-frontend"
+msgid "Sunday"
+msgstr ""
+
+#: models/strings.php:180
+msgctxt "theme-frontend"
+msgid "Monday"
+msgstr ""
+
+#: models/strings.php:181
+msgctxt "theme-frontend"
+msgid "Tuesday"
+msgstr ""
+
+#: models/strings.php:182
+msgctxt "theme-frontend"
+msgid "Wednesday"
+msgstr ""
+
+#: models/strings.php:183
+msgctxt "theme-frontend"
+msgid "Thursday"
+msgstr ""
+
+#: models/strings.php:184
+msgctxt "theme-frontend"
+msgid "Friday"
+msgstr ""
+
+#: models/strings.php:185
+msgctxt "theme-frontend"
+msgid "Saturday"
+msgstr ""
+
+#: models/strings.php:202
+msgctxt "theme-frontend"
+msgid "Jan"
+msgstr ""
+
+#: models/strings.php:203
+msgctxt "theme-frontend"
+msgid "Feb"
+msgstr ""
+
+#: models/strings.php:204
+msgctxt "theme-frontend"
+msgid "Mar"
+msgstr ""
+
+#: models/strings.php:205
+msgctxt "theme-frontend"
+msgid "Apr"
+msgstr ""
+
+#: models/strings.php:207
+msgctxt "theme-frontend"
+msgid "Jun"
+msgstr ""
+
+#: models/strings.php:208
+msgctxt "theme-frontend"
+msgid "Jul"
+msgstr ""
+
+#: models/strings.php:209
+msgctxt "theme-frontend"
+msgid "Aug"
+msgstr ""
+
+#: models/strings.php:210
+msgctxt "theme-frontend"
+msgid "Sept"
+msgstr ""
+
+#: models/strings.php:211
+msgctxt "theme-frontend"
+msgid "Oct"
+msgstr ""
+
+#: models/strings.php:212
+msgctxt "theme-frontend"
+msgid "Nov"
+msgstr ""
+
+#: models/strings.php:213
+msgctxt "theme-frontend"
+msgid "Dec"
+msgstr ""
+
+#: models/strings.php:227
+msgid "Pagination"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "TMS Theme Base"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Tampere Multisite Base Theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Geniem"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://geniem.fi"
+msgstr ""

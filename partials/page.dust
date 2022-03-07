@@ -7,7 +7,7 @@
         {/Page.hero_image}
 
         {?Header.breadcrumbs}
-            <div class="section pt-6 pb-7">
+            <div class="breadcrumbs-container section pt-6 pb-7">
                 <div class="container">
                     <div class="columns">
                         <div class="column">
@@ -18,17 +18,12 @@
             </div>
         {/Header.breadcrumbs}
 
-        <section class="section {?Header.hero_image}pt-7{:else}pt-0{/Header.hero_image}">
+        <section class="section {?Header.hero_image}pt-7{:else}{?Header.breadcrumbs}pt-0{:else}pt-10{/Header.breadcrumbs}{/Header.hero_image}">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-12">
                         <article class="entry">
-                            {^Page.hero_image}
-                                <h1 class="entry__title mt-0 has-text-centered">
-                                    {@title /}
-                                </h1>
-                            {/Page.hero_image}
-
+                             {>"ui/entry-title" class="mt-0 has-text-centered" hero_image=Page.hero_image /}
                             <div class="entry__content is-content-grid keep-vertical-spacing">
                                 {@content /}
                             </div>

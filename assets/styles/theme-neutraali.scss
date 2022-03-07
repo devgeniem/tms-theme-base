@@ -13,7 +13,7 @@ $primary-dark-invert: $color-black;
 
 $secondary: $primary;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 10);
+$secondary-light: #e0dbd6;
 $secondary-light-invert: $color-black;
 $secondary-dark: bulmaDarken($secondary, 10);
 $secondary-dark-invert: $color-black;
@@ -22,6 +22,8 @@ $light: $primary-light;
 $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
+$divider: $color-vaalean-harmaa;
+$divider-invert: $color-tumma-harmaa;
 
 $text: $color-black;
 $link: $primary-dark;
@@ -29,12 +31,15 @@ $link: $primary-dark;
 $colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
 $colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
 
+$accent: $primary-invert;
+$accent-invert: $color-white;
+
 $colors: (
     "primary": $colors-palette-primary,
     "secondary": $colors-palette-secondary,
     "white": ($color-white, $color-black),
     "black": ($color-black, $color-white),
-    "accent": ($primary, $primary-invert),
+    "accent": ($accent, $accent-invert),
 );
 
 $button-text-primary: $text;
@@ -48,3 +53,4 @@ $button-colors: (
 $color-background-primary-light--opaque-light: $secondary;
 
 @import "main";
+@import "themes/theme-neutraali-overrides";

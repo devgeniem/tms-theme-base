@@ -1,10 +1,17 @@
 {?links}
-    <div class="language-nav ml-4 ml-6-desktop">
+    <nav class="language-nav ml-4 ml-6-desktop" aria-label="{Strings.s.header.language_navigation|s}">
         <div class="dropdown">
             <div class="dropdown-trigger">
-                <button class="button button--icon is-primary is-outlined"
+                <button class="button button--icon {Header.colors.lang_nav.dropdown_toggle}"
                         aria-haspopup="true" aria-controls="lang-dropdown-menu">
-                    <span class="is-uppercase">{links.current.slug}</span>
+                    <span class="is-uppercase">
+                        <span class="is-sr-only">
+                            {Strings.s.header.current_lang|s}
+                            {links.current.name}
+                        </span>
+                        {links.current.slug}
+                    </span>
+                    <span class="is-sr-only">{Strings.s.header.open_lang_nav|s}</span>
                     {>"ui/icon" icon="chevron-down" class="icon--medium" /}
                 </button>
             </div>
@@ -14,10 +21,11 @@
                     {#links.others}
                         <a href="{url}" class="dropdown-item">
                             {slug}
+                            <span class="is-sr-only">{name|s}</span>
                         </a>
                     {/links.others}
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 {/links}

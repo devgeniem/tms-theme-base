@@ -5,6 +5,8 @@
 $navbar-item-navbar-link-color: $primary-invert !default;
 $navbar-item-grid-item-border-color: #d9dde1 !default;
 $navbar-item-has-dropdown-active: $primary-invert !default;
+$navbar-item-dropdown-accent-color: $primary-dark !default;
+$navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !default;
 
 .primary-nav {
     @include list-reset;
@@ -14,6 +16,20 @@ $navbar-item-has-dropdown-active: $primary-invert !default;
     text-transform: uppercase;
 
     .navbar-item {
+        padding: $theme-spacing-three-quarters 0;
+        border-bottom: 5px solid transparent;
+        white-space: normal !important;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+
+        &--trigger-only {
+            .navbar-dropdown__parent-link {
+                display: none !important;
+            }
+        }
+
         .navbar-dropdown-control {
             color: $navbar-item-navbar-link-color;
 
@@ -25,6 +41,12 @@ $navbar-item-has-dropdown-active: $primary-invert !default;
                 color: inherit;
                 fill: currentColor;
             }
+        }
+
+        &.current-menu-item,
+        &.current-menu-parent {
+            background: $navbar-item-navbar-active-bg-color !important; // sass-lint:disable-line no-important
+            border-bottom-color: $navbar-item-navbar-link-color;
         }
     }
 
@@ -74,8 +96,12 @@ $navbar-item-has-dropdown-active: $primary-invert !default;
 
             &__parent-link {
                 font-weight: 600;
-                color: $primary !important; // sass-lint:disable-line no-important
+                color: $navbar-item-dropdown-accent-color !important; // sass-lint:disable-line no-important
                 text-transform: none;
+            }
+
+            .icon {
+                fill: $navbar-item-dropdown-accent-color;
             }
         }
 
@@ -94,6 +120,10 @@ $navbar-item-has-dropdown-active: $primary-invert !default;
                 &:hover,
                 &:focus {
                     background-color: transparent;
+                }
+
+                &.current-menu-item {
+                    text-decoration: underline;
                 }
             }
         }

@@ -2,6 +2,8 @@
  * Accordion JS controller.
  */
 
+import Indicate from 'indicate';
+
 /**
  * Class Accordion
  */
@@ -59,6 +61,18 @@ export default class Accordion {
 
         this.toggleAriaExpanded( clickedToggler );
         dropDownContent.classList.toggle( 'is-hidden' );
+
+        if ( ! clickedToggler.classList.contains( 'is-hidden' )
+        && ! clickedToggler.classList.contains( 'accordion--table-initialized' ) ) {
+
+            const accordionTables = dropDownContent.getElementsByTagName( 'table' );
+
+            if ( accordionTables.length > 0 ) {
+                new Indicate( accordionTables, { arrows: true } );
+
+                clickedToggler.classList.add( 'accordion--table-initialized' );
+            }
+        }
     }
 
     /**

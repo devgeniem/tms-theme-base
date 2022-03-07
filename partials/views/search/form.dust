@@ -1,0 +1,5 @@
+<form action="{form.search_link}" class="search__form is-relative">
+    {>"views/search/search-term-input" /}
+
+    {>"views/search/form-filters" /}
+</form>

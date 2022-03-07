@@ -55,7 +55,7 @@ class AccordionFields extends Field\Group {
                 'instructions' => '',
             ],
             'sections'        => [
-                'label'        => 'Haitarit',
+                'label'        => 'Haitarin osiot',
                 'instructions' => '',
                 'button'       => 'Lisää uusi',
             ],

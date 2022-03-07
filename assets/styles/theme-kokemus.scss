@@ -8,12 +8,12 @@ $primary: #abc872;
 $primary-invert: $color-black;
 $primary-light: bulmaLighten($primary, 10);
 $primary-light-invert: $color-black;
-$primary-dark: bulmaDarken($primary, 10);
+$primary-dark: bulmaDarken($primary, 20);
 $primary-dark-invert: $color-black;
 
 $secondary: #e8f0d9;
 $secondary-invert: $color-black;
-$secondary-light: bulmaLighten($secondary, 5);
+$secondary-light: #dbe2ce;
 $secondary-light-invert: $color-black;
 $secondary-dark: bulmaDarken($secondary, 5);
 $secondary-dark-invert: $color-black;
@@ -22,6 +22,8 @@ $light: $primary-light;
 $light-invert: $primary-light-invert;
 $dark: $primary-dark;
 $dark-invert: $primary-dark-invert;
+$divider: $color-vaalean-harmaa;
+$divider-invert: $color-tumma-harmaa;
 
 $text: $black;
 $link: bulmaDarken($primary-dark, 15);
@@ -45,3 +47,4 @@ $button-colors: (
 $color-background-primary-light--opaque-light: $secondary;
 
 @import "main";
+@import "themes/theme-kokemus-overrides";

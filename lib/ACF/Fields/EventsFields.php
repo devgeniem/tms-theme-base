@@ -41,58 +41,64 @@ class EventsFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'        => [
+            'title'           => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'start'        => [
+            'start'           => [
                 'label'        => 'Alkupäivämäärä',
                 'instructions' => '',
             ],
-            'end'          => [
+            'end'             => [
                 'label'        => 'Loppupäivämäärä',
                 'instructions' => '',
             ],
-            'starts_today' => [
+            'starts_today'    => [
                 'label'        => 'Alkaa tänään',
                 'instructions' => 'Alkupäivämääränä käytetään kuluvaa päivää',
             ],
-            'keyword'      => [
+            'keyword'         => [
                 'label'        => 'Avainsana',
                 'instructions' => '',
             ],
-            'location'     => [
+            'location'        => [
                 'label'        => 'Tapahtumapaikka',
                 'instructions' => '',
             ],
-            'publisher'    => [
+            'publisher'       => [
                 'label'        => 'Julkaisija',
                 'instructions' => '',
             ],
-            'text'         => [
+            'text'            => [
                 'label'        => 'Vapaasanahaku',
                 'instructions' => '',
             ],
-            'sort'         => [
+            'sort'            => [
                 'label'        => 'Järjestys',
-                'instructions' => '',
+                'instructions' => 'Järjestys pakotettu: Päättymisaika (nouseva)',
                 'choices'      => [
-                    '-start_time'         => 'Alkamisaika (laskeva)',
-                    'start_time'          => 'Alkamisaika (nouseva)',
-                    '-end_time'           => 'Päättymisaika (laskeva)',
+                    ''                    => 'Kustomoitu järjestys',
                     'end_time'            => 'Päättymisaika (nouseva)',
-                    '-duration'           => 'Kesto (laskeva)',
+                    '-end_time'           => 'Päättymisaika (laskeva)',
+                    'start_time'          => 'Alkamisaika (nouseva)',
+                    '-start_time'         => 'Alkamisaika (laskeva)',
                     'duration'            => 'Kesto (nouseva)',
-                    '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
+                    '-duration'           => 'Kesto (laskeva)',
                     'last_modified_time'  => 'Viimeksi muokattu (nouseva)',
+                    '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
                 ],
+                'default'      => '',
             ],
-            'page_size'    => [
+            'page_size'       => [
                 'label'        => 'Näytettävien tapahtumien määrä',
                 'instructions' => '',
             ],
-            'show_images'  => [
+            'show_images'     => [
                 'label'        => 'Näytä kuvat',
+                'instructions' => '',
+            ],
+            'all_events_link' => [
+                'label'        => '"Katso kaikki tapahtumat" -linkki',
                 'instructions' => '',
             ],
         ];
@@ -166,6 +172,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_key( "${key}_sort" )
             ->set_name( 'sort' )
             ->set_choices( $strings['sort']['choices'] )
+            ->set_default_value( $strings['sort']['default'] )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['sort']['instructions'] );
 
@@ -186,6 +193,12 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['show_images']['instructions'] );
 
+        $all_events_link_field = ( new Field\Link( $strings['all_events_link']['label'] ) )
+            ->set_key( "${key}_all_events_link" )
+            ->set_name( 'all_events_link' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['all_events_link']['instructions'] );
+
         return [
             $title_field,
             $start_field,
@@ -198,6 +211,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             $sort_field,
             $page_size_field,
             $show_images_field,
+            $all_events_link_field,
         ];
     }
 }

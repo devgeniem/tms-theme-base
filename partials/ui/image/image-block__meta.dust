@@ -1,12 +1,21 @@
 <div class="columns image-block__meta pt-2{?author_name} is-reversed{/author_name}">
     {?author_name}
         <div class="column is-2 has-text-right image-block__author-name has-text-small">
-            {author_name|s}
+            {author_name|s}.
         </div>
     {/author_name}
-    {?caption}
+
+    {@isset key1=caption key2=image_title_and_artist method="OR" }
         <div class="column keep-vertical-spacing image-block__caption">
-            {caption|s}
+            {?image_title_and_artist}
+                <strong class="is-block">{image_title_and_artist|s}</strong>
+            {/image_title_and_artist}
+
+            {?caption}
+                <div class="keep-vertical-spacing">
+                    {caption|s}
+                </div>
+            {/caption}
         </div>
-    {/caption}
+    {/isset}
 </div>

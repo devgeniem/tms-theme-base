@@ -1,0 +1,78 @@
+{?rows}
+<div {?anchor}id="{anchor|attr}"{/anchor} class="image-carousel">
+    <div class="container keep-vertical-spacing">
+        <div class="columns is-multiline">
+
+            {?title}
+                <h3 id="{carousel_id|attr}-title"
+                    class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3 {carousel_title_class|s}">
+                    {title|html}
+                </h3>
+            {/title}
+
+            {?description}
+                <div class="image-carousel__description column is-half is-offset-one-quarter has-text-lead has-text-centered mt-0 mb-6">
+                    {description|kses}
+                </div>
+            {/description}
+
+            <div class="image-carousel__inner column is-full ">
+                <button class="button button--icon is-primary slick-prev slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-left" /}
+                    <span class="is-sr-only">{Strings.s.gallery.previous|html}</span>
+                </button>
+
+                <div class="image-carousel__items image-carousel__items--primary"
+                     id="{carousel_id|attr}" data-slider-for="{carousel_id|attr}-modal-carousel">
+                    {#rows}
+                        <div class="image-carousel__item" id="{id|attr}">
+                            {! Modal trigger !}
+                            <button
+                                class="image modal-trigger has-zoom-on-hover"
+                                data-modal-button
+                                data-target="{carousel_id|attr}-modal"
+                                aria-controls="{carousel_id|attr}-modal"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-label="{translations.open}"
+                            >
+                                {@image id=image.id alt=image.alt title=image.alt size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                            </button>
+                        </div>
+                    {/rows}
+                </div>
+
+                <button class="button button--icon is-primary slick-next slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-right" /}
+                    <span class="is-sr-only">{Strings.s.gallery.next|html}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {! The modal !}
+    <div id="{carousel_id|attr}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{carousel_id|attr}">
+        <div class="modal-background"></div>
+
+        <button
+            class="button button--icon modal-close-button is-white is-outlined is-flex is-align-self-flex-end image-carousel__modal-control">
+            <span class="modal-close-button__text">{translations.clos|html}</span>
+            {>"ui/icon" icon="close" class="icon--medium" /}
+        </button>
+        <div class="modal-content">
+
+            {! Slider inside the modal !}
+            <div class="image-carousel__items image-carousel__items--modal column is-full" id="{carousel_id|attr}-modal-carousel" data-slider-for="{carousel_id|attr}">
+                {#rows}
+                    <div class="image-carousel__item" id="{id|attr}-modal">
+                        {@image id=image.id alt=image.alt title=image.description size="fullhd" width="{image.sizes.fullhd-width}" height="{image.sizes.fullhd-height}" loading="" /}
+
+                        {>"ui/image/image-block__meta" /}
+                    </div>
+                {/rows}
+            </div>
+
+        </div>
+    </div>
+</div>
+{/rows}

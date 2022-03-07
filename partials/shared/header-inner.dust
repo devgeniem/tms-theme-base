@@ -41,7 +41,7 @@
 
     {^Header.hide_search}
         <div id="js-search-toggle-target"
-             class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 has-background-secondary has-text-secondary-invert"
+             class="site-header__popup is-hidden is-absolute has-right-0 has-bottom-0 has-left-0 has-transform-y-100 {Header.colors.search_popup_container}"
              role="search">
             <div class="container">
                 <div class="columns">
@@ -64,11 +64,11 @@
     <div class="site-header__nav is-relative is-hidden-touch is-hidden-desktop-only {Header.colors.nav|s}">
         <div class="container">
             <div class="columns mt-0 mb-0">
-                <div class="column">
+                <div class="column pt-0 pb-0">
                     {?Header.limit_nav_depth}
                         {@menu menu_name="primary" depth="1" ul_classes="bulmally-navbar primary-nav primary-nav--simple" menuitem_partial="ui/menu/menu-item-single" /}
                     {:else}
-                        {@menu menu_name="primary" depth="2" ul_id="js-primary-menu" ul_classes="bulmally-navbar primary-nav primary-nav--dropdown" menuitem_partial="ui/menu/menu-item-dropdown" /}
+                        {@menu menu_name="primary" depth="2" ul_id="js-primary-menu" ul_classes="bulmally-navbar primary-nav primary-nav--dropdown" menuitem_partial="ui/menu/menu-item-dropdown" data=Header.strings /}
                     {/Header.limit_nav_depth}
                 </div>
             </div>

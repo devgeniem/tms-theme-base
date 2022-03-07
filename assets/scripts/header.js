@@ -44,18 +44,31 @@ export default class Header {
     }
 
     /**
+     * Show the notification if related cookie is not found.
+     */
+    maybeShowGeneralNotification() {
+        const $generalNotice = $( '.site-header-notice' );
+
+        if ( $generalNotice.length > 0 && ! Common.cookieExists( $generalNotice.data( 'notice-id' ) ) ) {
+            $generalNotice.addClass( 'is-block' );
+        }
+    }
+
+    /**
      * Run when the document is ready.
      *
      * @return {void}
      */
     docReady() {
-        $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
         $( '.site-header-notice__close' ).on( 'click', this.onNoticeClose.bind( this ) );
+        $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
         $( '.fly-out-nav .js-scroll-children' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
 
         MicroModal.init( {
             disableScroll: true,
             onShow: this.onFlyOutMenuOpen.bind( this ),
         } );
+
+        this.maybeShowGeneralNotification();
     }
 }

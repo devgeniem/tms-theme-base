@@ -5,9 +5,6 @@
                 {link.title|s}
             </span>
 
-            {@eq key=link.target value="_blank"}
-                <span class="is-sr-only"> {Strings.s.common.target_blank|s} </span>
-            {/eq}
 
             {?icon}
                 {>"ui/icon" class=icon_classes /}

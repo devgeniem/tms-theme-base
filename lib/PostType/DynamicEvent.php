@@ -30,7 +30,7 @@ class DynamicEvent implements PostType {
      *
      * @var string
      */
-    private $url_slug = '';
+    private $url_slug = 'dynamic-event';
 
     /**
      * Define the CPT description
@@ -57,7 +57,6 @@ class DynamicEvent implements PostType {
      * Constructor
      */
     public function __construct() {
-        $this->url_slug    = _x( 'dynamic-event', 'theme CPT slugs', 'tms-theme-base' );
         $this->description = _x( 'dynamic-event', 'theme CPT', 'tms-theme-base' );
     }
 
@@ -124,7 +123,7 @@ class DynamicEvent implements PostType {
         ];
 
         $rewrite = [
-            'slug'       => static::SLUG,
+            'slug'       => $this->url_slug,
             'with_front' => true,
             'pages'      => true,
             'feeds'      => true,
@@ -171,7 +170,10 @@ class DynamicEvent implements PostType {
      * Clear cache
      */
     protected function clear_cache() : void {
-        wp_cache_delete( self::LINK_LIST_CACHE_KEY );
+        $lang_slug = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
+        $cache_key = self::LINK_LIST_CACHE_KEY . '-' . $lang_slug;
+
+        wp_cache_delete( $cache_key );
     }
 
     /**
@@ -180,7 +182,8 @@ class DynamicEvent implements PostType {
      * @return array
      */
     public static function get_link_list() : array {
-        $cache_key      = self::LINK_LIST_CACHE_KEY;
+        $lang_slug      = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
+        $cache_key      = self::LINK_LIST_CACHE_KEY . '-' . $lang_slug;
         $dynamic_events = wp_cache_get( $cache_key );
 
         if ( ! empty( $dynamic_events ) ) {

@@ -1,0 +1,839 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMS Theme Base\n"
+"POT-Creation-Date: 2021-10-22 08:13+0300\n"
+"PO-Revision-Date: 2022-01-10 15:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;"
+"esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: assets/dist\n"
+
+#: comments.php:14
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments.php:23
+msgid "Reply"
+msgstr "Ответить"
+
+#: lib/ACF/BlogArticleGroup.php:83
+msgctxt "theme ACF"
+msgid "Authors"
+msgstr "Авторы"
+
+#: lib/ACF/CommentGroup.php:83
+msgctxt "theme ACF"
+msgid "Blog author"
+msgstr "Автор блога"
+
+#: lib/ACF/DynamicEventGroup.php:55
+msgctxt "theme ACF"
+msgid "Information"
+msgstr "Информация"
+
+#: lib/ACF/Fields/Settings/MapSettingsTab.php:77
+msgid "Open map"
+msgstr "Открыть карту"
+
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:70 lib/ACF/PageGroup.php:39
+msgctxt "theme ACF"
+msgid "Page Components"
+msgstr "Компоненты страницы"
+
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:123 lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
+msgctxt "theme ACF"
+msgid "Components"
+msgstr "Компоненты"
+
+#: lib/ACF/PageContactsGroup.php:38
+msgctxt "theme ACF"
+msgid "Contact settings"
+msgstr "Настройки контактов"
+
+#: lib/ACF/PageEventsCalendarGroup.php:38
+msgctxt "theme ACF"
+msgid "Calendar settings"
+msgstr "Настройки календаря"
+
+#: lib/ACF/PostGroup.php:129
+msgid "Related posts"
+msgstr "Связанные сообщения"
+
+#: lib/ACF/SettingsGroup.php:49
+msgctxt "theme ACF"
+msgid "Site settings"
+msgstr "Настройки сайта"
+
+#: lib/Admin.php:89
+msgid "Paragraph"
+msgstr "Абзац"
+
+#: lib/Admin.php:90
+msgid "Header"
+msgstr "Заголовок"
+
+#: lib/Comments.php:72
+msgid "Send Comment"
+msgstr "Отправить комментарий"
+
+#: lib/Comments.php:112
+msgid "Your comment is awaiting moderation"
+msgstr "Ваш комментарий ожидает модерации"
+
+#: lib/Comments.php:134
+msgid "Blog author"
+msgstr "Автор блога"
+
+#: lib/Comments.php:151
+msgid "Edit"
+msgstr "Редактировать"
+
+#: lib/Formatters/GridFormatter.php:143
+msgid "Read more"
+msgstr "Подробнее"
+
+#: lib/LinkedEvents.php:98
+msgid "Dates"
+msgstr "Даты"
+
+#: lib/LinkedEvents.php:100
+msgid "Time"
+msgstr "Время"
+
+#: lib/LinkedEvents.php:102
+msgid "Location"
+msgstr "Место"
+
+#: lib/LinkedEvents.php:104
+msgid "Price"
+msgstr "Цена"
+
+#: lib/LinkedEvents.php:106
+msgid "Organizer"
+msgstr "Организатор"
+
+#: lib/LinkedEvents.php:213 lib/LinkedEvents.php:265
+msgid "Additional information"
+msgstr "Дополнительная информация"
+
+#: lib/LinkedEvents.php:258
+msgid "Free"
+msgstr "Бесплатно"
+
+#: lib/LinkedEvents.php:288
+msgid "Additional info"
+msgstr "Дополнительная информация"
+
+#: lib/LinkedEvents.php:338
+msgid "Virtual event"
+msgstr "Виртуальное событие"
+
+#: lib/NavigationController.php:34
+msgid "Primary Navigation"
+msgstr "Основная навигация"
+
+#: lib/NavigationController.php:35
+msgid "Secondary Navigation"
+msgstr "Дополнительная навигация"
+
+#: lib/PostType/BlogArticle.php:65
+msgctxt "theme CPT slugs"
+msgid "blog-article"
+msgstr "blog-article"
+
+#: lib/PostType/BlogArticle.php:66
+msgctxt "theme CPT"
+msgid "Blog articles"
+msgstr "Статьи блога"
+
+#: lib/PostType/BlogAuthor.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-author"
+msgstr "blog-author"
+
+#: lib/PostType/BlogAuthor.php:61
+msgctxt "theme CPT"
+msgid "Blog authors"
+msgstr "Авторы блога"
+
+#: lib/PostType/Contact.php:55
+msgctxt "theme CPT slugs"
+msgid "contact"
+msgstr "contact"
+
+#: lib/PostType/Contact.php:56
+msgctxt "theme CPT"
+msgid "contact"
+msgstr "Контакт"
+
+#: lib/PostType/DynamicEvent.php:60
+msgctxt "theme CPT slugs"
+msgid "dynamic-event"
+msgstr "dynamic-event"
+
+#: lib/PostType/DynamicEvent.php:61
+msgctxt "theme CPT"
+msgid "dynamic-event"
+msgstr "Динамическое событие"
+
+#: lib/PostType/Settings.php:60
+msgctxt "theme CPT slugs"
+msgid "site-settings"
+msgstr "site-settings"
+
+#: lib/PostType/Settings.php:61
+msgctxt "theme CPT"
+msgid "Site settings"
+msgstr "Настройки сайта"
+
+#: lib/Roles.php:322
+msgctxt "wp-geniem-roles"
+msgid "Super Administrator"
+msgstr "Суперадминистратор"
+
+#: lib/Roles.php:415
+msgctxt "wp-geniem-roles"
+msgid "Administrator"
+msgstr "Администратор"
+
+#: lib/Roles.php:466
+msgctxt "wp-geniem-roles"
+msgid "Site Manager"
+msgstr "Менеджер сайта"
+
+#: lib/Roles.php:510
+msgctxt "wp-geniem-roles"
+msgid "Author"
+msgstr "Автор"
+
+#: lib/Roles.php:575
+msgctxt "wp-geniem-roles"
+msgid "Contributor"
+msgstr "Соавтор"
+
+#: lib/Roles.php:595
+msgctxt "wp-geniem-roles"
+msgid "Subscriber"
+msgstr "Подписчик"
+
+#: lib/SiteController.php:96
+msgid "News"
+msgstr "Новости"
+
+#: lib/SiteController.php:127
+msgid "Main menu"
+msgstr "Главное меню"
+
+#: lib/SiteController.php:161
+msgid "Site settings"
+msgstr "Настройки сайта"
+
+#: lib/SiteController.php:170 models/strings.php:55
+msgctxt "theme-frontend"
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: lib/SiteController.php:176
+msgctxt "theme-frontend"
+msgid ""
+"Sorry, the page you requested was not found. Please check that you spelled the address correctly. Or did you follow "
+"a link?"
+msgstr "К сожалению, запрошенная страница не найдена. Убедитесь, что адрес введен правильно. Или вы перешли по ссылке?"
+
+#: lib/SiteController.php:177
+msgctxt "theme-frontend"
+msgid ""
+"The page might not exist anymore or its name has changed. You might want to try to find the page you were looking "
+"for by"
+msgstr "Возможно, страница больше не существует или ее имя изменилось. Попробуйте сделать следующее:"
+
+#: lib/SiteController.php:178
+msgctxt "theme-frontend"
+msgid "– returning to the front page of the site"
+msgstr "— вернитесь на главную страницу сайта и попробуйте найти страницу;"
+
+#: lib/SiteController.php:179
+msgctxt "theme-frontend"
+msgid "– removing all characters after the last slash (/) in the address and try the shorter version of the address."
+msgstr "— удалите все символы после последней косой черты (/) в адресе и попробуйте более короткую версию адреса."
+
+#: lib/Taxonomy/BlogCategory.php:51
+msgid "Separate categories with commas"
+msgstr "Отделяйте категории запятыми"
+
+#: lib/Taxonomy/BlogCategory.php:52
+msgid "Add or remove category"
+msgstr "Добавить или удалить категорию"
+
+#: lib/Taxonomy/BlogCategory.php:53 lib/Taxonomy/BlogCategory.php:54
+msgid "Popular categories"
+msgstr "Популярные категории"
+
+#: lib/Taxonomy/BlogTag.php:51
+msgid "Separate keywords with commas"
+msgstr "Отделяйте ключевые слова запятыми"
+
+#: lib/Taxonomy/BlogTag.php:52
+msgid "Add or remove keyword"
+msgstr "Добавить или удалить ключевое слово"
+
+#: lib/Taxonomy/BlogTag.php:53 lib/Taxonomy/BlogTag.php:54
+msgid "Popular keywords"
+msgstr "Популярные ключевые слова"
+
+#: lib/Traits/Breadcrumbs.php:269
+msgctxt "Breadcrumbs"
+msgid "Home"
+msgstr "Главная"
+
+#: lib/Traits/Sharing.php:97
+msgid "Share on Facebook"
+msgstr "Поделиться через Facebook"
+
+#: lib/Traits/Sharing.php:103
+msgid "Share by email"
+msgstr "Поделиться по электронной почте"
+
+#: lib/Traits/Sharing.php:109
+msgid "Copy link to clipboard"
+msgstr "Скопировать ссылку в буфер обмена"
+
+#: lib/Traits/Sharing.php:110
+msgid "Copied to clipboard"
+msgstr "Скопировано в буфер обмена"
+
+#: lib/Traits/Sharing.php:116
+msgid "Share on Whatsapp"
+msgstr "Поделиться через Whatsapp"
+
+#: lib/Traits/Sharing.php:122
+msgid "Share on Twitter"
+msgstr "Поделиться через Twitter"
+
+#: lib/Traits/Sharing.php:128
+msgid "Share on LinkedIn"
+msgstr "Поделиться через LinkedIn"
+
+#: lib/Traits/Sharing.php:134
+msgid "Share on Vkontakte"
+msgstr "Поделиться через ВКонтакте"
+
+#: lib/Traits/Sharing.php:140
+msgid "Share on Line"
+msgstr "Поделиться через Line"
+
+#: models/archive-blog-article.php:167 models/archive.php:116 models/home.php:269 models/search.php:68
+msgid "All"
+msgstr "Все"
+
+#: models/error404.php:78
+msgctxt "theme-frontend"
+msgid "Go to search"
+msgstr "Перейти к поиску"
+
+#: models/error404.php:95
+msgctxt "theme-frontend"
+msgid "Return to home"
+msgstr "Вернуться на главную"
+
+#: models/page-events-calendar.php:39 models/page-events-search.php:118
+msgid "No results"
+msgstr "Нет результатов"
+
+#: models/page-events-search.php:51
+msgid "Search term"
+msgstr "Поисковый запрос"
+
+#: models/page-events-search.php:52
+msgid "Events from"
+msgstr "События:"
+
+#: models/page-events-search.php:53 models/search.php:81
+msgid "Start date"
+msgstr "Дата начала"
+
+#: models/page-events-search.php:54 models/search.php:82
+msgid "End date"
+msgstr "Дата окончания"
+
+#: models/page-events-search.php:117
+msgid "No search term given"
+msgstr "Поисковый запрос не указан"
+
+#: models/page-events-search.php:190 models/search.php:226
+#, php-format
+msgctxt "search results summary"
+msgid "%1$1s result found for \"%2$2s\""
+msgid_plural "%1$1s results found for \"%2$2s\""
+msgstr[0] "Результатов поиска по запросу «%2$2s»: %1$1s"
+msgstr[1] "Результатов поиска по запросу «%2$2s»: %1$1s"
+msgstr[2] ""
+
+#: models/search.php:44
+msgid "Search results"
+msgstr "Результаты поиска"
+
+#: models/search.php:79
+msgid "Filter by post type"
+msgstr "Фильтровать по типу сообщения"
+
+#: models/search.php:80
+msgid "Filter by date"
+msgstr "Фильтровать по дате"
+
+#: models/search.php:83
+msgid "Filter results"
+msgstr "Фильтровать результаты"
+
+#: models/search.php:100
+msgid "Looking for events? Use the event search!"
+msgstr "Ищете события? Воспользуйтесь функцией поиска событий!"
+
+#: models/search.php:237
+msgid "No search results"
+msgstr "Поиск не дал результатов"
+
+#: models/strings.php:42
+msgctxt "theme-frontend"
+msgid "Skip to content"
+msgstr "Перейти к содержимому"
+
+#: models/strings.php:43
+msgctxt "theme-frontend"
+msgid "Main navigation"
+msgstr "Главная панель навигации"
+
+#: models/strings.php:44
+msgctxt "theme-frontend"
+msgid "Open menu"
+msgstr "Открыть меню"
+
+#: models/strings.php:45
+msgctxt "theme-frontend"
+msgid "Close menu"
+msgstr "Закрыть меню"
+
+#: models/strings.php:46
+msgctxt "theme-frontend"
+msgid "Language navigation"
+msgstr "Выбор языка"
+
+#: models/strings.php:47
+msgctxt "theme-frontend"
+msgid "Open search form"
+msgstr "Открыть форму поиска"
+
+#: models/strings.php:48 models/strings.php:49 models/strings.php:142 models/strings.php:143
+msgctxt "theme-frontend"
+msgid "Search"
+msgstr "Поиск"
+
+#: models/strings.php:50 models/strings.php:51
+msgctxt "theme-frontend"
+msgid "Search from site"
+msgstr "Поиск по сайту"
+
+#: models/strings.php:52 models/strings.php:72 models/strings.php:125 models/strings.php:138
+msgctxt "theme-frontend"
+msgid "Close"
+msgstr "Закрыть"
+
+#: models/strings.php:57
+msgctxt "theme-frontend"
+msgid "The content were looking for was not found"
+msgstr "Искомое содержимое не найдено"
+
+#: models/strings.php:61
+msgctxt "theme-frontend"
+msgid "To home page"
+msgstr "На главную страницу"
+
+#: models/strings.php:64
+msgctxt "theme-frontend"
+msgid "Skip video embed"
+msgstr "Пропустить встраивание видео"
+
+#: models/strings.php:67
+msgctxt "theme-frontend"
+msgid "Share Article"
+msgstr "Поделиться статьей"
+
+#: models/strings.php:68
+msgctxt "theme-frontend"
+msgid "Share Event"
+msgstr "Поделиться событием"
+
+#: models/strings.php:69
+msgctxt "theme-frontend"
+msgid "Share to social media"
+msgstr "Поделиться в социальных сетях"
+
+#: models/strings.php:73
+msgctxt "theme-frontend"
+msgid "Next"
+msgstr "Далее"
+
+#: models/strings.php:74 models/strings.php:137
+msgctxt "theme-frontend"
+msgid "Open"
+msgstr "Открыть"
+
+#: models/strings.php:75
+msgctxt "theme-frontend"
+msgid "Previous"
+msgstr "Назад"
+
+#: models/strings.php:76
+msgctxt "theme-frontend"
+msgid "Go to slide"
+msgstr "Перейти к слайду"
+
+#: models/strings.php:79
+msgctxt "theme-frontend"
+msgid "Move to tampere.fi"
+msgstr "Перейти на tampere.fi"
+
+#: models/strings.php:80
+msgctxt "theme-frontend"
+msgid "Back to top"
+msgstr "К началу"
+
+#: models/strings.php:83
+msgctxt "theme-frontend"
+msgid "Opens in a new window"
+msgstr "Открывается в новом окне"
+
+#: models/strings.php:84
+msgctxt "theme-frontend"
+msgid "All"
+msgstr "Все"
+
+#: models/strings.php:85
+msgctxt "theme-frontend"
+msgid "Read more"
+msgstr "Подробнее"
+
+#: models/strings.php:88
+msgctxt "theme-frontend"
+msgid "Image:"
+msgstr "Изображение:"
+
+#: models/strings.php:89
+msgctxt "theme-frontend"
+msgid "Text:"
+msgstr "Текст:"
+
+#: models/strings.php:92 models/strings.php:161
+msgctxt "theme-frontend"
+msgid "Month"
+msgstr "Месяц"
+
+#: models/strings.php:93 models/strings.php:162
+msgctxt "theme-frontend"
+msgid "Year"
+msgstr "Год"
+
+#: models/strings.php:94
+msgctxt "theme-frontend"
+msgid "No results"
+msgstr "Нет результатов"
+
+#: models/strings.php:95
+msgctxt "theme-frontend"
+msgid "Filter by Category"
+msgstr "Фильтровать по категории"
+
+#: models/strings.php:98 models/strings.php:175
+msgctxt "theme-frontend"
+msgid "January"
+msgstr "Январь"
+
+#: models/strings.php:99 models/strings.php:176
+msgctxt "theme-frontend"
+msgid "February"
+msgstr "Февраль"
+
+#: models/strings.php:100 models/strings.php:177
+msgctxt "theme-frontend"
+msgid "March"
+msgstr "Март"
+
+#: models/strings.php:101 models/strings.php:178
+msgctxt "theme-frontend"
+msgid "April"
+msgstr "Апрель"
+
+#: models/strings.php:102 models/strings.php:179 models/strings.php:193
+msgctxt "theme-frontend"
+msgid "May"
+msgstr "Май"
+
+#: models/strings.php:103 models/strings.php:180
+msgctxt "theme-frontend"
+msgid "June"
+msgstr "Июнь"
+
+#: models/strings.php:104 models/strings.php:181
+msgctxt "theme-frontend"
+msgid "July"
+msgstr "Июль"
+
+#: models/strings.php:105 models/strings.php:182
+msgctxt "theme-frontend"
+msgid "August"
+msgstr "Август"
+
+#: models/strings.php:106 models/strings.php:183
+msgctxt "theme-frontend"
+msgid "September"
+msgstr "Сентябрь"
+
+#: models/strings.php:107 models/strings.php:184
+msgctxt "theme-frontend"
+msgid "October"
+msgstr "Октябрь"
+
+#: models/strings.php:108 models/strings.php:185
+msgctxt "theme-frontend"
+msgid "November"
+msgstr "Ноябрь"
+
+#: models/strings.php:109 models/strings.php:186
+msgctxt "theme-frontend"
+msgid "December"
+msgstr "Декабрь"
+
+#: models/strings.php:112
+msgctxt "theme-frontend"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: models/strings.php:113
+msgctxt "theme-frontend"
+msgid "Enter"
+msgstr "Ввести"
+
+#: models/strings.php:115
+msgctxt "theme-frontend"
+msgid "This content is password protected. To view it please enter your password below:"
+msgstr "Это содержимое защищено паролем. Для просмотра введите пароль ниже:"
+
+#: models/strings.php:121
+msgctxt "theme-frontend"
+msgid "Sibling pages"
+msgstr "Страницы того же уровня"
+
+#: models/strings.php:124
+msgctxt "theme-frontend"
+msgid "Comments"
+msgstr "Комментарии"
+
+#: models/strings.php:128
+msgctxt "theme-frontend"
+msgid "Show description"
+msgstr "Показать описание"
+
+#: models/strings.php:129
+msgctxt "theme-frontend"
+msgid "All articles"
+msgstr "Все статьи"
+
+#: models/strings.php:132
+msgctxt "theme-frontend"
+msgid "Event date"
+msgstr "Дата события"
+
+#: models/strings.php:133
+msgctxt "theme-frontend"
+msgid "Event time"
+msgstr "Время события"
+
+#: models/strings.php:134
+msgctxt "theme-frontend"
+msgid "Event location"
+msgstr "Место события"
+
+#: models/strings.php:141
+msgctxt "theme-frontend"
+msgid "Search contacts"
+msgstr "Поиск контактов"
+
+#: models/strings.php:146
+msgctxt "theme-frontend"
+msgid "Show artist"
+msgstr "Показать художника"
+
+#: models/strings.php:147
+msgctxt "theme-frontend"
+msgid "Artwork by the same artist"
+msgstr "Изображения того же художника"
+
+#: models/strings.php:148
+msgctxt "theme-frontend"
+msgid "Related artwork"
+msgstr "Связанные изображения"
+
+#: models/strings.php:151
+msgctxt "theme-frontend"
+msgid "Filter by type"
+msgstr "Фильтровать по типу"
+
+#: models/strings.php:152
+msgctxt "theme-frontend"
+msgid "Publish date"
+msgstr "Дата публикации"
+
+#: models/strings.php:156 models/strings.php:164
+msgctxt "theme-frontend"
+msgid "Pick a date"
+msgstr "Выберите дату"
+
+#: models/strings.php:157
+msgctxt "theme-frontend"
+msgid "dd.mm.yyyy"
+msgstr "дд.мм.гггг"
+
+#: models/strings.php:158
+msgctxt "theme-frontend"
+msgid "The chosen date is"
+msgstr "Выбранная дата:"
+
+#: models/strings.php:159
+msgctxt "theme-frontend"
+msgid "Previous month"
+msgstr "Предыдущий месяц"
+
+#: models/strings.php:160
+msgctxt "theme-frontend"
+msgid "Next month"
+msgstr "Следующий месяц"
+
+#: models/strings.php:163
+msgctxt "theme-frontend"
+msgid "Close window"
+msgstr "Закрыть окно"
+
+#: models/strings.php:166
+msgctxt "theme-frontend"
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: models/strings.php:167
+msgctxt "theme-frontend"
+msgid "Monday"
+msgstr "Понедельник"
+
+#: models/strings.php:168
+msgctxt "theme-frontend"
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: models/strings.php:169
+msgctxt "theme-frontend"
+msgid "Wednesday"
+msgstr "Среда"
+
+#: models/strings.php:170
+msgctxt "theme-frontend"
+msgid "Thursday"
+msgstr "Четверг"
+
+#: models/strings.php:171
+msgctxt "theme-frontend"
+msgid "Friday"
+msgstr "Пятница"
+
+#: models/strings.php:172
+msgctxt "theme-frontend"
+msgid "Saturday"
+msgstr "Суббота"
+
+#: models/strings.php:189
+msgctxt "theme-frontend"
+msgid "Jan"
+msgstr "Янв"
+
+#: models/strings.php:190
+msgctxt "theme-frontend"
+msgid "Feb"
+msgstr "Фев"
+
+#: models/strings.php:191
+msgctxt "theme-frontend"
+msgid "Mar"
+msgstr "Мар"
+
+#: models/strings.php:192
+msgctxt "theme-frontend"
+msgid "Apr"
+msgstr "Апр"
+
+#: models/strings.php:194
+msgctxt "theme-frontend"
+msgid "Jun"
+msgstr "Июн"
+
+#: models/strings.php:195
+msgctxt "theme-frontend"
+msgid "Jul"
+msgstr "Июл"
+
+#: models/strings.php:196
+msgctxt "theme-frontend"
+msgid "Aug"
+msgstr "Авг"
+
+#: models/strings.php:197
+msgctxt "theme-frontend"
+msgid "Sept"
+msgstr "Сен"
+
+#: models/strings.php:198
+msgctxt "theme-frontend"
+msgid "Oct"
+msgstr "Окт"
+
+#: models/strings.php:199
+msgctxt "theme-frontend"
+msgid "Nov"
+msgstr "Ноя"
+
+#: models/strings.php:200
+msgctxt "theme-frontend"
+msgid "Dec"
+msgstr "Дек"
+
+#: models/strings.php:214
+msgid "Pagination"
+msgstr "Разбиение на страницы"
+
+#. Theme Name of the plugin/theme
+msgid "TMS Theme Base"
+msgstr "База тем TMS"
+
+#. Description of the plugin/theme
+msgid "Tampere Multisite Base Theme"
+msgstr "База тем Tampere Multisite"
+
+#. Author of the plugin/theme
+msgid "Geniem"
+msgstr "Geniem"
+
+#. Author URI of the plugin/theme
+msgid "https://geniem.fi"
+msgstr "https://geniem.fi"

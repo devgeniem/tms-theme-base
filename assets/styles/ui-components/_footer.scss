@@ -38,6 +38,13 @@ $footer-copy-link-border-color: $primary-invert !default;
                 }
             }
         }
+
+        a {
+            &:hover,
+            &:focus {
+                text-decoration: none !important; // sass-lint:disable-line no-important
+            }
+        }
     }
 
     .brand-logo {
@@ -46,6 +53,13 @@ $footer-copy-link-border-color: $primary-invert !default;
 
         @include from($desktop) {
             height: auto;
+        }
+    }
+
+    &__tampere-vaakuna {
+        &:focus {
+            outline-style: solid;
+            outline-color: $primary-invert;
         }
     }
 }

@@ -2,13 +2,13 @@
     <div class="columns">
         <div class="column is-8 is-offset-2 has-text-centered">
             {?title}
-                <h2 class="mt-0 mb-6">
+                <h2 class="layout-articles__title mt-0 mb-6">
                     {title|s}
                 </h2>
             {/title}
 
             {?description}
-                <div class="article-articles__description mb-6 has-text-weight-semibold">
+                <div class="layout-articles__description mb-6 has-text-weight-semibold">
                     {description|s}
                 </div>
             {/description}
@@ -34,10 +34,7 @@
     {?link.url}
         {?link.title}
             <div class="has-text-right">
-                <a href="{link.url}" target="{link.target}" class="has-text-weight-medium ml-auto">
-                    {>"ui/icon" icon="chevron-right" class="is-primary icon--small mr-1" /}
-                    {link.title|s}
-                </a>
+                {>"ui/button-link" classes="is-primary layout-articles__read-more" icon="chevron-right" icon_classes="icon--medium"  /}
             </div>
         {/link.title}
     {/link.url}

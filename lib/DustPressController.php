@@ -36,7 +36,7 @@ class DustPressController implements Interfaces\Controller {
         dustpress()->add_helper( 'image', new ImageAdvanced() );
         add_filter(
             'dustpress/pagination/data',
-            \Closure::fromCallable( [ $this, 'disable_pagination_hellip_duplicate_link' ] )
+            \Closure::fromCallable( [ $this, 'alter_pagination_data' ] )
         );
         add_filter(
             'dustpress/image/allowed_attributes',
@@ -45,16 +45,21 @@ class DustPressController implements Interfaces\Controller {
     }
 
     /**
-     * Disable pagination hellip_end if link to last page is already present.
+     * Alter pagination data
      *
      * @param object $data Pagination settings.
      *
      * @return object
      */
-    protected function disable_pagination_hellip_duplicate_link( $data ) : object {
+    protected function alter_pagination_data( $data ) : object {
+        // Disable pagination hellip_end if link to last page is already present.
         if ( ! empty( $data->pages ) && $data->last_page === end( $data->pages )->page ) {
             $data->hellip_end = false;
         }
+
+        $data->S->page_aria_label = _x( 'Go to Page', 'pagination', 'tms-theme-base' );
+        $data->S->next            = _x( 'Next', 'pagination', 'tms-theme-base' );
+        $data->S->prev            = _x( 'Previous', 'pagination', 'tms-theme-base' );
 
         return $data;
     }

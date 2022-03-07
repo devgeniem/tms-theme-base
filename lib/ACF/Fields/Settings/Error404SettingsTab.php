@@ -43,6 +43,13 @@ class Error404SettingsTab extends Tab {
             'title'        => 'Kuva',
             'instructions' => '',
         ],
+        '404_alignment'   => [
+            'title'        => 'Tekstin tasaus',
+            'instructions' => '',
+            'choices'      => [
+                'has-text-left' => 'Tasaa kuvausteksti vasemmalle',
+            ],
+        ],
     ];
 
     /**
@@ -96,13 +103,27 @@ class Error404SettingsTab extends Tab {
             $image_field = ( new Field\Image( $strings['404_image']['title'] ) )
                 ->set_key( "${key}_404_image" )
                 ->set_name( '404_image' )
+                ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['404_image']['instructions'] );
 
-            $this->add_fields( [
-                $title_field,
-                $description_field,
-                $image_field,
-            ] );
+            $alignment_field = ( new Field\Checkbox( $strings['404_alignment']['title'] ) )
+                ->set_key( "${key}_404_alignment" )
+                ->set_name( '404_alignment' )
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['404_alignment']['instructions'] )
+                ->set_choices( $strings['404_alignment']['choices'] );
+
+            $this->add_fields(
+                apply_filters(
+                    'tms/acf/tab/error404/fields',
+                    [
+                        $title_field,
+                        $description_field,
+                        $image_field,
+                        $alignment_field,
+                    ]
+                )
+            );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );

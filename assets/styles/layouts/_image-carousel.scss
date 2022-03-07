@@ -3,6 +3,10 @@
  */
 
 .image-carousel {
+    &__inner {
+        position: relative;
+    }
+
     &__items {
         .image-block__meta {
             max-width: 100vw;
@@ -11,5 +15,41 @@
                 max-width: $desktop;
             }
         }
+    }
+
+    &__modal-control {
+        &.slick-arrow {
+            background-color: $white;
+
+            .icon {
+                fill: $black;
+            }
+
+            &:hover {
+                background-color: darken($white, 10%);
+
+                .icon {
+                    fill: $black;
+                }
+            }
+
+            &:focus {
+                outline-color: $white;
+            }
+        }
+    }
+
+    .slick-slider {
+        margin-bottom: 0;
+    }
+
+    .slick-next {
+        right: 0.5rem;
+        transform: translateX(100%) translateY(-50%);
+    }
+
+    .slick-prev {
+        left: 0.5rem;
+        transform: translateX(-100%) translateY(-50%);
     }
 }

@@ -32,6 +32,19 @@ class Error404 extends BaseModel {
     }
 
     /**
+     * Return 404 page alignment.
+     */
+    public function alignment() {
+        $alignment = Settings::get_setting( '404_alignment' );
+        $alignment = is_array( $alignment ) ? reset( $alignment ) : 'has-text-centered';
+
+        return apply_filters(
+            'tms/theme/error404/alignment',
+            $alignment
+        );
+    }
+
+    /**
      * Return page links.
      *
      * @return array[]

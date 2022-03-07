@@ -1,0 +1,16 @@
+.sitemap {
+    &--toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-items: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: .25rem;
+        padding: 0 !important;
+
+        .icon {
+            margin-right: 0 !important; // sass-lint:disable-line no-important
+            margin-left: 0 !important; // sass-lint:disable-line no-important
+        }
+    }
+}

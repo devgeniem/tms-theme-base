@@ -126,7 +126,9 @@ export default class Common {
         this.cache();
         this.events();
         this.objectFitFallback();
-        this.hyphenateElements();
+
+        // Hyphenation is disabled because of JS errors caused by the used library
+        // this.hyphenateElements();
     }
 
     /**
@@ -318,10 +320,18 @@ export default class Common {
      * Generates a svg container that uses icon with an ID.
      *
      * @param {string} icon Icon ID.
+     * @param {string} classes CSS Classes to add to the element.
+     *
      * @return {string} Icon HTML String.
      */
-    static makeIcon( icon = '' ) {
-        return `<svg class="icon"><use xlink:href="#icon-${ icon }" /></svg>`;
+    static makeIcon( icon = '', classes = '' ) {
+        let iconClass = 'icon';
+
+        if ( classes.length ) {
+            iconClass += ` ${ classes }`;
+        }
+
+        return `<svg class="${ iconClass }"><use xlink:href="#icon-${ icon }" /></svg>`;
     }
 
     /**
@@ -395,6 +405,17 @@ export default class Common {
         date.setTime( date.getTime() + ( duration * 24 * 60 * 60 * 1000 ) );
 
         document.cookie = `${ name }=${ value };expires${ date.toLocaleDateString() };path=/`;
+    }
+
+    /**
+     * Check if cookie exists.
+     *
+     * @param {string} name Cookie name.
+     *
+     * @return {boolean} True if the cookie exists
+     */
+    static cookieExists( name ) {
+        return document.cookie.split( ';' ).some( ( item ) => item.trim().startsWith( `${ name }=` ) );
     }
 
     /**

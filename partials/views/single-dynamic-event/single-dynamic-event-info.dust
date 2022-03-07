@@ -76,5 +76,9 @@
         </div>
     </div>
 
-    {>"ui/button-link" link=event.normalized.provider.link classes="mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+    {>"ui/button-link" link=event.normalized.provider.link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
 {/event.normalized.provider}
+
+{?event.normalized.virtual_event_link}
+    {>"ui/button-link" link=event.normalized.virtual_event_link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+{/event.normalized.virtual_event_link}

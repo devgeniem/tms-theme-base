@@ -2,7 +2,7 @@
         class="{Header.colors.search_button|s} is-hidden-mobile button button--icon js-toggle mr-4 ml-4 mr-6-widescreen ml-6-widescreen mr-8-fullhd ml-8-fullhd"
         aria-controls="js-search-toggle-target"
         aria-expanded="false"
-        aria-label="{Strings.s.header.open_search|s}"
+        aria-label="{Strings.s.header.search|s}: {Strings.s.header.open_search|s}"
         data-duration="225">
     {Strings.s.header.search|s}
     {>"ui/icon" icon="search" class="icon--large is-primary-invert"  /}

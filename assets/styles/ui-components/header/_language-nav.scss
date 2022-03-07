@@ -5,6 +5,10 @@
 $lang-nav-link-border: $primary !default;
 
 .lang-nav {
+    .dropdown-menu {
+        z-index: 25;
+    }
+
     &--horizontal {
         font-size: .9em;
 

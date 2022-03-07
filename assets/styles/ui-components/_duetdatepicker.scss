@@ -1,0 +1,69 @@
+$duet-color-primary: $primary !default;
+$duet-color-text: $text !default;
+$duet-color-text-active: $primary-invert !default;
+$duet-color-text-placeholder: $grey !default;
+$duet-color-button: $white !default;
+$duet-color-surface: $white !default;
+$duet-color-overlay: rgba(0, 0, 0, 0.8) !default;
+$duet-color-border: $primary-dark !default;
+$duet-font: $family-primary !default;
+$duet-font-normal: $weight-normal !default;
+$duet-font-bold: 800 !default;
+$duet-radius: $theme-spacing-quarter !default;
+
+:root {
+    --duet-color-primary: #{$duet-color-primary};
+    --duet-color-text: #{$duet-color-text};
+    --duet-color-text-active: #{$duet-color-text-active};
+    --duet-color-placeholder: #{$duet-color-text-placeholder};
+    --duet-color-button: #{$duet-color-button};
+    --duet-color-surface: #{$duet-color-surface};
+    --duet-color-overlay: $duet-color-overlay;
+    --duet-color-border: #{$duet-color-border};
+    --duet-font: #{$duet-font};
+    --duet-font-normal: $duet-font-normal;
+    --duet-font-bold: $duet-font-bold;
+    --duet-radius: #{$duet-radius};
+    --duet-z-index: 600;
+}
+
+.duet-date {
+    &__input {
+        padding: $theme-spacing-half 60px $theme-spacing-half $theme-spacing-half;
+        line-height: 1;
+    }
+
+    &__toggle {
+        box-shadow: none;
+    }
+
+    &__mobile{
+        right: 2px !important;
+        top: 2px !important;
+    }
+
+    &__close{
+        &:focus{
+            box-shadow: 0 0 0 2px var(--duet-color-border);
+        }
+    }
+
+    &__day.is-today{
+        box-shadow: inset 0 0 0 2px var(--duet-color-border);
+    }
+}
+
+.line {
+    display: block;
+    height: 100%;
+
+    &::after {
+        content: "";
+        position: relative;
+        top: 50%;
+        display: block;
+        width: 1rem;
+        height: .117rem;
+        background-color: $text;
+    }
+}

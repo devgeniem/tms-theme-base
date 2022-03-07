@@ -54,6 +54,17 @@
                     max-width: 80%;
                 }
             }
+
+            .button {
+                &:hover {
+                    color: $primary-invert !important;
+                    background-color: $primary !important;
+                }
+
+                &:focus {
+                    outline-color: $white;
+                }
+            }
         }
     }
 }

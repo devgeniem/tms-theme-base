@@ -1,9 +1,10 @@
-<div class="site-header__logo">
+<div class="site-header__logo is-relative">
     <div class="site-header__logo-image">
     {?Header.logo}
         {?Header.home_url}
             <a href="{Header.home_url}" class="is-block">
                 {@image id=Header.logo size="medium" /}
+                <span class="is-sr-only">{Strings.s.header.home}</span>
             </a>
         {:else}
             {@image id=Header.logo size="large" /}

@@ -1,0 +1,178 @@
+$fly-out-nav-trigger-icon: $primary-dark;
+$fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
+$pill-background-active-focus: bulmaDarken($primary, 2.5%);
+
+// Use a low-level selector for easier overriding
+.site-header,
+.main-content {
+    // Button styles
+    .button {
+        &.is-primary.is-outlined {
+            &,
+            &:active,
+            &.is-active {
+                border-color: $primary-dark !important; // sass-lint:disable-line no-important
+                color: $primary-dark !important; // sass-lint:disable-line no-important
+
+                .icon {
+                    fill: $primary-dark !important; // sass-lint:disable-line no-important
+                }
+            }
+        }
+    }
+}
+
+.lang-nav--horizontal {
+    a {
+        color: $primary-invert !important;
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+            background-color: $primary !important;
+            outline-color: $black;
+        }
+    }
+}
+
+.duet-date {
+    &__toggle {
+        &:focus {
+            outline: .0558rem solid $black !important;
+        }
+    }
+}
+
+.language-nav {
+    .dropdown {
+        .dropdown-trigger {
+            .button {
+                color: $black !important;
+                border-color: $black !important;
+
+                .icon {
+                    fill: $black !important;
+                }
+            }
+        }
+    }
+}
+
+.icon-links .icon-links {
+    &__item {
+        > a.is-primary.is-outlined {
+            color: $black !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.link-list {
+    &__links {
+        a {
+            color: darken($primary, 70%) !important;
+
+            .icon {
+                fill: darken($primary, 70%) !important;
+            }
+        }
+
+    }
+}
+
+.subpages {
+    &__items {
+        a {
+            &.has-background-image {
+                color: $white !important;
+            }
+        }
+    }
+}
+
+.search-item {
+    &__title {
+        > a {
+            &:hover,
+            &:focus {
+                color: lighten($black, 25%);
+            }
+        }
+    }
+
+    &__meta-item {
+        > a {
+            &:hover,
+            &:focus {
+                color: darken($primary, 70%) !important;
+            }
+        }
+    }
+}
+
+.logo-wall {
+    &__link {
+        outline-color: $black !important;
+    }
+}
+
+.share-links {
+    a {
+        &:hover,
+        &:focus {
+            background-color: $white !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.layout-articles {
+    &__read-more {
+        color: darken($primary, 70%) !important;
+
+        .icon {
+            fill: darken($primary, 70%) !important;
+        }
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button {
+        border-color: $black !important;
+    }
+}
+
+.entry {
+    &__content {
+        > p {
+            > a {
+                color: darken($primary, 70%) !important;
+
+                &:hover,
+                &:focus {
+                    color: $black !important;
+                }
+            }
+        }
+    }
+}
+
+.events {
+    &__item-inner {
+        .icon {
+            fill: $accent !important;
+        }
+    }
+}

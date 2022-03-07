@@ -1,0 +1,991 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMS Theme Base\n"
+"POT-Creation-Date: 2022-01-10 15:08+0200\n"
+"PO-Revision-Date: 2022-01-10 15:08+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: assets/dist\n"
+
+#: comments.php:14
+msgid "Comments"
+msgstr "コメント"
+
+#: comments.php:23
+msgid "Reply"
+msgstr "返信"
+
+#: lib/ACF/BlogArticleGroup.php:83
+msgctxt "theme ACF"
+msgid "Kirjoittajat"
+msgstr ""
+
+#: lib/ACF/CommentGroup.php:83
+msgctxt "theme ACF"
+msgid "Blogikirjoittaja"
+msgstr ""
+
+#: lib/ACF/DynamicEventGroup.php:55
+msgctxt "theme ACF"
+msgid "Tiedot"
+msgstr ""
+
+#: lib/ACF/Fields/Settings/MapSettingsTab.php:77
+msgid "Open map"
+msgstr "マップを開く"
+
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:70
+#: lib/ACF/PageGroup.php:39
+msgctxt "theme ACF"
+msgid "Page Components"
+msgstr "ページ構成"
+
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:123
+#: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
+msgctxt "theme ACF"
+msgid "Components"
+msgstr "構成要素"
+
+#: lib/ACF/PageContactsGroup.php:38
+msgctxt "theme ACF"
+msgid "Yhteystietojen asetukset"
+msgstr ""
+
+#: lib/ACF/PageEventsCalendarGroup.php:38
+msgctxt "theme ACF"
+msgid "Kalenterin asetukset"
+msgstr ""
+
+#: lib/ACF/PostGroup.php:129
+msgid "Related posts"
+msgstr "関連する投稿"
+
+#: lib/ACF/SettingsGroup.php:51
+msgctxt "theme ACF"
+msgid "Site settings"
+msgstr "サイトの設定"
+
+#: lib/Admin.php:89
+msgid "Paragraph"
+msgstr "段落"
+
+#: lib/Admin.php:90
+msgid "Header"
+msgstr "ヘッダー"
+
+#: lib/Comments.php:72
+msgid "Send Comment"
+msgstr "コメントを送信"
+
+#: lib/Comments.php:112
+msgid "Your comment is awaiting moderation"
+msgstr "あなたのコメントは現在承認待ちです"
+
+#: lib/Comments.php:134
+msgid "Blog author"
+msgstr "ブログの作者"
+
+#: lib/Comments.php:151
+msgid "Edit"
+msgstr "編集"
+
+#: lib/DustPressController.php:60
+#, fuzzy
+#| msgctxt "theme-frontend"
+#| msgid "Go to slide"
+msgctxt "pagination"
+msgid "Go to Page"
+msgstr "スライドに移動"
+
+#: lib/Formatters/GridFormatter.php:147
+msgid "Read more"
+msgstr "続きを読む"
+
+#: lib/LinkedEvents.php:98
+msgid "Dates"
+msgstr "日"
+
+#: lib/LinkedEvents.php:100
+msgid "Time"
+msgstr "時"
+
+#: lib/LinkedEvents.php:102
+msgid "Location"
+msgstr "場所"
+
+#: lib/LinkedEvents.php:104
+msgid "Price"
+msgstr "価格"
+
+#: lib/LinkedEvents.php:106
+msgid "Organizer"
+msgstr "主催者"
+
+#: lib/LinkedEvents.php:213 lib/LinkedEvents.php:265
+msgid "Additional information"
+msgstr "追加情報"
+
+#: lib/LinkedEvents.php:258
+msgid "Free"
+msgstr "無料"
+
+#: lib/LinkedEvents.php:288
+msgid "Additional info"
+msgstr "追加情報"
+
+#: lib/LinkedEvents.php:338
+msgid "Virtual event"
+msgstr "仮想イベント"
+
+#: lib/NavigationController.php:34
+msgid "Primary Navigation"
+msgstr "プライマリナビゲーション"
+
+#: lib/NavigationController.php:35
+msgid "Secondary Navigation"
+msgstr "セカンダリナビゲーション"
+
+#: lib/PasswordPolicy.php:93
+msgid ""
+"Salasanan tulee olla vähintään 12 merkkiä pitkä, maksimissaan 128 merkkiä."
+msgstr ""
+
+#: lib/PasswordPolicy.php:104
+msgid "Valittu salasana on vaarantunut. Valitse toinen salasana."
+msgstr ""
+
+#: lib/PostType/BlogArticle.php:65 lib/PostType/BlogArticle.php:93
+#: lib/PostType/BlogArticle.php:95 lib/PostType/BlogArticle.php:96
+#, fuzzy
+#| msgctxt "theme CPT"
+#| msgid "Blog articles"
+msgctxt "theme CPT"
+msgid "Blog Articles"
+msgstr "ブログ記事"
+
+#: lib/PostType/BlogArticle.php:94
+#, fuzzy
+#| msgctxt "theme CPT"
+#| msgid "Blog articles"
+msgctxt "theme CPT"
+msgid "Blog Article"
+msgstr "ブログ記事"
+
+#: lib/PostType/BlogAuthor.php:60
+msgctxt "theme CPT slugs"
+msgid "blog-author"
+msgstr "ブログの作者"
+
+#: lib/PostType/BlogAuthor.php:61
+msgctxt "theme CPT"
+msgid "Blog authors"
+msgstr "ブログの作者"
+
+#: lib/PostType/Contact.php:55
+msgctxt "theme CPT slugs"
+msgid "contact"
+msgstr "連絡"
+
+#: lib/PostType/Contact.php:56
+msgctxt "theme CPT"
+msgid "contact"
+msgstr "連絡"
+
+#: lib/PostType/DynamicEvent.php:60
+msgctxt "theme CPT"
+msgid "dynamic-event"
+msgstr "ダイナミックイベント"
+
+#: lib/PostType/Settings.php:60
+msgctxt "theme CPT slugs"
+msgid "site-settings"
+msgstr "サイトの設定"
+
+#: lib/PostType/Settings.php:61
+msgctxt "theme CPT"
+msgid "Site settings"
+msgstr "サイトの設定"
+
+#: lib/Roles.php:340
+msgctxt "wp-geniem-roles"
+msgid "Super Administrator"
+msgstr "スーパー管理者"
+
+#: lib/Roles.php:433
+msgctxt "wp-geniem-roles"
+msgid "Administrator"
+msgstr "管理者"
+
+#: lib/Roles.php:486
+msgctxt "wp-geniem-roles"
+msgid "Site Manager"
+msgstr "サイトマネージャー"
+
+#: lib/Roles.php:530
+msgctxt "wp-geniem-roles"
+msgid "Author"
+msgstr "作成者"
+
+#: lib/Roles.php:598
+msgctxt "wp-geniem-roles"
+msgid "Contributor"
+msgstr "投稿者"
+
+#: lib/Roles.php:618
+msgctxt "wp-geniem-roles"
+msgid "Subscriber"
+msgstr "購読者"
+
+#: lib/Security.php:112
+msgid "WARNING"
+msgstr ""
+
+#: lib/Security.php:113
+msgid "Your password has been compromised."
+msgstr ""
+
+#: lib/Security.php:114
+msgid "Please change your password <strong>as soon as possible</strong>."
+msgstr ""
+
+#: lib/SiteController.php:96
+msgid "News"
+msgstr "新着"
+
+#: lib/SiteController.php:127
+msgid "Main menu"
+msgstr "メインメニュー"
+
+#: lib/SiteController.php:161
+msgid "Site settings"
+msgstr "サイトの設定"
+
+#: lib/SiteController.php:170 models/strings.php:58
+msgctxt "theme-frontend"
+msgid "Page not found"
+msgstr "ページが見つかりません"
+
+#: lib/SiteController.php:176
+msgctxt "theme-frontend"
+msgid ""
+"Sorry, the page you requested was not found. Please check that you spelled "
+"the address correctly. Or did you follow a link?"
+msgstr ""
+"要求されたページは見つかりませんでした。住所のスペルが正しいか確認してくださ"
+"い。またはリンクを辿りましたか？"
+
+#: lib/SiteController.php:177
+msgctxt "theme-frontend"
+msgid ""
+"The page might not exist anymore or its name has changed. You might want to "
+"try to find the page you were looking for by"
+msgstr ""
+"ページが存在しないか、名前が変更されている可能性があります。お探しのページを"
+"見つけるには、以下の方法をお試しください"
+
+#: lib/SiteController.php:178
+msgctxt "theme-frontend"
+msgid "– returning to the front page of the site"
+msgstr "– サイトのトップページに戻る"
+
+#: lib/SiteController.php:179
+msgctxt "theme-frontend"
+msgid ""
+"– removing all characters after the last slash (/) in the address and try "
+"the shorter version of the address."
+msgstr ""
+"– アドレスの最後のスラッシュ (/) の後のすべての文字を削除し、アドレスの短い"
+"バージョンを試します。"
+
+#: lib/Taxonomy/BlogCategory.php:51
+msgid "Erottele kategoriat pilkulla"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:52
+msgid "Lisää tai poista kategoria"
+msgstr ""
+
+#: lib/Taxonomy/BlogCategory.php:53 lib/Taxonomy/BlogCategory.php:54
+msgid "Suositut kategoriat"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:51
+msgid "Erottele avainsanat pilkulla"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:52
+msgid "Lisää tai poista avainsana"
+msgstr ""
+
+#: lib/Taxonomy/BlogTag.php:53 lib/Taxonomy/BlogTag.php:54
+msgid "Suositut avainsanat"
+msgstr ""
+
+#: lib/Traits/Breadcrumbs.php:288
+msgctxt "Breadcrumbs"
+msgid "Home"
+msgstr "ホーム"
+
+#: lib/Traits/Sharing.php:97
+msgid "Share on Facebook"
+msgstr "Facebookで共有する"
+
+#: lib/Traits/Sharing.php:103
+msgid "Share by email"
+msgstr "電子メールで共有する"
+
+#: lib/Traits/Sharing.php:109
+msgid "Copy link to clipboard"
+msgstr "リンクをクリップボードにコピー"
+
+#: lib/Traits/Sharing.php:110
+msgid "Copied to clipboard"
+msgstr "クリップボードにコピー"
+
+#: lib/Traits/Sharing.php:116
+msgid "Share on Whatsapp"
+msgstr "WhatsAppで共有する"
+
+#: lib/Traits/Sharing.php:122
+msgid "Share on Twitter"
+msgstr "Twitterで共有する"
+
+#: lib/Traits/Sharing.php:128
+msgid "Share on LinkedIn"
+msgstr "LinkedInで共有する"
+
+#: lib/Traits/Sharing.php:134
+msgid "Share on Vkontakte"
+msgstr "Vkontakteで共有する"
+
+#: lib/Traits/Sharing.php:140
+msgid "Share on Line"
+msgstr "Lineで共有する"
+
+#: models/archive-blog-article.php:167 models/archive.php:116
+#: models/home.php:269 models/search.php:70
+msgid "All"
+msgstr "すべて"
+
+#: models/error404.php:78
+msgctxt "theme-frontend"
+msgid "Go to search"
+msgstr "検索に移動する"
+
+#: models/error404.php:95
+msgctxt "theme-frontend"
+msgid "Return to home"
+msgstr "ホームへ戻る"
+
+#: models/page-events-calendar.php:39 models/page-events-search.php:118
+msgid "No results"
+msgstr "結果はありません"
+
+#: models/page-events-search.php:51
+msgid "Search term"
+msgstr "検索用語"
+
+#: models/page-events-search.php:52
+msgid "Events from"
+msgstr "イベントの開催"
+
+#: models/page-events-search.php:53 models/search.php:83
+msgid "Start date"
+msgstr "開始日"
+
+#: models/page-events-search.php:54 models/search.php:84
+msgid "End date"
+msgstr "終了日"
+
+#: models/page-events-search.php:117
+msgid "No search term given"
+msgstr "検索語が与えられていません"
+
+#: models/page-events-search.php:190 models/search.php:228
+#, php-format
+msgctxt "search results summary"
+msgid "%1$1s result found for \"%2$2s\""
+msgid_plural "%1$1s results found for \"%2$2s\""
+msgstr[0] "\"%2$2s\" に対して %1$1s 結果が見つかりました"
+
+#: models/search.php:46
+msgid "Search results"
+msgstr "検索結果"
+
+#: models/search.php:81
+msgid "Filter by post type"
+msgstr "投稿タイプで絞り込む"
+
+#: models/search.php:82
+msgid "Filter by date"
+msgstr "日付で絞り込む"
+
+#: models/search.php:85
+msgid "Filter results"
+msgstr "絞り込み結果"
+
+#: models/search.php:102
+msgid "Looking for events? Use the event search!"
+msgstr "イベントをお探しですか？イベント検索をご利用ください！"
+
+#: models/search.php:239
+msgid "No search results"
+msgstr "検索結果はありません"
+
+#: models/strings.php:42
+msgctxt "theme-frontend"
+msgid "Skip to content"
+msgstr "コンテンツへ移動"
+
+#: models/strings.php:43
+msgctxt "theme-frontend"
+msgid "Main navigation"
+msgstr "メインナビゲーション"
+
+#: models/strings.php:44
+msgctxt "theme-frontend"
+msgid "Open menu"
+msgstr "メニューを開く"
+
+#: models/strings.php:45
+msgctxt "theme-frontend"
+msgid "Close menu"
+msgstr "メニューを閉じる"
+
+#: models/strings.php:46
+msgctxt "theme-frontend"
+msgid "Language navigation"
+msgstr "言語ナビゲーション"
+
+#: models/strings.php:47
+msgctxt "theme-frontend"
+msgid "Open search form"
+msgstr "検索フォームを開く"
+
+#: models/strings.php:48
+#, fuzzy
+#| msgctxt "theme-frontend"
+#| msgid "Language navigation"
+msgctxt "theme-frontend"
+msgid "Open language navigation"
+msgstr "言語ナビゲーション"
+
+#: models/strings.php:49
+msgctxt "theme-frontend"
+msgid "Current language: "
+msgstr ""
+
+#: models/strings.php:50 models/strings.php:51 models/strings.php:155
+#: models/strings.php:156
+msgctxt "theme-frontend"
+msgid "Search"
+msgstr "検索"
+
+#: models/strings.php:52 models/strings.php:53
+msgctxt "theme-frontend"
+msgid "Search from site"
+msgstr "サイト内検索"
+
+#: models/strings.php:54 models/strings.php:80 models/strings.php:138
+#: models/strings.php:151
+msgctxt "theme-frontend"
+msgid "Close"
+msgstr "閉じる"
+
+#: models/strings.php:55 models/strings.php:64
+msgctxt "theme-frontend"
+msgid "To home page"
+msgstr "ホームページへ"
+
+#: models/strings.php:60
+msgctxt "theme-frontend"
+msgid "The content were looking for was not found"
+msgstr "お探しのコンテンツが見つかりませんでした。"
+
+#: models/strings.php:67
+msgctxt "theme-frontend"
+msgid "Skip video embed"
+msgstr "動画の埋め込みをスキップする"
+
+#: models/strings.php:68
+msgctxt "theme-frontend"
+msgid "Play video"
+msgstr ""
+
+#: models/strings.php:69
+msgctxt "theme-frontend"
+msgid "Pause video"
+msgstr ""
+
+#: models/strings.php:72
+#, fuzzy
+#| msgctxt "theme-frontend"
+#| msgid "Skip video embed"
+msgctxt "theme-frontend"
+msgid "Skip social media embed"
+msgstr "動画の埋め込みをスキップする"
+
+#: models/strings.php:75
+msgctxt "theme-frontend"
+msgid "Share Article"
+msgstr "記事を共有する"
+
+#: models/strings.php:76
+msgctxt "theme-frontend"
+msgid "Share Event"
+msgstr "イベントを共有する"
+
+#: models/strings.php:77
+msgctxt "theme-frontend"
+msgid "Share to social media"
+msgstr "ソーシャルメディアへの共有"
+
+#: models/strings.php:81
+msgctxt "theme-frontend"
+msgid "Next"
+msgstr "次へ"
+
+#: models/strings.php:82 models/strings.php:150
+msgctxt "theme-frontend"
+msgid "Open"
+msgstr "開く"
+
+#: models/strings.php:83
+msgctxt "theme-frontend"
+msgid "Previous"
+msgstr "前へ"
+
+#: models/strings.php:84
+msgctxt "theme-frontend"
+msgid "Go to slide"
+msgstr "スライドに移動"
+
+#: models/strings.php:85
+#, fuzzy
+#| msgctxt "theme-frontend"
+#| msgid "Enter"
+msgctxt "theme-frontend"
+msgid "Centered"
+msgstr "入力"
+
+#: models/strings.php:86
+msgctxt "theme-frontend"
+msgid "Slide"
+msgstr ""
+
+#: models/strings.php:87
+msgctxt "theme-frontend"
+msgid "Image carousel"
+msgstr ""
+
+#: models/strings.php:88
+msgctxt "theme-frontend"
+msgid "Modal image carousel"
+msgstr ""
+
+#: models/strings.php:89
+msgctxt "theme-frontend"
+msgid "Main image carousel"
+msgstr ""
+
+#: models/strings.php:92
+msgctxt "theme-frontend"
+msgid "Move to tampere.fi"
+msgstr "tampere.fi に移動"
+
+#: models/strings.php:93
+msgctxt "theme-frontend"
+msgid "Back to top"
+msgstr "トップに戻る"
+
+#: models/strings.php:96
+msgctxt "theme-frontend"
+msgid "Opens in a new window"
+msgstr "新しいウィンドウで開く"
+
+#: models/strings.php:97
+msgctxt "theme-frontend"
+msgid "All"
+msgstr "すべて"
+
+#: models/strings.php:98
+msgctxt "theme-frontend"
+msgid "Read more"
+msgstr "続きを読む"
+
+#: models/strings.php:101
+msgctxt "theme-frontend"
+msgid "Image:"
+msgstr "画像："
+
+#: models/strings.php:102
+msgctxt "theme-frontend"
+msgid "Text:"
+msgstr "テキスト："
+
+#: models/strings.php:105 models/strings.php:174
+msgctxt "theme-frontend"
+msgid "Month"
+msgstr "月"
+
+#: models/strings.php:106 models/strings.php:175
+msgctxt "theme-frontend"
+msgid "Year"
+msgstr "年"
+
+#: models/strings.php:107
+msgctxt "theme-frontend"
+msgid "No results"
+msgstr "結果はありません"
+
+#: models/strings.php:108
+msgctxt "theme-frontend"
+msgid "Filter by Category"
+msgstr "カテゴリーで絞り込む"
+
+#: models/strings.php:111 models/strings.php:188
+msgctxt "theme-frontend"
+msgid "January"
+msgstr "1月"
+
+#: models/strings.php:112 models/strings.php:189
+msgctxt "theme-frontend"
+msgid "February"
+msgstr "2月"
+
+#: models/strings.php:113 models/strings.php:190
+msgctxt "theme-frontend"
+msgid "March"
+msgstr "3月"
+
+#: models/strings.php:114 models/strings.php:191
+msgctxt "theme-frontend"
+msgid "April"
+msgstr "4月"
+
+#: models/strings.php:115 models/strings.php:192 models/strings.php:206
+msgctxt "theme-frontend"
+msgid "May"
+msgstr "5月"
+
+#: models/strings.php:116 models/strings.php:193
+msgctxt "theme-frontend"
+msgid "June"
+msgstr "6月"
+
+#: models/strings.php:117 models/strings.php:194
+msgctxt "theme-frontend"
+msgid "July"
+msgstr "7月"
+
+#: models/strings.php:118 models/strings.php:195
+msgctxt "theme-frontend"
+msgid "August"
+msgstr "8月"
+
+#: models/strings.php:119 models/strings.php:196
+msgctxt "theme-frontend"
+msgid "September"
+msgstr "9月"
+
+#: models/strings.php:120 models/strings.php:197
+msgctxt "theme-frontend"
+msgid "October"
+msgstr "10月"
+
+#: models/strings.php:121 models/strings.php:198
+msgctxt "theme-frontend"
+msgid "November"
+msgstr "11月"
+
+#: models/strings.php:122 models/strings.php:199
+msgctxt "theme-frontend"
+msgid "December"
+msgstr "12月"
+
+#: models/strings.php:125
+msgctxt "theme-frontend"
+msgid "Password:"
+msgstr "パスワード："
+
+#: models/strings.php:126
+msgctxt "theme-frontend"
+msgid "Enter"
+msgstr "入力"
+
+#: models/strings.php:128
+msgctxt "theme-frontend"
+msgid ""
+"This content is password protected. To view it please enter your password "
+"below:"
+msgstr ""
+"このコンテンツはパスワードで保護されています。表示するには、以下にパスワード"
+"を入力してください："
+
+#: models/strings.php:134
+msgctxt "theme-frontend"
+msgid "Sibling pages"
+msgstr "リシブリングページ"
+
+#: models/strings.php:137
+msgctxt "theme-frontend"
+msgid "Comments"
+msgstr "コメント"
+
+#: models/strings.php:141
+msgctxt "theme-frontend"
+msgid "Show description"
+msgstr "説明を表示する"
+
+#: models/strings.php:142
+msgctxt "theme-frontend"
+msgid "All articles"
+msgstr "すべての記事"
+
+#: models/strings.php:145
+msgctxt "theme-frontend"
+msgid "Event date"
+msgstr "イベントの日付"
+
+#: models/strings.php:146
+msgctxt "theme-frontend"
+msgid "Event time"
+msgstr "イベントの時間"
+
+#: models/strings.php:147
+msgctxt "theme-frontend"
+msgid "Event location"
+msgstr "イベントの場所"
+
+#: models/strings.php:154
+msgctxt "theme-frontend"
+msgid "Search contacts"
+msgstr "連絡先を検索"
+
+#: models/strings.php:159
+msgctxt "theme-frontend"
+msgid "Show artist"
+msgstr "アーティストを表示する"
+
+#: models/strings.php:160
+msgctxt "theme-frontend"
+msgid "Artwork by the same artist"
+msgstr "同一のアーティストによる作品"
+
+#: models/strings.php:161
+msgctxt "theme-frontend"
+msgid "Related artwork"
+msgstr "関連する作品"
+
+#: models/strings.php:164
+msgctxt "theme-frontend"
+msgid "Filter by type"
+msgstr "タイプで絞り込む"
+
+#: models/strings.php:165
+msgctxt "theme-frontend"
+msgid "Publish date"
+msgstr "公開日"
+
+#: models/strings.php:169 models/strings.php:177
+msgctxt "theme-frontend"
+msgid "Pick a date"
+msgstr "日付を選択"
+
+#: models/strings.php:170
+msgctxt "theme-frontend"
+msgid "dd.mm.yyyy"
+msgstr "dd.mm.yyyy"
+
+#: models/strings.php:171
+msgctxt "theme-frontend"
+msgid "The chosen date is"
+msgstr "選択した日付"
+
+#: models/strings.php:172
+msgctxt "theme-frontend"
+msgid "Previous month"
+msgstr "前月"
+
+#: models/strings.php:173
+msgctxt "theme-frontend"
+msgid "Next month"
+msgstr "次月"
+
+#: models/strings.php:176
+msgctxt "theme-frontend"
+msgid "Close window"
+msgstr "ウィンドウを閉じる"
+
+#: models/strings.php:179
+msgctxt "theme-frontend"
+msgid "Sunday"
+msgstr "日曜"
+
+#: models/strings.php:180
+msgctxt "theme-frontend"
+msgid "Monday"
+msgstr "月曜"
+
+#: models/strings.php:181
+msgctxt "theme-frontend"
+msgid "Tuesday"
+msgstr "火曜"
+
+#: models/strings.php:182
+msgctxt "theme-frontend"
+msgid "Wednesday"
+msgstr "水曜"
+
+#: models/strings.php:183
+msgctxt "theme-frontend"
+msgid "Thursday"
+msgstr "木曜"
+
+#: models/strings.php:184
+msgctxt "theme-frontend"
+msgid "Friday"
+msgstr "金曜"
+
+#: models/strings.php:185
+msgctxt "theme-frontend"
+msgid "Saturday"
+msgstr "土曜"
+
+#: models/strings.php:202
+msgctxt "theme-frontend"
+msgid "Jan"
+msgstr "1月"
+
+#: models/strings.php:203
+msgctxt "theme-frontend"
+msgid "Feb"
+msgstr "2月"
+
+#: models/strings.php:204
+msgctxt "theme-frontend"
+msgid "Mar"
+msgstr "3月"
+
+#: models/strings.php:205
+msgctxt "theme-frontend"
+msgid "Apr"
+msgstr "4月"
+
+#: models/strings.php:207
+msgctxt "theme-frontend"
+msgid "Jun"
+msgstr "6月"
+
+#: models/strings.php:208
+msgctxt "theme-frontend"
+msgid "Jul"
+msgstr "7月"
+
+#: models/strings.php:209
+msgctxt "theme-frontend"
+msgid "Aug"
+msgstr "8月"
+
+#: models/strings.php:210
+msgctxt "theme-frontend"
+msgid "Sept"
+msgstr "9月"
+
+#: models/strings.php:211
+msgctxt "theme-frontend"
+msgid "Oct"
+msgstr "10月"
+
+#: models/strings.php:212
+msgctxt "theme-frontend"
+msgid "Nov"
+msgstr "11月"
+
+#: models/strings.php:213
+msgctxt "theme-frontend"
+msgid "Dec"
+msgstr "12月"
+
+#: models/strings.php:227
+msgid "Pagination"
+msgstr "ページ区切り"
+
+#. Theme Name of the plugin/theme
+msgid "TMS Theme Base"
+msgstr "TMSテーマ「基本」"
+
+#. Description of the plugin/theme
+msgid "Tampere Multisite Base Theme"
+msgstr "タンペレ市マルチサイト「基本」テーマ"
+
+#. Author of the plugin/theme
+msgid "Geniem"
+msgstr "Geniem"
+
+#. Author URI of the plugin/theme
+msgid "https://geniem.fi"
+msgstr "https://geniem.fi"
+
+#~ msgctxt "theme ACF"
+#~ msgid "Authors"
+#~ msgstr "作成者"
+
+#~ msgctxt "theme ACF"
+#~ msgid "Blog author"
+#~ msgstr "ブログの作者"
+
+#~ msgctxt "theme ACF"
+#~ msgid "Information"
+#~ msgstr "情報"
+
+#~ msgctxt "theme ACF"
+#~ msgid "Contact settings"
+#~ msgstr "連絡先の設定"
+
+#~ msgctxt "theme ACF"
+#~ msgid "Calendar settings"
+#~ msgstr "カレンダーの設定"
+
+#~ msgctxt "theme CPT slugs"
+#~ msgid "blog-article"
+#~ msgstr "ブログ記事"
+
+#~ msgctxt "theme CPT slugs"
+#~ msgid "dynamic-event"
+#~ msgstr "ダイナミックイベント"
+
+#~ msgid "Separate categories with commas"
+#~ msgstr "カテゴリをカンマで区切る"
+
+#~ msgid "Add or remove category"
+#~ msgstr "カテゴリの追加または削除"
+
+#~ msgid "Popular categories"
+#~ msgstr "人気のあるカテゴリ"
+
+#~ msgid "Separate keywords with commas"
+#~ msgstr "キーワードをカンマで区切る"
+
+#~ msgid "Add or remove keyword"
+#~ msgstr "キーワードの追加または削除"
+
+#~ msgid "Popular keywords"
+#~ msgstr "よく使われるキーワード"

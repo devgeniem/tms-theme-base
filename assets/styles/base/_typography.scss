@@ -53,6 +53,22 @@ a {
     color: $text !important; // sass-lint:disable-line no-important
 }
 
+.is-text-big {
+    font-size: 3.25rem;
+
+    @include from($tablet) {
+        font-size: 2.88rem;
+    }
+}
+
+.is-text-bigger {
+    font-size: 5.25rem;
+
+    @include from($tablet) {
+        font-size: 4.88rem;
+    }
+}
+
 .is-text-huge {
     font-size: 6.25rem;
 

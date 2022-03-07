@@ -65,6 +65,11 @@ class Admin implements Interfaces\Controller {
             'init',
             \Closure::fromCallable( [ $this, 'remove_comments' ] )
         );
+
+        \add_filter(
+            'gform_add_field_buttons',
+            \Closure::fromCallable( [ $this, 'remove_gf_fields' ] ),
+        );
     }
 
     /**
@@ -231,6 +236,10 @@ window.onload = function() {
             return false;
         }
 
+        if ( get_option( 'page_for_posts' ) === $post_id ) {
+            return true;
+        }
+
         $page_template      = get_page_template_slug( $post_id );
         $excludes_templates = apply_filters(
             'tms/theme/gutenberg/excluded_templates',
@@ -238,6 +247,7 @@ window.onload = function() {
                 \PageOnepager::TEMPLATE,
                 \PageFrontPage::TEMPLATE,
                 \PageEventsCalendar::TEMPLATE,
+                \PageEventsSearch::TEMPLATE,
             ]
         );
 
@@ -258,4 +268,87 @@ window.onload = function() {
             remove_post_type_support( Page::SLUG, 'editor' );
         }
     }
+
+
+    /**
+     * This function removes all unnecessary fields from GF form admin screens.
+     *
+     * @param array $field_groups Original field groups.
+     * @return array Modified field groups.
+     */
+    protected function remove_gf_fields( $field_groups ) {
+
+        $standard_fields_idx = -1;
+        $advanced_fields_idx = -1;
+        $post_fields_idx     = -1;
+        $pricing_fields_idx  = -1;
+
+        foreach ( $field_groups as $idx => $group ) {
+            if ( $group['name'] === 'standard_fields' ) {
+                $standard_fields_idx = $idx;
+            }
+            elseif ( $group['name'] === 'post_fields' ) {
+                $post_fields_idx = $idx;
+            }
+            elseif ( $group['name'] === 'advanced_fields' ) {
+                $advanced_fields_idx = $idx;
+            }
+            elseif ( $group['name'] === 'pricing_fields' ) {
+                $pricing_fields_idx = $idx;
+            }
+        }
+
+        /**
+         * Remove unnecessary fields from standard fields.
+         */
+        if ( $standard_fields_idx >= 0 && ! empty( $field_groups[ $standard_fields_idx ]['fields'] ) ) {
+
+            foreach ( $field_groups[ $standard_fields_idx ]['fields'] as $field_idx => $field ) {
+
+                if (
+                    $field['data-type'] === 'page' ||
+                    $field['data-type'] === 'html' ||
+                    $field['data-type'] === 'section'
+                ) {
+                    unset( $field_groups[ $standard_fields_idx ]['fields'][ $field_idx ] );
+                }
+            }
+        }
+
+        /**
+         * Remove unnecessary fields from advanced fields.
+         */
+        if ( $advanced_fields_idx >= 0 && ! empty( $field_groups[ $advanced_fields_idx ]['fields'] ) ) {
+
+            foreach ( $field_groups[ $advanced_fields_idx ]['fields'] as $field_idx => $field ) {
+
+                if (
+                    $field['data-type'] === 'date' ||
+                    $field['data-type'] === 'time' ||
+                    $field['data-type'] === 'captcha' ||
+                    $field['data-type'] === 'multiselect' ||
+                    $field['data-type'] === 'list'
+                ) {
+                    unset( $field_groups[ $advanced_fields_idx ]['fields'][ $field_idx ] );
+                }
+            }
+        }
+
+        /**
+         * Remove all post fields.
+         */
+        if ( $post_fields_idx >= 0 ) {
+            unset( $field_groups[ $post_fields_idx ] );
+        }
+
+        /**
+         * Remove all pricing fields.
+         */
+        if ( $pricing_fields_idx >= 0 ) {
+            unset( $field_groups[ $pricing_fields_idx ] );
+        }
+
+        return $field_groups;
+    }
+
 }

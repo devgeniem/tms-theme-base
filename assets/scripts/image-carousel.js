@@ -11,7 +11,7 @@ const $ = jQuery;
 
 export default class ImageCarousel {
     cache() {
-        this.carousels = $( '.image-carousel__items--primary' );
+        this.carousels = $( '.image-carousel' );
     }
 
     initCarousels() {
@@ -32,7 +32,7 @@ export default class ImageCarousel {
         const prevSrText = `<span class="is-sr-only">${ translations.previous }</span>`;
         const nextSrText = `<span class="is-sr-only">${ translations.next }</span>`;
 
-        const arrowClass = 'button button--icon is-primary image-carousel__modal-control';
+        const arrowClass = 'button button--icon image-carousel__modal-control';
 
         const buttons = {
             prevArrow: Common.makeButton( icons.prev + prevSrText, `${ arrowClass } slick-prev` ),
@@ -47,18 +47,19 @@ export default class ImageCarousel {
     /**
      * Constructs the carousel, or two if we have sync defined.
      *
-     * @param {HTMLElement} element Main carousel element.
-     * @param {Object} buttons Buttons to use.
-     * @param {Object} translations Translations.
+     * @param {HTMLElement} container    Main carousel element.
+     * @param {Object}      buttons      Buttons to use.
+     * @param {Object}      translations Translations.
      * @return {*|jQuery|HTMLElement} Constructed main carousel.
      */
-    constructCarousel( element = undefined, buttons = {}, translations = {} ) {
-        const carousel = $( element );
+    constructCarousel( container = undefined, buttons = {}, translations = {} ) {
+        const $container = $( container );
+        const carousel = $container.find( '.image-carousel__items--primary' );
         const modalCarouselId = '#' + carousel.attr( 'data-slider-for' ) || false;
 
         const carouselOptions = {
-            prevArrow: buttons.prevArrow,
-            nextArrow: buttons.nextArrow,
+            prevArrow: $container.find( '.slick-prev' ),
+            nextArrow: $container.find( '.slick-next' ),
             customPaging( slider, i ) {
                 const dotIcon = '<span class="slick-dot-icon" aria-hidden="true"></span>';
                 const srLabel = `<span class="is-sr-only">${ translations.goto } ${ i + 1 }</span>`;
@@ -73,7 +74,7 @@ export default class ImageCarousel {
 
         if ( modalCarouselId ) {
             // Add necessary things to the original carousel to support linking with another carousel.
-            carouselOptions.regionLabel = 'main image carousel';
+            carouselOptions.regionLabel = translations.main_carousel;
             carouselOptions.asNavFor = modalCarouselId;
 
             const modalCarousel = $( modalCarouselId );
@@ -85,9 +86,9 @@ export default class ImageCarousel {
                 slidesToScroll: 1,
                 fade: true,
                 asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
-                prevArrow: carouselOptions.prevArrow,
-                nextArrow: carouselOptions.nextArrow,
-                regionLabel: 'modal image carousel',
+                prevArrow: buttons.prevArrow,
+                nextArrow: buttons.nextArrow,
+                regionLabel: translations.modal_carousel,
                 arrowsPlacement: 'afterSlides',
             } );
 
@@ -106,6 +107,15 @@ export default class ImageCarousel {
                     modalCarousel.slick( 'slickNext' );
                 }
             } );
+
+            modalCarousel.on( 'setPosition', ( event, slick ) => {
+                //Make only the current slide focusable, for screenreaders
+                $( slick.$slider ).find( '.slick-slide' ).attr( 'tabindex', '0' );
+                $( slick.$slider ).find( '.slick-slide:not(.slick-current)' ).removeAttr( 'tabindex' );
+
+                // Transalate Slick Slider stuff
+                this.translateCarousels( translations );
+            } );
         }
 
         // Start the main carousel.
@@ -116,9 +126,45 @@ export default class ImageCarousel {
             // This way user can't open the "wrong" image and get confused of the results.
             $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
+
+            // Transalate Slick Slider stuff
+            this.translateCarousels( translations );
         } );
 
+        let allLoaded = true;
+
+        carousel.find( 'img' ).each( ( idx, el ) => {
+            if ( ! $( el ).prop( 'complete' ) ) {
+                allLoaded = false;
+            }
+        } );
+
+        if ( ! allLoaded ) {
+            carousel.slick( 'refresh' );
+        }
+
         return carousel;
+    }
+
+    translateCarousels( translations ) {
+        $( '.slick-track' ).find( '.slick-slide' ).each( function() {
+            const thisElem = $( this );
+            let newStr = thisElem.attr( 'aria-label' ).replace( 'slide', translations.slide );
+
+            if ( newStr.includes( 'centered' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim() + ' (' + translations.centered + ')';
+                thisElem.attr( 'aria-label', newStr );
+            }
+
+            // Clean up other than .slick-current slide
+            if ( ! thisElem.hasClass( 'slick-current' ) ) {
+                newStr = newStr.replace( /\((.*?)\)/g, '' ).trim();
+            }
+
+            thisElem.attr( 'aria-label', newStr );
+
+        } );
+
     }
 
     docReady() {

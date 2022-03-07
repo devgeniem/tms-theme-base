@@ -4,7 +4,8 @@
         <div class="columns is-multiline">
 
             {?title}
-                <h3 id="{carousel_id}-title" class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3">
+                <h3 id="{carousel_id}-title"
+                    class="image-carousel__title column is-block is-half is-offset-one-quarter has-text-centered mt-0 mb-3 {carousel_title_class|s}">
                     {title|s}
                 </h3>
             {/title}
@@ -15,26 +16,37 @@
                 </div>
             {/description}
 
-            <div class="image-carousel__items column is-full image-carousel__items--primary"
-                id="{carousel_id}" data-slider-for="{carousel_id}-modal-carousel">
-                {#rows}
-                    <div class="image-carousel__item" id="{id}">
-                        {! Modal trigger !}
-                        <button
-                            class="image modal-trigger"
-                            data-modal-button
-                            data-target="{carousel_id}-modal"
-                            aria-controls="{carousel_id}-modal"
-                            aria-expanded="false"
-                            aria-haspopup="true"
-                            aria-label="{translations.open}"
-                        >
-                            {@image id=image.id alt=image.alt title=image.description size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
-                        </button>
-                    </div>
-                {/rows}
-            </div>
+            <div class="image-carousel__inner column is-full ">
+                <button class="button button--icon is-primary slick-prev slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-left" /}
+                    <span class="is-sr-only">{Strings.s.gallery.previous|s}</span>
+                </button>
 
+                <div class="image-carousel__items image-carousel__items--primary"
+                     id="{carousel_id}" data-slider-for="{carousel_id}-modal-carousel">
+                    {#rows}
+                        <div class="image-carousel__item" id="{id}">
+                            {! Modal trigger !}
+                            <button
+                                class="image modal-trigger has-zoom-on-hover"
+                                data-modal-button
+                                data-target="{carousel_id}-modal"
+                                aria-controls="{carousel_id}-modal"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-label="{translations.open}"
+                            >
+                                {@image id=image.id alt=image.alt title=image.alt size="medium_vertical" class="objectfit-image" width="{image.sizes.medium_vertical-width}" loading="" /}
+                            </button>
+                        </div>
+                    {/rows}
+                </div>
+
+                <button class="button button--icon is-primary slick-next slick-arrow" type="button">
+                    {>"ui/icon" icon="chevron-right" /}
+                    <span class="is-sr-only">{Strings.s.gallery.next|s}</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -42,7 +54,8 @@
     <div id="{carousel_id}-modal" class="modal modal--large modal--slider" role="dialog" aria-modal="true" aria-labelledby="{carousel_id}">
         <div class="modal-background"></div>
 
-        <button class="button modal-close-button is-primary is-flex is-align-self-flex-end image-carousel__modal-control">
+        <button
+            class="button button--icon modal-close-button is-white is-outlined is-flex is-align-self-flex-end image-carousel__modal-control">
             <span class="modal-close-button__text">{translations.close}</span>
             {>"ui/icon" icon="close" class="icon--medium" /}
         </button>

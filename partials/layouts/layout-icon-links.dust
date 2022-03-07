@@ -1,5 +1,5 @@
 <section {?anchor}id="{anchor|s}"{/anchor}
-         class="icon-links section pt-12 pb-12 has-background-primary-light--opaque-light has-text-centered">
+         class="icon-links section pt-12 pb-7 has-background-primary-light--opaque-light has-text-centered">
     <div class="container">
         <div class="columns">
             <div class="column">
@@ -22,7 +22,7 @@
                                 </div>
                             {/description}
 
-                            {>"ui/button-link" classes="is-small is-primary is-outlined" icon="" /}
+                            {>"ui/button-link" classes="is-small is-primary is-outlined" icon=link.icon /}
                         </div>
                     {/rows}
                 </div>
