@@ -10,7 +10,7 @@
     "@duetds/date-picker": "^1.4.0",
     "@wordpress/keycodes": "^3.3.1",
     "hyphenopoly": "^3.4.0",
-    "indicate": "^2.4.0",
+    "indicate": "^4.0.1",
     "micromodal": "^0.4.6",
     "modaal": "^0.4.4",
     "normalize.css": "^8.0.1",
