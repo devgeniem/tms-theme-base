@@ -39,6 +39,11 @@ class ImageCarouselFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $data ) : array {
+        if ( ! is_array( $data['rows'] ) || count( $data['rows'] ) < 4 ) {
+            $data['rows'] = [];
+            return $data;
+        }
+
         $data['rows'] = array_map( static function ( $item ) {
             $item = \TMS\Theme\Base\Formatters\ImageFormatter::format( $item );
 

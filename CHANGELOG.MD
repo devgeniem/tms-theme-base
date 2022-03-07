@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- TMS-304-1: Set min amount of images in carousel to 4 and prevent displaying if not at least 4 images added.
+
 ## [1.32.1] - 2022-02-24
 
 ### Added
 
 - TMS-718: Add cta-button to exception notice
+- TMS-726: Add order option for events #375
 - TMS-715: Add ShareLinksLayout
 
 ## [1.32.0] - 2022-02-24
