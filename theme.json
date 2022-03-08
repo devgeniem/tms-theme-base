@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "settings": {
+        "color": {
+            "palette": []
+        },
+        "layout": {
+            "contentSize": "840px",
+            "wideSize": "1100px"
+        },
+        "typography": {
+            "dropCap": false
+        }
+    }
+}

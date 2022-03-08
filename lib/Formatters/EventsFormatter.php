@@ -138,9 +138,6 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $query_params['start'] = 'today';
         }
 
-        // Force sort param
-        $query_params['sort'] = 'end_time';
-
         $query_params['language'] = DPT_PLL_ACTIVE
             ? pll_current_language()
             : get_locale();
@@ -156,9 +153,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array|null
      */
     private function get_events( array $query_params ) : ?array {
-        // Force sort param
-        $query_params['sort'] = 'end_time';
-        $client               = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
             $response = $client->get( 'event', $query_params );

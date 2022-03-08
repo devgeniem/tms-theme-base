@@ -46,6 +46,8 @@ class ThemeSupports implements Interfaces\Controller {
             Closure::fromCallable( [ $this, 'query_vars' ] )
         );
 
+        remove_action( 'wp_scheduled_auto_draft_delete', 'wp_delete_auto_drafts' );
+
         remove_theme_support( 'core-block-patterns' );
 
         add_theme_support( 'disable-custom-colors' );
