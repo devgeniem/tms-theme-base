@@ -20,7 +20,7 @@
         </div>
 
         {?category}
-            <a href="{category.permalink|s}" class="pill {category_link_classes}">
+            <a href="{category.permalink|s}" class="pill {category_link_classes}{?hide_categories} is-hidden{/hide_categories}">
                 {category.name|s}
             </a>
         {/category}

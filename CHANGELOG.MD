@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-732: Add option to hide categories in archive page.
+
 ### Changed
 
 - TMS-475: Blog articles layout for onepager template.
