@@ -77,6 +77,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Järjestys',
                 'instructions' => 'Järjestys pakotettu: Päättymisaika (nouseva)',
                 'choices'      => [
+                    ''                    => 'Kustomoitu järjestys',
                     'end_time'            => 'Päättymisaika (nouseva)',
                     '-end_time'           => 'Päättymisaika (laskeva)',
                     'start_time'          => 'Alkamisaika (nouseva)',
@@ -86,7 +87,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
                     'last_modified_time'  => 'Viimeksi muokattu (nouseva)',
                     '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
                 ],
-                'default'      => 'end_time',
+                'default'      => '',
             ],
             'page_size'       => [
                 'label'        => 'Näytettävien tapahtumien määrä',
@@ -172,7 +173,6 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_name( 'sort' )
             ->set_choices( $strings['sort']['choices'] )
             ->set_default_value( $strings['sort']['default'] )
-            ->disable()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['sort']['instructions'] );
 
