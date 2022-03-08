@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base\Formatters;
 
+use TMS\Theme\Base\Integrations\Tampere\PersonApiController;
+use TMS\Theme\Base\Integrations\Tampere\PersonFacade;
 use TMS\Theme\Base\PostType\Contact;
 use TMS\Theme\Base\Settings;
 
@@ -43,32 +45,45 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $data ) {
-        if ( empty( $data['contacts'] ) ) {
+        if ( empty( $data['contacts'] ) && empty( $data['api_contacts'] ) ) {
             return $data;
         }
 
-        $the_query = new \WP_Query( [
-            'post_type'      => Contact::SLUG,
-            'posts_per_page' => 100,
-            'fields'         => 'ids',
-            'post__in'       => array_map( 'absint', $data['contacts'] ),
-            'no_found_rows'  => true,
-            'meta_key'       => 'last_name',
-            'orderby'        => [
-                'menu_order' => 'ASC',
-                'meta_value' => 'ASC', // phpcs:ignore
-            ],
-        ] );
+        $field_keys    = $data['fields'];
+        $default_image = Settings::get_setting( 'contacts_default_image' );
 
-        if ( ! $the_query->have_posts() ) {
-            return $data;
+        if ( ! empty( $data['contacts'] ) ) {
+            $the_query = new \WP_Query( [
+                'post_type'      => Contact::SLUG,
+                'posts_per_page' => 100,
+                'fields'         => 'ids',
+                'post__in'       => array_map( 'absint', $data['contacts'] ),
+                'no_found_rows'  => true,
+                'meta_key'       => 'last_name',
+                'orderby'        => [
+                    'menu_order' => 'ASC',
+                    'meta_value' => 'ASC', // phpcs:ignore
+                ],
+            ] );
+
+            $filled_contacts = $this->map_keys(
+                $the_query->posts,
+                $field_keys,
+                $default_image
+            );
         }
 
-        $field_keys              = $data['fields'];
-        $data['filled_contacts'] = $this->map_keys(
-            $the_query->posts,
-            $field_keys,
-            Settings::get_setting( 'contacts_default_image' )
+        if ( ! empty( $data['api_contacts'] ) ) {
+            $filled_api_contacts = $this->map_api_contacts(
+                $data['api_contacts'],
+                $field_keys,
+                $default_image
+            );
+        }
+
+        $data['filled_contacts'] = array_merge(
+            $filled_contacts ?? [],
+            $filled_api_contacts ?? []
         );
 
         $data['column_class'] = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet';
@@ -78,6 +93,46 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         return $data;
+    }
+
+    /**
+     * Map api contacts to post like arrays
+     *
+     * @param array    $ids           Array of API ID's.
+     * @param array    $field_keys    Array of field keys to be displayed.
+     * @param int|null $default_image Default image.
+     *
+     * @return array|array[]
+     */
+    public function map_api_contacts( array $ids = [], array $field_keys = [], $default_image = null ) {
+        if ( empty( $ids ) ) {
+            return [];
+        }
+
+        $api      = new PersonApiController();
+        $contacts = $api->validate_result_set( $api->get() );
+
+        if ( empty( $contacts ) ) {
+            return [];
+        }
+
+        $contacts = array_map(
+            fn( $contact ) => ( new PersonFacade( $contact ) )->to_contact( $default_image ),
+            $contacts
+        );
+        $contacts = array_filter( $contacts, function ( $contact ) use ( $ids ) {
+            return in_array( $contact['id'], $ids, true );
+        } );
+
+        return array_map( function ( $contact ) use ( $field_keys ) {
+            $fields = [];
+
+            foreach ( $field_keys as $field_key ) {
+                $fields[ $field_key ] = $contact[ $field_key ] ?? '';
+            }
+
+            return $fields;
+        }, $contacts );
     }
 
     /**

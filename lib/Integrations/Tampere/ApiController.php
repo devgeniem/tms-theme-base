@@ -106,7 +106,7 @@ abstract class ApiController {
         $results = $this->do_get( $this->get_slug(), [], [], $args );
 
         if ( $results ) {
-            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 2 );
+            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 5 );
         }
 
         return $results;

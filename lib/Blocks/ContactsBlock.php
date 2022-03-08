@@ -7,12 +7,6 @@ namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
 use TMS\Theme\Base\ACF\Fields\ContactsFields;
-use TMS\Theme\Base\ACF\Fields\ImageFields;
-use TMS\Theme\Base\ACF\Fields\MapFields;
-use TMS\Theme\Base\Formatters\ContactFormatter;
-use TMS\Theme\Base\PostType\Contact;
-use TMS\Theme\Base\Settings;
-use WP_Query;
 
 /**
  * Class ContactsBlock
