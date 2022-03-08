@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-475: Blog articles layout for onepager template.
+- TMS-226: API contacts to Contact Block #174
 - TMS-304-1: Set min amount of images in carousel to 4 and prevent displaying if not at least 4 images added.
 
 ## [1.32.1] - 2022-02-24

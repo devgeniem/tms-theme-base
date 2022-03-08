@@ -51,11 +51,11 @@ class PersonFacade {
     /**
      * Format API response item to contact
      *
-     * @param string $default_image Default image url.
+     * @param string|null $default_image Default image url.
      *
      * @return array
      */
-    public function to_contact( string $default_image ) : array {
+    public function to_contact( ?string $default_image = null ) : array {
         $fields = $this->fields;
 
         $data = [
