@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-732: Add option to hide categories in archive page.
 
+## [1.32.2] - 2022-03-10
+
+### Added
+
+- TMS-718: Add cta-button to exception notice
+
 ### Changed
 
 - TMS-475: Blog articles layout for onepager template.

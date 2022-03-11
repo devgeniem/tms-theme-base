@@ -31,8 +31,8 @@ class ExceptionNoticeSettingsTab extends Tab {
      * @var array
      */
     protected $strings = [
-        'tab'  => 'Poikkeusilmoitus',
-        'text' => [
+        'tab'      => 'Poikkeusilmoitus',
+        'text'     => [
             'title'        => 'Teksti',
             'instructions' => '',
         ],
