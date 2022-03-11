@@ -59,7 +59,7 @@ class Assets implements Interfaces\Controller {
 
         \add_filter(
             'tms/theme/acc_icons',
-            \Closure::fromCallable( [ $this, 'get_accessibility_icons' ] ),
+            [ __CLASS__, 'get_accessibility_icons' ],
             10,
             0
         );
@@ -357,38 +357,38 @@ class Assets implements Interfaces\Controller {
      *
      * @return string[]
      */
-    protected function get_accessibility_icons() {
+    public static function get_accessibility_icons() {
         return [
-            'aaniopastus' => 'Ääniopastus',
-            'avustaja' => 'Avustaja',
-            'hissi' => 'Hissi',
-            'induktiosilmukka' => 'Induktiosilmukka',
-            'info' => 'Info',
-            'internet' => 'Internet',
-            'isa' => 'ISA',
-            'kahvila' => 'Kahvila',
-            'kauppa' => 'Kauppa',
-            'kokoustilaa' => 'Kokoustilaa',
-            'lainattavia-valineita' => 'Lainattavia välineitä',
-            'lastenhoitotila' => 'Lastenhoitotila',
-            'latauspiste' => 'Latauspiste',
-            'lipunmyynti' => 'Lipunmyynti',
-            'luiska' => 'Luiska',
-            'nakovammaisia_helpottavat_palvelut' => 'Näkövammaisia helpottavat palvelut',
-            'opaskoirat_sallittu' => 'Opaskoirat sallittu',
-            'pistekirjoitus' => 'Pistekirjoitus',
-            'porrashissi' => 'Porrashissi',
-            'portaat' => 'Portaat',
-            'pyoratuolihissi' => 'Pyörätuolihissi',
-            'rollaattori' => 'Rollaattori',
-            'sahkomopon_sailytys' => 'Sähkömopon säilytys',
-            'sailytyslokerot' => 'Säilytyslokerot',
-            'suuri_teksti' => 'Suuri teksti',
-            'vaatesailytys' => 'Vaatesäilytys',
-            'viitomakielinen_palvelu' => 'Viittomakielinen palvelu',
-            'wc_oikea' => 'WC Oikea',
-            'wc_vasen' => 'WC Vasen',
-            'wc' => 'WC',
+            'aaniopastus'                        => __( 'Audio guide', 'tms-theme-base' ),
+            'avustaja'                           => __( 'Assistant', 'tms-theme-base' ),
+            'hissi'                              => __( 'Lift', 'tms-theme-base' ),
+            'induktiosilmukka'                   => __( 'Induction loop', 'tms-theme-base' ),
+            'info'                               => __( 'Information', 'tms-theme-base' ),
+            'internet'                           => __( 'Internet', 'tms-theme-base' ),
+            'isa'                                => __( 'ISA', 'tms-theme-base' ),
+            'kahvila'                            => __( 'Café', 'tms-theme-base' ),
+            'kauppa'                             => __( 'Shop', 'tms-theme-base' ),
+            'kokoustilaa'                        => __( 'Meeting room', 'tms-theme-base' ),
+            'lainattavia-valineita'              => __( 'Assistive device lending', 'tms-theme-base' ),
+            'lastenhoitotila'                    => __( 'Baby changing', 'tms-theme-base' ),
+            'latauspiste'                        => __( 'Charging point', 'tms-theme-base' ),
+            'lipunmyynti'                        => __( 'Ticket sales', 'tms-theme-base' ),
+            'luiska'                             => __( 'Ramp', 'tms-theme-base' ),
+            'nakovammaisia_helpottavat_palvelut' => __( 'Services for the visually impaired', 'tms-theme-base' ),
+            'opaskoirat_sallittu'                => __( 'Service dogs allowed', 'tms-theme-base' ),
+            'pistekirjoitus'                     => __( 'Braille', 'tms-theme-base' ),
+            'porrashissi'                        => __( 'Stairlift', 'tms-theme-base' ),
+            'portaat'                            => __( 'Staircase', 'tms-theme-base' ),
+            'pyoratuolihissi'                    => __( 'Platform lift', 'tms-theme-base' ),
+            'rollaattori'                        => __( 'Rollator, walker', 'tms-theme-base' ),
+            'sahkomopon_sailytys'                => __( 'Electric mobility scooter storage', 'tms-theme-base' ),
+            'sailytyslokerot'                    => __( 'Lockers', 'tms-theme-base' ),
+            'suuri_teksti'                       => __( 'Large print', 'tms-theme-base' ),
+            'vaatesailytys'                      => __( 'Cloakroom', 'tms-theme-base' ),
+            'viitomakielinen_palvelu'            => __( 'Sign-language services', 'tms-theme-base' ),
+            'wc_oikea'                           => __( 'WC Right', 'tms-theme-base' ),
+            'wc_vasen'                           => __( 'WC Left', 'tms-theme-base' ),
+            'wc'                                 => __( 'WC', 'tms-theme-base' ),
         ];
     }
 }

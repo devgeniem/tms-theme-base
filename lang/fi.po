@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-01-12 10:08+0200\n"
-"PO-Revision-Date: 2022-01-12 10:09+0200\n"
+"POT-Creation-Date: 2022-03-11 17:39+0200\n"
+"PO-Revision-Date: 2022-03-11 17:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -22,11 +22,6 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
-
-#: assets/dist/vendor.js:4821
-msgctxt "text direction"
-msgid "ltr"
-msgstr ""
 
 #: comments.php:14
 msgid "Comments"
@@ -55,13 +50,13 @@ msgstr ""
 msgid "Open map"
 msgstr "Avaa kartta"
 
-#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:70
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:72
 #: lib/ACF/PageGroup.php:39
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "Sivun komponentit"
 
-#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:123
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:125
 #: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
@@ -77,6 +72,11 @@ msgctxt "theme ACF"
 msgid "Kalenterin asetukset"
 msgstr ""
 
+#: lib/ACF/PageEventsSearchGroup.php:33
+msgctxt "theme ACF"
+msgid "Asetukset"
+msgstr ""
+
 #: lib/ACF/PostGroup.php:129
 msgid "Related posts"
 msgstr "Liittyvät sisällöt"
@@ -86,13 +86,133 @@ msgctxt "theme ACF"
 msgid "Site settings"
 msgstr "Sivuston asetukset"
 
-#: lib/Admin.php:89
+#: lib/Admin.php:94
 msgid "Paragraph"
 msgstr "Tekstikappale"
 
-#: lib/Admin.php:90
+#: lib/Admin.php:95
 msgid "Header"
 msgstr "Ylätunniste"
+
+#: lib/Assets.php:362
+msgid "Audio guide"
+msgstr "Ääni-opastus"
+
+#: lib/Assets.php:363
+msgid "Assistant"
+msgstr "Avustaja"
+
+#: lib/Assets.php:364
+msgid "Lift"
+msgstr "Hissi"
+
+#: lib/Assets.php:365
+msgid "Induction loop"
+msgstr "Induktio-silmukka"
+
+#: lib/Assets.php:366
+msgid "Information"
+msgstr "Info"
+
+#: lib/Assets.php:367
+msgid "Internet"
+msgstr "Internet"
+
+#: lib/Assets.php:368
+msgid "ISA"
+msgstr ""
+
+#: lib/Assets.php:369
+msgid "Café"
+msgstr "Kahvila"
+
+#: lib/Assets.php:370
+msgid "Shop"
+msgstr "Myymälä"
+
+#: lib/Assets.php:371
+msgid "Meeting room"
+msgstr "Kokoustila"
+
+#: lib/Assets.php:372
+msgid "Assistive device lending"
+msgstr "Lainattavia apuvälineitä"
+
+#: lib/Assets.php:373
+msgid "Baby changing"
+msgstr "Lastenhoito-tila"
+
+#: lib/Assets.php:374
+msgid "Charging point"
+msgstr "Latauspiste"
+
+#: lib/Assets.php:375
+msgid "Ticket sales"
+msgstr "Lipunmyyti"
+
+#: lib/Assets.php:376
+msgid "Ramp"
+msgstr "Luiska"
+
+#: lib/Assets.php:377
+msgid "Services for the visually impaired"
+msgstr "Näkö-vammaisia helpottavia palveluja"
+
+#: lib/Assets.php:378
+msgid "Service dogs allowed"
+msgstr "Opaskoira sallittu"
+
+#: lib/Assets.php:379
+msgid "Braille"
+msgstr "Piste-kirjoitus"
+
+#: lib/Assets.php:380
+msgid "Stairlift"
+msgstr "Porrashissi"
+
+#: lib/Assets.php:381
+msgid "Staircase"
+msgstr "Portaat"
+
+#: lib/Assets.php:382
+msgid "Platform lift"
+msgstr ""
+
+#: lib/Assets.php:383
+msgid "Rollator, walker"
+msgstr "Rollaattori"
+
+#: lib/Assets.php:384
+msgid "Electric mobility scooter storage"
+msgstr ""
+
+#: lib/Assets.php:385
+msgid "Lockers"
+msgstr "Säilytys-lokero"
+
+#: lib/Assets.php:386
+msgid "Large print"
+msgstr "Suuri teksti"
+
+#: lib/Assets.php:387
+msgid "Cloakroom"
+msgstr "Vaate-säilytys"
+
+#: lib/Assets.php:388
+msgid "Sign-language services"
+msgstr "Viittoma-kielinen palvelu"
+
+#: lib/Assets.php:389
+msgid "WC Right"
+msgstr "WC Oikea"
+
+#: lib/Assets.php:390
+msgid "WC Left"
+msgstr "WC Vasen"
+
+#: lib/Assets.php:391
+msgid "WC"
+msgstr "WC"
 
 #: lib/Comments.php:72
 msgid "Send Comment"
@@ -149,19 +269,19 @@ msgstr "Hinta"
 msgid "Organizer"
 msgstr "Järjestäjä"
 
-#: lib/LinkedEvents.php:213 lib/LinkedEvents.php:265
+#: lib/LinkedEvents.php:216 lib/LinkedEvents.php:268
 msgid "Additional information"
 msgstr "Lisätiedot"
 
-#: lib/LinkedEvents.php:258
+#: lib/LinkedEvents.php:261
 msgid "Free"
 msgstr "Maksuton"
 
-#: lib/LinkedEvents.php:288
+#: lib/LinkedEvents.php:291
 msgid "Additional info"
 msgstr "Lisätiedot"
 
-#: lib/LinkedEvents.php:338
+#: lib/LinkedEvents.php:343
 msgid "Virtual event"
 msgstr "Verkkotapahtuma"
 
@@ -243,17 +363,17 @@ msgctxt "wp-geniem-roles"
 msgid "Site Manager"
 msgstr ""
 
-#: lib/Roles.php:530
+#: lib/Roles.php:532
 msgctxt "wp-geniem-roles"
 msgid "Author"
 msgstr ""
 
-#: lib/Roles.php:598
+#: lib/Roles.php:600
 msgctxt "wp-geniem-roles"
 msgid "Contributor"
 msgstr ""
 
-#: lib/Roles.php:618
+#: lib/Roles.php:620
 msgctxt "wp-geniem-roles"
 msgid "Subscriber"
 msgstr ""
@@ -384,17 +504,17 @@ msgstr "Jaa Vkontaktessa"
 msgid "Share on Line"
 msgstr "Jaa Linessä"
 
-#: models/archive-blog-article.php:167 models/archive.php:116
+#: models/archive-blog-article.php:167 models/archive.php:122
 #: models/home.php:269 models/search.php:70
 msgid "All"
 msgstr "Kaikki"
 
-#: models/error404.php:78
+#: models/error404.php:81
 msgctxt "theme-frontend"
 msgid "Go to search"
 msgstr "Siirry hakuun"
 
-#: models/error404.php:95
+#: models/error404.php:98
 msgctxt "theme-frontend"
 msgid "Return to home"
 msgstr "Palaa etusivulle"
@@ -928,114 +1048,6 @@ msgstr "Jou"
 msgid "Pagination"
 msgstr "Sivutus"
 
-#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
-#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
-msgid "Add Row"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
-msgid "Multisite Post Object"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
-msgid "Multisite Relationship"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
-msgid "Multisite taxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
-msgid "Multitaxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
-#, php-format
-msgctxt "No terms"
-msgid "No %s"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
-msgid "PHP"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
-msgid "Instructions"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
-msgid ""
-"This field can only be used with ACF Codifier. Doesn't do anything if "
-"defined in the admin side."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:57
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Skip to content"
-msgid "Reply to comment"
-msgstr "Siirry sisältöön"
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:58
-msgid "Your browser does not support this type of form handling."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:185
-#, fuzzy
-#| msgid "Comments"
-msgid "comment-page"
-msgstr "Kommentit"
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:238
-msgid ""
-"DustPress Comments: The 'get_comments_args' function is not defined in the "
-"model."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:244
-msgid ""
-"DustPress Comments: The 'get_form_args' function is not defined in the model."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:248
-msgid "DustPress Comments: The model class {"
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:264
-msgid ""
-"DustPress Comments: The 'get_comments_args' filter return value is not an "
-"array or it is empty."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:268
-msgid ""
-"DustPress Comments: The 'get_form_args' filter return value is not an array "
-"or it is empty."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:297
-#, fuzzy
-#| msgid "Comments"
-msgid "Comment sent."
-msgstr "Kommentit"
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:299
-#, fuzzy
-#| msgid "Your comment is awaiting moderation"
-msgid "Comment is waiting for approval."
-msgstr "Kommentti odottaa hyväksyntää"
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:344
-#: wp-content/plugins/dustpress-comments/classes/comments.php:676
-#, fuzzy
-#| msgid "Comments"
-msgid "all-comments"
-msgstr "Kommentit"
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:574
-msgid "Processing comments..."
-msgstr ""
-
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
 msgstr ""
@@ -1051,3 +1063,29 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "theme-frontend"
+#~| msgid "Skip to content"
+#~ msgid "Reply to comment"
+#~ msgstr "Siirry sisältöön"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "comment-page"
+#~ msgstr "Kommentit"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Comment sent."
+#~ msgstr "Kommentit"
+
+#, fuzzy
+#~| msgid "Your comment is awaiting moderation"
+#~ msgid "Comment is waiting for approval."
+#~ msgstr "Kommentti odottaa hyväksyntää"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "all-comments"
+#~ msgstr "Kommentit"
