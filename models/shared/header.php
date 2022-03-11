@@ -251,10 +251,24 @@ class Header extends Model {
             return false;
         }
 
+        $cta_link = Settings::get_setting( 'exception_cta_link' );
+
+        if ( empty( $cta_link ) ) {
+            return [
+                'message' => $text,
+                'id'      => $exception_id,
+            ];
+        }
+
         return [
             'message' => $text,
             'id'      => $exception_id,
+            'cta_btn' => (object) [
+                'title' => ( new \Strings() )->s()['common']['read_more'],
+                'url'   => $cta_link,
+            ],
         ];
+
     }
 
     /**

@@ -52,7 +52,7 @@ class ImageCarouselFields extends Field\Group {
             ],
             'rows'        => [
                 'label'        => 'Kuvakaruselli',
-                'instructions' => '',
+                'instructions' => 'Lisää vähintään 4 kuvaa (muuten kuvakarusellia ei näytetä).',
                 'button'       => 'Lisää rivi',
             ],
             'image'       => [
@@ -92,7 +92,7 @@ class ImageCarouselFields extends Field\Group {
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
             ->set_key( "${key}_rows" )
             ->set_name( 'rows' )
-            ->set_min( 2 )
+            ->set_min( 4 )
             ->set_max( 20 )
             ->set_layout( 'block' )
             ->set_button_label( $strings['rows']['button'] )
