@@ -119,6 +119,7 @@ class PageFrontPageGroup {
                 Layouts\SocialMediaLayout::class,
                 Layouts\ContactsLayout::class,
                 Layouts\AccessibilityIconLinksLayout::class,
+                Layouts\ShareLinksLayout::class,
             ],
             $key
         );

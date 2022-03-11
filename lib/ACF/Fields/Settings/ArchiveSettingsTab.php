@@ -30,13 +30,17 @@ class ArchiveSettingsTab extends Tab {
      * @var array
      */
     protected $strings = [
-        'tab'                => 'Arkistot',
-        'archive_use_images' => [
+        'tab'                     => 'Arkistot',
+        'archive_use_images'      => [
             'title'        => 'Kuvat käytössä',
             'instructions' => '',
         ],
-        'archive_view_type'  => [
+        'archive_view_type'       => [
             'title'        => 'Listaustyyli',
+            'instructions' => '',
+        ],
+        'archive_hide_categories' => [
+            'title'        => 'Piilota kategoriat',
             'instructions' => '',
         ],
     ];
@@ -70,7 +74,7 @@ class ArchiveSettingsTab extends Tab {
                 ->set_name( 'archive_use_images' )
                 ->set_default_value( true )
                 ->use_ui()
-                ->set_wrapper_width( 50 )
+                ->set_wrapper_width( 33 )
                 ->set_instructions( $strings['archive_use_images']['instructions'] );
 
             $view_type_field = ( new Field\Radio( $strings['archive_view_type']['title'] ) )
@@ -81,12 +85,20 @@ class ArchiveSettingsTab extends Tab {
                     'list' => 'Lista',
                 ] )
                 ->set_default_value( 'grid' )
-                ->set_wrapper_width( 50 )
+                ->set_wrapper_width( 33 )
                 ->set_instructions( $strings['archive_view_type']['instructions'] );
+
+            $hide_categories_field = ( new Field\TrueFalse( $strings['archive_hide_categories']['title'] ) )
+                ->set_key( "${key}_archive_hide_categories" )
+                ->set_name( 'archive_hide_categories' )
+                ->use_ui()
+                ->set_wrapper_width( 34 )
+                ->set_instructions( $strings['archive_hide_categories']['instructions'] );
 
             $this->add_fields( [
                 $use_images_field,
                 $view_type_field,
+                $hide_categories_field,
             ] );
         }
         catch ( Exception $e ) {

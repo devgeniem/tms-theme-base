@@ -8,6 +8,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- TMS-732: Add option to hide categories in archive page.
+
+## [1.32.2] - 2022-03-10
+
+### Added
+
+- TMS-718: Add cta-button to exception notice
+
+### Changed
+
+- TMS-475: Blog articles layout for onepager template.
+- TMS-304-1: Set min amount of images in carousel to 4 and prevent displaying if not at least 4 images added.
+
+## [1.32.1] - 2022-02-24
+
+### Added
+
+- TMS-726: Add order option for events #375
+- TMS-715: Add ShareLinksLayout
+
+## [1.32.0] - 2022-02-24
+
+### Added
+- TMS-712: Add fields to TextBlockLayout
+- TMS-714: Replace events and articles layout link with button-link
+- TMS-713: Limit search filtering for post types with posts.
+- TMS-304: Add image carousel as a gutenberg block
+
+## [1.31.15] - 2022-02-17
+
+### Added
 
 - TMS-422: Add accessibility icons -block
 - TMS-722: Contacts Layout #364
