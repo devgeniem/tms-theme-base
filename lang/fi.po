@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
 "POT-Creation-Date: 2022-03-14 09:47+0200\n"
-"PO-Revision-Date: 2022-03-14 16:31+0200\n"
+"PO-Revision-Date: 2022-03-14 16:37+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -176,7 +176,7 @@ msgstr "Portaat"
 
 #: lib/Assets.php:382
 msgid "Platform lift"
-msgstr ""
+msgstr "Pyöratuoli-hissi, nostotaso"
 
 #: lib/Assets.php:383
 msgid "Rollator, walker"
