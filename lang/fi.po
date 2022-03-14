@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-03-11 17:39+0200\n"
-"PO-Revision-Date: 2022-03-11 17:48+0200\n"
+"POT-Creation-Date: 2022-03-14 09:47+0200\n"
+"PO-Revision-Date: 2022-03-14 09:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -119,8 +119,8 @@ msgid "Internet"
 msgstr "Internet"
 
 #: lib/Assets.php:368
-msgid "ISA"
-msgstr ""
+msgid "Accessible entrance, Accessible toilet, Accessible parking"
+msgstr "Esteetön sisäänkäynti, esteetön WC, esteetön pysäköinti"
 
 #: lib/Assets.php:369
 msgid "Café"
@@ -202,13 +202,9 @@ msgstr "Vaate-säilytys"
 msgid "Sign-language services"
 msgstr "Viittoma-kielinen palvelu"
 
-#: lib/Assets.php:389
-msgid "WC Right"
-msgstr "WC Oikea"
-
-#: lib/Assets.php:390
-msgid "WC Left"
-msgstr "WC Vasen"
+#: lib/Assets.php:389 lib/Assets.php:390
+msgid "Accessible toilet: one-sided access"
+msgstr "Esteetön wc, yksipuolisesti käytettävä"
 
 #: lib/Assets.php:391
 msgid "WC"
@@ -1063,6 +1059,12 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
+
+#~ msgid "WC Right"
+#~ msgstr "WC Oikea"
+
+#~ msgid "WC Left"
+#~ msgstr "WC Vasen"
 
 #, fuzzy
 #~| msgctxt "theme-frontend"

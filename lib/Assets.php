@@ -365,7 +365,7 @@ class Assets implements Interfaces\Controller {
             'induktiosilmukka'                   => __( 'Induction loop', 'tms-theme-base' ),
             'info'                               => __( 'Information', 'tms-theme-base' ),
             'internet'                           => __( 'Internet', 'tms-theme-base' ),
-            'isa'                                => __( 'ISA', 'tms-theme-base' ),
+            'isa'                                => __( 'Accessible entrance, Accessible toilet, Accessible parking', 'tms-theme-base' ),
             'kahvila'                            => __( 'Café', 'tms-theme-base' ),
             'kauppa'                             => __( 'Shop', 'tms-theme-base' ),
             'kokoustilaa'                        => __( 'Meeting room', 'tms-theme-base' ),
@@ -386,8 +386,8 @@ class Assets implements Interfaces\Controller {
             'suuri_teksti'                       => __( 'Large print', 'tms-theme-base' ),
             'vaatesailytys'                      => __( 'Cloakroom', 'tms-theme-base' ),
             'viitomakielinen_palvelu'            => __( 'Sign-language services', 'tms-theme-base' ),
-            'wc_oikea'                           => __( 'WC Right', 'tms-theme-base' ),
-            'wc_vasen'                           => __( 'WC Left', 'tms-theme-base' ),
+            'wc_oikea'                           => __( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
+            'wc_vasen'                           => __( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
             'wc'                                 => __( 'WC', 'tms-theme-base' ),
         ];
     }
