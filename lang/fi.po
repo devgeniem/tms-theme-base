@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
 "POT-Creation-Date: 2022-03-14 09:47+0200\n"
-"PO-Revision-Date: 2022-03-14 09:47+0200\n"
+"PO-Revision-Date: 2022-03-14 16:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -184,7 +184,7 @@ msgstr "Rollaattori"
 
 #: lib/Assets.php:384
 msgid "Electric mobility scooter storage"
-msgstr ""
+msgstr "Sähkömopo-säilytys"
 
 #: lib/Assets.php:385
 msgid "Lockers"
