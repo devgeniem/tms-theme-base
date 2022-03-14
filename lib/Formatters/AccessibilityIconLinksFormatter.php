@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base\Formatters;
 
+use TMS\Theme\Base\Assets;
+
 /**
  * Class AccessibilityIconLinksFormatter
  *
@@ -44,12 +46,19 @@ class AccessibilityIconLinksFormatter implements \TMS\Theme\Base\Interfaces\Form
             return $layout;
         }
 
+        $icons = Assets::get_accessibility_icons();
+
         foreach ( $layout['rows'] as $key => $row ) {
-            if ( empty( $layout['rows'][ $key ]['link'] ) ) {
-                continue;
+            if ( ! empty( $layout['rows'][ $key ]['link'] ) ) {
+                $layout['rows'][ $key ]['link']['icon'] = 'chevron-right';
             }
 
-            $layout['rows'][ $key ]['link']['icon'] = 'chevron-right';
+            $title = $layout['rows'][ $key ]['title'];
+            $icon  = $layout['rows'][ $key ]['acc_icon'];
+
+            if ( empty( $title ) && ! empty( $icon ) ) {
+                $layout['rows'][ $key ]['title'] = ! empty( $icons[ $icon ] ) ? $icons[ $icon ] : '';
+            }
         }
 
         return $layout;
