@@ -46,8 +46,11 @@ class AccessibilityIconLinksFormatter implements \TMS\Theme\Base\Interfaces\Form
             return $layout;
         }
 
+        // get icons list in order to give a title for
+        // items missing title
         $icons = Assets::get_accessibility_icons();
 
+        // maybe add link icon and item title to row items
         foreach ( $layout['rows'] as $key => $row ) {
             if ( ! empty( $layout['rows'][ $key ]['link'] ) ) {
                 $layout['rows'][ $key ]['link']['icon'] = 'chevron-right';

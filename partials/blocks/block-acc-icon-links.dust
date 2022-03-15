@@ -9,13 +9,13 @@
 
                 {?title}
                     <h2 class="h4 mt-0 mb-4 mt-4">
-                        {title|s}
+                        {title|html}
                     </h2>
                 {/title}
 
                 {?description}
                     <div class="acc-icon-links__item-description mb-4">
-                        {description|s}
+                        {description|html}
                     </div>
                 {/description}
 
