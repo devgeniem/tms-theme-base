@@ -15,7 +15,7 @@ const wpProjectUrl = 'https://client-tms.test';
 // Theme paths.
 const wpThemePath = path.resolve( __dirname );
 const themeName = path.basename( wpThemePath );
-const themePath = `/web/app/themes/${ themeName }`;
+const themePath = `/app/themes/${ themeName }`;
 const themePublicPath = `${ themePath }/assets/dist/`;
 const themeAdminEntry = `${ wpThemePath }/assets/scripts/admin.js`;
 const themeOutput = `${ wpThemePath }/assets/dist`;
