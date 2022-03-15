@@ -15,8 +15,7 @@
     "micromodal": "^0.4.6",
     "modaal": "^0.4.4",
     "normalize.css": "^8.0.1",
-    "sass": "^1.49.0",
-    "webfontloader": "^1.6.28"
+    "sass": "^1.49.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
