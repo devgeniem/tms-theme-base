@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.33.0] - 2022-03-15
 
 ### Added
+- TMS-422: Add accessibility icons -block
 - TMS-732: Add option to hide categories in archive page.
 
 ## [1.32.2] - 2022-03-10
