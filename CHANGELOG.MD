@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - TMS-732: Add option to hide categories in archive page.
 
+### Changed
+- TMS-750: Replace webfontloader with local google fonts.
+
 ## [1.32.2] - 2022-03-10
 
 ### Added
