@@ -1,7 +1,4 @@
 <?php
-/**
- * Copyright (c) 2021. Geniem Oy
- */
 
 namespace TMS\Theme\Base;
 
@@ -62,6 +59,8 @@ class ThemeSupports implements Interfaces\Controller {
         );
 
         \add_action( 'wp_head', \Closure::fromCallable( [ $this, 'detect_js' ] ), 0 );
+
+        \add_filter( 'tms/theme/settings/material_default_image', [ $this, 'get_material_default_image' ] );
     }
 
     /**
@@ -143,5 +142,14 @@ class ThemeSupports implements Interfaces\Controller {
      */
     private function detect_js() {
         echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+    }
+
+    /**
+     * Get material default image
+     *
+     * @return mixed
+     */
+    public function get_material_default_image() {
+        return Settings::get_setting( 'material_default_image' );
     }
 }

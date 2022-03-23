@@ -1,4 +1,4 @@
-<section {?anchor}id="{anchor|s}"{/anchor}
+<section {?anchor}id="{anchor|attr}"{/anchor}
          class="acc-icon-links section pt-12 pb-7">
     <div class="container">
         <div class="columns">
@@ -12,13 +12,13 @@
 
                             {?title}
                                 <h2 class="h4 mt-0 mb-4 mt-4">
-                                    {title|s}
+                                    {title|html}
                                 </h2>
                             {/title}
 
                             {?description}
                                 <div class="acc-icon-links__item-description mb-4">
-                                    {description|s}
+                                    {description|html}
                                 </div>
                             {/description}
 
