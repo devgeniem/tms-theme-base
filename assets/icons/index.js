@@ -98,3 +98,4 @@ import './twitter.svg';
 import './veistospuisto.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
+import './accessibility';
