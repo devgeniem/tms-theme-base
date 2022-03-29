@@ -46,6 +46,7 @@ class OnepagerGroup {
                 'logo_wall'       => Layouts\LogoWallLayout::class,
                 'map'             => Layouts\MapLayout::class,
                 'icon_links'      => Layouts\IconLinksLayout::class,
+                'acc_links'       => Layouts\AccessibilityIconLinksLayout::class,
                 'social_media'    => Layouts\SocialMediaLayout::class,
                 'image_carousel'  => Layouts\ImageCarouselLayout::class,
                 'text_block'      => Layouts\TextBlockLayout::class,
@@ -54,6 +55,7 @@ class OnepagerGroup {
                 'articles'        => Layouts\ArticlesLayout::class,
                 'notice_banner'   => Layouts\NoticeBannerLayout::class,
                 'gravityform'     => Layouts\GravityFormLayout::class,
+                'blog_articles'   => Layouts\BlogArticlesLayout::class,
                 'textblock'       => false,
             ]
         );

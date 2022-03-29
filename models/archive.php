@@ -6,6 +6,8 @@
 use TMS\Theme\Base\PostType\BlogArticle;
 use TMS\Theme\Base\PostType\Post;
 use TMS\Theme\Base\Taxonomy\BlogCategory;
+use TMS\Theme\Base\Taxonomy\Category;
+use TMS\Theme\Base\Settings;
 
 /**
  * The Archive class.
@@ -81,6 +83,10 @@ class Archive extends Home {
 
         if ( $queried_object instanceof WP_Term ) {
             $taxonomy = $queried_object->taxonomy;
+
+            if ( $taxonomy === Category::SLUG && ! empty( Settings::get_setting( 'archive_hide_categories' ) ) ) {
+                return [];
+            }
         }
 
         $categories = get_categories( [ 'taxonomy' => $taxonomy ] );
@@ -137,5 +143,14 @@ class Archive extends Home {
      */
     protected static function modify_query_post_type( $wp_query ) {
         $wp_query->set( 'post_type', [ Post::SLUG, BlogArticle::SLUG ] );
+    }
+
+    /**
+     * Hide categories
+     *
+     * @return bool
+     */
+    public function hide_categories() : bool {
+        return ! empty( Settings::get_setting( 'archive_hide_categories' ) ) ? true : false;
     }
 }

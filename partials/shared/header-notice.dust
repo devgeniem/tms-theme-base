@@ -5,8 +5,11 @@
             <span>{Header.exception_notice.message|s}</span>
         </div>
 
-        <div class="site-header-notice__button-wrapper mt-4 mt-0-tablet ml-5-tablet mr-4-tablet mr-0-desktop">
-            <button class="button is-primary-invert button--icon site-header-notice__close">
+        <div class="site-header-notice__button-wrapper mt-4 mt-0-tablet ml-5-tablet mr-4-tablet mr-0-desktop is-flex is-flex-wrap-wrap">
+            {#Header.exception_notice.cta_btn}
+                {>"ui/button-link" link=. classes="is-primary-invert mt-2 mb-2 mr-4" icon="chevron-right" icon_classes="icon-large"  /}
+            {/Header.exception_notice.cta_btn}
+            <button type="button" class="button is-primary-invert button--icon site-header-notice__close mt-2 mb-2">
                 {Strings.s.header.exception_close_button|s}
                 {>"ui/icon" icon="close" class="ml-2 is-primary icon--large" /}
             </button>
