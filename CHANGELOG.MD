@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-223: Place of Business Block #381
 - TMS-226: API contacts to Contact Block #174
 
 ## [1.34.0] - 2022-03-15
