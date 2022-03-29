@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-760: Add default filter image filter for material images #387
+
 ## [1.34.0] - 2022-03-15
 
 ### Added
