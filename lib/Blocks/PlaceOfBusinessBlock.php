@@ -6,41 +6,41 @@
 namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
-use TMS\Theme\Base\ACF\Fields\ContactsFields;
+use TMS\Theme\Base\ACF\Fields\PlaceOfBusinessFields;
 
 /**
- * Class ContactsBlock
+ * Class PlaceOfBusinessBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class ContactsBlock extends BaseBlock {
+class PlaceOfBusinessBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
      *
      * @var string
      */
-    const NAME = 'contacts';
+    const NAME = 'place-of-business';
 
     /**
      * The block acf-key.
      *
      * @var string
      */
-    const KEY = 'contacts';
+    const KEY = 'place-of-business';
 
     /**
      * The block icon
      *
      * @var string
      */
-    protected $icon = 'groups';
+    protected $icon = 'database';
 
     /**
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Yhteystiedot';
+        $this->title = 'Toimipaikat';
 
         parent::__construct();
     }
@@ -51,7 +51,7 @@ class ContactsBlock extends BaseBlock {
      * @return array
      */
     protected function fields() : array {
-        $group = new ContactsFields( $this->title, self::NAME );
+        $group = new PlaceOfBusinessFields( $this->title, self::NAME );
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',

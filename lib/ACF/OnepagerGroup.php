@@ -46,6 +46,7 @@ class OnepagerGroup {
                 'logo_wall'       => Layouts\LogoWallLayout::class,
                 'map'             => Layouts\MapLayout::class,
                 'icon_links'      => Layouts\IconLinksLayout::class,
+                'acc_links'       => Layouts\AccessibilityIconLinksLayout::class,
                 'social_media'    => Layouts\SocialMediaLayout::class,
                 'image_carousel'  => Layouts\ImageCarouselLayout::class,
                 'text_block'      => Layouts\TextBlockLayout::class,

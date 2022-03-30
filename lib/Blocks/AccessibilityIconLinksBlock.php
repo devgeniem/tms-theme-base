@@ -6,41 +6,41 @@
 namespace TMS\Theme\Base\Blocks;
 
 use Geniem\ACF\Block;
-use TMS\Theme\Base\ACF\Fields\ContactsFields;
+use TMS\Theme\Base\ACF\Fields\AccessibilityIconLinksFields;
 
 /**
- * Class ContactsBlock
+ * Class AccessibilityIconLinksBlock
  *
  * @package TMS\Theme\Base\Blocks
  */
-class ContactsBlock extends BaseBlock {
+class AccessibilityIconLinksBlock extends BaseBlock {
 
     /**
      * The block name (slug, not shown in admin).
      *
      * @var string
      */
-    const NAME = 'contacts';
+    const NAME = 'acc-icon-links';
 
     /**
      * The block acf-key.
      *
      * @var string
      */
-    const KEY = 'contacts';
+    const KEY = 'acc_icon_links';
 
     /**
      * The block icon
      *
      * @var string
      */
-    protected $icon = 'groups';
+    protected $icon = 'excerpt-view';
 
     /**
      * Create the block and register it.
      */
     public function __construct() {
-        $this->title = 'Yhteystiedot';
+        $this->title = 'Saavutettavuus- ja palveluikonit';
 
         parent::__construct();
     }
@@ -51,7 +51,7 @@ class ContactsBlock extends BaseBlock {
      * @return array
      */
     protected function fields() : array {
-        $group = new ContactsFields( $this->title, self::NAME );
+        $group = new AccessibilityIconLinksFields( $this->title, self::NAME );
 
         return apply_filters(
             'tms/block/' . self::KEY . '/fields',
@@ -72,7 +72,9 @@ class ContactsBlock extends BaseBlock {
      *
      * @return array The block data.
      */
-    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array { // phpcs:ignore
+    public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
+        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+
         return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }
