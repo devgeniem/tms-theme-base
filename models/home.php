@@ -240,6 +240,10 @@ class Home extends BaseModel {
      * @return array
      */
     protected function get_filter_categories() : array {
+        if ( ! empty( Settings::get_setting( 'archive_hide_categories' ) ) ) {
+            return [];
+        }
+
         $categories = get_categories();
 
         if ( empty( $categories ) ) {
@@ -327,5 +331,14 @@ class Home extends BaseModel {
      */
     protected static function get_highlight() {
         return get_field( 'highlight', get_option( 'page_for_posts' ) );
+    }
+
+    /**
+     * Hide categories
+     *
+     * @return bool
+     */
+    public function hide_categories() : bool {
+        return ! empty( Settings::get_setting( 'archive_hide_categories' ) ) ? true : false;
     }
 }

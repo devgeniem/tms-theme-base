@@ -144,13 +144,4 @@ class Archive extends Home {
     protected static function modify_query_post_type( $wp_query ) {
         $wp_query->set( 'post_type', [ Post::SLUG, BlogArticle::SLUG ] );
     }
-
-    /**
-     * Hide categories
-     *
-     * @return bool
-     */
-    public function hide_categories() : bool {
-        return ! empty( Settings::get_setting( 'archive_hide_categories' ) ) ? true : false;
-    }
 }

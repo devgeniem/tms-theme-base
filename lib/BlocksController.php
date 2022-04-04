@@ -266,20 +266,20 @@ class BlocksController implements Interfaces\Controller {
                     PostType\BlogArticle::SLUG,
                 ],
             ],
-            'acf/acc-icon-links'    => [
-                'post_types' => [
-                    PostType\Page::SLUG,
-                    PostType\Post::SLUG,
-                    PostType\BlogArticle::SLUG,
-                    PostType\DynamicEvent::SLUG,
-                ],
-            ],
             'acf/place-of-business' => [
                 'post_types' => [
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\DynamicEvent::SLUG,
                     PostType\BlogArticle::SLUG,
+                ],
+            ],
+            'acf/acc-icon-links'    => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
             'gravityforms/form'     => [

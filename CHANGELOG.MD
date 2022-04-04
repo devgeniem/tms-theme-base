@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-750: Replace webfontloader with local google fonts.
+- TMS-763: Hide categories in Home class and in its' ancestors #389
+
+### Added
+
+- TMS-223: Place of Business Block #381
+- TMS-760: Add default filter image filter for material images #387
+- TMS-226: API contacts to Contact Block #174
+
 ## [1.34.0] - 2022-03-15
 
 ### Added
@@ -17,9 +28,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - TMS-732: Add option to hide categories in archive page.
-
-### Changed
-- TMS-750: Replace webfontloader with local google fonts.
 
 ## [1.32.2] - 2022-03-10
 
@@ -70,7 +78,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-724: Fix for IconLinksFormatter if key `icon` is not set
-- 
+-
 ## [1.31.14] - 2022-02-15
 
 ### Changed
