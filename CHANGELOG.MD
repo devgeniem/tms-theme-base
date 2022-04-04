@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - TMS-750: Replace webfontloader with local google fonts.
-- TMS-763: Hide categories in Home class and in its' ancestors #389
+- TMS-763: Hide categories in Home class and in its' descendants #389
 
 ### Added
 
