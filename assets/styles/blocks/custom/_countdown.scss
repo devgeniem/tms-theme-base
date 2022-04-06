@@ -1,0 +1,42 @@
+.countdown {
+    &__inner {
+        text-align: center;
+    }
+
+    &__time-container {
+        display: flex;
+        justify-content: center;
+        margin: -$theme-spacing auto;
+        z-index: 1;
+
+        @include from($desktop) {
+            margin-right: $theme-spacing-two;
+            margin-left: $theme-spacing-two;
+        }
+    }
+
+    &__figure {
+        line-height: 1;
+    }
+
+    &__time {
+        margin-right: $theme-spacing;
+        margin-left: $theme-spacing;
+        text-align: center;
+
+        @include from($desktop) {
+            margin-right: $theme-spacing-two;
+            margin-left: $theme-spacing-two;
+        }
+    }
+
+    &__expired-text {
+        display: none;
+    }
+
+    &--is-expired {
+        .countdown__expired-text {
+            display: block;
+        }
+    }
+}
