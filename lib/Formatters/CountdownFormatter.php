@@ -43,6 +43,13 @@ class CountdownFormatter implements Formatter {
      * @return array
      */
     public static function format( array $data ) : array {
+        $data['have_footer']  = ! empty( $data['expired_text'] );
+        $data['is_countdown'] = true;
+
+        if ( $data['type'] === 'date' ) {
+            $data['is_countdown'] = false;
+        }
+
         if ( $data['type'] === 'countdown' ) {
             $data['show_minutes'] = true;
         }
@@ -58,6 +65,8 @@ class CountdownFormatter implements Formatter {
         }
 
         $data['date_formatted'] = $target_date->format( $format );
+        $data['sr_date']        = $target_date->format( 'Y-m-d H:i' );
+        $data['sr_date_text']   = date_i18n( 'l F j Y h:i', $data['target_datetime'] );
 
         return $data;
     }

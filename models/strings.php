@@ -170,7 +170,7 @@ class Strings extends \DustPress\Model {
                 'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
             ],
             // Use the Duet Date Picker keys for strings
-            'datepicker'         => [
+            'datepicker' => [
                 'buttonLabel'         => _x( 'Pick a date', 'theme-frontend', 'tms-theme-base' ),
                 'placeholder'         => _x( 'dd.mm.yyyy', 'theme-frontend', 'tms-theme-base' ),
                 'selectedDateMessage' => _x( 'The chosen date is', 'theme-frontend', 'tms-theme-base' ),
@@ -217,6 +217,11 @@ class Strings extends \DustPress\Model {
                     _x( 'Nov', 'theme-frontend', 'tms-theme-base' ),
                     _x( 'Dec', 'theme-frontend', 'tms-theme-base' ),
                 ],
+            ],
+            'countdown'  => [
+                'days'    => _x( 'Days', 'theme-frontend', 'tms-theme-base' ),
+                'hours'   => _x( 'Hours', 'theme-frontend', 'tms-theme-base' ),
+                'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
