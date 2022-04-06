@@ -51,11 +51,19 @@ class CountdownFormatter implements Formatter {
         }
 
         if ( $data['type'] === 'countdown' ) {
+            $data['show_hours']   = true;
             $data['show_minutes'] = true;
         }
 
         $target_date = new DateTime();
-        $target_date->setTimestamp( $data['target_datetime'] );
+
+        if ( $data['type'] === 'countdown' ) {
+            $target_date->setTimestamp( $data['target_datetime'] );
+        }
+        else {
+            $target_date->setTimestamp( strtotime( 'today', $data['target_datetime'] ) );
+            $data['target_datetime'] = $target_date->getTimestamp();
+        }
 
         $format = 'j.n.Y';
 
