@@ -20,7 +20,7 @@
                         0
                     </p>
 
-                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.days|html}</p>
+                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.days|html}</p>
                 </div>
 
                 {?show_hours}
@@ -29,7 +29,7 @@
                             0
                         </p>
 
-                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.hours|html}</p>
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.hours|html}</p>
                     </div>
                 {/show_hours}
 
@@ -39,7 +39,7 @@
                             0
                         </p>
 
-                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.minutes|html}</p>
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.minutes|html}</p>
                     </div>
                 {/show_minutes}
             {/is_countdown}
