@@ -22,13 +22,16 @@
 
                     <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.days|html}</p>
                 </div>
-                <div class="countdown__time countdown__time--hours">
-                    <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
-                        0
-                    </p>
 
-                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.hours|html}</p>
-                </div>
+                {?show_hours}
+                    <div class="countdown__time countdown__time--hours">
+                        <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                            0
+                        </p>
+
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.hours|html}</p>
+                    </div>
+                {/show_hours}
 
                 {?show_minutes}
                     <div class="countdown__time countdown__time--minutes">
