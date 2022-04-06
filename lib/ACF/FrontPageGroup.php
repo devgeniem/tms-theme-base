@@ -122,6 +122,7 @@ class PageFrontPageGroup {
                 Layouts\ContactsLayout::class,
                 Layouts\AccessibilityIconLinksLayout::class,
                 Layouts\ShareLinksLayout::class,
+                Layouts\CountdownLayout::class,
             ],
             $key
         );
