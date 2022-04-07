@@ -11,7 +11,7 @@ use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class QuoteFields
+ * Class CountdownFields
  *
  * @package TMS\Theme\Base\ACF\Fields
  */
@@ -60,7 +60,7 @@ class CountdownFields extends Field\Group {
                     'date'           => 'Päivämäärä',
                 ],
             ],
-            'expired_text'        => [
+            'expired_text' => [
                 'label'        => 'Päättyneen laskurin teksti',
                 'instructions' => 'Teksti, joka esitetään kun laskuri on pysähtynyt.',
             ],
