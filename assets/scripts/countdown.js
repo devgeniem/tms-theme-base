@@ -52,7 +52,7 @@ export default class Countdown {
     updateCountdownTime( countdown, targetTime, interval ) {
         const
             dateNow = new Date(),
-            timezoneOffset = countdown.offset;
+            timezoneOffset = parseInt( countdown.offset );
 
         dateNow.setHours( dateNow.getHours() + timezoneOffset );
 
