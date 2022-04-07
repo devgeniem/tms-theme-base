@@ -6,8 +6,13 @@
     &__time-container {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         margin: -$theme-spacing auto;
         z-index: 1;
+
+        @include from($tablet) {
+            flex-direction: row;
+        }
 
         @include from($desktop) {
             margin-right: $theme-spacing-two;

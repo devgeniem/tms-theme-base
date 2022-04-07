@@ -72,9 +72,10 @@ class CountdownFormatter implements Formatter {
             $data['show_minutes'] = true;
         }
 
-        $data['date_formatted'] = $target_date->format( $format );
-        $data['sr_date']        = $target_date->format( 'Y-m-d H:i' );
-        $data['sr_date_text']   = date_i18n( 'l F j Y h:i', $data['target_datetime'] );
+        $data['date_formatted']     = $target_date->format( $format );
+        $data['strings']['days']    = _x( 'Days', 'theme-frontend', 'tms-theme-base' );
+        $data['strings']['hours']   = _x( 'Hours', 'theme-frontend', 'tms-theme-base' );
+        $data['strings']['minutes'] = _x( 'Minutes', 'theme-frontend', 'tms-theme-base' );
 
         return $data;
     }

@@ -1,4 +1,4 @@
-<div class="countdown is-relative pt-10 pb-8 pt-11-desktop pb-11-desktop"
+<div class="countdown is-relative pt-10 pr-3 pb-8 pl-3 pt-11-desktop pb-11-desktop"
      data-timestamp="{target_datetime|attr}" {@inlinebg id=image size="fullhd" /}>
     <div class="overlay overlay--dark-70"></div>
 
@@ -9,18 +9,14 @@
             </h2>
         {/title}
 
-        <time class="is-sr-only" datetime="{sr_date|attr}">
-            {sr_date_text|attr}
-        </time>
-
-        <div class="countdown__time-container mb-8" aria-hidden="true">
+        <div class="countdown__time-container mb-8">
             {?is_countdown}
                 <div class="countdown__time countdown__time--days">
                     <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
                         0
                     </p>
 
-                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.days|html}</p>
+                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.days|html}</p>
                 </div>
 
                 {?show_hours}
@@ -29,7 +25,7 @@
                             0
                         </p>
 
-                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.hours|html}</p>
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.hours|html}</p>
                     </div>
                 {/show_hours}
 
@@ -39,7 +35,7 @@
                             0
                         </p>
 
-                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{Strings.s.countdown.minutes|html}</p>
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.minutes|html}</p>
                     </div>
                 {/show_minutes}
             {/is_countdown}
