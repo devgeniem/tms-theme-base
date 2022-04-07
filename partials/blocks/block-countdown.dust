@@ -42,7 +42,7 @@
 
             {^is_countdown}
                 <div class="countdown__time countdown__time--date">
-                    <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                    <p class="countdown__figure mt-0 mb-0 has-text-weight-extra-bold is-family-sans-serif">
                         {date_formatted|html}
                     </p>
                 </div>

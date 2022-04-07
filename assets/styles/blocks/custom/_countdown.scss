@@ -33,6 +33,20 @@
             margin-right: $theme-spacing-two;
             margin-left: $theme-spacing-two;
         }
+
+        &--date {
+            .countdown__figure {
+                font-size: 2.5rem;
+
+                @include from($tablet) {
+                    font-size: 4rem;
+                }
+
+                @include from($widescreen) {
+                    font-size: 6.25rem;
+                }
+            }
+        }
     }
 
     &__expired-text {
