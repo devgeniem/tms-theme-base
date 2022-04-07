@@ -10,9 +10,9 @@
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
                         {?display_artist}
-                            {?image_author_and_artist}
-                                <small>{image_author_and_artist|s}</small>
-                            {/image_author_and_artist}
+                            {?author_name}
+                                <small>{author_name|html}</small>
+                            {/author_name}
                         {/display_artist}
                     </div>
                 {/image}
