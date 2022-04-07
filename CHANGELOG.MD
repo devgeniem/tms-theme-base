@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.0] - 2022-04-07
+
 ### Added
 
 - TMS-756: Add countdown block. #390
