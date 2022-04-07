@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-03-14 09:45+0200\n"
+"POT-Creation-Date: 2022-04-06 14:05+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,6 +22,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: assets/dist/vendor.js:4880
+msgctxt "text direction"
+msgid "ltr"
+msgstr ""
 
 #: comments.php:14
 msgid "Comments"
@@ -94,123 +99,119 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: lib/Assets.php:362
+#: lib/Assets.php:354
 msgid "Audio guide"
 msgstr ""
 
-#: lib/Assets.php:363
+#: lib/Assets.php:355
 msgid "Assistant"
 msgstr ""
 
-#: lib/Assets.php:364
+#: lib/Assets.php:356
 msgid "Lift"
 msgstr ""
 
-#: lib/Assets.php:365
+#: lib/Assets.php:357
 msgid "Induction loop"
 msgstr ""
 
-#: lib/Assets.php:366
+#: lib/Assets.php:358
 msgid "Information"
 msgstr ""
 
-#: lib/Assets.php:367
+#: lib/Assets.php:359
 msgid "Internet"
 msgstr ""
 
-#: lib/Assets.php:368
+#: lib/Assets.php:360
 msgid "Accessible entrance, Accessible toilet, Accessible parking"
 msgstr ""
 
-#: lib/Assets.php:369
+#: lib/Assets.php:361
 msgid "Café"
 msgstr ""
 
-#: lib/Assets.php:370
+#: lib/Assets.php:362
 msgid "Shop"
 msgstr ""
 
-#: lib/Assets.php:371
+#: lib/Assets.php:363
 msgid "Meeting room"
 msgstr ""
 
-#: lib/Assets.php:372
+#: lib/Assets.php:364
 msgid "Assistive device lending"
 msgstr ""
 
-#: lib/Assets.php:373
+#: lib/Assets.php:365
 msgid "Baby changing"
 msgstr ""
 
-#: lib/Assets.php:374
+#: lib/Assets.php:366
 msgid "Charging point"
 msgstr ""
 
-#: lib/Assets.php:375
+#: lib/Assets.php:367
 msgid "Ticket sales"
 msgstr ""
 
-#: lib/Assets.php:376
+#: lib/Assets.php:368
 msgid "Ramp"
 msgstr ""
 
-#: lib/Assets.php:377
+#: lib/Assets.php:369
 msgid "Services for the visually impaired"
 msgstr ""
 
-#: lib/Assets.php:378
+#: lib/Assets.php:370
 msgid "Service dogs allowed"
 msgstr ""
 
-#: lib/Assets.php:379
+#: lib/Assets.php:371
 msgid "Braille"
 msgstr ""
 
-#: lib/Assets.php:380
+#: lib/Assets.php:372
 msgid "Stairlift"
 msgstr ""
 
-#: lib/Assets.php:381
+#: lib/Assets.php:373
 msgid "Staircase"
 msgstr ""
 
-#: lib/Assets.php:382
+#: lib/Assets.php:374
 msgid "Platform lift"
 msgstr ""
 
-#: lib/Assets.php:383
+#: lib/Assets.php:375
 msgid "Rollator, walker"
 msgstr ""
 
-#: lib/Assets.php:384
+#: lib/Assets.php:376
 msgid "Electric mobility scooter storage"
 msgstr ""
 
-#: lib/Assets.php:385
+#: lib/Assets.php:377
 msgid "Lockers"
 msgstr ""
 
-#: lib/Assets.php:386
+#: lib/Assets.php:378
 msgid "Large print"
 msgstr ""
 
-#: lib/Assets.php:387
+#: lib/Assets.php:379
 msgid "Cloakroom"
 msgstr ""
 
-#: lib/Assets.php:388
+#: lib/Assets.php:380
 msgid "Sign-language services"
 msgstr ""
 
-#: lib/Assets.php:389
-msgid "WC Right"
+#: lib/Assets.php:381 lib/Assets.php:382
+msgid "Accessible toilet: one-sided access"
 msgstr ""
 
-#: lib/Assets.php:390
-msgid "WC Left"
-msgstr ""
-
-#: lib/Assets.php:391
+#: lib/Assets.php:383
 msgid "WC"
 msgstr ""
 
@@ -499,7 +500,7 @@ msgid "Share on Line"
 msgstr ""
 
 #: models/archive-blog-article.php:167 models/archive.php:122
-#: models/home.php:269 models/search.php:70
+#: models/home.php:273 models/search.php:70
 msgid "All"
 msgstr ""
 
@@ -1033,8 +1034,121 @@ msgctxt "theme-frontend"
 msgid "Dec"
 msgstr ""
 
-#: models/strings.php:227
+#: models/strings.php:217
+msgctxt "theme-frontend"
+msgid "Days"
+msgstr ""
+
+#: models/strings.php:218
+msgctxt "theme-frontend"
+msgid "Hours"
+msgstr ""
+
+#: models/strings.php:219
+msgctxt "theme-frontend"
+msgid "Minutes"
+msgstr ""
+
+#: models/strings.php:232
 msgid "Pagination"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
+#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
+msgid "Add Row"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
+msgid "Multisite Post Object"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
+msgid "Multisite Relationship"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
+msgid "Multisite taxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
+msgid "Multitaxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
+#, php-format
+msgctxt "No terms"
+msgid "No %s"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
+msgid "PHP"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
+msgid "Instructions"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
+msgid ""
+"This field can only be used with ACF Codifier. Doesn't do anything if "
+"defined in the admin side."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:57
+msgid "Reply to comment"
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:58
+msgid "Your browser does not support this type of form handling."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:185
+msgid "comment-page"
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:238
+msgid ""
+"DustPress Comments: The 'get_comments_args' function is not defined in the "
+"model."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:244
+msgid ""
+"DustPress Comments: The 'get_form_args' function is not defined in the "
+"model."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:248
+msgid "DustPress Comments: The model class {"
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:264
+msgid ""
+"DustPress Comments: The 'get_comments_args' filter return value is not an "
+"array or it is empty."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:268
+msgid ""
+"DustPress Comments: The 'get_form_args' filter return value is not an array "
+"or it is empty."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:297
+msgid "Comment sent."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:299
+msgid "Comment is waiting for approval."
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:344
+#: wp-content/plugins/dustpress-comments/classes/comments.php:676
+msgid "all-comments"
+msgstr ""
+
+#: wp-content/plugins/dustpress-comments/classes/comments.php:574
+msgid "Processing comments..."
 msgstr ""
 
 #. Theme Name of the plugin/theme

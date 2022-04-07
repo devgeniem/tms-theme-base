@@ -1,0 +1,9 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-countdown">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {>"blocks/block-countdown" /}
+            </div>
+        </div>
+    </div>
+</div>

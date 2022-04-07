@@ -1,0 +1,60 @@
+<div class="countdown is-relative pt-10 pr-3 pb-8 pl-3 pt-11-desktop pb-11-desktop"
+     data-offset="{timezone_offset|attr}" data-timestamp="{target_datetime|attr}" {@inlinebg id=image size="fullhd" /}>
+    <div class="overlay overlay--dark-70"></div>
+
+    <div class="countdown__inner is-relative has-text-primary-invert">
+        {?title}
+            <h2 class="h4 countdown__title mt-0 mb-8 mb-10-desktop">
+                {title|html}
+            </h2>
+        {/title}
+
+        <div class="countdown__time-container mb-8">
+            {?is_countdown}
+                <div class="countdown__time countdown__time--days">
+                    <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                        0
+                    </p>
+
+                    <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.days|html}</p>
+                </div>
+
+                {?show_hours}
+                    <div class="countdown__time countdown__time--hours">
+                        <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                            0
+                        </p>
+
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.hours|html}</p>
+                    </div>
+                {/show_hours}
+
+                {?show_minutes}
+                    <div class="countdown__time countdown__time--minutes">
+                        <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                            0
+                        </p>
+
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.minutes|html}</p>
+                    </div>
+                {/show_minutes}
+            {/is_countdown}
+
+            {^is_countdown}
+                <div class="countdown__time countdown__time--date">
+                    <p class="countdown__figure mt-0 mb-0 has-text-weight-extra-bold is-family-sans-serif">
+                        {date_formatted|html}
+                    </p>
+                </div>
+            {/is_countdown}
+        </div>
+
+        <div>
+            {?expired_text}
+                <p class="h5 countdown__expired-text mt-3 mb-6 has-text-weight-semibold is-family-sans-serif is-uppercase">{expired_text|html}{?is_countdown} {date_formatted|html}{/is_countdown}</p>
+            {/expired_text}
+
+            <p class="countdown__description has-text-weight-semibold is-family-sans-serif is-uppercase">{location|html}</p>
+        </div>
+    </div>
+</div>
