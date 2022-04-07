@@ -6,6 +6,7 @@
 namespace TMS\Theme\Base\Formatters;
 
 use DateTime;
+use DateTimeZone;
 use TMS\Theme\Base\Interfaces\Formatter;
 
 /**
@@ -72,6 +73,9 @@ class CountdownFormatter implements Formatter {
             $data['show_minutes'] = true;
         }
 
+        $timezone_offset = ( ( new DateTimeZone( 'Europe/Helsinki' ) )->getOffset( $target_date ) / 60 ) / 60;
+
+        $data['timezone_offset']    = $timezone_offset;
         $data['date_formatted']     = $target_date->format( $format );
         $data['strings']['days']    = _x( 'Days', 'theme-frontend', 'tms-theme-base' );
         $data['strings']['hours']   = _x( 'Hours', 'theme-frontend', 'tms-theme-base' );
