@@ -28,7 +28,7 @@ export default class Countdown {
             countdown.minutes_container = countdown.querySelector( '.countdown__time--minutes' );
             countdown.offset = countdown.dataset.offset ? countdown.dataset.offset : 0;
 
-            const target = parseInt( countdown.dataset.timestamp ) * 1000;
+            const target = parseInt( countdown.dataset.timestamp, 10 ) * 1000;
 
             this.updateCountdownTime( countdown, target, null );
 
@@ -52,7 +52,7 @@ export default class Countdown {
     updateCountdownTime( countdown, targetTime, interval ) {
         const
             dateNow = new Date(),
-            timezoneOffset = parseInt( countdown.offset );
+            timezoneOffset = parseInt( countdown.offset, 10 );
 
         dateNow.setHours( dateNow.getHours() + timezoneOffset );
 
