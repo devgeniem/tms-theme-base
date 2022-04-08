@@ -20,6 +20,11 @@
         }
     }
 
+    &__title,
+    &__expired-text {
+        color: inherit !important;
+    }
+
     &__figure {
         line-height: 1;
     }

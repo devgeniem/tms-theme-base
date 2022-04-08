@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-769: Fix issue with countdown block text contrast in certain color schemes.
+
 ## [1.36.1] - 2022-04-07
 
 ### Fixed
