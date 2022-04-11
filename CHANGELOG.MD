@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-769: Fix issue with countdown block text contrast in certain color schemes.
 - TMS-766: Fix displaying image author on Call to Action.
+### Fixed
+
+- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS
 
 ## [1.36.1] - 2022-04-07
 
