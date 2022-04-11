@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS
+
 ## [1.36.1] - 2022-04-07
 
 ### Fixed
