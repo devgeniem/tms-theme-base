@@ -2,21 +2,26 @@
      data-next="{translations.next}"
      data-previous="{translations.previous}">
     {#rows}
-        <a href="{image.sizes.fullhd}"
-           data-preview="{image.sizes.medium}"
-           data-gallery="{gallery_id}"
-           data-modal-button
-           aria-controls="{gallery_id}"
-           data-caption="{caption}"
-           data-author="{author_name}"
-           data-image_title_and_artist="{image_title_and_artist}"
-           class="image-gallery__image image-gallery__link image is-square has-zoom-on-hover"
-           aria-expanded="false"
-           aria-label="{translations.open}"
-        >
-            {@image id=image.id size="large" alt=image.alt title=image.alt /}
-        </a>
-
+        {?is_clickable}
+            <a href="{image.sizes.fullhd|url}"
+               data-preview="{image.sizes.medium|url}"
+               data-gallery="{gallery_id|attr}"
+               data-modal-button
+               aria-controls="{gallery_id|attr}"
+               data-caption="{caption|html}"
+               data-author="{author_name|html}"
+               data-image_title_and_artist="{image_title_and_artist|html}"
+               class="image-gallery__image image-gallery__link image is-square has-zoom-on-hover"
+               aria-expanded="false"
+               aria-label="{translations.open|html}"
+            >
+                {@image id=image.id size="large" alt=image.alt title=image.alt /}
+            </a>
+        {:else}
+            <div class="image-gallery__image image is-square">
+                {@image id=image.id size="large" alt=image.alt title=image.alt /}
+            </div>
+        {/is_clickable}
     {/rows}
 
     <!-- Markup of the modal -->
