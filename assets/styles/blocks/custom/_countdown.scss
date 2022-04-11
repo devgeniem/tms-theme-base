@@ -1,6 +1,7 @@
 .countdown {
     &__inner {
         text-align: center;
+        color: $color-white !important;
     }
 
     &__time-container {
