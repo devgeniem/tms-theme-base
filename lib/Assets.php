@@ -64,9 +64,12 @@ class Assets implements Interfaces\Controller {
             0
         );
 
-        add_filter( 'script_loader_tag',
-        \Closure::fromCallable( [ $this, 'add_script_attributes' ] ),
-        10, 2 );
+        add_filter(
+            'script_loader_tag',
+            \Closure::fromCallable( [ $this, 'add_script_attributes' ] ),
+            10,
+            2
+        );
     }
 
     /**
@@ -163,12 +166,22 @@ class Assets implements Interfaces\Controller {
 
         \wp_dequeue_style( 'wp-block-library' );
 
-        \wp_enqueue_script( 'duet-date-picker-module', 'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js');
+        \wp_enqueue_script( // phpcs:ignore
+            'duet-date-picker-module',
+            'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js',
+            [ 'jquery' ],
+            null,
+            false
+        );
 
-        \wp_enqueue_script( 'duet-date-picker-nomobule', 'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js');
+        \wp_enqueue_script( // phpcs:ignore
+            'duet-date-picker-nomobule',
+            'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js',
+            [ 'jquery' ],
+            null,
+            false
+        );
     }
-
-    
 
     /**
      * Add attributes to enqueued script tags
@@ -177,8 +190,8 @@ class Assets implements Interfaces\Controller {
      * @param string $handle Script handle name.
      * @return string The script tag.
      */
-    private function add_script_attributes(  $tag, $handle ) : string {
-        
+    private function add_script_attributes( $tag, $handle ) : string {
+
         if ( $handle === 'duet-date-picker-module' ) {
             $tag = str_replace( '<script ', ' <script type="module" ', $tag );
             return $tag;
