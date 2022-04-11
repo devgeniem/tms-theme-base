@@ -2,7 +2,7 @@
      data-offset="{timezone_offset|attr}" data-timestamp="{target_datetime|attr}" {@inlinebg id=image size="fullhd" /}>
     <div class="overlay overlay--dark-70"></div>
 
-    <div class="countdown__inner is-relative has-text-white">
+    <div class="countdown__inner is-relative">
         {?title}
             <h2 class="h4 countdown__title mt-0 mb-8 mb-10-desktop">
                 {title|html}
