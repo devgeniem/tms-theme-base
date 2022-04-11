@@ -7,7 +7,6 @@
   "dependencies": {
     "@accessible360/accessible-slick": "^1.0.1",
     "@babel/polyfill": "^7.12.1",
-    "@duetds/date-picker": "^1.4.0",
     "eslint": "^7.32.0",
     "eslint-loader": "^4.0.2",
     "@wordpress/keycodes": "^3.3.1",
@@ -26,7 +25,7 @@
     "ajv": "^6.12.6",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.3",
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^2.27.9",
     "browser-sync-webpack-plugin": "^2.3.0",
     "bulma": "^0.9.3",
     "clean-webpack-plugin": "^3.0.0",
