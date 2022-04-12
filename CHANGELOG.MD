@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-773: Footer logo CSS class.
+- TMS-773: Footer logo CSS class. #399
 
 ## [1.36.2] - 2022-04-12
 
