@@ -4,7 +4,7 @@
             {?logo}
                 <div class="columns pt-10 pt-0-tablet">
                     <div class="column">
-                        {@image id=logo size="medium" /}
+                        {@image id=logo class="site-footer__logo" size="medium" /}
                     </div>
                 </div>
             {/logo}
