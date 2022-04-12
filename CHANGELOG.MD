@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS
 
+### Changed
+
+- TMS-766: Fix displaying image author on Call to Action.
+
 ## [1.36.1] - 2022-04-07
 
 ### Fixed
