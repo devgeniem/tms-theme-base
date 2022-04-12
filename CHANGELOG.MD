@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-769: Fix issue with countdown block text contrast in certain color schemes.
+- TMS-766: Fix displaying image author on Call to Action.
+
 ## [1.36.1] - 2022-04-07
 
 ### Fixed
