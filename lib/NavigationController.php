@@ -21,10 +21,15 @@ class NavigationController implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'register_nav_menus' ] )
         );
 
-        add_action(
-            'admin_head-nav-menus.php',
-            \Closure::fromCallable( [ $this, 'remove_custom_links' ] )
-        );
+        // Remove custom links from the menu tool
+        $remove_custom_links = apply_filters( 'tms/theme/remove_custom_links', true );
+
+        if ( $remove_custom_links ) {
+            add_action(
+                'admin_head-nav-menus.php',
+                \Closure::fromCallable( [ $this, 'remove_custom_links' ] )
+            );
+        }
     }
 
     /**
