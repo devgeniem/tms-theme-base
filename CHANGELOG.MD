@@ -11,14 +11,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix image clickable option #396
 - TMS-674: Fix modaal background focus & translations #395
-- TMS-769: Fix issue with countdown block text contrast in certain color schemes.
-- TMS-766: Fix displaying image author on Call to Action.
+- TMS-769: Fix issue with countdown block text contrast in certain color schemes. #394
+- TMS-766: Fix displaying image author on Call to Action. #393
 
 ## [1.36.1] - 2022-04-07
 
 ### Fixed
 
-- TMS-756-2: Fix issue with countdown time offset.
+- TMS-756-2: Fix issue with countdown time offset. #392
 
 ## [1.36.0] - 2022-04-07
 
