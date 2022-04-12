@@ -175,7 +175,7 @@ class Assets implements Interfaces\Controller {
         );
 
         \wp_enqueue_script( // phpcs:ignore
-            'duet-date-picker-nomobule',
+            'duet-date-picker-nomodule',
             'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js',
             [ 'jquery' ],
             null,
@@ -197,7 +197,7 @@ class Assets implements Interfaces\Controller {
             return $tag;
         }
 
-        if ( $handle === 'duet-date-picker-nomobule' ) {
+        if ( $handle === 'duet-date-picker-nomodule' ) {
             $tag = str_replace( '<script ', ' <script nomodule ', $tag );
             return $tag;
         }
