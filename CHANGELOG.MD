@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- TMS-771: Add filter for custom links removal.
+- TMS-771: Add filter for custom links removal. #398
 
 ## [1.36.1] - 2022-04-07
 
