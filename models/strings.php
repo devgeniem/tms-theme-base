@@ -155,6 +155,11 @@ class Strings extends \DustPress\Model {
                 'input_placeholder' => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
                 'submit_value'      => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
             ],
+            'artist'             => [
+                'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'related_artwork' => _x( 'Related artwork', 'theme-frontend', 'tms-theme-base' ),
+            ],
             'artwork'            => [
                 'artist_link'     => _x( 'Show artist', 'theme-frontend', 'tms-theme-base' ),
                 'related_art'     => _x( 'Artwork by the same artist', 'theme-frontend', 'tms-theme-base' ),
@@ -165,7 +170,7 @@ class Strings extends \DustPress\Model {
                 'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
             ],
             // Use the Duet Date Picker keys for strings
-            'datepicker' => [
+            'datepicker'         => [
                 'buttonLabel'         => _x( 'Pick a date', 'theme-frontend', 'tms-theme-base' ),
                 'placeholder'         => _x( 'dd.mm.yyyy', 'theme-frontend', 'tms-theme-base' ),
                 'selectedDateMessage' => _x( 'The chosen date is', 'theme-frontend', 'tms-theme-base' ),
@@ -213,10 +218,14 @@ class Strings extends \DustPress\Model {
                     _x( 'Dec', 'theme-frontend', 'tms-theme-base' ),
                 ],
             ],
-            'countdown'  => [
+            'countdown'          => [
                 'days'    => _x( 'Days', 'theme-frontend', 'tms-theme-base' ),
                 'hours'   => _x( 'Hours', 'theme-frontend', 'tms-theme-base' ),
                 'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
+            ],
+            'modaal'             => [
+                'accessible_title' => _x( 'Dialog Window - Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
+                'close'            => _x( 'Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
