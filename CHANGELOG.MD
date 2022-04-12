@@ -7,12 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.2] - 2022-04-12
+
 ### Fixed
 
-- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS
-
-### Changed
-
+- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS #397
 - Fix image clickable option #396
 - TMS-674: Fix modaal background focus & translations #395
 - TMS-769: Fix issue with countdown block text contrast in certain color schemes. #394
