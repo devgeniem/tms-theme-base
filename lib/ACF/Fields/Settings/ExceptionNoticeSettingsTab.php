@@ -80,10 +80,16 @@ class ExceptionNoticeSettingsTab extends Tab {
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['cta_link']['instructions'] );
 
-            $this->add_fields( [
-                $exception_text_field,
-                $exception_cta_link_field,
-            ] );
+            $this->add_fields(
+                apply_filters(
+                    'tms/acf/tab/exception_notice/fields',
+                    [
+                        $exception_text_field,
+                        $exception_cta_link_field,
+                    ],
+                    $key
+                )
+            );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
