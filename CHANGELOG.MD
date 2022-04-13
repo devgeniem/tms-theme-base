@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-783: Filter for exception notice data. #400
+
 ## [1.36.2] - 2022-04-12
 
 ### Fixed
