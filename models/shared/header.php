@@ -260,15 +260,17 @@ class Header extends Model {
             ];
         }
 
-        return [
-            'message' => $text,
-            'id'      => $exception_id,
-            'cta_btn' => (object) [
-                'title' => ( new \Strings() )->s()['common']['read_more'],
-                'url'   => $cta_link,
+        return apply_filters(
+            'tms/theme/exception_notice/data',
+            [
+                'message' => $text,
+                'id'      => $exception_id,
+                'cta_btn' => (object) [
+                    'title' => ( new \Strings() )->s()['common']['read_more'],
+                    'url'   => $cta_link,
+                ],
             ],
-        ];
-
+        );
     }
 
     /**
