@@ -9,23 +9,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-769: Fix issue with countdown block text contrast in certain color schemes.
 - TMS-766: Fix displaying image author on Call to Action.
 
 ### Added
 
 - TMS-783: Filter for exception notice data. #400
+- TMS-773: Footer logo CSS class. #399
+- TMS-771: Add filter for custom links removal. #398
 
 ## [1.36.2] - 2022-04-12
 
-### Fixed
-
-- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS
-
 ### Added
 
-- TMS-773: Footer logo CSS class. #399
-- TMS-771: Add filter for custom links removal. #398
+- TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS #397
+- Fix image clickable option #396
+- TMS-674: Fix modaal background focus & translations #395
+- TMS-769: Fix issue with countdown block text contrast in certain color schemes. #394
 
 ## [1.36.1] - 2022-04-07
 
