@@ -35,10 +35,12 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
 
-        add_filter(
-            'acf/load_field/name=api_contacts',
-            [ $this, 'fill_api_contacts_field_choices' ]
-        );
+        if ( is_admin() ) {
+            add_filter(
+                'acf/load_field/name=api_contacts',
+                [ $this, 'fill_api_contacts_field_choices' ]
+            );
+        }
     }
 
     /**
@@ -118,6 +120,7 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ->set_name( 'api_contacts' )
             ->allow_multiple()
             ->allow_null()
+            ->use_ajax()
             ->use_ui()
             ->set_instructions( $strings['api_contacts']['instructions'] );
 

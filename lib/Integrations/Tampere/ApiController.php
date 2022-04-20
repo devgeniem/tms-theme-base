@@ -103,10 +103,15 @@ abstract class ApiController {
             $args['headers']['Authorization'] = 'Basic ' . base64_encode( $basic_auth_key ); // phpcs:ignore
         }
 
-        $results = $this->do_get( $this->get_slug(), [], [], $args );
+        $params = [
+            'filter[status]' => 1,
+            'page[limit]'    => 50,
+        ];
+
+        $results = $this->do_get( $this->get_slug(), [], $params, $args );
 
         if ( $results ) {
-            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 5 );
+            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 15 );
         }
 
         return $results;
