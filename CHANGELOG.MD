@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.3] - 2022-04-21
+
 ### Added
 
 - TMS-223-API: Load choices with ajax #403
