@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- TMS-223-API: Load choices with ajax #403
 - TMS-783: Filter for exception notice data. #400
 - TMS-773: Footer logo CSS class. #399
 - TMS-771: Add filter for custom links removal. #398
