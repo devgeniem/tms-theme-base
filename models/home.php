@@ -320,11 +320,7 @@ class Home extends BaseModel {
             return true;
         }
 
-        if ( ! empty( $wp_query->posts ) ) {
-            return true;
-        }
-
-        return false;
+        return ! empty( $wp_query->posts );
     }
 
     /**
