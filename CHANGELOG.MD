@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- TMS-805: Do not display "No results found" when Home view has a featured post.
+- TMS-805: Do not display "No results found" when Home view has a featured post. #404
 
 ## [1.36.3] - 2022-04-21
 
