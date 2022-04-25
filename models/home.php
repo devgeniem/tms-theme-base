@@ -105,6 +105,7 @@ class Home extends BaseModel {
 
         if ( ! empty( $highlight ) ) {
             $wp_query->set( 'post__not_in', [ $highlight->ID ] );
+            $wp_query->set( 'offset', 999 );
         }
 
         static::modify_query_date( $wp_query );
@@ -304,6 +305,27 @@ class Home extends BaseModel {
         return array_map( function ( $article ) use ( $display_categories, $use_images ) {
             return Post::enrich_post( $article, $display_categories, $use_images );
         }, $wp_query->posts );
+    }
+
+    /**
+     * Do we have results?
+     *
+     * @return bool
+     */
+    public function have_results() : bool {
+        global $wp_query;
+
+        $highlight = self::get_highlight();
+
+        if ( ! empty( $highlight ) ) {
+            return true;
+        }
+
+        if ( ! empty( $wp_query->posts ) ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
