@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-224: Show image of imported article.
+
 ## [1.36.4] - 2022-04-26
 
 ### Fixed
