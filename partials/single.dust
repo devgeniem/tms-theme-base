@@ -21,13 +21,13 @@
                                         {>"views/single/single-meta" spacing_class="pt-5 pt-4-desktop pb-5 p-5-tablet" /}
                                     {/content.image}
 
-                                    {?content.image_url}
+                                    {?content.api_image_url}
                                         <div class="entry__figure pt-2">
-                                            <img src="{content.image_url|url}" loading="lazy" />
+                                            <img src="{content.api_image_url|url}" loading="lazy" />
                                         </div>
 
                                         {>"views/single/single-meta" spacing_class="pt-5 pt-4-desktop pb-5 p-5-tablet" /}
-                                    {/content.image_url}
+                                    {/content.api_image_url}
                                 </header>
 
                                 <div class="entry__content is-content-grid keep-vertical-spacing">
