@@ -22,13 +22,15 @@
                             {#articles}
                                 {>"views/home/home-{view_type}-item" /}
                             {/articles}
-                        {:else}
+                        {/articles}
+
+                        {^have_results}
                             <div class="column">
                                 <div class="pt-6 pb-6 h4 has-text-centered">
                                     {Strings.s.home.no_results|s}
                                 </div>
                             </div>
-                        {/articles}
+                        {/have_results}
                     </div>
 
                     {?pagination}

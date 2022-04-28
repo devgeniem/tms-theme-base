@@ -7,8 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.4] - 2022-04-26
+
+### Fixed
+
+- TMS-805: Do not display "No results found" when Home view has a featured post. #404
+
+## [1.36.3] - 2022-04-21
+
 ### Added
 
+- TMS-223-API: Load choices with ajax #403
 - TMS-783: Filter for exception notice data. #400
 - TMS-773: Footer logo CSS class. #399
 - TMS-771: Add filter for custom links removal. #398

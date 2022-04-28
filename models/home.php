@@ -307,6 +307,23 @@ class Home extends BaseModel {
     }
 
     /**
+     * Do we have results?
+     *
+     * @return bool
+     */
+    public function have_results() : bool {
+        global $wp_query;
+
+        $highlight = self::get_highlight();
+
+        if ( ! empty( $highlight ) ) {
+            return true;
+        }
+
+        return ! empty( $wp_query->posts );
+    }
+
+    /**
      * Set pagination data
      *
      * @param WP_Query $wp_query Instance of WP_Query.
