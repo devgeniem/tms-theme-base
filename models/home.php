@@ -105,7 +105,6 @@ class Home extends BaseModel {
 
         if ( ! empty( $highlight ) ) {
             $wp_query->set( 'post__not_in', [ $highlight->ID ] );
-            $wp_query->set( 'offset', 999 );
         }
 
         static::modify_query_date( $wp_query );
@@ -321,11 +320,7 @@ class Home extends BaseModel {
             return true;
         }
 
-        if ( ! empty( $wp_query->posts ) ) {
-            return true;
-        }
-
-        return false;
+        return ! empty( $wp_query->posts );
     }
 
     /**
