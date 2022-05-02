@@ -31,11 +31,12 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
         }
-
-        add_filter(
-            'acf/load_field/name=place_of_business',
-            [ $this, 'fill_place_of_business_choices' ]
-        );
+        if ( is_admin() ) {
+            add_filter(
+                'acf/load_field/name=place_of_business',
+                [ $this, 'fill_place_of_business_choices' ]
+            );
+        }
     }
 
     /**
@@ -85,6 +86,7 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
             ->set_name( 'place_of_business' )
             ->allow_multiple()
             ->allow_null()
+            ->use_ajax()
             ->use_ui()
             ->set_instructions( $strings['place_of_business']['instructions'] );
 
