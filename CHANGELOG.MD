@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.5] - 2022-05-02
+
+
 - TMS-223-2: Load choices with AJAX for Place of business
 
 ## [1.36.4] - 2022-04-26
