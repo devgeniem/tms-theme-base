@@ -11,7 +11,7 @@
                         </div>
 
                         {?display_artist}
-                            {>"ui/image/image-meta--minimal"  /}
+                            {>"ui/image/image-meta-minimal"  /}
                         {/display_artist}
                     </div>
                 {/image}
