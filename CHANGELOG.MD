@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-224: Show image of imported article.
+- TMS-223-2: Load choices with AJAX for Place of business
 
 ## [1.36.4] - 2022-04-26
 
