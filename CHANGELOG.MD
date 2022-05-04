@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-820: Add AccordionContact layout
 - TMS-816: Unify image meta #407
 
 ## [1.36.5] - 2022-05-02
