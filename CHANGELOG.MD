@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-224: Show image of imported article.
+- TMS-820: Add AccordionContact layout #408
+- TMS-816: Unify image meta #407
+
+## [1.36.5] - 2022-05-02
+
 - TMS-223-2: Load choices with AJAX for Place of business
 
 ## [1.36.4] - 2022-04-26
