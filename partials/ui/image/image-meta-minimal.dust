@@ -1,0 +1,17 @@
+{@isset key1=author_name key2=image_title_and_artist method="OR" }
+    <div class="columns pt-2{?author_name} is-reversed{/author_name} {classes|attr}">
+        <div
+            class="column is-flex is-justify-content-space-between is-flex-wrap-wrap has-text-small">
+            {?image_title_and_artist}
+                <strong class="is-inline-block">
+                    {image_title_and_artist|html}
+                </strong>
+            {/image_title_and_artist}
+
+            {?author_name}
+                <small
+                    class="is-inline-block">{author_name|html}</small>
+            {/author_name}
+        </div>
+    </div>
+{/isset}

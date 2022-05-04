@@ -9,10 +9,9 @@
                         <div class="image is-5by3 {image_class|s}">
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
+
                         {?display_artist}
-                            {?author_name}
-                                <small>{author_name|html}</small>
-                            {/author_name}
+                            {>"ui/image/image-meta-minimal"  /}
                         {/display_artist}
                     </div>
                 {/image}
