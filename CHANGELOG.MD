@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-816: Unify image meta #407
 - TMS-223-2: Load choices with AJAX for Place of business
 
 ## [1.36.4] - 2022-04-26
