@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.36.6] - 2022-06-05
+
 ### Changed
 
 - TMS-816: Unify image meta #407
