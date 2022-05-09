@@ -139,7 +139,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Map keys to posts
      *
      * @param array $posts         Array of WP_Post instances.
-     * @param array $field_keys    Array of field keys.
+     * @param array $field_keys    Array of field keys to be displayed.
      * @param null  $default_image Default image.
      *
      * @return array
@@ -150,10 +150,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
             foreach ( $field_keys as $field_key ) {
                 $fields[ $field_key ] = get_field( $field_key, $id );
-
-                if ( $field_key === 'image' && empty( $fields[ $field_key ] ) && ! empty( $default_image ) ) {
-                    $fields[ $field_key ] = $default_image;
-                }
+                $fields               = $this->append_image( $fields, $field_key, $default_image );
             }
 
             if ( isset( $fields['phone_repeater'] ) ) {
