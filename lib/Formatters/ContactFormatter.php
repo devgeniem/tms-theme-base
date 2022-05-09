@@ -165,4 +165,29 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return $fields;
         }, $posts );
     }
+
+    /**
+     * Append image to contact fields
+     *
+     * @param array    $fields        Post fields.
+     * @param string   $field_key     Array key.
+     * @param int|null $default_image Default image id.
+     *
+     * @return array
+     */
+    protected function append_image( array $fields, string $field_key, ?int $default_image ) : array {
+        if ( $field_key !== 'image' ) {
+            return $fields;
+        }
+
+        $image_id = empty( $fields[ $field_key ] ) && ! empty( $default_image )
+            ? $default_image
+            : $fields[ $field_key ];
+
+        if ( $image_id ) {
+            $fields[ $field_key ] = wp_get_attachment_image_url( $image_id, 'medium' );
+        }
+
+        return $fields;
+    }
 }
