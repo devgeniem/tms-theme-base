@@ -77,7 +77,7 @@ class PageContacts extends BaseModel {
 
         return $formatter->map_keys(
             $contacts,
-            get_field( 'fields' ),
+            get_field( 'fields' ) ?? [],
             Settings::get_setting( 'contacts_default_image' )
         );
     }
@@ -88,7 +88,7 @@ class PageContacts extends BaseModel {
      * @return string
      */
     public function column_class() : string {
-        $field_keys   = get_field( 'fields' );
+        $field_keys   = get_field( 'fields' ) ?? [];
         $column_class = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet';
 
         if ( ! in_array( 'image', $field_keys, true ) ) {

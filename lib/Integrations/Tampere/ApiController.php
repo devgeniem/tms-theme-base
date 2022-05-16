@@ -18,7 +18,15 @@ abstract class ApiController {
      * @return string|null
      */
     protected function get_api_base_url() : ?string {
-        return env( 'TAMPERE_API_URL' );
+        $url = env( 'TAMPERE_API_URL' );
+
+        if ( DPT_PLL_ACTIVE && pll_current_language() === 'en' ) {
+            $url .= '/en';
+        }
+
+        $url .= '/api/node';
+
+        return $url;
     }
 
     /**
@@ -86,7 +94,12 @@ abstract class ApiController {
      */
     public function get() {
         $cache_key = 'tampere-drupal-' . $this->get_slug();
-        $results   = wp_cache_get( $cache_key );
+
+        if ( DPT_PLL_ACTIVE ) {
+            $cache_key .= '-' . pll_current_language();
+        }
+
+        $results = wp_cache_get( $cache_key, 'API' );
 
         if ( $results ) {
             return $results;
@@ -111,7 +124,7 @@ abstract class ApiController {
         $results = $this->do_get( $this->get_slug(), [], $params, $args );
 
         if ( $results ) {
-            wp_cache_set( $cache_key, $results, '', MINUTE_IN_SECONDS * 15 );
+            wp_cache_set( $cache_key, $results, 'API', HOUR_IN_SECONDS * 6 );
         }
 
         return $results;
@@ -151,7 +164,7 @@ abstract class ApiController {
      *
      * @return array
      */
-    private function get_link_query_parts( string $href ) : array {
+    protected function get_link_query_parts( string $href ) : array {
         $parts = wp_parse_url( $href );
 
         if ( ! isset( $parts['query'] ) ) {
