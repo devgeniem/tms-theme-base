@@ -83,6 +83,24 @@ class PersonFacade {
         return $data;
     }
 
+
+    /**
+     * Prune empty fields
+     *
+     * @param array $contact Contact fields.
+     *
+     * @return array
+     */
+    public function prune( array $contact ) {
+        foreach ( $contact as $key => $value ) {
+            if ( empty( $value ) ) {
+                unset( $contact[ $key ] );
+            }
+        }
+
+        return $contact;
+    }
+
     /**
      * Handle contact phone numbers
      *
