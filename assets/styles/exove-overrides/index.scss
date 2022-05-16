@@ -1,0 +1,12 @@
+.topical-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+
+    .general-contact-card {
+        padding: 20px;
+
+        @include from($desktop) {
+            padding: 48px;
+        }
+    }
+  }

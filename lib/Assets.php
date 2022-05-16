@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use \TMS\Theme\Base\PostType\Post;
+
 /**
  * Class Assets
  *
@@ -105,6 +107,16 @@ class Assets implements Interfaces\Controller {
             ),
             'all'
         );
+
+        if ( is_singular( Post::SLUG ) && ! empty( get_field( 'drupal_post_id', get_the_ID() ) ) ) {
+            \wp_enqueue_style(
+                'theme-css-exove',
+                'https://staging.tampere.fi/sites/default/files/css/css_YQa3sw69JqGRPbIq7VgYRGnTRy2RFb_AkrTtQq0hffo.css',
+                [],
+                '1',
+                'all'
+            );
+        }
 
         \wp_enqueue_script(
             'theme-js',
