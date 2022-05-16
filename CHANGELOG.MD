@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-820: Add AccordionContact layout #408
 - TMS-828: Reduce contact cache size #409
 
 ## [1.36.6] - 2022-06-05

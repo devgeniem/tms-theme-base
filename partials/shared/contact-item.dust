@@ -1,0 +1,129 @@
+<div class="columns is-multiline is-mobile is-4">
+    {?image}
+        <div class="column is-12-mobile is-12-tablet is-4-desktop">
+            <div class="image is-3by4">
+                <img src="{image}" alt="" class="objectfit-image">
+            </div>
+        </div>
+    {/image}
+
+    <div class="column">
+        {?additional_info_top}
+            <div class="h6 mb-3 keep-vertical-spacing">
+                {additional_info_top|s}
+            </div>
+        {/additional_info_top}
+
+        {?title}
+            <div class="mb-3">
+                {title|s}
+            </div>
+        {/title}
+
+        {@isset key1=first_name key2=last_name method="OR" }
+            <div class="has-text-weight-bold mb-3">
+                {first_name|s} {last_name|s}
+            </div>
+        {/isset}
+
+        {?phone_repeater}
+            <div class="mb-3">
+                {#phone_repeater}
+                    <div class="is-flex is-align-items-center">
+                        <div class="contacts__icon-container">
+                            {>"ui/icon" icon="phone" class="icon--large is-primary" /}
+                        </div>
+
+                        <div>
+                            <div>{phone_text|html}</div>
+                            <div>
+                                <a href="tel:{phone_number|html}"
+                                   class="has-text-paragraph hyphenate">
+                                    {phone_number|html}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {/phone_repeater}
+            </div>
+        {/phone_repeater}
+
+        {?email}
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="email" class="icon--large is-primary" /}
+                </div>
+
+                <a href="mailto:{email|url}" class="has-text-paragraph hyphenate">
+                    {email|html}
+                </a>
+            </div>
+        {/email}
+
+        {?office}
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="building" class="icon--large is-primary" /}
+                </div>
+
+                <div>
+                    {office|s}
+                </div>
+            </div>
+        {/office}
+
+        {?domain}
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="location" class="icon--large is-primary" /}
+                </div>
+
+                <div>
+                    {domain|s}
+                </div>
+            </div>
+        {/domain}
+
+        {?unit}
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="location" class="icon--large is-primary" /}
+                </div>
+
+                <div>
+                    {unit|s}
+                </div>
+            </div>
+        {/unit}
+
+        {@isset key1=visiting_address_street key2=visiting_address_zip_code key3=visiting_address_city method="OR" }
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="location" class="icon--large is-primary" /}
+                </div>
+
+                {visiting_address_street|s}
+                {visiting_address_zip_code|s}
+                {visiting_address_city|s}
+            </div>
+        {/isset}
+
+        {@isset key1=mail_address_street key2=mail_address_zip_code key3=mail_address_city method="OR" }
+            <div class="is-flex is-align-items-center mb-3">
+                <div class="contacts__icon-container">
+                    {>"ui/icon" icon="location" class="icon--large is-primary" /}
+                </div>
+
+                {mail_address_street|s}
+                {mail_address_zip_code|s}
+                {mail_address_city|s}
+            </div>
+        {/isset}
+
+        {?additional_info_bottom}
+            <div>
+                {additional_info_bottom|s}
+            </div>
+        {/additional_info_bottom}
+    </div>
+</div>
