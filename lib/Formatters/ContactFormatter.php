@@ -116,10 +116,6 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return [];
         }
 
-        $contacts = array_map(
-            fn( $contact ) => ( new PersonFacade( $contact ) )->to_contact( $default_image ),
-            $contacts
-        );
         $contacts = array_filter( $contacts, function ( $contact ) use ( $ids ) {
             return in_array( $contact['id'], $ids, true );
         } );

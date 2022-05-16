@@ -1,0 +1,9 @@
+{?filled_contacts}
+    <div class="columns is-multiline">
+        {#filled_contacts}
+            <div class="column is-6-tablet has-text-left">
+                {>"shared/contact-item" /}
+            </div>
+        {/filled_contacts}
+    </div>
+{/filled_contacts}

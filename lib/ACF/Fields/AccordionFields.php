@@ -7,6 +7,7 @@ namespace TMS\Theme\Base\ACF\Fields;
 
 use Geniem\ACF\Exception;
 use Geniem\ACF\Field;
+use TMS\Theme\Base\ACF\Layouts\AccordionContactLayout;
 use TMS\Theme\Base\ACF\Layouts\AccordionImageLayout;
 use TMS\Theme\Base\ACF\Layouts\AccordionTableLayout;
 use TMS\Theme\Base\ACF\Layouts\AccordionVideoLayout;
@@ -108,6 +109,7 @@ class AccordionFields extends Field\Group {
             AccordionWysiwygLayout::class,
             AccordionImageLayout::class,
             AccordionVideoLayout::class,
+            AccordionContactLayout::class,
         ];
 
         if ( is_plugin_active( 'tablepress/tablepress.php' ) ) {
