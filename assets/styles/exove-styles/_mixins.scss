@@ -1,0 +1,510 @@
+/* Mixins */
+
+/**
+ * Mixin - Clearfix.
+ * Adds clearfix based on http://bourbon.io/docs/#clearfix
+ * use example =   @include exove-cleafix
+ */
+
+ @mixin exove-clearfix {
+    &::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+  
+  /**
+   * Mixin - Visually hidden
+   */
+  @mixin exove-visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+  }
+  
+  /*
+   * Mixin - Dynamic color
+   * Sets color based on the background color name given as parameter.
+   *
+   * Optionally can be given a property name, primary and secondary text colors, and flags for
+   * doing the opposite of the default behavior and skipping setting either the main property or focus color.
+   */
+  @mixin exove-dynamic-color($exove-color-name, $exove-property: color, $exove-text-primary: text, $exove-text-secondary: text-inverse, $exove-focus-primary: primary, $exove-inversed: false, $exove-set-main-property: true, $exove-set-focus-color: true) {
+    @if $exove-set-focus-color {
+      --c-focus: #{set-color(map-get($exove-defaultColors, $exove-color-name), $exove-focus-primary, $exove-text-secondary, $exove-inversed: $exove-inversed)};
+    }
+  
+    @if $exove-set-main-property {
+      #{$exove-property}: set-color(map-get($exove-defaultColors, $exove-color-name), $exove-text-primary, $exove-text-secondary, $exove-inversed: $exove-inversed);
+    }
+  
+    @each $exove-palette in $exove-minisitePalettes {
+      $exove-palette-color-value: map-get($exove-palette, $exove-color-name);
+  
+      @if ($exove-palette-color-value) {
+        $exove-i: index($exove-minisitePalettes, $exove-palette);
+  
+        .palette-#{$exove-i} & {
+          @if $exove-set-focus-color {
+            --c-focus: #{set-color($exove-palette-color-value, $exove-focus-primary, $exove-text-secondary, $exove-inversed: $exove-inversed)};
+          }
+  
+          @if $exove-set-main-property {
+            #{$exove-property}: set-color($exove-palette-color-value, $exove-text-primary, $exove-text-secondary, $exove-inversed: $exove-inversed);
+          }
+        }
+      }
+    }
+  }
+  
+  /*
+   * Use this on the outer wrapper of page-level elements.
+   * It ensures consistent spacing between elements on the page.
+   */
+  @mixin exove-page-element-spacer($exove-property: 'margin') {
+    #{$exove-property}-top: $exove-gutter-medium;
+    #{$exove-property}-bottom: $exove-gutter-medium;
+  
+    @include from($desktop) {
+      #{$exove-property}-top: $exove-gutter-large;
+      #{$exove-property}-bottom: $exove-gutter-large;
+    }
+  }
+  
+  @mixin exove-text-element-spacer {
+    margin-top: $exove-gutter-small;
+    margin-bottom: $exove-gutter-small;
+  
+    @include from($desktop) {
+      margin-top: $exove-gutter-medium;
+      margin-bottom: $exove-gutter-medium;
+    }
+  }
+  
+  @mixin exove-accordion-content-spacer {
+    margin-top: $exove-gutter-small;
+    margin-bottom: 0;
+  
+    @include from($desktop) {
+      margin-top: $exove-gutter-medium;
+    }
+  }
+  
+  @mixin exove-form-item-spacing {
+    margin-top: $exove-form-item-spacing;
+    margin-bottom: $exove-form-item-spacing;
+  
+    @include from($desktop) {
+      margin-top: $exove-form-item-spacing--large;
+      margin-bottom: $exove-form-item-spacing--large;
+    }
+  }
+  
+  /**
+   * Mixin - Wrapper
+   * Outer container mixin for large screens
+   */
+  @mixin exove-wrapper($exove-container-max-width: $exove-max-width, $exove-outer-container-break: $exove-small, $exove-v-margin: 0, $exove-v-padding: 0, $exove-h-padding: $exove-space-s, $exove-h-padding-large: $exove-h-padding) {
+    margin: #{$exove-v-margin} auto;
+    max-width: #{$exove-container-max-width};
+    padding: #{$exove-v-padding} #{$exove-h-padding};
+    width: 100%;
+  
+    @include exove-breakpoint($exove-outer-container-break) {
+      padding: #{$exove-v-padding} #{$exove-h-padding-large};
+    }
+  
+    @include exove-breakpoint($exove-container-max-width) {
+      padding-left: calc(#{$exove-h-padding-large} + calc(-50vw + calc(#{$exove-container-max-width} / 2)));
+      padding-right: calc(#{$exove-h-padding-large} + calc(-50vw + calc(#{$exove-container-max-width} / 2)));
+    }
+  }
+  
+  /**
+   * Use the breakout mixin for elements that should be edge-to-edge
+   * Even when a parent container uses the wrapper mixin
+   */
+  @mixin exove-breakout($exove-v-padding: $exove-space-l) {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  
+    @if $exove-v-padding != 0 {
+      padding-left: calc(#{$exove-v-padding} + calc(-50vw + 50%));
+      padding-right: calc(#{$exove-v-padding} + calc(-50vw + 50%));
+    }
+  }
+  
+  @mixin exove-centered-content($exove-max-width: var(--basic-content-max-width), $exove-h-gutter: $exove-gutter-mobile, $exove-h-gutter-large: $exove-gutter-large, $exove-use-padding: true) {
+    margin: 0 auto;
+    max-width: $exove-max-width;
+  
+    @if $exove-use-padding {
+      padding: 0 $exove-h-gutter;
+  
+      @include from($desktop) {
+        padding: 0 $exove-h-gutter-large;
+      }
+    }
+  }
+  
+  /* Mixin - Standard Margin */
+  @mixin exove-margin($exove-margin-bottom: $exove-space-s) {
+    margin-bottom: $exove-margin-bottom;
+  }
+  
+  @mixin exove-no-bottom {
+    margin-bottom: 0;
+  }
+  
+  /**
+   * Mixin for converting properties values from pixels to rems
+   * Example:
+   * @include exove-to-rem('width', 200);
+   *
+   * rendered as:
+   * width: 12.5rem;
+   */
+  @mixin exove-to-rem($exove-property, $exove-px-value) {
+    $exove-baseline_px: 16;
+    $exove-baseline_rem: ($exove-baseline_px / 1rem);
+  
+    #{$exove-property}: ($exove-px_value / $exove-baseline_rem);
+  }
+  
+  /* Adding hyphenation or word break when 'hypens' is not supported */
+  @mixin exove-word-wrap() {
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Mixin - Border. */
+  @mixin exove-border($exove-width: 1px, $exove-style: solid, $exove-border-color: $exove-color-border) {
+    border-color: $exove-color-border;
+    border-style: $exove-style;
+    border-width: $exove-width;
+  }
+  
+  /* Mixin - Placeholder */
+  @mixin exove-placeholder($exove-color: $exove-color-placeholder, $exove-font-size: $exove-base-font-size) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #{$exove-color};
+      font-size: $exove-font-size;
+    }
+  
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #{$exove-color};
+      font-size: $exove-font-size;
+    }
+  
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #{$exove-color};
+      font-size: $exove-font-size;
+    }
+  
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #{$exove-color};
+      font-size: $exove-font-size;
+      opacity: 1;
+    }
+  }
+  
+  /* Create a mixin for paragraph styles that can be implemented
+   * in components with other classnames.
+   */
+  @mixin exove-paragraph($exove-margin: 0 0 $exove-text-paragraph-margin-bottom) {
+    margin: #{$exove-margin};
+    max-width: var(--text-content-max-width);
+  }
+  
+  @mixin exove-body-copy {
+    font-family: $exove-font-body;
+    font-size: $exove-body-font-size-mobile;
+    line-height: $exove-line-height-base;
+  
+    @include from($desktop) {
+      font-size: $exove-body-font-size;
+    }
+  }
+  
+  @mixin exove-summary {
+    font-size: $exove-font-20;
+    font-style: italic;
+    font-weight: $exove-font-weight-semi-bold;
+    max-width: var(--text-content-max-width);
+  
+    @include from($desktop) {
+      font-size: $exove-font-22;
+    }
+  }
+  
+  @mixin exove-participate-summary {
+    @include exove-page-element-spacer;
+  
+    font-size: $exove-font-18;
+    font-weight: $exove-font-weight-semi-bold;
+    max-width: var(--text-content-max-width);
+  
+  
+    @include from($desktop) {
+      font-size: $exove-font-22;
+    }
+  }
+  
+  @mixin exove-link($exove-color: clr(primary), $exove-color-hover: clr(text), $exove-underline-offset: 2px) {
+    color: $exove-color;
+    cursor: pointer;
+    text-underline-offset: $exove-underline-offset;
+    text-decoration-thickness: 1px;
+  
+    &:visited {
+      color: $exove-color;
+    }
+  
+    &:active,
+    &:focus,
+    &:hover {
+      color: $exove-color-hover;
+    }
+  }
+  
+  @mixin exove-link-inherit {
+    &:link,
+    &:visited,
+    &:active,
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+  }
+  
+  /* Mixin - list-reset
+   * Reset list item defaults when no margin, padding, list styles needed
+   */
+  @mixin exove-list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @mixin exove-img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Mixin - Transition */
+  @mixin exove-transition($exove-transition-property, $exove-transition-time, $exove-method) {
+    -webkit-transition: $exove-transition-property $exove-transition-time $exove-method;
+    -moz-transition: $exove-transition-property $exove-transition-time $exove-method;
+    -ms-transition: $exove-transition-property $exove-transition-time $exove-method;
+    -o-transition: $exove-transition-property $exove-transition-time $exove-method;
+    transition: $exove-transition-property $exove-transition-time $exove-method;
+  }
+  
+  /* Resets buttons styles to apply other styles on top */
+  @mixin exove-button-reset() {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  /* Mixin for global image captions */
+  @mixin exove-caption {
+    @include exove-margin();
+  
+    background-color: clr(image-caption);
+    font-family: $exove-font-body;
+    font-size: $exove-font-14;
+    padding: $exove-space-xs;
+  
+    @include from($desktop) {
+      font-size: $exove-font-18;
+      padding: $exove-space-xs $exove-space-l;
+    }
+  }
+  
+  @mixin exove-rounded-line-accent(
+    $exove-width: $exove-short-border-width,
+    $exove-color: clr(accent),
+  ) {
+    &::after {
+      content: " ";
+      display: block;
+      background-color: $exove-color;
+      border-top: 2px solid $exove-color;
+      border-bottom: 2px solid $exove-color;
+      border-radius: 2px;
+      width: $exove-width;
+      position: absolute;
+      bottom: $exove-space-xxs * (-1);
+  
+      @include from($desktop) {
+        bottom: $exove-space-s * (-1);
+      }
+    }
+  }
+  
+  @mixin exove-left-border-accent($exove-color: clr(primary)) {
+    &::before {
+      background-color: $exove-color;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 100%;
+    }
+  }
+  
+  @mixin exove-extend-background-color($exove-color: clr(primary)) {
+    &::after {
+      content: "";
+      background-color: $exove-color;
+      margin-left: calc(-50vw + 50%);
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+  
+  // https://css-tricks.com/snippets/css/fluid-typography/
+  @function strip-unit($exove-value) {
+    @return $exove-value / ($exove-value * 0 + 1);
+  }
+  
+  @mixin exove-fluid-type($exove-min-vw, $exove-max-vw, $exove-min-font-size, $exove-max-font-size) {
+    $exove-u1: unit($exove-min-vw);
+    $exove-u2: unit($exove-max-vw);
+    $exove-u3: unit($exove-min-font-size);
+    $exove-u4: unit($exove-max-font-size);
+  
+    @if $exove-u1 == $exove-u2 and $exove-u1 == $exove-u3 and $exove-u1 == $exove-u4 {
+      & {
+        font-size: $exove-min-font-size;
+        @media screen and (min-width: $exove-min-vw) {
+          font-size: calc(#{$exove-min-font-size} + #{strip-unit($exove-max-font-size - $exove-min-font-size)} * ((100vw - #{$exove-min-vw}) / #{strip-unit($exove-max-vw - $exove-min-vw)}));
+        }
+        @media screen and (min-width: $exove-max-vw) {
+          font-size: $exove-max-font-size;
+        }
+      }
+    }
+  }
+  
+  // close icon as white
+  @mixin exove-close-icon-white() {
+    background: url('data:image/svg+xml;utf8,<svg width="22" height="24" viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-rule="nonzero"><path d="m1.15.736 21.557 21.557-1.414 1.414L-.264 2.15z"/><path d="m21.293.736 1.414 1.414L1.15 23.707l-1.414-1.414z"/></g></svg>') no-repeat;
+    background-size:1rem 1rem;
+  }
+  
+  @mixin exove-required-marker {
+    content: "*";
+    color: clr(notice);
+    font-family: $exove-font-body;
+    font-size: $exove-font-20;
+    font-weight: $exove-font-weight-regular;
+    margin-left: $exove-space-xs;
+  }
+  
+  /* Mixin for custom input elements with input and icon inside the label */
+  @mixin exove-custom-input($exove-class, $exove-input-size, $exove-has-round-icon: false) {
+    display: flex;
+    align-items: center;
+    position: relative;
+  
+    * {
+      cursor: pointer;
+    }
+  
+    &__wrapper {
+      @include exove-list-reset;
+  
+      &:not(:first-of-type) {
+        margin-top: $exove-space-m;
+      }
+    }
+  
+    &__input {
+      position: absolute;
+      height: $exove-input-size;
+      width: $exove-input-size;
+      opacity: 0.00001;
+  
+      &:focus,
+      &:hover {
+        ~ #{$exove-class}__content {
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+          text-underline-position: under;
+        }
+      }
+  
+      &:not(:checked) {
+        ~ #{$exove-class}__icon--checked {
+          display: none;
+        }
+      }
+  
+      &.error {
+        ~ #{$exove-class}__icon:not(#{$exove-class}__icon--checked) {
+          background-color: clr(form-accent);
+          color: clr(notice);
+        }
+      }
+    }
+  
+    &__icon {
+      color: clr(form-border);
+      height: $exove-input-size;
+      // The viewport for the input SVG files is not a perfect square.
+      // Setting the icon width to be exactly the same as the height causes clipping on Safari.
+      width: calc(#{$exove-input-size} + 2px);
+  
+      @if $exove-has-round-icon {
+        border-radius: 100%;
+      }
+  
+      &--checked {
+        background-color: transparent;
+        color: clr(form-icon);
+        position: absolute;
+        left: -1px;
+  
+        @if $exove-has-round-icon {
+          padding: $exove-space-xs;
+        } @else {
+          padding: $exove-space-xxs;
+        }
+      }
+    }
+  
+    &__content {
+      padding-left: $exove-space-s;
+      width: 100%;
+  
+      .required ~ & {
+        &::after {
+          @include exove-required-marker;
+  
+          position: absolute;
+        }
+      }
+    }
+  }
+  
+  @mixin exove-contact-card-heading-link($exove-text-color: clr(text), $exove-underline-color: clr(accent-tertiary)) {
+    color: $exove-text-color;
+    text-underline-position: under;
+    text-decoration-color: $exove-underline-color;
+    text-decoration-thickness: 2px;
+  }
+  

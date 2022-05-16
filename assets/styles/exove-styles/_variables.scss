@@ -1,0 +1,600 @@
+// Color variables - it is better to use the colors in
+// components/00-base/01-colors/_01-colors-used.scss rather than
+// these colors directly.
+//
+// Color names taken from https://chir.ag/projects/name-that-color.
+
+// Grayscale
+$exove-color-white: #fff;
+$exove-color-concrete: #f2f2f2;
+$exove-color-mercury: #e5e5e5;
+$exove-color-silver: #ccc;
+$exove-color-gray: #888;
+$exove-color-dove-gray: #666;
+$exove-color-tundora: #4c4c4c;
+$exove-color-mine-shaft: #333;
+$exove-color-black: #000;
+
+// Project
+$exove-color-warm-red: #c83e36;
+$exove-color-pink: #cb4a6c;
+$exove-color-pink-light: #f7e4e9;
+$exove-color-dark-blue: #29549a;
+$exove-color-light-blue: #39a7d7;
+$exove-color-light-green: #abc872;
+$exove-color-lighter-light-green: #eaf1db;
+$exove-color-yellow: #f4d240;
+$exove-color-dark-red: #ae1e20;
+$exove-color-light-red: #eb5e58;
+$exove-color-lilac: #a5407b;
+$exove-color-darkest-blue: #22437b;
+$exove-color-blue-steel: #0074a4;
+$exove-color-light-blue-dream: #88bce7;
+$exove-color-light-blue-water: #91c9ea;
+$exove-color-dark-green: #397368;
+$exove-color-light-green-petrol: #8cc1b3;
+$exove-color-pale-light-green-petrol: #e2f0ec;
+$exove-color-yellow-heat: #e8b455;
+$exove-color-yellow-heat-light: #f9ecd4;
+$exove-color-light-yellow: #f8de79;
+$exove-color-dark-gray: #3c3c3b;
+$exove-color-middle-gray: #686872;
+$exove-color-light-blue-gray: #e5eef8;
+$exove-color-light-gray: #f1eeeb;
+$exove-color-light-middle-gray: #d8d8d8;
+$exove-color-green: #418155;
+$exove-color-red-berry: #ad3963;
+$exove-color-beige: #f8cb9c;
+$exove-color-blue-gray: #8ab3bf;
+
+// Others
+$exove-color-warning: #f9fb93;
+$exove-color-error: #fbe3e4;
+$exove-color-status: #cfefc2;
+
+// Color Usage variables - use these (via the `clr` function below)
+// rather than color variables directly.
+$exove-defaultColors: (
+    text: $exove-color-black,
+    text-secondary: $exove-color-dark-gray,
+    text-inverse: $exove-color-white,
+    background: $exove-color-white,
+    background-transparent: rgba($exove-color-white, 0.4),
+    background-secondary: $exove-color-light-green-petrol,
+    primary: $exove-color-darkest-blue,
+    primary-transparent: rgba($exove-color-darkest-blue, 0.9),
+    primary-light: $exove-color-dark-blue,
+    secondary: $exove-color-warm-red,
+    accent: $exove-color-blue-steel,
+    accent-transparent: rgba($exove-color-blue-steel, 0.9),
+    accent-secondary: $exove-color-light-gray,
+    accent-secondary-transparent: rgba($exove-color-light-gray, 0.8),
+    accent-tertiary: $exove-color-light-blue-water,
+    accent-tertiary-transparent: rgba($exove-color-light-blue-water, 0.8),
+    muted: $exove-color-light-blue-gray,
+    muted-transparent: rgba($exove-color-light-blue-gray, 0.8),
+    contact-accent: $exove-color-middle-gray,
+    events: $exove-color-pale-light-green-petrol,
+    involvement: $exove-color-light-green-petrol,
+    involvement-secondary: $exove-color-pale-light-green-petrol,
+    inactive: $exove-color-light-gray,
+    tabbed-container-background: $exove-color-light-green-petrol,
+    notice: $exove-color-dark-red,
+    notice-secondary: $exove-color-middle-gray,
+    border: $exove-color-silver,
+    border-transparent: rgba($exove-color-black, 0.2),
+    image-caption: rgba($exove-color-light-blue-gray, 0.5),
+    process-accordion-inactive-circle: $exove-color-middle-gray,
+    process-accordion-inactive-line: $exove-color-light-middle-gray,
+    facet: $exove-color-dark-red,
+    dark-button-background: $exove-color-darkest-blue,
+    verified-user: $exove-color-light-green,
+    form-accent: $exove-color-light-gray,
+    form-border: $exove-color-middle-gray,
+    form-icon: $exove-color-dark-gray,
+    focus: $exove-color-darkest-blue,
+    warning: $exove-color-warning,
+    error: $exove-color-error,
+    status: $exove-color-status,
+  );
+  
+  // Minisite palettes
+  // These can be used via the clr() function.
+  $exove-palette-1: (
+    secondary: $exove-color-darkest-blue,
+    accent: $exove-color-warm-red,
+    accent-tertiary: $exove-color-light-green,
+    accent-tertiary-transparent: rgba($exove-color-light-green, 0.8),
+    background-secondary: $exove-color-light-red,
+    primary-text-on-background-secondary: $exove-color-black,
+    accent-secondary: $exove-color-lighter-light-green,
+    accent-secondary-transparent: rgba($exove-color-lighter-light-green, 0.8),
+    muted: $exove-color-lighter-light-green,
+    muted-transparent: rgba($exove-color-lighter-light-green, 0.8),
+    alternative-secondary: $exove-color-warm-red,
+    alternative-accent: $exove-color-darkest-blue,
+  );
+  
+  $exove-palette-2: (
+    secondary: $exove-color-blue-steel,
+    accent: $exove-color-red-berry,
+    accent-tertiary: $exove-color-light-blue,
+    accent-tertiary-transparent: rgba($exove-color-light-blue, 0.8),
+    primary-text-on-tertiary: $exove-color-black,
+    background-secondary: $exove-color-light-blue-water,
+    muted: $exove-color-light-gray,
+    muted-transparent: rgba($exove-color-light-gray, 0.8),
+    dark-button-background: $exove-color-blue-steel,
+  );
+  
+  $exove-palette-3: (
+    secondary: $exove-color-dark-green,
+    accent: $exove-color-green,
+    accent-tertiary: $exove-color-light-green-petrol,
+    accent-tertiary-transparent: rgba($exove-color-light-green-petrol, 0.8),
+    background-secondary: $exove-color-yellow-heat,
+    accent-secondary: $exove-color-lighter-light-green,
+    accent-secondary-transparent: rgba($exove-color-lighter-light-green, 0.8),
+    muted: $exove-color-lighter-light-green,
+    muted-transparent: rgba($exove-color-lighter-light-green, 0.8),
+    dark-button-background: $exove-color-dark-green,
+  );
+  
+  $exove-palette-4: (
+    secondary: $exove-color-warm-red,
+    accent: $exove-color-darkest-blue,
+    background-secondary: $exove-color-yellow-heat,
+    accent-secondary: $exove-color-light-blue-gray,
+    accent-secondary-transparent: rgba($exove-color-light-blue-gray, 0.8),
+    muted: $exove-color-yellow-heat-light,
+    muted-transparent: rgba($exove-color-yellow-heat-light, 0.8),
+    dark-button-background: $exove-color-warm-red,
+  );
+  
+  $exove-palette-5: (
+    secondary: $exove-color-yellow-heat,
+    accent: $exove-color-dark-green,
+    accent-tertiary: $exove-color-light-green-petrol,
+    accent-tertiary-transparent: rgba($exove-color-light-green-petrol, 0.8),
+    accent-secondary: $exove-color-yellow-heat-light,
+    accent-secondary-transparent: rgba($exove-color-yellow-heat-light, 0.8),
+    muted: $exove-color-yellow-heat-light,
+    muted-transparent: rgba($exove-color-yellow-heat-light, 0.8),
+    dark-button-background: $exove-color-yellow-heat,
+  );
+  
+  $exove-palette-6: (
+    secondary: $exove-color-yellow-heat,
+    accent: $exove-color-light-red,
+    accent-tertiary: $exove-color-yellow-heat,
+    accent-tertiary-transparent: rgba($exove-color-yellow-heat, 0.8),
+    background-secondary: $exove-color-light-blue-water,
+    dark-button-background: $exove-color-yellow-heat,
+  );
+  
+  $exove-palette-7: (
+    secondary: $exove-color-light-green-petrol,
+    accent: $exove-color-green,
+    accent-tertiary: $exove-color-light-green,
+    accent-tertiary-transparent: rgba($exove-color-light-green, 0.8),
+    background-secondary: $exove-color-blue-steel,
+    primary-text-on-background-secondary: $exove-color-white,
+    accent-secondary: $exove-color-yellow-heat-light,
+    accent-secondary-transparent: rgba($exove-color-yellow-heat-light, 0.8),
+    muted: $exove-color-lighter-light-green,
+    muted-transparent: rgba($exove-color-lighter-light-green, 0.8),
+    dark-button-background: $exove-color-light-green-petrol,
+  );
+  
+  $exove-palette-8: (
+    secondary: $exove-color-light-blue-water,
+    accent: $exove-color-warm-red,
+    accent-tertiary: $exove-color-pink,
+    accent-tertiary-transparent: rgba($exove-color-pink, 0.8),
+    primary-text-on-tertiary: $exove-color-black,
+    background-secondary: $exove-color-dark-blue,
+    primary-text-on-background-secondary: $exove-color-white,
+    accent-secondary: $exove-color-pink-light,
+    accent-secondary-transparent: rgba($exove-color-pink-light, 0.8),
+    muted: $exove-color-pink-light,
+    muted-transparent: rgba($exove-color-pink-light, 0.8),
+    dark-button-background: $exove-color-light-blue-water,
+  );
+  
+  $exove-minisitePalettes: (
+    $exove-palette-1,
+    $exove-palette-2,
+    $exove-palette-3,
+    $exove-palette-4,
+    $exove-palette-5,
+    $exove-palette-6,
+    $exove-palette-7,
+    $exove-palette-8,
+  );
+  
+  // Only meant for displaying all available project colors in Storybook.
+  $exove-projectColors: (
+    atmosphere: $exove-color-warm-red,
+    change: $exove-color-pink,
+    change-light: $exove-color-pink-light,
+    work: $exove-color-dark-blue,
+    home: $exove-color-light-blue,
+    experience: $exove-color-light-green,
+    experience-light: $exove-color-lighter-light-green,
+    idea: $exove-color-yellow,
+    dark-brick: $exove-color-dark-red,
+    brick: $exove-color-light-red,
+    violet: $exove-color-lilac,
+    dark-water: $exove-color-darkest-blue,
+    steel: $exove-color-blue-steel,
+    dream: $exove-color-light-blue-dream,
+    water: $exove-color-light-blue-water,
+    spruce: $exove-color-dark-green,
+    petrol: $exove-color-light-green-petrol,
+    light-petrol: $exove-color-pale-light-green-petrol,
+    light-sand: $exove-color-light-gray,
+    heat: $exove-color-yellow-heat,
+    heat-light: $exove-color-yellow-heat-light,
+    fade: $exove-color-light-yellow,
+    midgray: $exove-color-middle-gray,
+    tuatara: $exove-color-dark-gray,
+    link-water: $exove-color-light-blue-gray,
+    pampas: $exove-color-light-gray,
+    black: $exove-color-black,
+    white: $exove-color-white,
+    silver: $exove-color-silver,
+    goblin: $exove-color-green,
+    berry: $exove-color-red-berry,
+  );
+  
+  ///////////
+  // Usage //
+  ///////////
+  // This color function makes it easy for you to call a color by it's functional
+  // name anywhere you need.
+  // E.g. to use the `text` color, you type: `color: clr(text);`
+  //
+  // How it works:
+  // This function works in conjunction with the dynamic css custom properties
+  // declarations below. The item called in the function is prefixed with
+  // `var(--c-` to call the custom property for that color.
+  // E.g. `color: clr(text);` will return `color: var(--c-text);`
+  // Note: (The `--c-` is added via the `@each` loops below)
+  @function clr($exove-colorChoice, $exove-fallback: null) {
+    @if $exove-fallback {
+      @return var(--c-#{$exove-colorChoice}, #{$exove-fallback});
+    } @else {
+      @return var(--c-#{$exove-colorChoice});
+    }
+  }
+  
+  // Dynamically set swatch text color based on the lightness of the background color
+  @function set-color(
+    $exove-color,
+    $exove-text-primary: text,
+    $exove-text-secondary: text-inverse,
+    $exove-inversed: false
+  ) {
+    $exove-lightness_check: lightness($exove-color) > 50;
+  
+    @if ($exove-inversed) {
+      $exove-lightness_check: lightness($exove-color) < 50;
+    }
+  
+    @if ($exove-lightness_check) {
+      @return clr($exove-text-primary);
+    } @else {
+      @return clr($exove-text-secondary);
+    }
+  }
+  
+  // Dynamically check if color is light
+  @function is-light($exove-color) {
+    @return lightness($exove-color) > 50;
+  }
+  
+  // Create CSS custom properties
+  // This is what powers the built-in OS light/dark mode switching.
+  // For each color variable above (e.g. `text` and `background`) a css custom
+  // property will be created. (e.g. `--c-text:` and `--c-background:`).
+  //
+  // The first `@each` below will create a custom property for each item in the
+  // `$exove-defaultColors` map. So put all of your default colors there.
+  :root {
+    // Create custom properties for default colors
+    @each $exove-name, $exove-color in $exove-defaultColors {
+      --c-#{$exove-name}: #{$exove-color};
+    }
+  
+    // Create custom properties for minisite palette colors
+    @each $exove-palette in $exove-minisitePalettes {
+      $exove-i: index($exove-minisitePalettes, $exove-palette);
+      .palette-#{$exove-i} {
+        @each $exove-name, $exove-color in $exove-palette {
+          --c-#{$exove-name}: #{$exove-color};
+        }
+      }
+    }
+  }
+  
+  /* Body */
+  $exove-body-bg-color: $exove-color-white;
+  $exove-body-color: $exove-color-black;
+  
+  /* grid */
+  $exove-grid-background-color: $exove-color-dove-gray;
+  
+  /* text */
+  $exove-color-body: $exove-color-black;
+  $exove-color-heading: inherit;
+  $exove-color-heading-h1: clr(primary);
+  $exove-color-placeholder: $exove-color-dove-gray;
+  
+  /* link */
+  $exove-color-link: $exove-color-dark-blue;
+  $exove-color-link-hover: $exove-color-black;
+  $exove-color-link-more: $exove-color-black;
+  
+  /* buttons */
+  $exove-button-default-bg-color: $exove-color-dark-blue;
+  $exove-button-default-bg-color-hover: $exove-color-black;
+  $exove-button-default-color: $exove-color-white;
+  $exove-button-default-color-hover: $exove-color-white;
+  $exove-button-alt-bg-color: $exove-color-dove-gray;
+  $exove-button-alt-bg-color-hover: $exove-color-black;
+  $exove-button-alt-color: $exove-color-white;
+  $exove-button-alt2-bg-color: $exove-color-black;
+  $exove-button-alt2-color: $exove-color-white;
+  $exove-button-alt2-bg-color-hover: $exove-color-dove-gray;
+  
+  /* border */
+  $exove-color-border: $exove-color-silver;
+  
+  /* table */
+  $exove-color-table-bg: $exove-color-silver;
+  $exove-color-table-row-odd-bg: $exove-color-white;
+  $exove-color-table-border: $exove-color-dark-blue;
+  $exove-color-table-cell: $exove-color-black;
+  
+  
+  
+  /* forms */
+  $exove-input-placeholder-color: clr(form-border);
+  
+  /* tabs */
+  $exove-tab-color-bg: $exove-color-white;
+  $exove-tab-color: $exove-color-dark-blue;
+  $exove-tab-color-hover: $exove-color-white;
+  $exove-tab-color-bg-hover: $exove-color-dark-blue;
+  
+  /* breadcrumbs */
+  $exove-breadcrumb-color: $exove-color-black;
+  $exove-breadcrumb-hover-color: $exove-color-dark-blue;
+  
+  /* menu */
+  $exove-main-menu-open-bg-color: $exove-color-white;
+  
+  /* menu link */
+  $exove-main-menu-link-color: $exove-color-mine-shaft;
+  $exove-main-menu-link-color-desktop: $exove-color-black;
+  $exove-main-menu-link-color-desktop-active: $exove-color-white;
+  $exove-main-menu-sublink-color: $exove-color-mine-shaft;
+  $exove-main-menu-sublink-color-desktop: $exove-color-silver;
+  $exove-social-menu-link-color: $exove-color-mine-shaft;
+  
+  /* menu sublinks */
+  $exove-main-menu-sub-bg-color: $exove-color-silver;
+  $exove-main-menu-sub-color-desktop: $exove-color-white;
+  $exove-main-menu-sub-bg-color-desktop: $exove-color-black;
+  $exove-main-menu-sub-expand-bg-color: $exove-color-dove-gray;
+  $exove-main-menu-sub-expand-color: $exove-color-white;
+  $exove-main-menu-sub-expand-opened-bg-color: $exove-color-dove-gray;
+  $exove-main-menu-sub-expand-opened-color: $exove-color-silver;
+  $exove-main-menu-sub-2-bg-color: $exove-color-silver;
+  
+  /* accordion */
+  $exove-accordion-heading-bg-color: $exove-color-white;
+  $exove-accordion-heading-color: $exove-color-mine-shaft;
+  $exove-accordion-heading-color-active: $exove-color-dove-gray;
+  
+  /* card */
+  $exove-colorful-card-1-color-name: primary;
+  $exove-colorful-card-2-color-name: secondary;
+  $exove-colorful-card-3-color-name: accent;
+  
+  /* pager */
+  $exove-pager-arrow-color: $exove-color-silver;
+  $exove-pager-arrow-color-active: $exove-color-dark-blue;
+  $exove-pager-color: $exove-color-darkest-blue;
+  $exove-pager-color-active: $exove-color-white;
+  $exove-pager-bg-color-active: $exove-color-dark-blue;
+  
+  /* footer */
+  $exove-footer-background-color: $exove-color-black;
+  $exove-footer-link-color: $exove-color-white;
+  
+  /* templates */
+  $exove-place-holder-color: $exove-color-dove-gray;
+  
+  /* drupal */
+  $exove-node-preview-container-bg-color: $exove-color-white;
+  
+ 
+ 
+ /* font sizes */
+ $exove-font-9: 0.5625rem;
+ $exove-font-12: 0.75rem;
+ $exove-font-14: 0.875rem;
+ $exove-font-15: 0.9375rem;
+ $exove-font-16: 1rem;
+ $exove-font-17: 1.0625rem;
+ $exove-font-18: 1.125rem;
+ $exove-font-20: 1.25rem;
+ $exove-font-21: 1.3125rem;
+ $exove-font-22: 1.375rem;
+ $exove-font-24: 1.5rem;
+ $exove-font-27: 1.6875rem;
+ $exove-font-28: 1.75rem;
+ $exove-font-32: 2rem;
+ $exove-font-36: 2.25rem;
+ $exove-font-40: 2.5rem;
+ $exove-font-42: 2.625rem;
+ $exove-font-48: 3rem;
+ $exove-font-56: 3.5rem;
+ $exove-font-60: 3.75rem;
+ $exove-font-80: 5rem;
+ 
+ $exove-body-font-size: $exove-font-20;
+ $exove-body-font-size-mobile: $exove-font-16;
+ 
+ /* Font weight */
+ $exove-font-weight-regular: 400;
+ $exove-font-weight-medium: 500;
+ $exove-font-weight-semi-bold: 600;
+ $exove-font-weight-bold: 700;
+ $exove-font-weight-extra-bold: 800;
+ $exove-font-weight-black: 900;
+ 
+ /* Line heights */
+ $exove-line-height-base: 1.5;
+ 
+ $exove-h1-line-height: 1.13;
+ $exove-h1-line-height--mobile: 1.25;
+ $exove-h2-line-height: 1.28;
+ $exove-h2-line-height--mobile: 1.33;
+ $exove-h3-line-height: 1.5;
+ $exove-h3-line-height--mobile: 1.33;
+ $exove-h4-line-height: $exove-line-height-base;
+ 
+ $exove-contact-card-line-height: 1.33;
+ $exove-contact-card-line-height--mobile: 1.6;
+ 
+ /* headings */
+ $exove-h1-font-size: $exove-font-28;
+ $exove-h1-font-size-desktop: $exove-font-42;
+ $exove-h2-font-size: $exove-font-22;
+ $exove-h2-font-size-desktop: $exove-font-28;
+ $exove-h3-font-size: $exove-font-18;
+ $exove-h3-font-size-desktop: $exove-font-22;
+ $exove-h4-font-size: $exove-font-16;
+ $exove-h4-font-size-desktop: $exove-font-20;
+ 
+ /**
+  * Spacings
+  */
+ $exove-space-xxs: 4px;
+ $exove-space-xs: 8px;
+ $exove-space-xs-plus: 12px;
+ $exove-space-s: 16px;
+ $exove-space-m: 20px;
+ $exove-space-m-plus: 24px;
+ $exove-space-l: 32px;
+ $exove-space-l-plus: 40px;
+ $exove-space-xl: 48px;
+ $exove-space-xxl: 72px;
+ $exove-space-xxxl: 100px;
+ 
+ $exove-larger-link-surface-icon-spacing-desktop: $exove-space-xl;
+ 
+ /* gutters */
+ $exove-gutter-large: 60px;
+ $exove-gutter-medium-plus: $exove-space-xl;
+ $exove-gutter-medium: $exove-space-l;
+ $exove-gutter-small: $exove-space-m;
+ $exove-gutter-xs: $exove-space-xs;
+ 
+ $exove-gutter-mobile: $exove-space-s;
+ $exove-gutter-default: $exove-gutter-large;
+ $exove-gutter-sidebar-content: $exove-gutter-medium-plus;
+ 
+ /* icons */
+ $exove-icon-xs: 16px;
+ $exove-icon-xs-plus: 20px;
+ $exove-icon-small: 24px;
+ $exove-icon-medium: 32px;
+ $exove-icon-medium-plus: 40px;
+ $exove-icon-large-minus: 56px;
+ $exove-icon-large: 72px;
+ $exove-icon-xl: 83px;
+ 
+ $exove-icon-default: $exove-icon-small;
+ $exove-sidebar-menu-icon-size: $exove-icon-xs;
+ $exove-sidebar-menu-icon-size--desktop: $exove-icon-small;
+ $exove-listing-link-icon-size--desktop: $exove-icon-small;
+ 
+ /**
+  * Base
+  */
+ 
+ /* shadows */
+ $exove-box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.07);
+ 
+ /* borders */
+ $exove-short-border-width: 75px;
+ $exove-thick-border-width: 2px;
+ $exove-border-default: 1px solid $exove-color-border;
+ $exove-border-2-black: 2px solid $exove-color-black;
+ $exove-border-contact: 2px solid clr(accent-tertiary);
+ $exove-border-form: 2px solid clr(form-border);
+ $exove-border-form-accent: 2px solid clr(form-accent);
+ $exove-border-notice: 2px solid clr(notice);
+ $exove-border-thin-secondary: 1px solid clr(secondary);
+ $exove-border-thin-inverse: 1px solid clr(background);
+ $exove-border-thick-default: $exove-thick-border-width solid clr(border);
+ $exove-border-thick-primary: $exove-thick-border-width solid clr(primary);
+ $exove-border-thick-secondary: $exove-thick-border-width solid clr(secondary);
+ $exove-border-thick-light-blue: $exove-thick-border-width solid clr(accent-tertiary);
+ $exove-border-thick-inverse: $exove-thick-border-width solid clr(background);
+ $exove-border-thick-transparent: $exove-thick-border-width solid transparent;
+ $exove-border-thick-involvement: $exove-thick-border-width solid clr(involvement-secondary);
+ $exove-border-thick-general-contact: $exove-thick-border-width solid clr(accent-secondary);
+ 
+ /* buttons */
+ $exove-small-button-padding: 12px;
+ $exove-small-button-size: 40px;
+ 
+ /* text */
+ $exove-h1-margin: $exove-gutter-large 0 $exove-gutter-medium 0;
+ $exove-h1-margin--mobile: $exove-gutter-medium 0 $exove-gutter-small 0;
+ $exove-heading-margin-bottom-default: 0 0 $exove-space-xs;
+ $exove-text-paragraph-margin-bottom: $exove-space-l;
+ $exove-text-paragraph-margin-bottom--small: $exove-space-m;
+ 
+ /* images */
+ $exove-figure-caption-font-style: italic;
+ $exove-site-logo-max-width: 130px;
+ $exove-site-logo-max-width--desktop: 187px;
+ 
+ /* sidebar */
+ $exove-sidebar-width: 28%;
+ $exove-main-width-with-sidebar: calc(100% - (#{$exove-sidebar-width} + #{$exove-gutter-sidebar-content}));
+ 
+ /* content */
+ $exove-article-max-width: 858px;
+ $exove-article-content-max-width: calc(#{$exove-article-max-width} + (#{$exove-gutter-default} * 2));
+ $exove-article-content-max-width--with-sidebar: calc(#{$exove-article-max-width} + #{$exove-gutter-default});
+ $exove-basic-content-page-max-width: 825px;
+ $exove-basic-content-max-width: calc(#{$exove-basic-content-page-max-width} + (#{$exove-gutter-default} * 2));
+ $exove-basic-content-page-max-width--with-sidebar: 875px;
+ $exove-basic-content-max-width--with-sidebar: calc(#{$exove-basic-content-page-max-width--with-sidebar} + #{$exove-gutter-default});
+ 
+ /*
+  * Forms
+  *
+ **/
+ 
+ $exove-form-list-item-spacing: $exove-space-m;
+ $exove-form-item-spacing: $exove-space-m;
+ $exove-form-item-spacing--large: $exove-space-l-plus;
+ $exove-form-item-description-margin-top: $exove-space-xs;
+ $exove-form-item-max-width: 32rem;
+ 
+ :root {
+   --basic-component-max-width: 1440px;
+   --text-content-max-width: 748px;
+   --article-content-max-width: #{$exove-article-content-max-width};
+   --basic-content-max-width: #{$exove-basic-content-max-width};
+   --field-label-font-weight: #{$exove-font-weight-bold};
+   --focus-outline-offset: 3px;
+ }
+ 
