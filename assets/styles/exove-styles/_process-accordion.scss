@@ -132,7 +132,7 @@ $process-accordion-heading-line-left-distance: calc((var(--process-accordion-lef
 
     #{$base_class}__title-wrapper {
       &::before {
-        // background-image: url('../images/icon-sets/main-site-icons/checkmark-blue.svg');
+        background-image: url('../icons/checkmark-blue.svg');
         background-position: center;
         background-repeat: no-repeat;
       }

@@ -86,7 +86,6 @@ $person-contact-image-size--large: 105px;
   &__legend {
     font-size: $font-16;
     font-weight: $font-weight-bold;
-    font-family: $font-body;
     padding-bottom: $space-xxs;
 
     @include large {
@@ -138,7 +137,6 @@ $person-contact-image-size--large: 105px;
 
   &__details {
     display: block;
-    font-family: $font-body;
     font-size: $font-16;
     font-weight: $font-weight-regular;
     margin: 0;

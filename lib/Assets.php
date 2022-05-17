@@ -118,13 +118,25 @@ class Assets implements Interfaces\Controller {
                 'all'
             );
 
-            \wp_enqueue_script(
+            \wp_register_script(
                 'exove-js',
                 DPT_ASSET_URI . '/exove_news.js',
                 [ 'jquery', 'vendor-js' ],
                 static::get_theme_asset_mod_time( 'exove_news.js' ),
                 true
             );
+
+            $url_prefix = defined( 'WP_ENV' ) && WP_ENV && WP_ENV === 'production'
+                        ? 'https://www.tampere.fi'
+                        : 'https://staging.tampere.fi';
+
+            $localized_data = [
+                'urlPrefix' => $url_prefix,
+            ];
+
+            \wp_localize_script( 'exove-js', 'exoveData', $localized_data );
+
+            \wp_enqueue_script( 'exove-js' );
         }
 
         \wp_enqueue_script(

@@ -41,7 +41,7 @@ class ExoveNews {
 
         this.exoveContent.find( 'use' ).each( function() {
             const xlinkHref = $( this ).attr( 'xlink:href' );
-            $( this ).attr( 'xlink:href', `https://staging.tampere.fi${xlinkHref}` );
+            $( this ).attr( 'xlink:href', `${exoveData.urlPrefix}${xlinkHref}` );
         } );
     }
 

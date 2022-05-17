@@ -10,7 +10,6 @@
   
     &__heading {
       position: relative;
-      font-family: $font-heading;
       font-weight: $font-weight-black;
       font-size: $font-48;
       margin-top: 0;
@@ -40,7 +39,6 @@
     }
   
     &__content {
-      font-family: $font-body;
       font-size: $font-16;
       margin: 0;
   

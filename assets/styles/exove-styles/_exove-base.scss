@@ -470,15 +470,6 @@ $node-preview-container-bg-color: $color-white;
  * and breakpoint related vars into
  * components/_patterns/00-base/_breakpoints.scss
  */
-
-/**
- * Typography
- */
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
-
- /* fonts */
- $font-body: 'Open Sans', 'Arial', sans-serif;
- $font-heading: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
  
  /* font sizes */
  $font-9: 0.5625rem;
@@ -1055,7 +1046,6 @@ $picture-mosaic-breakpoint-down: 69.99rem;
   }
   
   @mixin body-copy {
-    font-family: $font-body;
     font-size: $body-font-size-mobile;
     line-height: $line-height-base;
   
@@ -1152,7 +1142,6 @@ $picture-mosaic-breakpoint-down: 69.99rem;
     @include margin();
   
     background-color: clr(image-caption);
-    font-family: $font-body;
     font-size: $font-14;
     padding: $space-xs;
   
@@ -1241,7 +1230,6 @@ $picture-mosaic-breakpoint-down: 69.99rem;
   @mixin required-marker {
     content: "*";
     color: clr(notice);
-    font-family: $font-body;
     font-size: $font-20;
     font-weight: $font-weight-regular;
     margin-left: $space-xs;

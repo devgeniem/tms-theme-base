@@ -1,0 +1,182 @@
+$button-desktop-padding: $space-m $space-l;
+$button-mobile-padding: $space-xs $space-s;
+$button-desktop-font-size: $font-20;
+$button-mobile-font-size: $font-16;
+$button-default-line-height: 1.2;
+
+@mixin button-default {
+  @include word-wrap;
+
+  display: flex;
+  cursor: pointer;
+  font-size: $button-mobile-font-size;
+  line-height: $button-default-line-height;
+  padding: $button-mobile-padding;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-items: center;
+
+  @include large {
+    font-size: $button-desktop-font-size;
+    padding: $button-desktop-padding;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}
+
+@mixin button(
+  $bg: transparent,
+  $color: clr(primary),
+  $hoverBg: transparent,
+  $hoverColor: clr(primary),
+) {
+  background-color: $bg;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $color;
+
+  &,
+  a {
+    color: $color;
+  }
+
+  &:visited {
+    color: $color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $hoverBg;
+    color: $hoverColor;
+
+    a {
+      color: $hoverColor;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: $color;
+    }
+  }
+}
+
+@mixin button-dark {
+  @include button(
+    $bg: clr(dark-button-background),
+    $color: clr(text-inverse),
+    $hoverBg: clr(dark-button-background),
+    $hoverColor: clr(text-inverse)
+  );
+
+  @include dynamic-color(dark-button-background, $set-focus-color: false);
+}
+
+@mixin button-transparent {
+  @include button(
+    $bg: transparent,
+    $color: clr(text-inverse),
+    $hoverColor: clr(text-inverse)
+  );
+
+  @include link-inherit;
+
+  border-color: inherit;
+}
+
+@mixin button-ghost {
+  @include button(
+    $color: clr(text),
+    $hoverColor: clr(text)
+  );
+
+  padding: 0;
+  border-style: none;
+}
+
+@mixin button-secondary {
+  @include button(
+    $bg: clr(alternative-secondary, #{clr(secondary)}),
+    $color: clr(text-inverse),
+    $hoverBg: clr(alternative-secondary, #{clr(secondary)}),
+    $hoverColor: clr(text-inverse)
+  );
+
+  @include dynamic-color(secondary, $set-focus-color: false);
+}
+
+.button {
+  $base_class: &;
+
+  @include button-default;
+  @include button;
+
+  &__icon {
+    margin-left: $space-l;
+    height: $icon-default;
+    width: $icon-default;
+  }
+
+  &--dark {
+    @include button-dark;
+  }
+
+  &--transparent {
+    @include button-transparent;
+  }
+
+  &--ghost {
+    @include button-ghost;
+
+    #{$base_class}__icon {
+      margin-left: $space-s;
+    }
+  }
+
+  &--show-more {
+    margin-top: $space-l;
+
+    #{$base_class}__icon {
+      transform: rotate(180deg);
+      width: $icon-default;
+    }
+  }
+
+  &--secondary {
+    @include button-secondary;
+
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: $space-xs;
+
+    @include large {
+      padding-left: $space-m;
+    }
+
+    &:focus,
+    &:hover {
+      #{$base_class}__icon {
+        @include dynamic-color(secondary, background-color, $set-focus-color: false);
+
+        color: clr(secondary);
+      }
+    }
+
+    #{$base_class}__icon {
+      margin-right: $space-m;
+      margin-left: 0;
+      height: $icon-medium;
+      width: $icon-medium;
+
+      @include large {
+        margin-right: $space-l;
+      }
+    }
+  }
+}

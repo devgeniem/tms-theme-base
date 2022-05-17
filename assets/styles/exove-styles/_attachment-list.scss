@@ -50,7 +50,6 @@
       @include word-wrap;
   
       margin: $space-s $space-m $space-s 0;
-      font-family: $font-heading;
       font-size: $font-18;
       flex: 1 0 50%;
   
@@ -68,7 +67,6 @@
     &__summary {
       margin: 0 $space-m $space-s 0;
       font-size: $font-14;
-      font-family: $font-body;
       flex-basis: 100%;
   
       @include large {

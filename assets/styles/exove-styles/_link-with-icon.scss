@@ -1,0 +1,222 @@
+.link-with-icon {
+    $base_class: &;
+  
+    @include button-default;
+    @include button;
+  
+    width: fit-content;
+  
+    &__link-text {
+      flex-grow: 1;
+    }
+  
+    &__icon {
+      flex-shrink: 0;
+      margin-left: $space-l;
+      height: $icon-default;
+      width: $icon-default;
+  
+      @include large {
+        height: $icon-medium;
+        width: $icon-medium;
+      }
+    }
+  
+    + .link-with-icon {
+      margin-top: $space-s;
+    }
+  
+    &--dark {
+      @include button-dark;
+      @include dynamic-color(background, $set-main-property: false);
+    }
+  
+    &--full-width {
+      width: 100%;
+  
+      #{$base_class}__link-text {
+        text-align: right;
+      }
+    }
+  
+    &--ghost,
+    &--primary-ghost {
+      @include button-ghost;
+  
+      #{$base_class}__icon {
+        margin-left: $space-s;
+      }
+    }
+  
+    &--primary-ghost {
+      @include link(clr(primary), clr(primary));
+    }
+  
+    &--transparent {
+      @include button-transparent;
+    }
+  
+    &--service {
+      @include button-transparent;
+      @include dynamic-color(secondary, $set-focus-color: false);
+  
+      background-color: clr(alternative-secondary, #{clr(secondary)});
+      border-color: clr(text-inverse);
+  
+      @include large-down {
+        padding-top: $space-s;
+        padding-bottom: $space-s;
+      }
+  
+      &:focus,
+      &:hover {
+        background-color: clr(alternative-secondary, #{clr(secondary)});
+      }
+  
+      &:link,
+      &:visited {
+        @include dynamic-color(secondary, $set-focus-color: false);
+      }
+  
+      #{$base_class}__icon {
+        @include large {
+          height: $icon-medium;
+          width: $icon-medium;
+        }
+      }
+    }
+  
+    &--reversed,
+    &--secondary {
+      display: flex;
+      flex-direction: row-reverse;
+      padding-left: $space-xs;
+  
+      @include large-down {
+        padding-top: $space-s;
+        padding-bottom: $space-s;
+      }
+  
+      @include large {
+        padding-left: $space-m;
+      }
+  
+      #{$base_class}__icon {
+        margin-right: $space-m;
+        margin-left: 0;
+        height: $icon-medium;
+        width: $icon-medium;
+  
+        @include large {
+          margin-right: $space-l;
+        }
+      }
+    }
+  
+    &--secondary {
+      @include button-secondary;
+  
+      &:focus,
+      &:hover {
+        #{$base_class}__icon {
+          @include dynamic-color(secondary, background-color, $set-focus-color: false);
+  
+          color: clr(alternative-secondary, #{clr(secondary)});
+        }
+      }
+    }
+  
+    &--no-left-margin {
+      #{$base_class}__icon {
+        margin-left: 0;
+      }
+    }
+  
+    &--no-link-text-grow-on-mobile {
+      #{$base_class}__link-text {
+        @include large-down {
+          flex-grow: 0;
+        }
+      }
+    }
+  
+    &--larger-link-surface {
+      @include large-down {
+        padding-top: $space-m;
+        padding-bottom: $space-m;
+        margin-top: $space-m * (-1);
+        margin-bottom: $space-m * (-1);
+      }
+  
+      @include large {
+        padding-right: $larger-link-surface-icon-spacing-desktop;
+        padding-left: $larger-link-surface-icon-spacing-desktop;
+      }
+    }
+  
+    &--back-to-frontpage {
+      @include link-inherit;
+  
+      border: 0;
+      flex-direction: row-reverse;
+      font-size: $font-18;
+      margin-left: $space-xs * (-1);
+      padding: $space-xs;
+      text-transform: none;
+      text-underline-position: unset;
+      text-underline-offset: -2px;
+  
+      @include main-menu-breakpoint {
+        font-size: $font-16;
+        margin-top: $space-xs * (-1);
+      }
+  
+      #{$base_class}__icon {
+        margin-left: 0;
+        margin-right: $space-xs;
+        height: $icon-xs;
+        width: $icon-xs;
+      }
+    }
+  
+    &--icon-under-text {
+      width: auto;
+  
+      @include large {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: $space-s;
+      }
+  
+      #{$base_class}__link-text {
+        @include large {
+          flex-grow: 0;
+        }
+      }
+  
+      #{$base_class}__icon {
+        @include large {
+          margin-top: $space-xxs;
+          margin-left: 0;
+        }
+      }
+    }
+  
+    // For when the link-with-icon component is on a primary color background,
+    // but the component text color should still respect its own background color.
+    &--focus-on-primary-background {
+      // Doubling up specificity to get past palette specific colors.
+      &#{&} {
+        @include dynamic-color(primary, $set-main-property: false);
+      }
+    }
+  
+    &--small-icon {
+      #{$base_class}__icon {
+        height: $listing-link-icon-size--desktop;
+        width: $listing-link-icon-size--desktop;
+      }
+    }
+  }
+  

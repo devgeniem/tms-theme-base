@@ -30,7 +30,6 @@ $accordion-item-distance: $space-m;
 
       color: clr(text);
       align-items: center;
-      font-family: $font-heading;
       font-size: $accordion-mobile-font-size;
       border: 2px solid clr(accent-secondary);
       cursor: pointer;
@@ -129,10 +128,6 @@ $accordion-item-distance: $space-m;
     #{$base_class}__item {
       background-color: clr(background);
       margin-bottom: $space-xs;
-    }
-
-    #{$base_class}__title-wrapper {
-      font-family: $font-heading;
     }
 
     #{$base_class}__heading {
