@@ -1,0 +1,202 @@
+$accordion-icon-color: clr(primary);
+$accordion-icon-height: 10px;
+$accordion-icon-width: 20px;
+$accordion-mobile-font-size: $font-16;
+$accordion-desktop-font-size: $font-20;
+$accordion-desktop-active-font-size: $font-22;
+$accordion-content-horizontal-margin: $space-xs;
+$accordion-content-vertical-margin: $space-s;
+$accordion-content-margin--large: $space-l;
+$accordion-item-distance: $space-m;
+
+@mixin accordion-item($class: '.accordion') {
+  @at-root {
+    #{$class} {
+      font-size: $accordion-mobile-font-size;
+
+      @include large {
+        font-size: $accordion-desktop-font-size;
+      }
+    }
+
+    #{$class}__item {
+      display: inline-block;
+      margin-bottom: $accordion-item-distance;
+      width: 100%;
+    }
+
+    #{$class}__heading {
+      @include button-reset;
+
+      color: clr(text);
+      align-items: center;
+      font-family: $font-heading;
+      font-size: $accordion-mobile-font-size;
+      border: 2px solid clr(accent-secondary);
+      cursor: pointer;
+      width: 100%;
+      padding: $space-m-plus 0;
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+
+      @include large {
+        font-size: $accordion-desktop-font-size;
+      }
+
+      &.is-active {
+        border-color: clr(primary);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        font-weight: $font-weight-bold;
+
+        @include large {
+          font-size: $accordion-desktop-active-font-size;
+          box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        #{$class}__icon {
+          transform: rotate(0deg);
+        }
+      }
+
+      &:hover,
+      &:focus {
+        border-color: clr(primary);
+      }
+    }
+
+    #{$class}__icon {
+      color: $accordion-icon-color;
+      flex-shrink: 0;
+      transform: rotate(180deg);
+      height: $accordion-icon-height;
+      width: $accordion-icon-width;
+      margin-right: $space-l;
+    }
+
+    #{$class}__title-wrapper {
+      margin: 0;
+    }
+
+    #{$class}__title {
+      @include word-wrap;
+
+      margin: 0 $space-s;
+      max-width: var(--text-content-max-width);
+
+      @include large {
+        margin: 0 $space-l;
+      }
+    }
+
+    #{$class}__content {
+      display: none;
+
+      &.active {
+        display: block;
+        margin: $accordion-content-vertical-margin $accordion-content-horizontal-margin;
+
+        @include large {
+          margin: $accordion-content-margin--large;
+        }
+      }
+
+      // Drupal
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.accordion {
+  $base_class: &;
+
+  @include accordion-item;
+
+  &__accordions-heading {
+    margin-bottom: $space-m;
+
+    @include large {
+      margin-bottom: $space-l;
+    }
+  }
+
+  // Variations
+  &--plain {
+    --focus-outline-offset: 5px;
+
+    #{$base_class}__item {
+      background-color: clr(background);
+      margin-bottom: $space-xs;
+    }
+
+    #{$base_class}__title-wrapper {
+      font-family: $font-heading;
+    }
+
+    #{$base_class}__heading {
+      border: $border-thick-transparent;
+      box-shadow: none;
+      font-family: inherit;
+      font-size: $font-18;
+      font-weight: $font-weight-medium;
+
+      @include large-down {
+        padding-top: $space-m-plus;
+        padding-bottom: $space-m-plus;
+      }
+
+      @include large {
+        font-size: $font-20;
+      }
+
+      &:hover:not(.is-active) {
+        border: $border-thick-primary;
+      }
+
+      &.is-active {
+        border-top: $border-thick-primary;
+        border-right: $border-thick-primary;
+        border-bottom: 0;
+        border-left: $border-thick-primary;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    #{$base_class}__title {
+      @include large-down {
+        margin-left: $space-m;
+      }
+    }
+
+    #{$base_class}__icon {
+      margin-right: $space-s;
+    }
+
+    #{$base_class}__content {
+      font-size: $font-14;
+      margin: 0;
+      padding-right: $space-m;
+      padding-bottom: $space-s;
+      padding-left: $space-m;
+
+      @include large {
+        font-size: $font-18;
+        padding-right: $space-l;
+        padding-bottom: $space-l;
+        padding-left: $space-l;
+      }
+
+      &.active {
+        border-right: $border-thick-primary;
+        border-bottom: $border-thick-primary;
+        border-left: $border-thick-primary;
+      }
+    }
+  }
+}
+
+.accordions {
+  @include page-element-spacer;
+}

@@ -26,7 +26,6 @@ import ExternalLinks from './external-links';
 import DatePicker from './date-picker';
 import GravityFormsPatch from './gravity-forms-patch';
 import Countdown from './countdown';
-import ExoveNews from './exove-news';
 
 const globalControllers = {
     Common,
@@ -55,7 +54,6 @@ const globalControllers = {
 };
 
 const templateControllers = {
-    Single: ExoveNews,
 };
 
 /**

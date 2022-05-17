@@ -1,0 +1,118 @@
+$table-cell-top-padding: $space-s;
+$table-cell-bottom-padding: $space-xs;
+$table-cell-gutter: $space-m;
+$table-cell-gutter-large: $space-l;
+$table-border: 1px solid $color-table-border;
+$table-heading-border: 4px solid $color-table-border;
+$table-footer-border: 2px solid $color-table-border;
+$table-margin: $space-s 0;
+
+.table {
+  @include page-element-spacer;
+
+  border-spacing: 0;
+  margin: $table-margin;
+  width: 100%;
+
+  /* Show caption for screen readers only */
+  & caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.table__heading-cell,
+.table__cell {
+  vertical-align: top;
+  border: none;
+  border-bottom: $table-border;
+  padding: $table-cell-top-padding 0 $table-cell-bottom-padding 0;
+}
+
+.table__cell {
+  /* Due to simple responsive table module added important tag to override
+   * third party styling
+   */
+  border-bottom: $table-border !important;
+
+  @include large-down {
+    padding-left: 1% !important;
+    padding-top: $space-l;
+  }
+
+
+  &:last-child {
+    @include large-down {
+      border-bottom: none !important;
+    }
+  }
+
+  &::before {
+    top: 8px;
+    position: absolute;
+  }
+}
+
+.table__heading-cell + .table__heading-cell, 
+.table__cell + .table__cell {
+  padding-left: $table-cell-gutter;
+
+  @include large {
+    padding-left: $table-cell-gutter-large;
+  }
+}
+
+.table__heading-cell {
+  border-bottom: $table-heading-border;
+  color: $color-table-cell;
+  text-align: left;
+}
+
+.table__row {
+  border: none;
+  border-top: $table-heading-border;
+  background-color: none;
+}
+
+.table__row:last-child {
+  border-bottom: $table-heading-border;
+
+  .table__heading-cell,
+  .table__cell {
+    border-bottom: $table-footer-border;
+  }
+}
+
+.table__footer-cell,
+.table__footer-cell:first-child {
+  border-bottom: none;
+}
+
+.text-long {
+  table {
+    @extend .table;
+  }
+
+  th {
+    @extend .table__heading-cell;
+  }
+
+  td {
+    @extend .table__cell;
+  }
+
+  tr {
+    @extend .table__row;
+  }
+
+  tfoot th {
+    @extend .table__footer-cell;
+  }
+}

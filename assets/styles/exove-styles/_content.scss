@@ -4,9 +4,5 @@
 
     .general-contact-card {
         padding: 20px;
-
-        @include from($desktop) {
-            padding: 48px;
-        }
     }
   }

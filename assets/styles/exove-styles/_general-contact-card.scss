@@ -1,0 +1,63 @@
+.general-contact-card {
+    @include page-element-spacer;
+  
+    background-color: clr(accent-secondary);
+    font-size: $font-14;
+    max-width: var(--basic-component-max-width);
+  
+    @include large {
+      font-size: $font-18;
+    }
+  
+    &__content {
+      padding: $space-m $space-m;
+  
+      @include large {
+        padding: $space-xl;
+      }
+    }
+  
+    &__heading-container:not(:only-child) {
+      margin-bottom: $space-m;
+  
+      @include large {
+        margin-bottom: $space-l;
+      }
+    }
+  
+    &__name {
+      margin-bottom: 0;
+    }
+  
+    &__name-link {
+      @include link(clr(text), clr(text), $underline-offset: 0);
+  
+      text-underline-position: under;
+      text-decoration-color: clr(contact-accent);
+      text-decoration-thickness: 2px;
+    }
+  
+    &__heading-container + .conditional-content,
+    &__main-content + .conditional-content,
+    &__additional-content + .conditional-content,
+    &__additional-content-wrapper + .conditional-content {
+      margin-top: $space-m;
+  
+      @include large {
+        margin-top: $space-l;
+      }
+    }
+  
+    &__pre-main-content {
+      margin-bottom: $space-m;
+  
+      @include large {
+        margin-bottom: $space-l;
+      }
+    }
+  
+    &__main-content {
+      max-width: var(--text-content-max-width);
+    }
+  }
+  

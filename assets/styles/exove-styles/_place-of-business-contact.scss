@@ -1,0 +1,81 @@
+.place-of-business-contact {
+    @include page-element-spacer;
+  
+    border: $border-contact;
+    font-size: $font-14;
+  
+    @include large {
+      font-size: $font-18;
+    }
+  
+    &__content-container {
+      padding: $space-m;
+  
+      @include large {
+        padding: $space-xl;
+      }
+    }
+  
+    &__name {
+      font-size: $font-18;
+      line-height: $contact-card-line-height--mobile;
+      font-weight: $font-weight-semi-bold;
+  
+      @include large {
+        font-size: $font-22;
+        line-height: $contact-card-line-height;
+      }
+    }
+  
+    &__alt-name,
+    &__organisation,
+    &__summary,
+    &__description {
+      margin-top: $space-s;
+    }
+  
+    &__name-link {
+      @include contact-card-heading-link;
+    }
+  
+    &__two-column-container {
+      margin-top: $space-s; 
+  
+      @include large {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $gutter-large;
+      }
+    }
+  
+    &__address,
+    &__phone,
+    &__email,
+    &__link {
+      display: flex;
+      flex-direction: row;
+      @include text-element-spacer;
+    }
+  
+    &__column--right > * {
+      @include text-element-spacer;
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    &__additional-content {
+      margin-top: $space-s;
+  
+      @include large {
+        font-size: $font-16;
+      }
+    }
+  
+    &--accordion-content-view-mode,
+    .paragraph--view-mode-accordion-content-view-mode & {
+      @include accordion-content-spacer;
+    }
+  }
+  

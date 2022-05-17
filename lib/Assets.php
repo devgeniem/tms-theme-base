@@ -109,12 +109,21 @@ class Assets implements Interfaces\Controller {
         );
 
         if ( is_singular( Post::SLUG ) && ! empty( get_field( 'drupal_post_id', get_the_ID() ) ) ) {
+
             \wp_enqueue_style(
-                'theme-css-exove',
-                'https://staging.tampere.fi/sites/default/files/css/css_YQa3sw69JqGRPbIq7VgYRGnTRy2RFb_AkrTtQq0hffo.css',
+                'exove-css',
+                DPT_ASSET_URI . '/exove_news.css',
                 [],
-                '1',
+                static::get_theme_asset_mod_time( 'exove_news.css' ),
                 'all'
+            );
+
+            \wp_enqueue_script(
+                'exove-js',
+                DPT_ASSET_URI . '/exove_news.js',
+                [ 'jquery', 'vendor-js' ],
+                static::get_theme_asset_mod_time( 'exove_news.js' ),
+                true
             );
         }
 

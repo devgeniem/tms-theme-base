@@ -2,6 +2,8 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+import 'styles/exove.scss';
+
 /**
  * Exove news JS controller.
  */
@@ -12,7 +14,7 @@ const $ = jQuery; // eslint-disable-line no-unused-vars
 /**
  * Class ExoveNews
  */
-export default class ExoveNews {
+class ExoveNews {
 
     /**
      * Cache dom elements for use in the class's methods
@@ -24,39 +26,36 @@ export default class ExoveNews {
     }
 
     /**
-     * Remove empty html elements
+     * Modify news elements.
      *
      * @return {void}
      */
-    removeEmptyHtmlElements() {
+    modifyNewsElements() {
         if ( ! this.exoveContent.length ) {
             return;
         }
 
-        this.exoveContent.find( 'a, br' ).each( function() {
-            if ( $.trim( $( this ).text() ) === '' && ! $( this ).hasClass( 'anchor-link' ) ) {
-                $( this ).remove();
-            }
+        this.exoveContent.find( '.process-accordion__heading, .accordion__heading' ).each( function() {
+            $( this ).addClass( 'js-toggle' );
         } );
 
-        this.exoveContent.find( 'p' ).each( function() {
-            if ( $( this ).is( ':empty' ) ) {
-                $( this ).remove();
-            }
-        } );
-
-        this.exoveContent.find( '.process-accordion__heading' ).each( function() {
-            $(this).addClass('js-toggle');
+        this.exoveContent.find( 'use' ).each( function() {
+            const xlinkHref = $( this ).attr( 'xlink:href' );
+            $( this ).attr( 'xlink:href', `https://staging.tampere.fi${xlinkHref}` );
         } );
     }
 
     /**
-     * Run when the document is ready.
+     * Constructor
      *
      * @return {void}
      */
-    docReady() {
-        this.cache();
-        this.removeEmptyHtmlElements();
+    constructor() {
+        document.addEventListener( 'DOMContentLoaded', ( e ) => {
+            this.cache();
+            this.modifyNewsElements();
+        } );
     }
 }
+
+new ExoveNews();

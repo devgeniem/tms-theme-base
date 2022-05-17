@@ -1,0 +1,35 @@
+.icon-field-group {
+    @include word-wrap;
+  
+    display: grid;
+    gap: $space-m;
+    grid-template-columns: $icon-small 1fr;
+  
+    &__icon {
+      color: clr(primary);
+      height: $icon-small;
+      width: $icon-small;
+  
+      &--location {
+        height: $icon-medium;
+      }
+    }
+  
+    &__content {
+      margin-top: -1px;
+  
+      @include large {
+        margin-top: -4px;
+      }
+  
+      // For Drupal
+      a {
+        display: block;
+      }
+  
+      .field + .field {
+        margin-top: $space-m;
+      }
+    }
+  }
+  

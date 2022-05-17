@@ -32,6 +32,7 @@ const entryPoints = {
     theme_paahde: [ `${ wpThemePath }/assets/scripts/theme-paahde.js` ],
     theme_kokemus: [ `${ wpThemePath }/assets/scripts/theme-kokemus.js` ],
     theme_neutraali: [ `${ wpThemePath }/assets/scripts/theme-neutraali.js` ],
+    exove_news: [ `${ wpThemePath }/assets/scripts/exove-news.js` ],
 };
 
 // All loaders to use on assets.

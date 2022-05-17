@@ -1,0 +1,175 @@
+.cta {
+    $base_class: &;
+  
+    background-color: clr(primary);
+    color: clr(text-inverse);
+    position: relative;
+  
+    @include large-down {
+      @include breakout($gutter-mobile);
+    }
+  
+    @include large {
+      @include breakout(0);
+    }
+  
+    &__content-wrapper {
+      @include centered-content($max-width: $max-width, $use-padding: false);
+  
+      padding: $gutter-large $gutter-medium;
+  
+      @include large {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(auto-fit, minmax(calc(100% / 3), 1fr));
+        padding: $gutter-large;
+        justify-content: space-between;
+      }
+  
+      @include xl {
+        padding: $gutter-large $gutter-default;
+      }
+    }
+  
+    &__heading {
+      @include word-wrap;
+  
+      font-size: $font-20;
+      font-weight: $font-weight-bold;
+      margin-bottom: $space-m;
+  
+      @include large {
+        font-size: $font-24;
+        margin-top: -4px;
+        margin-right: $space-xl;
+        margin-bottom: 0;
+      }
+    }
+  
+    &__content {
+      @include word-wrap;
+  
+      font-size: $font-18;
+      margin-bottom: $space-l;
+  
+      @include large {
+        margin-bottom: 0;
+      }
+  
+      // WYSIWYG links
+      a {
+        @include link-inherit;
+  
+        text-underline-offset: 2px;
+      }
+  
+      // Drupal
+      p {
+        margin: 0;
+      }
+    }
+  
+    &__links {
+      --c-focus: #{clr(text-inverse)};
+  
+      @include large {
+        margin-left: auto;
+        padding-left: $space-xl;
+      }
+    }
+  
+    // Variations
+    &--only-links {
+      @include page-element-spacer;
+  
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+  
+      &::after {
+        content: none;
+      }
+  
+      #{$base_class}__content-wrapper {
+        display: block;
+        margin: 0;
+        max-width: none;
+        padding: 0;
+      }
+  
+      #{$base-class}__links {
+        @include page-element-spacer;
+  
+        --c-focus: #{clr(primary)};
+  
+        margin-left: 0;
+        max-width: max-content;
+        padding-left: 0;
+      }
+    }
+  
+    .layout-container--with-sidebar & {
+      &:not(#{$base-class}--only-links):not(#{$base-class}--accordion-content-view-mode) {
+        @include large {
+          margin-left: $gutter-sidebar-content * (-1);
+          margin-right: $gutter-sidebar-content * (-1);
+        }
+      }
+  
+      &:not(#{$base-class}--only-links) {
+        #{$base-class}__content-wrapper {
+          max-width: none;
+  
+          @include large {
+            column-gap: $gutter-large;
+            grid-auto-flow: row;
+            grid-template-columns: minmax(320px, 1fr) 2fr;
+            padding-right: $gutter-sidebar-content;
+            padding-left: $gutter-sidebar-content;
+            row-gap: $gutter-small;
+          }
+        }
+  
+        #{$base-class}__heading {
+          @include large {
+            margin-right: 0;
+          }
+        }
+  
+        #{$base-class}__content {
+          @include large {
+            margin-right: 0;
+          }
+        }
+  
+        #{$base-class}__links {
+          grid-column-start: 2;
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+  
+      &#{$base-class}--accordion-content-view-mode {
+        #{$base-class}__content-wrapper {
+          @include large {
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: $gutter-small;
+          }
+        }
+      }
+    }
+  
+    &--accordion-content-view-mode {
+      @include accordion-content-spacer;
+  
+      margin-left: 0;
+      margin-right: 0;
+  
+      &#{$base-class}--only-links {
+        #{$base-class}__links {
+          @include accordion-content-spacer;
+        }
+      }
+    }
+  }
+  

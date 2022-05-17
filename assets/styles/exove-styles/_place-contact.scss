@@ -1,0 +1,61 @@
+.place-contact {
+    @include page-element-spacer;
+  
+    border: $border-contact;
+    font-size: $font-14;
+    padding: $space-s $space-xs;
+  
+    @include large {
+      font-size: $font-18;
+      padding: $space-xl;
+    }
+  
+    &__heading-container {
+      position: relative;
+      width: fit-content;
+    }
+  
+    &__name {
+      margin-bottom: $space-m;
+    }
+  
+    &__name-link {
+      @include link(clr(text), clr(text), $underline-offset: 0);
+  
+      text-underline-position: under;
+      text-decoration-color: clr(accent-tertiary);
+      text-decoration-thickness: 2px;
+    }
+  
+    &__icon {
+      position: absolute;
+      right: $space-l * (-1);
+      bottom: -6px;
+      height: $icon-xs;
+      width: $icon-xs;
+    }
+  
+    &__two-column-container {
+      margin-top: $space-l;
+  
+      @include large {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $gutter-large;
+      }
+    }
+  
+    &__additional-content {
+      margin-top: $space-l;
+  
+      @include large {
+        font-size: $font-16;
+      }
+    }
+  
+    &--accordion-content-view-mode,
+    .paragraph--view-mode-accordion-content-view-mode & {
+      @include accordion-content-spacer;
+    }
+  }
+  

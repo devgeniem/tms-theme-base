@@ -8,6 +8,7 @@
     "@accessible360/accessible-slick": "^1.0.1",
     "@babel/polyfill": "^7.12.1",
     "@wordpress/keycodes": "^3.3.1",
+    "breakpoint-sass": "^2.7.1",
     "hyphenopoly": "^3.4.0",
     "indicate": "^2.4.0",
     "micromodal": "^0.4.6",

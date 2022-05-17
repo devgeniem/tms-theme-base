@@ -1,0 +1,1342 @@
+// Color variables - it is better to use the colors in
+// components/00-base/01-colors/_01-colors-used.scss rather than
+// these colors directly.
+//
+// Color names taken from https://chir.ag/projects/name-that-color.
+
+// Grayscale
+$color-white: #fff;
+$color-concrete: #f2f2f2;
+$color-mercury: #e5e5e5;
+$color-silver: #ccc;
+$color-gray: #888;
+$color-dove-gray: #666;
+$color-tundora: #4c4c4c;
+$color-mine-shaft: #333;
+$color-black: #000;
+
+// Project
+$color-warm-red: #c83e36;
+$color-pink: #cb4a6c;
+$color-pink-light: #f7e4e9;
+$color-dark-blue: #29549a;
+$color-light-blue: #39a7d7;
+$color-light-green: #abc872;
+$color-lighter-light-green: #eaf1db;
+$color-yellow: #f4d240;
+$color-dark-red: #ae1e20;
+$color-light-red: #eb5e58;
+$color-lilac: #a5407b;
+$color-darkest-blue: #22437b;
+$color-blue-steel: #0074a4;
+$color-light-blue-dream: #88bce7;
+$color-light-blue-water: #91c9ea;
+$color-dark-green: #397368;
+$color-light-green-petrol: #8cc1b3;
+$color-pale-light-green-petrol: #e2f0ec;
+$color-yellow-heat: #e8b455;
+$color-yellow-heat-light: #f9ecd4;
+$color-light-yellow: #f8de79;
+$color-dark-gray: #3c3c3b;
+$color-middle-gray: #686872;
+$color-light-blue-gray: #e5eef8;
+$color-light-gray: #f1eeeb;
+$color-light-middle-gray: #d8d8d8;
+$color-green: #418155;
+$color-red-berry: #ad3963;
+$color-beige: #f8cb9c;
+$color-blue-gray: #8ab3bf;
+
+// Others
+$color-warning: #f9fb93;
+$color-error: #fbe3e4;
+$color-status: #cfefc2;
+
+// Color Usage variables - use these (via the `clr` function below)
+// rather than color variables directly.
+$defaultColors: (
+  text: $color-black,
+  text-secondary: $color-dark-gray,
+  text-inverse: $color-white,
+  background: $color-white,
+  background-transparent: rgba($color-white, 0.4),
+  background-secondary: $color-light-green-petrol,
+  primary: $color-darkest-blue,
+  primary-transparent: rgba($color-darkest-blue, 0.9),
+  primary-light: $color-dark-blue,
+  secondary: $color-warm-red,
+  accent: $color-blue-steel,
+  accent-transparent: rgba($color-blue-steel, 0.9),
+  accent-secondary: $color-light-gray,
+  accent-secondary-transparent: rgba($color-light-gray, 0.8),
+  accent-tertiary: $color-light-blue-water,
+  accent-tertiary-transparent: rgba($color-light-blue-water, 0.8),
+  muted: $color-light-blue-gray,
+  muted-transparent: rgba($color-light-blue-gray, 0.8),
+  contact-accent: $color-middle-gray,
+  events: $color-pale-light-green-petrol,
+  involvement: $color-light-green-petrol,
+  involvement-secondary: $color-pale-light-green-petrol,
+  inactive: $color-light-gray,
+  tabbed-container-background: $color-light-green-petrol,
+  notice: $color-dark-red,
+  notice-secondary: $color-middle-gray,
+  border: $color-silver,
+  border-transparent: rgba($color-black, 0.2),
+  image-caption: rgba($color-light-blue-gray, 0.5),
+  process-accordion-inactive-circle: $color-middle-gray,
+  process-accordion-inactive-line: $color-light-middle-gray,
+  facet: $color-dark-red,
+  dark-button-background: $color-darkest-blue,
+  verified-user: $color-light-green,
+  form-accent: $color-light-gray,
+  form-border: $color-middle-gray,
+  form-icon: $color-dark-gray,
+  focus: $color-darkest-blue,
+  warning: $color-warning,
+  error: $color-error,
+  status: $color-status,
+);
+
+// Minisite palettes
+// These can be used via the clr() function.
+$palette-1: (
+  secondary: $color-darkest-blue,
+  accent: $color-warm-red,
+  accent-tertiary: $color-light-green,
+  accent-tertiary-transparent: rgba($color-light-green, 0.8),
+  background-secondary: $color-light-red,
+  primary-text-on-background-secondary: $color-black,
+  accent-secondary: $color-lighter-light-green,
+  accent-secondary-transparent: rgba($color-lighter-light-green, 0.8),
+  muted: $color-lighter-light-green,
+  muted-transparent: rgba($color-lighter-light-green, 0.8),
+  alternative-secondary: $color-warm-red,
+  alternative-accent: $color-darkest-blue,
+);
+
+$palette-2: (
+  secondary: $color-blue-steel,
+  accent: $color-red-berry,
+  accent-tertiary: $color-light-blue,
+  accent-tertiary-transparent: rgba($color-light-blue, 0.8),
+  primary-text-on-tertiary: $color-black,
+  background-secondary: $color-light-blue-water,
+  muted: $color-light-gray,
+  muted-transparent: rgba($color-light-gray, 0.8),
+  dark-button-background: $color-blue-steel,
+);
+
+$palette-3: (
+  secondary: $color-dark-green,
+  accent: $color-green,
+  accent-tertiary: $color-light-green-petrol,
+  accent-tertiary-transparent: rgba($color-light-green-petrol, 0.8),
+  background-secondary: $color-yellow-heat,
+  accent-secondary: $color-lighter-light-green,
+  accent-secondary-transparent: rgba($color-lighter-light-green, 0.8),
+  muted: $color-lighter-light-green,
+  muted-transparent: rgba($color-lighter-light-green, 0.8),
+  dark-button-background: $color-dark-green,
+);
+
+$palette-4: (
+  secondary: $color-warm-red,
+  accent: $color-darkest-blue,
+  background-secondary: $color-yellow-heat,
+  accent-secondary: $color-light-blue-gray,
+  accent-secondary-transparent: rgba($color-light-blue-gray, 0.8),
+  muted: $color-yellow-heat-light,
+  muted-transparent: rgba($color-yellow-heat-light, 0.8),
+  dark-button-background: $color-warm-red,
+);
+
+$palette-5: (
+  secondary: $color-yellow-heat,
+  accent: $color-dark-green,
+  accent-tertiary: $color-light-green-petrol,
+  accent-tertiary-transparent: rgba($color-light-green-petrol, 0.8),
+  accent-secondary: $color-yellow-heat-light,
+  accent-secondary-transparent: rgba($color-yellow-heat-light, 0.8),
+  muted: $color-yellow-heat-light,
+  muted-transparent: rgba($color-yellow-heat-light, 0.8),
+  dark-button-background: $color-yellow-heat,
+);
+
+$palette-6: (
+  secondary: $color-yellow-heat,
+  accent: $color-light-red,
+  accent-tertiary: $color-yellow-heat,
+  accent-tertiary-transparent: rgba($color-yellow-heat, 0.8),
+  background-secondary: $color-light-blue-water,
+  dark-button-background: $color-yellow-heat,
+);
+
+$palette-7: (
+  secondary: $color-light-green-petrol,
+  accent: $color-green,
+  accent-tertiary: $color-light-green,
+  accent-tertiary-transparent: rgba($color-light-green, 0.8),
+  background-secondary: $color-blue-steel,
+  primary-text-on-background-secondary: $color-white,
+  accent-secondary: $color-yellow-heat-light,
+  accent-secondary-transparent: rgba($color-yellow-heat-light, 0.8),
+  muted: $color-lighter-light-green,
+  muted-transparent: rgba($color-lighter-light-green, 0.8),
+  dark-button-background: $color-light-green-petrol,
+);
+
+$palette-8: (
+  secondary: $color-light-blue-water,
+  accent: $color-warm-red,
+  accent-tertiary: $color-pink,
+  accent-tertiary-transparent: rgba($color-pink, 0.8),
+  primary-text-on-tertiary: $color-black,
+  background-secondary: $color-dark-blue,
+  primary-text-on-background-secondary: $color-white,
+  accent-secondary: $color-pink-light,
+  accent-secondary-transparent: rgba($color-pink-light, 0.8),
+  muted: $color-pink-light,
+  muted-transparent: rgba($color-pink-light, 0.8),
+  dark-button-background: $color-light-blue-water,
+);
+
+$minisitePalettes: (
+  $palette-1,
+  $palette-2,
+  $palette-3,
+  $palette-4,
+  $palette-5,
+  $palette-6,
+  $palette-7,
+  $palette-8,
+);
+
+// Only meant for displaying all available project colors in Storybook.
+$projectColors: (
+  atmosphere: $color-warm-red,
+  change: $color-pink,
+  change-light: $color-pink-light,
+  work: $color-dark-blue,
+  home: $color-light-blue,
+  experience: $color-light-green,
+  experience-light: $color-lighter-light-green,
+  idea: $color-yellow,
+  dark-brick: $color-dark-red,
+  brick: $color-light-red,
+  violet: $color-lilac,
+  dark-water: $color-darkest-blue,
+  steel: $color-blue-steel,
+  dream: $color-light-blue-dream,
+  water: $color-light-blue-water,
+  spruce: $color-dark-green,
+  petrol: $color-light-green-petrol,
+  light-petrol: $color-pale-light-green-petrol,
+  light-sand: $color-light-gray,
+  heat: $color-yellow-heat,
+  heat-light: $color-yellow-heat-light,
+  fade: $color-light-yellow,
+  midgray: $color-middle-gray,
+  tuatara: $color-dark-gray,
+  link-water: $color-light-blue-gray,
+  pampas: $color-light-gray,
+  black: $color-black,
+  white: $color-white,
+  silver: $color-silver,
+  goblin: $color-green,
+  berry: $color-red-berry,
+);
+
+///////////
+// Usage //
+///////////
+// This color function makes it easy for you to call a color by it's functional
+// name anywhere you need.
+// E.g. to use the `text` color, you type: `color: clr(text);`
+//
+// How it works:
+// This function works in conjunction with the dynamic css custom properties
+// declarations below. The item called in the function is prefixed with
+// `var(--c-` to call the custom property for that color.
+// E.g. `color: clr(text);` will return `color: var(--c-text);`
+// Note: (The `--c-` is added via the `@each` loops below)
+@function clr($colorChoice, $fallback: null) {
+  @if $fallback {
+    @return var(--c-#{$colorChoice}, #{$fallback});
+  } @else {
+    @return var(--c-#{$colorChoice});
+  }
+}
+
+// Dynamically set swatch text color based on the lightness of the background color
+@function set-color(
+  $color,
+  $text-primary: text,
+  $text-secondary: text-inverse,
+  $inversed: false
+) {
+  $lightness_check: lightness($color) > 50;
+
+  @if ($inversed) {
+    $lightness_check: lightness($color) < 50;
+  }
+
+  @if ($lightness_check) {
+    @return clr($text-primary);
+  } @else {
+    @return clr($text-secondary);
+  }
+}
+
+// Dynamically check if color is light
+@function is-light($color) {
+  @return lightness($color) > 50;
+}
+
+// Create CSS custom properties
+// This is what powers the built-in OS light/dark mode switching.
+// For each color variable above (e.g. `text` and `background`) a css custom
+// property will be created. (e.g. `--c-text:` and `--c-background:`).
+//
+// The first `@each` below will create a custom property for each item in the
+// `$defaultColors` map. So put all of your default colors there.
+:root {
+  // Create custom properties for default colors
+  @each $name, $color in $defaultColors {
+    --c-#{$name}: #{$color};
+  }
+
+  // Create custom properties for minisite palette colors
+  @each $palette in $minisitePalettes {
+    $i: index($minisitePalettes, $palette);
+    .palette-#{$i} {
+      @each $name, $color in $palette {
+        --c-#{$name}: #{$color};
+      }
+    }
+  }
+}
+
+/* Body */
+$body-bg-color: $color-white;
+$body-color: $color-black;
+
+/* grid */
+$grid-background-color: $color-dove-gray;
+
+/* text */
+$color-body: $color-black;
+$color-heading: inherit;
+$color-heading-h1: clr(primary);
+$color-placeholder: $color-dove-gray;
+
+/* link */
+$color-link: $color-dark-blue;
+$color-link-hover: $color-black;
+$color-link-more: $color-black;
+
+/* buttons */
+$button-default-bg-color: $color-dark-blue;
+$button-default-bg-color-hover: $color-black;
+$button-default-color: $color-white;
+$button-default-color-hover: $color-white;
+$button-alt-bg-color: $color-dove-gray;
+$button-alt-bg-color-hover: $color-black;
+$button-alt-color: $color-white;
+$button-alt2-bg-color: $color-black;
+$button-alt2-color: $color-white;
+$button-alt2-bg-color-hover: $color-dove-gray;
+
+/* border */
+$color-border: $color-silver;
+
+/* table */
+$color-table-bg: $color-silver;
+$color-table-row-odd-bg: $color-white;
+$color-table-border: $color-dark-blue;
+$color-table-cell: $color-black;
+
+
+
+/* forms */
+$input-placeholder-color: clr(form-border);
+
+/* tabs */
+$tab-color-bg: $color-white;
+$tab-color: $color-dark-blue;
+$tab-color-hover: $color-white;
+$tab-color-bg-hover: $color-dark-blue;
+
+/* breadcrumbs */
+$breadcrumb-color: $color-black;
+$breadcrumb-hover-color: $color-dark-blue;
+
+/* menu */
+$main-menu-open-bg-color: $color-white;
+
+/* menu link */
+$main-menu-link-color: $color-mine-shaft;
+$main-menu-link-color-desktop: $color-black;
+$main-menu-link-color-desktop-active: $color-white;
+$main-menu-sublink-color: $color-mine-shaft;
+$main-menu-sublink-color-desktop: $color-silver;
+$social-menu-link-color: $color-mine-shaft;
+
+/* menu sublinks */
+$main-menu-sub-bg-color: $color-silver;
+$main-menu-sub-color-desktop: $color-white;
+$main-menu-sub-bg-color-desktop: $color-black;
+$main-menu-sub-expand-bg-color: $color-dove-gray;
+$main-menu-sub-expand-color: $color-white;
+$main-menu-sub-expand-opened-bg-color: $color-dove-gray;
+$main-menu-sub-expand-opened-color: $color-silver;
+$main-menu-sub-2-bg-color: $color-silver;
+
+/* accordion */
+$accordion-heading-bg-color: $color-white;
+$accordion-heading-color: $color-mine-shaft;
+$accordion-heading-color-active: $color-dove-gray;
+
+/* card */
+$colorful-card-1-color-name: primary;
+$colorful-card-2-color-name: secondary;
+$colorful-card-3-color-name: accent;
+
+/* pager */
+$pager-arrow-color: $color-silver;
+$pager-arrow-color-active: $color-dark-blue;
+$pager-color: $color-darkest-blue;
+$pager-color-active: $color-white;
+$pager-bg-color-active: $color-dark-blue;
+
+/* footer */
+$footer-background-color: $color-black;
+$footer-link-color: $color-white;
+
+/* templates */
+$place-holder-color: $color-dove-gray;
+
+/* drupal */
+$node-preview-container-bg-color: $color-white;
+
+// These styles only affect the colors "Usage" page in the component library
+.cl-colors {
+    padding: 16px;
+  }
+  
+  .cl-colors__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 32px;
+    padding: 0;
+  }
+  
+  .cl-colors__item {
+    list-style: none;
+    padding: 16px 32px;
+    transition: all 0.4s;
+    flex: 1 1 20%;
+    min-width: 150px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  // Style default color swatches
+  @each $name, $color in $defaultColors {
+    .cl-colors__item--default {
+      &-#{$name} {
+      background-color: clr($name);
+      color: set-color($color);
+      }
+    }
+  }
+  
+  // Style project palette color swatches
+  @each $name, $color in $projectColors {
+    .cl-colors__item--project {
+      &-#{$name} {
+      background-color: $color;
+      color: set-color($color);
+      }
+    }
+  }
+
+/**
+ * General Variables
+ * Note: colors should go into
+ * components/_patterns/00-base/global/01-colors/_color-vars.scss
+ * and breakpoint related vars into
+ * components/_patterns/00-base/_breakpoints.scss
+ */
+
+/**
+ * Typography
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+ /* fonts */
+ $font-body: 'Open Sans', 'Arial', sans-serif;
+ $font-heading: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+ 
+ /* font sizes */
+ $font-9: 0.5625rem;
+ $font-12: 0.75rem;
+ $font-14: 0.875rem;
+ $font-15: 0.9375rem;
+ $font-16: 1rem;
+ $font-17: 1.0625rem;
+ $font-18: 1.125rem;
+ $font-20: 1.25rem;
+ $font-21: 1.3125rem;
+ $font-22: 1.375rem;
+ $font-24: 1.5rem;
+ $font-27: 1.6875rem;
+ $font-28: 1.75rem;
+ $font-32: 2rem;
+ $font-36: 2.25rem;
+ $font-40: 2.5rem;
+ $font-42: 2.625rem;
+ $font-48: 3rem;
+ $font-56: 3.5rem;
+ $font-60: 3.75rem;
+ $font-80: 5rem;
+ 
+ $body-font-size: $font-20;
+ $body-font-size-mobile: $font-16;
+ 
+ /* Font weight */
+ $font-weight-regular: 400;
+ $font-weight-medium: 500;
+ $font-weight-semi-bold: 600;
+ $font-weight-bold: 700;
+ $font-weight-extra-bold: 800;
+ $font-weight-black: 900;
+ 
+ /* Line heights */
+ $line-height-base: 1.5;
+ 
+ $h1-line-height: 1.13;
+ $h1-line-height--mobile: 1.25;
+ $h2-line-height: 1.28;
+ $h2-line-height--mobile: 1.33;
+ $h3-line-height: 1.5;
+ $h3-line-height--mobile: 1.33;
+ $h4-line-height: $line-height-base;
+ 
+ $contact-card-line-height: 1.33;
+ $contact-card-line-height--mobile: 1.6;
+ 
+ /* headings */
+ $h1-font-size: $font-28;
+ $h1-font-size-desktop: $font-42;
+ $h2-font-size: $font-22;
+ $h2-font-size-desktop: $font-28;
+ $h3-font-size: $font-18;
+ $h3-font-size-desktop: $font-22;
+ $h4-font-size: $font-16;
+ $h4-font-size-desktop: $font-20;
+ 
+ /**
+  * Spacings
+  */
+ $space-xxs: 4px;
+ $space-xs: 8px;
+ $space-xs-plus: 12px;
+ $space-s: 16px;
+ $space-m: 20px;
+ $space-m-plus: 24px;
+ $space-l: 32px;
+ $space-l-plus: 40px;
+ $space-xl: 48px;
+ $space-xxl: 72px;
+ $space-xxxl: 100px;
+ 
+ $larger-link-surface-icon-spacing-desktop: $space-xl;
+ 
+ /* gutters */
+ $gutter-large: 60px;
+ $gutter-medium-plus: $space-xl;
+ $gutter-medium: $space-l;
+ $gutter-small: $space-m;
+ $gutter-xs: $space-xs;
+ 
+ $gutter-mobile: $space-s;
+ $gutter-default: $gutter-large;
+ $gutter-sidebar-content: $gutter-medium-plus;
+ 
+ /* icons */
+ $icon-xs: 16px;
+ $icon-xs-plus: 20px;
+ $icon-small: 24px;
+ $icon-medium: 32px;
+ $icon-medium-plus: 40px;
+ $icon-large-minus: 56px;
+ $icon-large: 72px;
+ $icon-xl: 83px;
+ 
+ $icon-default: $icon-small;
+ $sidebar-menu-icon-size: $icon-xs;
+ $sidebar-menu-icon-size--desktop: $icon-small;
+ $listing-link-icon-size--desktop: $icon-small;
+ 
+ /**
+  * Base
+  */
+ 
+ /* shadows */
+ $box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.07);
+ 
+ /* borders */
+ $short-border-width: 75px;
+ $thick-border-width: 2px;
+ $border-default: 1px solid $color-border;
+ $border-2-black: 2px solid $color-black;
+ $border-contact: 2px solid clr(accent-tertiary);
+ $border-form: 2px solid clr(form-border);
+ $border-form-accent: 2px solid clr(form-accent);
+ $border-notice: 2px solid clr(notice);
+ $border-thin-secondary: 1px solid clr(secondary);
+ $border-thin-inverse: 1px solid clr(background);
+ $border-thick-default: $thick-border-width solid clr(border);
+ $border-thick-primary: $thick-border-width solid clr(primary);
+ $border-thick-secondary: $thick-border-width solid clr(secondary);
+ $border-thick-light-blue: $thick-border-width solid clr(accent-tertiary);
+ $border-thick-inverse: $thick-border-width solid clr(background);
+ $border-thick-transparent: $thick-border-width solid transparent;
+ $border-thick-involvement: $thick-border-width solid clr(involvement-secondary);
+ $border-thick-general-contact: $thick-border-width solid clr(accent-secondary);
+ 
+ /* buttons */
+ $small-button-padding: 12px;
+ $small-button-size: 40px;
+ 
+ /* text */
+ $h1-margin: $gutter-large 0 $gutter-medium 0;
+ $h1-margin--mobile: $gutter-medium 0 $gutter-small 0;
+ $heading-margin-bottom-default: 0 0 $space-xs;
+ $text-paragraph-margin-bottom: $space-l;
+ $text-paragraph-margin-bottom--small: $space-m;
+ 
+ /* images */
+ $figure-caption-font-style: italic;
+ $site-logo-max-width: 130px;
+ $site-logo-max-width--desktop: 187px;
+ 
+ /* sidebar */
+ $sidebar-width: 28%;
+ $main-width-with-sidebar: calc(100% - (#{$sidebar-width} + #{$gutter-sidebar-content}));
+ 
+ /* content */
+ $article-max-width: 858px;
+ $article-content-max-width: calc(#{$article-max-width} + (#{$gutter-default} * 2));
+ $article-content-max-width--with-sidebar: calc(#{$article-max-width} + #{$gutter-default});
+ $basic-content-page-max-width: 825px;
+ $basic-content-max-width: calc(#{$basic-content-page-max-width} + (#{$gutter-default} * 2));
+ $basic-content-page-max-width--with-sidebar: 875px;
+ $basic-content-max-width--with-sidebar: calc(#{$basic-content-page-max-width--with-sidebar} + #{$gutter-default});
+ 
+ /*
+  * Forms
+  *
+ **/
+ 
+ $form-list-item-spacing: $space-m;
+ $form-item-spacing: $space-m;
+ $form-item-spacing--large: $space-l-plus;
+ $form-item-description-margin-top: $space-xs;
+ $form-item-max-width: 32rem;
+ 
+ :root {
+   --basic-component-max-width: 1440px;
+   --text-content-max-width: 748px;
+   --article-content-max-width: #{$article-content-max-width};
+   --basic-content-max-width: #{$basic-content-max-width};
+   --field-label-font-weight: #{$font-weight-bold};
+   --focus-outline-offset: 3px;
+ }
+ 
+ /**
+ * Breakpoint Configuration
+ * @see https://github.com/Team-Sass/breakpoint/wiki
+ *
+ */
+
+/* Global Breakpoints */
+
+/**
+ * Avoid using in favor of atomic, content-specific, breakpoints.
+ * These should be used for generic code, like layouts and typography, only.
+ */
+$xs: 20rem;
+$xs-down: 19.99rem;
+$small: 30rem;
+$small-down: 29.99rem;
+$medium: 45rem;
+$medium-down: 44.99rem;
+$large: 61.56rem;
+$large-down: 61.559rem;
+$xl: 90rem;
+$xl-down: 89.99rem;
+
+/**
+ * The max-width breakpoint is used when the design should be applied at whatever the
+ * largest breakpoint is regardless of actual pixel value. e.g. removing outer margin on body wrapper
+ */
+$max-width: $xl;
+$main-menu-width: 83rem;
+$main-menu-width-down: 82.99rem;
+$picture-mosaic-breakpoint: 70rem;
+$picture-mosaic-breakpoint-down: 69.99rem;
+
+/**
+ * Mixin - xs Breakpoint
+ * Allows easier @include xs {} syntax
+ */
+@mixin xs {
+  @include breakpoint($xs) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - small Breakpoint
+ * Allows easier @include small {} syntax
+ */
+@mixin small {
+  @include breakpoint($small) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - medium Breakpoint
+ * Allows easier @include medium {} syntax
+ */
+@mixin medium {
+  @include breakpoint($medium) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - large Breakpoint
+ * Allows easier @include large {} syntax
+ */
+@mixin large {
+  @include breakpoint($large) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - xl Breakpoint
+ * Allows easier @include xl {} syntax
+ */
+@mixin xl {
+  @include breakpoint($xl) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - max-width Breakpoint
+ * Allows easier @include max-width {} syntax
+ */
+@mixin max-width {
+  @include breakpoint($max-width) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - main-menu-width Breakpoint
+ * Allows easier @include main-menu-width {} syntax
+ */
+ @mixin main-menu-breakpoint {
+  @include breakpoint($main-menu-width) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - small down Breakpoint
+ * Allows easier @include small-down {} syntax
+ */
+@mixin small-down {
+  @include breakpoint(0 $small-down) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - medium down Breakpoint
+ * Allows easier @include medium-down {} syntax
+ */
+@mixin medium-down {
+  @include breakpoint(0 $medium-down) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - large down Breakpoint
+ * Allows easier @include large-down {} syntax
+ */
+@mixin large-down {
+  @include breakpoint(0 $large-down) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - xl down Breakpoint
+ * Allows easier @include xl-down {} syntax
+ */
+@mixin xl-down {
+  @include breakpoint(0 $xl-down) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - main-menu-width-down Breakpoint
+ * Allows easier @include main-menu-width-down {} syntax
+ */
+ @mixin main-menu-breakpoint-down {
+  @include breakpoint(0 $main-menu-width-down) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - Picture Mosaic Breakpoint
+ * Allows easier @include picture-mosaic-breakpoint {} syntax
+ */
+ @mixin picture-mosaic-breakpoint {
+  @include breakpoint($picture-mosaic-breakpoint) {
+    @content;
+  }
+}
+
+/**
+ * Mixin - Picture Mosaic Down Breakpoint
+ * Allows easier @include picture-mosaic-breakpoint-down {} syntax
+ */
+ @mixin picture-mosaic-breakpoint-down {
+  @include breakpoint(0 $picture-mosaic-breakpoint-down) {
+    @content;
+  }
+}
+
+/* Mixins */
+
+/**
+ * Mixin - Clearfix.
+ * Adds clearfix based on http://bourbon.io/docs/#clearfix
+ * use example =   @include cleafix
+ */
+
+ @mixin clearfix {
+    &::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+  
+  /**
+   * Mixin - Visually hidden
+   */
+  @mixin visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+  }
+  
+  /*
+   * Mixin - Dynamic color
+   * Sets color based on the background color name given as parameter.
+   *
+   * Optionally can be given a property name, primary and secondary text colors, and flags for
+   * doing the opposite of the default behavior and skipping setting either the main property or focus color.
+   */
+  @mixin dynamic-color($color-name, $property: color, $text-primary: text, $text-secondary: text-inverse, $focus-primary: primary, $inversed: false, $set-main-property: true, $set-focus-color: true) {
+    @if $set-focus-color {
+      --c-focus: #{set-color(map-get($defaultColors, $color-name), $focus-primary, $text-secondary, $inversed: $inversed)};
+    }
+  
+    @if $set-main-property {
+      #{$property}: set-color(map-get($defaultColors, $color-name), $text-primary, $text-secondary, $inversed: $inversed);
+    }
+  
+    @each $palette in $minisitePalettes {
+      $palette-color-value: map-get($palette, $color-name);
+  
+      @if ($palette-color-value) {
+        $i: index($minisitePalettes, $palette);
+  
+        .palette-#{$i} & {
+          @if $set-focus-color {
+            --c-focus: #{set-color($palette-color-value, $focus-primary, $text-secondary, $inversed: $inversed)};
+          }
+  
+          @if $set-main-property {
+            #{$property}: set-color($palette-color-value, $text-primary, $text-secondary, $inversed: $inversed);
+          }
+        }
+      }
+    }
+  }
+  
+  /*
+   * Use this on the outer wrapper of page-level elements.
+   * It ensures consistent spacing between elements on the page.
+   */
+  @mixin page-element-spacer($property: 'margin') {
+    #{$property}-top: $gutter-medium;
+    #{$property}-bottom: $gutter-medium;
+  
+    @include large {
+      #{$property}-top: $gutter-large;
+      #{$property}-bottom: $gutter-large;
+    }
+  }
+  
+  @mixin text-element-spacer {
+    margin-top: $gutter-small;
+    margin-bottom: $gutter-small;
+  
+    @include large {
+      margin-top: $gutter-medium;
+      margin-bottom: $gutter-medium;
+    }
+  }
+  
+  @mixin accordion-content-spacer {
+    margin-top: $gutter-small;
+    margin-bottom: 0;
+  
+    @include large {
+      margin-top: $gutter-medium;
+    }
+  }
+  
+  @mixin form-item-spacing {
+    margin-top: $form-item-spacing;
+    margin-bottom: $form-item-spacing;
+  
+    @include large {
+      margin-top: $form-item-spacing--large;
+      margin-bottom: $form-item-spacing--large;
+    }
+  }
+  
+  /**
+   * Mixin - Wrapper
+   * Outer container mixin for large screens
+   */
+  @mixin wrapper($container-max-width: $max-width, $outer-container-break: $small, $v-margin: 0, $v-padding: 0, $h-padding: $space-s, $h-padding-large: $h-padding) {
+    margin: #{$v-margin} auto;
+    max-width: #{$container-max-width};
+    padding: #{$v-padding} #{$h-padding};
+    width: 100%;
+  
+    @include breakpoint($outer-container-break) {
+      padding: #{$v-padding} #{$h-padding-large};
+    }
+  
+    @include breakpoint($container-max-width) {
+      padding-left: calc(#{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2)));
+      padding-right: calc(#{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2)));
+    }
+  }
+  
+  /**
+   * Use the breakout mixin for elements that should be edge-to-edge
+   * Even when a parent container uses the wrapper mixin
+   */
+  @mixin breakout($v-padding: $space-l) {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  
+    @if $v-padding != 0 {
+      padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
+      padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
+    }
+  }
+  
+  @mixin centered-content($max-width: var(--basic-content-max-width), $h-gutter: $gutter-mobile, $h-gutter-large: $gutter-large, $use-padding: true) {
+    margin: 0 auto;
+    max-width: $max-width;
+  
+    @if $use-padding {
+      padding: 0 $h-gutter;
+  
+      @include large {
+        padding: 0 $h-gutter-large;
+      }
+    }
+  }
+  
+  /* Mixin - Standard Margin */
+  @mixin margin($margin-bottom: $space-s) {
+    margin-bottom: $margin-bottom;
+  }
+  
+  @mixin no-bottom {
+    margin-bottom: 0;
+  }
+  
+  /**
+   * Mixin for converting properties values from pixels to rems
+   * Example:
+   * @include to-rem('width', 200);
+   *
+   * rendered as:
+   * width: 12.5rem;
+   */
+  @mixin to-rem($property, $px-value) {
+    $baseline_px: 16;
+    $baseline_rem: ($baseline_px / 1rem);
+  
+    #{$property}: ($px_value / $baseline_rem);
+  }
+  
+  /* Adding hyphenation or word break when 'hypens' is not supported */
+  @mixin word-wrap() {
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Mixin - Border. */
+  @mixin border($width: 1px, $style: solid, $border-color: $color-border) {
+    border-color: $color-border;
+    border-style: $style;
+    border-width: $width;
+  }
+  
+  /* Mixin - Placeholder */
+  @mixin placeholder($color: $color-placeholder, $font-size: $base-font-size) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #{$color};
+      font-size: $font-size;
+    }
+  
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #{$color};
+      font-size: $font-size;
+    }
+  
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #{$color};
+      font-size: $font-size;
+    }
+  
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #{$color};
+      font-size: $font-size;
+      opacity: 1;
+    }
+  }
+  
+  /* Create a mixin for paragraph styles that can be implemented
+   * in components with other classnames.
+   */
+  @mixin paragraph($margin: 0 0 $text-paragraph-margin-bottom) {
+    margin: #{$margin};
+    max-width: var(--text-content-max-width);
+  }
+  
+  @mixin body-copy {
+    font-family: $font-body;
+    font-size: $body-font-size-mobile;
+    line-height: $line-height-base;
+  
+    @include large {
+      font-size: $body-font-size;
+    }
+  }
+  
+  @mixin summary {
+    font-size: $font-20;
+    font-style: italic;
+    font-weight: $font-weight-semi-bold;
+    max-width: var(--text-content-max-width);
+  
+    @include large {
+      font-size: $font-22;
+    }
+  }
+  
+  @mixin participate-summary {
+    @include page-element-spacer;
+  
+    font-size: $font-18;
+    font-weight: $font-weight-semi-bold;
+    max-width: var(--text-content-max-width);
+  
+  
+    @include large {
+      font-size: $font-22;
+    }
+  }
+  
+  @mixin link($color: clr(primary), $color-hover: clr(text), $underline-offset: 2px) {
+    color: $color;
+    cursor: pointer;
+    text-underline-offset: $underline-offset;
+    text-decoration-thickness: 1px;
+  
+    &:visited {
+      color: $color;
+    }
+  
+    &:active,
+    &:focus,
+    &:hover {
+      color: $color-hover;
+    }
+  }
+  
+  @mixin link-inherit {
+    &:link,
+    &:visited,
+    &:active,
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+  }
+  
+  /* Mixin - list-reset
+   * Reset list item defaults when no margin, padding, list styles needed
+   */
+  @mixin list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @mixin img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Mixin - Transition */
+  @mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+  }
+  
+  /* Resets buttons styles to apply other styles on top */
+  @mixin button-reset() {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  /* Mixin for global image captions */
+  @mixin caption {
+    @include margin();
+  
+    background-color: clr(image-caption);
+    font-family: $font-body;
+    font-size: $font-14;
+    padding: $space-xs;
+  
+    @include large {
+      font-size: $font-18;
+      padding: $space-xs $space-l;
+    }
+  }
+  
+  @mixin rounded-line-accent(
+    $width: $short-border-width,
+    $color: clr(accent),
+  ) {
+    &::after {
+      content: " ";
+      display: block;
+      background-color: $color;
+      border-top: 2px solid $color;
+      border-bottom: 2px solid $color;
+      border-radius: 2px;
+      width: $width;
+      position: absolute;
+      bottom: $space-xxs * (-1);
+  
+      @include large {
+        bottom: $space-s * (-1);
+      }
+    }
+  }
+  
+  @mixin left-border-accent($color: clr(primary)) {
+    &::before {
+      background-color: $color;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 100%;
+    }
+  }
+  
+  @mixin extend-background-color($color: clr(primary)) {
+    &::after {
+      content: "";
+      background-color: $color;
+      margin-left: calc(-50vw + 50%);
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+  
+  // https://css-tricks.com/snippets/css/fluid-typography/
+  @function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  
+  @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+  
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+        font-size: $min-font-size;
+        @media screen and (min-width: $min-vw) {
+          font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+        @media screen and (min-width: $max-vw) {
+          font-size: $max-font-size;
+        }
+      }
+    }
+  }
+  
+  // close icon as white
+  @mixin close-icon-white() {
+    background: url('data:image/svg+xml;utf8,<svg width="22" height="24" viewBox="0 0 22 24" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-rule="nonzero"><path d="m1.15.736 21.557 21.557-1.414 1.414L-.264 2.15z"/><path d="m21.293.736 1.414 1.414L1.15 23.707l-1.414-1.414z"/></g></svg>') no-repeat;
+    background-size:1rem 1rem;
+  }
+  
+  @mixin required-marker {
+    content: "*";
+    color: clr(notice);
+    font-family: $font-body;
+    font-size: $font-20;
+    font-weight: $font-weight-regular;
+    margin-left: $space-xs;
+  }
+  
+  /* Mixin for custom input elements with input and icon inside the label */
+  @mixin custom-input($class, $input-size, $has-round-icon: false) {
+    display: flex;
+    align-items: center;
+    position: relative;
+  
+    * {
+      cursor: pointer;
+    }
+  
+    &__wrapper {
+      @include list-reset;
+  
+      &:not(:first-of-type) {
+        margin-top: $space-m;
+      }
+    }
+  
+    &__input {
+      position: absolute;
+      height: $input-size;
+      width: $input-size;
+      opacity: 0.00001;
+  
+      &:focus,
+      &:hover {
+        ~ #{$class}__content {
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+          text-underline-position: under;
+        }
+      }
+  
+      &:not(:checked) {
+        ~ #{$class}__icon--checked {
+          display: none;
+        }
+      }
+  
+      &.error {
+        ~ #{$class}__icon:not(#{$class}__icon--checked) {
+          background-color: clr(form-accent);
+          color: clr(notice);
+        }
+      }
+    }
+  
+    &__icon {
+      color: clr(form-border);
+      height: $input-size;
+      // The viewport for the input SVG files is not a perfect square.
+      // Setting the icon width to be exactly the same as the height causes clipping on Safari.
+      width: calc(#{$input-size} + 2px);
+  
+      @if $has-round-icon {
+        border-radius: 100%;
+      }
+  
+      &--checked {
+        background-color: transparent;
+        color: clr(form-icon);
+        position: absolute;
+        left: -1px;
+  
+        @if $has-round-icon {
+          padding: $space-xs;
+        } @else {
+          padding: $space-xxs;
+        }
+      }
+    }
+  
+    &__content {
+      padding-left: $space-s;
+      width: 100%;
+  
+      .required ~ & {
+        &::after {
+          @include required-marker;
+  
+          position: absolute;
+        }
+      }
+    }
+  }
+  
+  @mixin contact-card-heading-link($text-color: clr(text), $underline-color: clr(accent-tertiary)) {
+    color: $text-color;
+    text-underline-position: under;
+    text-decoration-color: $underline-color;
+    text-decoration-thickness: 2px;
+  }
+  

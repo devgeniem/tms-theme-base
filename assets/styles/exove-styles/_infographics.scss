@@ -1,0 +1,19 @@
+.infographics {
+    @include page-element-spacer;
+  
+    display: grid;
+    gap: $gutter-small;
+    max-width: var(--basic-component-max-width);
+  
+    @include large {
+      grid-template-columns: repeat(auto-fill, minmax(calc((var(--basic-component-max-width) / 4)), 1fr));
+      grid-auto-rows: 1fr;
+    }
+  
+    .layout-container--with-sidebar & {
+      @include large {
+        grid-template-columns: repeat(auto-fill, minmax(calc((var(--basic-component-max-width) / 3)), 1fr));
+      }
+    }
+  }
+  
