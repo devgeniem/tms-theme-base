@@ -20,15 +20,6 @@ class Single extends BaseModel {
     use Traits\Components;
 
     /**
-     * Hooks.
-     *
-     * @return void
-     */
-    public function hooks() : void {
-        remove_filter( 'the_content', 'wpautop' );
-    }
-
-    /**
      * Content
      *
      * @return array|object|WP_Post|null
