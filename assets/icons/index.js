@@ -99,4 +99,3 @@ import './veistospuisto.svg';
 import './vkontakte.svg';
 import './whatsapp.svg';
 import './accessibility';
-import './checkmark-blue.svg';

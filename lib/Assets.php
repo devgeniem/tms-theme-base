@@ -108,37 +108,6 @@ class Assets implements Interfaces\Controller {
             'all'
         );
 
-        if ( is_singular( Post::SLUG ) && ! empty( get_field( 'drupal_post_id', get_the_ID() ) ) ) {
-
-            \wp_enqueue_style(
-                'exove-css',
-                DPT_ASSET_URI . '/exove_news.css',
-                [],
-                static::get_theme_asset_mod_time( 'exove_news.css' ),
-                'all'
-            );
-
-            \wp_register_script(
-                'exove-js',
-                DPT_ASSET_URI . '/exove_news.js',
-                [ 'jquery', 'vendor-js' ],
-                static::get_theme_asset_mod_time( 'exove_news.js' ),
-                true
-            );
-
-            $url_prefix = defined( 'WP_ENV' ) && WP_ENV && WP_ENV === 'production'
-                        ? 'https://www.tampere.fi'
-                        : 'https://staging.tampere.fi';
-
-            $localized_data = [
-                'urlPrefix' => $url_prefix,
-            ];
-
-            \wp_localize_script( 'exove-js', 'exoveData', $localized_data );
-
-            \wp_enqueue_script( 'exove-js' );
-        }
-
         \wp_enqueue_script(
             'theme-js',
             apply_filters(
