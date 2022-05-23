@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-823: Remove EventFields sort field
+- TMS-823: Remove EventFields sort field #411
 
 ## [1.37.0] - 2022-05-16
 
