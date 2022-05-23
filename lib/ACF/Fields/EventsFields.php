@@ -73,22 +73,6 @@ class EventsFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Vapaasanahaku',
                 'instructions' => '',
             ],
-            'sort'            => [
-                'label'        => 'Järjestys',
-                'instructions' => 'Järjestys pakotettu: Päättymisaika (nouseva)',
-                'choices'      => [
-                    ''                    => 'Kustomoitu järjestys',
-                    'end_time'            => 'Päättymisaika (nouseva)',
-                    '-end_time'           => 'Päättymisaika (laskeva)',
-                    'start_time'          => 'Alkamisaika (nouseva)',
-                    '-start_time'         => 'Alkamisaika (laskeva)',
-                    'duration'            => 'Kesto (nouseva)',
-                    '-duration'           => 'Kesto (laskeva)',
-                    'last_modified_time'  => 'Viimeksi muokattu (nouseva)',
-                    '-last_modified_time' => 'Viimeksi muokattu (laskeva)',
-                ],
-                'default'      => '',
-            ],
             'page_size'       => [
                 'label'        => 'Näytettävien tapahtumien määrä',
                 'instructions' => '',
@@ -168,14 +152,6 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['text']['instructions'] );
 
-        $sort_field = ( new Field\Select( $strings['sort']['label'] ) )
-            ->set_key( "${key}_sort" )
-            ->set_name( 'sort' )
-            ->set_choices( $strings['sort']['choices'] )
-            ->set_default_value( $strings['sort']['default'] )
-            ->set_wrapper_width( 50 )
-            ->set_instructions( $strings['sort']['instructions'] );
-
         $page_size_field = ( new Field\Number( $strings['page_size']['label'] ) )
             ->set_key( "${key}_page_size" )
             ->set_name( 'page_size' )
@@ -208,7 +184,6 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             $location_field,
             $publisher_field,
             $text_field,
-            $sort_field,
             $page_size_field,
             $show_images_field,
             $all_events_link_field,
