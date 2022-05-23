@@ -36,7 +36,7 @@
     "eslint": "^7.32.0",
     "eslint-loader": "^4.0.2",
     "file-loader": "^6.2.0",
-    "image-webpack-loader": "^7.0.1",
+    "image-webpack-loader": "^8.1.0",
     "lint-staged": "^11.2.6",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.6.0",
