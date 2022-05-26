@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- TMS-836: Tampere API Performance optimizations #414
+
 ## [1.38.0] - 2022-05-23
 
 ### Added
