@@ -5,6 +5,8 @@
 
 namespace TMS\Theme\Base;
 
+use \TMS\Theme\Base\PostType\Post;
+
 /**
  * Class Assets
  *

@@ -13,6 +13,11 @@ use TMS\Theme\Base\Logger;
 abstract class ApiController {
 
     /**
+     * Output file path.
+     */
+    const OUTPUT_PATH = '/tmp/';
+
+    /**
      * Get API base url
      *
      * @return string|null
@@ -65,6 +70,13 @@ abstract class ApiController {
             )
         );
 
+        $cache_key = 'tampere-drupal-' . md5( $request_url );
+        $response  = \wp_cache_get( $cache_key, 'API', true );
+
+        if ( ! empty( $response ) ) {
+            return $response;
+        }
+
         $response = \wp_remote_get( $request_url, $request_args );
 
         if ( 200 !== \wp_remote_retrieve_response_code( $response ) ) {
@@ -73,7 +85,13 @@ abstract class ApiController {
             return false;
         }
 
-        return json_decode( \wp_remote_retrieve_body( $response ) );
+        $response_body_json = \json_decode( wp_remote_retrieve_body( $response ) );
+
+        if ( ! empty( $response_body_json ) ) {
+            wp_cache_set( $cache_key, $response_body_json, 'API', MINUTE_IN_SECONDS * 15 );
+        }
+
+        return $response_body_json;
     }
 
     /**
@@ -99,10 +117,19 @@ abstract class ApiController {
             $cache_key .= '-' . pll_current_language();
         }
 
-        $results = wp_cache_get( $cache_key, 'API' );
+        $results = \wp_cache_get( $cache_key, 'API' );
 
         if ( $results ) {
             return $results;
+        }
+        else {
+            $file_results = $this->read_from_file( "$cache_key.json" );
+
+            if ( ! empty( $file_results ) ) {
+                \wp_cache_set( $cache_key, $file_results, 'API', HOUR_IN_SECONDS * 6 );
+
+                return $file_results;
+            }
         }
 
         $args = [
@@ -123,8 +150,10 @@ abstract class ApiController {
 
         $results = $this->do_get( $this->get_slug(), [], $params, $args );
 
-        if ( $results ) {
+        if ( ! empty( $results ) ) {
             wp_cache_set( $cache_key, $results, 'API', HOUR_IN_SECONDS * 6 );
+
+            $this->save_to_file( $results, "$cache_key.json" );
         }
 
         return $results;
@@ -174,5 +203,42 @@ abstract class ApiController {
         parse_str( $parts['query'], $query_parts );
 
         return $query_parts;
+    }
+
+    /**
+     * Attempt to read response from file.
+     *
+     * @param string $filename File name.
+     *
+     * @return false|mixed
+     */
+    protected function read_from_file( $filename ) {
+        $file = self::OUTPUT_PATH . $filename;
+
+        if ( ! file_exists( $file ) ) {
+            return false;
+        }
+
+        $file_contents = file_get_contents( $file );
+
+        return ! empty( $file_contents ) ? json_decode( $file_contents, true ) : false;
+    }
+
+    /**
+     * Encode data to JSON & write to file.
+     *
+     * @param array  $data     Data.
+     * @param string $filename File name.
+     *
+     * @return bool True on success.
+     */
+    protected function save_to_file( $data, $filename ) : bool {
+        $success = ! empty( file_put_contents( self::OUTPUT_PATH . $filename, json_encode( $data ) ) );
+
+        if ( ! $success ) {
+            ( new Logger() )->error( 'TMS\Theme\Base\Integrations\Tampere\ApiController: Failed to write JSON file.' );
+        }
+
+        return $success;
     }
 }

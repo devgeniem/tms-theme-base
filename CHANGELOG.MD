@@ -15,6 +15,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-224: Show image of imported article.
 - TMS-823: Remove EventFields sort field
+- TMS-836: Tampere API Performance optimizations #414
+
+## [1.38.0] - 2022-05-23
+
+### Added
+
+- TMS-224: Show image of imported article. #402
+
+### Changed
+
+- TMS-823: Remove EventFields sort field #411
 
 ## [1.37.0] - 2022-05-16
 
