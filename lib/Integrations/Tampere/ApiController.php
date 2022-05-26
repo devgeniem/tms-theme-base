@@ -3,9 +3,9 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
-namespace TMS\Theme\Tredu\Integrations\Tampere;
+namespace TMS\Theme\Base\Integrations\Tampere;
 
-use TMS\Theme\Tredu\Logger;
+use TMS\Theme\Base\Logger;
 
 /**
  * Tampere API Controller
@@ -236,7 +236,7 @@ abstract class ApiController {
         $success = ! empty( file_put_contents( self::OUTPUT_PATH . $filename, json_encode( $data ) ) );
 
         if ( ! $success ) {
-            ( new Logger() )->error( 'TMS\Theme\Tredu\Integrations\Tampere\ApiController: Failed to write JSON file.' );
+            ( new Logger() )->error( 'TMS\Theme\Base\Integrations\Tampere\ApiController: Failed to write JSON file.' );
         }
 
         return $success;
