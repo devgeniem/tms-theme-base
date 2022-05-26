@@ -6,9 +6,6 @@
 namespace TMS\Theme\Tredu\Integrations\Tampere;
 
 use TMS\Theme\Tredu\Logger;
-use function json_decode;
-use function wp_cache_get;
-use function wp_cache_set;
 
 /**
  * Tampere API Controller
@@ -74,7 +71,7 @@ abstract class ApiController {
         );
 
         $cache_key = 'tampere-drupal-' . md5( $request_url );
-        $response  = wp_cache_get( $cache_key, 'API', true );
+        $response  = \wp_cache_get( $cache_key, 'API', true );
 
         if ( ! empty( $response ) ) {
             return $response;
@@ -88,7 +85,7 @@ abstract class ApiController {
             return false;
         }
 
-        $response_body_json = json_decode( wp_remote_retrieve_body( $response ) );
+        $response_body_json = \json_decode( wp_remote_retrieve_body( $response ) );
 
         if ( ! empty( $response_body_json ) ) {
             wp_cache_set( $cache_key, $response_body_json, 'API', MINUTE_IN_SECONDS * 15 );
@@ -120,7 +117,7 @@ abstract class ApiController {
             $cache_key .= '-' . pll_current_language();
         }
 
-        $results = wp_cache_get( $cache_key, 'API' );
+        $results = \wp_cache_get( $cache_key, 'API' );
 
         if ( $results ) {
             return $results;
@@ -129,7 +126,7 @@ abstract class ApiController {
             $file_results = $this->read_from_file( "$cache_key.json" );
 
             if ( ! empty( $file_results ) ) {
-                wp_cache_set( $cache_key, $file_results, 'API', HOUR_IN_SECONDS * 6 );
+                \wp_cache_set( $cache_key, $file_results, 'API', HOUR_IN_SECONDS * 6 );
 
                 return $file_results;
             }
