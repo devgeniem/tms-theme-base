@@ -153,7 +153,8 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array|null
      */
     private function get_events( array $query_params ) : ?array {
-        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        $query_params['sort'] = 'end_time';
+        $client               = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
             $response = $client->get( 'event', $query_params );
