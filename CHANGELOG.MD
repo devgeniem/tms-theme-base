@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+-   TMS-847: Prevent double slashes on api url
+
+## [1.38.1] - 2022-05-30
+
 ### Changed
 
 - TMS-766: Fix displaying image author on Call to Action.
@@ -15,7 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-224: Show image of imported article.
 - TMS-823: Remove EventFields sort field
-- TMS-840: Force sort events by end_time
+- TMS-840: Force sort events by end_time #415
 - TMS-836: Tampere API Performance optimizations #414
 
 ## [1.38.0] - 2022-05-23
