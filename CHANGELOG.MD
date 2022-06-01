@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+-   TMS-847: Prevent double slashes on api url #416
+
 ## [1.38.1] - 2022-05-30
 
 ### Changed

@@ -24,12 +24,13 @@ abstract class ApiController {
      */
     protected function get_api_base_url() : ?string {
         $url = env( 'TAMPERE_API_URL' );
+        $url = trailingslashit( $url );
 
         if ( DPT_PLL_ACTIVE && pll_current_language() === 'en' ) {
-            $url .= '/en';
+            $url .= 'en/';
         }
 
-        $url .= '/api/node';
+        $url .= 'api/node';
 
         return $url;
     }
