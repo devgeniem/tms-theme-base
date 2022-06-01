@@ -27,7 +27,7 @@ abstract class ApiController {
         $url = trailingslashit( $url );
 
         if ( DPT_PLL_ACTIVE && pll_current_language() === 'en' ) {
-            $url .= 'en';
+            $url .= 'en/';
         }
 
         $url .= 'api/node';
