@@ -25,7 +25,6 @@ abstract class ApiController {
     protected function get_api_base_url() : ?string {
         $url = env( 'TAMPERE_API_URL' );
         $url = trailingslashit( $url );
-        return '';
 
         if ( DPT_PLL_ACTIVE && pll_current_language() === 'en' ) {
             $url .= 'en/';
