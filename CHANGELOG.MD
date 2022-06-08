@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.38.2] - 2022-06-01
+
 ### Fixed
 
 - TMS-793: Fix typo in carousel block #417
