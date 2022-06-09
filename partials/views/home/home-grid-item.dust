@@ -8,6 +8,15 @@
             </div>
         {/featured_image}
 
+        {?api_image_url}
+            <div class="image is-5by3 mb-5">
+                <a href="{permalink}" aria-hidden="true" tabindex="-1"
+                   class="is-block is-absolute has-top-0 has-right-0 has-bottom-0 has-left-0">
+                    <img class="api_image objectfit-image" src="{api_image_url|url}" loading="lazy"/>
+                </a>
+            </div>
+        {/api_image_url}
+
         <h2 class="entry__title h4 mt-0 mb-5">
             <a href="{permalink}" class="has-text-black">
                 {post_title|s}

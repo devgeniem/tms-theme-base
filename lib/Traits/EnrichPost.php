@@ -33,9 +33,16 @@ trait EnrichPost {
         int $excerpt_length = 160
     ) {
         if ( $use_images ) {
-            $post->featured_image = has_post_thumbnail( $post->ID )
-                ? get_post_thumbnail_id( $post->ID )
-                : Images::get_default_image_id();
+            $api_image = get_field( 'image_url', $post->ID );
+
+            if ( ! empty( $api_image ) ) {
+                $post->api_image_url = $api_image;
+            }
+            else {
+                $post->featured_image = has_post_thumbnail( $post->ID )
+                    ? get_post_thumbnail_id( $post->ID )
+                    : Images::get_default_image_id();
+            }
         }
 
         $post->permalink = get_permalink( $post->ID );
