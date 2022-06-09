@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- TMS-862: Show drupal image on home result card #113
+- TMS-862: Show drupal image on home result card #418
 
 ## [1.38.2] - 2022-06-01
 
