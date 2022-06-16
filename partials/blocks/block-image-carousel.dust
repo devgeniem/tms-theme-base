@@ -56,7 +56,7 @@
 
         <button
             class="button button--icon modal-close-button is-white is-outlined is-flex is-align-self-flex-end image-carousel__modal-control">
-            <span class="modal-close-button__text">{translations.clos|html}</span>
+            <span class="modal-close-button__text">{translations.close|html}</span>
             {>"ui/icon" icon="close" class="icon--medium" /}
         </button>
         <div class="modal-content">
