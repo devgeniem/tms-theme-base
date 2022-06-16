@@ -4,9 +4,8 @@ namespace TMS\Theme\Base\ACF\Fields;
 
 use Exception;
 use Geniem\ACF\Field;
-use TMS\Theme\Base\Integrations\Tampere\PlaceOfBusinessApiController;
+use TMS\Plugin\ContactImporter;
 use TMS\Theme\Base\Logger;
-use TMS\Theme\Base\PostType\Contact;
 
 /**
  * Class PlaceOfBusinessFields
@@ -105,8 +104,7 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
      * @return array
      */
     public function fill_place_of_business_choices( array $field ) : array {
-        $api     = new PlaceOfBusinessApiController();
-        $results = $api->get();
+        $places_of_business = ( new ContactImporter\PlaceOfBusinessApiController() )->get_results();
 
         if ( empty( $results ) ) {
             return $field;
