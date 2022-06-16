@@ -43,6 +43,12 @@ class HeaderSettingsTab extends Tab {
             'title'        => 'Tagline',
             'instructions' => '',
         ],
+        'favicon'          => [
+            'title'        => 'Favicon',
+            'instructions' => 'Lisää tähän sivuston favicon-kuva, joka näytetään
+            esim. selainten välilehtien pikkukuvana.
+            Favicon-ikonin pitää olla neliö, 512x512 pikseliä ja PNG-muotoinen.',
+        ],
         'lang_nav_display' => [
             'title'        => 'Kielivalikko',
             'instructions' => '',
@@ -109,6 +115,13 @@ class HeaderSettingsTab extends Tab {
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['tagline']['instructions'] );
 
+            $favicon_field = ( new Field\Image( $strings['favicon']['title'] ) )
+                ->set_key( "${key}_favicon" )
+                ->set_name( 'favicon' )
+                ->set_wrapper_width( 50 )
+                ->set_return_format( 'id' )
+                ->set_instructions( $strings['favicon']['instructions'] );
+
             $lang_nav_display_field = ( new Field\Select( $strings['lang_nav_display']['title'] ) )
                 ->set_key( "${key}_lang_nav_display" )
                 ->set_name( 'lang_nav_display' )
@@ -149,6 +162,7 @@ class HeaderSettingsTab extends Tab {
                 $logo_field,
                 $brand_logo_field,
                 $tagline_field,
+                $favicon_field,
                 $lang_nav_display_field,
                 $hide_main_nav_field,
                 $limit_nav_depth_field,

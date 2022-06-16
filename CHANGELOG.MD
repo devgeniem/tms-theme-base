@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.39.0] - 2022-06-16
+
+### Fixed
+
+- TMS-793: Fix typo in carousel block #417
+
 ### Changed
 
+- TMS-877: Use tms-contact-importer #421
 - TMS-862: Show drupal image on home result card #418
 
 ## [1.38.2] - 2022-06-01
