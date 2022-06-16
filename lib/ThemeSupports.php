@@ -108,6 +108,13 @@ class ThemeSupports implements Interfaces\Controller {
      * @return string
      */
     private function favicon_url() : string {
+        $settings = Settings::get_settings();
+        $icon_id  = $settings['favicon'] ?? false;
+
+        if ( ! empty( $icon_id ) ) {
+            return \wp_get_attachment_url( $icon_id );
+        }
+
         return DPT_ASSETS_URI . '/images/favicon.png';
     }
 
