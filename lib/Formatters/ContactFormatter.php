@@ -5,8 +5,7 @@
 
 namespace TMS\Theme\Base\Formatters;
 
-use TMS\Theme\Base\Integrations\Tampere\PersonApiController;
-use TMS\Theme\Base\Integrations\Tampere\PersonFacade;
+use TMS\Plugin\ContactImporter;
 use TMS\Theme\Base\PostType\Contact;
 use TMS\Theme\Base\Settings;
 
@@ -109,8 +108,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return [];
         }
 
-        $api      = new PersonApiController();
-        $contacts = $api->validate_result_set( $api->get() );
+        $contacts = ( new ContactImporter\PersonApiController() )->get_results();
 
         if ( empty( $contacts ) ) {
             return [];
