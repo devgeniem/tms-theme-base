@@ -46,7 +46,7 @@ export default class Sitemap {
      * Toggle Open button text based on state.
      *
      * @param {jQuery|HTMLElement} button Button to change text of.
-     * @param {boolean} open If true, show text 'Open', else 'Close'.
+     * @param {boolean}            open   If true, show text 'Open', else 'Close'.
      *
      * @return {void}
      */
