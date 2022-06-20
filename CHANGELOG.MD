@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- TMS-807: Add Favicon field to settings #422
+
 ## [1.39.0] - 2022-06-16
 
 ### Fixed
