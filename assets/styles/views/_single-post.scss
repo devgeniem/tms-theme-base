@@ -1,0 +1,9 @@
+.single-post {
+    .entry {
+        &__header {
+            .entry__figure {
+                text-align: center;
+            }
+        }
+    }
+}

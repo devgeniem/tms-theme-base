@@ -17,7 +17,7 @@ export default class SlideDeck {
      * Class constructor is for binding class properties.
      *
      * @param {Object} set Settings object. Possible settings:
-     * id <string> ID of the carousel wrapper element (required).
+     *                     id <string> ID of the carousel wrapper element (required).
      */
     constructor( set ) {
 
@@ -110,10 +110,10 @@ export default class SlideDeck {
     /**
      * Function to set a slide the current slide
      *
-     * @param {number|string} newCurrent New Current slide.
-     * @param {boolean} focus Focus on the element.
-     * @param {string} transition Transition to use.
-     * @param {boolean|string} keyboard To see if the event was triggered when navigating with keyboard
+     * @param {number|string}  newCurrent New Current slide.
+     * @param {boolean}        focus      Focus on the element.
+     * @param {string}         transition Transition to use.
+     * @param {boolean|string} keyboard   To see if the event was triggered when navigating with keyboard
      * @return {void}
      */
     setSlides(

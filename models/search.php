@@ -109,7 +109,9 @@ class Search extends BaseModel {
      *
      * @param WP_Query $wp_query Instance of WP_Query.
      */
-    public static function modify_query( WP_Query $wp_query ) {
+    public static function modify_query(
+        WP_Query $wp_query
+    ) {
         if ( is_admin() || ( ! $wp_query->is_main_query() || ! is_search() ) ) {
             return;
         }
@@ -171,7 +173,9 @@ class Search extends BaseModel {
      *
      * @return string
      */
-    public static function set_search_scorer( string $scorer ) : string {
+    public static function set_search_scorer(
+        string $scorer
+    ) : string {
         return 'DISMAX';
     }
 
@@ -182,7 +186,9 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public static function set_fields_weight( array $fields ) : array {
+    public static function set_fields_weight(
+        array $fields
+    ) : array {
         // Post title is the most relevant field
         $post_title                    = array_search( 'post_title', array_column( $fields, 'name' ), true );
         $fields[ $post_title ]->weight = 10;
@@ -201,7 +207,9 @@ class Search extends BaseModel {
      *
      * @return array
      */
-    public static function set_ignored_query_vars( array $vars ) : array {
+    public static function set_ignored_query_vars(
+        array $vars
+    ) : array {
         $vars[] = 'search_start_date';
         $vars[] = 'search_end_date';
         $vars[] = 'search_post_types';
@@ -276,7 +284,9 @@ class Search extends BaseModel {
      *
      * @return mixed
      */
-    private function enrich_results( $posts ) {
+    private function enrich_results(
+        $posts
+    ) {
         foreach ( $posts as $post_item ) {
             $meta = false;
 
@@ -336,7 +346,9 @@ class Search extends BaseModel {
      *
      * @return array        Meta data.
      */
-    private function format_result_item_meta( $post_item, $tax_term = null ) {
+    private function format_result_item_meta(
+        $post_item, $tax_term = null
+    ) {
         $meta_data['date'] = $post_item->post_date;
 
         if ( ! empty( $tax_term ) ) {

@@ -136,7 +136,7 @@ class Assets implements Interfaces\Controller {
                 DPT_ASSET_URI . '/vendor.js',
                 'vendor.js'
             ),
-            [ 'jquery' ],
+            [ 'jquery', 'wp-a11y' ],
             apply_filters(
                 'tms/theme/asset_mod_time',
                 static::get_theme_asset_mod_time( 'vendor.js' ),

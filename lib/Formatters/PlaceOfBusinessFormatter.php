@@ -2,8 +2,8 @@
 
 namespace TMS\Theme\Base\Formatters;
 
-use TMS\Theme\Base\Integrations\Tampere\PlaceOfBusinessApiController;
-use TMS\Theme\Base\Integrations\Tampere\PlaceOfBusinessFacade;
+use TMS\Plugin\ContactImporter;
+use TMS\Plugin\ContactImporter\PlaceOfBusinessFacade;
 
 /**
  * Class PlaceOfBusinessFormatter
@@ -65,8 +65,7 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return [];
         }
 
-        $api     = new PlaceOfBusinessApiController();
-        $results = $api->get();
+        $results = ( new ContactImporter\PlaceOfBusinessApiController() )->get_results();
 
         if ( empty( $results ) ) {
             return [];

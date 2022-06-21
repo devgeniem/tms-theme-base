@@ -10,6 +10,16 @@
             </div>
         {/featured_image}
 
+        {?api_image_url}
+            <div class="column is-4">
+                <div class="image is-4by3">
+                    <a href="{permalink|url}" aria-hidden="true" tabindex="-1">
+                        <img class="api_image objectfit-image" src="{api_image_url|url}" loading="lazy"/>
+                    </a>
+                </div>
+            </div>
+        {/api_image_url}
+
         <div class="column">
             <h2 class="entry__title h4 mt-0 mb-5">
                 <a href="{permalink}" class="has-text-black">

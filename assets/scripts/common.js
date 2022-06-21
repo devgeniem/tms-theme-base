@@ -227,8 +227,8 @@ export default class Common {
     /**
      * Select a list of matching child elements from an array of elements.
      *
-     * @param  {Object} elements A nodelist. Use each item in nodelist as context when finding the children.
-     * @param  {string} selector The query selector string.
+     * @param {Object} elements A nodelist. Use each item in nodelist as context when finding the children.
+     * @param {string} selector The query selector string.
      * @return {Object}   Returns empty array if no matches are found; otherwise, it returns all matching elements.
      */
     static childrenFromEach( elements, selector ) {
@@ -269,8 +269,8 @@ export default class Common {
     /**
      * Select a list of matching elements, context is optional.
      *
-     * @param  {string}          selector The query selector string.
-     * @param  {Object|document} context  A query context object.
+     * @param {string}          selector The query selector string.
+     * @param {Object|document} context  A query context object.
      * @return {Object}                   Returns empty nodelist if no matches are found; otherwise,
      *                                    it returns a nodelist of matching elements.
      */
@@ -281,8 +281,8 @@ export default class Common {
     /**
      * Select the first match only, context is optional.
      *
-     * @param  {string} selector The query selector string.
-     * @param  {Object} context  A query context object.
+     * @param {string} selector The query selector string.
+     * @param {Object} context  A query context object.
      * @return {Object|null}     Returns null if no matches are found; otherwise, it returns the first matching element.
      */
     static $1( selector, context ) {
@@ -293,8 +293,8 @@ export default class Common {
      * Makes a button element
      *
      * @param {string} contents What to add inside the button element.
-     * @param {string} classes CSS Classes to add to the element.
-     * @param {string} type Type of the button, 'button' as default.
+     * @param {string} classes  CSS Classes to add to the element.
+     * @param {string} type     Type of the button, 'button' as default.
      *
      * @return {string} Button element HTML.
      */
@@ -319,7 +319,7 @@ export default class Common {
     /**
      * Generates a svg container that uses icon with an ID.
      *
-     * @param {string} icon Icon ID.
+     * @param {string} icon    Icon ID.
      * @param {string} classes CSS Classes to add to the element.
      *
      * @return {string} Icon HTML String.
@@ -337,8 +337,8 @@ export default class Common {
     /**
      * Helper function for removing classes
      *
-     * @param {HTMLElement} el HTML element
-     * @param {string} className Class name
+     * @param {HTMLElement} el        HTML element
+     * @param {string}      className Class name
      * @return {void}
      */
     static removeClass( el, className ) {
@@ -348,8 +348,8 @@ export default class Common {
     /**
      * Helper function for detecting if an element has a class
      *
-     * @param {HTMLElement} el HTML Element
-     * @param {string} className Class name
+     * @param {HTMLElement} el        HTML Element
+     * @param {string}      className Class name
      * @return {Object} The element with a class
      */
     static hasClass( el, className ) {
@@ -394,9 +394,9 @@ export default class Common {
     /**
      * Set a cookie.
      *
-     * @param {string}  name Cookie name.
-     * @param {string}  value Cookie value.
-     * @param {number}  duration Cookie duration in days.
+     * @param {string} name     Cookie name.
+     * @param {string} value    Cookie value.
+     * @param {number} duration Cookie duration in days.
      *
      * @return {void}
      */

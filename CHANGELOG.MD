@@ -26,12 +26,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- TMS-793: Fix typo in carousel block #417
 - TMS-847: Prevent double slashes on api url #416
 
 ## [1.38.1] - 2022-05-30
 
 ### Changed
 
+- TMS-766: Fix displaying image author on Call to Action.
+
+### Added
+
+- TMS-224: Show image of imported article.
+- TMS-823: Remove EventFields sort field
 - TMS-840: Force sort events by end_time #415
 - TMS-836: Tampere API Performance optimizations #414
 
@@ -79,13 +86,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.36.2] - 2022-04-12
 
-### Fixed
+### Added
 
 - TMS-768: Duet Date Picker from CDN to prevent build issues that sometimes break JS #397
 - Fix image clickable option #396
 - TMS-674: Fix modaal background focus & translations #395
 - TMS-769: Fix issue with countdown block text contrast in certain color schemes. #394
-- TMS-766: Fix displaying image author on Call to Action. #393
 
 ## [1.36.1] - 2022-04-07
 
@@ -132,22 +138,33 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - TMS-475: Blog articles layout for onepager template.
+- TMS-226: API contacts to Contact Block #174
 - TMS-304-1: Set min amount of images in carousel to 4 and prevent displaying if not at least 4 images added.
 
 ## [1.32.1] - 2022-02-24
 
 ### Added
 
+- TMS-718: Add cta-button to exception notice
 - TMS-726: Add order option for events #375
 - TMS-715: Add ShareLinksLayout
 
 ## [1.32.0] - 2022-02-24
 
 ### Added
+
 - TMS-712: Add fields to TextBlockLayout
 - TMS-714: Replace events and articles layout link with button-link
 - TMS-713: Limit search filtering for post types with posts.
+- TMS-422: Add accessibility icons -block
 - TMS-304: Add image carousel as a gutenberg block
+- TMS-656: Add keyword filter to events search page
+- TMS-604: Allow subpages `background_image` field to be removed
+- TMS-653: Improve home view filter usability in mobile
+- TMS-656: Add keyword filter to events search page #357
+- TMS-470-2: Gravity Forms block JS patch for multifile upload
+- TMS-470-3: Gravity Forms JS fix for forms as layouts and bloks in same page
+- TMS-722: Contacts Layout #364
 
 ## [1.31.15] - 2022-02-17
 
@@ -201,14 +218,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-650: Force event location name to use 'fi' #352
 
 ## [1.31.9] - 2022-01-25
+
 - Hotfix SCSS to prevent build error
 
 ## [1.31.8] - 2022-01-25
 
 ### Changed
 
+- TMS-647: Build optimizations
 - TMS-646: Tables allowed for Author
 
+### Changed
+
+- TMS-604: Allow subpages `background_image` field to be removed
+- TMS-646: Tables allowed for Author
 ## [1.31.7] - 2022-01-20
 
 ### Changed
@@ -225,6 +248,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-534-2: Filter for removing available Gravity Forms fields
+- TMS-522: Indicate module
+  - Fix Indicate with tables in accordions
+  - Indicate tables are focusable for using with keyboard
 - TMS-638: Fix fly out nav height #344
 - TMS-625: Fix breadcrumb word wrap #333
 - TMS-522: Indicate module
@@ -245,6 +272,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-625: Hyphenate breadcrumbs
 - TMS-525: Subpages orderby parameters #337
 - TMS-526: Social media embed skip link #335
 - TMS-515: Slick slider translations for carousels #332
@@ -331,6 +359,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
+- TMS-420 #299
+    - Remove unintended caption text margin regardless of element type
+    - Fix image accordion close button alignment in mobile and tablet
+- TMS-481: Fix accessibility for screenreaders
+    - Image carousel modal
+    - External link icon
+    - Img title swiched from description to alt text in image gallery
+- TMS-483: Separate template file for page title for overriding in child theme
 - TMS-230: Force event query sort param to end_time #304
 - TMS-483: Separate template file for page title for overriding in child theme..
 - TMS-420: Additional filters and miscellaneous theme fixes #299
@@ -342,6 +378,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - TMS-478: Hero button aria labels #294
+
 ### Changed
 
 - TMS-479: Fix date span selection modal's close icon position on focus
