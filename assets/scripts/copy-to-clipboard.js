@@ -35,6 +35,8 @@ export default class CopyToClipboard {
                 .removeClass( 'is-hidden' )
                 .text( callbackText );
 
+            window.wp.a11y.speak( callbackText );
+
             setTimeout( () => {
                 target
                     .find( '.js-callback-container' )
