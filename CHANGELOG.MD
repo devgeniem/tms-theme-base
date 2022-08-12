@@ -7,9 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-845: Fix contacts block alignment #430
+
+## [1.39.1] - 2022-06-21
+
 ### Added
 
 - TMS-807: Add Favicon field to settings #422
+- TMS-785: Announce copy to clipboard success message for screen readers #426
+
+### Changed
+
+- TMS-825: Hide results info #424
+
+### Fixed
+
+- TMS-880: Display drupal image on home list item #425
+- TMS-881: Improve drupal news support #427
 
 ## [1.39.0] - 2022-06-16
 
