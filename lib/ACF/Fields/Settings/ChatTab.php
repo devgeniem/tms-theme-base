@@ -39,11 +39,11 @@ class ChatTab extends Tab {
             'title'        => 'Chatin scripti',
             'instructions' => '',
         ],
-        'pages'   => [
+        'chat_pages'   => [
             'title'        => 'Valitse sivut, joilla chat näytetään',
             'instructions' => '',
         ],
-        'page'   => [
+        'chat_page'   => [
             'title'        => 'Sivu',
             'instructions' => '',
         ],
@@ -86,20 +86,21 @@ class ChatTab extends Tab {
                 $this->add_field( $chat_script_field );
             }
 
-            $pages_field = ( new Field\Repeater( $strings['pages']['title'] ) )
-                ->set_key( "${key}_pages" )
-                ->set_name( 'pages' )
-                ->set_instructions( $strings['pages']['instructions'] );
+            $chat_pages_field = ( new Field\Repeater( $strings['chat_pages']['title'] ) )
+                ->set_key( "${key}_chat_pages" )
+                ->set_name( 'chat_pages' )
+                ->set_instructions( $strings['chat_pages']['instructions'] );
 
-            $this->add_field( $pages_field );
+            $this->add_field( $chat_pages_field );
 
-            $page_field = ( new Field\PostObject( $strings['page']['title'] ) )
-                ->set_key( "${key}_page" )
-                ->set_name( 'page' )
+            $chat_page_field = ( new Field\PostObject( $strings['chat_page']['title'] ) )
+                ->set_key( "${key}_chat_page" )
+                ->set_name( 'chat_page' )
                 ->set_post_types( [ PostType\Page::SLUG ] )
-                ->set_instructions( $strings['page']['instructions'] );
+                ->set_return_format( 'id' )
+                ->set_instructions( $strings['chat_page']['instructions'] );
 
-            $pages_field->add_field( $page_field );
+            $chat_pages_field->add_field( $chat_page_field );
 
             $show_on_child_field = ( new Field\TrueFalse( $strings['show_on_child']['title'] ) )
                 ->set_key( "${key}_show_on_child" )
@@ -107,7 +108,7 @@ class ChatTab extends Tab {
                 ->use_ui()
                 ->set_instructions( $strings['show_on_child']['instructions'] );
 
-            $pages_field->add_field( $show_on_child_field );
+            $chat_pages_field->add_field( $show_on_child_field );
         }
         catch ( Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
