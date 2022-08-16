@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- TMS-891: Add chat #432
+
 ## [1.39.1] - 2022-06-21
 
 ### Added
