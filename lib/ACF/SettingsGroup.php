@@ -22,6 +22,7 @@ use TMS\Theme\Base\ACF\Fields\Settings\PageSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Settings\SocialMediaSettingsTab;
 use TMS\Theme\Base\ACF\Fields\Settings\ThemeColorTab;
 use TMS\Theme\Base\ACF\Fields\Settings\SitemapSettingsTab;
+use TMS\Theme\Base\ACF\Fields\Settings\ChatTab;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
 
@@ -85,6 +86,7 @@ class SettingsGroup {
                         new BlogArticleSettingsTab( '', $field_group->get_key() ),
                         new ContactsSettingsTab( '', $field_group->get_key() ),
                         new SitemapSettingsTab( '', $field_group->get_key() ),
+                        new ChatTab( '', $field_group->get_key() ),
                     ],
                     $field_group->get_key()
                 )
