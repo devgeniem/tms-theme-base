@@ -285,6 +285,45 @@ class Header extends Model {
     }
 
     /**
+     * Maybe show chat.
+     *
+     * @return string|null
+     */
+    public function chat() {
+        $chat_script = Settings::get_setting( 'chat_script' );
+        $chat_pages  = Settings::get_setting( 'chat_pages' );
+
+        if ( empty( $chat_script ) && empty( $chat_pages ) ) {
+            return null;
+        }
+
+        $current_id = get_the_ID();
+
+        foreach ( $chat_pages as $page ) {
+            // return chat script if chat_page equals to current id
+            if ( $page['chat_page'] === $current_id ) {
+                return $chat_script;
+            }
+
+            // return chat if chat is set to be visible on child pages
+            // and current chat page is one of the ancestors
+            if (
+                ! empty( $page['show_on_child'] )
+                && in_array(
+                    $page['chat_page'] ?? 0,
+                    get_post_ancestors( $current_id ),
+                    true
+                )
+                ) {
+                return $chat_script;
+            }
+        }
+
+        return null;
+
+    }
+
+    /**
      * Hide search
      *
      * @return mixed

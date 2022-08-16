@@ -10,6 +10,10 @@
             {?Header.head_custom_scripts}
                 {Header.head_custom_scripts|s}
             {/Header.head_custom_scripts}
+
+            {?Header.chat}
+                {Header.chat|s}
+            {/Header.chat}
         </head>
 
         <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
