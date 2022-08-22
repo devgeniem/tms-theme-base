@@ -37,7 +37,7 @@ class ChatTab extends Tab {
         'tab'         => 'Chat',
         'chat_script' => [
             'title'        => 'Chatin scripti',
-            'instructions' => '',
+            'instructions' => 'Sisällytä avaava <script> ja sulkeva </script> tagi',
         ],
         'chat_pages'   => [
             'title'        => 'Valitse sivut, joilla chat näytetään',
@@ -82,7 +82,7 @@ class ChatTab extends Tab {
                     ->set_key( "${key}_chat_script" )
                     ->set_name( 'chat_script' )
                     ->set_instructions( $strings['chat_script']['instructions'] );
-      
+
                 $this->add_field( $chat_script_field );
             }
 

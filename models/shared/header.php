@@ -297,7 +297,8 @@ class Header extends Model {
             return null;
         }
 
-        $current_id = get_the_ID();
+        $current_id     = get_the_ID();
+        $post_ancestors = get_post_ancestors( $current_id );
 
         foreach ( $chat_pages as $page ) {
             // return chat script if chat_page equals to current id
@@ -309,11 +310,7 @@ class Header extends Model {
             // and current chat page is one of the ancestors
             if (
                 ! empty( $page['show_on_child'] )
-                && in_array(
-                    $page['chat_page'] ?? 0,
-                    get_post_ancestors( $current_id ),
-                    true
-                )
+                && in_array( $page['chat_page'] ?? 0, $post_ancestors, true )
                 ) {
                 return $chat_script;
             }
