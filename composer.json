@@ -29,7 +29,10 @@
         "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true
+        }
     },
     "require": {
         "php": ">=7.4|^8.0",
