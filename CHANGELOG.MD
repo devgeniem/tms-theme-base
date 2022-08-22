@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- PIEN-7427: Fix highlighted article image on articles layout.
 - TMS-845: Fix contacts block alignment #430
 
 ## [1.39.1] - 2022-06-21
