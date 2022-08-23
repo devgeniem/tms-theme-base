@@ -29,7 +29,14 @@
         "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "koodimonni/composer-dropin-installer": true,
+            "johnpbloch/wordpress-core-installer": true,
+            "ergebnis/composer-normalize": true
+        }
     },
     "require": {
         "php": ">=7.4|^8.0",
