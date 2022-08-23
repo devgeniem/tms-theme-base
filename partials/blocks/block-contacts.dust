@@ -1,6 +1,6 @@
-<div class="contacts is-align-full">
+<div class="contacts">
     <div class="columns">
-        <div class="column is-8-desktop is-offset-2-desktop">
+        <div class="column is-12">
             {?title}
                 <h2>
                     {title|s}
