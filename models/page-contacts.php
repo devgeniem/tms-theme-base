@@ -72,13 +72,26 @@ class PageContacts extends BaseModel {
      * Get contacts
      */
     public function contacts() : array {
-        $contacts  = $this->get_contacts();
-        $formatter = new ContactFormatter();
+        $contacts      = $this->get_contacts();
+        $api_contacts  = \get_field( 'api_contacts' ) ?? [];
+        $default_image = Settings::get_setting( 'contacts_default_image' );
+        $formatter     = new ContactFormatter();
 
-        return $formatter->map_keys(
+        $contacts = $formatter->map_keys(
             $contacts,
             get_field( 'fields' ) ?? [],
-            Settings::get_setting( 'contacts_default_image' )
+            $default_image
+        );
+
+        $api_contacts = $formatter->map_api_contacts(
+            $api_contacts,
+            \get_field( 'fields' ) ?? [],
+            $default_image
+        );
+
+        return array_merge(
+            $contacts ?? [],
+            $api_contacts ?? []
         );
     }
 

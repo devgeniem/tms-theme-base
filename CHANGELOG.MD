@@ -8,13 +8,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Fixed
+- PIEN-7508: Fix drupal contacts on contact page template.
 
-- PIEN-7427: Fix highlighted article image on articles layout.
-- TMS-845: Fix contacts block alignment #430
+## [1.39.2] - 2022-08-23
 
 ### Added
 
 - TMS-891: Add chat #432
+
+### Fixed
+- TMS-894: Fix composer
+- PIEN-7427: Fix highlighted article image on articles layout.
+- TMS-845: Fix contacts block alignment #430
 
 ## [1.39.1] - 2022-06-21
 
