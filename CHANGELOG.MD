@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-910: Add play.quickchannel.com embed support
+
+## [1.39.3] - 2022-09-07
+
 ### Fixed
-- PIEN-7508: Fix drupal contacts on contact page template.
+
+- PIEN-7508: Fix drupal contacts on contact page template. #436
 
 ## [1.39.2] - 2022-08-23
 
