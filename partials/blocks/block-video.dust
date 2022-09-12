@@ -1,5 +1,7 @@
 {?video}
-    <div class="video is-align-wide mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative" {?anchor}id="{anchor|s}"{/anchor}>
+    <div
+        class="video {@eq key=align value="full"}is-align-full{:else}is-align-wide{/eq} mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative"
+        {?anchor}id="{anchor|s}"{/anchor}>
         {>"shared/layout-before-main-content" /}
 
         {?alt_text}

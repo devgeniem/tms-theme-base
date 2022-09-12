@@ -48,6 +48,10 @@ class VideoLayout extends BaseLayout {
             $this->get_name()
         );
 
+        if ( isset( $fields->sub_fields['align'] ) ) {
+            unset( $fields->sub_fields['align'] );
+        }
+
         try {
             $this->add_fields(
                 $this->filter_layout_fields( $fields->get_fields(), $this->get_key(), self::KEY )
