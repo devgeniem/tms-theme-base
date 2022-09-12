@@ -1,0 +1,9 @@
+<div {?anchor}id="{anchor|s}"{/anchor} class="section layout-video pt-0 pb-0">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                {>"blocks/block-video" /}
+            </div>
+        </div>
+    </div>
+</div>

@@ -49,6 +49,10 @@ class VideoFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Alt-teksti ruudunlukijoille',
                 'instructions' => '',
             ],
+            'align'    => [
+                'label'        => 'Asemointi',
+                'instructions' => '',
+            ],
         ];
 
         $key = $this->get_key();
@@ -65,9 +69,22 @@ class VideoFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['alt_text']['instructions'] );
 
+        $align_field = ( new Field\Radio( $strings['align']['label'] ) )
+            ->set_key( "${key}_align" )
+            ->set_name( 'align' )
+            ->set_default_value( 'default' )
+            ->set_choices( [
+                'default' => 'Oletus',
+                'full'    => 'Täysileveä',
+            ] )
+            ->set_layout( 'horizontal' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['align']['instructions'] );
+
         return [
             $video_field,
             $alt_text_field,
+            $align_field,
         ];
     }
 }

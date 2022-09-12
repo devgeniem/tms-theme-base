@@ -361,6 +361,7 @@ class DynamicEventGroup {
                 Layouts\NoticeBannerLayout::class,
                 Layouts\TextBlockLayout::class,
                 Layouts\ContactsLayout::class,
+                Layouts\VideoLayout::class,
             ],
             $key
         );
