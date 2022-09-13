@@ -26,8 +26,8 @@ class EmbedController implements Interfaces\Controller {
     protected function register_quickchannel_embed_handler() {
         $quickchannel_format = '#https?://(www.)?play\.quickchannel\.com/play/([^/]+)#i';
 
-        wp_oembed_add_provider( $quickchannel_format, 'https://www.play.quickchannel.com/play', true );
-        wp_embed_register_handler(
+        \wp_oembed_add_provider( $quickchannel_format, 'https://www.play.quickchannel.com/play', true );
+        \wp_embed_register_handler(
             'quickchannel_video_url',
             $quickchannel_format,
             fn( $matches ) => sprintf(
