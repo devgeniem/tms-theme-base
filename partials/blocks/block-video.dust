@@ -1,7 +1,7 @@
 {?video}
     <div
         class="video {@eq key=align value="full"}is-align-full{:else}is-align-wide{/eq} mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative"
-        {?anchor}id="{anchor|s}"{/anchor}>
+        {?anchor}id="{anchor|attr}"{/anchor}>
         {>"shared/layout-before-main-content" /}
 
         {?alt_text}
@@ -9,7 +9,7 @@
         {/alt_text}
 
         {! Skip embed !}
-        <a href="#{id}" class="skip-to-content">
+        <a href="#{id|attr}" class="skip-to-content">
             {skip_text|s}
         </a>
 
@@ -18,7 +18,7 @@
         </div>
 
         {! Skip embed target !}
-        <div id="{id}"></div>
+        <div id="{id|attr}"></div>
 
         {>"shared/layout-after-main-content" /}
     </div>
