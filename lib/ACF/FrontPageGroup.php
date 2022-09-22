@@ -121,6 +121,7 @@ class PageFrontPageGroup {
                 Layouts\AccessibilityIconLinksLayout::class,
                 Layouts\ShareLinksLayout::class,
                 Layouts\CountdownLayout::class,
+                Layouts\VideoLayout::class,
             ],
             $key
         );
