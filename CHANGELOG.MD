@@ -7,9 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
-
 - TMS-897: Add video component & block video align option
+- TMS-910: Add play.quickchannel.com embed support #438
 
 ## [1.39.3] - 2022-09-07
 

@@ -51,6 +51,7 @@ class ThemeController {
             TaxonomyController::class,
             ThemeSupports::class,
             Comments::class,
+            EmbedController::class,
         ];
 
         $classes = apply_filters(
