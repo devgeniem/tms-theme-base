@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- PIEN-7658: Settings field for body scripts.
+
 ## [1.40.0] - 2022-09-22
 
 ### Added
