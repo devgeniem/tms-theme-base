@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- PIEN-7666: Hide non-public pages from breadcrumbs.
+
 ## [1.40.0] - 2022-09-22
 
 ### Added

@@ -384,12 +384,26 @@ class PageEvent extends BaseModel {
             return $breadcrumbs;
         }
 
+        echo '<pre>';
+        var_dump( $referer, $home_url );
+        echo '</pre>';
+
         // Resolve the parent page ignoring f.ex. paging parameters in the URL: /page/2/
         $parent = str_replace( $home_url, '', $referer );
+        echo '<pre>';
+        var_dump( $parent );
+        echo '</pre>';
         $parent = strpos( $parent, '/' ) !== false ? explode( '/', $parent )[0] : $parent;
+        echo '<pre>';
+        var_dump( $parent );
+        echo '</pre>';
         $parent = get_page_by_path( $parent );
 
-        if ( empty( $parent ) ) {
+        echo '<pre>';
+        var_dump( $parent );
+        echo '</pre>';
+
+        if ( empty( $parent ) || \get_post_status( $parent ) !== 'publish' ) {
             return $breadcrumbs;
         }
 
