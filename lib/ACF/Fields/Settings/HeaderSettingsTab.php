@@ -65,6 +65,10 @@ class HeaderSettingsTab extends Tab {
             'title'        => 'Ylätunnisteen custom-skriptit',
             'instructions' => '',
         ],
+        'body_scripts'     => [
+            'title'        => 'Body-osion custom-skriptit',
+            'instructions' => '',
+        ],
         'hide_search'      => [
             'title'        => 'Piilota hakutoiminto',
             'instructions' => '',
@@ -177,6 +181,14 @@ class HeaderSettingsTab extends Tab {
                     ->set_instructions( $strings['header_scripts']['instructions'] );
 
                 $this->add_field( $header_scripts_field );
+
+                $body_scripts_field = ( new Field\Textarea( $strings['body_scripts']['title'] ) )
+                    ->set_key( "${key}_body_scripts" )
+                    ->set_name( 'body_scripts' )
+                    ->set_wrapper_width( 50 )
+                    ->set_instructions( $strings['body_scripts']['instructions'] );
+
+                $this->add_field( $body_scripts_field );
             }
         }
         catch ( Exception $e ) {
