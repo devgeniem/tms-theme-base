@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- PIEN-7726: Fix showing images in home page highlight.
+
 ## [1.41.0] - 2022-10-03
 
 ### Fixed
