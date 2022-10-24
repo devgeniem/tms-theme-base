@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section layout-video pt-0 pb-0">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-video pt-0 pb-0">
     <div class="container">
         <div class="columns">
             <div class="column">

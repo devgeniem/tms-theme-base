@@ -69,7 +69,7 @@ class SingleDynamicEventCpt extends PageEvent {
             str_replace( $home_url, '', $referer )
         );
 
-        if ( empty( $parent ) ) {
+        if ( empty( $parent ) || \get_post_status( $parent ) !== 'publish' ) {
             return $breadcrumbs;
         }
 

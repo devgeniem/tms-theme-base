@@ -18,6 +18,10 @@
 
         <body class="{#WP.body_class}{.}{@sep} {/sep}{/WP.body_class}">
 
+        {?Header.body_custom_scripts}
+            {Header.body_custom_scripts|s}
+        {/Header.body_custom_scripts}
+
         <header id="top" class="site-header">
             <a href="#main-content" class="skip-to-content">
                 {Strings.s.header.skip_to_content|s}

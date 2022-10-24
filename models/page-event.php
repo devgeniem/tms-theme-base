@@ -389,7 +389,7 @@ class PageEvent extends BaseModel {
         $parent = strpos( $parent, '/' ) !== false ? explode( '/', $parent )[0] : $parent;
         $parent = get_page_by_path( $parent );
 
-        if ( empty( $parent ) ) {
+        if ( empty( $parent ) || \get_post_status( $parent ) !== 'publish' ) {
             return $breadcrumbs;
         }
 

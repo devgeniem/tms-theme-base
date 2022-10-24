@@ -110,19 +110,26 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return [];
         }
 
+        // flip ids in order to keep the original order of selected contacts
+        $ids = array_flip( $ids );
+
         $contacts = array_filter( $contacts, function ( $contact ) use ( $ids ) {
-            return in_array( $contact['id'], $ids, true );
+            return array_key_exists( $contact['id'], $ids );
         } );
 
-        return array_map( function ( $contact ) use ( $field_keys ) {
+        $ret_contacts = $ids;
+
+        foreach ( $contacts as $contact ) {
             $fields = [];
 
             foreach ( $field_keys as $field_key ) {
                 $fields[ $field_key ] = $contact[ $field_key ] ?? '';
             }
 
-            return $fields;
-        }, $contacts );
+            $ret_contacts[ $contact['id'] ] = $fields;
+        }
+
+        return $ret_contacts;
     }
 
     /**

@@ -1,6 +1,6 @@
 {?highlight}
     <div class="highlight-article columns is-desktop is-gapless">
-        {?featured_image}
+        {?highlight.featured_image}
             <div class="highlight-article__image-container column is-6-desktop is-7-widescreen is-relative">
                 <div
                     class="highlight-article__image is-absolute-desktop has-top-0-desktop has-right-0-desktop has-bottom-0-desktop has-left-0-desktop has-background-cover" {@inlinebg id=highlight.featured_image size="large" /}>
@@ -9,18 +9,18 @@
                     </div>
                 </div>
             </div>
-        {/featured_image}
+        {/highlight.featured_image}
 
-        {?api_image_url}
+        {?highlight.api_image_url}
             <div class="highlight-article__image-container column is-6-desktop is-7-widescreen is-relative">
                 <div
                     class="highlight-article__image is-absolute-desktop has-top-0-desktop has-right-0-desktop has-bottom-0-desktop">
                     <div class="js-object-fit-image-container has-height-100">
-                        <img class="objectfit-image is-block" src="{api_image_url|url}" loading="lazy"/>
+                        <img class="objectfit-image is-block" src="{highlight.api_image_url|url}" loading="lazy"/>
                     </div>
                 </div>
             </div>
-        {/api_image_url}
+        {/highlight.api_image_url}
 
         <div class="column is-6-desktop is-5-widescreen has-background-secondary has-text-secondary-invert">
             <div class="highlight-article__fields p-5 pt-9-desktop pr-6-desktop pb-9-desktop pl-6-desktop">
