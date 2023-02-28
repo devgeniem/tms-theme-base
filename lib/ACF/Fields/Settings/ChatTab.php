@@ -34,20 +34,20 @@ class ChatTab extends Tab {
      * @var array
      */
     protected $strings = [
-        'tab'         => 'Chat',
-        'chat_script' => [
+        'tab'           => 'Chat',
+        'chat_script'   => [
             'title'        => 'Chatin scripti',
             'instructions' => 'Sisällytä avaava <script> ja sulkeva </script> tagi',
         ],
-        'chat_pages'   => [
+        'chat_pages'    => [
             'title'        => 'Valitse sivut, joilla chat näytetään',
             'instructions' => '',
         ],
-        'chat_page'   => [
+        'chat_page'     => [
             'title'        => 'Sivu',
             'instructions' => '',
         ],
-        'show_on_child'   => [
+        'show_on_child' => [
             'title'        => 'Näytä tämän alasivuilla',
             'instructions' => '',
         ],
