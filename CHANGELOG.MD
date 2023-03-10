@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- PIEN-8157: PHP 8.1
+
+## [1.41.2] - 2022-02-11
+
 ### Fixed
 
-- TMS-916: Fix order of selected api contacts.
+- TMS-916: Fix order of selected api contacts. #443
 
 ## [1.41.1] - 2022-10-17
 

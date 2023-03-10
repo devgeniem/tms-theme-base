@@ -238,7 +238,7 @@ class Strings extends \DustPress\Model {
      * @return object
      */
     public function add_pagination_translations( $data ) {
-        $data->S->aria_label = __( 'Pagination', 'tms-theme-base' );
+        $data->S->aria_label = __( 'Pagination', 'tms-theme-base' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
         return $data;
     }

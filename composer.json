@@ -24,9 +24,9 @@
     "license": "GPL-3.0-or-later",
     "minimum-stability": "stable",
     "scripts": {
-        "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0",
-        "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/",
-        "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/"
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ -s --warning-severity=0 --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0",
+        "lint-all": "vendor/bin/phpcs --standard=phpcs.xml ./lib/ ./models/ --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0",
+        "lint-fix": "vendor/bin/phpcbf --standard=phpcs.xml --basepath=. ./lib/ ./models/ --ignore=node_modules/ --runtime-set minimum_supported_wp_version 6.0"
     },
     "config": {
         "sort-packages": true,
@@ -39,7 +39,7 @@
         }
     },
     "require": {
-        "php": ">=7.4|^8.0",
+        "php": "^7.4||^8.1",
         "devgeniem/dustpress": ">=1.33.0",
         "composer/installers": "^1.0.12"
     },

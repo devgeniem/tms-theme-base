@@ -148,7 +148,7 @@ class Images implements Interfaces\Controller {
             // Set dimensions
             if ( $xml !== false ) {
                 $attr     = $xml->attributes();
-                $viewbox  = explode( ' ', $attr->viewBox );
+                $viewbox  = explode( ' ', $attr->viewBox ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
                 $image[1] = isset( $attr->width ) && preg_match( '/\d+/', $attr->width, $value )
                     ? (int) $value[0]
                     : ( count( $viewbox ) === 4 ? (int) $viewbox[2] : null );
