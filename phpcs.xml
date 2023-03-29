@@ -19,5 +19,5 @@
     <arg name="parallel" value="50"/>
 
     <!-- Check code for cross-version PHP compatibility. -->
-    <config name="testVersion" value="8.1"/>
+    <config name="testVersion" value="8.1-"/>
 </ruleset>
