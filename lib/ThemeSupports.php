@@ -174,7 +174,7 @@ class ThemeSupports implements Interfaces\Controller {
             return;
         }
 
-        printf( '<meta name="pageID" content="%s" />', $post->ID );
+        printf( '<meta name="pageID" content="%s" />', $post->ID ); // phpcs:ignore
     }
 }
 
