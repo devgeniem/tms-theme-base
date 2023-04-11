@@ -61,6 +61,8 @@ class ThemeSupports implements Interfaces\Controller {
         \add_action( 'wp_head', \Closure::fromCallable( [ $this, 'detect_js' ] ), 0 );
 
         \add_filter( 'tms/theme/settings/material_default_image', [ $this, 'get_material_default_image' ] );
+
+        \add_action( 'wp_head', [ $this, 'add_meta_tags' ] );
     }
 
     /**
@@ -159,4 +161,20 @@ class ThemeSupports implements Interfaces\Controller {
     public function get_material_default_image() {
         return Settings::get_setting( 'material_default_image' );
     }
+
+    /**
+     * Add meta tags
+     *
+     * @return void
+     */
+    public function add_meta_tags() : void {
+        global $post;
+
+        if ( ! $post || is_archive() || is_search() ) {
+            return;
+        }
+
+        printf( '<meta name="pageID" content="%s" />', $post->ID ); // phpcs:ignore
+    }
 }
+
