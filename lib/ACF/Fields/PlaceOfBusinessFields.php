@@ -46,15 +46,15 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'        => [
+            'title' => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description'  => [
+            'description' => [
                 'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
-            'contacts'     => [
+            'contacts' => [
                 'label'        => 'Yhteystiedot',
                 'instructions' => '',
             ],

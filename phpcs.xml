@@ -11,9 +11,13 @@
     <!-- Exclude Composer vendor directory. -->
     <exclude-pattern>*/.git/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
 
     <arg value="sp"/> <!-- Show sniff and progress -->
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
     <arg name="parallel" value="50"/>
+
+    <!-- Check code for cross-version PHP compatibility. -->
+    <config name="testVersion" value="8.1-"/>
 </ruleset>

@@ -157,7 +157,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $client               = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
 
         try {
-            $response = $client->get( 'event', $query_params );
+            $response = (array) $client->get( 'event', $query_params );
 
             if ( empty( $response ) ) {
                 return null;

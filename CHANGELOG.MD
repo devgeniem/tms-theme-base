@@ -7,8 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
-
+- PIEN-8157: PHP 8.1
 - PIEN-8439: Add pageID meta tag #463
 
 ## [1.41.2] - 2022-02-11
