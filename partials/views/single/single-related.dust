@@ -14,17 +14,25 @@
             {#related.posts}
                 <div class="column is-6 is-3-widescreen">
                     <div class="related-posts__item mb-4 mb-0-tablet">
-                        {?image_id}
+                        {?api_image_url}
                             <div class="image is-4by3">
-                                <a href="{permalink}" aria-hidden="true" tabindex="-1">
-                                    {@image id=image_id size="large" class="objectfit-image" /}
+                                <a href="{permalink|url}" aria-hidden="true" tabindex="-1">
+                                    <img src="{api_image_url|url}" class="objectfit-image" loading="lazy" alt=""/>
                                 </a>
                             </div>
-                        {/image_id}
+                        {:else}
+                            {?image_id}
+                                <div class="image is-4by3">
+                                    <a href="{permalink|url}" aria-hidden="true" tabindex="-1">
+                                        {@image id=image_id size="large" class="objectfit-image" /}
+                                    </a>
+                                </div>
+                            {/image_id}
+                        {/api_image_url}
 
                         {?post_title}
                             <h3 class="h4 mt-5 mb-5">
-                                <a href="{permalink}" class="has-text-black">
+                                <a href="{permalink|url}" class="has-text-black">
                                     {post_title|s}
                                 </a>
                             </h3>
