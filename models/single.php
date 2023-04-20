@@ -87,7 +87,7 @@ class Single extends BaseModel {
                     $item->category_link = get_category_link( $categories[0]->ID );
                 }
 
-                $item->api_image_url = get_field( 'image_url' );
+                $item->api_image_url = get_field( 'image_url', $item->ID );
                 $item->has_image     = $item->image_id !== 0 || ! empty( $item->api_image_url );
 
                 if ( ! $item->has_image ) {
