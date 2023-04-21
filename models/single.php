@@ -88,9 +88,9 @@ class Single extends BaseModel {
                 }
 
                 $item->api_image_url = get_field( 'image_url', $item->ID );
-                $item->has_image     = $item->image_id !== 0 || ! empty( $item->api_image_url );
+                $has_image           = $item->image_id !== 0 || ! empty( $item->api_image_url );
 
-                if ( ! $item->has_image ) {
+                if ( ! $has_image ) {
                     $item->image_id = Images::get_default_image_id();
                 }
 
