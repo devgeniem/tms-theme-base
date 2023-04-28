@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- PIEN-8585: Check empty links #465
+
 ## [1.42.1] - 2023-04-27
 
-## Fixed
+### Fixed
 
 - PIEN-8524: Display API images #464
 
