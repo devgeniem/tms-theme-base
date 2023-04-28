@@ -20,6 +20,59 @@ class Single extends BaseModel {
     use Traits\Components;
 
     /**
+     * Hooks
+     *
+     * @return void
+     */
+    public function hooks() : void {
+        // og:image.
+        add_filter(
+            'the_seo_framework_image_generation_params',
+            Closure::fromCallable( [ $this, 'alter_image' ] )
+        );
+    }
+
+    /**
+     * Add image for og:image.
+     *
+     * @param array $params An array of SEO framework image parameters.
+     *
+     * @return array
+     */
+    protected function alter_image( $params ) {
+        $image_url = get_field( 'image_url' ) ?? false;
+
+        if ( $image_url ) {
+            // Ensure our custom generator is ran first.
+            $params['cbs'] = array_merge(
+                [ 'tms' => \Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
+                $params['cbs']
+            );
+        }
+
+        return $params;
+    }
+
+    /**
+     * Custom generator for The SEO Framework og images.
+     *
+     * @yield array : {
+     *     string url: The image URL,
+     *     int     id: The image ID,
+     * }
+     */
+    protected function seo_image_generator() {
+        $image_url = get_field( 'image_url' ) ?? false;
+
+        if ( $image_url ) {
+            yield [
+                'url' => $image_url ?? '',
+                'id'  => null,
+            ];
+        }
+    }
+
+    /**
      * Content
      *
      * @return array|object|WP_Post|null
