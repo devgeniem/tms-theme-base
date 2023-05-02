@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- PIEN-3894: Add API image to og:image tag #466
+- PIEN-8394: Add API image to og:image tag #466
 
 ## [1.42.2] - 2023-04-28
 
