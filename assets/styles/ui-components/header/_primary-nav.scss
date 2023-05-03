@@ -112,6 +112,8 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
             grid-template-columns: 25% 25% 25% 25%;
             grid-column-gap: $gap;
             text-transform: none;
+            list-style: none;
+            padding-left: 0;
 
             .navbar-item {
                 padding: 1.411rem 0;
