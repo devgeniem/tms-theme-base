@@ -5,7 +5,8 @@
             {#links.all}
                 <li class="ml-2-desktop">
                     <a class="is-inline-flex is-justify-content-center is-align-items-center {Header.colors.lang_nav.link} {^current_lang}{Header.colors.lang_nav.link__default}{/current_lang} {?current_lang}{Header.colors.lang_nav.link__active}{/current_lang}"
-                       href="{url}">
+                       href="{url}"
+                       {?current_lang} aria-current="true"{/current_lang}>
                         {slug}
                     </a>
                 </li>

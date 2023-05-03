@@ -8,11 +8,13 @@
                 </a>
 
                 <div class="navbar-dropdown-items">
-                    <div class="navbar-grid">
+                    <ul class="navbar-grid">
                         {#sub_menu}
-                            {>"ui/menu/menu-item-simple" icon="chevron-right" /}
+                            <li>
+                                {>"ui/menu/menu-item-simple" icon="chevron-right" /}
+                            </li>
                         {/sub_menu}
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
