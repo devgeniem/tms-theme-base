@@ -94,9 +94,10 @@ class Strings extends \DustPress\Model {
                 'back_to_top'  => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
             ],
             'common'             => [
-                'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
-                'all'          => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
-                'read_more'    => _x( 'Read more', 'theme-frontend', 'tms-theme-base' ),
+                'target_blank'  => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
+                'external_link' => _x( 'The link takes you to an external website', 'theme-frontend', 'tms-theme-base' ),
+                'all'           => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
+                'read_more'     => _x( 'Read more', 'theme-frontend', 'tms-theme-base' ),
             ],
             'single'             => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
