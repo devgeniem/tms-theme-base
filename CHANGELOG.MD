@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- TMS-931: Change back-to-top button to focus main-content, Add screen-reader info for links that go to external sites
+- TMS-931: Navigation accessibility fixes
+
 ## [1.42.3] - 2023-05-02
 
 ### Fixed
