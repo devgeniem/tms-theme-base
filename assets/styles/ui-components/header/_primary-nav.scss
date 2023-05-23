@@ -12,6 +12,7 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
     @include list-reset;
     font-family: $family-secondary;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     text-transform: uppercase;
 

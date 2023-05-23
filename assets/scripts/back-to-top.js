@@ -23,6 +23,11 @@ export default class BackToTop {
         $( 'html, body' ).animate( {
             scrollTop: 0,
         }, 200 );
+
+        // Clear the current hash if the user has used 'skip to content' button
+        window.location.hash = '';
+        // Add main-content as the location hash
+        window.location.hash = '#main-content';
     }
 
     /**

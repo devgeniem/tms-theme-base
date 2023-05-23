@@ -8,6 +8,7 @@ $secondary-navbar-item-font-weight: 600 !default;
 
 .secondary-menu {
     font-size: .9em;
+    flex-wrap: wrap;
 
     li {
         &:not(:first-child) {
