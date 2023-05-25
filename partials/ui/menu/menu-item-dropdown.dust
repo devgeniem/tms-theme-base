@@ -5,7 +5,7 @@
 {?sub_menu}
     <li class="navbar-item has-dropdown {#classes}{.}{@sep} {/sep}{/classes}">
         <div class="navbar-dropdown-control">
-            <a class="navbar-link dropdown-trigger is-arrowless" aria-haspopup="true" href="#">
+            <a class="navbar-link dropdown-trigger is-arrowless" href="#">
                 {title|s}
             </a>
 

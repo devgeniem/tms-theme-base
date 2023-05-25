@@ -1,5 +1,5 @@
 <li class="navbar-item navbar-item__single {#classes}{.}{@sep} {/sep}{/classes}">
-    <a href="{url}" class="is-arrowless pr-0 pl-0">
+    <a href="{url}" class="is-arrowless pr-0 pl-0" {?classes.is_current}aria-page='current'{/classes.is_current}>
         {title|s}
     </a>
 </li>

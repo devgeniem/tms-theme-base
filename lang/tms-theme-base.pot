@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-04-11 11:45+0300\n"
+"POT-Creation-Date: 2023-05-19 14:56+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -23,9 +23,28 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 
-#: assets/dist/vendor.js:4880
-msgctxt "text direction"
-msgid "ltr"
+#: assets/dist/vendor.js:1
+msgid "entries"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "values"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "keys"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong index!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong offset!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong length!"
 msgstr ""
 
 #: comments.php:14
@@ -55,13 +74,13 @@ msgstr ""
 msgid "Open map"
 msgstr ""
 
-#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:72
+#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:73
 #: lib/ACF/PageGroup.php:39
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr ""
 
-#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:125
+#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:126
 #: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
@@ -86,7 +105,7 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: lib/ACF/SettingsGroup.php:51
+#: lib/ACF/SettingsGroup.php:52
 msgctxt "theme ACF"
 msgid "Site settings"
 msgstr ""
@@ -99,119 +118,119 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: lib/Assets.php:354
+#: lib/Assets.php:400
 msgid "Audio guide"
 msgstr ""
 
-#: lib/Assets.php:355
+#: lib/Assets.php:401
 msgid "Assistant"
 msgstr ""
 
-#: lib/Assets.php:356
+#: lib/Assets.php:402
 msgid "Lift"
 msgstr ""
 
-#: lib/Assets.php:357
+#: lib/Assets.php:403
 msgid "Induction loop"
 msgstr ""
 
-#: lib/Assets.php:358
+#: lib/Assets.php:404
 msgid "Information"
 msgstr ""
 
-#: lib/Assets.php:359
+#: lib/Assets.php:405
 msgid "Internet"
 msgstr ""
 
-#: lib/Assets.php:360
+#: lib/Assets.php:406
 msgid "Accessible entrance, Accessible toilet, Accessible parking"
 msgstr ""
 
-#: lib/Assets.php:361
+#: lib/Assets.php:407
 msgid "Café"
 msgstr ""
 
-#: lib/Assets.php:362
+#: lib/Assets.php:408
 msgid "Shop"
 msgstr ""
 
-#: lib/Assets.php:363
+#: lib/Assets.php:409
 msgid "Meeting room"
 msgstr ""
 
-#: lib/Assets.php:364
+#: lib/Assets.php:410
 msgid "Assistive device lending"
 msgstr ""
 
-#: lib/Assets.php:365
+#: lib/Assets.php:411
 msgid "Baby changing"
 msgstr ""
 
-#: lib/Assets.php:366
+#: lib/Assets.php:412
 msgid "Charging point"
 msgstr ""
 
-#: lib/Assets.php:367
+#: lib/Assets.php:413
 msgid "Ticket sales"
 msgstr ""
 
-#: lib/Assets.php:368
+#: lib/Assets.php:414
 msgid "Ramp"
 msgstr ""
 
-#: lib/Assets.php:369
+#: lib/Assets.php:415
 msgid "Services for the visually impaired"
 msgstr ""
 
-#: lib/Assets.php:370
+#: lib/Assets.php:416
 msgid "Service dogs allowed"
 msgstr ""
 
-#: lib/Assets.php:371
+#: lib/Assets.php:417
 msgid "Braille"
 msgstr ""
 
-#: lib/Assets.php:372
+#: lib/Assets.php:418
 msgid "Stairlift"
 msgstr ""
 
-#: lib/Assets.php:373
+#: lib/Assets.php:419
 msgid "Staircase"
 msgstr ""
 
-#: lib/Assets.php:374
+#: lib/Assets.php:420
 msgid "Platform lift"
 msgstr ""
 
-#: lib/Assets.php:375
+#: lib/Assets.php:421
 msgid "Rollator, walker"
 msgstr ""
 
-#: lib/Assets.php:376
+#: lib/Assets.php:422
 msgid "Electric mobility scooter storage"
 msgstr ""
 
-#: lib/Assets.php:377
+#: lib/Assets.php:423
 msgid "Lockers"
 msgstr ""
 
-#: lib/Assets.php:378
+#: lib/Assets.php:424
 msgid "Large print"
 msgstr ""
 
-#: lib/Assets.php:379
+#: lib/Assets.php:425
 msgid "Cloakroom"
 msgstr ""
 
-#: lib/Assets.php:380
+#: lib/Assets.php:426
 msgid "Sign-language services"
 msgstr ""
 
-#: lib/Assets.php:381 lib/Assets.php:382
+#: lib/Assets.php:427 lib/Assets.php:428
 msgid "Accessible toilet: one-sided access"
 msgstr ""
 
-#: lib/Assets.php:383
+#: lib/Assets.php:429
 msgid "WC"
 msgstr ""
 
@@ -246,22 +265,22 @@ msgctxt "pagination"
 msgid "Previous"
 msgstr ""
 
-#: lib/Formatters/CountdownFormatter.php:80 models/strings.php:222
+#: lib/Formatters/CountdownFormatter.php:80 models/strings.php:224
 msgctxt "theme-frontend"
 msgid "Days"
 msgstr ""
 
-#: lib/Formatters/CountdownFormatter.php:81 models/strings.php:223
+#: lib/Formatters/CountdownFormatter.php:81 models/strings.php:225
 msgctxt "theme-frontend"
 msgid "Hours"
 msgstr ""
 
-#: lib/Formatters/CountdownFormatter.php:82 models/strings.php:224
+#: lib/Formatters/CountdownFormatter.php:82 models/strings.php:226
 msgctxt "theme-frontend"
 msgid "Minutes"
 msgstr ""
 
-#: lib/Formatters/GridFormatter.php:147
+#: lib/Formatters/GridFormatter.php:151
 msgid "Read more"
 msgstr ""
 
@@ -301,11 +320,11 @@ msgstr ""
 msgid "Virtual event"
 msgstr ""
 
-#: lib/NavigationController.php:34
+#: lib/NavigationController.php:39
 msgid "Primary Navigation"
 msgstr ""
 
-#: lib/NavigationController.php:35
+#: lib/NavigationController.php:40
 msgid "Secondary Navigation"
 msgstr ""
 
@@ -337,6 +356,16 @@ msgstr ""
 #: lib/PostType/BlogAuthor.php:61
 msgctxt "theme CPT"
 msgid "Blog authors"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:96
+msgctxt "theme CPT"
+msgid "Blog Authors"
+msgstr ""
+
+#: lib/PostType/BlogAuthor.php:97
+msgctxt "theme CPT"
+msgid "Blog Author"
 msgstr ""
 
 #: lib/PostType/Contact.php:55
@@ -418,7 +447,7 @@ msgstr ""
 msgid "Site settings"
 msgstr ""
 
-#: lib/SiteController.php:170 models/strings.php:58
+#: lib/SiteController.php:170 models/strings.php:59
 msgctxt "theme-frontend"
 msgid "Page not found"
 msgstr ""
@@ -478,39 +507,39 @@ msgctxt "Breadcrumbs"
 msgid "Home"
 msgstr ""
 
-#: lib/Traits/Sharing.php:97
+#: lib/Traits/Sharing.php:105
 msgid "Share on Facebook"
 msgstr ""
 
-#: lib/Traits/Sharing.php:103
+#: lib/Traits/Sharing.php:111
 msgid "Share by email"
 msgstr ""
 
-#: lib/Traits/Sharing.php:109
+#: lib/Traits/Sharing.php:117
 msgid "Copy link to clipboard"
 msgstr ""
 
-#: lib/Traits/Sharing.php:110
+#: lib/Traits/Sharing.php:118
 msgid "Copied to clipboard"
 msgstr ""
 
-#: lib/Traits/Sharing.php:116
+#: lib/Traits/Sharing.php:124
 msgid "Share on Whatsapp"
 msgstr ""
 
-#: lib/Traits/Sharing.php:122
+#: lib/Traits/Sharing.php:130
 msgid "Share on Twitter"
 msgstr ""
 
-#: lib/Traits/Sharing.php:128
+#: lib/Traits/Sharing.php:136
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: lib/Traits/Sharing.php:134
+#: lib/Traits/Sharing.php:142
 msgid "Share on Vkontakte"
 msgstr ""
 
-#: lib/Traits/Sharing.php:140
+#: lib/Traits/Sharing.php:148
 msgid "Share on Line"
 msgstr ""
 
@@ -553,7 +582,7 @@ msgstr ""
 msgid "No search term given"
 msgstr ""
 
-#: models/page-events-search.php:190 models/search.php:228
+#: models/page-events-search.php:190 models/search.php:236
 #, php-format
 msgctxt "search results summary"
 msgid "%1$1s result found for \"%2$2s\""
@@ -581,7 +610,7 @@ msgstr ""
 msgid "Looking for events? Use the event search!"
 msgstr ""
 
-#: models/search.php:239
+#: models/search.php:247
 msgid "No search results"
 msgstr ""
 
@@ -597,568 +626,480 @@ msgstr ""
 
 #: models/strings.php:44
 msgctxt "theme-frontend"
-msgid "Open menu"
+msgid "Frequently searched pages"
 msgstr ""
 
 #: models/strings.php:45
 msgctxt "theme-frontend"
-msgid "Close menu"
+msgid "Open menu"
 msgstr ""
 
 #: models/strings.php:46
 msgctxt "theme-frontend"
-msgid "Language navigation"
+msgid "Close menu"
 msgstr ""
 
 #: models/strings.php:47
 msgctxt "theme-frontend"
-msgid "Open search form"
+msgid "Language navigation"
 msgstr ""
 
 #: models/strings.php:48
 msgctxt "theme-frontend"
-msgid "Open language navigation"
+msgid "Open search form"
 msgstr ""
 
 #: models/strings.php:49
 msgctxt "theme-frontend"
+msgid "Open language navigation"
+msgstr ""
+
+#: models/strings.php:50
+msgctxt "theme-frontend"
 msgid "Current language: "
 msgstr ""
 
-#: models/strings.php:50 models/strings.php:51 models/strings.php:155
-#: models/strings.php:156
+#: models/strings.php:51 models/strings.php:52 models/strings.php:157
+#: models/strings.php:158
 msgctxt "theme-frontend"
 msgid "Search"
 msgstr ""
 
-#: models/strings.php:52 models/strings.php:53
+#: models/strings.php:53 models/strings.php:54
 msgctxt "theme-frontend"
 msgid "Search from site"
 msgstr ""
 
-#: models/strings.php:54 models/strings.php:80 models/strings.php:138
-#: models/strings.php:151 models/strings.php:160
+#: models/strings.php:55 models/strings.php:81 models/strings.php:140
+#: models/strings.php:153 models/strings.php:162
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr ""
 
-#: models/strings.php:55 models/strings.php:64
+#: models/strings.php:56 models/strings.php:65
 msgctxt "theme-frontend"
 msgid "To home page"
 msgstr ""
 
-#: models/strings.php:60
+#: models/strings.php:61
 msgctxt "theme-frontend"
 msgid "The content were looking for was not found"
 msgstr ""
 
-#: models/strings.php:67
+#: models/strings.php:68
 msgctxt "theme-frontend"
 msgid "Skip video embed"
 msgstr ""
 
-#: models/strings.php:68
+#: models/strings.php:69
 msgctxt "theme-frontend"
 msgid "Play video"
 msgstr ""
 
-#: models/strings.php:69
+#: models/strings.php:70
 msgctxt "theme-frontend"
 msgid "Pause video"
 msgstr ""
 
-#: models/strings.php:72
+#: models/strings.php:73
 msgctxt "theme-frontend"
 msgid "Skip social media embed"
 msgstr ""
 
-#: models/strings.php:75
+#: models/strings.php:76
 msgctxt "theme-frontend"
 msgid "Share Article"
 msgstr ""
 
-#: models/strings.php:76
+#: models/strings.php:77
 msgctxt "theme-frontend"
 msgid "Share Event"
 msgstr ""
 
-#: models/strings.php:77
+#: models/strings.php:78
 msgctxt "theme-frontend"
 msgid "Share to social media"
 msgstr ""
 
-#: models/strings.php:81
+#: models/strings.php:82
 msgctxt "theme-frontend"
 msgid "Next"
 msgstr ""
 
-#: models/strings.php:82 models/strings.php:150 models/strings.php:159
+#: models/strings.php:83 models/strings.php:152 models/strings.php:161
 msgctxt "theme-frontend"
 msgid "Open"
 msgstr ""
 
-#: models/strings.php:83
+#: models/strings.php:84
 msgctxt "theme-frontend"
 msgid "Previous"
 msgstr ""
 
-#: models/strings.php:84
+#: models/strings.php:85
 msgctxt "theme-frontend"
 msgid "Go to slide"
 msgstr ""
 
-#: models/strings.php:85
+#: models/strings.php:86
 msgctxt "theme-frontend"
 msgid "Centered"
 msgstr ""
 
-#: models/strings.php:86
+#: models/strings.php:87
 msgctxt "theme-frontend"
 msgid "Slide"
 msgstr ""
 
-#: models/strings.php:87
+#: models/strings.php:88
 msgctxt "theme-frontend"
 msgid "Image carousel"
 msgstr ""
 
-#: models/strings.php:88
+#: models/strings.php:89
 msgctxt "theme-frontend"
 msgid "Modal image carousel"
 msgstr ""
 
-#: models/strings.php:89
+#: models/strings.php:90
 msgctxt "theme-frontend"
 msgid "Main image carousel"
 msgstr ""
 
-#: models/strings.php:92
+#: models/strings.php:93
 msgctxt "theme-frontend"
 msgid "Move to tampere.fi"
 msgstr ""
 
-#: models/strings.php:93
+#: models/strings.php:94
 msgctxt "theme-frontend"
 msgid "Back to top"
 msgstr ""
 
-#: models/strings.php:96
+#: models/strings.php:97
 msgctxt "theme-frontend"
 msgid "Opens in a new window"
 msgstr ""
 
-#: models/strings.php:97
+#: models/strings.php:98
+msgctxt "theme-frontend"
+msgid "The link takes you to an external website"
+msgstr ""
+
+#: models/strings.php:99
 msgctxt "theme-frontend"
 msgid "All"
 msgstr ""
 
-#: models/strings.php:98
+#: models/strings.php:100
 msgctxt "theme-frontend"
 msgid "Read more"
 msgstr ""
 
-#: models/strings.php:101
+#: models/strings.php:103
 msgctxt "theme-frontend"
 msgid "Image:"
 msgstr ""
 
-#: models/strings.php:102
+#: models/strings.php:104
 msgctxt "theme-frontend"
 msgid "Text:"
 msgstr ""
 
-#: models/strings.php:105 models/strings.php:179
+#: models/strings.php:107 models/strings.php:181
 msgctxt "theme-frontend"
 msgid "Month"
 msgstr ""
 
-#: models/strings.php:106 models/strings.php:180
+#: models/strings.php:108 models/strings.php:182
 msgctxt "theme-frontend"
 msgid "Year"
 msgstr ""
 
-#: models/strings.php:107
+#: models/strings.php:109
 msgctxt "theme-frontend"
 msgid "No results"
 msgstr ""
 
-#: models/strings.php:108
+#: models/strings.php:110
 msgctxt "theme-frontend"
 msgid "Filter by Category"
 msgstr ""
 
-#: models/strings.php:111 models/strings.php:193
+#: models/strings.php:113 models/strings.php:195
 msgctxt "theme-frontend"
 msgid "January"
 msgstr ""
 
-#: models/strings.php:112 models/strings.php:194
+#: models/strings.php:114 models/strings.php:196
 msgctxt "theme-frontend"
 msgid "February"
 msgstr ""
 
-#: models/strings.php:113 models/strings.php:195
+#: models/strings.php:115 models/strings.php:197
 msgctxt "theme-frontend"
 msgid "March"
 msgstr ""
 
-#: models/strings.php:114 models/strings.php:196
+#: models/strings.php:116 models/strings.php:198
 msgctxt "theme-frontend"
 msgid "April"
 msgstr ""
 
-#: models/strings.php:115 models/strings.php:197 models/strings.php:211
+#: models/strings.php:117 models/strings.php:199 models/strings.php:213
 msgctxt "theme-frontend"
 msgid "May"
 msgstr ""
 
-#: models/strings.php:116 models/strings.php:198
+#: models/strings.php:118 models/strings.php:200
 msgctxt "theme-frontend"
 msgid "June"
 msgstr ""
 
-#: models/strings.php:117 models/strings.php:199
+#: models/strings.php:119 models/strings.php:201
 msgctxt "theme-frontend"
 msgid "July"
 msgstr ""
 
-#: models/strings.php:118 models/strings.php:200
+#: models/strings.php:120 models/strings.php:202
 msgctxt "theme-frontend"
 msgid "August"
 msgstr ""
 
-#: models/strings.php:119 models/strings.php:201
+#: models/strings.php:121 models/strings.php:203
 msgctxt "theme-frontend"
 msgid "September"
 msgstr ""
 
-#: models/strings.php:120 models/strings.php:202
+#: models/strings.php:122 models/strings.php:204
 msgctxt "theme-frontend"
 msgid "October"
 msgstr ""
 
-#: models/strings.php:121 models/strings.php:203
+#: models/strings.php:123 models/strings.php:205
 msgctxt "theme-frontend"
 msgid "November"
 msgstr ""
 
-#: models/strings.php:122 models/strings.php:204
+#: models/strings.php:124 models/strings.php:206
 msgctxt "theme-frontend"
 msgid "December"
 msgstr ""
 
-#: models/strings.php:125
+#: models/strings.php:127
 msgctxt "theme-frontend"
 msgid "Password:"
 msgstr ""
 
-#: models/strings.php:126
+#: models/strings.php:128
 msgctxt "theme-frontend"
 msgid "Enter"
 msgstr ""
 
-#: models/strings.php:128
+#: models/strings.php:130
 msgctxt "theme-frontend"
 msgid ""
 "This content is password protected. To view it please enter your password "
 "below:"
 msgstr ""
 
-#: models/strings.php:134
+#: models/strings.php:136
 msgctxt "theme-frontend"
 msgid "Sibling pages"
 msgstr ""
 
-#: models/strings.php:137
+#: models/strings.php:139
 msgctxt "theme-frontend"
 msgid "Comments"
 msgstr ""
 
-#: models/strings.php:141
+#: models/strings.php:143
 msgctxt "theme-frontend"
 msgid "Show description"
 msgstr ""
 
-#: models/strings.php:142
+#: models/strings.php:144
 msgctxt "theme-frontend"
 msgid "All articles"
 msgstr ""
 
-#: models/strings.php:145
+#: models/strings.php:147
 msgctxt "theme-frontend"
 msgid "Event date"
 msgstr ""
 
-#: models/strings.php:146
+#: models/strings.php:148
 msgctxt "theme-frontend"
 msgid "Event time"
 msgstr ""
 
-#: models/strings.php:147
+#: models/strings.php:149
 msgctxt "theme-frontend"
 msgid "Event location"
 msgstr ""
 
-#: models/strings.php:154
+#: models/strings.php:156
 msgctxt "theme-frontend"
 msgid "Search contacts"
 msgstr ""
 
-#: models/strings.php:161 models/strings.php:166
+#: models/strings.php:163 models/strings.php:168
 msgctxt "theme-frontend"
 msgid "Related artwork"
 msgstr ""
 
-#: models/strings.php:164
+#: models/strings.php:166
 msgctxt "theme-frontend"
 msgid "Show artist"
 msgstr ""
 
-#: models/strings.php:165
+#: models/strings.php:167
 msgctxt "theme-frontend"
 msgid "Artwork by the same artist"
 msgstr ""
 
-#: models/strings.php:169
+#: models/strings.php:171
 msgctxt "theme-frontend"
 msgid "Filter by type"
 msgstr ""
 
-#: models/strings.php:170
+#: models/strings.php:172
 msgctxt "theme-frontend"
 msgid "Publish date"
 msgstr ""
 
-#: models/strings.php:174 models/strings.php:182
+#: models/strings.php:176 models/strings.php:184
 msgctxt "theme-frontend"
 msgid "Pick a date"
 msgstr ""
 
-#: models/strings.php:175
+#: models/strings.php:177
 msgctxt "theme-frontend"
 msgid "dd.mm.yyyy"
 msgstr ""
 
-#: models/strings.php:176
+#: models/strings.php:178
 msgctxt "theme-frontend"
 msgid "The chosen date is"
 msgstr ""
 
-#: models/strings.php:177
+#: models/strings.php:179
 msgctxt "theme-frontend"
 msgid "Previous month"
 msgstr ""
 
-#: models/strings.php:178
+#: models/strings.php:180
 msgctxt "theme-frontend"
 msgid "Next month"
 msgstr ""
 
-#: models/strings.php:181
+#: models/strings.php:183
 msgctxt "theme-frontend"
 msgid "Close window"
 msgstr ""
 
-#: models/strings.php:184
+#: models/strings.php:186
 msgctxt "theme-frontend"
 msgid "Sunday"
 msgstr ""
 
-#: models/strings.php:185
+#: models/strings.php:187
 msgctxt "theme-frontend"
 msgid "Monday"
 msgstr ""
 
-#: models/strings.php:186
+#: models/strings.php:188
 msgctxt "theme-frontend"
 msgid "Tuesday"
 msgstr ""
 
-#: models/strings.php:187
+#: models/strings.php:189
 msgctxt "theme-frontend"
 msgid "Wednesday"
 msgstr ""
 
-#: models/strings.php:188
+#: models/strings.php:190
 msgctxt "theme-frontend"
 msgid "Thursday"
 msgstr ""
 
-#: models/strings.php:189
+#: models/strings.php:191
 msgctxt "theme-frontend"
 msgid "Friday"
 msgstr ""
 
-#: models/strings.php:190
+#: models/strings.php:192
 msgctxt "theme-frontend"
 msgid "Saturday"
 msgstr ""
 
-#: models/strings.php:207
+#: models/strings.php:209
 msgctxt "theme-frontend"
 msgid "Jan"
 msgstr ""
 
-#: models/strings.php:208
+#: models/strings.php:210
 msgctxt "theme-frontend"
 msgid "Feb"
 msgstr ""
 
-#: models/strings.php:209
+#: models/strings.php:211
 msgctxt "theme-frontend"
 msgid "Mar"
 msgstr ""
 
-#: models/strings.php:210
+#: models/strings.php:212
 msgctxt "theme-frontend"
 msgid "Apr"
 msgstr ""
 
-#: models/strings.php:212
+#: models/strings.php:214
 msgctxt "theme-frontend"
 msgid "Jun"
 msgstr ""
 
-#: models/strings.php:213
+#: models/strings.php:215
 msgctxt "theme-frontend"
 msgid "Jul"
 msgstr ""
 
-#: models/strings.php:214
+#: models/strings.php:216
 msgctxt "theme-frontend"
 msgid "Aug"
 msgstr ""
 
-#: models/strings.php:215
+#: models/strings.php:217
 msgctxt "theme-frontend"
 msgid "Sept"
 msgstr ""
 
-#: models/strings.php:216
+#: models/strings.php:218
 msgctxt "theme-frontend"
 msgid "Oct"
 msgstr ""
 
-#: models/strings.php:217
+#: models/strings.php:219
 msgctxt "theme-frontend"
 msgid "Nov"
 msgstr ""
 
-#: models/strings.php:218
+#: models/strings.php:220
 msgctxt "theme-frontend"
 msgid "Dec"
 msgstr ""
 
-#: models/strings.php:227
+#: models/strings.php:229
 msgctxt "theme-frontend"
 msgid "Dialog Window - Close (Press escape to close)"
 msgstr ""
 
-#: models/strings.php:228
+#: models/strings.php:230
 msgctxt "theme-frontend"
 msgid "Close (Press escape to close)"
 msgstr ""
 
-#: models/strings.php:241
+#: models/strings.php:243
 msgid "Pagination"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
-#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
-msgid "Add Row"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
-msgid "Multisite Post Object"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
-msgid "Multisite Relationship"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
-msgid "Multisite taxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
-msgid "Multitaxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
-#, php-format
-msgctxt "No terms"
-msgid "No %s"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
-msgid "PHP"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
-msgid "Instructions"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
-msgid ""
-"This field can only be used with ACF Codifier. Doesn't do anything if "
-"defined in the admin side."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:57
-msgid "Reply to comment"
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:58
-msgid "Your browser does not support this type of form handling."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:185
-msgid "comment-page"
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:238
-msgid ""
-"DustPress Comments: The 'get_comments_args' function is not defined in the "
-"model."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:244
-msgid ""
-"DustPress Comments: The 'get_form_args' function is not defined in the "
-"model."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:248
-msgid "DustPress Comments: The model class {"
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:264
-msgid ""
-"DustPress Comments: The 'get_comments_args' filter return value is not an "
-"array or it is empty."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:268
-msgid ""
-"DustPress Comments: The 'get_form_args' filter return value is not an array "
-"or it is empty."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:297
-msgid "Comment sent."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:299
-msgid "Comment is waiting for approval."
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:344
-#: wp-content/plugins/dustpress-comments/classes/comments.php:676
-msgid "all-comments"
-msgstr ""
-
-#: wp-content/plugins/dustpress-comments/classes/comments.php:574
-msgid "Processing comments..."
 msgstr ""
 
 #. Theme Name of the plugin/theme
