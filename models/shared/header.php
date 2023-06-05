@@ -390,7 +390,7 @@ class Header extends Model {
         }
 
         $current_page = \get_queried_object();
-        if( (int)$item->object_id === $current_page->ID ) {
+        if ( (int) $item->object_id === $current_page->ID ) {
             $classes['is_current'] = 'is-current';
         }
 
