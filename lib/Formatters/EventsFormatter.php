@@ -49,6 +49,7 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             : get_locale();
 
         $events = $this->get_events( $query_params );
+        $events = apply_filters( 'tms/theme/layout_events/events', $events, $layout );
 
         if ( empty( $events ) ) {
             return $layout;
