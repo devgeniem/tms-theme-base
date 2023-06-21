@@ -99,6 +99,9 @@ class LinkedEvents implements Controller {
             'date'               => static::get_event_date( $event ),
             'time_title'         => __( 'Time', 'tms-theme-base' ),
             'time'               => static::get_event_time( $event ),
+            // Include raw dates for possible sorting.
+            'start_date_raw'     => static::get_as_datetime( $event->start_time ),
+            'end_date_raw'       => static::get_as_datetime( $event->end_time ),
             'location_title'     => __( 'Location', 'tms-theme-base' ),
             'location'           => static::get_event_location( $event, $lang_key ),
             'price_title'        => __( 'Price', 'tms-theme-base' ),
