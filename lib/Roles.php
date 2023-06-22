@@ -207,7 +207,7 @@ class Roles implements Controller {
         'delete_material_types',
         'assign_material_types',
     ];
-    
+
     /**
      * Manual Event Category taxonomy
      *
