@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Modified
+
+- TMS-956: Add Manual Events plugin caps to roles.
+
 ## [1.43.0] - 2023-06-21
 
 ### Modified
