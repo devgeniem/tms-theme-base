@@ -9,7 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Modified
 
+- TMS-956: Add Manual Events plugin caps to roles.
+
+## [1.43.0] - 2023-06-21
+
+### Modified
+
 - TMS-956: Add event datetime objects to normalized event for easier sorting.
+- TMS-956: Allow filtering displayed events in Events layout.
 
 ## [1.42.4] - 2023-05-24
 
