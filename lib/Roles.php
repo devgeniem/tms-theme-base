@@ -221,18 +221,6 @@ class Roles implements Controller {
     ];
 
     /**
-     * Manual Event Category taxonomy
-     *
-     * @var string[]
-     */
-    private $taxonomy_manual_event_category_all_capabilities = [
-        'manage_manual_event_categories',
-        'edit_manual_event_categories',
-        'delete_manual_event_categories',
-        'assign_manual_event_categories',
-    ];
-
-    /**
      * Tablepress capabilities
      *
      * @var string[]
