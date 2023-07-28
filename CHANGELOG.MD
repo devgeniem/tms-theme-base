@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Modified
+
+- PIEN-8943: Allowed ReCaptcha field in GravityForms
+
 ## [1.44.0] - 2023-06-22
 
 ### Modified
