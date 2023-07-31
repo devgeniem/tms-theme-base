@@ -325,7 +325,6 @@ window.onload = function() {
                 if (
                     $field['data-type'] === 'date' ||
                     $field['data-type'] === 'time' ||
-                    $field['data-type'] === 'captcha' ||
                     $field['data-type'] === 'multiselect' ||
                     $field['data-type'] === 'list'
                 ) {
