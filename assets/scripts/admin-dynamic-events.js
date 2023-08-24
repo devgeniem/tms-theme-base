@@ -20,9 +20,10 @@
          */
         const filterFields = [
             'text',
-            'location',
-            'keyword',
-            'publisher',
+            'area',
+            'category',
+            'target',
+            'tag',
         ];
 
         let $el = '';
