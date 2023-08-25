@@ -1,32 +1,44 @@
-{?event.normalized.date}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
+{?event.normalized.recurring}
+    {?event.normalized.date}
+        <div class="info-group mb-5 {template_classes.info_group|s}">
+            {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
-        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            {event.normalized.date|s}
+            <div class="pt-3 pb-2">
+                {#event.normalized.dates}
+                <div class="info-group__description pr-8 pb-1 pl-8">
+                    {date|s}
+                </div>
+            {/event.normalized.dates}
+            </div>
         </div>
-    </div>
-{/event.normalized.date}
+    {/event.normalized.date}
+{:else}
+    {?event.normalized.date}
+        <div class="info-group mb-5 {template_classes.info_group|s}">
+            {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
-{?event.normalized.time}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title template_classes=template_classes.info_group_title icon="time" /}
-
-        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            {event.normalized.time|s}
+            <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+                {event.normalized.date|s}
+            </div>
         </div>
-    </div>
-{/event.normalized.time}
+    {/event.normalized.date}
+    {?event.normalized.time}
+        <div class="info-group mb-5 {template_classes.info_group|s}">
+            {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title template_classes=template_classes.info_group_title icon="time" /}
+
+            <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+                {event.normalized.time|s}
+            </div>
+        </div>
+    {/event.normalized.time}
+{/event.normalized.recurring}
 
 {?event.normalized.location}
     <div class="info-group mb-5 {template_classes.info_group|s}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title template_classes=template_classes.info_group_title icon="location" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            <div>{event.normalized.location.name|s}</div>
-            <div>{event.normalized.location.description|s}</div>
-            <div>{event.normalized.location.extra_info|s}</div>
-            {>"ui/link" link=event.normalized.location.info_url classes="is-inline-block mt-2" /}
+            <div>{event.normalized.location|s}</div>
         </div>
     </div>
 {/event.normalized.location}
@@ -49,36 +61,15 @@
     </div>
 {/event.normalized.price}
 
-{?event.normalized.provider}
+{?event.normalized.links}
     <div class="info-group mb-5 {template_classes.info_group|s}">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title template_classes=template_classes.info_group_title icon="bullhorn" /}
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.links_title template_classes=template_classes.info_group_title icon="link" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            <div>{event.normalized.provider.name|s}</div>
-
-            {?event.normalized.provider.email}
-                <div>
-                    <a href="mailto:{event.normalized.provider.email}"
-                       class="has-text-black">
-                        {event.normalized.provider.email|s}
-                    </a>
-                </div>
-            {/event.normalized.provider.email}
-
-            {?event.normalized.provider.phone}
-                <div>
-                    <a href="tel:{event.normalized.provider.phone}"
-                       class="has-text-black">
-                        {event.normalized.provider.phone|s}
-                    </a>
-                </div>
-            {/event.normalized.provider.phone}
+            {#event.normalized.links}
+                <a href="{url|url}" target="_blank" class="is-block">{name|s}</a>
+                {>"ui/link" link=url /}
+            {/event.normalized.links}
         </div>
     </div>
-
-    {>"ui/button-link" link=event.normalized.provider.link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
-{/event.normalized.provider}
-
-{?event.normalized.virtual_event_link}
-    {>"ui/button-link" link=event.normalized.virtual_event_link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
-{/event.normalized.virtual_event_link}
+{/event.normalized.links}

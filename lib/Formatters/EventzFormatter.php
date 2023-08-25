@@ -5,18 +5,18 @@
 
 namespace TMS\Theme\Base\Formatters;
 
-use Geniem\LinkedEvents\LinkedEventsClient;
-use Geniem\LinkedEvents\LinkedEventsException;
-use TMS\Theme\Base\LinkedEvents;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Eventz;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
+use TMS\Theme\Base\Localization;
 
 /**
- * Class EventsFormatter
+ * Class EventzFormatter
  *
  * @package TMS\Theme\Base\Formatters
  */
-class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
+class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
     /**
      * Define formatter name
@@ -42,14 +42,12 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      */
     public function format( array $layout ) : array {
         $query_params             = $this->format_query_params( $layout );
-        $query_params['include']  = 'organization,location,keywords';
         $query_params['page']     = 1;
         $query_params['language'] = function_exists( 'pll_current_language' )
             ? pll_current_language()
             : get_locale();
 
         $events = $this->get_events( $query_params );
-        $events = apply_filters( 'tms/theme/layout_events/events', $events, $layout );
 
         if ( empty( $events ) ) {
             return $layout;
@@ -109,15 +107,16 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      */
     public function format_query_params( array $layout ) : array {
         $query_params = [
-            'start'     => null,
-            'end'       => null,
-            'keyword'   => null,
-            'location'  => null,
-            'publisher' => null,
-            'sort'      => null,
-            'page_size' => null,
-            'text'      => null,
-            'page'      => null,
+            'q'           => null,
+            'start'       => null,
+            'end'         => null,
+            'category_id' => null,
+            'areas'       => null,
+            'tags'        => null,
+            'targets'     => null,
+            'sort'        => null,
+            'size'        => null,
+            'skip'        => null,
         ];
 
         foreach ( $layout as $key => $value ) {
@@ -136,8 +135,11 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         if ( ! empty( $layout['starts_today'] ) && true === $layout['starts_today'] ) {
-            $query_params['start'] = 'today';
+            $query_params['start'] = date( 'Y-m-d' );
         }
+
+        // Force sort param
+        $query_params['sort'] = 'startDate';
 
         $query_params['language'] = DPT_PLL_ACTIVE
             ? pll_current_language()
@@ -154,18 +156,20 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array|null
      */
     private function get_events( array $query_params ) : ?array {
-        $query_params['sort'] = 'end_time';
-        $client               = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        // Force sort param
+        $query_params['sort'] = 'startDate';
+        $client  = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         try {
-            $response = (array) $client->get( 'event', $query_params );
+            $lang_key = Localization::get_current_language();
+            $response = $client->search_events( $query_params, $lang_key );
 
             if ( empty( $response ) ) {
                 return null;
             }
 
             return array_map(
-                fn( $item ) => LinkedEvents::normalize_event( $item ),
+                fn( $item ) => Eventz::normalize_event( $item ),
                 $response
             );
         }

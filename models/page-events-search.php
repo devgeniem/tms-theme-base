@@ -4,11 +4,12 @@
  * Template Name: Tapahtumahaku
  */
 
-use Geniem\LinkedEvents\LinkedEventsClient;
-use TMS\Theme\Base\Formatters\EventsFormatter;
-use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Traits;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Formatters\EventzFormatter;
+use TMS\Theme\Base\Eventz;
+use TMS\Theme\Base\Localization;
 
 /**
  * The PageEventsSearch class.
@@ -126,27 +127,36 @@ class PageEventsSearch extends BaseModel {
     protected function get_events() : array {
         $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
         $start_date        = get_query_var( self::EVENT_SEARCH_START_DATE );
-        $start_date        = ! empty( $start_date ) ? $start_date : 'today';
+        $start_date        = ! empty( $start_date ) ? $start_date : date( 'Y-m-d' );
+
+        // Start date can not be in the past.
+        $today = date( 'Y-m-d');
+        if( $start_date < $today ) {
+            $start_date = $today;
+        }
+
         $end_date          = get_query_var( self::EVENT_SEARCH_END_DATE );
         $end_date          = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
 
+        $paged = get_query_var( 'paged', 1 );
+        $skip  = 0;
+
+        if ( $paged > 1 ) {
+            $skip = ( $paged - 1 ) * get_option( 'posts_per_page' );
+        }
+
         // Set user defined and default search parameters
         $params = [
-            'text'        => $event_search_text,
-            'start'       => $start_date,
-            'end'         => $end_date,
-            'sort'        => '',
-            'page_size'   => get_option( 'posts_per_page' ),
-            'show_images' => true,
-            'keyword'     => get_field( 'keyword' ) ?? [],
-            'location'    => '',
-            'publisher'   => '',
-            'page'        => get_query_var( 'paged', 1 ),
+            'q'     => $event_search_text,
+            'start' => $start_date,
+            'end'   => $end_date,
+            'sort'  => 'startDate',
+            'size'  => get_option( 'posts_per_page' ),
+            'skip'  => $skip,
         ];
 
-        $formatter         = new EventsFormatter();
-        $params            = $formatter->format_query_params( $params );
-        $params['include'] = 'organization,location,keywords';
+        $formatter = new EventzFormatter();
+        $params    = $formatter->format_query_params( $params );
 
         $cache_group = 'page-events-search';
         $cache_key   = md5( wp_json_encode( $params ) );
@@ -165,10 +175,12 @@ class PageEventsSearch extends BaseModel {
             }
         }
 
-        $this->set_pagination_data( $response['meta']->count );
+        if ( ! empty( $response['meta'] ) ) {
+            $this->set_pagination_data( $response['meta']->total );
+        }
 
         return [
-            'summary' => $this->get_results_text( $response['meta']->count ?? 0 ),
+            'summary' => $this->get_results_text( $response['meta']->total ?? 0 ),
             'posts'   => $response['events'],
         ];
     }
@@ -215,11 +227,11 @@ class PageEventsSearch extends BaseModel {
         $event_data = $this->do_api_call( $params );
 
         if ( ! empty( $event_data['meta'] ) ) {
-            $this->set_pagination_data( $event_data['meta']->count );
+            $this->set_pagination_data( $event_data['meta']->total );
         }
 
         if ( ! empty( $event_data['events'] ) ) {
-            $event_data['events'] = ( new EventsFormatter() )->format_events( $event_data['events'] );
+            $event_data['events'] = ( new EventzFormatter() )->format_events( $event_data['events'] );
             $event_data['events'] = array_map( function ( $item ) {
                 $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
                 $item['location_icon']     = $item['is_virtual_event']
@@ -241,16 +253,16 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     protected function do_api_call( array $params ) : array {
-        $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        $client = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         try {
-            $response = $client->get_raw( 'event', $params );
+            $lang_key = Localization::get_current_language();
+            $response = $client->search_events( $params, $lang_key );
 
             if ( ! empty( $response ) ) {
-                $meta   = $client->get_response_meta( $response );
                 $events = array_map(
-                    fn( $item ) => LinkedEvents::normalize_event( $item ),
-                    $client->get_response_body( $response ) ?? []
+                    fn( $item ) => Eventz::normalize_event( $item ),
+                    $response->items ?? []
                 );
             }
         }
@@ -260,7 +272,7 @@ class PageEventsSearch extends BaseModel {
 
         return [
             'events' => $events ?? null,
-            'meta'   => $meta ?? null,
+            'meta'   => $response->meta ?? null,
         ];
     }
 

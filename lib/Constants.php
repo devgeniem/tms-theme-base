@@ -73,6 +73,14 @@ class Constants implements Interfaces\Controller {
             define( 'PIRKANMAA_EVENTS_API_URL', 'https://pirkanmaaevents.fi/api/v2/' );
         }
 
+        if ( ! defined( 'PIRKANMAA_EVENTZ_API_URL' ) ) {
+            define( 'PIRKANMAA_EVENTZ_API_URL', 'https://backend.ver5.eventz.today/' );
+        }
+
+        if ( ! defined( 'PIRKANMAA_EVENTZ_API_KEY' ) ) {
+            define( 'PIRKANMAA_EVENTZ_API_KEY', env( 'PIRKANMAA_EVENTZ_API_KEY' ) ?? '' );
+        }
+
         // tms-theme-base Color Theme Default.
         if ( ! defined( 'DEFAULT_THEME_COLOR' ) ) {
             define( 'DEFAULT_THEME_COLOR', env( 'DEFAULT_THEME_COLOR' ) ?? 'tunnelma' );

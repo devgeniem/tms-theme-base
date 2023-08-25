@@ -40,7 +40,7 @@ class ThemeController {
             FormatterController::class,
             GravityForms::class,
             Images::class,
-            LinkedEvents::class,
+            Eventz::class,
             Localization::class,
             NavigationController::class,
             PasswordPolicy::class,
