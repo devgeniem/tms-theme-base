@@ -117,6 +117,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'sort'        => null,
             'size'        => null,
             'skip'        => null,
+            'page_size'   => null,
         ];
 
         foreach ( $layout as $key => $value ) {
@@ -158,6 +159,11 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
     private function get_events( array $query_params ) : ?array {
         // Force sort param
         $query_params['sort'] = 'startDate';
+
+        if( ! empty ( $query_params['page_size'] ) ) {
+            $query_params['size'] = $query_params['page_size'];
+        }
+
         $client  = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         try {
@@ -170,7 +176,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
             return array_map(
                 fn( $item ) => Eventz::normalize_event( $item ),
-                $response
+                $response->items
             );
         }
         catch ( \Exception $e ) {
