@@ -137,6 +137,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->set_name( 'area' )
             ->use_ui()
             ->allow_null()
+            ->allow_multiple()
             ->use_ajax()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['area']['instructions'] );
@@ -147,6 +148,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->use_ui()
             ->use_ajax()
             ->allow_null()
+            ->allow_multiple()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['target']['instructions'] );
 
@@ -156,6 +158,7 @@ class EventsFields extends \Geniem\ACF\Field\Group {
             ->use_ui()
             ->use_ajax()
             ->allow_null()
+            ->allow_multiple()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['tag']['instructions'] );
 
