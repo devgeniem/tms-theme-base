@@ -110,6 +110,11 @@ class PageEventsCalendar extends PageEventsSearch {
             $params['start'] = date( 'Y-m-d' );
         }
 
+        // Start date must be at least current date.
+        if ( $params['start'] < date( 'Y-m-d' ) ) {
+            $params['start'] = date( 'Y-m-d' );
+        }
+
         $formatter = new EventzFormatter();
         $params    = $formatter->format_query_params( $params );
 

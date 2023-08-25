@@ -128,6 +128,13 @@ class PageEventsSearch extends BaseModel {
         $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
         $start_date        = get_query_var( self::EVENT_SEARCH_START_DATE );
         $start_date        = ! empty( $start_date ) ? $start_date : date( 'Y-m-d' );
+
+        // Start date can not be in the past.
+        $today = date( 'Y-m-d');
+        if( $start_date < $today ) {
+            $start_date = $today;
+        }
+
         $end_date          = get_query_var( self::EVENT_SEARCH_END_DATE );
         $end_date          = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
 
@@ -168,7 +175,9 @@ class PageEventsSearch extends BaseModel {
             }
         }
 
-        $this->set_pagination_data( $response['meta']->total );
+        if ( ! empty( $response['meta'] ) ) {
+            $this->set_pagination_data( $response['meta']->total );
+        }
 
         return [
             'summary' => $this->get_results_text( $response['meta']->total ?? 0 ),
