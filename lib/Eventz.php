@@ -103,7 +103,7 @@ class Eventz implements Controller {
             'date_title'         => __( 'Dates', 'tms-theme-tredu' ),
             'date'               => static::get_event_date( $event ),
             'dates'              => static::get_event_dates( $event ),
-            'recurring'          => count( $event->event->dates ) === 1 ? false : true,
+            'recurring'          => ! empty( $event->event->dates ),
             'time_title'         => __( 'Time', 'tms-theme-tredu' ),
             'time'               => static::get_event_time( $event ),
             'location_title'     => __( 'Location', 'tms-theme-tredu' ),
@@ -300,6 +300,10 @@ class Eventz implements Controller {
      */
     public static function get_event_dates( $event ) {
         $dates = [];
+
+        if ( empty ( $event->event->dates ) ) {
+            return $dates;
+        }
 
         if( count( $event->event->dates ) > 1 ) {
             foreach( $event->event->dates as $date ) {
