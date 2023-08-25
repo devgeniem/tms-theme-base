@@ -63,11 +63,11 @@
 
 {?event.normalized.links}
     <div class="info-group mb-5 {template_classes.info_group|s}">
-        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.links_title template_classes=template_classes.info_group_title icon="location" /}
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.links_title template_classes=template_classes.info_group_title icon="link" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.links}
-                <a href="{url|url}" target="_blank">{name|s}</a>
+                <a href="{url|url}" target="_blank" class="is-block">{name|s}</a>
                 {>"ui/link" link=url /}
             {/event.normalized.links}
         </div>
