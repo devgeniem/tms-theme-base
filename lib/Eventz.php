@@ -305,13 +305,11 @@ class Eventz implements Controller {
             return $dates;
         }
 
-        if( count( $event->event->dates ) > 1 ) {
-            foreach( $event->event->dates as $date ) {
-                $dates[] = [
-                    'date'      => self::compare_dates( $date->start, $date->end ),
-                    'isSoldOut' => $date->isSoldOut,
-                ];
-            }
+        foreach( $event->event->dates as $date ) {
+            $dates[] = [
+                'date'      => self::compare_dates( $date->start, $date->end ),
+                'isSoldOut' => $date->isSoldOut,
+            ];
         }
 
         return $dates;
