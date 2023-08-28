@@ -130,8 +130,8 @@ class PageEventsSearch extends BaseModel {
         $start_date        = ! empty( $start_date ) ? $start_date : date( 'Y-m-d' );
 
         // Start date can not be in the past.
-        $today = date( 'Y-m-d');
-        if( $start_date < $today ) {
+        $today = date( 'Y-m-d' );
+        if ( $start_date < $today ) {
             $start_date = $today;
         }
 
@@ -147,12 +147,13 @@ class PageEventsSearch extends BaseModel {
 
         // Set user defined and default search parameters
         $params = [
-            'q'     => $event_search_text,
-            'start' => $start_date,
-            'end'   => $end_date,
-            'sort'  => 'startDate',
-            'size'  => get_option( 'posts_per_page' ),
-            'skip'  => $skip,
+            'q'           => $event_search_text,
+            'start'       => $start_date,
+            'end'         => $end_date,
+            'sort'        => 'startDate',
+            'category_id' => get_field( 'category' ) ?? [],
+            'size'        => get_option( 'posts_per_page' ),
+            'skip'        => $skip,
         ];
 
         $formatter = new EventzFormatter();
