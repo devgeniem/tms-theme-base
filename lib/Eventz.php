@@ -107,7 +107,7 @@ class Eventz implements Controller {
             'time_title'         => __( 'Time', 'tms-theme-tredu' ),
             'time'               => static::get_event_time( $event ),
             'location_title'     => __( 'Location', 'tms-theme-tredu' ),
-            'location'           => $event->locations[0]->address ?? null,
+            'location'           => static::get_event_location( $event ),
             'price_title'        => __( 'Price', 'tms-theme-tredu' ),
             'price'              => static::get_event_price_info( $event, $lang_key ),
             'area_title'         => __( 'Area', 'tms-theme-tredu' ),
@@ -202,6 +202,22 @@ class Eventz implements Controller {
         }
 
         return $start_time->format( $time_format );
+    }
+
+    /**
+     * Get event location
+     *
+     * @param object $event    Event object.
+     * @param string $lang_key Language key.
+     *
+     * @return array
+     */
+    public static function get_event_location( $event ) {
+
+        return [
+            'name' => $event->locations[0]->address ?? null,
+        ];
+
     }
 
     /**
