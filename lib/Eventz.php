@@ -323,6 +323,12 @@ class Eventz implements Controller {
      * @return string
      */
     public static function get_event_url( string $event_id ) : string {
+        $dynamic_events = DynamicEvent::get_link_list();
+
+        if ( isset( $dynamic_events[ $event_id ] ) ) {
+            return $dynamic_events[ $event_id ];
+        }
+
         $event_page = Settings::get_setting( 'events_page' );
 
         if ( $event_page ) {
