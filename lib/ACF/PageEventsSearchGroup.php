@@ -82,8 +82,8 @@ class PageEventsSearchGroup {
     protected function get_page_fields( string $key ) : Field\Tab {
         $strings = [
             'tab'     => 'Tapahtumat',
-            'keyword' => [
-                'label'        => 'Avainsana',
+            'category' => [
+                'label'        => 'Kategoria',
                 'instructions' => '',
             ],
         ];
@@ -91,16 +91,16 @@ class PageEventsSearchGroup {
         $tab = ( new Field\Tab( $strings['tab'] ) )
             ->set_placement( 'left' );
 
-        $keyword_field = ( new Field\Select( $strings['keyword']['label'] ) )
-            ->set_key( "${key}_keyword" )
-            ->set_name( 'keyword' )
+        $category_field = ( new Field\Select( $strings['category']['label'] ) )
+            ->set_key( "${key}_category" )
+            ->set_name( 'category' )
             ->use_ui()
             ->use_ajax()
             ->allow_null()
             ->allow_multiple()
-            ->set_instructions( $strings['keyword']['instructions'] );
+            ->set_instructions( $strings['category']['instructions'] );
 
-        $tab->add_field( $keyword_field );
+        $tab->add_field( $category_field );
 
         return $tab;
     }

@@ -16,7 +16,7 @@
     {?event.normalized.location}
         <div class="is-flex is-align-items-center has-width-100-until-desktop">
             {>"ui/icon" icon="location" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
-            {event.normalized.location|s}
+            {event.normalized.location.name|s}
         </div>
     {/event.normalized.location}
 </div>

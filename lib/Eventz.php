@@ -82,12 +82,12 @@ class Eventz implements Controller {
     public static function normalize_event( $event ) : array {
         $lang_key = Localization::get_current_language();
 
-        if ( ! empty( $event->keywords ) ) {
-            $keywords = [];
+        if ( ! empty( $event->topics ) ) {
+            $topics = [];
 
-            foreach ( $event->keywords as $keyword ) {
-                $keywords[] = [
-                    'name' => $keyword->name->{$lang_key} ?? null,
+            foreach ( $event->topics as $topic ) {
+                $topics[] = [
+                    'name' => $topic ?? null,
                 ];
             }
         }
@@ -107,7 +107,7 @@ class Eventz implements Controller {
             'time_title'         => __( 'Time', 'tms-theme-tredu' ),
             'time'               => static::get_event_time( $event ),
             'location_title'     => __( 'Location', 'tms-theme-tredu' ),
-            'location'           => $event->locations[0]->address ?? null,
+            'location'           => static::get_event_location( $event ),
             'price_title'        => __( 'Price', 'tms-theme-tredu' ),
             'price'              => static::get_event_price_info( $event, $lang_key ),
             'area_title'         => __( 'Area', 'tms-theme-tredu' ),
@@ -116,6 +116,8 @@ class Eventz implements Controller {
             'targets'            => static::get_target_info( $event ),
             'tags_title'         => __( 'Tags', 'tms-theme-tredu' ),
             'tags'               => static::get_tag_info( $event ),
+            'keywords'           => $topics ?? null,
+            'primary_keyword'    => empty( $topics ) ? null : $topics[0],
             'links_title'        => __( 'Links', 'tms-theme-tredu' ),
             'links'              => $event->links,
             'image'              => $image ?? null,
@@ -202,6 +204,22 @@ class Eventz implements Controller {
         }
 
         return $start_time->format( $time_format );
+    }
+
+    /**
+     * Get event location
+     *
+     * @param object $event    Event object.
+     * @param string $lang_key Language key.
+     *
+     * @return array
+     */
+    public static function get_event_location( $event ) {
+
+        return [
+            'name' => $event->locations[0]->address ?? null,
+        ];
+
     }
 
     /**
@@ -323,6 +341,12 @@ class Eventz implements Controller {
      * @return string
      */
     public static function get_event_url( string $event_id ) : string {
+        $dynamic_events = DynamicEvent::get_link_list();
+
+        if ( isset( $dynamic_events[ $event_id ] ) ) {
+            return $dynamic_events[ $event_id ];
+        }
+
         $event_page = Settings::get_setting( 'events_page' );
 
         if ( $event_page ) {
