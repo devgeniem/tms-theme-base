@@ -82,12 +82,12 @@ class Eventz implements Controller {
     public static function normalize_event( $event ) : array {
         $lang_key = Localization::get_current_language();
 
-        if ( ! empty( $event->keywords ) ) {
-            $keywords = [];
+        if ( ! empty( $event->topics ) ) {
+            $topics = [];
 
-            foreach ( $event->keywords as $keyword ) {
-                $keywords[] = [
-                    'name' => $keyword->name->{$lang_key} ?? null,
+            foreach ( $event->topics as $topic ) {
+                $topics[] = [
+                    'name' => $topic ?? null,
                 ];
             }
         }
@@ -116,6 +116,8 @@ class Eventz implements Controller {
             'targets'            => static::get_target_info( $event ),
             'tags_title'         => __( 'Tags', 'tms-theme-tredu' ),
             'tags'               => static::get_tag_info( $event ),
+            'keywords'           => $topics ?? null,
+            'primary_keyword'    => empty( $topics ) ? null : $topics[0],
             'links_title'        => __( 'Links', 'tms-theme-tredu' ),
             'links'              => $event->links,
             'image'              => $image ?? null,
