@@ -38,11 +38,11 @@ class Eventz implements Controller {
         $client  = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         $params = [
-            'q'           => $_GET['params']['text'] ?? '',
-            'areas'       => $_GET['params']['area'] ? implode( ',', $_GET['params']['area'] ) : '',
-            'category_id' => $_GET['params']['category_id'] ? implode( ',', $_GET['params']['category_id'] ) : '',
-            'targets'     => $_GET['params']['target'] ? implode( ',', $_GET['params']['target'] ) : '',
-            'tags'        => $_GET['params']['tag'] ? implode( ',', $_GET['params']['tag'] ) : '',
+            'q'           => $params['text'] ?? '',
+            'areas'       => $params['area'] ? implode( ',', $params['area'] ) : '',
+            'category_id' => $params['category'] ? implode( ',', $params['category'] ) : '',
+            'targets'     => $params['target'] ? implode( ',', $params['target'] ) : '',
+            'tags'        => $params['tag'] ? implode( ',', $params['tag'] ) : '',
         ];
 
         $params = array_filter( $params );
@@ -247,33 +247,42 @@ class Eventz implements Controller {
      * Get event price info
      *
      * @param object $event    Event object.
-     * @param string $lang_key Language key.
      *
      * @return array|null
      */
-    public static function get_event_price_info( $event, $lang_key ) : ?array {
-        if ( empty( $event ) && empty( $event->price ) ) {
+    public static function get_event_price_info( $event ) : ?array {
+        if ( empty( $event ) ) {
             return null;
         }
 
-        return array_map( function ( $offer ) use ( $lang_key ) {
-            $price = $offer->price ?? null;
+        $price = $event->price ?? null;
 
-            if ( empty( $price ) ) {
-                $price = __( 'Free', 'tms-theme-tredu' );
+        if ( empty( $price ) || $event->price->isFree ) {
+            $price = __( 'Free', 'tms-theme-tredu' );
+        } else {
+            $min = $event->price->min;
+            $max = $event->price->max;
+
+            if ( $min === 0 && $max > 0 ) {
+                $price = $max . '€';
+            } elseif ( $max === 0 && $min > 0 ) {
+                $price = $min . '€';
+            } else {
+                $price = $min .'-'. $max . '€';
             }
+        }
 
-            return [
+        return [
+            [
                 'is_free'     => null,
                 'price'       => $price,
                 'info_url'    => [
                     'title' => __( 'Additional information', 'tms-theme-tredu' ),
-                    'url'   => $offer->url ?? null,
+                    'url'   => null,
                 ],
-                'description' => $offer->description ?? null,
-            ];
-
-        }, (array) $event->price );
+                'description' => null,
+            ]
+        ];
     }
 
     /**
