@@ -57,19 +57,19 @@ class EventsFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Alkaa tänään',
                 'instructions' => 'Alkupäivämääränä käytetään kuluvaa päivää',
             ],
-            'category'         => [
+            'category' => [
                 'label'        => 'Kategoria',
                 'instructions' => '',
             ],
-            'area'        => [
+            'area' => [
                 'label'        => 'Alue',
                 'instructions' => '',
             ],
-            'target'       => [
+            'target' => [
                 'label'        => 'Kohderyhmä',
                 'instructions' => '',
             ],
-            'tag'       => [
+            'tag' => [
                 'label'        => 'Tag',
                 'instructions' => '',
             ],

@@ -135,8 +135,8 @@ class PageEventsSearch extends BaseModel {
             $start_date = $today;
         }
 
-        $end_date          = get_query_var( self::EVENT_SEARCH_END_DATE );
-        $end_date          = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
+        $end_date = get_query_var( self::EVENT_SEARCH_END_DATE );
+        $end_date = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
 
         $paged = get_query_var( 'paged', 1 );
         $skip  = 0;
