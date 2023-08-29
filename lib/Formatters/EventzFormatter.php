@@ -10,6 +10,8 @@ use TMS\Theme\Base\Eventz;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Localization;
+use TMS\Plugin\ManualEvents\PostType;
+use TMS\Plugin\ManualEvents\Taxonomy;
 
 /**
  * Class EventzFormatter
@@ -53,8 +55,24 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $events = $this->get_events( $query_params );
 
+        $manual_events = [];
+        if( ! empty( $layout['manual_event_categories'] ) ) {
+            $manual_events = self::get_manual_events ( $layout['manual_event_categories'] );
+        }
+
+        $events = array_merge( $events, $manual_events );
+
         if ( empty( $events ) ) {
             return $layout;
+        }
+
+        if( ! empty( $layout['manual_event_categories'] ) ) {
+            // Sort events by start datetime objects.
+            usort( $events, function( $a, $b ) {
+                return $a['start'] <=> $b['start'];
+            } );
+
+            $events = array_slice( $events, 0, $layout['page_size'] );
         }
 
         $layout['events']  = $this->format_events( $events, $layout['show_images'] );
@@ -188,5 +206,50 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         return null;
+    }
+
+    public static function get_manual_events( array $category_ids = null ) : array {
+        $args = [
+            'post_type'      => PostType\ManualEvent::SLUG,
+            'posts_per_page' => 200, // phpcs:ignore
+            'meta_query'     => [
+                [
+                    'key'     => 'start_datetime',
+                    'value'   => date( 'Y-m-d' ),
+                    'compare' => '>=',
+                    'type'    => 'DATE',
+                ],
+            ],
+        ];
+
+        if ( ! empty( $category_ids ) ) {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => Taxonomy\ManualEventCategory::SLUG,
+                    'field'    => 'term_id',
+                    'terms'    => array_values( $category_ids ),
+                    'operator' => 'IN',
+                ],
+            ];
+        }
+
+        $query = new \WP_Query( $args );
+
+        if ( empty( $query->posts ) ) {
+            return [];
+        }
+
+        $events = array_map( function ( $e ) {
+            $id           = $e->ID;
+            $event        = (object) get_fields( $id );
+            $event->id    = $id;
+            $event->title = get_the_title( $id );
+            $event->url   = get_permalink( $id );
+            $event->image = has_post_thumbnail( $id ) ? get_the_post_thumbnail_url( $id, 'medium_large' ) : null;
+
+            return PostType\ManualEvent::normalize_event( $event );
+        }, $query->posts );
+
+        return $events;
     }
 }
