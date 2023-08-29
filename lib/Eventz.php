@@ -98,7 +98,7 @@ class Eventz implements Controller {
 
         return [
             'name'               => $event->name ?? null,
-            'short_description'  => \wp_trim_words( $event->description ) ?? null,
+            'short_description'  => static::get_short_description( $event ) ?? null,
             'description'        => nl2br( $event->description ) ?? null,
             'date_title'         => __( 'Dates', 'tms-theme-tredu' ),
             'date'               => static::get_event_date( $event ),
@@ -401,4 +401,25 @@ class Eventz implements Controller {
         );
     }
 
+    /**
+     * Generate short description.
+     *
+     * @param object $event Event object.
+     *
+     * @return string|null
+     */
+    public static function get_short_description( $event ) {
+
+        if ( empty ( $event->description ) ) {
+            return null;
+        }
+
+        // Define a regular expression pattern to match the first two sentences
+        $pattern = '/^(.*?[.!?])\s+(.*?[.!?])/';
+
+        // Use preg_match() to find the first two sentences
+        if ( preg_match( $pattern, $event->description, $matches ) ) {
+            return $matches[1] . ' ' . $matches[2];
+        }
+    }
 }
