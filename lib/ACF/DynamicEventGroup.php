@@ -273,8 +273,9 @@ class DynamicEventGroup {
 
     /**
      * Fill area choices
+     *
      * @param string $name name of the choice.
-     * @param array $field ACF field.
+     * @param array  $field ACF field.
      *
      * @return array
      */

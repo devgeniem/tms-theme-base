@@ -43,10 +43,10 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
-        $layout['category_id'] = $layout[ 'category'] ? array_values( $layout[ 'category'] ) : [];
-        $layout['areas']       = $layout[ 'area']     ? array_values( $layout[ 'area'] ) : [];
-        $layout['targets']     = $layout[ 'target']   ? array_values( $layout[ 'target'] ) : [];
-        $layout['tags']        = $layout[ 'tag']      ? array_values( $layout[ 'tag'] ) : [];
+        $layout['category_id'] = $layout['category'] ? array_values( $layout['category'] ) : [];
+        $layout['areas']       = $layout['area'] ? array_values( $layout['area'] ) : [];
+        $layout['targets']     = $layout['target'] ? array_values( $layout['target'] ) : [];
+        $layout['tags']        = $layout['tag'] ? array_values( $layout['tag'] ) : [];
 
         $query_params                = $this->format_query_params( $layout );
         $query_params['language']    = function_exists( 'pll_current_language' )
@@ -164,9 +164,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         // Force sort param
         $query_params['sort'] = 'startDate';
 
-        $query_params['language'] = DPT_PLL_ACTIVE
-            ? pll_current_language()
-            : get_locale();
+        $query_params['language'] = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
 
         return $query_params;
     }

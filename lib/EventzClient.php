@@ -42,9 +42,9 @@ class EventzClient {
 
     /**
      * Last request response.
-     *
+     * * @var ?Response
      */
-    private $last_response = null;
+    private ?Response $last_response = null;
 
     /**
      * EventzClient constructor.
