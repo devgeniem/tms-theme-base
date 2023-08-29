@@ -69,3 +69,37 @@
         </div>
     </div>
 {/event.normalized.links}
+
+{?event.normalized.provider}
+    <div class="info-group mb-5 {template_classes.info_group|s}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title template_classes=template_classes.info_group_title icon="bullhorn" /}
+
+        <div class="info-group__description pr-8 pb-3 pl-8">
+            <div>{event.normalized.provider.name|s}</div>
+
+            {?event.normalized.provider.email}
+                <div>
+                    <a href="mailto:{event.normalized.provider.email}"
+                       class="has-text-black">
+                        {event.normalized.provider.email|s}
+                    </a>
+                </div>
+            {/event.normalized.provider.email}
+
+            {?event.normalized.provider.phone}
+                <div>
+                    <a href="tel:{event.normalized.provider.phone}"
+                       class="has-text-black">
+                        {event.normalized.provider.phone|s}
+                    </a>
+                </div>
+            {/event.normalized.provider.phone}
+        </div>
+    </div>
+
+    {>"ui/button-link" link=event.normalized.provider.link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+{/event.normalized.provider}
+
+{?event.normalized.virtual_event_link}
+    {>"ui/button-link" link=event.normalized.virtual_event_link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+{/event.normalized.virtual_event_link}
