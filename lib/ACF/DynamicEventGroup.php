@@ -172,6 +172,7 @@ class DynamicEventGroup {
                 ->use_ui()
                 ->use_ajax()
                 ->allow_null()
+                ->allow_multiple()
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['target']['instructions'] );
 
@@ -181,6 +182,7 @@ class DynamicEventGroup {
                 ->use_ui()
                 ->use_ajax()
                 ->allow_null()
+                ->allow_multiple()
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['tag']['instructions'] );
 
