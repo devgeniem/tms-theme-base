@@ -41,9 +41,13 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
-        $query_params             = $this->format_query_params( $layout );
-        $query_params['page']     = 1;
-        $query_params['language'] = function_exists( 'pll_current_language' )
+        $layout['category_id'] = $layout[ 'category'] ? array_values( $layout[ 'category'] ) : [];
+        $layout['areas']       = $layout[ 'area']     ? array_values( $layout[ 'area'] ) : [];
+        $layout['targets']     = $layout[ 'target']   ? array_values( $layout[ 'target'] ) : [];
+        $layout['tags']        = $layout[ 'tag']      ? array_values( $layout[ 'tag'] ) : [];
+
+        $query_params                = $this->format_query_params( $layout );
+        $query_params['language']    = function_exists( 'pll_current_language' )
             ? pll_current_language()
             : get_locale();
 
