@@ -402,7 +402,7 @@ class Eventz implements Controller {
     }
 
     /**
-     * Generate short descriptio
+     * Generate short description.
      *
      * @param object $event Event object.
      *
