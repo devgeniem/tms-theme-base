@@ -4,7 +4,6 @@
  * Template Name: Tapahtumakalenteri
  */
 
-use TMS\Theme\Base\Formatters\EventsFormatter;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
 use TMS\Theme\Base\Traits\Pagination;
@@ -121,7 +120,6 @@ class PageEventsCalendar extends PageEventsSearch {
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( wp_json_encode( $params ) );
         $response    = wp_cache_get( $cache_key, $cache_group );
-        $response = null;
 
         if ( empty( $response ) ) {
 
