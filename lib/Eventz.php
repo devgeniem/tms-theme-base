@@ -207,7 +207,7 @@ class Eventz implements Controller {
     }
 
     /**
-     * Get event location
+     * Get event location.
      *
      * @param object $event    Event object.
      * @param string $lang_key Language key.
@@ -259,16 +259,19 @@ class Eventz implements Controller {
 
         if ( empty( $price ) || $event->price->isFree ) {
             $price = __( 'Free', 'tms-theme-tredu' );
-        } else {
+        }
+        else {
             $min = $event->price->min;
             $max = $event->price->max;
 
             if ( $min === 0 && $max > 0 ) {
                 $price = $max . '€';
-            } elseif ( $max === 0 && $min > 0 ) {
+            }
+            elseif ( $max === 0 && $min > 0 ) {
                 $price = $min . '€';
-            } else {
-                $price = $min .'-'. $max . '€';
+            }
+            else {
+                $price = $min . '-' . $max . '€';
             }
         }
 
@@ -281,7 +284,7 @@ class Eventz implements Controller {
                     'url'   => null,
                 ],
                 'description' => null,
-            ]
+            ],
         ];
     }
 
@@ -332,10 +335,10 @@ class Eventz implements Controller {
             return $dates;
         }
 
-        foreach( $event->event->dates as $date ) {
+        foreach ( $event->event->dates as $date ) {
             $dates[] = [
-                'date'      => self::compare_dates( $date->start, $date->end ),
-                'isSoldOut' => $date->isSoldOut,
+                'date'        => self::compare_dates( $date->start, $date->end ),
+                'is_sold_out' => $date->isSoldOut,
             ];
         }
 
@@ -373,7 +376,8 @@ class Eventz implements Controller {
     /**
      * Get event date
      *
-     * @param object $event Event object.
+     * @param string $start Event startdate.
+     * @param string $end Event enddate.
      *
      * @return string|null
      */

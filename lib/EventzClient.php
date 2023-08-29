@@ -43,6 +43,7 @@ class EventzClient {
     /**
      * Last request response.
      *
+     * @var mixed
      */
     private $last_response = null;
 
