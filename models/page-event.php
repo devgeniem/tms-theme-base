@@ -277,8 +277,8 @@ class PageEvent extends BaseModel {
 
         try {
             $lang_key = Localization::get_current_language();
-            $client = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
-            $event  = $client->get_item( $event_id, $lang_key );
+            $client   = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
+            $event    = $client->get_item( $event_id, $lang_key );
 
             if ( ! empty( $event ) ) {
                 $this->event = $event;

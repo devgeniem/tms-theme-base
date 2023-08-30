@@ -81,7 +81,7 @@ class PageEventsSearchGroup {
      */
     protected function get_page_fields( string $key ) : Field\Tab {
         $strings = [
-            'tab'     => 'Tapahtumat',
+            'tab'      => 'Tapahtumat',
             'category' => [
                 'label'        => 'Kategoria',
                 'instructions' => '',

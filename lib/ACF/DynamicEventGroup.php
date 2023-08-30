@@ -109,28 +109,28 @@ class DynamicEventGroup {
      */
     protected function get_event_tab( string $key ) : ?Field\Tab {
         $strings = [
-            'tab'       => 'Tapahtuma',
-            'text'      => [
+            'tab'      => 'Tapahtuma',
+            'text'     => [
                 'label'        => 'Hakusana',
                 'instructions' => '',
             ],
-            'category'   => [
+            'category' => [
                 'label'        => 'Kategoria',
                 'instructions' => '',
             ],
-            'area'  => [
+            'area'     => [
                 'label'        => 'Alue',
                 'instructions' => '',
             ],
-            'target' => [
+            'target'   => [
                 'label'        => 'Kohderyhmä',
                 'instructions' => '',
             ],
-            'tag' => [
+            'tag'      => [
                 'label'        => 'Tag',
                 'instructions' => '',
             ],
-            'event'     => [
+            'event'    => [
                 'label'        => 'Tapahtuma',
                 'instructions' => '',
             ],

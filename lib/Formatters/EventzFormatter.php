@@ -48,16 +48,20 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $layout['targets']     = $layout['target'] ? array_values( $layout['target'] ) : [];
         $layout['tags']        = $layout['tag'] ? array_values( $layout['tag'] ) : [];
 
-        $query_params                = $this->format_query_params( $layout );
-        $query_params['language']    = function_exists( 'pll_current_language' )
+        $query_params             = $this->format_query_params( $layout );
+        $query_params['language'] = function_exists( 'pll_current_language' )
             ? pll_current_language()
             : get_locale();
 
         $events = $this->get_events( $query_params );
 
+        if ( empty( $events ) ) {
+            $events = [];
+        }
+
         $manual_events = [];
-        if( ! empty( $layout['manual_event_categories'] ) ) {
-            $manual_events = self::get_manual_events ( $layout['manual_event_categories'] );
+        if ( ! empty( $layout['manual_event_categories'] ) ) {
+            $manual_events = self::get_manual_events( $layout['manual_event_categories'] );
         }
 
         $events = array_merge( $events, $manual_events );
@@ -66,7 +70,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return $layout;
         }
 
-        if( ! empty( $layout['manual_event_categories'] ) ) {
+        if ( ! empty( $layout['manual_event_categories'] ) ) {
             // Sort events by start datetime objects.
             usort( $events, function( $a, $b ) {
                 return $a['start'] <=> $b['start'];
@@ -180,11 +184,11 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         // Force sort param
         $query_params['sort'] = 'startDate';
 
-        if( ! empty ( $query_params['page_size'] ) ) {
+        if ( ! empty( $query_params['page_size'] ) ) {
             $query_params['size'] = $query_params['page_size'];
         }
 
-        $client  = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
+        $client = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         try {
             $lang_key = Localization::get_current_language();
@@ -206,6 +210,13 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         return null;
     }
 
+    /**
+     * Get manual events by taxonomy.
+     *
+     * @param array $category_ids List of taxonomy ids.
+     *
+     * @return array
+     */
     public static function get_manual_events( array $category_ids = null ) : array {
         $args = [
             'post_type'      => PostType\ManualEvent::SLUG,

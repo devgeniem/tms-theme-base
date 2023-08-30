@@ -53,7 +53,7 @@ class Eventz implements Controller {
 
             if ( ! $events ) {
                 $lang_key = Localization::get_current_language();
-                $events = $client->search_events( $params, $lang_key );
+                $events   = $client->search_events( $params, $lang_key );
                 wp_cache_set( $cache_key, $events, '', MINUTE_IN_SECONDS * 15 );
             }
 
@@ -97,31 +97,34 @@ class Eventz implements Controller {
         }
 
         return [
-            'name'               => $event->name ?? null,
-            'short_description'  => static::get_short_description( $event ) ?? null,
-            'description'        => nl2br( $event->description ) ?? null,
-            'date_title'         => __( 'Dates', 'tms-theme-tredu' ),
-            'date'               => static::get_event_date( $event ),
-            'dates'              => static::get_event_dates( $event ),
-            'recurring'          => ! empty( $event->event->dates ),
-            'time_title'         => __( 'Time', 'tms-theme-tredu' ),
-            'time'               => static::get_event_time( $event ),
-            'location_title'     => __( 'Location', 'tms-theme-tredu' ),
-            'location'           => static::get_event_location( $event ),
-            'price_title'        => __( 'Price', 'tms-theme-tredu' ),
-            'price'              => static::get_event_price_info( $event, $lang_key ),
-            'area_title'         => __( 'Area', 'tms-theme-tredu' ),
-            'areas'              => static::get_area_info( $event ),
-            'target_title'       => __( 'Target', 'tms-theme-tredu' ),
-            'targets'            => static::get_target_info( $event ),
-            'tags_title'         => __( 'Tags', 'tms-theme-tredu' ),
-            'tags'               => static::get_tag_info( $event ),
-            'keywords'           => $topics ?? null,
-            'primary_keyword'    => empty( $topics ) ? null : $topics[0],
-            'links_title'        => __( 'Links', 'tms-theme-tredu' ),
-            'links'              => $event->links,
-            'image'              => $image ?? null,
-            'url'                => static::get_event_url( $event->_id ),
+            'name'              => $event->name ?? null,
+            'short_description' => static::get_short_description( $event ) ?? null,
+            'description'       => nl2br( $event->description ) ?? null,
+            'date_title'        => __( 'Dates', 'tms-theme-tredu' ),
+            'date'              => static::get_event_date( $event ),
+            'dates'             => static::get_event_dates( $event ),
+            'recurring'         => ! empty( $event->event->dates ),
+            'time_title'        => __( 'Time', 'tms-theme-tredu' ),
+            'time'              => static::get_event_time( $event ),
+            // Include raw dates for possible sorting.
+            'start_date_raw'     => static::get_as_datetime( $event->event->start ),
+            'end_date_raw'       => static::get_as_datetime( $event->event->end ),
+            'location_title'    => __( 'Location', 'tms-theme-tredu' ),
+            'location'          => static::get_event_location( $event ),
+            'price_title'       => __( 'Price', 'tms-theme-tredu' ),
+            'price'             => static::get_event_price_info( $event, $lang_key ),
+            'area_title'        => __( 'Area', 'tms-theme-tredu' ),
+            'areas'             => static::get_area_info( $event ),
+            'target_title'      => __( 'Target', 'tms-theme-tredu' ),
+            'targets'           => static::get_target_info( $event ),
+            'tags_title'        => __( 'Tags', 'tms-theme-tredu' ),
+            'tags'              => static::get_tag_info( $event ),
+            'keywords'          => $topics ?? null,
+            'primary_keyword'   => empty( $topics ) ? null : $topics[0],
+            'links_title'       => __( 'Links', 'tms-theme-tredu' ),
+            'links'             => $event->links,
+            'image'             => $image ?? null,
+            'url'               => static::get_event_url( $event->_id ),
         ];
     }
 
@@ -207,7 +210,7 @@ class Eventz implements Controller {
     }
 
     /**
-     * Get event location
+     * Get event location.
      *
      * @param object $event    Event object.
      *
@@ -258,7 +261,8 @@ class Eventz implements Controller {
 
         if ( empty( $price ) || $event->price->isFree ) {
             $price = __( 'Free', 'tms-theme-tredu' );
-        } else {
+        }
+        else {
             $min = $event->price->min;
             $max = $event->price->max;
 
@@ -282,7 +286,7 @@ class Eventz implements Controller {
                     'url'   => null,
                 ],
                 'description' => null,
-            ]
+            ],
         ];
     }
 
@@ -329,7 +333,7 @@ class Eventz implements Controller {
     public static function get_event_dates( $event ) {
         $dates = [];
 
-        if ( empty ( $event->event->dates ) ) {
+        if ( empty( $event->event->dates ) ) {
             return $dates;
         }
 
@@ -412,7 +416,7 @@ class Eventz implements Controller {
      */
     public static function get_short_description( $event ) {
 
-        if ( empty ( $event->description ) ) {
+        if ( empty( $event->description ) ) {
             return null;
         }
 
