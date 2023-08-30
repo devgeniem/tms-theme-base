@@ -45,7 +45,7 @@ class EventzClient {
      *
      * @var mixed
      */
-    private ?Response $last_response = null;
+    private $last_response = null;
 
     /**
      * EventzClient constructor.
