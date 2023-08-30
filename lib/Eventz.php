@@ -106,6 +106,9 @@ class Eventz implements Controller {
             'recurring'         => ! empty( $event->event->dates ),
             'time_title'        => __( 'Time', 'tms-theme-tredu' ),
             'time'              => static::get_event_time( $event ),
+            // Include raw dates for possible sorting.
+            'start_date_raw'     => static::get_as_datetime( $event->event->start ),
+            'end_date_raw'       => static::get_as_datetime( $event->event->end ),
             'location_title'    => __( 'Location', 'tms-theme-tredu' ),
             'location'          => static::get_event_location( $event ),
             'price_title'       => __( 'Price', 'tms-theme-tredu' ),
