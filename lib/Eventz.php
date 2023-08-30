@@ -213,7 +213,6 @@ class Eventz implements Controller {
      * Get event location.
      *
      * @param object $event    Event object.
-     * @param string $lang_key Language key.
      *
      * @return array
      */
