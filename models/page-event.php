@@ -4,12 +4,13 @@
  * Template Name: Tapahtuma
  */
 
-use Geniem\LinkedEvents\LinkedEventsClient;
-use TMS\Theme\Base\LinkedEvents;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
 use TMS\Theme\Base\Traits\Components;
 use TMS\Theme\Base\Traits\Sharing;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Eventz;
+use TMS\Theme\Base\Localization;
 
 /**
  * The PageEvent class.
@@ -96,7 +97,7 @@ class PageEvent extends BaseModel {
 
         printf(
             '<script type="application/ld+json">%s</script>',
-            LinkedEvents::get_json_ld_data( $event ) // phpcs:ignore
+            Eventz::get_json_ld_data( $event ) // phpcs:ignore
         );
     }
 
@@ -115,7 +116,7 @@ class PageEvent extends BaseModel {
         $event = $this->get_event();
 
         if ( $event ) {
-            $event = LinkedEvents::normalize_event( $event );
+            $event = Eventz::normalize_event( $event );
             $title = $event['name'];
         }
 
@@ -153,12 +154,11 @@ class PageEvent extends BaseModel {
      */
     protected function seo_image_generator() {
         $event = $this->get_event();
-        $image = $event->images[0];
+        $image = $event->images->imageMobile ?? false;
 
         if ( $image ) {
             yield [
                 'url' => $image->url ?? '',
-                'id'  => $image->id ?? '',
             ];
         }
     }
@@ -172,7 +172,7 @@ class PageEvent extends BaseModel {
      */
     protected function alter_desc( $description ) {
         $event = $this->get_event();
-        $event = LinkedEvents::normalize_event( $event );
+        $event = Eventz::normalize_event( $event );
 
         if ( $event ) {
             $description = $event['short_description'];
@@ -192,7 +192,7 @@ class PageEvent extends BaseModel {
         $event = $this->get_event();
 
         if ( $event ) {
-            $event = LinkedEvents::normalize_event( $event );
+            $event = Eventz::normalize_event( $event );
             $url   = $event['url'];
         }
 
@@ -226,8 +226,8 @@ class PageEvent extends BaseModel {
             ? null
             : wp_get_attachment_image_url( Settings::get_setting( 'events_default_image' ), 'large' );
 
-        return ! empty( $event->images[0]->url )
-            ? $event->images[0]->url
+        return ! empty( $event->images->imageDesktop->url )
+            ? $event->images->imageDesktop->url
             : $default_image;
     }
 
@@ -241,10 +241,6 @@ class PageEvent extends BaseModel {
 
         if ( empty( $event ) ) {
             return null;
-        }
-
-        if ( ! empty( $event->images[0]->url ) ) {
-            return $event->images[0]->photographer_name ?? null;
         }
 
         return Settings::get_setting( 'events_default_image_credits' ) ?? null;
@@ -280,11 +276,9 @@ class PageEvent extends BaseModel {
         }
 
         try {
-            $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
-            $event  = $client->get(
-                'event/' . $event_id,
-                [ 'include' => 'organization,location' ]
-            );
+            $lang_key = Localization::get_current_language();
+            $client   = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
+            $event    = $client->get_item( $event_id, $lang_key );
 
             if ( ! empty( $event ) ) {
                 $this->event = $event;
@@ -362,7 +356,7 @@ class PageEvent extends BaseModel {
         }
 
         return [
-            'normalized' => LinkedEvents::normalize_event( $event ),
+            'normalized' => Eventz::normalize_event( $event ),
             'orig'       => $event,
         ];
     }

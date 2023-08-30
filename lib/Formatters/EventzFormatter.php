@@ -5,18 +5,20 @@
 
 namespace TMS\Theme\Base\Formatters;
 
-use Geniem\LinkedEvents\LinkedEventsClient;
-use Geniem\LinkedEvents\LinkedEventsException;
-use TMS\Theme\Base\LinkedEvents;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Eventz;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Settings;
+use TMS\Theme\Base\Localization;
+use TMS\Plugin\ManualEvents\PostType;
+use TMS\Plugin\ManualEvents\Taxonomy;
 
 /**
- * Class EventsFormatter
+ * Class EventzFormatter
  *
  * @package TMS\Theme\Base\Formatters
  */
-class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
+class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
     /**
      * Define formatter name
@@ -41,18 +43,40 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $layout ) : array {
+        $layout['category_id'] = $layout['category'] ? array_values( $layout['category'] ) : [];
+        $layout['areas']       = $layout['area'] ? array_values( $layout['area'] ) : [];
+        $layout['targets']     = $layout['target'] ? array_values( $layout['target'] ) : [];
+        $layout['tags']        = $layout['tag'] ? array_values( $layout['tag'] ) : [];
+
         $query_params             = $this->format_query_params( $layout );
-        $query_params['include']  = 'organization,location,keywords';
-        $query_params['page']     = 1;
         $query_params['language'] = function_exists( 'pll_current_language' )
             ? pll_current_language()
             : get_locale();
 
         $events = $this->get_events( $query_params );
-        $events = apply_filters( 'tms/theme/layout_events/events', $events, $layout );
+
+        if ( empty( $events ) ) {
+            $events = [];
+        }
+
+        $manual_events = [];
+        if ( ! empty( $layout['manual_event_categories'] ) ) {
+            $manual_events = self::get_manual_events( $layout['manual_event_categories'] );
+        }
+
+        $events = array_merge( $events, $manual_events );
 
         if ( empty( $events ) ) {
             return $layout;
+        }
+
+        if ( ! empty( $layout['manual_event_categories'] ) ) {
+            // Sort events by start datetime objects.
+            usort( $events, function( $a, $b ) {
+                return $a['start'] <=> $b['start'];
+            } );
+
+            $events = array_slice( $events, 0, $layout['page_size'] );
         }
 
         $layout['events']  = $this->format_events( $events, $layout['show_images'] );
@@ -109,15 +133,17 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      */
     public function format_query_params( array $layout ) : array {
         $query_params = [
-            'start'     => null,
-            'end'       => null,
-            'keyword'   => null,
-            'location'  => null,
-            'publisher' => null,
-            'sort'      => null,
-            'page_size' => null,
-            'text'      => null,
-            'page'      => null,
+            'q'           => null,
+            'start'       => null,
+            'end'         => null,
+            'category_id' => null,
+            'areas'       => null,
+            'tags'        => null,
+            'targets'     => null,
+            'sort'        => null,
+            'size'        => null,
+            'skip'        => null,
+            'page_size'   => null,
         ];
 
         foreach ( $layout as $key => $value ) {
@@ -136,8 +162,11 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         if ( ! empty( $layout['starts_today'] ) && true === $layout['starts_today'] ) {
-            $query_params['start'] = 'today';
+            $query_params['start'] = date( 'Y-m-d' );
         }
+
+        // Force sort param
+        $query_params['sort'] = 'startDate';
 
         $query_params['language'] = DPT_PLL_ACTIVE
             ? pll_current_language()
@@ -154,19 +183,26 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array|null
      */
     private function get_events( array $query_params ) : ?array {
-        $query_params['sort'] = 'end_time';
-        $client               = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
+        // Force sort param
+        $query_params['sort'] = 'startDate';
+
+        if ( ! empty( $query_params['page_size'] ) ) {
+            $query_params['size'] = $query_params['page_size'];
+        }
+
+        $client = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
         try {
-            $response = (array) $client->get( 'event', $query_params );
+            $lang_key = Localization::get_current_language();
+            $response = $client->search_events( $query_params, $lang_key );
 
             if ( empty( $response ) ) {
                 return null;
             }
 
             return array_map(
-                fn( $item ) => LinkedEvents::normalize_event( $item ),
-                $response
+                fn( $item ) => Eventz::normalize_event( $item ),
+                $response->items
             );
         }
         catch ( \Exception $e ) {
@@ -174,5 +210,57 @@ class EventsFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         }
 
         return null;
+    }
+
+    /**
+     * Get manual events by taxonomy.
+     *
+     * @param array $category_ids List of taxonomy ids.
+     *
+     * @return array
+     */
+    public static function get_manual_events( array $category_ids = null ) : array {
+        $args = [
+            'post_type'      => PostType\ManualEvent::SLUG,
+            'posts_per_page' => 200, // phpcs:ignore
+            'meta_query'     => [
+                [
+                    'key'     => 'start_datetime',
+                    'value'   => date( 'Y-m-d' ),
+                    'compare' => '>=',
+                    'type'    => 'DATE',
+                ],
+            ],
+        ];
+
+        if ( ! empty( $category_ids ) ) {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => Taxonomy\ManualEventCategory::SLUG,
+                    'field'    => 'term_id',
+                    'terms'    => array_values( $category_ids ),
+                    'operator' => 'IN',
+                ],
+            ];
+        }
+
+        $query = new \WP_Query( $args );
+
+        if ( empty( $query->posts ) ) {
+            return [];
+        }
+
+        $events = array_map( function ( $e ) {
+            $id           = $e->ID;
+            $event        = (object) get_fields( $id );
+            $event->id    = $id;
+            $event->title = get_the_title( $id );
+            $event->url   = get_permalink( $id );
+            $event->image = has_post_thumbnail( $id ) ? get_the_post_thumbnail_url( $id, 'medium_large' ) : null;
+
+            return PostType\ManualEvent::normalize_event( $event );
+        }, $query->posts );
+
+        return $events;
     }
 }

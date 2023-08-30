@@ -20,9 +20,10 @@
          */
         const filterFields = [
             'text',
-            'location',
-            'keyword',
-            'publisher',
+            'area',
+            'category',
+            'target',
+            'tag',
         ];
 
         let $el = '';
@@ -103,7 +104,7 @@
                         response.forEach( ( item ) => {
                             select.append(
                                 $( '<option /> ' )
-                                    .attr( 'value', item.id )
+                                    .attr( 'value', item._id )
                                     .text( item.select_name )
                                     .prop( 'selected', item.selected )
                             );

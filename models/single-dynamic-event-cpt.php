@@ -3,8 +3,8 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
-use Geniem\LinkedEvents\LinkedEventsClient;
-use TMS\Theme\Base\LinkedEvents;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Eventz;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\Traits\Components;
 use TMS\Theme\Base\Traits;

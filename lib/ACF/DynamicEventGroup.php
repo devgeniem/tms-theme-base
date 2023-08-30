@@ -9,11 +9,11 @@ use Geniem\ACF\Exception;
 use Geniem\ACF\Group;
 use Geniem\ACF\RuleGroup;
 use Geniem\ACF\Field;
-use Geniem\LinkedEvents\LinkedEventsClient;
-use Geniem\LinkedEvents\LinkedEventsException;
 use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
+use TMS\Theme\Base\EventzClient;
+use TMS\Theme\Base\Localization;
 
 /**
  * Class DynamicEventGroup
@@ -32,18 +32,23 @@ class DynamicEventGroup {
         );
 
         add_filter(
-            'acf/load_field/name=keyword',
-            \Closure::fromCallable( [ $this, 'fill_keyword_choices' ] )
+            'acf/load_field/name=category',
+            \Closure::fromCallable( [ $this, 'fill_category_choices' ] )
         );
 
         add_filter(
-            'acf/load_field/name=location',
-            \Closure::fromCallable( [ $this, 'fill_location_choices' ] )
+            'acf/load_field/name=area',
+            \Closure::fromCallable( [ $this, 'fill_area_choices' ] )
         );
 
         add_filter(
-            'acf/load_field/name=publisher',
-            \Closure::fromCallable( [ $this, 'fill_publisher_choices' ] )
+            'acf/load_field/name=target',
+            \Closure::fromCallable( [ $this, 'fill_target_choices' ] )
+        );
+
+        add_filter(
+            'acf/load_field/name=tag',
+            \Closure::fromCallable( [ $this, 'fill_tag_choices' ] )
         );
     }
 
@@ -104,24 +109,28 @@ class DynamicEventGroup {
      */
     protected function get_event_tab( string $key ) : ?Field\Tab {
         $strings = [
-            'tab'       => 'Tapahtuma',
-            'text'      => [
+            'tab'      => 'Tapahtuma',
+            'text'     => [
                 'label'        => 'Hakusana',
                 'instructions' => '',
             ],
-            'keyword'   => [
-                'label'        => 'Avainsana',
+            'category' => [
+                'label'        => 'Kategoria',
                 'instructions' => '',
             ],
-            'location'  => [
-                'label'        => 'Tapahtumapaikka',
+            'area'     => [
+                'label'        => 'Alue',
                 'instructions' => '',
             ],
-            'publisher' => [
-                'label'        => 'Julkaisija',
+            'target'   => [
+                'label'        => 'Kohderyhmä',
                 'instructions' => '',
             ],
-            'event'     => [
+            'tag'      => [
+                'label'        => 'Tag',
+                'instructions' => '',
+            ],
+            'event'    => [
                 'label'        => 'Tapahtuma',
                 'instructions' => '',
             ],
@@ -137,33 +146,45 @@ class DynamicEventGroup {
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['text']['instructions'] );
 
-            $location_field = ( new Field\Select( $strings['location']['label'] ) )
-                ->set_key( "${key}_location" )
-                ->set_name( 'location' )
+            $area_field = ( new Field\Select( $strings['area']['label'] ) )
+                ->set_key( "{$key}_area" )
+                ->set_name( 'area' )
                 ->use_ui()
                 ->allow_null()
+                ->allow_multiple()
                 ->use_ajax()
                 ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['location']['instructions'] );
+                ->set_instructions( $strings['area']['instructions'] );
 
-            $keyword_field = ( new Field\Select( $strings['keyword']['label'] ) )
-                ->set_key( "${key}_keyword" )
-                ->set_name( 'keyword' )
+            $category_field = ( new Field\Select( $strings['category']['label'] ) )
+                ->set_key( "{$key}_category" )
+                ->set_name( 'category' )
                 ->use_ui()
                 ->use_ajax()
                 ->allow_null()
                 ->allow_multiple()
                 ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['keyword']['instructions'] );
+                ->set_instructions( $strings['category']['instructions'] );
 
-            $publisher_field = ( new Field\Select( $strings['publisher']['label'] ) )
-                ->set_key( "${key}_publisher" )
-                ->set_name( 'publisher' )
+            $target_field = ( new Field\Select( $strings['target']['label'] ) )
+                ->set_key( "${key}_target" )
+                ->set_name( 'target' )
                 ->use_ui()
                 ->use_ajax()
                 ->allow_null()
+                ->allow_multiple()
                 ->set_wrapper_width( 50 )
-                ->set_instructions( $strings['publisher']['instructions'] );
+                ->set_instructions( $strings['target']['instructions'] );
+
+            $tag_field = ( new Field\Select( $strings['tag']['label'] ) )
+                ->set_key( "${key}_tag" )
+                ->set_name( 'tag' )
+                ->use_ui()
+                ->use_ajax()
+                ->allow_null()
+                ->allow_multiple()
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['tag']['instructions'] );
 
             $event_field = ( new Field\Select( $strings['event']['label'] ) )
                 ->set_key( "${key}_event" )
@@ -174,9 +195,10 @@ class DynamicEventGroup {
 
             $tab->add_fields( [
                 $search_field,
-                $location_field,
-                $keyword_field,
-                $publisher_field,
+                $area_field,
+                $category_field,
+                $target_field,
+                $tag_field,
                 $event_field,
             ] );
 
@@ -190,133 +212,103 @@ class DynamicEventGroup {
     }
 
     /**
-     * Fill publisher choices
+     * Fill target choices
      *
      * @param array $field ACF field.
      *
      * @return array
      */
-    protected function fill_publisher_choices( $field ) : array {
+    protected function fill_target_choices( $field ) : array {
         if ( ! is_admin() ) {
             return $field;
         }
 
-        return $this->fill_choices_from_response(
-            $field,
-            $this->get_choices( 'organization' ),
-        );
+        return $this->get_choices_by_name( 'targets', $field );
     }
 
     /**
-     * Fill keyword choices
+     * Fill category choices
      *
      * @param array $field ACF field.
      *
      * @return array
      */
-    protected function fill_keyword_choices( array $field ) : array {
+    protected function fill_category_choices( array $field ) : array {
         if ( ! is_admin() ) {
             return $field;
         }
 
-        $response = $this->get_choices(
-            'keyword_set',
-            [
-
-                'data_source' => 'system,tampere',
-                'include'     => 'keywords',
-            ]
-        );
-
-        $keywords = [];
-
-        foreach ( $response as $set ) {
-            if ( empty( $set->keywords ) ) {
-                continue;
-            }
-
-            foreach ( $set->keywords as $keyword ) {
-                $keywords[] = $keyword;
-            }
-        }
-
-        return $this->fill_choices_from_response(
-            $field,
-            $keywords
-        );
+        return $this->get_choices_by_name( 'categories', $field );
     }
 
     /**
-     * Fill location choices
+     * Fill area choices
      *
      * @param array $field ACF field.
      *
      * @return array
      */
-    protected function fill_location_choices( array $field ) : array {
+    protected function fill_area_choices( array $field ) : array {
         if ( ! is_admin() ) {
             return $field;
         }
 
-        // Return field without choices due to API problems.
-        return $field;
-
-        return $this->fill_choices_from_response(
-            $field,
-            $this->get_choices( 'place', [ 'data_source' => 'system' ] ),
-        );
+        return $this->get_choices_by_name( 'areas', $field );
     }
 
     /**
-     * Get choices from API
+     * Fill area choices
      *
-     * @param string $slug           API slug.
-     * @param array  $params         API query params.
-     * @param int    $cache_duration Cache duration.
+     * @param array $field ACF field.
      *
-     * @return array|bool|mixed|string
+     * @return array
      */
-    protected function get_choices( string $slug, array $params = [], int $cache_duration = 15 ) {
-        $cache_key = 'events-' . $slug;
+    protected function fill_tag_choices( array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
+        return $this->get_choices_by_name( 'tags', $field );
+    }
+
+    /**
+     * Fill area choices
+     *
+     * @param string $name name of the choice.
+     * @param array  $field ACF field.
+     *
+     * @return array
+     */
+    protected function get_choices_by_name( string $name, array $field ) : array {
+        if ( ! is_admin() ) {
+            return $field;
+        }
+
+        $cache_key = 'events-' . $name;
         $response  = wp_cache_get( $cache_key );
 
         if ( ! $response ) {
-            $client = new LinkedEventsClient( PIRKANMAA_EVENTS_API_URL );
-
             try {
-                $response = $client->get_all( $slug, $params );
+                $lang_key = Localization::get_current_language();
+                $client   = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
+                $response = $client->{'get_' . $name }( $lang_key );
 
                 wp_cache_set(
                     $cache_key,
                     $response,
                     '',
-                    MINUTE_IN_SECONDS * $cache_duration
+                    MINUTE_IN_SECONDS * 15
                 );
             }
-            catch ( LinkedEventsException $e ) {
+            catch ( Exception $e ) {
                 ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
             }
         }
 
-        return $response ?? [];
-    }
-
-    /**
-     * Fill ACF select choices with response items
-     *
-     * @param array $field    ACF field.
-     * @param array $response API response.
-     *
-     * @return array
-     */
-    protected function fill_choices_from_response( array $field, array $response ) : array {
-        if ( empty( $response ) ) {
-            return $field;
-        }
-
-        foreach ( $response as $item ) {
-            $name                          = $item->name->fi ?? $item->name;
-            $field['choices'][ $item->id ] = $name . ' : ' . $item->id;
+        if ( ! empty( $response ) ) {
+            foreach ( $response as $item ) {
+                $field['choices'][ $item->_id ] = $item->name;
+            }
         }
 
         return $field;
@@ -359,6 +351,7 @@ class DynamicEventGroup {
                 Layouts\ArticlesLayout::class,
                 Layouts\ImageCarouselLayout::class,
                 Layouts\NoticeBannerLayout::class,
+                Layouts\TextBlockLayout::class,
                 Layouts\ContactsLayout::class,
                 Layouts\VideoLayout::class,
             ],
