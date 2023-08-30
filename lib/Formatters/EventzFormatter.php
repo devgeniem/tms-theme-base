@@ -55,6 +55,10 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $events = $this->get_events( $query_params );
 
+        if ( empty( $events ) ) {
+            $events = [];
+        }
+
         $manual_events = [];
         if ( ! empty( $layout['manual_event_categories'] ) ) {
             $manual_events = self::get_manual_events( $layout['manual_event_categories'] );
@@ -208,6 +212,13 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         return null;
     }
 
+    /**
+     * Get manual events by taxonomy.
+     *
+     * @param array $category_ids List of taxonomy ids.
+     *
+     * @return array
+     */
     public static function get_manual_events( array $category_ids = null ) : array {
         $args = [
             'post_type'      => PostType\ManualEvent::SLUG,
