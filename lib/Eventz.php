@@ -100,28 +100,28 @@ class Eventz implements Controller {
             'name'              => $event->name ?? null,
             'short_description' => static::get_short_description( $event ) ?? null,
             'description'       => nl2br( $event->description ) ?? null,
-            'date_title'        => __( 'Dates', 'tms-theme-tredu' ),
+            'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
             'dates'             => static::get_event_dates( $event ),
             'recurring'         => ! empty( $event->event->dates ),
-            'time_title'        => __( 'Time', 'tms-theme-tredu' ),
+            'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
             'start_date_raw'     => static::get_as_datetime( $event->event->start ),
             'end_date_raw'       => static::get_as_datetime( $event->event->end ),
-            'location_title'    => __( 'Location', 'tms-theme-tredu' ),
+            'location_title'    => __( 'Location', 'tms-theme-base' ),
             'location'          => static::get_event_location( $event ),
-            'price_title'       => __( 'Price', 'tms-theme-tredu' ),
+            'price_title'       => __( 'Price', 'tms-theme-base' ),
             'price'             => static::get_event_price_info( $event, $lang_key ),
-            'area_title'        => __( 'Area', 'tms-theme-tredu' ),
+            'area_title'        => __( 'Area', 'tms-theme-base' ),
             'areas'             => static::get_area_info( $event ),
-            'target_title'      => __( 'Target', 'tms-theme-tredu' ),
+            'target_title'      => __( 'Target', 'tms-theme-base' ),
             'targets'           => static::get_target_info( $event ),
-            'tags_title'        => __( 'Tags', 'tms-theme-tredu' ),
+            'tags_title'        => __( 'Tags', 'tms-theme-base' ),
             'tags'              => static::get_tag_info( $event ),
             'keywords'          => $topics ?? null,
             'primary_keyword'   => empty( $topics ) ? null : $topics[0],
-            'links_title'       => __( 'Links', 'tms-theme-tredu' ),
+            'links_title'       => __( 'Links', 'tms-theme-base' ),
             'links'             => $event->links,
             'image'             => $image ?? null,
             'url'               => static::get_event_url( $event->_id ),
@@ -260,7 +260,7 @@ class Eventz implements Controller {
         $price = $event->price ?? null;
 
         if ( empty( $price ) || $event->price->isFree ) {
-            $price = __( 'Free', 'tms-theme-tredu' );
+            $price = __( 'Free', 'tms-theme-base' );
         }
         else {
             $min = $event->price->min;
@@ -282,7 +282,7 @@ class Eventz implements Controller {
                 'is_free'     => null,
                 'price'       => $price,
                 'info_url'    => [
-                    'title' => __( 'Additional information', 'tms-theme-tredu' ),
+                    'title' => __( 'Additional information', 'tms-theme-base' ),
                     'url'   => null,
                 ],
                 'description' => null,

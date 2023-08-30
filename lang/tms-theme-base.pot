@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2023-05-19 14:56+0300\n"
+"POT-Creation-Date: 2023-08-30 12:27+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -65,7 +65,7 @@ msgctxt "theme ACF"
 msgid "Blogikirjoittaja"
 msgstr ""
 
-#: lib/ACF/DynamicEventGroup.php:55
+#: lib/ACF/DynamicEventGroup.php:60
 msgctxt "theme ACF"
 msgid "Tiedot"
 msgstr ""
@@ -265,6 +265,46 @@ msgctxt "pagination"
 msgid "Previous"
 msgstr ""
 
+#: lib/Eventz.php:103
+msgid "Dates"
+msgstr ""
+
+#: lib/Eventz.php:107
+msgid "Time"
+msgstr ""
+
+#: lib/Eventz.php:112
+msgid "Location"
+msgstr ""
+
+#: lib/Eventz.php:114
+msgid "Price"
+msgstr ""
+
+#: lib/Eventz.php:116
+msgid "Area"
+msgstr ""
+
+#: lib/Eventz.php:118
+msgid "Target"
+msgstr ""
+
+#: lib/Eventz.php:120
+msgid "Tags"
+msgstr ""
+
+#: lib/Eventz.php:124
+msgid "Links"
+msgstr ""
+
+#: lib/Eventz.php:263
+msgid "Free"
+msgstr ""
+
+#: lib/Eventz.php:285
+msgid "Additional information"
+msgstr ""
+
 #: lib/Formatters/CountdownFormatter.php:80 models/strings.php:224
 msgctxt "theme-frontend"
 msgid "Days"
@@ -282,42 +322,6 @@ msgstr ""
 
 #: lib/Formatters/GridFormatter.php:151
 msgid "Read more"
-msgstr ""
-
-#: lib/LinkedEvents.php:98
-msgid "Dates"
-msgstr ""
-
-#: lib/LinkedEvents.php:100
-msgid "Time"
-msgstr ""
-
-#: lib/LinkedEvents.php:102
-msgid "Location"
-msgstr ""
-
-#: lib/LinkedEvents.php:104
-msgid "Price"
-msgstr ""
-
-#: lib/LinkedEvents.php:106
-msgid "Organizer"
-msgstr ""
-
-#: lib/LinkedEvents.php:216 lib/LinkedEvents.php:268
-msgid "Additional information"
-msgstr ""
-
-#: lib/LinkedEvents.php:261
-msgid "Free"
-msgstr ""
-
-#: lib/LinkedEvents.php:291
-msgid "Additional info"
-msgstr ""
-
-#: lib/LinkedEvents.php:343
-msgid "Virtual event"
 msgstr ""
 
 #: lib/NavigationController.php:39
@@ -358,16 +362,6 @@ msgctxt "theme CPT"
 msgid "Blog authors"
 msgstr ""
 
-#: lib/PostType/BlogAuthor.php:96
-msgctxt "theme CPT"
-msgid "Blog Authors"
-msgstr ""
-
-#: lib/PostType/BlogAuthor.php:97
-msgctxt "theme CPT"
-msgid "Blog Author"
-msgstr ""
-
 #: lib/PostType/Contact.php:55
 msgctxt "theme CPT slugs"
 msgid "contact"
@@ -393,32 +387,32 @@ msgctxt "theme CPT"
 msgid "Site settings"
 msgstr ""
 
-#: lib/Roles.php:340
+#: lib/Roles.php:373
 msgctxt "wp-geniem-roles"
 msgid "Super Administrator"
 msgstr ""
 
-#: lib/Roles.php:433
+#: lib/Roles.php:470
 msgctxt "wp-geniem-roles"
 msgid "Administrator"
 msgstr ""
 
-#: lib/Roles.php:486
+#: lib/Roles.php:525
 msgctxt "wp-geniem-roles"
 msgid "Site Manager"
 msgstr ""
 
-#: lib/Roles.php:532
+#: lib/Roles.php:577
 msgctxt "wp-geniem-roles"
 msgid "Author"
 msgstr ""
 
-#: lib/Roles.php:600
+#: lib/Roles.php:645
 msgctxt "wp-geniem-roles"
 msgid "Contributor"
 msgstr ""
 
-#: lib/Roles.php:620
+#: lib/Roles.php:665
 msgctxt "wp-geniem-roles"
 msgid "Subscriber"
 msgstr ""
@@ -558,31 +552,31 @@ msgctxt "theme-frontend"
 msgid "Return to home"
 msgstr ""
 
-#: models/page-events-calendar.php:39 models/page-events-search.php:118
+#: models/page-events-calendar.php:39 models/page-events-search.php:119
 msgid "No results"
 msgstr ""
 
-#: models/page-events-search.php:51
+#: models/page-events-search.php:52
 msgid "Search term"
 msgstr ""
 
-#: models/page-events-search.php:52
+#: models/page-events-search.php:53
 msgid "Events from"
 msgstr ""
 
-#: models/page-events-search.php:53 models/search.php:83
+#: models/page-events-search.php:54 models/search.php:83
 msgid "Start date"
 msgstr ""
 
-#: models/page-events-search.php:54 models/search.php:84
+#: models/page-events-search.php:55 models/search.php:84
 msgid "End date"
 msgstr ""
 
-#: models/page-events-search.php:117
+#: models/page-events-search.php:118
 msgid "No search term given"
 msgstr ""
 
-#: models/page-events-search.php:190 models/search.php:236
+#: models/page-events-search.php:203 models/search.php:228
 #, php-format
 msgctxt "search results summary"
 msgid "%1$1s result found for \"%2$2s\""
@@ -610,7 +604,7 @@ msgstr ""
 msgid "Looking for events? Use the event search!"
 msgstr ""
 
-#: models/search.php:247
+#: models/search.php:239
 msgid "No search results"
 msgstr ""
 
@@ -1100,6 +1094,47 @@ msgstr ""
 
 #: models/strings.php:243
 msgid "Pagination"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
+#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
+msgid "Add Row"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
+msgid "Multisite Post Object"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
+msgid "Multisite Relationship"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
+msgid "Multisite taxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
+msgid "Multitaxonomy"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
+#, php-format
+msgctxt "No terms"
+msgid "No %s"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
+msgid "PHP"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
+msgid "Instructions"
+msgstr ""
+
+#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
+msgid ""
+"This field can only be used with ACF Codifier. Doesn't do anything if "
+"defined in the admin side."
 msgstr ""
 
 #. Theme Name of the plugin/theme

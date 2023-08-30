@@ -1,12 +1,12 @@
 {?event.normalized.recurring}
     {?event.normalized.date}
-        <div class="info-group mb-5 {template_classes.info_group|s}">
+        <div class="info-group mb-5 {template_classes.info_group|attr}">
             {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
             <div class="pt-3 pb-2">
                 {#event.normalized.dates}
                 <div class="info-group__description pr-8 pb-1 pl-8">
-                    {date|s}
+                    {date|attr}
                 </div>
             {/event.normalized.dates}
             </div>
@@ -14,43 +14,43 @@
     {/event.normalized.date}
 {:else}
     {?event.normalized.date}
-        <div class="info-group mb-5 {template_classes.info_group|s}">
+        <div class="info-group mb-5 {template_classes.info_group|attr}">
             {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
             <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-                {event.normalized.date|s}
+                {event.normalized.date|attr}
             </div>
         </div>
     {/event.normalized.date}
     {?event.normalized.time}
-        <div class="info-group mb-5 {template_classes.info_group|s}">
+        <div class="info-group mb-5 {template_classes.info_group|attr}">
             {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title template_classes=template_classes.info_group_title icon="time" /}
 
             <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-                {event.normalized.time|s}
+                {event.normalized.time|attr}
             </div>
         </div>
     {/event.normalized.time}
 {/event.normalized.recurring}
 
 {?event.normalized.location}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
+    <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title template_classes=template_classes.info_group_title icon="location" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            <div>{event.normalized.location.name|s}</div>
+            <div>{event.normalized.location.name|attr}</div>
         </div>
     </div>
 {/event.normalized.location}
 
 {?event.normalized.price}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
+    <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.price_title template_classes=template_classes.info_group_title icon="euro" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.price}
                 <div>
-                    {price|s}
+                    {price|attr}
                 </div>
             {/event.normalized.price}
         </div>
@@ -58,12 +58,12 @@
 {/event.normalized.price}
 
 {?event.normalized.links}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
+    <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.links_title template_classes=template_classes.info_group_title icon="link" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.links}
-                <a href="{url|url}" target="_blank" class="is-block">{name|s}</a>
+                <a href="{url|url}" target="_blank" class="is-block">{name|attr}</a>
                 {>"ui/link" link=url /}
             {/event.normalized.links}
         </div>
@@ -71,17 +71,17 @@
 {/event.normalized.links}
 
 {?event.normalized.provider}
-    <div class="info-group mb-5 {template_classes.info_group|s}">
+    <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title template_classes=template_classes.info_group_title icon="bullhorn" /}
 
         <div class="info-group__description pr-8 pb-3 pl-8">
-            <div>{event.normalized.provider.name|s}</div>
+            <div>{event.normalized.provider.name|attr}</div>
 
             {?event.normalized.provider.email}
                 <div>
                     <a href="mailto:{event.normalized.provider.email}"
                        class="has-text-black">
-                        {event.normalized.provider.email|s}
+                        {event.normalized.provider.email|attr}
                     </a>
                 </div>
             {/event.normalized.provider.email}
@@ -90,16 +90,16 @@
                 <div>
                     <a href="tel:{event.normalized.provider.phone}"
                        class="has-text-black">
-                        {event.normalized.provider.phone|s}
+                        {event.normalized.provider.phone|attr}
                     </a>
                 </div>
             {/event.normalized.provider.phone}
         </div>
     </div>
 
-    {>"ui/button-link" link=event.normalized.provider.link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+    {>"ui/button-link" link=event.normalized.provider.link classes="is-primary mt-3 {template_classes.info_button|attr}" icon="chevron-right" icon_classes="icon--medium" /}
 {/event.normalized.provider}
 
 {?event.normalized.virtual_event_link}
-    {>"ui/button-link" link=event.normalized.virtual_event_link classes="is-primary mt-3 {template_classes.info_button|s}" icon="chevron-right" icon_classes="icon--medium" /}
+    {>"ui/button-link" link=event.normalized.virtual_event_link classes="is-primary mt-3 {template_classes.info_button|attr}" icon="chevron-right" icon_classes="icon--medium" /}
 {/event.normalized.virtual_event_link}
