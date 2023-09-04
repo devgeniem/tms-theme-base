@@ -296,7 +296,7 @@ class Eventz implements Controller {
             $formatted_price = $price->min;
         }
 
-        if ( empty ( $formatted_price ) ) {
+        if ( empty( $formatted_price ) ) {
             $formatted_price = $price->min . '-' . $price->max;
         }
 
