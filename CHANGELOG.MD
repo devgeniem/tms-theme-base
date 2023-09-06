@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-973: Fix manual event sorting
+
 ## [1.47.0] - 2023-09-04
 
 - TMS-964-2: Update translation and format pricing.
