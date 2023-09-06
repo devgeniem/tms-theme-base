@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2023-08-30 12:27+0300\n"
+"POT-Creation-Date: 2023-09-03 19:27+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -282,27 +282,35 @@ msgid "Price"
 msgstr ""
 
 #: lib/Eventz.php:116
-msgid "Area"
+msgid "Organizer"
 msgstr ""
 
 #: lib/Eventz.php:118
-msgid "Target"
+msgid "Area"
 msgstr ""
 
 #: lib/Eventz.php:120
+msgid "Target"
+msgstr ""
+
+#: lib/Eventz.php:122
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:124
+#: lib/Eventz.php:126
 msgid "Links"
 msgstr ""
 
-#: lib/Eventz.php:263
+#: lib/Eventz.php:269
+msgid "Additional information"
+msgstr ""
+
+#: lib/Eventz.php:286
 msgid "Free"
 msgstr ""
 
-#: lib/Eventz.php:285
-msgid "Additional information"
+#: lib/Eventz.php:318
+msgid "Additional info"
 msgstr ""
 
 #: lib/Formatters/CountdownFormatter.php:80 models/strings.php:224

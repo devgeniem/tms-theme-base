@@ -73,7 +73,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         if ( ! empty( $layout['manual_event_categories'] ) ) {
             // Sort events by start datetime objects.
             usort( $events, function( $a, $b ) {
-                return $a['start'] <=> $b['start'];
+                return $a['start_date_raw'] <=> $b['start_date_raw'];
             } );
 
             $events = array_slice( $events, 0, $layout['page_size'] );
@@ -168,7 +168,9 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         // Force sort param
         $query_params['sort'] = 'startDate';
 
-        $query_params['language'] = DPT_PLL_ACTIVE ? pll_current_language() : get_locale();
+        $query_params['language'] = DPT_PLL_ACTIVE
+            ? pll_current_language()
+            : get_locale();
 
         return $query_params;
     }

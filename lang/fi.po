@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2023-08-30 12:27+0300\n"
-"PO-Revision-Date: 2023-08-30 12:28+0300\n"
+"POT-Creation-Date: 2023-09-03 19:27+0300\n"
+"PO-Revision-Date: 2023-09-06 15:32+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -282,27 +282,35 @@ msgid "Price"
 msgstr "Hinta"
 
 #: lib/Eventz.php:116
+msgid "Organizer"
+msgstr "Järjestäjä"
+
+#: lib/Eventz.php:118
 msgid "Area"
 msgstr ""
 
-#: lib/Eventz.php:118
+#: lib/Eventz.php:120
 msgid "Target"
 msgstr ""
 
-#: lib/Eventz.php:120
+#: lib/Eventz.php:122
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:124
+#: lib/Eventz.php:126
 msgid "Links"
 msgstr "Linkit"
 
-#: lib/Eventz.php:263
+#: lib/Eventz.php:269
+msgid "Additional information"
+msgstr "Lisätiedot"
+
+#: lib/Eventz.php:286
 msgid "Free"
 msgstr "Maksuton"
 
-#: lib/Eventz.php:285
-msgid "Additional information"
+#: lib/Eventz.php:318
+msgid "Additional info"
 msgstr "Lisätiedot"
 
 #: lib/Formatters/CountdownFormatter.php:80 models/strings.php:224
@@ -1165,12 +1173,6 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
-
-#~ msgid "Organizer"
-#~ msgstr "Järjestäjä"
-
-#~ msgid "Additional info"
-#~ msgstr "Lisätiedot"
 
 #~ msgid "Virtual event"
 #~ msgstr "Verkkotapahtuma"

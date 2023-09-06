@@ -113,6 +113,7 @@ class Eventz implements Controller {
             'location'          => static::get_event_location( $event ),
             'price_title'       => __( 'Price', 'tms-theme-base' ),
             'price'             => static::get_event_price_info( $event, $lang_key ),
+            'provider_title'     => __( 'Organizer', 'tms-theme-base' ),
             'area_title'        => __( 'Area', 'tms-theme-base' ),
             'areas'             => static::get_area_info( $event ),
             'target_title'      => __( 'Target', 'tms-theme-base' ),
@@ -253,29 +254,11 @@ class Eventz implements Controller {
      * @return array|null
      */
     public static function get_event_price_info( $event ) : ?array {
-        if ( empty( $event ) ) {
+        if ( empty( $event ) || empty( $event->price ) ) {
             return null;
         }
 
-        $price = $event->price ?? null;
-
-        if ( empty( $price ) || $event->price->isFree ) {
-            $price = __( 'Free', 'tms-theme-base' );
-        }
-        else {
-            $min = $event->price->min;
-            $max = $event->price->max;
-
-            if ( $min === 0 && $max > 0 ) {
-                $price = $max . '€';
-            }
-            elseif ( $max === 0 && $min > 0 ) {
-                $price = $min . '€';
-            }
-            else {
-                $price = $min . '-' . $max . '€';
-            }
-        }
+        $price = self::format_price( $event->price );
 
         return [
             [
@@ -288,6 +271,36 @@ class Eventz implements Controller {
                 'description' => null,
             ],
         ];
+    }
+
+    /**
+     * Format price.
+     *
+     * @param object $price Event price.
+     *
+     * @return string|null
+     */
+    public static function format_price( $price ) : ?string {
+        if ( $price->isFree ) {
+            return __( 'Free', 'tms-theme-base' );
+        }
+
+        $formatted_price = '';
+
+        // Price data might differ.
+        if ( $price->min === 0 && $price->max > 0 ) {
+            $formatted_price = $price->max;
+        }
+
+        if ( $price->max === 0 && $price->min > 0 ) {
+            $formatted_price = $price->min;
+        }
+
+        if ( empty( $formatted_price ) ) {
+            $formatted_price = $price->min . '-' . $price->max;
+        }
+
+        return $formatted_price . '€';
     }
 
     /**
@@ -376,7 +389,7 @@ class Eventz implements Controller {
     }
 
     /**
-     * Get event date.
+     * Get event date
      *
      * @param string $start Event startdate.
      * @param string $end Event enddate.
