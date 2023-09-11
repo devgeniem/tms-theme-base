@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-973: Fix manual event sorting
+- TMS-970: Add image caption text to call-to-action and content-columns blocks.
 
 ## [1.47.0] - 2023-09-04
 
