@@ -10,6 +10,10 @@
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
 
+                        {@isset key1=display_caption key2=image.caption method="and" }
+                            {>"ui/image/image-caption"  /}
+                        {/isset}
+
                         {?display_artist}
                             {>"ui/image/image-meta-minimal"  /}
                         {/display_artist}
