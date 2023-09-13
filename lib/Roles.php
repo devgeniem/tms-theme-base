@@ -173,6 +173,27 @@ class Roles implements Controller {
     ];
 
     /**
+     * Lunch Menu / lunch-menu-cpt.
+     *
+     * @var array
+     */
+    private $lunch_menus_all_capabilities = [
+        'edit_lunch_menu',
+        'read_lunch_menu',
+        'delete_lunch_menu',
+        'edit_others_lunch_menus',
+        'delete_lunch_menus',
+        'publish_lunch_menus',
+        'read_private_lunch_menus',
+        'delete_private_lunch_menus',
+        'delete_published_lunch_menus',
+        'delete_others_lunch_menus',
+        'edit_private_lunch_menus',
+        'edit_published_lunch_menus',
+        'edit_lunch_menus',
+    ];
+
+    /**
      * Base taxonomy capabilities, only for admins.
      *
      * @var string[]
@@ -207,7 +228,7 @@ class Roles implements Controller {
         'delete_material_types',
         'assign_material_types',
     ];
-
+    
     /**
      * Manual Event Category taxonomy
      *
@@ -494,6 +515,7 @@ class Roles implements Controller {
         $role->add_caps( $this->contact_all_capabilities );
         $role->add_caps( $this->dynamic_event_all_capabilities );
         $role->add_caps( $this->manual_event_all_capabilities );
+        $role->add_caps( $this->lunch_menus_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
@@ -548,6 +570,7 @@ class Roles implements Controller {
         $role->add_caps( $this->contact_all_capabilities );
         $role->add_caps( $this->dynamic_event_all_capabilities );
         $role->add_caps( $this->manual_event_all_capabilities );
+        $role->add_caps( $this->lunch_menus_all_capabilities );
 
         // Taxonomies
         $role->add_caps( [
