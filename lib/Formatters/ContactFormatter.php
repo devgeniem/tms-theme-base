@@ -150,7 +150,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $fields               = $this->append_image( $fields, $field_key, $default_image );
             }
 
-            if ( isset( $fields['phone_repeater'] ) ) {
+            if ( ! empty( $fields['phone_repeater'] ) ) {
                 $fields['phone_repeater'] = array_filter( $fields['phone_repeater'], function ( $item ) {
                     return ! empty( $item['phone_text'] ) || ! empty( $item['phone_number'] );
                 } );
