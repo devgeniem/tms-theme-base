@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.50.0] - 2023-10-04
+
 - TMS-978: Add has-line-height-normal class
 
 ## [1.49.0] - 2023-09-15
