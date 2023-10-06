@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2023-09-03 19:27+0300\n"
-"PO-Revision-Date: 2023-09-03 19:27+0300\n"
+"POT-Creation-Date: 2023-10-05 22:19+0300\n"
+"PO-Revision-Date: 2023-10-05 22:19+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -285,33 +285,29 @@ msgstr "Hinta"
 msgid "Organizer"
 msgstr "Järjestäjä"
 
-#: lib/Eventz.php:118
+#: lib/Eventz.php:117
 msgid "Area"
 msgstr ""
 
-#: lib/Eventz.php:120
+#: lib/Eventz.php:119
 msgid "Target"
 msgstr ""
 
-#: lib/Eventz.php:122
+#: lib/Eventz.php:121
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:126
+#: lib/Eventz.php:125
 msgid "Links"
 msgstr "Linkit"
 
-#: lib/Eventz.php:269
+#: lib/Eventz.php:268
 msgid "Additional information"
 msgstr "Lisätiedot"
 
-#: lib/Eventz.php:286
+#: lib/Eventz.php:285
 msgid "Free"
 msgstr "Maksuton"
-
-#: lib/Eventz.php:318
-msgid "Additional info"
-msgstr "Lisätiedot"
 
 #: lib/Formatters/CountdownFormatter.php:80 models/strings.php:224
 msgctxt "theme-frontend"
@@ -395,32 +391,32 @@ msgctxt "theme CPT"
 msgid "Site settings"
 msgstr "Sivuston asetukset"
 
-#: lib/Roles.php:373
+#: lib/Roles.php:394
 msgctxt "wp-geniem-roles"
 msgid "Super Administrator"
 msgstr ""
 
-#: lib/Roles.php:470
+#: lib/Roles.php:491
 msgctxt "wp-geniem-roles"
 msgid "Administrator"
 msgstr ""
 
-#: lib/Roles.php:525
+#: lib/Roles.php:547
 msgctxt "wp-geniem-roles"
 msgid "Site Manager"
 msgstr ""
 
-#: lib/Roles.php:577
+#: lib/Roles.php:600
 msgctxt "wp-geniem-roles"
 msgid "Author"
 msgstr ""
 
-#: lib/Roles.php:645
+#: lib/Roles.php:668
 msgctxt "wp-geniem-roles"
 msgid "Contributor"
 msgstr ""
 
-#: lib/Roles.php:665
+#: lib/Roles.php:688
 msgctxt "wp-geniem-roles"
 msgid "Subscriber"
 msgstr ""
@@ -682,7 +678,7 @@ msgid "Search from site"
 msgstr "Hae sivustolta"
 
 #: models/strings.php:55 models/strings.php:81 models/strings.php:140
-#: models/strings.php:153 models/strings.php:162
+#: models/strings.php:153 models/strings.php:162 models/strings.php:230
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr "Sulje"
@@ -1103,60 +1099,12 @@ msgstr "Jou"
 
 #: models/strings.php:229
 msgctxt "theme-frontend"
-msgid "Dialog Window - Close (Press escape to close)"
-msgstr "Dialogi-ikkuna - sulje (Sulje painamalla Esc -näppäintä)"
-
-#: models/strings.php:230
-msgctxt "theme-frontend"
-msgid "Close (Press escape to close)"
-msgstr "Sulje (Sulje painamalla Esc -näppäintä)"
+msgid "Enlarged image"
+msgstr "Suurennettu kuva"
 
 #: models/strings.php:243
 msgid "Pagination"
 msgstr "Sivutus"
-
-#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
-#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
-msgid "Add Row"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
-msgid "Multisite Post Object"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
-msgid "Multisite Relationship"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
-msgid "Multisite taxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
-msgid "Multitaxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
-#, php-format
-msgctxt "No terms"
-msgid "No %s"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
-msgid "PHP"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
-#, fuzzy
-#| msgid "Induction loop"
-msgid "Instructions"
-msgstr "Induktio-silmukka"
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
-msgid ""
-"This field can only be used with ACF Codifier. Doesn't do anything if "
-"defined in the admin side."
-msgstr ""
 
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
@@ -1173,6 +1121,22 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
+
+#~ msgid "Additional info"
+#~ msgstr "Lisätiedot"
+
+#~ msgctxt "theme-frontend"
+#~ msgid "Dialog Window - Close (Press escape to close)"
+#~ msgstr "Dialogi-ikkuna - sulje (Sulje painamalla Esc -näppäintä)"
+
+#~ msgctxt "theme-frontend"
+#~ msgid "Close (Press escape to close)"
+#~ msgstr "Sulje (Sulje painamalla Esc -näppäintä)"
+
+#, fuzzy
+#~| msgid "Induction loop"
+#~ msgid "Instructions"
+#~ msgstr "Induktio-silmukka"
 
 #~ msgid "Virtual event"
 #~ msgstr "Verkkotapahtuma"
