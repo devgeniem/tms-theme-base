@@ -140,6 +140,7 @@ class PageEventsSearch extends BaseModel {
 
         $paged = get_query_var( 'paged', 1 );
         $skip  = 0;
+        $count = 0;
 
         if ( $paged > 1 ) {
             $skip = ( $paged - 1 ) * get_option( 'posts_per_page' );
@@ -152,8 +153,6 @@ class PageEventsSearch extends BaseModel {
             'end'         => $end_date,
             'sort'        => 'startDate',
             'category_id' => get_field( 'category' ) ?? [],
-            'size'        => get_option( 'posts_per_page' ),
-            'skip'        => $skip,
         ];
 
         $formatter = new EventzFormatter();
@@ -176,12 +175,22 @@ class PageEventsSearch extends BaseModel {
             }
         }
 
-        if ( ! empty( $response['meta'] ) ) {
-            $this->set_pagination_data( $response['meta']->total );
+        if ( ! empty( $response['events'] ) ) {
+
+            // Sort and paginate events.
+            usort( $response['events'], function( $a, $b ) {
+                return $a['start_date_raw'] <=> $b['start_date_raw'];
+            } );
+
+            $this->set_pagination_data( count( $response['events'] ) );
+
+            $count = count( $response['events'] );
+
+            $response['events'] = array_slice( $response['events'], $skip, get_option( 'posts_per_page' ) );
         }
 
         return [
-            'summary' => $this->get_results_text( $response['meta']->total ?? 0 ),
+            'summary' => $this->get_results_text( $count ),
             'posts'   => $response['events'],
         ];
     }
@@ -227,12 +236,12 @@ class PageEventsSearch extends BaseModel {
     protected function do_get_events( array $params ) : array {
         $event_data = $this->do_api_call( $params );
 
-        if ( ! empty( $event_data['meta'] ) ) {
-            $this->set_pagination_data( $event_data['meta']->total );
-        }
-
         if ( ! empty( $event_data['events'] ) ) {
+
+            $event_data = $this->create_recurring_events( $event_data );
+
             $event_data['events'] = ( new EventzFormatter() )->format_events( $event_data['events'] );
+
             $event_data['events'] = array_map( function ( $item ) {
                 $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
                 $item['location_icon']     = $item['is_virtual_event']
@@ -293,5 +302,52 @@ class PageEventsSearch extends BaseModel {
         $this->pagination->per_page = $per_page;
         $this->pagination->items    = $event_count;
         $this->pagination->max_page = (int) ceil( $event_count / $per_page );
+    }
+
+    /**
+     * Create recurring events as single item.
+     *
+     * @param array $events Events.
+     *
+     * @return void
+     */
+    protected function create_recurring_events( $events )  {
+
+        $recurring_events = [];
+        foreach( $events['events'] as  $event ) {
+            if ( count( $event['dates'] ) > 1 ) {
+                foreach( $event['dates'] as $date ) {
+                    $clone = $event;
+                    // Split the string into date and time range
+                    list($datePart, $timeRange) = explode(' ', $date['date'], 2);
+
+                    // Parse the date
+                    $newDate = DateTime::createFromFormat('d.m.Y', $datePart);
+
+                    // Split the time range into start and end times
+                    list($startTime, $endTime) = explode(' - ', $timeRange);
+
+                    // Parse the start and end times
+                    $startDateTime = DateTime::createFromFormat('H.i', $startTime);
+                    $startDateTime->setDate( $newDate->format('Y'), $newDate->format('m'), $newDate->format('d') );
+                    $endDateTime = DateTime::createFromFormat('H.i', $endTime);
+                    $endDateTime->setDate( $newDate->format('Y'), $newDate->format('m'), $newDate->format('d') );
+
+                    $clone['date']           = $newDate->format('d.m.Y');
+                    $clone['start_date_raw'] = $startDateTime;
+                    $clone['end_date_raw']   = $endDateTime;
+                    $clone['url']            = $event['url'].'&date='.urlencode( $date['date'] );
+
+                    $recurring_events[] = $clone;
+                }
+            } else {
+                $recurring_events[] = $event;
+            }
+        }
+
+        $events['events'] = $recurring_events;
+
+        return $events;
+
     }
 }
