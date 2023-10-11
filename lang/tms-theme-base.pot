@@ -761,47 +761,47 @@ msgstr ""
 
 #: models/strings.php:90
 msgctxt "theme-frontend"
-msgid "Main image carousel"
+msgid "Browsing images"
 msgstr ""
 
-#: models/strings.php:93
+#: models/strings.php:91
 msgctxt "theme-frontend"
-msgid "Move to tampere.fi"
+msgid "Main image carousel"
 msgstr ""
 
 #: models/strings.php:94
 msgctxt "theme-frontend"
-msgid "Back to top"
+msgid "Move to tampere.fi"
 msgstr ""
 
-#: models/strings.php:97
+#: models/strings.php:95
 msgctxt "theme-frontend"
-msgid "Opens in a new window"
+msgid "Back to top"
 msgstr ""
 
 #: models/strings.php:98
 msgctxt "theme-frontend"
-msgid "The link takes you to an external website"
+msgid "Opens in a new window"
 msgstr ""
 
 #: models/strings.php:99
 msgctxt "theme-frontend"
-msgid "All"
+msgid "The link takes you to an external website"
 msgstr ""
 
 #: models/strings.php:100
 msgctxt "theme-frontend"
-msgid "Read more"
+msgid "All"
 msgstr ""
 
-#: models/strings.php:103
+#: models/strings.php:101
 msgctxt "theme-frontend"
-msgid "Image:"
+msgid "Read more"
 msgstr ""
 
 #: models/strings.php:104
 msgctxt "theme-frontend"
-msgid "Text:"
+msgid "Image:"
 msgstr ""
 
 #: models/strings.php:105
