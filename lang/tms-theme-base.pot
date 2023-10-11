@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2023-10-05 11:17+0300\n"
+"POT-Creation-Date: 2023-10-11 13:38+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -806,7 +806,7 @@ msgstr ""
 
 #: models/strings.php:105
 msgctxt "theme-frontend"
-msgid "Text:"
+msgid "Articletype:"
 msgstr ""
 
 #: models/strings.php:108 models/strings.php:182

@@ -1,4 +1,4 @@
-<div class="entry__meta {spacing_class|s}">
+<div class="entry__meta {spacing_class|attr}">
     <div class="is-flex is-flex-wrap-wrap has-text-small">
         <div>
             {@strtodate value=content.post_date format="j.n.Y H:i" /}
@@ -7,15 +7,15 @@
         <div class="is-flex has-width-100-until-tablet mt-3 mt-0-tablet ml-auto-tablet">
             {?content.fields.writing_credits}
                 <div>
-                    {Strings.s.single.writing_credits|s}
-                    {content.fields.writing_credits|s}
+                    {Strings.s.single.writing_credits|html}
+                    {content.fields.writing_credits|html}
                 </div>
             {/content.fields.writing_credits}
 
             {?content.fields.image_credits}
                 <div class="ml-4 ml-6-fullhd">
-                    {Strings.s.single.image_credits|s}
-                    {content.fields.image_credits|s}
+                    {Strings.s.single.image_credits|html}
+                    {content.fields.image_credits|html}
                 </div>
             {/content.fields.image_credits}
         </div>
@@ -24,7 +24,10 @@
     {?content.categories}
         <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.categories}
-                <a href="{permalink}" class="pill mr-2 mb-2">{name|s}</a>
+                <a href="{permalink|url}" class="pill mr-2 mb-2">
+                    <span class="is-sr-only">{Strings.s.single.article_type|html}</span>
+                    {name|html}
+                </a>
             {/content.categories}
         </div>
     {/content.categories}
@@ -32,7 +35,7 @@
     {?content.tags}
         <div class="is-flex is-flex-wrap-wrap mt-4">
             {#content.tags}
-                <a href="{permalink}" class="pill is-outlined mr-2 mb-2">{name|s}</a>
+                <a href="{permalink|url}" class="pill is-outlined mr-2 mb-2">{name|html}</a>
             {/content.tags}
         </div>
     {/content.tags}
