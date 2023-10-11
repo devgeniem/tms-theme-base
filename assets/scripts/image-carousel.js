@@ -88,7 +88,7 @@ export default class ImageCarousel {
                 asNavFor: '#' + modalCarousel.attr( 'data-slider-for' ),
                 prevArrow: buttons.prevArrow,
                 nextArrow: buttons.nextArrow,
-                regionLabel: translations.modal_carousel,
+                regionLabel: translations.browsing_images,
                 arrowsPlacement: 'afterSlides',
             } );
 
@@ -125,7 +125,9 @@ export default class ImageCarousel {
             // Make the centered image selectable, rest disabled.
             // This way user can't open the "wrong" image and get confused of the results.
             $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'disabled' );
+            $( slick.$slider ).find( '.slick-slide button' ).removeAttr( 'aria-hidden' );
             $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'disabled', '' );
+            $( slick.$slider ).find( '.slick-slide:not(.slick-current) button' ).attr( 'aria-hidden', 'true' );
 
             // Transalate Slick Slider stuff
             this.translateCarousels( translations );
