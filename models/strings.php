@@ -227,8 +227,8 @@ class Strings extends \DustPress\Model {
                 'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
             ],
             'modaal'             => [
-                'accessible_title' => _x( 'Dialog Window - Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
-                'close'            => _x( 'Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
+                'accessible_title' => _x( 'Enlarged image', 'theme-frontend', 'tms-theme-base' ),
+                'close'            => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
