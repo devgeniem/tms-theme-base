@@ -102,6 +102,7 @@ class Strings extends \DustPress\Model {
             'single'             => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
                 'writing_credits' => _x( 'Text:', 'theme-frontend', 'tms-theme-base' ),
+                'article_type'    => _x( 'Articletype:', 'theme-frontend', 'tms-theme-base' ),
             ],
             'home'               => [
                 'month'              => _x( 'Month', 'theme-frontend', 'tms-theme-base' ),
