@@ -19,7 +19,7 @@
             <div class="image-carousel__inner column is-full ">
                 <button class="button button--icon is-primary slick-prev slick-arrow" type="button">
                     {>"ui/icon" icon="chevron-left" /}
-                    <span class="is-sr-only">{Strings.s.gallery.previous|html}</span>
+                    <span class="is-sr-only">{translations.previous|html}</span>
                 </button>
 
                 <div class="image-carousel__items image-carousel__items--primary"
@@ -44,7 +44,7 @@
 
                 <button class="button button--icon is-primary slick-next slick-arrow" type="button">
                     {>"ui/icon" icon="chevron-right" /}
-                    <span class="is-sr-only">{Strings.s.gallery.next|html}</span>
+                    <span class="is-sr-only">{translations.next|html}</span>
                 </button>
             </div>
         </div>

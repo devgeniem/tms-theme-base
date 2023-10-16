@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-970: Add image caption text to call-to-action and content-columns blocks.
 
+## [1.51.0] - 2023-10-12
+
+### Fixed
+
+- TMS-934: Add screen-reader info for article categories.
+- TMS-936: Image carousel accessibility fixes
+- TMS-933: Modaal accessibility fixes
+
+## [1.50.0] - 2023-10-04
+
+- TMS-978: Add has-line-height-normal class
+
+## [1.49.0] - 2023-09-15
+
+- TMS-962: Add Lunch Menus plugin caps to roles.
+
+## [1.48.0] - 2023-09-13
+
+- TMS-973: Fix manual event sorting
+
+
 ## [1.47.0] - 2023-09-04
 
 - TMS-964-2: Update translation and format pricing.

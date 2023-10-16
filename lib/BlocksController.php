@@ -297,6 +297,12 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Contact::SLUG,
                 ],
             ],
+            'acf/lunch-menu'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
         ];
 
         $blocks = apply_filters(
