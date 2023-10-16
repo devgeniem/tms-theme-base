@@ -1,12 +1,12 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section call-to-action {accent_color|s}">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section call-to-action {accent_color|attr}">
     <div class="container keep-vertical-spacing">
         {>"shared/layout-before-main-content" /}
 
         {#rows}
-            <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|s}">
+            <div class="call-to-action__item mt-6 mb-6 columns is-variable is-6 is-vcentered {container_class|attr}">
                 {?image}
                     <div class="column is-6-desktop">
-                        <div class="image is-5by3 {image_class|s}">
+                        <div class="image is-5by3 {image_class|attr}">
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
 
@@ -20,16 +20,16 @@
                     </div>
                 {/image}
 
-                <div class="column {text_column_class|s}">
+                <div class="column {text_column_class|attr}">
                     {?title}
                         <h2 class="call-to-action__title h4 mt-0">
-                            {title|s}
+                            {title|html}
                         </h2>
                     {/title}
 
                     {?description}
                         <div class="call-to-action__description mt-6 mb-6">
-                            {description|s}
+                            {description|kses}
                         </div>
                     {/description}
 
