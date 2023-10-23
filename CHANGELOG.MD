@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.52.0] - 2023-10-23
+
+### Added
+
+- TMS-970: Add image caption text to call-to-action and content-columns blocks.
+
 ## [1.51.0] - 2023-10-12
 
 ### Fixed
