@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-970: Add image caption text to call-to-action and content-columns blocks.
-- TMS-950: Empty check for phone repeater.
+- TMS-950:
+    - Empty check for phone repeater.
+    - Place of business posts to block
+    - Contacts styles & accessibility
 
 ## [1.49.0] - 2023-09-15
 
@@ -17,8 +20,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.48.0] - 2023-09-13
 
 - TMS-973: Fix manual event sorting
->>>>>>> TMS-950
-
 
 ## [1.47.0] - 2023-09-04
 

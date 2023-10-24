@@ -40,15 +40,40 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $data ) {
-        if ( empty( $data['place_of_business'] ) ) {
+        if ( empty( $data['place_of_business'] ) && empty( $data['place_of_business_post'] ) ) {
             return $data;
         }
 
-        $data['items'] = $this->map_api_results(
-            $data['place_of_business'],
+        if ( ! empty( $data['place_of_business_post'] ) ) {
+            $the_query = new \WP_Query( [
+                'post_type'      => 'placeofbusiness-cpt',
+                'posts_per_page' => 100,
+                'post__in'       => array_map( 'absint', $data['place_of_business_post'] ),
+                'no_found_rows'  => true,
+                'meta_key'       => 'title',
+                'orderby'        => [
+                    'menu_order' => 'ASC',
+                    'meta_value' => 'ASC', // phpcs:ignore
+                ],
+            ] );
+
+            $filled_places = $this->map_keys(
+                $the_query->posts,
+            );
+        }
+
+        if ( ! empty( $data['place_of_business'] ) ) {
+            $filled_api_places = $this->map_api_results(
+                $data['place_of_business'],
+            );
+        }
+
+        $data['items'] = array_merge(
+            $filled_places ?? [],
+            $filled_api_places ?? [],
         );
 
-        $data['column_class'] = 'is-12-mobile is-6-tablet is-4-desktop';
+        $data['column_class'] = 'is-12-mobile is-6-tablet';
 
         return $data;
     }
@@ -79,5 +104,27 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         return (array) array_filter( $results, function ( $result ) use ( $ids ) {
             return in_array( $result['id'], $ids, true );
         } );
+    }
+
+    /**
+     * Map fields to posts
+     *
+     * @param array $posts         Array of WP_Post instances.
+     *
+     * @return array
+     */
+    public function map_keys( array $posts ) : array {
+        if( ! \is_plugin_active( 'tms-plugin-place-of-business-sync/plugin.php' ) ) {
+            return [];
+        }
+
+        return array_map( function ( $id ) {
+
+            foreach( \get_field_objects($id) as $field ) {
+                $item[ $field['name'] ] = \get_field( $field['name'], $id );
+            }
+
+            return $item;
+        }, $posts );
     }
 }
