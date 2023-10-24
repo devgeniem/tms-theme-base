@@ -102,13 +102,13 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
@@ -116,7 +116,7 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $api_contacts_field = ( new Field\Select( $strings['api_contacts']['label'] ) )
-            ->set_key( "${key}_api_contacts" )
+            ->set_key( "{$key}_api_contacts" )
             ->set_name( 'api_contacts' )
             ->allow_multiple()
             ->allow_null()
@@ -125,14 +125,15 @@ class ContactsFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $strings['api_contacts']['instructions'] );
 
         $contacts_field = ( new Field\Relationship( $strings['contacts']['label'] ) )
-            ->set_key( "${key}_contacts" )
+            ->set_key( "{$key}_contacts" )
             ->set_name( 'contacts' )
+            ->set_filters( [ 'search' ] )
             ->set_post_types( [ Contact::SLUG ] )
             ->set_return_format( 'id' )
             ->set_instructions( $strings['contacts']['instructions'] );
 
         $fields_field = ( new Field\Checkbox( $strings['fields']['label'] ) )
-            ->set_key( "${key}_fields" )
+            ->set_key( "{$key}_fields" )
             ->set_name( 'fields' )
             ->set_choices( $strings['fields']['choices'] )
             ->set_default_value( $strings['fields']['default_value'] )

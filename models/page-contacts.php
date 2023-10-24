@@ -45,11 +45,18 @@ class PageContacts extends BaseModel {
      * @return array
      */
     protected function get_contacts() : array {
+        $selected_contacts = \get_field( 'contacts' );
+        if ( empty( $selected_contacts ) ) {
+            return [];
+        }
+
         $args = [
             'post_type'      => Contact::SLUG,
             'posts_per_page' => 200, // phpcs:ignore
             'post_status'    => 'publish',
             'fields'         => 'ids',
+            'post__in'       => array_map( 'absint', $selected_contacts ),
+            'no_found_rows'  => true,
             'meta_key'       => 'last_name',
             'orderby'        => [
                 'menu_order' => 'ASC',
@@ -57,7 +64,7 @@ class PageContacts extends BaseModel {
             ],
         ];
 
-        $s = get_query_var( self::SEARCH_QUERY_VAR, false );
+        $s = \get_query_var( self::SEARCH_QUERY_VAR, false );
 
         if ( ! empty( $s ) ) {
             $args['s'] = $s;
@@ -79,7 +86,7 @@ class PageContacts extends BaseModel {
 
         $contacts = $formatter->map_keys(
             $contacts,
-            get_field( 'fields' ) ?? [],
+            \get_field( 'fields' ) ?? [],
             $default_image
         );
 
