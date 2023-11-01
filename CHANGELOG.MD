@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Empty check for phone repeater.
     - Place of business posts to block
     - Contacts styles & accessibility
+- TMS-974: Add recurring events to lists as single item.
 
 ## [1.49.0] - 2023-09-15
 

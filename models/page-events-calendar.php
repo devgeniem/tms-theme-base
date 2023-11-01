@@ -100,8 +100,6 @@ class PageEventsCalendar extends PageEventsSearch {
             'targets'     => get_field( 'target' ),
             'tags'        => get_field( 'tag' ),
             'sort'        => 'startDate',
-            'size'        => get_option( 'posts_per_page' ),
-            'skip'        => $skip,
             'show_images' => get_field( 'show_images' ),
         ];
 
@@ -135,8 +133,20 @@ class PageEventsCalendar extends PageEventsSearch {
             }
         }
 
-        if ( ! empty( $response['meta'] ) ) {
-            $this->set_pagination_data( $response['meta']->total );
+        if ( ! empty ( $response ) ) {
+            $response = $this->create_recurring_events( $response );
+        }
+
+        if ( ! empty( $response['events'] ) ) {
+
+            // Sort events.
+            usort( $response['events'], function( $a, $b ) {
+                return $a['start_date_raw'] <=> $b['start_date_raw'];
+            } );
+
+            $this->set_pagination_data( count( $response['events'] ) );
+
+            $response['events'] = array_slice( $response['events'], $skip, get_option( 'posts_per_page' ) );
         }
 
         return $response;
