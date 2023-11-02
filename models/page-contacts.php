@@ -50,6 +50,13 @@ class PageContacts extends BaseModel {
             return [];
         }
 
+        $s = \get_query_var( self::SEARCH_QUERY_VAR, false );
+
+        // Return all selected contacts if no search was performed.
+        if ( empty( $s ) ) {
+            return $selected_contacts;
+        }
+
         $args = [
             'post_type'      => Contact::SLUG,
             'posts_per_page' => 200, // phpcs:ignore
@@ -62,15 +69,10 @@ class PageContacts extends BaseModel {
                 'menu_order' => 'ASC',
                 'meta_value' => 'ASC', // phpcs:ignore
             ],
+            's'              => $s,
         ];
 
-        $s = \get_query_var( self::SEARCH_QUERY_VAR, false );
-
-        if ( ! empty( $s ) ) {
-            $args['s'] = $s;
-        }
-
-        $the_query = new WP_Query( $args );
+        $the_query = new \WP_Query( $args );
 
         return $the_query->posts;
     }

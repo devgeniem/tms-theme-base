@@ -111,7 +111,7 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
                 return implode( ' ', $results );
             } )
             ->set_post_types( [ 'placeofbusiness-cpt' ] )
-            ->set_return_format( 'id' )
+            ->set_return_format( 'object' )
             ->set_instructions( $strings['place_of_business_post']['instructions'] );
 
         return [
