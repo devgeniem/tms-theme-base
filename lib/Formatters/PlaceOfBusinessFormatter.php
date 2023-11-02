@@ -102,7 +102,7 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function map_keys( array $posts ) : array {
-        if( ! \is_plugin_active( 'tms-plugin-place-of-business-sync/plugin.php' ) ) {
+        if ( ! \is_plugin_active( 'tms-plugin-place-of-business-sync/plugin.php' ) ) {
             return [];
         }
 
