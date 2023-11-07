@@ -3,12 +3,12 @@
         <div class="column is-12">
             {?title}
                 <h2>
-                    {title|s}
+                    {title|html}
                 </h2>
             {/title}
 
             {?description}
-                {description|s}
+                {description|kses}
             {/description}
         </div>
     </div>

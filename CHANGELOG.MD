@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.53.0] - 2023-11-07
+
+### Added
+
+- TMS-950:
+    - Empty check for phone repeater.
+    - Place of business posts to block
+    - Contacts styles & accessibility
+
 ## [1.52.0] - 2023-10-23
 
 ### Added
