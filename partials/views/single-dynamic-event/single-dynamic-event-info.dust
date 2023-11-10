@@ -5,10 +5,10 @@
 
             <div class="pt-3 pb-2">
                 {#event.normalized.dates}
-                <div class="info-group__description pr-8 pb-1 pl-8">
-                    {date|attr}
-                </div>
-            {/event.normalized.dates}
+                    <div class="info-group__description pr-8 pb-1 pl-8">
+                        {date|attr}
+                    </div>
+                {/event.normalized.dates}
             </div>
         </div>
     {/event.normalized.date}
