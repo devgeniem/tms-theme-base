@@ -133,10 +133,6 @@ class PageEventsCalendar extends PageEventsSearch {
             }
         }
 
-        if ( ! empty ( $response ) ) {
-            $response = $this->create_recurring_events( $response );
-        }
-
         if ( ! empty( $response['events'] ) ) {
 
             // Sort events.

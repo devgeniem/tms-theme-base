@@ -314,29 +314,34 @@ class PageEventsSearch extends BaseModel {
     protected function create_recurring_events( $events )  {
 
         $recurring_events = [];
-        foreach( $events['events'] as  $event ) {
+        foreach ( $events['events'] as $event ) {
             if ( count( $event['dates'] ) > 1 ) {
-                foreach( $event['dates'] as $date ) {
+                foreach ( $event['dates'] as $date ) {
                     $clone = $event;
                     // Split the string into date and time range
-                    list($datePart, $timeRange) = explode(' ', $date['date'], 2);
+                    list( $datePart, $timeRange ) = explode( ' ', $date['date'], 2 );
 
                     // Parse the date
-                    $newDate = DateTime::createFromFormat('d.m.Y', $datePart);
+                    $newDate = DateTime::createFromFormat( 'd.m.Y', $datePart );
 
                     // Split the time range into start and end times
-                    list($startTime, $endTime) = explode(' - ', $timeRange);
+                    list( $startTime, $endTime ) = explode( ' - ', $timeRange );
 
                     // Parse the start and end times
-                    $startDateTime = DateTime::createFromFormat('H.i', $startTime);
-                    $startDateTime->setDate( $newDate->format('Y'), $newDate->format('m'), $newDate->format('d') );
-                    $endDateTime = DateTime::createFromFormat('H.i', $endTime);
-                    $endDateTime->setDate( $newDate->format('Y'), $newDate->format('m'), $newDate->format('d') );
+                    $startDateTime = DateTime::createFromFormat( 'H.i', $startTime );
+                    $startDateTime->setDate( $newDate->format( 'Y' ), $newDate->format( 'm' ), $newDate->format( 'd' ) );
+                    $endDateTime = DateTime::createFromFormat( 'H.i', $endTime );
+                    $endDateTime->setDate( $newDate->format( 'Y' ), $newDate->format( 'm' ), $newDate->format( 'd' ) );
 
-                    $clone['date']           = $newDate->format('d.m.Y');
+                    $clone['date']           = $newDate->format( 'd.m.Y' );
                     $clone['start_date_raw'] = $startDateTime;
                     $clone['end_date_raw']   = $endDateTime;
-                    $clone['url']            = $event['url'].'&date='.urlencode( $date['date'] );
+                    $clone['url']            = $event['url'] . '&date=' . urlencode( $datePart ) . '&time=' . urlencode( $timeRange );
+                    $clone['time']           = sprintf(
+                        '%s - %s',
+                        $startDateTime->format( 'H.i' ),
+                        $endDateTime->format( 'H.i' )
+                    );
 
                     $recurring_events[] = $clone;
                 }
