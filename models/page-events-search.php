@@ -318,30 +318,50 @@ class PageEventsSearch extends BaseModel {
             if ( count( $event['dates'] ) > 1 ) {
                 foreach ( $event['dates'] as $date ) {
                     $clone = $event;
-                    // Split the string into date and time range
-                    list( $datePart, $timeRange ) = explode( ' ', $date['date'], 2 );
 
-                    // Parse the date
-                    $newDate = DateTime::createFromFormat( 'd.m.Y', $datePart );
+                    // Split the dates and times into parts
+                    list( $startPart, $endPart )   = explode( ' - ', $date['date'], 2 );
+                    list( $startDate, $startTime ) = explode( ' ', $startPart, 2 );
 
-                    // Split the time range into start and end times
-                    list( $startTime, $endTime ) = explode( ' - ', $timeRange );
+                    // Check if endPart includes date & time
+                    if ( strpos($endPart, ' ') ) {
+                        list( $endDate, $endTime ) = explode( ' ', $endPart, 2 );
+                    }
+                    else {
+                        $endTime = $endPart;
+                    }
+
+                    // Parse the dates
+                    $newStartDate = DateTime::createFromFormat( 'd.m.Y', $startDate );
+                    $newEndDate = $endDate ? DateTime::createFromFormat( 'd.m.Y', $endDate ) : null;
 
                     // Parse the start and end times
                     $startDateTime = DateTime::createFromFormat( 'H.i', $startTime );
-                    $startDateTime->setDate( $newDate->format( 'Y' ), $newDate->format( 'm' ), $newDate->format( 'd' ) );
-                    $endDateTime = DateTime::createFromFormat( 'H.i', $endTime );
-                    $endDateTime->setDate( $newDate->format( 'Y' ), $newDate->format( 'm' ), $newDate->format( 'd' ) );
+                    $startDateTime->setDate( $newStartDate->format( 'Y' ), $newStartDate->format( 'm' ), $newStartDate->format( 'd' ) );
+                    if ( $newEndDate ) {
+                        $endDateTime = DateTime::createFromFormat( 'H.i', $endTime );
+                        $endDateTime->setDate( $newEndDate->format( 'Y' ), $newEndDate->format( 'm' ), $newEndDate->format( 'd' ) );
+                    }
 
-                    $clone['date']           = $newDate->format( 'd.m.Y' );
+                    // Create time & date-ranges
+                    if ( $endTime ) {
+                        $timeRange = $startTime . ' - ' . $endTime;
+                    }
+                    else {
+                        $timeRange = $startTime;
+                    }
+
+                    if ( $newEndDate ) {
+                        $dateRange = $newStartDate->format( 'd.m.Y' ) . ' - ' . $newEndDate->format( 'd.m.Y' );
+                    }
+                    else {
+                        $dateRange = $newStartDate->format( 'd.m.Y' );
+                    }
+
+                    $clone['date']           = $dateRange;
                     $clone['start_date_raw'] = $startDateTime;
                     $clone['end_date_raw']   = $endDateTime;
-                    $clone['url']            = $event['url'] . '&date=' . urlencode( $datePart ) . '&time=' . urlencode( $timeRange );
-                    $clone['time']           = sprintf(
-                        '%s - %s',
-                        $startDateTime->format( 'H.i' ),
-                        $endDateTime->format( 'H.i' )
-                    );
+                    $clone['url']            = $event['url'] . '&date=' . urlencode( $dateRange ) . '&time=' . urlencode( $timeRange );
 
                     $recurring_events[] = $clone;
                 }

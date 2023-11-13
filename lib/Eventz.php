@@ -103,7 +103,7 @@ class Eventz implements Controller {
             'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
             'dates'             => static::get_event_dates( $event ),
-            'recurring'         => count( $event->event->dates ) > 1,
+            'recurring'         => isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : null,
             'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
