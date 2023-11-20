@@ -110,6 +110,7 @@ class Strings extends \DustPress\Model {
                 'year'               => _x( 'Year', 'theme-frontend', 'tms-theme-base' ),
                 'no_results'         => _x( 'No results', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_category' => _x( 'Filter by Category', 'theme-frontend', 'tms-theme-base' ),
+                'description'        => _x( 'The page reloads after the selection.', 'theme-frontend', 'tms-theme-base' ),
             ],
             'months'             => [
                 'january'   => _x( 'January', 'theme-frontend', 'tms-theme-base' ),
