@@ -62,18 +62,22 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Tampere-sivuston toimipaikat',
                 'instructions' => '',
             ],
+            'place_of_business_post' => [
+                'label'        => 'Toimipaikat',
+                'instructions' => '',
+            ],
         ];
 
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
@@ -81,7 +85,7 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $place_of_business_field = ( new Field\Select( $strings['place_of_business']['label'] ) )
-            ->set_key( "${key}_place_of_business" )
+            ->set_key( "{$key}_place_of_business" )
             ->set_name( 'place_of_business' )
             ->allow_multiple()
             ->allow_null()
@@ -89,10 +93,32 @@ class PlaceOfBusinessFields extends \Geniem\ACF\Field\Group {
             ->use_ui()
             ->set_instructions( $strings['place_of_business']['instructions'] );
 
+        $place_of_business_post_field = ( new Field\Relationship( $strings['place_of_business_post']['label'] ) )
+            ->set_key( "{$key}_place_of_business_post" )
+            ->set_name( 'place_of_business_post' )
+            ->set_filters( [ 'search' ] )
+            ->redipress_include_search( function ( $places ) {
+                if ( empty( $places ) ) {
+                    return '';
+                }
+
+                $results = [];
+
+                foreach ( $places as $place_id ) {
+                    $results[] = get_field( 'title', $place_id );
+                }
+
+                return implode( ' ', $results );
+            } )
+            ->set_post_types( [ 'placeofbusiness-cpt' ] )
+            ->set_return_format( 'object' )
+            ->set_instructions( $strings['place_of_business_post']['instructions'] );
+
         return [
             $title_field,
             $description_field,
             $place_of_business_field,
+            $place_of_business_post_field,
         ];
     }
 

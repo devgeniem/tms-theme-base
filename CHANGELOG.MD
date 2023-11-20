@@ -7,9 +7,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.50.0] - 2023-11-21
+## [1.54.0] - 2023-11-21
+
+### Added
 
 - TMS-974: Add recurring events to lists as single item.
+
+## [1.53.0] - 2023-11-07
+
+### Added
+
+- TMS-950:
+    - Empty check for phone repeater.
+    - Place of business posts to block
+    - Contacts styles & accessibility
+
+## [1.52.0] - 2023-10-23
+
+### Added
+
+- TMS-970: Add image caption text to call-to-action and content-columns blocks.
+
+## [1.51.0] - 2023-10-12
+
+### Fixed
+
+- TMS-934: Add screen-reader info for article categories.
+- TMS-936: Image carousel accessibility fixes
+- TMS-933: Modaal accessibility fixes
+
+## [1.50.0] - 2023-10-04
+
+- TMS-978: Add has-line-height-normal class
 
 ## [1.49.0] - 2023-09-15
 

@@ -40,15 +40,28 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function format( array $data ) {
-        if ( empty( $data['place_of_business'] ) ) {
+        if ( empty( $data['place_of_business'] ) && empty( $data['place_of_business_post'] ) ) {
             return $data;
         }
 
-        $data['items'] = $this->map_api_results(
-            $data['place_of_business'],
+        if ( ! empty( $data['place_of_business_post'] ) ) {
+            $filled_places = $this->map_keys(
+                $data['place_of_business_post'],
+            );
+        }
+
+        if ( ! empty( $data['place_of_business'] ) ) {
+            $filled_api_places = $this->map_api_results(
+                $data['place_of_business'],
+            );
+        }
+
+        $data['items'] = array_merge(
+            $filled_places ?? [],
+            $filled_api_places ?? [],
         );
 
-        $data['column_class'] = 'is-12-mobile is-6-tablet is-4-desktop';
+        $data['column_class'] = 'is-12-mobile is-6-tablet';
 
         return $data;
     }
@@ -79,5 +92,22 @@ class PlaceOfBusinessFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         return (array) array_filter( $results, function ( $result ) use ( $ids ) {
             return in_array( $result['id'], $ids, true );
         } );
+    }
+
+    /**
+     * Map fields to posts
+     *
+     * @param array $posts         Array of WP_Post instances.
+     *
+     * @return array
+     */
+    public function map_keys( array $posts ) : array {
+        if ( ! \is_plugin_active( 'tms-plugin-place-of-business-sync/plugin.php' ) ) {
+            return [];
+        }
+
+        return array_map( function ( $id ) {
+            return \get_fields( $id );
+        }, $posts );
     }
 }

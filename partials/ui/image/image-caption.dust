@@ -1,0 +1,8 @@
+<div class="columns pt-2">
+    <div
+        class="column is-flex is-justify-content-space-between is-flex-wrap-wrap has-text-small">
+            <strong class="is-inline-block">
+                {image.caption|kses}
+            </strong>
+    </div>
+</div>

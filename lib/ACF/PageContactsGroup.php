@@ -96,7 +96,6 @@ class PageContactsGroup {
         $fields = new ContactsFields( 'Yhteystiedot', $key );
         $fields->remove_field( 'title' );
         $fields->remove_field( 'description' );
-        $fields->remove_field( 'contacts' );
 
         $tab->add_fields( $fields->get_fields() );
 
