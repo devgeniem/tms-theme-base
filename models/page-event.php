@@ -172,9 +172,9 @@ class PageEvent extends BaseModel {
      */
     protected function alter_desc( $description ) {
         $event = $this->get_event();
-        $event = Eventz::normalize_event( $event );
 
         if ( $event ) {
+            $event       = Eventz::normalize_event( $event );
             $description = $event['short_description'];
         }
 
@@ -297,7 +297,7 @@ class PageEvent extends BaseModel {
      * @return object|null
      */
     protected function get_event() {
-        return $this->event;
+        return $this->event ?? null;
     }
 
     /**
