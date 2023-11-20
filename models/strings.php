@@ -78,16 +78,17 @@ class Strings extends \DustPress\Model {
                 'share_to_social_media' => _x( 'Share to social media', 'theme-frontend', 'tms-theme-base' ),
             ],
             'gallery'            => [
-                'close'          => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
-                'next'           => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
-                'open'           => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
-                'previous'       => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
-                'goto'           => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
-                'centered'       => _x( 'Centered', 'theme-frontend', 'tms-theme-base' ),
-                'slide'          => _x( 'Slide', 'theme-frontend', 'tms-theme-base' ),
-                'image_carousel' => _x( 'Image carousel', 'theme-frontend', 'tms-theme-base' ),
-                'modal_carousel' => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
-                'main_carousel'  => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'next'            => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
+                'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'previous'        => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
+                'goto'            => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
+                'centered'        => _x( 'Centered', 'theme-frontend', 'tms-theme-base' ),
+                'slide'           => _x( 'Slide', 'theme-frontend', 'tms-theme-base' ),
+                'image_carousel'  => _x( 'Image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'modal_carousel'  => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'browsing_images' => _x( 'Browsing images', 'theme-frontend', 'tms-theme-base' ),
+                'main_carousel'   => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
@@ -102,12 +103,14 @@ class Strings extends \DustPress\Model {
             'single'             => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
                 'writing_credits' => _x( 'Text:', 'theme-frontend', 'tms-theme-base' ),
+                'article_type'    => _x( 'Articletype:', 'theme-frontend', 'tms-theme-base' ),
             ],
             'home'               => [
                 'month'              => _x( 'Month', 'theme-frontend', 'tms-theme-base' ),
                 'year'               => _x( 'Year', 'theme-frontend', 'tms-theme-base' ),
                 'no_results'         => _x( 'No results', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_category' => _x( 'Filter by Category', 'theme-frontend', 'tms-theme-base' ),
+                'description'        => _x( 'The page reloads after the selection.', 'theme-frontend', 'tms-theme-base' ),
             ],
             'months'             => [
                 'january'   => _x( 'January', 'theme-frontend', 'tms-theme-base' ),
@@ -226,8 +229,8 @@ class Strings extends \DustPress\Model {
                 'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
             ],
             'modaal'             => [
-                'accessible_title' => _x( 'Dialog Window - Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
-                'close'            => _x( 'Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
+                'accessible_title' => _x( 'Enlarged image', 'theme-frontend', 'tms-theme-base' ),
+                'close'            => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }

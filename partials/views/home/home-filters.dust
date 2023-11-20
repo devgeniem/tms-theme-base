@@ -1,43 +1,48 @@
 <div class="archive-filters columns mt-6">
-    <div class="column is-8">
+    <nav class="column is-8"  aria-labelledby="filter">
         {?filters.categories}
-            <div class="h6 mb-4">
-                {Strings.s.home.filter_by_category|s}
+            <div class="h6 mb-4" id="filter">
+                {Strings.s.home.filter_by_category|html}
             </div>
 
             <div>
                 {#filters.categories}
-                    <a href="{url}" class="pill mr-2 mb-2 {?is_active}is-active{/is_active}">
+                    <a href="{url|url}" class="pill mr-2 mb-2 {?is_active}is-active{/is_active}" {?is_active}aria-current="true"{/is_active}>
                         {?is_active}
                             {>"ui/icon" icon="checkmark" class="icon--medium mr-2 is-primary-invert" /}
                         {/is_active}
 
-                        {name|s}
+                        {name|html}
                     </a>
                 {/filters.categories}
             </div>
         {/filters.categories}
-    </div>
+    </nav>
 
     <div class="column is-4">
         <form action="" method="get" class="is-flex is-justify-content-flex-end archive-filters__form">
             {?filters.active_category}
-                <input name="filter-category" type="hidden" value="{filters.active_category|s}">
+                <input name="filter-category" type="hidden" value="{filters.active_category|attr}">
             {/filters.active_category}
 
-            <div class="archive-filters__select-container">
+            <div class="archive-filters__select-container" aria-describedby="archive-filters-description">
+
+                <p class="archive-filters__description" id="archive-filters-description">
+                    {Strings.s.home.description|html}
+                </p>
+
                 <div class="archive-filters__dropdown-item">
                     <label for="filter-year" class="is-block h6 mb-4">
-                        {Strings.s.home.year|s}
+                        {Strings.s.home.year|html}
                     </label>
 
                     <select name="filter-year" id="filter-year"
                             class="js-trigger-form-submit p-2 has-background-invert has-border-radius-small has-border-gray has-border-1">
-                        <option value="">{Strings.s.common.all|s}</option>
+                        <option value="">{Strings.s.common.all|html}</option>
 
                         {#filters.years}
-                            <option value="{key}" {is_selected|s}>
-                                {name|s}
+                            <option value="{key|attr}" {is_selected|attr}>
+                                {name|html}
                             </option>
                         {/filters.years}
                     </select>
@@ -45,15 +50,15 @@
 
                 <div class="archive-filters__dropdown-item">
                     <label for="filter-month" class="is-block h6 mb-4">
-                        {Strings.s.home.month|s}
+                        {Strings.s.home.month|html}
                     </label>
 
                     <select name="filter-month" id="filter-month"
                             class="js-trigger-form-submit p-2 has-border-radius-small has-border-gray has-border-1">
-                        <option value="">{Strings.s.common.all|s}</option>
+                        <option value="">{Strings.s.common.all|html}</option>
                         {#filters.months}
-                            <option value="{key}" {is_selected|s}>
-                                {name|s}
+                            <option value="{key|attr}" {is_selected|attr}>
+                                {name|html}
                             </option>
                         {/filters.months}
                     </select>

@@ -1,9 +1,9 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section content-columns">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section content-columns">
     <div class="container keep-vertical-spacing">
         {#rows}
-            <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|s}">
+            <div class="content-columns__item mt-6 mb-6 columns is-vcentered {item_class|attr}">
                 {?image}
-                    <div class="column {img_col_class|s}">
+                    <div class="column {img_col_class|attr}">
                         <div class="image is-5by3">
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
@@ -18,16 +18,16 @@
                     </div>
                 {/image}
 
-                <div class="column {text_col_class|s}">
+                <div class="column {text_col_class|attr}">
                     {?title}
                         <h2 class="content-columns__title h4 mt-0-desktop">
-                            {title|s}
+                            {title|html}
                         </h2>
                     {/title}
 
                     {?description}
                         <div class="content-columns__description mt-6 keep-vertical-spacing">
-                            {description|s}
+                            {description|kses}
                         </div>
                     {/description}
                 </div>
