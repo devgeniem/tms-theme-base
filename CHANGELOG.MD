@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-974:
     - Add recurring events to lists as single item.
     - Add recurring events to events-component
+- TMS-994: Add missing list-item block to use
+
+### Fixed
+
+- TMS-935: Archive filter accessibility fixes
 
 ## [1.53.0] - 2023-11-07
 

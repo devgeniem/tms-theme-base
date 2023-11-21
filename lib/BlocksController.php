@@ -113,6 +113,16 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
+            'core/list-item'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                ],
+                'templates'  => [
+                    '',
+                ],
+            ],
             'core/heading'          => [
                 'post_types' => [
                     PostType\Page::SLUG,
