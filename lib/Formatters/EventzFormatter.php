@@ -59,12 +59,18 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $events = [];
         }
 
+        // Create recurring events
+        $event_data['events'] = $events ?? null;
+        if ( ! empty( $event_data['events'] ) ) {
+            $events = self::create_recurring_events( $event_data );
+        }
+
         $manual_events = [];
         if ( ! empty( $layout['manual_event_categories'] ) ) {
             $manual_events = self::get_manual_events( $layout['manual_event_categories'] );
         }
 
-        $events = array_merge( $events, $manual_events );
+        $events = array_merge( $events['events'], $manual_events );
 
         if ( empty( $events ) ) {
             return $layout;
@@ -89,6 +95,79 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         ];
 
         return $layout;
+    }
+
+
+    /**
+     * Create recurring events as single item.
+     *
+     * @param array $events Events.
+     *
+     * @return void
+     */
+    public static function create_recurring_events( $events )  {
+
+        $recurring_events = [];
+        foreach ( $events['events'] as $event ) {
+            if ( count( $event['dates'] ) > 1 ) {
+                foreach ( $event['dates'] as $date ) {
+                    $clone = $event;
+
+                    // Split the dates and times into parts
+                    list( $startPart, $endPart )   = explode( ' - ', $date['date'], 2 );
+                    list( $startDate, $startTime ) = explode( ' ', $startPart, 2 );
+
+                    // Check if endPart includes date & time
+                    if ( strpos($endPart, ' ') ) {
+                        list( $endDate, $endTime ) = explode( ' ', $endPart, 2 );
+                    }
+                    else {
+                        $endTime = $endPart;
+                    }
+
+                    // Parse the dates
+                    $newStartDate = \DateTime::createFromFormat( 'd.m.Y', $startDate );
+                    $newEndDate   = isset( $endDate ) ? \DateTime::createFromFormat( 'd.m.Y', $endDate ) : null;
+
+                    // Parse the start and end times
+                    $startDateTime = \DateTime::createFromFormat( 'H.i', $startTime );
+                    $startDateTime->setDate( $newStartDate->format( 'Y' ), $newStartDate->format( 'm' ), $newStartDate->format( 'd' ) );
+                    if ( $newEndDate ) {
+                        $endDateTime = \DateTime::createFromFormat( 'H.i', $endTime );
+                        $endDateTime->setDate( $newEndDate->format( 'Y' ), $newEndDate->format( 'm' ), $newEndDate->format( 'd' ) );
+                    }
+
+                    // Create time & date-ranges
+                    if ( $endTime ) {
+                        $timeRange = $startTime . ' - ' . $endTime;
+                    }
+                    else {
+                        $timeRange = $startTime;
+                    }
+
+                    if ( $newEndDate ) {
+                        $dateRange = $newStartDate->format( 'd.m.Y' ) . ' - ' . $newEndDate->format( 'd.m.Y' );
+                    }
+                    else {
+                        $dateRange = $newStartDate->format( 'd.m.Y' );
+                    }
+
+                    $clone['date']           = $dateRange;
+                    $clone['time']           = $timeRange;
+                    $clone['start_date_raw'] = $startDateTime;
+                    $clone['end_date_raw']   = $endDateTime ?? '';
+                    $clone['url']            = $event['url'] . '&date=' . urlencode( $dateRange ) . '&time=' . urlencode( $timeRange );
+
+                    $recurring_events[] = $clone;
+                }
+            } else {
+                $recurring_events[] = $event;
+            }
+        }
+
+        $events['events'] = $recurring_events;
+
+        return $events;
     }
 
     /**
