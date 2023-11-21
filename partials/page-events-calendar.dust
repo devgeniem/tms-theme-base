@@ -12,7 +12,7 @@
 
                         {?description}
                             <div class="mt-5">
-                                {description|s}
+                                {description|kses}
                             </div>
                         {/description}
                     </div>
@@ -25,7 +25,7 @@
                                 <a href="{url}"
                                    class="is-flex is-align-items-center has-height-100 p-4 p-8-desktop has-background-secondary">
                                     <span class="h6 pr-4 has-text-secondary-invert">
-                                        {title|s}
+                                        {title|html}
                                     </span>
 
                                     <span class="ml-auto">
@@ -58,7 +58,7 @@
                 {^events}
                     <div class="columns">
                         <div class="column is-6 is-offset-3 has-text-centered is-size-4">
-                            {no_results|s}
+                            {no_results|kses}
                         </div>
                     </div>
                 {/events}

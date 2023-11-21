@@ -103,17 +103,17 @@ class Eventz implements Controller {
             'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
             'dates'             => static::get_event_dates( $event ),
-            'recurring'         => ! empty( $event->event->dates ),
+            'recurring'         => isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : null,
             'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
-            'start_date_raw'     => static::get_as_datetime( $event->event->start ),
-            'end_date_raw'       => static::get_as_datetime( $event->event->end ),
+            'start_date_raw'    => static::get_as_datetime( $event->event->start ),
+            'end_date_raw'      => static::get_as_datetime( $event->event->end ),
             'location_title'    => __( 'Location', 'tms-theme-base' ),
             'location'          => static::get_event_location( $event ),
             'price_title'       => __( 'Price', 'tms-theme-base' ),
             'price'             => static::get_event_price_info( $event, $lang_key ),
-            'provider_title'     => __( 'Organizer', 'tms-theme-base' ),
+            'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
             'area_title'        => __( 'Area', 'tms-theme-base' ),
             'areas'             => static::get_area_info( $event ),
             'target_title'      => __( 'Target', 'tms-theme-base' ),
@@ -172,6 +172,24 @@ class Eventz implements Controller {
         $end_time    = static::get_as_datetime( $event->event->end );
         $date_format = get_option( 'date_format' );
 
+        // If date-parameter exists in url
+        if ( ! empty( $_GET['date'] ) ) {
+            list( $start_date, $end_date ) = explode( ' - ', $_GET['date'] );
+
+            $start_datetime = static::get_as_datetime( $start_date );
+            $end_datetime   = ! is_null($end_date) ? static::get_as_datetime( $end_date ) : '';
+
+            if ( $start_datetime && $end_datetime && $start_datetime->diff( $end_datetime )->days >= 1 ) {
+                return sprintf(
+                    '%s - %s',
+                    $start_datetime->format( $date_format ),
+                    $end_datetime->format( $date_format )
+                );
+            }
+
+            return $start_datetime->format( $date_format );
+        }
+
         if ( $start_time && $end_time && $start_time->diff( $end_time )->days >= 1 ) {
             return sprintf(
                 '%s - %s',
@@ -193,6 +211,21 @@ class Eventz implements Controller {
     public static function get_event_time( $event ) {
         if ( empty( $event->event->start ) ) {
             return null;
+        }
+
+        // If time-parameter exists in url
+        if ( ! empty( $_GET['time'] ) ) {
+            list( $start_time, $end_time) = explode( ' - ', urldecode($_GET['time'] ) );
+
+            if ( $start_time && $end_time ) {
+                return sprintf(
+                    '%s - %s',
+                    $start_time,
+                    $end_time
+                );
+            }
+
+            return $start_time;
         }
 
         $start_time  = static::get_as_datetime( $event->event->start );

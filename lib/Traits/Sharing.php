@@ -64,6 +64,8 @@ trait Sharing {
         $selected_channels = array_filter( $selected_channels, fn( $item ) => isset( $channels[ $item ] ) );
         $current_post      = get_queried_object();
         $event_query_var   = get_query_var( 'event-id' );
+        $event_date        = $_GET['date'];
+        $event_time        = $_GET['time'];
         $overwrite_url     = '';
 
         if ( ! $current_post instanceof \WP_Post ) {
@@ -72,8 +74,12 @@ trait Sharing {
 
         // If the url has event-id url parameter set, use the whole url as share link
         // instead of getting the permalink of the post.
+        // Add also date & time-parameters if they exist in event url.
         if ( ! empty( $event_query_var ) ) {
-            $overwrite_url = get_permalink( $current_post->ID ) . '?event-id=' . $event_query_var;
+            $overwrite_url = get_permalink( $current_post->ID )
+            . '?event-id=' . $event_query_var
+            . ( ! empty( $event_date ) ?  '&date=' . $event_date : '' )
+            . ( ! empty( $event_time ) ?  '&time=' . urlencode( $event_time ) : '' );
         }
 
         return array_map( function ( $selected_channel ) use ( $channels, $current_post, $overwrite_url ) {
