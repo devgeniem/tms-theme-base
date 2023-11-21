@@ -174,7 +174,7 @@ class Eventz implements Controller {
 
         // If date-parameter exists in url
         if ( ! empty( $_GET['date'] ) ) {
-            list( $start_date, $end_date ) = explode( ' - ', $_GET['date'] );
+            list( $start_date, $end_date ) = array_merge( explode( ' - ', $_GET['date'] ), array( true ) );
 
             $start_datetime = static::get_as_datetime( $start_date );
             $end_datetime   = ! is_null($end_date) ? static::get_as_datetime( $end_date ) : '';
@@ -215,7 +215,7 @@ class Eventz implements Controller {
 
         // If time-parameter exists in url
         if ( ! empty( $_GET['time'] ) ) {
-            list( $start_time, $end_time) = explode( ' - ', urldecode($_GET['time'] ) );
+            list( $start_time, $end_time) = array_merge( explode( ' - ', urldecode( $_GET['time'] ) ), array( false ) );
 
             if ( $start_time && $end_time ) {
                 return sprintf(
@@ -314,7 +314,7 @@ class Eventz implements Controller {
      * @return string|null
      */
     public static function format_price( $price ) : ?string {
-        if ( $price->isFree ) {
+        if ( property_exists( $price, 'isFree' ) ) {
             return __( 'Free', 'tms-theme-base' );
         }
 
