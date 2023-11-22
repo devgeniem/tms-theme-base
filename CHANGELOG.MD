@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-935: Archive filter accessibility fixes
-- TMS-994: Add missing list-item block to use
+- TMS-939:
+    - Search-page form accessibility fixes
+    - Header search accessibility fixes
+    - Added focus on input when opening header search
 
 ## [1.54.0] - 2023-11-21
 
@@ -17,6 +19,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-974:
     - Add recurring events to lists as single item.
     - Add recurring events to events-component
+- TMS-994: Add missing list-item block to use
+
+### Fixed
+
+- TMS-935: Archive filter accessibility fixes
 
 ## [1.53.0] - 2023-11-07
 

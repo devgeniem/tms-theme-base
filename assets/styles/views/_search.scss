@@ -34,6 +34,9 @@ $search-item-hover: $primary-dark !default;
 
 .search-item {
     &__inner {
+        display: flex;
+        flex-direction: column-reverse;
+
         @include from($desktop) {
             margin-right: 8.06rem;
         }
@@ -90,7 +93,7 @@ $search-item-hover: $primary-dark !default;
                 }
 
                 span {
-                    margin-left: .25rem !important; // sass-lint:disable-line no-important
+                    margin-left: .25rem;
                 }
             }
         }
