@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.2] - 2023-11-22
+
+- TMS-974: Fix event formatting if only manual events are shown
+
 ## [1.54.1] - 2023-11-22
 
 - TMS-974: Fix fatal error in EventzFormatter
