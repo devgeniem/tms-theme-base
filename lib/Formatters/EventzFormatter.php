@@ -56,7 +56,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $events = $this->get_events( $query_params );
 
         if ( empty( $events ) ) {
-            $events = [];
+            $events['events'] = [];
         }
 
         // Create recurring events
