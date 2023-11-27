@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-940: Hide current language on mobile header if only 2 languages in use
+
 ## [1.54.2] - 2023-11-22
 
 - TMS-974: Fix event formatting if only manual events are shown
