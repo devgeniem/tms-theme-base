@@ -16,11 +16,17 @@
             {/Header.lang_nav_horizontal}
 
             {?Header.lang_nav_horizontal}
-            <div class="is-hidden-desktop">
+                <div class="is-hidden-desktop">
+                    {?Header.language_nav.links_without_current}
+                        {>"ui/menu/language-nav" links=Header.language_nav.links_without_current /}
+                    {:else}
+                        {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
+                    {/Header.language_nav.links_without_current}
+                </div>
             {/Header.lang_nav_horizontal}
-            {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
-            {?Header.lang_nav_horizontal}
-            </div>
+
+            {^Header.lang_nav_horizontal}
+                {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
             {/Header.lang_nav_horizontal}
 
             {^Header.hide_search}
