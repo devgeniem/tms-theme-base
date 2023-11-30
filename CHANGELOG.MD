@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Header search accessibility fixes
     - Added focus on input when opening header search
 - TMS-940: Hide current language on mobile header if only 2 languages in use
-TMS-942:
+- TMS-942:
     - Check / uncheck search filter checkboxes depending on choices
     - Trim contact phone number in href
     - Increase fly-out-nav z-index to prevent chatbot from overlapping elements

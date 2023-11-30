@@ -37,7 +37,7 @@
                         <div>
                             <span>{phone_text|html}</span>
                             <div>
-                                <a href="tel:{phone_number|html}"
+                                <a href="tel:{?trimmed_number}{trimmed_number|html}{:else}{phone_number|html}{/trimmed_number}"
                                    class="has-text-paragraph hyphenate">
                                     {phone_number|html}
                                 </a>
