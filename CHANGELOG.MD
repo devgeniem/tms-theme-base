@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
-TMS-942:
+- TMS-942:
     - Check / uncheck search filter checkboxes depending on choices
     - Trim contact phone number in href
     - Increase fly-out-nav z-index to prevent chatbot from overlapping elements

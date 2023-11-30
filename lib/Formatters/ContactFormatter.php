@@ -143,9 +143,9 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 } );
 
                 // Remove whitespaces from phone_number to use on the href
-                $fields['trimmed_number'] = array_map( function( $item ) {
-                    return str_replace( ' ', '', $item['phone_number'] );
-                }, $fields['phone_repeater'] );
+                foreach( $fields['phone_repeater'] as $i => $single_phone ) {
+                    $fields['phone_repeater'][$i]['trimmed_number'] = str_replace( ' ', '', $single_phone['phone_number'] );
+                }
             }
 
             return $fields;
