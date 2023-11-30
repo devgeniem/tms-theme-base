@@ -5,7 +5,7 @@
                 <div class="search-filters">
                     <div class="search-filters">
                         <div class="search-filters__group">
-                            <div id ="search-filters-label" class="search-filters__label h6 mb-2">
+                            <div id="search-filters-label" class="search-filters__label h6 mb-2">
                                 {form.filter_by_post_type|html}
                             </div>
                             <div class="is-flex is-flex-wrap-wrap" role="group" aria-labelledby="search-filters-label">
