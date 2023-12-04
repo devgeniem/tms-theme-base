@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Header search accessibility fixes
     - Added focus on input when opening header search
 
+## [1.54.2] - 2023-11-22
+
+- TMS-974: Fix event formatting if only manual events are shown
+
+## [1.54.1] - 2023-11-22
+
+- TMS-974: Fix fatal error in EventzFormatter
+
 ## [1.54.0] - 2023-11-21
 
 ### Added
