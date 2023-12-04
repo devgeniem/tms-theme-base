@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.3] - 2023-12-04
+
 - TMS-939:
     - Search-page form accessibility fixes
     - Header search accessibility fixes
