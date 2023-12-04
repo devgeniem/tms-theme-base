@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Search-page form accessibility fixes
     - Header search accessibility fixes
     - Added focus on input when opening header search
+- TMS-940: Hide current language on mobile header if only 2 languages in use
 
 ## [1.54.2] - 2023-11-22
 
