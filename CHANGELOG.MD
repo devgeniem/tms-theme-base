@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-980: Add redipress_include_search to include component contents in search results
+
+## [1.54.3] - 2023-12-04
+
 - TMS-939:
     - Search-page form accessibility fixes
     - Header search accessibility fixes
@@ -16,7 +20,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Check / uncheck search filter checkboxes depending on choices
     - Trim contact phone number in href
     - Increase fly-out-nav z-index to prevent chatbot from overlapping elements
-
 
 ## [1.54.2] - 2023-11-22
 

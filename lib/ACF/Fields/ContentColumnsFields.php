@@ -96,6 +96,7 @@ class ContentColumnsFields extends Field\Group {
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 100 )
+            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
@@ -110,6 +111,7 @@ class ContentColumnsFields extends Field\Group {
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
             ->set_wrapper_width( 55 )
+            ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
 
         $layout_field = ( new Field\Radio( $strings['layout']['label'] ) )

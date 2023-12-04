@@ -186,6 +186,7 @@ class GridFields extends Field\Group {
             ->set_key( $this->get_key() . '_title' )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $this->strings['title']['instructions'] );
 
         $link_field = ( new Field\Link( $this->strings['link']['label'] ) )
@@ -199,6 +200,7 @@ class GridFields extends Field\Group {
             ->set_name( 'description' )
             ->set_maxlength( 200 )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $this->strings['description']['instructions'] );
 
         $image_field = ( new Field\Image( $this->strings['image']['label'] ) )
