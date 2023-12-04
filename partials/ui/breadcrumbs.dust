@@ -2,14 +2,14 @@
 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
     <ul class="breadcrumbs__nav is-relative is-flex m-0 p-0 is-family-secondary">
         {#breadcrumbs}
-            <li class="{?is_active}is-active{/is_active} {?class}{class}{/class}">
+            <li class="{?is_active}is-active{/is_active} {?class}{class|attr}{/class}">
                 {?permalink}
-                    <a href="{permalink}" {?is_active}aria-current="page"{/is_active}>
+                    <a href="{permalink|url}" {?is_active}aria-current="page"{/is_active}>
                         {?icon}
                             {>"ui/icon" icon=icon class=icon_class /}
                         {/icon}
                         {?title}
-                            {title|s}
+                            {title|html}
                         {/title}
                     </a>
                 {:else}
@@ -18,7 +18,7 @@
                             {>"ui/icon" icon=icon class=icon_class /}
                         {/icon}
                         {?title}
-                            {title|s}
+                            {title|html}
                         {/title}
                     </span>
                 {/permalink}

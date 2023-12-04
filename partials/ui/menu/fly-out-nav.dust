@@ -1,8 +1,8 @@
 <nav id="js-fly-out-nav" class="fly-out-nav overlay overlay--dark-80" aria-hidden="true">
     <div class="is-overlay" tabindex="-1" data-micromodal-close>
-        <div class="fly-out-nav__inner {Header.colors.fly_out_nav.inner|s}" role="dialog" aria-modal="true">
+        <div class="fly-out-nav__inner {Header.colors.fly_out_nav.inner|attr}" role="dialog" aria-modal="true">
             <button class="fly-out-nav__close">
-                <span class="is-sr-only"> {Strings.s.header.close_menu|s} </span>
+                <span class="is-sr-only"> {Strings.s.header.close_menu|html} </span>
                 {>"ui/icon" icon="close" class="icon--large {Header.colors.fly_out_nav.close_menu}" /}
             </button>
 
@@ -24,11 +24,11 @@
 
             {^Header.hide_search}
                 <div class="search-form-wrapper pl-6">
-                    <div class="h4 mt-9 mb-4 {Header.colors.fly_out_nav.search_title}">
-                        {Strings.s.header.search_title|s}
+                    <div id="fly-out-nav-search-title" class="h4 mt-9 mb-4 {Header.colors.fly_out_nav.search_title|attr}">
+                        {Strings.s.header.search_title|html}
                     </div>
 
-                    {>"search-form" button_class="{Header.colors.fly_out_nav.search_button} mb-2 mb-0-tablet" /}
+                    {>"search-form" button_class="{Header.colors.fly_out_nav.search_button} mb-2 mb-0-tablet" search_title="fly-out-nav-search-title" /}
                 </div>
             {/Header.hide_search}
 

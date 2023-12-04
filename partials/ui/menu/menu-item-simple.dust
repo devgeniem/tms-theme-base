@@ -1,4 +1,4 @@
-<a href="{url}" class="navbar-item {#classes}{.}{@sep} {/sep}{/classes}" {?classes.is_current}aria-page="current"{/classes.is_current}>
+<a href="{url}" class="navbar-item {#classes}{.}{@sep} {/sep}{/classes}" {?classes.is_current}aria-current="page"{/classes.is_current}>
     {title|s}
 
     {?icon}
