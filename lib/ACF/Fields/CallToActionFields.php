@@ -102,6 +102,7 @@ class CallToActionFields extends Field\Group {
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
@@ -110,6 +111,7 @@ class CallToActionFields extends Field\Group {
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
