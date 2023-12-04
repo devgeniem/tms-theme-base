@@ -141,6 +141,11 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $fields['phone_repeater'] = array_filter( $fields['phone_repeater'], function ( $item ) {
                     return ! empty( $item['phone_text'] ) || ! empty( $item['phone_number'] );
                 } );
+
+                // Remove whitespaces from phone_number to use on the href
+                foreach ( $fields['phone_repeater'] as $i => $single_phone ) {
+                    $fields['phone_repeater'][ $i ]['trimmed_number'] = str_replace( ' ', '', $single_phone['phone_number'] );
+                }
             }
 
             return $fields;
