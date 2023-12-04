@@ -173,6 +173,7 @@ class Strings extends \DustPress\Model {
             'search'             => [
                 'filter_by_post_type' => _x( 'Filter by type', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
+                'breadcrumbs'         => _x( 'Page location:', 'theme-frontend', 'tms-theme-base' ),
             ],
             // Use the Duet Date Picker keys for strings
             'datepicker'         => [
