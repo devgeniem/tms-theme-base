@@ -37,11 +37,22 @@ export default class SearchFilters {
     }
 
     /**
+     * Clear all event-search form inputs
+     *
+     * @param {Object} event Click event
+     */
+    ClearEventSearch( event ) {
+        const $parentContainer = jQuery( event.target ).parents( '.columns' );
+        $parentContainer.find( 'input' ).val( '' );
+    }
+
+    /**
      * Run when the document is ready.
      *
      * @return {void}
      */
     docReady() {
         $( '.search-filters input[type=checkbox]' ).on( 'change', this.SearchFilters.bind( this ) );
+        $( '.button-clear-inputs' ).on( 'click', this.ClearEventSearch.bind( this ) );
     }
 }
