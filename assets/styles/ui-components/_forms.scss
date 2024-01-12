@@ -24,6 +24,19 @@ form {
 }
 
 /**
+ * Event search
+ */
+.event-search-form {
+    .order-3 {
+        order: 3;
+    }
+
+    .order-4 {
+        order: 4;
+    }
+}
+
+/**
  * GravityForms related
  */
 .container {
