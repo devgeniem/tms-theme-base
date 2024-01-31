@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-977: Add 'clear form' button to event-search
 
+## [1.54.4] - 2024-01-15
+
+- TMS-980: Add redipress_include_search to include component contents in search results
+
 ## [1.54.3] - 2023-12-04
 
 - TMS-939:
