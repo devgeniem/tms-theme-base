@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.54.5] - 2024-02-01
 
 - TMS-977: Add 'clear form' button to event-search
+- TMS-1010: Fix events-lift component sorting with recurring events
 
 ## [1.54.4] - 2024-01-15
 

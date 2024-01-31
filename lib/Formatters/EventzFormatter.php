@@ -76,14 +76,13 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             return $layout;
         }
 
-        if ( ! empty( $layout['manual_event_categories'] ) ) {
-            // Sort events by start datetime objects.
-            usort( $events, function( $a, $b ) {
-                return $a['start_date_raw'] <=> $b['start_date_raw'];
-            } );
+        // Sort events by start datetime objects.
+        usort( $events, function( $a, $b ) {
+            return $a['start_date_raw'] <=> $b['start_date_raw'];
+        } );
 
-            $events = array_slice( $events, 0, $layout['page_size'] );
-        }
+        // Show selected amount of events
+        $events = array_slice( $events, 0, $layout['page_size'] );
 
         $layout['events']  = $this->format_events( $events, $layout['show_images'] );
         $layout['classes'] = [
