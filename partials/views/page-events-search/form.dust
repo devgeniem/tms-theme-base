@@ -1,34 +1,34 @@
-<form class="is-relative" action="{form.action}">
-    <div class="section pt-8 pb-8 {template_classes.search_form|s}">
+<form class="is-relative" action="{form.action|attr}">
+    <div class="section pt-8 pb-8 {template_classes.search_form|attr}">
         <div class="container">
-            <div class="columns is-multiline is-variable is-3-tablet is-6-desktop">
-                <div class="column is-3-tablet is-4-widescreen">
+            <div class="event-search-form columns is-flex is-multiline is-variable is-3-tablet is-6-desktop">
+                <div class="column is-12-mobile is-3-tablet is-4-widescreen">
                     <div class="h6 mb-2">
-                        {form.seach_term_label|s}
+                        {form.seach_term_label|html}
                     </div>
                     <label for="search-input">
-                        <span class="is-sr-only">{form.seach_term_label|s}</span>
+                        <span class="is-sr-only">{form.seach_term_label|html}</span>
                     </label>
-                    <input type="text" name="event_search_text" id="search-input" value="{form.search_term|s}"
+                    <input type="text" name="event_search_text" id="search-input" value="{form.search_term|attr}"
                             class="has-width-100"
                             autocomplete="off">
                 </div>
 
-                <div class="column is-7-tablet is-5-widescreen">
+                <div class="column is-12-mobile is-7-tablet is-5-widescreen">
                     <div class="h6 mb-2">
-                        {form.time_frame_label|s}
+                        {form.time_frame_label|html}
                     </div>
-                    <div class="columns is-mobile is-variable is-1">
+                    <div class="columns is-12-mobile is-mobile is-variable is-1">
                         <div class="column">
                             <label for="start-date" class="is-sr-only">
-                                {form.start_date_label|s}
+                                {form.start_date_label|html}
                             </label>
                             <span class="is-block">
                                 <duet-date-picker
                                     identifier="start-date"
                                     name="event_search_start_date"
-                                    value="{form.form_start_date}"
-                                    data-locale="{Header.site_locale}"></duet-date-picker>
+                                    value="{form.form_start_date|attr}"
+                                    data-locale="{Header.site_locale|attr}"></duet-date-picker>
                             </span>
                         </div>
                         <div class="column is-narrow">
@@ -36,22 +36,28 @@
                         </div>
                         <div class="column">
                             <label for="end-date" class="is-sr-only">
-                                {form.end_date_label|s}
+                                {form.end_date_label|html}
                             </label>
                             <span class="is-block">
                                 <duet-date-picker
                                     identifier="end-date"
                                     name="event_search_end_date"
-                                    value="{form.form_end_date}"
-                                    data-locale="{Header.site_locale}"></duet-date-picker>
+                                    value="{form.form_end_date|attr}"
+                                    data-locale="{Header.site_locale|attr}"></duet-date-picker>
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="column is-2-tablet is-3-widescreen is-align-self-flex-end is-flex">
-                    <button type="submit" class="button button--icon is-primary ml-auto-tablet">
-                        {Strings.s.header.search|s}
+                <div class="column is-align-self-flex-start is-flex order-4">
+                    <a href="{form.action|url}" class="button button-clear-inputs is-secondary">
+                        {Strings.s.search.clear|html}
+                    </a>
+                </div>
+
+                <div class="column is-12-mobile is-2-tablet is-3-widescreen is-align-self-flex-end is-flex order-3">
+                    <button type="submit" class="button button--icon is-primary ml-auto-desktop">
+                        {Strings.s.header.search|html}
                         {>"ui/icon" icon="search" class="icon--medium"  /}
                     </button>
                 </div>
