@@ -244,7 +244,7 @@ class PageEventsSearch extends BaseModel {
 
             $event_data['events'] = array_map( function ( $item ) {
                 $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
-                $item['location_icon']     = $item['is_virtual_event']
+                $item['location_icon']     = isset( $item['is_virtual_event'] )
                     ? 'globe'
                     : 'location';
 
