@@ -404,6 +404,6 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             }
         }, $query->posts );
 
-        return $recurring_events;
+        return array_filter( $recurring_events );
     }
 }
