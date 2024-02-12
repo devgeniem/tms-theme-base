@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-968: Add recurring events to event-component
+
 ## [1.54.5] - 2024-02-01
 
 - TMS-977: Add 'clear form' button to event-search
