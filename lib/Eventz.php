@@ -103,6 +103,7 @@ class Eventz implements Controller {
             'date_title'        => __( 'Dates', 'tms-theme-base' ),
             'date'              => static::get_event_date( $event ),
             'dates'             => static::get_event_dates( $event ),
+            'entries'           => static::get_event_entries( $event ),
             'recurring'         => isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : null,
             'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
@@ -391,6 +392,56 @@ class Eventz implements Controller {
         }
 
         return $dates;
+    }
+
+    /**
+     * Get event entries info
+     * Entries occur if the event is held weekly for specific days
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function get_event_entries( $event ) {
+        $entries    = [];
+        $entry_data = [];
+
+        if ( empty( $event->event->entries ) ) {
+            return $entries;
+        }
+
+        // Get single entry data
+        foreach ( $event->event->entries as $entry ) {
+            $entry_data[] = [
+                'day_of_week' => $entry->dayOfWeek,
+                'start_time'  => $entry->startTimeLocal,
+                'end_time'    => $entry->endTimeLocal,
+                'sold_out'    => $entry->isSoldOut,
+            ];
+        }
+
+        $start_date = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->start ) ) );
+        $end_date   = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->end ) ) );
+
+        // Loop through days and get the dates each week
+        foreach ( $entry_data as $entry ) {
+            if ( date( 'D', strtotime( $entry['day_of_week'] ) ) != $start_date->format( 'N' ) ) {
+                $start_date->modify( 'next $day_name' );
+            }
+
+            // Get all occurences of day in the time range
+            while ( $start_date <= $end_date ) {
+                $current_start = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry_data['start_time'] );
+                $current_end   = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry_data['end_time'] );
+                $entries[]     = [
+                    'date'        => self::compare_dates( $current_start, $current_end ),
+                    'is_sold_out' => $entry['sold_out'],
+                ];
+                $start_date->modify( '+1 week' );
+            }
+        }
+
+        return $entries;
     }
 
     /**
