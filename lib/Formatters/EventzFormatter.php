@@ -109,8 +109,17 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $recurring_events = [];
         if( ! empty( $events['events'] ) ) {
             foreach ( $events['events'] as $event ) {
+
+                // Chek if event has dates or entries
                 if ( count( $event['dates'] ) > 1 ) {
-                    foreach ( $event['dates'] as $date ) {
+                    $recurring_event_dates = $event['dates'];
+                } else if ( ! empty( $event['entries'] ) ) {
+                    $recurring_event_dates = $event['entries'];
+                }
+
+                // Get recurring event single dates
+                if ( isset( $recurring_event_dates ) ) {
+                    foreach ( $recurring_event_dates as $date ) {
                         $clone = $event;
 
                         // Split the dates and times into parts
