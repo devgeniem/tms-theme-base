@@ -122,6 +122,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 if ( isset( $recurring_event_dates ) ) {
                     foreach ( $recurring_event_dates as $date ) {
                         $clone = $event;
+                        unset( $endDate );
 
                         // Split the dates and times into parts
                         list( $startPart, $endPart )   = explode( ' - ', $date['date'], 2 );

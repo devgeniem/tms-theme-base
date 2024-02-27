@@ -96,6 +96,8 @@ class Eventz implements Controller {
             $image = $event->images->imageMobile->url;
         }
 
+        $is_recurring = isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : ( isset( $event->event->entries ) ? count( $event->event->entries ) >= 1 : null );
+
         return [
             'name'              => $event->name ?? null,
             'short_description' => static::get_short_description( $event ) ?? null,
@@ -104,7 +106,7 @@ class Eventz implements Controller {
             'date'              => static::get_event_date( $event ),
             'dates'             => static::get_event_dates( $event ),
             'entries'           => static::get_event_entries( $event ),
-            'recurring'         => isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : null,
+            'recurring'         => $is_recurring,
             'time_title'        => __( 'Time', 'tms-theme-base' ),
             'time'              => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
@@ -425,18 +427,26 @@ class Eventz implements Controller {
 
         // Loop through days and get the dates each week
         foreach ( $entry_data as $entry ) {
-            if ( date( 'D', strtotime( $entry['day_of_week'] ) ) != $start_date->format( 'N' ) ) {
-                $start_date->modify( 'next $day_name' );
+            if ( date( 'D', strtotime( $entry['day_of_week'] ) ) != $start_date->format( 'D' ) ) {
+                $day_of_week = date( 'D', strtotime( $entry['day_of_week'] ) );
+                $start_date->modify( "next $day_of_week" );
             }
 
             // Get all occurences of day in the time range
             while ( $start_date <= $end_date ) {
-                $current_start = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry_data['start_time'] );
-                $current_end   = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry_data['end_time'] );
+                $current_start = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry['start_time'] );
+                $current_end   = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry['end_time'] );
+                $event_dates   = sprintf(
+                    '%s - %s',
+                    $current_start->format( 'j.n.Y H.i' ),
+                    $current_end->format( 'H.i' )
+                );
+
                 $entries[]     = [
-                    'date'        => self::compare_dates( $current_start, $current_end ),
+                    'date'        => $event_dates,
                     'is_sold_out' => $entry['sold_out'],
                 ];
+
                 $start_date->modify( '+1 week' );
             }
         }
