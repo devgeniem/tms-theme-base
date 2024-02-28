@@ -11,14 +11,14 @@
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-touch">
-                    {>"ui/menu/language-nav" links=Header.language_nav.links /}
+                    {>"ui/menu/language-nav" links=Header.language_nav.links id="lang-menu" /}
                 </div>
             {/Header.lang_nav_horizontal}
 
             {?Header.lang_nav_horizontal}
                 <div class="is-hidden-desktop">
                     {?Header.language_nav.links_without_current}
-                        {>"ui/menu/language-nav" links=Header.language_nav.links_without_current /}
+                        {>"ui/menu/language-nav" links=Header.language_nav.links_without_current id="lang-menu-mobile" /}
                     {:else}
                         {>"ui/menu/language-nav-dropdown" links=Header.language_nav.links /}
                     {/Header.language_nav.links_without_current}

@@ -1,6 +1,6 @@
 {?links.all}
     <nav aria-label="{Strings.s.header.language_navigation|s}">
-        <ul id="lang-menu"
+        <ul id="{id|attr}"
             class="lang-nav--horizontal ml-6-desktop is-flex is-unstyled is-uppercase has-text-weight-semibold is-family-secondary">
             {#links.all}
                 <li class="ml-2-desktop">
