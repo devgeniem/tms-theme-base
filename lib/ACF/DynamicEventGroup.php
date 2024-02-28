@@ -286,10 +286,10 @@ class DynamicEventGroup {
 
         $cache_key = 'events-' . $name;
         $response  = wp_cache_get( $cache_key );
+        $lang_key  = Localization::get_current_language();
 
-        if ( ! $response ) {
+        if ( ! $response && ( $lang_key === 'fi' || $lang_key === 'en' ) ) {
             try {
-                $lang_key = Localization::get_current_language();
                 $client   = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
                 $response = $client->{'get_' . $name }( $lang_key );
 

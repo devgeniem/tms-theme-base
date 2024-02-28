@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
+
 ## [1.54.5] - 2024-02-01
 
 - TMS-977: Add 'clear form' button to event-search
