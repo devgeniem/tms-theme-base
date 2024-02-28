@@ -71,7 +71,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $recurring_manual_events = self::get_recurring_manual_events( $layout['manual_event_categories'] );
         }
 
-        $events = array_merge( $events['events'] ?? [], $manual_events, $recurring_manual_events );
+        $events = array_merge( $events['events'] ?? [], $manual_events ?? [], $recurring_manual_events ?? [] );
 
         if ( empty( $events ) ) {
             return $layout;
