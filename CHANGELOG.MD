@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1013: Add entries fetching to Eventz event-integration
 - TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
 - TMS-1015: Header accessibility fixes
+- TMS-996: Change bold image-caption text to normal
 
 ## [1.54.5] - 2024-02-01
 
