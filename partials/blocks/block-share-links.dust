@@ -1,9 +1,9 @@
 {?share_links}
 
-    <div class="share-links mt-6 mb-6">
+    <div {?anchor}id="{anchor|attr}"{/anchor} class="share-links mt-6 mb-6">
         {?title}
             <h2 class="h6 mt-0 mb-6">
-                {title|s}
+                {title|html}
             </h2>
         {/title}
 

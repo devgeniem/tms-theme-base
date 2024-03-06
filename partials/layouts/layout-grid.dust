@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section layout-grid">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section layout-grid">
     <div class="container">
         <div class="columns">
             <div class="column">

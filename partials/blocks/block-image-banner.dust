@@ -1,6 +1,7 @@
 {?image}
-    <div class="image-banner mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative is-align-full has-background-cover"
-         style="background-image: url({image.sizes.large})">
+    <div {?anchor}id="{anchor|attr}"{/anchor}
+         class="image-banner mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative is-align-full has-background-cover"
+         style="background-image: url({image.sizes.large|attr})">
         {>"shared/layout-before-main-content" /}
 
         <div class="image is-2by1 is-hidden-mobile">
@@ -9,10 +10,10 @@
 
         <div class="overlay overlay--dark-40"></div>
 
-        <div class="image-banner__inner is-relative is-absolute-tablet has-top-50-tablet has-right-0-tablet has-left-0-tablet has-transform-y--50-tablet pt-8 pb-8 pr-8 pl-8 pr-12-desktop pl-12-desktop has-text-centered {align|s}">
+        <div class="image-banner__inner is-relative is-absolute-tablet has-top-50-tablet has-right-0-tablet has-left-0-tablet has-transform-y--50-tablet pt-8 pb-8 pr-8 pl-8 pr-12-desktop pl-12-desktop has-text-centered {align|attr}">
             {?title}
                 <h2 class="image-banner__title has-text-white mt-0 mb-6">
-                    {title|s}
+                    {title|html}
                 </h2>
             {/title}
 

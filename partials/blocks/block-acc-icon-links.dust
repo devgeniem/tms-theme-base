@@ -1,6 +1,6 @@
 
 {?rows}
-    <ul class="acc-icon-links__grid columns is-flex-wrap-wrap pl-0">
+    <ul {?anchor}id="{anchor|attr}"{/anchor} class="acc-icon-links__grid columns is-flex-wrap-wrap pl-0">
         {#rows}
             <li class="acc-icon-links__item column is-6-tablet keep-vertical-spacing pb-5">
                 {?acc_icon}

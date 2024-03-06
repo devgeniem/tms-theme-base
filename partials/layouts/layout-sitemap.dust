@@ -1,5 +1,5 @@
 {?sitemap}
-    <div class="sitemap section pt-0">
+    <div {?anchor}id="{anchor|attr}"{/anchor} class="sitemap section pt-0">
         <div class="container">
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">

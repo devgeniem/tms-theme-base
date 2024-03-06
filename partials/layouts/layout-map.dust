@@ -1,17 +1,17 @@
 {?embed}
-    <div {?anchor}id="{anchor|s}"{/anchor} class="map section">
+    <div {?anchor}id="{anchor|attr}"{/anchor} class="map section">
         <div class="container">
             <div class="columns">
                 <div class="column is-10 is-offset-1 is-6-desktop is-offset-3-desktop has-text-centered">
                     {?title}
                         <h2 class="map__title mt-0 mb-6 mb-8-desktop">
-                            {title|s}
+                            {title|html}
                         </h2>
                     {/title}
 
                     {?description}
                         <div class="map__description">
-                            {description|s}
+                            {description|kses}
                         </div>
                     {/description}
                 </div>
