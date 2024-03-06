@@ -1,4 +1,5 @@
-<div class="countdown is-relative pt-10 pr-3 pb-8 pl-3 pt-11-desktop pb-11-desktop"
+<div {?anchor}id="{anchor|attr}"{/anchor}
+     class="countdown is-relative pt-10 pr-3 pb-8 pl-3 pt-11-desktop pb-11-desktop"
      data-offset="{timezone_offset|attr}" data-timestamp="{target_datetime|attr}" {@inlinebg id=image size="fullhd" /}>
     <div class="overlay overlay--dark-70"></div>
 

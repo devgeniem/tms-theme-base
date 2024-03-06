@@ -1,5 +1,5 @@
-<section {?anchor}id="{anchor|s}"{/anchor}
-         class="hero is-relative has-background-cover {container_class|s}" {@inlinebg id=image size="fullhd" /}>
+<section {?anchor}id="{anchor|attr}"{/anchor}
+         class="hero is-relative has-background-cover {container_class|attr}" {@inlinebg id=image size="fullhd" /}>
     {?use_overlay}
         <div class="overlay overlay--dark-50"></div>
     {/use_overlay}
@@ -8,11 +8,11 @@
         <div class="is-overlay is-clipped" aria-hidden="true" tabindex="-1">
             <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
 
-            <button class="hero__control hero__control--play" aria-label="{Strings.s.video.play|s}">
+            <button class="hero__control hero__control--play" aria-label="{Strings.s.video.play|attr}">
                 {>"ui/icon" icon="play" class="icon--xxxlarge"  /}
             </button>
 
-            <button class="hero__control hero__control--pause" aria-label="{Strings.s.video.pause|s}">
+            <button class="hero__control hero__control--pause" aria-label="{Strings.s.video.pause|attr}">
                 {>"ui/icon" icon="pause" class="icon--xxxlarge"  /}
             </button>
         </div>
@@ -25,11 +25,11 @@
                     <div class="hero__box is-relative {box_classes|s}">
                         {?title}
                             <h1 class="mt-0 h2 no-hyphens">
-                                {title|s}
+                                {title|html}
                             </h1>
                         {/title}
 
-                        {description|s}
+                        {description|kses}
 
                         {>"ui/button-link" link=link classes=button_classes icon="chevron-right" icon_classes="icon--medium" /}
                     </div>

@@ -313,6 +313,14 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Post::SLUG,
                 ],
             ],
+            'acf/anchor-links'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                    PostType\DynamicEvent::SLUG,
+                ],
+            ],
         ];
 
         $blocks = apply_filters(

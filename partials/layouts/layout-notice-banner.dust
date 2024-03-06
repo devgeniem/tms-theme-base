@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="notice-banner section">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="notice-banner section">
     <div class="container">
         <div class="columns">
             <div class="column">
