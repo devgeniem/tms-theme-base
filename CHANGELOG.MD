@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-914:
     - Add new anchor-links block & functionalities
     - Add anchor id-elements to blocks & components
+- TMS-1017: Add image alt-text to imported news
 
 ## [1.54.5] - 2024-02-01
 
