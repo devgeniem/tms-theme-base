@@ -86,6 +86,7 @@ class Single extends BaseModel {
             : $single->image;
 
         $single->api_image_url = empty( $single->image ) ? get_field( 'image_url' ) : false;
+        $single->api_image_alt = empty( $single->image ) ? get_field( 'image_alt' ) : false;
         $single->has_image     = ! empty( $single->image ) || ! empty( $single->api_image_url );
 
         if ( 'blog-article' === $single->post_type ) {
@@ -141,6 +142,7 @@ class Single extends BaseModel {
                 }
 
                 $item->api_image_url = get_field( 'image_url', $item->ID );
+                $item->api_image_alt = get_field( 'image_alt', $item->ID );
                 $has_image           = $item->image_id !== 0 || ! empty( $item->api_image_url );
 
                 if ( ! $has_image ) {
