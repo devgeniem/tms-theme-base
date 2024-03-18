@@ -129,7 +129,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                         list( $startDate, $startTime ) = explode( ' ', $startPart, 2 );
 
                         // Show only events with dates after start_date in query parameters
-                        if ( strtotime( $query_params['start'] ) > strtotime( $startDate ) ) {
+                        if ( isset( $query_params['start'] ) && strtotime( $query_params['start'] ) > strtotime( $startDate ) ) {
                             continue;
                         }
 

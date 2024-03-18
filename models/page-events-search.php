@@ -238,7 +238,7 @@ class PageEventsSearch extends BaseModel {
 
         if ( ! empty( $event_data['events'] ) ) {
 
-            $event_data = EventzFormatter::create_recurring_events( $event_data );
+            $event_data = EventzFormatter::create_recurring_events( $event_data, $params );
 
             $event_data['events'] = ( new EventzFormatter() )->format_events( $event_data['events'] );
 
