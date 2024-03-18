@@ -314,7 +314,9 @@ class DynamicEventGroup {
 
         if ( ! empty( $response ) ) {
             foreach ( $response as $item ) {
-                $field['choices'][ $item->_id ] = $item->name;
+                if ( isset( $item->_id ) ) {
+                    $field['choices'][ $item->_id ] = $item->name;
+                }
             }
         }
 
