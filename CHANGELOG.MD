@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
 - TMS-1015: Header accessibility fixes
 - TMS-1017: Add image alt-text to imported news
+- TMS-1018: Remove external-link icons from imported news image links
 
 ## [1.54.5] - 2024-02-01
 
