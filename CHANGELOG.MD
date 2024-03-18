@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.54.6] - 2024-03-18
 
 - TMS-996: Change bold image-caption text to normal
+- TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
 
 ## [1.54.5] - 2024-02-01
 
