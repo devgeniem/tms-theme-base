@@ -96,7 +96,16 @@ class Eventz implements Controller {
             $image = $event->images->imageMobile->url;
         }
 
-        $is_recurring = isset( $event->event->dates ) ? count( $event->event->dates ) > 1 : ( isset( $event->event->entries ) ? count( $event->event->entries ) >= 1 : null );
+        // Not recurring by default.
+        $is_recurring = false;
+
+        // Check if event has recurring dates or weekly entries
+        if ( isset( $event->event->dates ) && count( $event->event->dates ) > 1 ) {
+            $is_recurring = true;
+        }
+        elseif ( isset( $event->event->entries ) && count( $event->event->entries ) >= 1 ) {
+            $is_recurring = true;
+        }
 
         return [
             'name'              => $event->name ?? null,
@@ -427,7 +436,7 @@ class Eventz implements Controller {
 
         // Loop through days and get the dates each week
         foreach ( $entry_data as $entry ) {
-            if ( date( 'D', strtotime( $entry['day_of_week'] ) ) != $start_date->format( 'D' ) ) {
+            if ( date( 'D', strtotime( $entry['day_of_week'] ) ) !== $start_date->format( 'D' ) ) {
                 $day_of_week = date( 'D', strtotime( $entry['day_of_week'] ) );
                 $start_date->modify( "next $day_of_week" );
             }
@@ -442,9 +451,9 @@ class Eventz implements Controller {
                     $current_end->format( 'H.i' )
                 );
 
-                $entries[]     = [
+                $entries[] = [
                     'date'        => $event_dates,
-                    'is_sold_out' => $entry['sold_out'],
+                    'is_sold_out' => $entry['sold_out'] ?? '',
                 ];
 
                 $start_date->modify( '+1 week' );
