@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1021: Fix image alignment in image-carousel modal
+
 ## [1.54.6] - 2024-03-18
 
 - TMS-996: Change bold image-caption text to normal
