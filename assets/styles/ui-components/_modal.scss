@@ -106,28 +106,26 @@
                 }
             }
 
-            .slick-slide{
-                padding:0.588rem;
+            .slick-slide {
+                align-self: center;
+                padding: 0.588rem;
             }
 
             .slick-current {
                 &:focus {
-                    outline:0;
+                    outline: 0;
                     .image-carousel__item {
                         outline: .125rem solid $white;
                         outline-offset: .25rem;
                     }
                 }
             }
-           
         }
 
         .image-carousel__item {
             img {
-                @include until($desktop) {
-                    max-height: 80vh;
-                    object-fit: contain;
-                }
+                max-height: 80vh;
+                object-fit: contain;
             }
         }
     }

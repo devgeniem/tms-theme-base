@@ -284,11 +284,18 @@ class DynamicEventGroup {
             return $field;
         }
 
-        $cache_key = 'events-' . $name;
-        $response  = wp_cache_get( $cache_key );
-        $lang_key  = Localization::get_current_language();
+        $cache_key             = 'events-' . $name;
+        $response              = wp_cache_get( $cache_key );
+        $lang_key              = Localization::get_current_language();
+        $request_allowed_langs = [
+            'fi',
+            'en',
+        ];
 
-        if ( ! $response && ( $lang_key === 'fi' || $lang_key === 'en' ) ) {
+        if (
+            ! $response &&
+            in_array( $lang_key, $request_allowed_langs, true )
+        ) {
             try {
                 $client   = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
                 $response = $client->{'get_' . $name }( $lang_key );
