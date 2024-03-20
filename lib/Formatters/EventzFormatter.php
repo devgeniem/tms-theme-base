@@ -62,7 +62,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         // Create recurring events
         $event_data['events'] = $events ?? [];
         if ( ! empty( $event_data['events'] ) ) {
-            $events = self::create_recurring_events( $event_data );
+            $events = self::create_recurring_events( $event_data, $query_params );
         }
 
         $manual_events = [];
@@ -102,10 +102,11 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Create recurring events as single item.
      *
      * @param array $events Events.
+     * @param array $query_params Query parameters.
      *
      * @return void
      */
-    public static function create_recurring_events( $events )  {
+    public static function create_recurring_events( $events, $query_params )  {
 
         $recurring_events = [];
         if( ! empty( $events['events'] ) ) {
@@ -127,6 +128,11 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                         // Split the dates and times into parts
                         list( $startPart, $endPart )   = explode( ' - ', $date['date'], 2 );
                         list( $startDate, $startTime ) = explode( ' ', $startPart, 2 );
+
+                        // Show only events with dates after start_date in query parameters
+                        if ( isset( $query_params['start'] ) && strtotime( $query_params['start'] ) > strtotime( $startDate ) ) {
+                            continue;
+                        }
 
                         // Check if endPart includes date & time
                         if ( strpos($endPart, ' ') ) {
