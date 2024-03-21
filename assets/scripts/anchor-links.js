@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2023. Hion Digital
+ *  Copyright (c) 2024. Hion Digital
  */
 
 // Use jQuery as $ within this file scope.

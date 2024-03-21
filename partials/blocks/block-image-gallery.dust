@@ -1,8 +1,8 @@
 <div
      {?anchor}id="{anchor|attr}"{/anchor}
-     class="image-gallery {align_class} gallery {column_class} js-image-gallery mt-8 mb-8 mt-11-desktop mb-11-desktop"
-     data-next="{translations.next}"
-     data-previous="{translations.previous}">
+     class="image-gallery {align_class|attr} gallery {column_class} js-image-gallery mt-8 mb-8 mt-11-desktop mb-11-desktop"
+     data-next="{translations.next|attr}"
+     data-previous="{translations.previous|attr}">
     {#rows}
         {?is_clickable}
             <a href="{image.sizes.fullhd|url}"

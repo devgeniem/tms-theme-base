@@ -1,7 +1,7 @@
 {?image}
     <div {?anchor}id="{anchor|attr}"{/anchor}
          class="image-banner mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative is-align-full has-background-cover"
-         style="background-image: url({image.sizes.large|attr})">
+         style="background-image: url({image.sizes.large|url})">
         {>"shared/layout-before-main-content" /}
 
         <div class="image is-2by1 is-hidden-mobile">
