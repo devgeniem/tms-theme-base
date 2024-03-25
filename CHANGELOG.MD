@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.7] - 2024-03-26
+
 - TMS-914:
     - Add new anchor-links block & functionalities
     - Add anchor id-elements to blocks & components
