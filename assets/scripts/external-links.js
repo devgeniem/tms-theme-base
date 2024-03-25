@@ -30,7 +30,7 @@ export default class ExternalLinks {
         };
 
         // Links in regular context
-        $( '#main-content a[href*="//"]:not(.button, .logo-wall__link, .link-list a, [href*="' + domain + '"])' ).append( icon ); // eslint-disable-line
+        $( '#main-content a[href*="//"]:not(.figure__link, .button, .logo-wall__link, .link-list a, [href*="' + domain + '"])' ).append( icon ); // eslint-disable-line
 
         // Links with icons (replace current icon with "opens in new window" -icon)
         $( '#main-content a[href*="//"]:has(.icon):not(.link-list a, [href*="' + domain + '"])' ).each( function() {
