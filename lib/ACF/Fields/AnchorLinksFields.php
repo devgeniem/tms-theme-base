@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2021. Geniem Oy
+ * Copyright (c) 2023. Hion Digital
  */
 
 namespace TMS\Theme\Base\ACF\Fields;
@@ -10,11 +10,11 @@ use Geniem\ACF\Field;
 use TMS\Theme\Base\Logger;
 
 /**
- * Class LinkListFields
+ * Class AnchorLinksFields
  *
  * @package TMS\Theme\Base\ACF\Fields
  */
-class LinkListFields extends Field\Group {
+class AnchorLinksFields extends Field\Group {
 
     /**
      * The constructor for field.
@@ -42,22 +42,22 @@ class LinkListFields extends Field\Group {
      */
     protected function sub_fields() : array {
         $strings = [
-            'title'       => [
+            'title'            => [
                 'label'        => 'Otsikko',
                 'instructions' => '',
             ],
-            'description' => [
+            'description'      => [
                 'label'        => 'Kuvaus',
                 'instructions' => '',
             ],
-            'links'       => [
-                'label'        => 'Linkit',
+            'anchor_links'     => [
+                'label'        => 'Ankkurilinkit',
                 'instructions' => '',
                 'button'       => 'Lisää linkki',
             ],
-            'link'        => [
-                'label'        => 'Linkki',
-                'instructions' => '',
+            'anchor_link'      => [
+                'label'        => 'Ankkurilinkki',
+                'instructions' => 'Kirjoita URL-kenttään "#" ja haluamasi lohkon tai komponentin HTML-ankkuri, esim. #lohkon-ankkuri',
             ],
         ];
 
@@ -77,24 +77,24 @@ class LinkListFields extends Field\Group {
             ->set_height( 100 )
             ->set_instructions( $strings['description']['instructions'] );
 
-        $links_field = ( new Field\Repeater( $strings['links']['label'] ) )
-            ->set_key( "{$key}_links" )
-            ->set_name( 'links' )
+        $anchor_links_field = ( new Field\Repeater( $strings['anchor_links']['label'] ) )
+            ->set_key( "{$key}_anchor_links" )
+            ->set_name( 'anchor_links' )
             ->set_layout( 'block' )
-            ->set_button_label( $strings['links']['button'] )
-            ->set_instructions( $strings['links']['instructions'] );
+            ->set_button_label( $strings['anchor_links']['button'] )
+            ->set_instructions( $strings['anchor_links']['instructions'] );
 
-        $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "{$key}_link" )
-            ->set_name( 'link' )
-            ->set_instructions( $strings['link']['instructions'] );
+        $anchor_link_field = ( new Field\Link( $strings['anchor_link']['label'] ) )
+            ->set_key( "{$key}_anchor_link" )
+            ->set_name( 'anchor_link' )
+            ->set_instructions( $strings['anchor_link']['instructions'] );
 
-        $links_field->add_field( $link_field );
+        $anchor_links_field->add_field( $anchor_link_field );
 
         return [
             $title_field,
             $description_field,
-            $links_field,
+            $anchor_links_field,
         ];
     }
 }

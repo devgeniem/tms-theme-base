@@ -5,12 +5,12 @@
         {>"shared/layout-before-main-content" /}
 
         {?alt_text}
-            <span class="is-sr-only">{alt_text}</span>
+            <span class="is-sr-only">{alt_text|html}</span>
         {/alt_text}
 
         {! Skip embed !}
         <a href="#{id|attr}" class="skip-to-content">
-            {skip_text|s}
+            {skip_text|kses}
         </a>
 
         <div class="image is-16by9 is-embed-container">

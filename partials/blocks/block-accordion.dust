@@ -1,12 +1,12 @@
-<div class="accordion is-align-wide" {?anchor}id="{anchor|s}"{/anchor}>
+<div class="accordion is-align-wide" {?anchor}id="{anchor|attr}"{/anchor}>
     <header class="accordion__header has-text-centered">
         <h2 class="accordion__title h3 mt-0 mb-6">
-            {title|s}
+            {title|html}
         </h2>
 
         {?description}
             <div class="accordion__description mt-6 mb-6 mb-7-desktop has-text-large is-family-secondary has-text-weight-semibold keep-vertical-spacing">
-                {description|s}
+                {description|kses}
             </div>
         {/description}
     </header>
@@ -20,9 +20,9 @@
                             <button id="accordion-title-button-{ID}"
                                     class="accordion__title-button is-flex is-align-items-center pt-5 pb-5 pr-4 pl-4 pr-6-tablet pl-6-tablet has-background-transparent"
                                     aria-expanded="false"
-                                    aria-controls="accordion-content-{ID}">
+                                    aria-controls="accordion-content-{ID|attr}">
                                 <span class="accordion__row-title-text h6 has-text-left has-text-paragraph">
-                                    {section_title|s}
+                                    {section_title|kses}
                                 </span>
 
                                 <span class="accordion__title-icon is-flex ml-auto" aria-hidden="true">

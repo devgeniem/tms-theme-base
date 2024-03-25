@@ -24,11 +24,13 @@ class PageGroup {
      * PageGroup constructor.
      */
     public function __construct() {
-        add_action(
+        \add_action(
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] ),
             100
         );
+
+        $this->add_anchor_fields();
     }
 
     /**
@@ -106,7 +108,7 @@ class PageGroup {
                 );
 
             $field_group->add_fields(
-                apply_filters(
+                \apply_filters(
                     'tms/acf/group/' . $field_group->get_key() . '/fields',
                     [
                         $this->get_components_field( $field_group->get_key() ),
@@ -114,7 +116,7 @@ class PageGroup {
                 )
             );
 
-            $field_group = apply_filters(
+            $field_group = \apply_filters(
                 'tms/acf/group/' . $field_group->get_key(),
                 $field_group
             );
@@ -143,11 +145,11 @@ class PageGroup {
         ];
 
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
-            ->set_key( "${key}_components" )
+            ->set_key( "{$key}_components" )
             ->set_name( 'components' )
             ->set_instructions( $strings['components']['instructions'] );
 
-        $component_layouts = apply_filters(
+        $component_layouts = \apply_filters(
             'tms/acf/field/' . $components_field->get_key() . '/layouts',
             [
                 Layouts\ImageBannerLayout::class,
@@ -181,6 +183,60 @@ class PageGroup {
         }
 
         return $components_field;
+    }
+
+    /**
+     * Add HTML-anchor field to layout fields.
+     */
+    private function add_anchor_fields() : void {
+        $keys = [
+            'image_banner',
+            'call_to_action',
+            'content_columns',
+            'logo_wall',
+            'map',
+            'icon_links',
+            'social_media',
+            'image_carousel',
+            'subpages' ,
+            'textblock',
+            'grid',
+            'events',
+            'articles',
+            'blog_articles',
+            'sitemap',
+            'notice_banner',
+            'gravityform',
+            'contacts',
+            'acc_icon_links',
+            'share_links',
+            'countdown',
+            'video',
+        ];
+
+        foreach ( $keys as $component ) {
+            if ( empty( $component ) ) {
+                continue;
+            }
+
+            \add_filter(
+                "tms/acf/layout/fg_page_components_$component/fields",
+                function ( $fields ) use ( $component ) {
+                    $anchor_field = ( new Field\Text( 'HTML-ankkuri' ) )
+                        ->set_key( $component . '_anchor' )
+                        ->set_name( 'anchor' )
+                        ->set_instructions( 'Kirjoita sana tai pari, ilman välilyöntejä,
+                         luodaksesi juuri tälle lohkolle uniikki verkko-osoite, jota kutsutaan "ankkuriksi".
+                         Sen avulla voit luoda linkin suoraan tähän osioon sivullasi.' );
+
+                    array_unshift( $fields, $anchor_field );
+
+                    return $fields;
+                },
+                10,
+                1
+            );
+        }
     }
 }
 

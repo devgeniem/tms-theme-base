@@ -1,10 +1,10 @@
-<section {?anchor}id="{anchor|s}"{/anchor} class="events section">
+<section {?anchor}id="{anchor|attr}"{/anchor} class="events section">
     <div class="container">
         {?title}
             <div class="columns">
                 <div class="column is-8 is-offset-2 has-text-centered">
                     <h2 class="mt-0 mb-6">
-                        {title|s}
+                        {title|html}
                     </h2>
                 </div>
             </div>
