@@ -1,15 +1,15 @@
-<div class="key-figures is-align-full has-text-centered mt-8 mb-8 mt-11-desktop mb-11-desktop">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="key-figures is-align-full has-text-centered mt-8 mb-8 mt-11-desktop mb-11-desktop">
     {#rows}
         <div class="key-figures__row columns is-multiline is-gapless mb-0">
             {#numbers}
                 <div class="column {column_class|s} has-colors-{background_color|s} {extra_class}">
                     <div class="key-figures__item is-flex p-9 p-12-desktop is-align-items-center is-justify-content-center is-flex-direction-column">
                         <div class="key-figures__number {num_class} is-family-secondary has-text-weight-bold has-line-height-tight">
-                            {number|s}
+                            {number|kses}
                         </div>
 
                         <div class="key-figures__description pt-2 has-text-weight-medium is-size-7 is-uppercase is-family-secondary">
-                            {description|s}
+                            {description|kses}
                         </div>
                     </div>
                 </div>

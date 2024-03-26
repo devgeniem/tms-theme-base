@@ -238,13 +238,13 @@ class PageEventsSearch extends BaseModel {
 
         if ( ! empty( $event_data['events'] ) ) {
 
-            $event_data = EventzFormatter::create_recurring_events( $event_data );
+            $event_data = EventzFormatter::create_recurring_events( $event_data, $params );
 
             $event_data['events'] = ( new EventzFormatter() )->format_events( $event_data['events'] );
 
             $event_data['events'] = array_map( function ( $item ) {
                 $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
-                $item['location_icon']     = $item['is_virtual_event']
+                $item['location_icon']     = isset( $item['is_virtual_event'] )
                     ? 'globe'
                     : 'location';
 
