@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-914:
     - Add new anchor-links block & functionalities
     - Add anchor id-elements to blocks & components
+- TMS-1013: Add entries fetching to Eventz event-integration
 
 ## [1.54.6] - 2024-03-18
 
