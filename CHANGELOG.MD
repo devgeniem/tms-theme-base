@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add anchor id-elements to blocks & components
 - TMS-1013: Add entries fetching to Eventz event-integration
 - TMS-968: Add recurring events to event-component
+- TMS-1021: Fix image alignment in image-carousel modal
 
 ## [1.54.6] - 2024-03-18
 
