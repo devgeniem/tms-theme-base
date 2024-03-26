@@ -1,30 +1,30 @@
-<div class="place-of-business is-align-full">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="place-of-business is-align-full">
     <div class="columns">
         <div class="column is-8-desktop is-offset-2-desktop">
             {?title}
                 <h2>
-                    {title|s}
+                    {title|html}
                 </h2>
             {/title}
 
             {?description}
-                {description|s}
+                {description|kses}
             {/description}
         </div>
     </div>
 
     <div class="columns is-mobile is-multiline is-variable is-6">
         {#items}
-            <div class="column {column_class|s} has-text-small keep-vertical-spacing">
+            <div class="column {column_class|attr} has-text-small keep-vertical-spacing">
                 {?title}
                     <div class="h6 mb-3">
-                        {title|s}
+                        {title|html}
                     </div>
                 {/title}
 
                 {?description}
                     <div class="has-text-weight-bold mb-3">
-                        {description|s}
+                        {description|kses}
                     </div>
                 {/description}
 
@@ -37,11 +37,11 @@
                                 </div>
 
                                 <div>
-                                    <div>{phone_text|s}</div>
+                                    <div>{phone_text|kses}</div>
                                     <div>
-                                        <a href="tel:{phone_number|s}"
+                                        <a href="tel:{phone_number|attr}"
                                            class="has-text-paragraph">
-                                            {phone_number|s}
+                                            {phone_number|kses}
                                         </a>
                                     </div>
                                 </div>
@@ -56,8 +56,8 @@
                             {>"ui/icon" icon="email" class="icon--large is-primary" /}
                         </div>
 
-                        <a href="mailto:{email|s}" class="has-text-paragraph">
-                            {email|s}
+                        <a href="mailto:{email|attr}" class="has-text-paragraph">
+                            {email|kses}
                         </a>
                     </div>
                 {/email}
@@ -68,7 +68,7 @@
                             {>"ui/icon" icon="location" class="icon--large is-primary" /}
                         </div>
 
-                        {address|s}
+                        {address|kses}
                     </div>
                 {/address}
 
@@ -78,15 +78,15 @@
                             {>"ui/icon" icon="location" class="icon--large is-primary" /}
                         </div>
 
-                        {mail_address_street|s}
-                        {mail_address_zip_code|s}
-                        {mail_address_city|s}
+                        {mail_address_street|kses}
+                        {mail_address_zip_code|kses}
+                        {mail_address_city|kses}
                     </div>
                 {/isset}
 
                 {?additional_info}
                     <div class="keep-vertical-spacing">
-                        {additional_info|s}
+                        {additional_info|kses}
                     </div>
                 {/additional_info}
             </div>

@@ -6,12 +6,12 @@
     <li class="navbar-item has-dropdown {#classes}{.}{@sep} {/sep}{/classes}">
         <div class="navbar-dropdown-control">
             <a class="navbar-link dropdown-trigger is-arrowless" href="#">
-                {title|s}
+                {title|html}
             </a>
 
-            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-menu-item-dropdown-{$idx}">
-                <span class="is-sr-only">{data.open_menu|s}</span>
-                {Strings.s}
+            <button class="dropdown-toggler" aria-expanded=false aria-controls="js-navbar-menu-item-dropdown-{$idx|attr}">
+                <span class="is-sr-only">{data.open_menu|html}</span>
+                {Strings.s|html}
 
                 <span aria-hidden="true">
                     {>"ui/icon" icon="chevron-down" class="icon--medium" /}
@@ -20,6 +20,6 @@
         </div>
 
         {>"ui/menu/menu-item-dropdown-content" /}
-       
+
     </li>
 {/sub_menu}

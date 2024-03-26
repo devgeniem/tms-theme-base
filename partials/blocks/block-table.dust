@@ -1,7 +1,7 @@
-<div class="table is-align-wide mt-6 mb-6" {?anchor} id="{anchor}"{/anchor}>
+<div class="table is-align-wide mt-6 mb-6" {?anchor} id="{anchor|attr}"{/anchor}>
     {?title}
         <h2 class="h4 mt-0 mb-6">
-            {title|s}
+            {title|html}
         </h2>
     {/title}
 

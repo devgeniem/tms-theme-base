@@ -1,16 +1,16 @@
-<div {?anchor}id="{anchor|s}"{/anchor} class="section social-media has-background-secondary">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="section social-media has-background-secondary">
     <div class="container">
         <div class="columns">
             <div class="column is-8 is-offset-2 has-text-centered has-text-black">
                 {?title}
                     <h2 class="mt-0 mb-6">
-                        {title|s}
+                        {title|html}
                     </h2>
                 {/title}
 
                 {?description}
                     <div class="social-media__description mb-4 is-family-secondary has-text-weight-semibold has-text-large">
-                        {description|s}
+                        {description|kses}
                     </div>
                 {/description}
             </div>
@@ -21,14 +21,14 @@
             <div class="column">
                 {?flocker_embed}
                      {! Skip embed !}
-                    <a href="#{id}" class="skip-to-content">
-                        {skip_text|s}
+                    <a href="#{id|attr}" class="skip-to-content">
+                        {skip_text|kses}
                     </a>
                     <div class="social-media__flocker-embed">
                         {flocker_embed|s}
                     </div>
                     {! Skip embed target !}
-                    <div id="{id}"></div>
+                    <div id="{id|attr}"></div>
                 {/flocker_embed}
             </div>
         </div>

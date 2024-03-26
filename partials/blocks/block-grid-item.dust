@@ -1,15 +1,15 @@
-<div class="grid__item grid__item--equal-height gallery is-gapless gallery-columns-2-tablet is-align-items-stretch {classes}">
+<div class="grid__item grid__item--equal-height gallery is-gapless gallery-columns-2-tablet is-align-items-stretch {classes|attr}">
     <div class="grid__item__details details is-flex is-flex-direction-column is-justify-content-center has-text-centered p-2 p-4-desktop">
         {?title}
-            <h3 class="h6 mb-0">{title}</h3>
+            <h3 class="h6 mb-0">{title|html}</h3>
         {/title}
 
         {?description}
-            <p class="has-text-small mt-3 mb-0 mt-4-tablet pl-2 pr-2">{description|s}</p>
+            <p class="has-text-small mt-3 mb-0 mt-4-tablet pl-2 pr-2">{description|kses}</p>
         {/description}
 
         {?link}
-            <a href="{link.url}" target="{link.target}" class="button {button} is-small ml-auto mr-auto mt-4 mb-0 mt-4-tablet">{link.title}</a>
+            <a href="{link.url|url}" target="{link.target|attr}" class="button {button|attr} is-small ml-auto mr-auto mt-4 mb-0 mt-4-tablet">{link.title|html}</a>
         {/link}
     </div>
     {?image.id}
