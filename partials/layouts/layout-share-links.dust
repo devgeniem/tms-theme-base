@@ -1,5 +1,5 @@
 {?share_links}
-    <section class="section layout-share-links">
+    <section {?anchor}id="{anchor|attr}"{/anchor} class="section layout-share-links">
         <div class="container">
             <div class="columns">
                 <div class="column">
@@ -9,7 +9,7 @@
                                 {title|html}
                             </h2>
                         {/title}
-        
+
                         {>"ui/share-links" li_class="mr-4" /}
                     </div>
                 </div>

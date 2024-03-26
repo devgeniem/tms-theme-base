@@ -1,4 +1,4 @@
-<section {?anchor}id="{anchor|s}"{/anchor}
+<section {?anchor}id="{anchor|attr}"{/anchor}
          class="icon-links section pt-12 pb-7 has-background-primary-light--opaque-light has-text-centered">
     <div class="container">
         <div class="columns">
@@ -12,13 +12,13 @@
 
                             {?title}
                                 <h2 class="h4 mt-0 mb-5">
-                                    {title|s}
+                                    {title|html}
                                 </h2>
                             {/title}
 
                             {?description}
                                 <div class="icon-links__item-description mb-5">
-                                    {description|s}
+                                    {description|kses}
                                 </div>
                             {/description}
 

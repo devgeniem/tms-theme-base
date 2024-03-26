@@ -64,8 +64,8 @@ trait Sharing {
         $selected_channels = array_filter( $selected_channels, fn( $item ) => isset( $channels[ $item ] ) );
         $current_post      = get_queried_object();
         $event_query_var   = get_query_var( 'event-id' );
-        $event_date        = $_GET['date'];
-        $event_time        = $_GET['time'];
+        $event_date        = $_GET['date'] ?? '';
+        $event_time        = $_GET['time'] ?? '';
         $overwrite_url     = '';
 
         if ( ! $current_post instanceof \WP_Post ) {
