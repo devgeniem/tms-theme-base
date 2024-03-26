@@ -364,6 +364,8 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
     /**
      * Get recurring manual events.
      *
+     * @param array $category_ids List of taxonomy ids.
+     *
      * @return array
      */
     protected function get_recurring_manual_events( array $category_ids = null ) : array {

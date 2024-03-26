@@ -189,35 +189,30 @@ class PageGroup {
      * Add HTML-anchor field to layout fields.
      */
     private function add_anchor_fields() : void {
-        $components = \apply_filters(
-            'tms/acf/page_layouts',
-            [
-                'image_banner'    => Layouts\ImageBannerLayout::class,
-                'call_to_action'  => Layouts\CallToActionLayout::class,
-                'content_columns' => Layouts\ContentColumnsLayout::class,
-                'logo_wall'       => Layouts\LogoWallLayout::class,
-                'map'             => Layouts\MapLayout::class,
-                'icon_links'      => Layouts\IconLinksLayout::class,
-                'social_media'    => Layouts\SocialMediaLayout::class,
-                'image_carousel'  => Layouts\ImageCarouselLayout::class,
-                'subpages'        => Layouts\SubpageLayout::class,
-                'textblock'       => Layouts\TextBlockLayout::class,
-                'grid'            => Layouts\GridLayout::class,
-                'events'          => Layouts\EventsLayout::class,
-                'articles'        => Layouts\ArticlesLayout::class,
-                'blog_articles'   => Layouts\BlogArticlesLayout::class,
-                'sitemap'         => Layouts\SitemapLayout::class,
-                'notice_banner'   => Layouts\NoticeBannerLayout::class,
-                'gravityform'     => Layouts\GravityFormLayout::class,
-                'contacts'        => Layouts\ContactsLayout::class,
-                'acc_icon_links'  => Layouts\AccessibilityIconLinksLayout::class,
-                'share_links'     => Layouts\ShareLinksLayout::class,
-                'countdown'       => Layouts\CountdownLayout::class,
-                'video'           => Layouts\VideoLayout::class,
-            ]
-        );
-
-        $keys = array_keys( $components );
+        $keys = [
+            'image_banner',
+            'call_to_action',
+            'content_columns',
+            'logo_wall',
+            'map',
+            'icon_links',
+            'social_media',
+            'image_carousel',
+            'subpages' ,
+            'textblock',
+            'grid',
+            'events',
+            'articles',
+            'blog_articles',
+            'sitemap',
+            'notice_banner',
+            'gravityform',
+            'contacts',
+            'acc_icon_links',
+            'share_links',
+            'countdown',
+            'video',
+        ];
 
         foreach ( $keys as $component ) {
             if ( empty( $component ) ) {
