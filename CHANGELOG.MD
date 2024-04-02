@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1019: Add black & white color theme
+
 ## [1.54.7] - 2024-03-26
 
 - TMS-914:
