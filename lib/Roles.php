@@ -152,6 +152,48 @@ class Roles implements Controller {
     ];
 
     /**
+     * Manual Event / manual-event-cpt.
+     *
+     * @var array
+     */
+    private $manual_event_all_capabilities = [
+        'edit_manual_event',
+        'read_manual_event',
+        'delete_manual_event',
+        'edit_others_manual_events',
+        'delete_manual_events',
+        'publish_manual_events',
+        'read_private_manual_events',
+        'delete_private_manual_events',
+        'delete_published_manual_events',
+        'delete_others_manual_events',
+        'edit_private_manual_events',
+        'edit_published_manual_events',
+        'edit_manual_events',
+    ];
+
+    /**
+     * Lunch Menu / lunch-menu-cpt.
+     *
+     * @var array
+     */
+    private $lunch_menus_all_capabilities = [
+        'edit_lunch_menu',
+        'read_lunch_menu',
+        'delete_lunch_menu',
+        'edit_others_lunch_menus',
+        'delete_lunch_menus',
+        'publish_lunch_menus',
+        'read_private_lunch_menus',
+        'delete_private_lunch_menus',
+        'delete_published_lunch_menus',
+        'delete_others_lunch_menus',
+        'edit_private_lunch_menus',
+        'edit_published_lunch_menus',
+        'edit_lunch_menus',
+    ];
+
+    /**
      * Base taxonomy capabilities, only for admins.
      *
      * @var string[]
@@ -185,6 +227,18 @@ class Roles implements Controller {
         'edit_material_types',
         'delete_material_types',
         'assign_material_types',
+    ];
+
+    /**
+     * Manual Event Category taxonomy
+     *
+     * @var string[]
+     */
+    private $taxonomy_manual_event_category_all_capabilities = [
+        'manage_manual_event_categories',
+        'edit_manual_event_categories',
+        'delete_manual_event_categories',
+        'assign_manual_event_categories',
     ];
 
     /**
@@ -366,11 +420,13 @@ class Roles implements Controller {
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
+        $role->add_caps( $this->manual_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
         $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
         $role->add_caps( $this->taxonomy_material_type_all_capabilities );
+        $role->add_caps( $this->taxonomy_manual_event_category_all_capabilities );
 
         $role->remove_caps( $this->remove_from_all );
 
@@ -399,11 +455,13 @@ class Roles implements Controller {
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
         $role->add_caps( $this->dynamic_event_all_capabilities );
+        $role->add_caps( $this->manual_event_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
         $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
         $role->add_caps( $this->taxonomy_material_type_all_capabilities );
+        $role->add_caps( $this->taxonomy_manual_event_category_all_capabilities );
 
         // Other
         $role->add_caps( [
@@ -456,11 +514,14 @@ class Roles implements Controller {
         $role->add_caps( $this->site_settings_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
         $role->add_caps( $this->dynamic_event_all_capabilities );
+        $role->add_caps( $this->manual_event_all_capabilities );
+        $role->add_caps( $this->lunch_menus_all_capabilities );
 
         // Taxonomies
         $role->add_caps( $this->taxonomy_category_all_capabilities );
         $role->add_caps( $this->taxonomy_post_tag_all_capabilities );
         $role->add_caps( $this->taxonomy_material_type_all_capabilities );
+        $role->add_caps( $this->taxonomy_manual_event_category_all_capabilities );
 
         // Other
         $role->add_caps( [
@@ -508,9 +569,16 @@ class Roles implements Controller {
         $role->add_caps( $this->materials_all_capabilities );
         $role->add_caps( $this->contact_all_capabilities );
         $role->add_caps( $this->dynamic_event_all_capabilities );
+        $role->add_caps( $this->manual_event_all_capabilities );
+        $role->add_caps( $this->lunch_menus_all_capabilities );
 
         // Taxonomies
-        $role->add_caps( [ 'assign_categories', 'assign_post_tags', 'assign_material_types' ] );
+        $role->add_caps( [
+            'assign_categories',
+            'assign_post_tags',
+            'assign_material_types',
+            'assign_manual_event_categories',
+        ] );
 
         // Other
         $role->add_caps( [ 'edit_theme_options', 'unfiltered_html' ] );

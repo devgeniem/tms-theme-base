@@ -57,9 +57,9 @@ class DustPressController implements Interfaces\Controller {
             $data->hellip_end = false;
         }
 
-        $data->S->page_aria_label = _x( 'Go to Page', 'pagination', 'tms-theme-base' );
-        $data->S->next            = _x( 'Next', 'pagination', 'tms-theme-base' );
-        $data->S->prev            = _x( 'Previous', 'pagination', 'tms-theme-base' );
+        $data->S->page_aria_label = _x( 'Go to Page', 'pagination', 'tms-theme-base' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+        $data->S->next            = _x( 'Next', 'pagination', 'tms-theme-base' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+        $data->S->prev            = _x( 'Previous', 'pagination', 'tms-theme-base' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
         return $data;
     }

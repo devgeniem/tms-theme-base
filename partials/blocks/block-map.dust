@@ -1,5 +1,5 @@
 {?embed}
-    <div class="mt-4 mb-4">
+    <div {?anchor}id="{anchor|attr}"{/anchor} class="mt-4 mb-4">
         {>"shared/map-embed"  /}
     </div>
 {/embed}

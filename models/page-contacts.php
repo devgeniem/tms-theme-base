@@ -45,25 +45,34 @@ class PageContacts extends BaseModel {
      * @return array
      */
     protected function get_contacts() : array {
+        $selected_contacts = \get_field( 'contacts' );
+        if ( empty( $selected_contacts ) ) {
+            return [];
+        }
+
+        $s = \get_query_var( self::SEARCH_QUERY_VAR, false );
+
+        // Return all selected contacts if no search was performed.
+        if ( empty( $s ) ) {
+            return $selected_contacts;
+        }
+
         $args = [
             'post_type'      => Contact::SLUG,
             'posts_per_page' => 200, // phpcs:ignore
             'post_status'    => 'publish',
             'fields'         => 'ids',
+            'post__in'       => array_map( 'absint', $selected_contacts ),
+            'no_found_rows'  => true,
             'meta_key'       => 'last_name',
             'orderby'        => [
                 'menu_order' => 'ASC',
                 'meta_value' => 'ASC', // phpcs:ignore
             ],
+            's'              => $s,
         ];
 
-        $s = get_query_var( self::SEARCH_QUERY_VAR, false );
-
-        if ( ! empty( $s ) ) {
-            $args['s'] = $s;
-        }
-
-        $the_query = new WP_Query( $args );
+        $the_query = new \WP_Query( $args );
 
         return $the_query->posts;
     }
@@ -79,7 +88,7 @@ class PageContacts extends BaseModel {
 
         $contacts = $formatter->map_keys(
             $contacts,
-            get_field( 'fields' ) ?? [],
+            \get_field( 'fields' ) ?? [],
             $default_image
         );
 

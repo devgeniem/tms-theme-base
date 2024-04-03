@@ -20,6 +20,59 @@ class Single extends BaseModel {
     use Traits\Components;
 
     /**
+     * Hooks
+     *
+     * @return void
+     */
+    public function hooks() : void {
+        // og:image.
+        add_filter(
+            'the_seo_framework_image_generation_params',
+            Closure::fromCallable( [ $this, 'alter_image' ] )
+        );
+    }
+
+    /**
+     * Add image for og:image.
+     *
+     * @param array $params An array of SEO framework image parameters.
+     *
+     * @return array
+     */
+    protected function alter_image( $params ) {
+        $image_url = get_field( 'image_url' ) ?: false;
+
+        if ( $image_url ) {
+            // Ensure our custom generator is ran first.
+            $params['cbs'] = array_merge(
+                [ 'tms' => \Closure::fromCallable( [ $this, 'seo_image_generator' ] ) ],
+                $params['cbs']
+            );
+        }
+
+        return $params;
+    }
+
+    /**
+     * Custom generator for The SEO Framework og images.
+     *
+     * @yield array : {
+     *     string url: The image URL,
+     *     int     id: The image ID,
+     * }
+     */
+    protected function seo_image_generator() {
+        $image_url = get_field( 'image_url' ) ?: false;
+
+        if ( $image_url ) {
+            yield [
+                'url' => $image_url,
+                'id'  => null,
+            ];
+        }
+    }
+
+    /**
      * Content
      *
      * @return array|object|WP_Post|null
@@ -33,6 +86,7 @@ class Single extends BaseModel {
             : $single->image;
 
         $single->api_image_url = empty( $single->image ) ? get_field( 'image_url' ) : false;
+        $single->api_image_alt = empty( $single->image ) ? get_field( 'image_alt' ) : false;
         $single->has_image     = ! empty( $single->image ) || ! empty( $single->api_image_url );
 
         if ( 'blog-article' === $single->post_type ) {
@@ -87,9 +141,13 @@ class Single extends BaseModel {
                     $item->category_link = get_category_link( $categories[0]->ID );
                 }
 
-                $item->image_id = $item->image_id === 0
-                    ? Images::get_default_image_id()
-                    : $item->image_id;
+                $item->api_image_url = get_field( 'image_url', $item->ID );
+                $item->api_image_alt = get_field( 'image_alt', $item->ID );
+                $has_image           = $item->image_id !== 0 || ! empty( $item->api_image_url );
+
+                if ( ! $has_image ) {
+                    $item->image_id = Images::get_default_image_id();
+                }
 
                 if ( ! has_excerpt( $item->ID ) ) {
                     $item->post_excerpt = $this->get_related_excerpt( $item );

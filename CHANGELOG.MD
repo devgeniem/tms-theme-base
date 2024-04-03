@@ -7,6 +7,158 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.7] - 2024-03-26
+
+- TMS-914:
+    - Add new anchor-links block & functionalities
+    - Add anchor id-elements to blocks & components
+- TMS-1013: Add entries fetching to Eventz event-integration
+- TMS-968: Add recurring events to event-component
+- TMS-1021: Fix image alignment in image-carousel modal
+
+## [1.54.6] - 2024-03-18
+
+- TMS-996: Change bold image-caption text to normal
+- TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
+- TMS-1015: Header accessibility fixes
+- TMS-1017: Add image alt-text to imported news
+- TMS-1018: Remove external-link icons from imported news image links
+
+## [1.54.5] - 2024-02-01
+
+- TMS-977: Add 'clear form' button to event-search
+- TMS-1010: Fix events-lift component sorting with recurring events
+
+## [1.54.4] - 2024-01-15
+
+- TMS-980: Add redipress_include_search to include component contents in search results
+
+## [1.54.3] - 2023-12-04
+
+- TMS-939:
+    - Search-page form accessibility fixes
+    - Header search accessibility fixes
+    - Added focus on input when opening header search
+- TMS-940: Hide current language on mobile header if only 2 languages in use
+- TMS-942:
+    - Check / uncheck search filter checkboxes depending on choices
+    - Trim contact phone number in href
+    - Increase fly-out-nav z-index to prevent chatbot from overlapping elements
+
+## [1.54.2] - 2023-11-22
+
+- TMS-974: Fix event formatting if only manual events are shown
+
+## [1.54.1] - 2023-11-22
+
+- TMS-974: Fix fatal error in EventzFormatter
+
+## [1.54.0] - 2023-11-21
+
+### Added
+
+- TMS-974:
+    - Add recurring events to lists as single item.
+    - Add recurring events to events-component
+- TMS-994: Add missing list-item block to use
+
+### Fixed
+
+- TMS-935: Archive filter accessibility fixes
+
+## [1.53.0] - 2023-11-07
+
+### Added
+
+- TMS-950:
+    - Empty check for phone repeater.
+    - Place of business posts to block
+    - Contacts styles & accessibility
+
+## [1.52.0] - 2023-10-23
+
+### Added
+
+- TMS-970: Add image caption text to call-to-action and content-columns blocks.
+
+## [1.51.0] - 2023-10-12
+
+### Fixed
+
+- TMS-934: Add screen-reader info for article categories.
+- TMS-936: Image carousel accessibility fixes
+- TMS-933: Modaal accessibility fixes
+
+## [1.50.0] - 2023-10-04
+
+- TMS-978: Add has-line-height-normal class
+
+## [1.49.0] - 2023-09-15
+
+- TMS-962: Add Lunch Menus plugin caps to roles.
+
+## [1.48.0] - 2023-09-13
+
+- TMS-973: Fix manual event sorting
+
+
+## [1.47.0] - 2023-09-04
+
+- TMS-964-2: Update translation and format pricing.
+
+## [1.46.0] - 2023-08-30
+
+- TMS-964: Add new Eventz api and remove old one.
+
+## [1.45.0] - 2023-07-31
+
+### Modified
+
+- PIEN-8943: Allowed ReCaptcha field in GravityForms
+
+## [1.44.0] - 2023-06-22
+
+### Modified
+
+- TMS-956: Add Manual Events plugin caps to roles.
+
+## [1.43.0] - 2023-06-21
+
+### Modified
+
+- TMS-956: Add event datetime objects to normalized event for easier sorting.
+- TMS-956: Allow filtering displayed events in Events layout.
+
+## [1.42.4] - 2023-05-24
+
+### Fixed
+
+- TMS-931: Change back-to-top button to focus main-content, Add screen-reader info for links that go to external sites
+- TMS-931: Navigation accessibility fixes
+
+## [1.42.3] - 2023-05-02
+
+### Fixed
+
+- PIEN-8394: Add API image to og:image tag #466
+
+## [1.42.2] - 2023-04-28
+
+### Fixed
+
+- PIEN-8585: Check empty links #465
+
+## [1.42.1] - 2023-04-27
+
+### Fixed
+
+- PIEN-8524: Display API images #464
+
+## [1.42.0] - 2023-04-11
+
+- PIEN-8157: PHP 8.1
+- PIEN-8439: Add pageID meta tag #463
+
 ## [1.41.2] - 2022-02-11
 
 ### Fixed

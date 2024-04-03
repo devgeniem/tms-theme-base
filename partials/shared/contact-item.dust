@@ -9,21 +9,21 @@
 
     <div class="column">
         {?additional_info_top}
-            <div class="h6 mb-3 keep-vertical-spacing">
-                {additional_info_top|s}
-            </div>
+            <p class="h6 mb-3 mt-0 keep-vertical-spacing">
+                {additional_info_top|kses}
+            </p>
         {/additional_info_top}
 
         {?title}
-            <div class="mb-3">
-                {title|s}
-            </div>
+            <p class="mb-3 mt-0 hyphenate">
+                {title|html}
+            </p>
         {/title}
 
         {@isset key1=first_name key2=last_name method="OR" }
-            <div class="has-text-weight-bold mb-3">
-                {first_name|s} {last_name|s}
-            </div>
+            <p class="has-text-weight-bold mb-3 mt-0">
+                {first_name|html} {last_name|html}
+            </p>
         {/isset}
 
         {?phone_repeater}
@@ -35,9 +35,9 @@
                         </div>
 
                         <div>
-                            <div>{phone_text|html}</div>
+                            <span>{phone_text|html}</span>
                             <div>
-                                <a href="tel:{phone_number|html}"
+                                <a href="tel:{?trimmed_number}{trimmed_number|html}{:else}{phone_number|html}{/trimmed_number}"
                                    class="has-text-paragraph hyphenate">
                                     {phone_number|html}
                                 </a>
@@ -66,9 +66,9 @@
                     {>"ui/icon" icon="building" class="icon--large is-primary" /}
                 </div>
 
-                <div>
-                    {office|s}
-                </div>
+                <p class="m-0">
+                    {office|html}
+                </p>
             </div>
         {/office}
 
@@ -78,9 +78,9 @@
                     {>"ui/icon" icon="location" class="icon--large is-primary" /}
                 </div>
 
-                <div>
-                    {domain|s}
-                </div>
+                <p class="m-0">
+                    {domain|html}
+                </p>
             </div>
         {/domain}
 
@@ -90,9 +90,9 @@
                     {>"ui/icon" icon="location" class="icon--large is-primary" /}
                 </div>
 
-                <div>
-                    {unit|s}
-                </div>
+                <p class="m-0">
+                    {unit|html}
+                </p>
             </div>
         {/unit}
 
@@ -102,9 +102,11 @@
                     {>"ui/icon" icon="location" class="icon--large is-primary" /}
                 </div>
 
-                {visiting_address_street|s}
-                {visiting_address_zip_code|s}
-                {visiting_address_city|s}
+                <p class="m-0">
+                    {visiting_address_street|html}
+                    {visiting_address_zip_code|html}
+                    {visiting_address_city|html}
+                </p>
             </div>
         {/isset}
 
@@ -114,15 +116,17 @@
                     {>"ui/icon" icon="location" class="icon--large is-primary" /}
                 </div>
 
-                {mail_address_street|s}
-                {mail_address_zip_code|s}
-                {mail_address_city|s}
+                <p class="m-0">
+                    {mail_address_street|html}
+                    {mail_address_zip_code|html}
+                    {mail_address_city|html}
+                </p>
             </div>
         {/isset}
 
         {?additional_info_bottom}
             <div>
-                {additional_info_bottom|s}
+                {additional_info_bottom|kses}
             </div>
         {/additional_info_bottom}
     </div>

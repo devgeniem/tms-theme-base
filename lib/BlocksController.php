@@ -113,6 +113,16 @@ class BlocksController implements Interfaces\Controller {
                     '',
                 ],
             ],
+            'core/list-item'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                ],
+                'templates'  => [
+                    '',
+                ],
+            ],
             'core/heading'          => [
                 'post_types' => [
                     PostType\Page::SLUG,
@@ -295,6 +305,20 @@ class BlocksController implements Interfaces\Controller {
                     PostType\Page::SLUG,
                     PostType\Post::SLUG,
                     PostType\Contact::SLUG,
+                ],
+            ],
+            'acf/lunch-menu'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                ],
+            ],
+            'acf/anchor-links'        => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                    PostType\DynamicEvent::SLUG,
                 ],
             ],
         ];

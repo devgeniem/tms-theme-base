@@ -64,12 +64,12 @@ class LinkListFields extends Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\ExtendedWysiwyg( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_tabs( 'visual' )
             ->set_toolbar( 'tms-minimal' )
@@ -78,14 +78,14 @@ class LinkListFields extends Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $links_field = ( new Field\Repeater( $strings['links']['label'] ) )
-            ->set_key( "${key}_links" )
+            ->set_key( "{$key}_links" )
             ->set_name( 'links' )
             ->set_layout( 'block' )
             ->set_button_label( $strings['links']['button'] )
             ->set_instructions( $strings['links']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
+            ->set_key( "{$key}_link" )
             ->set_name( 'link' )
             ->set_instructions( $strings['link']['instructions'] );
 

@@ -39,20 +39,21 @@ class Strings extends \DustPress\Model {
     public function s() : array {
         return [
             'header'             => [
-                'skip_to_content'          => _x( 'Skip to content', 'theme-frontend', 'tms-theme-base' ),
-                'main_navigation'          => _x( 'Main navigation', 'theme-frontend', 'tms-theme-base' ),
-                'open_menu'                => _x( 'Open menu', 'theme-frontend', 'tms-theme-base' ),
-                'close_menu'               => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
-                'language_navigation'      => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
-                'open_search'              => _x( 'Open search form', 'theme-frontend', 'tms-theme-base' ),
-                'open_lang_nav'            => _x( 'Open language navigation', 'theme-frontend', 'tms-theme-base' ),
-                'current_lang'             => _x( 'Current language: ', 'theme-frontend', 'tms-theme-base' ),
-                'search'                   => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
-                'search_title'             => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
-                'search_input_label'       => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
-                'search_input_placeholder' => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
-                'exception_close_button'   => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
-                'home'                     => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
+                'skip_to_content'           => _x( 'Skip to content', 'theme-frontend', 'tms-theme-base' ),
+                'main_navigation'           => _x( 'Main navigation', 'theme-frontend', 'tms-theme-base' ),
+                'frequently_searched_pages' => _x( 'Frequently searched pages', 'theme-frontend', 'tms-theme-base' ),
+                'open_menu'                 => _x( 'Open menu', 'theme-frontend', 'tms-theme-base' ),
+                'close_menu'                => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
+                'language_navigation'       => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
+                'open_search'               => _x( 'Open search form', 'theme-frontend', 'tms-theme-base' ),
+                'open_lang_nav'             => _x( 'Open language navigation', 'theme-frontend', 'tms-theme-base' ),
+                'current_lang'              => _x( 'Current language: ', 'theme-frontend', 'tms-theme-base' ),
+                'search'                    => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
+                'search_title'              => _x( 'Search', 'theme-frontend', 'tms-theme-base' ),
+                'search_input_label'        => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
+                'search_input_placeholder'  => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
+                'exception_close_button'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'home'                      => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
             ],
             '404'                => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),
@@ -77,35 +78,39 @@ class Strings extends \DustPress\Model {
                 'share_to_social_media' => _x( 'Share to social media', 'theme-frontend', 'tms-theme-base' ),
             ],
             'gallery'            => [
-                'close'          => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
-                'next'           => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
-                'open'           => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
-                'previous'       => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
-                'goto'           => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
-                'centered'       => _x( 'Centered', 'theme-frontend', 'tms-theme-base' ),
-                'slide'          => _x( 'Slide', 'theme-frontend', 'tms-theme-base' ),
-                'image_carousel' => _x( 'Image carousel', 'theme-frontend', 'tms-theme-base' ),
-                'modal_carousel' => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
-                'main_carousel'  => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'close'           => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
+                'next'            => _x( 'Next', 'theme-frontend', 'tms-theme-base' ),
+                'open'            => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),
+                'previous'        => _x( 'Previous', 'theme-frontend', 'tms-theme-base' ),
+                'goto'            => _x( 'Go to slide', 'theme-frontend', 'tms-theme-base' ),
+                'centered'        => _x( 'Centered', 'theme-frontend', 'tms-theme-base' ),
+                'slide'           => _x( 'Slide', 'theme-frontend', 'tms-theme-base' ),
+                'image_carousel'  => _x( 'Image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'modal_carousel'  => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'browsing_images' => _x( 'Browsing images', 'theme-frontend', 'tms-theme-base' ),
+                'main_carousel'   => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),
                 'back_to_top'  => _x( 'Back to top', 'theme-frontend', 'tms-theme-base' ),
             ],
             'common'             => [
-                'target_blank' => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
-                'all'          => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
-                'read_more'    => _x( 'Read more', 'theme-frontend', 'tms-theme-base' ),
+                'target_blank'  => _x( 'Opens in a new window', 'theme-frontend', 'tms-theme-base' ),
+                'external_link' => _x( 'The link takes you to an external website', 'theme-frontend', 'tms-theme-base' ),
+                'all'           => _x( 'All', 'theme-frontend', 'tms-theme-base' ),
+                'read_more'     => _x( 'Read more', 'theme-frontend', 'tms-theme-base' ),
             ],
             'single'             => [
                 'image_credits'   => _x( 'Image:', 'theme-frontend', 'tms-theme-base' ),
                 'writing_credits' => _x( 'Text:', 'theme-frontend', 'tms-theme-base' ),
+                'article_type'    => _x( 'Articletype:', 'theme-frontend', 'tms-theme-base' ),
             ],
             'home'               => [
                 'month'              => _x( 'Month', 'theme-frontend', 'tms-theme-base' ),
                 'year'               => _x( 'Year', 'theme-frontend', 'tms-theme-base' ),
                 'no_results'         => _x( 'No results', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_category' => _x( 'Filter by Category', 'theme-frontend', 'tms-theme-base' ),
+                'description'        => _x( 'The page reloads after the selection.', 'theme-frontend', 'tms-theme-base' ),
             ],
             'months'             => [
                 'january'   => _x( 'January', 'theme-frontend', 'tms-theme-base' ),
@@ -168,6 +173,8 @@ class Strings extends \DustPress\Model {
             'search'             => [
                 'filter_by_post_type' => _x( 'Filter by type', 'theme-frontend', 'tms-theme-base' ),
                 'filter_by_date'      => _x( 'Publish date', 'theme-frontend', 'tms-theme-base' ),
+                'breadcrumbs'         => _x( 'Page location:', 'theme-frontend', 'tms-theme-base' ),
+                'clear'               => _x( 'Clear the form', 'theme-frontend', 'tms-theme-base' )
             ],
             // Use the Duet Date Picker keys for strings
             'datepicker'         => [
@@ -224,8 +231,8 @@ class Strings extends \DustPress\Model {
                 'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
             ],
             'modaal'             => [
-                'accessible_title' => _x( 'Dialog Window - Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
-                'close'            => _x( 'Close (Press escape to close)', 'theme-frontend', 'tms-theme-base' ),
+                'accessible_title' => _x( 'Enlarged image', 'theme-frontend', 'tms-theme-base' ),
+                'close'            => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
             ],
         ];
     }
@@ -238,7 +245,7 @@ class Strings extends \DustPress\Model {
      * @return object
      */
     public function add_pagination_translations( $data ) {
-        $data->S->aria_label = __( 'Pagination', 'tms-theme-base' );
+        $data->S->aria_label = __( 'Pagination', 'tms-theme-base' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
         return $data;
     }

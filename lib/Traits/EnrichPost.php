@@ -33,10 +33,12 @@ trait EnrichPost {
         int $excerpt_length = 160
     ) {
         if ( $use_images ) {
-            $api_image = get_field( 'image_url', $post->ID );
+            $api_image     = get_field( 'image_url', $post->ID );
+            $api_image_alt = get_field( 'image_alt', $post->ID );
 
             if ( ! empty( $api_image ) ) {
                 $post->api_image_url = $api_image;
+                $post->api_image_alt = $api_image_alt;
             }
             else {
                 $post->featured_image = has_post_thumbnail( $post->ID )

@@ -71,6 +71,7 @@ class TextBlockFields extends Field\Group {
             ->set_key( "${key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
+            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
@@ -84,6 +85,7 @@ class TextBlockFields extends Field\Group {
             ->set_name( 'text' )
             ->set_required()
             ->set_height( 300 )
+            ->redipress_include_search()
             ->set_instructions( $strings['text']['instructions'] );
 
         $background_color_field = ( new Field\Radio( $strings['background_color']['label'] ) )

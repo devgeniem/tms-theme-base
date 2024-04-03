@@ -5,6 +5,7 @@
 
 import Common from './common';
 import Accordion from './accordion';
+import AnchorLinks from './anchor-links';
 import MapLayout from './map-layout';
 import CopyToClipboard from './copy-to-clipboard';
 import Hero from './hero';
@@ -26,10 +27,13 @@ import ExternalLinks from './external-links';
 import DatePicker from './date-picker';
 import GravityFormsPatch from './gravity-forms-patch';
 import Countdown from './countdown';
+import SearchFilters from './search-filters';
+import FocusOnSearch from './focus-on-search';
 
 const globalControllers = {
     Common,
     Accordion,
+    AnchorLinks,
     MapLayout,
     CopyToClipboard,
     Hero,
@@ -51,6 +55,8 @@ const globalControllers = {
     DatePicker,
     GravityFormsPatch,
     Countdown,
+    SearchFilters,
+    FocusOnSearch,
 };
 
 const templateControllers = {
