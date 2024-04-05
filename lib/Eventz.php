@@ -431,11 +431,18 @@ class Eventz implements Controller {
             ];
         }
 
-        $start_date = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->start ) ) );
-        $end_date   = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->end ) ) );
+        $start_date = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            date( 'Y-m-d H:i:s', strtotime( $event->event->start ) )
+        );
+        $end_date   = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            date( 'Y-m-d H:i:s', strtotime( $event->event->end ) )
+        );
 
         // Loop through days and get the dates each week
         foreach ( $entry_data as $entry ) {
+            // Check if the day of week matches the events start date
             if ( date( 'D', strtotime( $entry['day_of_week'] ) ) !== $start_date->format( 'D' ) ) {
                 $day_of_week = date( 'D', strtotime( $entry['day_of_week'] ) );
                 $start_date->modify( "next $day_of_week" );
@@ -480,11 +487,11 @@ class Eventz implements Controller {
         $event_page = Settings::get_setting( 'events_page' );
 
         if ( $event_page ) {
-            return add_query_arg(
+            return \add_query_arg(
                 [
                     'event-id' => $event_id,
                 ],
-                get_permalink( $event_page )
+                \get_permalink( $event_page )
             );
         }
 
