@@ -3,17 +3,17 @@
     // Button styles
     .button {
         &.is-secondary {
-            border-color: $color-black !important;
+            border-color: $black !important;
         }
     }
 }
 
 .site-header {
-    background-color: $primary !important;
+    background-color: $black !important;
 
     &__tagline,
     .secondary-menu li a {
-        color: $primary-invert !important;
+        color: $white !important;
     }
 
     &__end {
@@ -25,12 +25,12 @@
 
 .lang-nav--horizontal {
     a {
-        color: $primary-invert !important;
+        color: $white !important;
 
         &:hover,
         &:focus {
             color: $black !important;
-            background-color: $primary !important;
+            background-color: $black !important;
             outline-color: $black;
         }
     }
@@ -94,8 +94,8 @@
 }
 
 .quote {
-    background-color: $secondary-dark !important;
-    color: $secondary !important;
+    background-color: $black !important;
+    color: $white !important;
 }
 
 .subpages {
@@ -122,7 +122,7 @@
         > a {
             &:hover,
             &:focus {
-                color: darken($primary, 70%) !important;
+                color: $black !important;
             }
         }
     }
@@ -149,6 +149,18 @@
             .icon {
                 fill: $black !important;
             }
+        }
+    }
+}
+
+.key-figures {
+    &__row {
+        .has-colors-white {
+            border: 1px solid $black !important;
+        }
+
+        .has-colors-secondary {
+            background-color: $secondary-light !important;
         }
     }
 }
