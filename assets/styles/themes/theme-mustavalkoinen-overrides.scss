@@ -165,6 +165,15 @@
     }
 }
 
+.grid {
+    &__item {
+        &.has-colors-white,
+        &.has-colors-secondary {
+            border: 1px solid $black !important;
+        }
+    }
+}
+
 .gform_wrapper {
     textarea,
     input {
