@@ -21,6 +21,14 @@
             border-color: $white !important;
         }
     }
+
+    .fly-out-nav__trigger .icon {
+        fill: $white !important;
+    }
+}
+
+.has-border-secondary {
+    border-color: $black;
 }
 
 .lang-nav--horizontal {
@@ -37,26 +45,36 @@
 }
 
 .site-header-notice {
+    background-color: $secondary-light !important;
+
     .notice-banner__text {
-        color: $white !important;
-
-        .icon {
-            fill: $white !important;
-        }
-    }
-
-    .button {
-        background-color: $white !important;
         color: $black !important;
 
         .icon {
             fill: $black !important;
         }
+    }
+
+    .button {
+        background-color: $black !important;
+        color: $white !important;
+        border-color: $black !important;
+
+        .icon {
+            fill: $white !important;
+        }
 
         &:hover,
         &:focus {
+            background-color: $white !important;
+            color: $black !important;
+            border-color: $black !important;
             text-decoration: underline !important;
-            outline-color: $white !important;
+            outline-color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
         }
     }
 }
