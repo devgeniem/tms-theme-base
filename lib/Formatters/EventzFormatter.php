@@ -114,7 +114,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                 $recurring_event_dates = [];
 
                 // Chek if event has dates or entries
-                if ( isset( $event['dates'] ) && count( $event['dates'] ) > 1 ) {
+                if ( isset( $event['dates'] ) && count( $event['dates'] ) >= 1 ) {
                     $recurring_event_dates = $event['dates'];
                 }
                 elseif ( ! empty( $event['entries'] ) ) {
