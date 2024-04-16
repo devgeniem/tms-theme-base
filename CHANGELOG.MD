@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1019: Add black & white color theme
 - TMS-1031: Fix event-component recurring manual-event dates
+- TMS-1033: Add new optional hero-museum component
 
 ## [1.54.7] - 2024-03-26
 

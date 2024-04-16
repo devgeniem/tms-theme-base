@@ -35,6 +35,10 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             'title'        => 'Oletuskuva',
             'instructions' => '',
         ],
+        'use_hero_museum' => [
+            'title'        => 'Ota käyttöön museosivustojen hero',
+            'instructions' => 'Tällä valinnalla saat otettua käyttöön museosivustojen heron etusivulle.',
+        ],
     ];
 
     /**
@@ -86,22 +90,33 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             );
 
             $color_theme_select = ( new Field\Select( $this->strings['color_selection']['title'] ) )
-                ->set_key( $key . '_theme_color' )
+                ->set_key( '{$key}_theme_color' )
                 ->set_name( 'theme_color' )
                 ->set_choices( $theme_colors )
                 ->set_default_value( $theme_default_color )
                 ->set_instructions( $this->strings['color_selection']['instructions'] );
 
             $image_field = ( new Field\Image( $this->strings['default_image']['title'] ) )
-                ->set_key( "${key}_default_image" )
+                ->set_key( "{$key}_default_image" )
                 ->set_name( 'default_image' )
                 ->set_return_format( 'id' )
                 ->set_instructions( $this->strings['default_image']['instructions'] );
+
+            $use_hero_museum = ( new Field\TrueFalse( $this->strings['use_hero_museum']['title'] ) )
+                ->set_key( "{$key}_use_hero_museum" )
+                ->set_name( 'use_hero_museum' )
+                ->use_ui()
+                ->set_instructions( $this->strings['use_hero_museum']['instructions'] );
 
             $this->add_fields( [
                 $color_theme_select,
                 $image_field,
             ] );
+
+            // Show hero_museum field only for sites using base theme
+            if ( \is_child_theme() === false ) {
+                $this->add_field( $use_hero_museum );
+            }
         }
         catch ( \Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
