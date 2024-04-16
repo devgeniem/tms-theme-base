@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1019: Add black & white color theme
 - TMS-1013:
     - Fix weekly date loop if event has multiple days in entries
     - Sort entries date-array
