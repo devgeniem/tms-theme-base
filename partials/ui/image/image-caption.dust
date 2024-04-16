@@ -1,8 +1,8 @@
-<div class="columns pt-2">
+<div class="columns mb-1 pt-2">
     <div
         class="column is-flex is-justify-content-space-between is-flex-wrap-wrap has-text-small">
-            <strong class="is-inline-block">
+            <p class="is-inline-block m-0">
                 {image.caption|kses}
-            </strong>
+            </p>
     </div>
 </div>

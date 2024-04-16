@@ -1,0 +1,29 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="anchor-links is-relative mt-8 mb-8 p-8 {?links}has-background-secondary has-text-secondary-invert{/links}">
+    {>"shared/layout-before-main-content" /}
+
+    {?title}
+        <h2 class="link-list__title h5 mt-0 mb-6">
+            {title|html}
+        </h2>
+    {/title}
+
+    {?description}
+        <div class="link-list__description mt-6">
+            {description|kses}
+        </div>
+    {/description}
+
+    {?anchor_links}
+        <ul class="anchor-links__list is-unstyled mt-6 keep-vertical-spacing">
+            {#anchor_links}
+                <li class="mb-2">
+                    <a href="{anchor_link.url|url}" target="{anchor_link.target|attr}" class="is-flex is-align-items-center">
+                        <span>{anchor_link.title|html}</span>
+                    </a>
+                </li>
+            {/anchor_links}
+        </ul>
+    {/anchor_links}
+
+    {>"shared/layout-after-main-content" /}
+</div>

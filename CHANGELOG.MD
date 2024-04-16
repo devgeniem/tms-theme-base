@@ -7,7 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.7] - 2024-03-26
+
+- TMS-914:
+    - Add new anchor-links block & functionalities
+    - Add anchor id-elements to blocks & components
 - TMS-1013: Add entries fetching to Eventz event-integration
+- TMS-968: Add recurring events to event-component
+- TMS-1021: Fix image alignment in image-carousel modal
+
+## [1.54.6] - 2024-03-18
+
+- TMS-996: Change bold image-caption text to normal
+- TMS-1009: Fix error when fetching Eventz response with languages other than fi & en
+- TMS-1015: Header accessibility fixes
+- TMS-1017: Add image alt-text to imported news
+- TMS-1018: Remove external-link icons from imported news image links
 
 ## [1.54.5] - 2024-02-01
 
