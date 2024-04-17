@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1013: Skip dynamic events in recurring event checking
+
 ## [1.54.8] - 2024-04-17
 
 - TMS-1019: Add black & white color theme

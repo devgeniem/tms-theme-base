@@ -113,6 +113,12 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             foreach ( $events['events'] as $event ) {
                 $recurring_event_dates = [];
 
+                // Show event normally if it's a dynamic event
+                if ( $event['is_dynamic'] === '1' ) {
+                    $recurring_events[] = $event;
+                    continue;
+                }
+
                 // Chek if event has dates or entries
                 if ( isset( $event['dates'] ) && count( $event['dates'] ) >= 1 ) {
                     $recurring_event_dates = $event['dates'];

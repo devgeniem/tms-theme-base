@@ -138,6 +138,7 @@ class Eventz implements Controller {
             'links'             => $event->links,
             'image'             => $image ?? null,
             'url'               => static::get_event_url( $event->_id ),
+            'is_dynamic'        => static::get_dynamic_event( $event->_id ),
         ];
     }
 
@@ -516,6 +517,23 @@ class Eventz implements Controller {
         }
 
         return '#';
+    }
+
+    /**
+     * Get dynamic events
+     *
+     * @param string $event_id Event's API ID.
+     *
+     * @return string
+     */
+    public static function get_dynamic_event( string $event_id ) : string {
+        $dynamic_events = DynamicEvent::get_link_list();
+
+        if ( isset( $dynamic_events[ $event_id ] ) ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
