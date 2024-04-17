@@ -396,10 +396,17 @@ class Eventz implements Controller {
         }
 
         foreach ( $event->event->dates as $date ) {
-            $dates[] = [
-                'date'        => self::compare_dates( $date->start, $date->end ),
-                'is_sold_out' => $date->isSoldOut,
-            ];
+            $time_now    = \current_datetime();
+            $current_end = new \DateTime( $date->end );
+            $current_end->setTimezone( new \DateTimeZone( 'Europe/Helsinki' ) );
+
+            // Don't show past dates
+            if ( $current_end >= $time_now ) {
+                $dates[] = [
+                    'date'        => self::compare_dates( $date->start, $date->end ),
+                    'is_sold_out' => $date->isSoldOut,
+                ];
+            }
         }
 
         return $dates;
@@ -431,11 +438,20 @@ class Eventz implements Controller {
             ];
         }
 
-        $start_date = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->start ) ) );
-        $end_date   = \DateTime::createFromFormat( 'Y-m-d H:i:s', date( 'Y-m-d H:i:s', strtotime( $event->event->end ) ) );
+        $end_date   = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            date( 'Y-m-d H:i:s', strtotime( $event->event->end ) )
+        );
 
         // Loop through days and get the dates each week
         foreach ( $entry_data as $entry ) {
+            // Reset start_date each iteration
+            $start_date = \DateTime::createFromFormat(
+                'Y-m-d H:i:s',
+                date( 'Y-m-d H:i:s', strtotime( $event->event->start ) )
+            );
+
+            // Check if the day of week matches the events start date
             if ( date( 'D', strtotime( $entry['day_of_week'] ) ) !== $start_date->format( 'D' ) ) {
                 $day_of_week = date( 'D', strtotime( $entry['day_of_week'] ) );
                 $start_date->modify( "next $day_of_week" );
@@ -445,20 +461,31 @@ class Eventz implements Controller {
             while ( $start_date <= $end_date ) {
                 $current_start = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry['start_time'] );
                 $current_end   = new \DateTime( $start_date->format( 'Y-m-d' ) . ' ' . $entry['end_time'] );
-                $event_dates   = sprintf(
-                    '%s - %s',
-                    $current_start->format( 'j.n.Y H.i' ),
-                    $current_end->format( 'H.i' )
-                );
+                $time_now      = \current_datetime();
 
-                $entries[] = [
-                    'date'        => $event_dates,
-                    'is_sold_out' => $entry['sold_out'] ?? '',
-                ];
+                // Don't show past dates
+                if ( $current_end >= $time_now ) {
+                    $event_dates = sprintf(
+                        '%s - %s',
+                        $current_start->format( 'j.n.Y H.i' ),
+                        $current_end->format( 'H.i' )
+                    );
+
+                    $entries[] = [
+                        'date'        => $event_dates,
+                        'is_sold_out' => $entry['sold_out'] ?? '',
+                        'start_date'  => $current_start->getTimestamp(),
+                    ];
+                }
 
                 $start_date->modify( '+1 week' );
             }
         }
+
+        // Sort entry-dates by start_date timestamp
+        usort( $entries, function ($a, $b) {
+            return $a['start_date'] <=> $b['start_date'];
+        });
 
         return $entries;
     }
@@ -480,11 +507,11 @@ class Eventz implements Controller {
         $event_page = Settings::get_setting( 'events_page' );
 
         if ( $event_page ) {
-            return add_query_arg(
+            return \add_query_arg(
                 [
                     'event-id' => $event_id,
                 ],
-                get_permalink( $event_page )
+                \get_permalink( $event_page )
             );
         }
 
