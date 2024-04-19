@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1029: Change contacts-blocks width
+
 ## [1.54.9] - 2024-04-18
 
 - TMS-1031: Fix event-component recurring manual-event dates
