@@ -1,0 +1,30 @@
+<div {?anchor}id="{anchor|attr}"{/anchor} class="link-list is-relative mt-8 mb-8 p-8 has-background-secondary has-text-secondary-invert">
+    {>"shared/layout-before-main-content" /}
+
+    {?title}
+        <h2 class="link-list__title h5 mt-0 mb-6">
+            {title|html}
+        </h2>
+    {/title}
+
+    {?description}
+        <div class="link-list__description mt-6">
+            {description|kses}
+        </div>
+    {/description}
+
+    {?links}
+        <ul class="link-list__links is-unstyled mt-6 keep-vertical-spacing">
+            {#links}
+                <li class="mb-3">
+                    <a href="{link.url|url}" target="{link.target|attr}" class="is-flex is-align-items-center">
+                        {>"ui/icon" icon=icon class="icon--xlarge is-primary mr-2" /}
+                        <span>{link.title|html}</span>
+                    </a>
+                </li>
+            {/links}
+        </ul>
+    {/links}
+
+    {>"shared/layout-after-main-content" /}
+</div>
