@@ -1,5 +1,5 @@
 {#Footer}
-    <footer class="site-footer section {Footer.colors.container|s}">
+    <footer class="site-footer section {Footer.colors.container|attr}">
         <div class="container is-relative {^logo}pt-9{/logo}">
             {?logo}
                 <div class="columns pt-10 pt-0-tablet">
@@ -11,32 +11,32 @@
 
             <div class="columns is-multiline">
                 {?contact_info}
-                    <div class="column {column_class|s} has-text-small">
+                    <div class="column {column_class|attr} has-text-small">
                         {?contact_info.title}
                             <h2 class="h4 mt-4 mb-4">
-                                {contact_info.title|s}
+                                {contact_info.title|html}
                             </h2>
                         {/contact_info.title}
 
                         {?contact_info.address}
                             <div class="mt-4 mb-4 keep-vertical-spacing">
-                                {contact_info.address|s}
+                                {contact_info.address|kses}
                             </div>
                         {/contact_info.address}
 
                         {?contact_info.email}
-                            <a href="mailto:{contact_info.email|s}"
-                               class="is-flex is-align-items-center mb-2 {Footer.colors.link|s}">
-                                {>"ui/icon" icon="email" class="icon--large {Footer.colors.link_icon|s} mr-2" /}
-                                <span>{contact_info.email|s}</span>
+                            <a href="mailto:{contact_info.email|attr}"
+                               class="is-flex is-align-items-center mb-2 {Footer.colors.link|attr}">
+                                {>"ui/icon" icon="email" class="icon--large {Footer.colors.link_icon|attr} mr-2" /}
+                                <span>{contact_info.email|kses}</span>
                             </a>
                         {/contact_info.email}
 
                         {?contact_info.phone}
-                            <a href="tel:{contact_info.phone|s}"
-                               class="is-flex is-align-items-center {Footer.colors.link|s}">
-                                {>"ui/icon" icon="phone" class="icon--large {Footer.colors.link_icon|s} mr-2" /}
-                                <span>{contact_info.phone|s}</span>
+                            <a href="tel:{contact_info.phone|attr}"
+                               class="is-flex is-align-items-center {Footer.colors.link|attr}">
+                                {>"ui/icon" icon="phone" class="icon--large {Footer.colors.link_icon|attr} mr-2" /}
+                                <span>{contact_info.phone|kses}</span>
                             </a>
                         {/contact_info.phone}
                     </div>
@@ -45,36 +45,60 @@
                 {#link_columns}
                     {>"shared/footer-column" /}
                 {/link_columns}
+
+                {?some_link_columns}
+                    <div class="column {column_class|attr}">
+                        {?some_link_columns.column_title}
+                            <h2 class="h4 mt-4 mb-4">
+                                {some_link_columns.column_title|html}
+                            </h2>
+                        {/some_link_columns.column_title}
+
+                        <ul class="is-unstyled {Footer.typography.column|attr}">
+                            {#some_link_columns.some_link_column}
+                                <li class="mb-3">
+                                    <a href="{some_link.url|url}" target="{some_link.target|attr}"
+                                    class="is-flex is-align-items-center {Footer.colors.link|attr}">
+                                        {>"ui/icon" icon="{some_icon|attr}" class="icon--xlarge is-primary-invert mr-2" /}
+                                        <span>
+                                            {some_link.title|html}
+                                        </span>
+                                    </a>
+                                </li>
+                            {/some_link_columns.some_link_column}
+                        </ul>
+                    </div>
+                {/some_link_columns}
             </div>
 
             <div class="columns is-multiline is-vcentered mt-4 mt-0-desktop">
                 <div class="column is-10-desktop">
                     <ul class="site-footer__copy-links is-flex is-flex-wrap-wrap is-unstyled has-text-xsmall">
                         <li class="site-footer__copy-text is-relative pr-3">
-                            {copyright|s}
+                            {copyright|html}
                         </li>
 
                         {#privacy_links}
                             <li class="is-relative ml-3 pr-3">
-                                <a href="{privacy_link.url}" target="{privacy_link.target}"
-                                   class="{Footer.colors.link|s} has-text-decoration-underline">
-                                    {privacy_link.title|s}
+                                <a href="{privacy_link.url|url}" target="{privacy_link.target|attr}"
+                                   class="{Footer.colors.link|attr} has-text-decoration-underline">
+                                    {privacy_link.title|html}
                                 </a>
                             </li>
                         {/privacy_links}
 
                         {?hero_credits}
                             <li class="is-relative ml-3 pr-3">
-                                {hero_credits|s}
+                                {hero_credits|html}
                             </li>
                         {/hero_credits}
                     </ul>
                 </div>
 
                 <div class="column is-12 is-2-desktop mt-6 mt-0-desktop has-text-centered has-text-right-desktop">
-                    <a href="{brand_logo_url}" class="site-footer__tampere-vaakuna is-block">
-                        <span class="is-sr-only">{Strings.s.footer.to_main_site|s}</span>
-                        {>"ui/icon" icon="tampere-vaakuna" class="brand-logo {Footer.colors.link_icon|s}" /}
+                    <a href="{brand_logo_url|url}" class="site-footer__tampere-vaakuna is-block">
+                        <span class="is-sr-only">{Strings.s.footer.to_main_site|html}</span>
+                        {>"ui/icon" icon="tampere-vaakuna" class="brand-logo {Footer.colors.link_icon|attr}" /}
                     </a>
                 </div>
             </div>

@@ -1,0 +1,9 @@
+<section {?anchor}id="{anchor|attr}"{/anchor} class="section layout-some-link-list pt-0 pb-0">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-content-grid">
+                {>"blocks/block-some-link-list" /}
+            </div>
+        </div>
+    </div>
+</section>
