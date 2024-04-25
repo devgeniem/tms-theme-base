@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-01-11 14:07+0200\n"
-"PO-Revision-Date: 2024-01-11 14:08+0200\n"
+"POT-Creation-Date: 2024-04-24 22:45+0300\n"
+"PO-Revision-Date: 2024-04-24 22:46+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -23,9 +23,28 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 
-#: assets/dist/vendor.js:4630
-msgctxt "text direction"
-msgid "ltr"
+#: assets/dist/vendor.js:1
+msgid "entries"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "values"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "keys"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong index!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong offset!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong length!"
 msgstr ""
 
 #: comments.php:14
@@ -56,13 +75,13 @@ msgid "Open map"
 msgstr "Avaa kartta"
 
 #: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:73
-#: lib/ACF/PageGroup.php:39
+#: lib/ACF/PageGroup.php:41
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "Sivun komponentit"
 
 #: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:126
-#: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
+#: lib/ACF/PageGroup.php:142 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
 msgstr "Komponentit"
@@ -246,47 +265,47 @@ msgctxt "pagination"
 msgid "Previous"
 msgstr "Edellinen"
 
-#: lib/Eventz.php:103
+#: lib/Eventz.php:114
 msgid "Dates"
 msgstr "Päivät"
 
-#: lib/Eventz.php:107
+#: lib/Eventz.php:119
 msgid "Time"
 msgstr "Aika"
 
-#: lib/Eventz.php:112
+#: lib/Eventz.php:124
 msgid "Location"
 msgstr "Sijainti"
 
-#: lib/Eventz.php:114
+#: lib/Eventz.php:126
 msgid "Price"
 msgstr "Hinta"
 
-#: lib/Eventz.php:116
+#: lib/Eventz.php:128
 msgid "Organizer"
 msgstr "Järjestäjä"
 
-#: lib/Eventz.php:117
+#: lib/Eventz.php:129
 msgid "Area"
 msgstr ""
 
-#: lib/Eventz.php:119
+#: lib/Eventz.php:131
 msgid "Target"
 msgstr ""
 
-#: lib/Eventz.php:121
+#: lib/Eventz.php:133
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:125
+#: lib/Eventz.php:137
 msgid "Links"
 msgstr "Linkit"
 
-#: lib/Eventz.php:301
+#: lib/Eventz.php:314
 msgid "Additional information"
 msgstr "Lisätiedot"
 
-#: lib/Eventz.php:318
+#: lib/Eventz.php:331
 msgid "Free"
 msgstr "Maksuton"
 
@@ -304,6 +323,11 @@ msgstr "Tuntia"
 msgctxt "theme-frontend"
 msgid "Minutes"
 msgstr "Minuuttia"
+
+#: lib/Formatters/CountdownFormatter.php:83 models/strings.php:232
+msgctxt "theme-frontend"
+msgid "Seconds"
+msgstr "Sekuntia"
 
 #: lib/Formatters/GridFormatter.php:151
 msgid "Read more"
@@ -659,7 +683,7 @@ msgid "Search from site"
 msgstr "Hae sivustolta"
 
 #: models/strings.php:55 models/strings.php:81 models/strings.php:143
-#: models/strings.php:156 models/strings.php:165 models/strings.php:235
+#: models/strings.php:156 models/strings.php:165 models/strings.php:236
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr "Sulje"
@@ -1103,12 +1127,12 @@ msgctxt "theme-frontend"
 msgid "Dec"
 msgstr "Jou"
 
-#: models/strings.php:234
+#: models/strings.php:235
 msgctxt "theme-frontend"
 msgid "Enlarged image"
 msgstr "Suurennettu kuva"
 
-#: models/strings.php:248
+#: models/strings.php:249
 msgid "Pagination"
 msgstr "Sivutus"
 

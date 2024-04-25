@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1032:
+    - Add seconds to countdown-timer block
+    - Change countdown update interval to a second if seconds are shown
+
 ## [1.54.9] - 2024-04-18
 
 - TMS-1031: Fix event-component recurring manual-event dates
