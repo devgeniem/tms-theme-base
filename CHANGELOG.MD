@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1033: Add new optional hero-museum component
 - TMS-1029: Change contacts-blocks width
 - TMS-1028: Add social media link-list block, component & footer section
+- TMS-1032:
+    - Add seconds to countdown-timer block
+    - Change countdown update interval to a second if seconds are shown
 
 ## [1.54.9] - 2024-04-18
 

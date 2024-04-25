@@ -56,6 +56,12 @@ class CountdownFormatter implements Formatter {
             $data['show_minutes'] = true;
         }
 
+        if ( $data['type'] === 'countdown_seconds' ) {
+            $data['show_hours']   = true;
+            $data['show_minutes'] = true;
+            $data['show_seconds'] = true;
+        }
+
         $target_date = new DateTime();
 
         if ( $data['type'] === 'countdown' ) {
@@ -73,6 +79,12 @@ class CountdownFormatter implements Formatter {
             $data['show_minutes'] = true;
         }
 
+        if ( $data['type'] === 'countdown_seconds' ) {
+            $format               = 'j.n.Y H:i';
+            $data['show_minutes'] = true;
+            $data['show_seconds'] = true;
+        }
+
         $timezone_offset = ( ( new DateTimeZone( 'Europe/Helsinki' ) )->getOffset( $target_date ) / 60 ) / 60;
 
         $data['timezone_offset']    = $timezone_offset;
@@ -80,6 +92,7 @@ class CountdownFormatter implements Formatter {
         $data['strings']['days']    = _x( 'Days', 'theme-frontend', 'tms-theme-base' );
         $data['strings']['hours']   = _x( 'Hours', 'theme-frontend', 'tms-theme-base' );
         $data['strings']['minutes'] = _x( 'Minutes', 'theme-frontend', 'tms-theme-base' );
+        $data['strings']['seconds'] = _x( 'Seconds', 'theme-frontend', 'tms-theme-base' );
 
         return $data;
     }
