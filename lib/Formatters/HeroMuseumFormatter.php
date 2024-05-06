@@ -11,7 +11,7 @@ class HeroMuseumFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
     /**
      * Define formatter name
      */
-    const NAME = 'HeroNew';
+    const NAME = 'HeroMuseum';
 
     /**
      * Hooks
