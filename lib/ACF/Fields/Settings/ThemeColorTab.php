@@ -89,7 +89,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             );
 
             $color_theme_select = ( new Field\Select( $this->strings['color_selection']['title'] ) )
-                ->set_key( '{$key}_theme_color' )
+                ->set_key( "{$key}_theme_color" )
                 ->set_name( 'theme_color' )
                 ->set_choices( $theme_colors )
                 ->set_default_value( $theme_default_color )

@@ -132,8 +132,7 @@ class PageFrontPageGroup {
         }
 
         // Add Museum hero to components if settings field is turned on
-        $hero_museum = Settings::get_setting( 'use_hero_museum' );
-        if ( $hero_museum === '1' ) {
+        if ( ! empty( Settings::get_setting( 'use_hero_museum' ) ) ) {
             $components_field->add_layout( new Layouts\HeroMuseumLayout( $key ) );
         }
 

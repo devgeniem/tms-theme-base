@@ -17,7 +17,7 @@ class HeroMuseumFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * Hooks
      */
     public function hooks() : void {
-        add_filter(
+        \add_filter(
             'tms/acf/layout/hero_museum/data',
             [ $this, 'format' ],
             30

@@ -1,5 +1,6 @@
 .hero-museum {
     height: auto !important;
+
     &__background-container {
         @include hero-height;
     }
