@@ -34,12 +34,22 @@
 .lang-nav--horizontal {
     a {
         color: $white !important;
+        border-color: $white !important;
+
+        &.has-text-primary-invert {
+            &,
+            &:hover,
+            &:focus {
+                color: $black !important;
+                background-color: $white !important;
+            }
+        }
 
         &:hover,
         &:focus {
-            color: $black !important;
+            color: $white !important;
             background-color: $black !important;
-            outline-color: $black;
+            outline-color: $white;
         }
     }
 }
