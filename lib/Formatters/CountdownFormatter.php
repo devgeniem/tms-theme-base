@@ -64,7 +64,7 @@ class CountdownFormatter implements Formatter {
 
         $target_date = new DateTime();
 
-        if ( $data['type'] === 'countdown' ) {
+        if ( $data['type'] === 'countdown' || $data['type'] === 'countdown_seconds' ) {
             $target_date->setTimestamp( $data['target_datetime'] );
         }
         else {
