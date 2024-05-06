@@ -1,4 +1,5 @@
 <?php
+
 namespace TMS\Theme\Base\ACF\Fields;
 
 use Geniem\ACF\Field;
@@ -193,7 +194,7 @@ class HeroMuseumFields extends \Geniem\ACF\Field\Group {
      * @return array
      * @throws Exception In case of invalid ACF option.
      */
-    public function get_hero_group_fields( string $key, string $group, array $strings ) : array {
+    protected function get_hero_group_fields( string $key, string $group, array $strings ) : array {
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
             ->set_key( "{$key}_{$group}_title" )
             ->set_name( "{$group}_title" )
