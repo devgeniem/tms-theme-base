@@ -110,12 +110,8 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
             $this->add_fields( [
                 $color_theme_select,
                 $image_field,
+                $use_hero_museum,
             ] );
-
-            // Show hero_museum field only for sites using base theme
-            if ( \is_child_theme() === false ) {
-                $this->add_field( $use_hero_museum );
-            }
         }
         catch ( \Exception $e ) {
             ( new Logger() )->error( $e->getMessage(), $e->getTrace() );
