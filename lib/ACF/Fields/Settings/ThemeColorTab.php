@@ -55,6 +55,7 @@ class ThemeColorTab extends \Geniem\ACF\Field\Tab {
         'paahde'          => 'Paahde (Keltaoranssi)',
         'kokemus'         => 'Kokemus (Vaalean vihreä)',
         'neutraali'       => 'Neutraali (Vaalea, neutraali värimalli, jossa korkea kontrasti)',
+        'mustavalkoinen'  => 'Musta-valkoinen',
     ];
 
     /**

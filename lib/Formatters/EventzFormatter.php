@@ -111,16 +111,24 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
         $recurring_events = [];
         if( ! empty( $events['events'] ) ) {
             foreach ( $events['events'] as $event ) {
+                $recurring_event_dates = [];
+
+                // Show event normally if it's a dynamic event
+                if ( $event['is_dynamic'] === '1' ) {
+                    $recurring_events[] = $event;
+                    continue;
+                }
 
                 // Chek if event has dates or entries
-                if ( count( $event['dates'] ) > 1 ) {
+                if ( isset( $event['dates'] ) && count( $event['dates'] ) >= 1 ) {
                     $recurring_event_dates = $event['dates'];
-                } else if ( ! empty( $event['entries'] ) ) {
+                }
+                elseif ( ! empty( $event['entries'] ) ) {
                     $recurring_event_dates = $event['entries'];
                 }
 
                 // Get recurring event single dates
-                if ( isset( $recurring_event_dates ) ) {
+                if ( ! empty( $recurring_event_dates ) ) {
                     foreach ( $recurring_event_dates as $date ) {
                         $clone = $event;
                         unset( $endDate );
@@ -399,14 +407,14 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         // Loop through events
         $recurring_events = array_map( function ( $e ) {
-            $id    = $e->ID;
-            $event = (object) \get_fields( $id );
+            $id       = $e->ID;
+            $event    = (object) \get_fields( $id );
+            $time_now = \current_datetime();
+            $timezone = new \DateTimeZone( 'Europe/Helsinki' );
 
             foreach ( $event->dates as $date ) {
-                date_default_timezone_set( 'Europe/Helsinki' );
-                $time_now    = \current_datetime()->getTimestamp();
-                $event_start = strtotime( $date['start'] );
-                $event_end   = strtotime( $date['end'] );
+                $event_start = new \DateTime( $date['start'], $timezone );
+                $event_end   = new \DateTime( $date['end'], $timezone );
 
                 // Return only ongoing or next upcoming event
                 if ( ( $time_now > $event_start && $time_now < $event_end ) || $time_now < $event_start ) {

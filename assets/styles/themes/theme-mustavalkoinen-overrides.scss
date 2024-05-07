@@ -1,0 +1,224 @@
+.site-header,
+.main-content {
+    // Button styles
+    .button {
+        &.is-secondary {
+            border-color: $black !important;
+        }
+    }
+}
+
+.site-header {
+    background-color: $black !important;
+
+    &__tagline,
+    .secondary-menu li a {
+        color: $white !important;
+    }
+
+    &__end {
+        .button {
+            border-color: $white !important;
+        }
+    }
+
+    .fly-out-nav__trigger .icon {
+        fill: $white !important;
+    }
+}
+
+.has-border-secondary {
+    border-color: $black;
+}
+
+.lang-nav--horizontal {
+    a {
+        color: $white !important;
+        border-color: $white !important;
+
+        &.has-text-primary-invert {
+            &,
+            &:hover,
+            &:focus {
+                color: $black !important;
+                background-color: $white !important;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $white !important;
+            background-color: $black !important;
+            outline-color: $white;
+        }
+    }
+}
+
+.site-header-notice {
+    background-color: $secondary-light !important;
+
+    .notice-banner__text {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+    }
+
+    .button {
+        background-color: $black !important;
+        color: $white !important;
+        border-color: $black !important;
+
+        .icon {
+            fill: $white !important;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $white !important;
+            color: $black !important;
+            border-color: $black !important;
+            text-decoration: underline !important;
+            outline-color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.duet-date {
+    &__toggle {
+        &:focus {
+            outline: .0558rem solid $black !important;
+        }
+    }
+}
+
+.language-nav {
+    .dropdown {
+        .dropdown-trigger {
+            .button {
+                color: $white !important;
+                border-color: $white !important;
+
+                .icon {
+                    fill: $white !important;
+                }
+            }
+        }
+    }
+}
+
+.quote {
+    background-color: $black !important;
+    color: $white !important;
+}
+
+.subpages {
+    &__items {
+        a {
+            &.has-background-image {
+                color: $white !important;
+            }
+        }
+    }
+}
+
+.search-item {
+    &__title {
+        > a {
+            &:hover,
+            &:focus {
+                color: lighten($black, 25%);
+            }
+        }
+    }
+
+    &__meta-item {
+        > a {
+            &:hover,
+            &:focus {
+                color: $black !important;
+            }
+        }
+    }
+}
+
+.logo-wall {
+    &__link {
+        outline-color: $black !important;
+    }
+}
+
+.layout-articles {
+    &__read-more {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.key-figures {
+    &__row {
+        .has-colors-white {
+            border: 1px solid $black !important;
+        }
+
+        .has-colors-secondary {
+            background-color: $secondary-light !important;
+        }
+    }
+}
+
+.grid {
+    &__item {
+        &.has-colors-white,
+        &.has-colors-secondary {
+            border: 1px solid $black !important;
+        }
+    }
+}
+
+.gform_wrapper {
+    textarea,
+    input {
+        border-color: $black !important;
+    }
+}
+
+.entry {
+    &__content {
+        > p {
+            > a {
+                color: $black !important;
+
+                &:hover,
+                &:focus {
+                    color: $black !important;
+                }
+            }
+        }
+    }
+}
+
+.events {
+    &__item-inner {
+        .icon {
+            fill: $accent !important;
+        }
+    }
+}
