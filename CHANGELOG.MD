@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1034: Add default text for articles related content title
+
 ## [1.54.10] - 2024-05-07
 
 - TMS-1033: Add new optional hero-museum component
