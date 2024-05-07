@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1033: Add new optional hero-museum component
 - TMS-1038: Fix theme-mustavalkoinen lang-menu styles
 
 ## [1.54.9] - 2024-04-18
