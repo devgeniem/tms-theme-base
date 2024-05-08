@@ -158,7 +158,7 @@ class Single extends BaseModel {
         );
 
         return [
-            'title' => get_field( 'related_title' ) ?? '',
+            'title' => get_field( 'related_title' ) ?? __( 'Related posts', 'tms-theme-base' ),
             'posts' => $posts,
             'link'  => get_field( 'related_link' ) ?? '',
         ];

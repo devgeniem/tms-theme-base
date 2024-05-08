@@ -112,15 +112,6 @@
     }
 }
 
-.icon-links .icon-links {
-    &__item {
-        > a.is-primary.is-outlined {
-            color: $black !important;
-            border-color: $black !important;
-        }
-    }
-}
-
 .quote {
     background-color: $black !important;
     color: $white !important;
