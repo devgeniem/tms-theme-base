@@ -73,10 +73,6 @@ class SomeLinkListBlock extends BaseBlock {
             return $data;
         }
 
-        $home_url = defined( 'DPT_PLL_ACTIVE' ) && DPT_PLL_ACTIVE
-            ? \pll_home_url()
-            : \home_url();
-
         // Filter out empty links
         $data['links'] = array_filter( $data['links'], function ( $item ) {
             return ! empty( $item['link']['title'] );
