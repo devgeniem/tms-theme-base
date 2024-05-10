@@ -78,7 +78,7 @@ class SomeLinkListBlock extends BaseBlock {
             return ! empty( $item['link']['title'] );
         } );
 
-        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
+        return \apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 
 }
