@@ -12,6 +12,7 @@ use Geniem\ACF\Field;
 use TMS\Theme\Base\ACF\Layouts;
 use TMS\Theme\Base\Logger;
 use TMS\Theme\Base\PostType;
+use TMS\Theme\Base\Settings;
 
 /**
  * Class FrontPageGroup
@@ -122,12 +123,18 @@ class PageFrontPageGroup {
                 Layouts\ShareLinksLayout::class,
                 Layouts\CountdownLayout::class,
                 Layouts\VideoLayout::class,
+                Layouts\SomeLinkListLayout::class,
             ],
             $key
         );
 
         foreach ( $component_layouts as $component_layout ) {
             $components_field->add_layout( new $component_layout( $key ) );
+        }
+
+        // Add Museum hero to components if settings field is turned on
+        if ( ! empty( Settings::get_setting( 'use_hero_museum' ) ) ) {
+            $components_field->add_layout( new Layouts\HeroMuseumLayout( $key ) );
         }
 
         return $components_field;

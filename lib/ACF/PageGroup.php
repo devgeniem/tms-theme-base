@@ -174,6 +174,7 @@ class PageGroup {
                 Layouts\ShareLinksLayout::class,
                 Layouts\CountdownLayout::class,
                 Layouts\VideoLayout::class,
+                Layouts\SomeLinkListLayout::class,
             ],
             $key
         );
@@ -212,6 +213,7 @@ class PageGroup {
             'share_links',
             'countdown',
             'video',
+            'some_link_list',
         ];
 
         foreach ( $keys as $component ) {

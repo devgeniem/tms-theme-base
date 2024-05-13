@@ -1,0 +1,65 @@
+<section {?anchor}id="{anchor|attr}"{/anchor} class="hero-museum">
+    <div class="hero-museum__background-container is-relative image has-width-100 {container_class|attr}">
+        <div
+            class="hero-museum__background is-absolute has-top-0 has-bottom-0 has-right-0 has-left-0 has-background-cover" {@inlinebg id=image size="fullhd" /}></div>
+        </div>
+
+    <div class="hero-museum__inner">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="is-center p-8 pr-8-tablet pl-8-tablet pr-2 pl-2 has-text-centered">
+                        {?title}
+                            <h1 class="h1 mt-0 mr-auto mb-5 ml-auto no-hyphens has-text-secondary-invert">
+                                {title|html}
+                            </h1>
+                        {/title}
+
+                        {?description}
+                            <div class="h3 mb-6 has-text-secondary-invert keep-vertical-spacing">
+                                {description|kses}
+                            </div>
+                        {/description}
+
+                        {?link}
+                            <div class="button-container">
+                                {>"ui/button-link" link=link classes=button_classes icon="chevron-right" icon_classes="icon--medium" /}
+                            </div>
+                        {/link}
+                    </div>
+                </div>
+            </div>
+
+            {?columns}
+                <div class="columns is-centered is-multiline pr-6 pl-6 pr-9-desktop pl-9-desktop has-background-white has-border-primary has-border-1 ml-4-tablet mr-4-tablet ml-3 mr-3">
+                    {#columns}
+                        <div class="column is-6 is-4-desktop has-text-centered">
+                            <div class="is-flex is-flex-direction-column has-height-100 p-6">
+                                <p class="h3 mt-0 mb-3">
+                                    {title|html}
+                                </p>
+
+                                <p class="mt-0 mb-0 is-family-secondary has-text-large has-text-black">
+                                    {text|kses}
+                                </p>
+
+                                {?logo}
+                                    <div class="image-container">
+                                        {@image id=logo size="objectfit-image" /}
+                                    </div>
+                                {/logo}
+
+                                {?link}
+                                    <div class="button-container mt-auto">
+                                        {>"ui/button-link" link=link classes="mt-4 is-primary" icon="chevron-right" icon_classes="icon--medium" /}
+                                    </div>
+                                {/link}
+                            </div>
+                        </div>
+                    {/columns}
+                </div>
+            {/columns}
+
+        </div>
+    </div>
+</section>
