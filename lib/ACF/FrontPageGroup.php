@@ -123,6 +123,7 @@ class PageFrontPageGroup {
                 Layouts\ShareLinksLayout::class,
                 Layouts\CountdownLayout::class,
                 Layouts\VideoLayout::class,
+                Layouts\SomeLinkListLayout::class,
             ],
             $key
         );

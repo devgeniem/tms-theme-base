@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1034: Add default text for articles related content title
+- TMS-1032:
+    - Add seconds to countdown-timer block
+    - Change countdown update interval to a second if seconds are shown
+- TMS-1028: Add social media link-list block, component & footer section
 
 ## [1.54.10] - 2024-05-07
 
