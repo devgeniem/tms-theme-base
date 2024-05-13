@@ -1,4 +1,4 @@
-<div {?anchor}id="{anchor|attr}"{/anchor} class="contacts">
+<div {?anchor}id="{anchor|attr}"{/anchor} class="contacts is-align-wide">
     <div class="columns">
         <div class="column is-12">
             {?title}

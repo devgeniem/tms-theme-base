@@ -72,7 +72,7 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             $filled_api_contacts ?? []
         );
 
-        $data['column_class'] = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet is-4-desktop';
+        $data['column_class'] = 'is-10-mobile is-offset-1-mobile is-6-tablet is-offset-0-tablet is-6-desktop';
 
         return $data;
     }
