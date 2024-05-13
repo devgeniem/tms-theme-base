@@ -41,8 +41,10 @@ class Footer extends Model {
     public function column_class() : string {
         $contact_info = $this->contact_info();
         $columns      = $this->link_columns();
+        $some_column  = $this->some_link_columns();
         $count        = empty( $columns ) ? 0 : count( $columns );
         $count        = empty( $contact_info ) ? $count : ++ $count;
+        $count        = empty( $some_column ) ? $count : ++ $count;
 
         return $count <= 3
             ? 'is-6 is-4-widescreen'
@@ -89,6 +91,26 @@ class Footer extends Model {
                 return ! empty( $link['link'] );
             } );
         }
+
+        return $columns;
+    }
+
+    /**
+     * Get social media link column
+     *
+     * @return mixed|null
+     */
+    public function some_link_columns() {
+        $columns = Settings::get_setting( 'some_link_columns' ) ?? null;
+
+        if ( empty( $columns['some_link_column'] ) ) {
+            return null;
+        }
+
+        // Filter out empty links
+        $columns['some_link_column'] = array_filter( $columns['some_link_column'], function ( $item ) {
+            return ! empty( $item['some_link']['title'] );
+        } );
 
         return $columns;
     }
