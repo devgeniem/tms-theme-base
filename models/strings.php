@@ -229,6 +229,7 @@ class Strings extends \DustPress\Model {
                 'days'    => _x( 'Days', 'theme-frontend', 'tms-theme-base' ),
                 'hours'   => _x( 'Hours', 'theme-frontend', 'tms-theme-base' ),
                 'minutes' => _x( 'Minutes', 'theme-frontend', 'tms-theme-base' ),
+                'seconds' => _x( 'Seconds', 'theme-frontend', 'tms-theme-base' ),
             ],
             'modaal'             => [
                 'accessible_title' => _x( 'Enlarged image', 'theme-frontend', 'tms-theme-base' ),
