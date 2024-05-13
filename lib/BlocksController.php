@@ -167,6 +167,14 @@ class BlocksController implements Interfaces\Controller {
                     PostType\DynamicEvent::SLUG,
                 ],
             ],
+            'acf/some-link-list'    => [
+                'post_types' => [
+                    PostType\Page::SLUG,
+                    PostType\Post::SLUG,
+                    PostType\BlogArticle::SLUG,
+                    PostType\DynamicEvent::SLUG,
+                ],
+            ],
             'acf/quote'             => [
                 'post_types' => [
                     PostType\Page::SLUG,

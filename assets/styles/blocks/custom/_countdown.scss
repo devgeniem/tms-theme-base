@@ -53,6 +53,13 @@
                 }
             }
         }
+
+        @include from($tablet) {
+            &--seconds {
+                width: 7.5rem;
+                text-align: center;
+            }
+        }
     }
 
     &__expired-text {

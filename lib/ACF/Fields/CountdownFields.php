@@ -55,9 +55,10 @@ class CountdownFields extends Field\Group {
                 'label'        => 'Formaatti',
                 'instructions' => '',
                 'choices'      => [
-                    'countdown'      => 'Laskuri (päivät, tunnit, minuutit)',
-                    'countdown_date' => 'Laskuri (päivät)',
-                    'date'           => 'Päivämäärä',
+                    'countdown_seconds' => 'Laskuri (päivät, tunnit, minuutit, sekunnit)',
+                    'countdown'         => 'Laskuri (päivät, tunnit, minuutit)',
+                    'countdown_date'    => 'Laskuri (päivät)',
+                    'date'              => 'Päivämäärä',
                 ],
             ],
             'expired_text' => [
@@ -77,31 +78,31 @@ class CountdownFields extends Field\Group {
         $key = $this->get_key();
 
         $quote_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $expired_text_field = ( new Field\Text( $strings['expired_text']['label'] ) )
-            ->set_key( "${key}_expired_text" )
+            ->set_key( "{$key}_expired_text" )
             ->set_name( 'expired_text' )
             ->set_instructions( $strings['expired_text']['instructions'] );
 
         $location_field = ( new Field\Text( $strings['location']['label'] ) )
-            ->set_key( "${key}_location" )
+            ->set_key( "{$key}_location" )
             ->set_name( 'location' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['location']['instructions'] );
 
         $type_field = ( new Field\Select( $strings['type']['label'] ) )
-            ->set_key( "${key}_type" )
+            ->set_key( "{$key}_type" )
             ->set_name( 'type' )
             ->set_wrapper_width( 33 )
             ->set_choices( $strings['type']['choices'] )
             ->set_instructions( $strings['type']['instructions'] );
 
         $target_datetime_field = ( new Field\DateTimePicker( $strings['target_datetime']['label'] ) )
-            ->set_key( "${key}_target_datetime" )
+            ->set_key( "{$key}_target_datetime" )
             ->set_name( 'target_datetime' )
             ->set_display_format( 'd.m.Y H:i' )
             ->set_return_format( 'U' )
@@ -109,7 +110,7 @@ class CountdownFields extends Field\Group {
             ->set_instructions( $strings['target_datetime']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_return_format( 'id' )
             ->set_wrapper_width( 33 )

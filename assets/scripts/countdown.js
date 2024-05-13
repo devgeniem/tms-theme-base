@@ -26,6 +26,7 @@ export default class Countdown {
             countdown.days_container = countdown.querySelector( '.countdown__time--days' );
             countdown.hours_container = countdown.querySelector( '.countdown__time--hours' );
             countdown.minutes_container = countdown.querySelector( '.countdown__time--minutes' );
+            countdown.seconds_container = countdown.querySelector( '.countdown__time--seconds' );
             countdown.offset = countdown.dataset.offset ? countdown.dataset.offset : 0;
 
             const target = parseInt( countdown.dataset.timestamp, 10 ) * 1000;
@@ -33,10 +34,11 @@ export default class Countdown {
             this.updateCountdownTime( countdown, target, null );
 
             const MINUTE_IN_MS = 1000 * 60;
+            const SECONDS_IN_MS = 1000;
 
             const interval = setInterval( () => {
                 this.updateCountdownTime( countdown, target, interval );
-            }, MINUTE_IN_MS );
+            }, countdown.seconds_container ? SECONDS_IN_MS : MINUTE_IN_MS );
         }
     }
 
@@ -61,11 +63,13 @@ export default class Countdown {
             diff = targetTime - now,
             days = Math.floor( diff / ( 1000 * 60 * 60 * 24 ) ),
             hours = Math.floor( ( diff % ( 1000 * 60 * 60 * 24 ) ) / ( 1000 * 60 * 60 ) ),
-            minutes = Math.floor( ( diff % ( 1000 * 60 * 60 ) ) / ( 1000 * 60 ) );
+            minutes = Math.floor( ( diff % ( 1000 * 60 * 60 ) ) / ( 1000 * 60 ) ),
+            seconds = Math.floor( ( diff % ( 1000 * 60 ) ) / 1000 );
 
         const isDaysExpired = days < 0;
         const isHoursExpired = hours < 0;
         const isMinutesExpired = minutes < 0;
+        const isSecondsExpired = seconds < 0;
 
         if ( ! isDaysExpired && countdown.days_container ) {
             countdown.days_container.querySelector( '.countdown__figure' ).innerHTML = days.toString();
@@ -79,7 +83,11 @@ export default class Countdown {
             countdown.minutes_container.querySelector( '.countdown__figure' ).innerHTML = minutes.toString();
         }
 
-        const isExpired = isDaysExpired && isHoursExpired && isMinutesExpired;
+        if ( ! isSecondsExpired && countdown.seconds_container ) {
+            countdown.seconds_container.querySelector( '.countdown__figure' ).innerHTML = seconds.toString();
+        }
+
+        const isExpired = isDaysExpired && isHoursExpired && isMinutesExpired && isSecondsExpired;
 
         if ( isExpired ) {
             countdown.classList.add( 'countdown--is-expired' );

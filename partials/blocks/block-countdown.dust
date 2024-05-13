@@ -39,6 +39,16 @@
                         <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.minutes|html}</p>
                     </div>
                 {/show_minutes}
+
+                {?show_seconds}
+                    <div class="countdown__time countdown__time--seconds">
+                        <p class="countdown__figure mt-0 mb-0 is-text-huge has-text-weight-extra-bold is-family-sans-serif">
+                            0
+                        </p>
+
+                        <p class="countdown__figure-label mt-2 mb-0 is-uppercase is-family-sans-serif has-text-weight-semibold">{strings.seconds|html}</p>
+                    </div>
+                {/show_seconds}
             {/is_countdown}
 
             {^is_countdown}

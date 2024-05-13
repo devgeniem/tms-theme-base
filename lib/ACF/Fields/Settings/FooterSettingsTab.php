@@ -30,59 +30,68 @@ class FooterSettingsTab extends Tab {
      * @var array
      */
     protected $strings = [
-        'tab'           => 'Alatunniste',
-        'footer_logo'   => [
+        'tab'              => 'Alatunniste',
+        'footer_logo'      => [
             'title'        => 'Logo',
             'instructions' => '',
         ],
-        'contact_title' => [
+        'contact_title'    => [
             'title'        => 'Yhteystietojen otsikko',
             'instructions' => '',
         ],
-        'address'       => [
+        'address'          => [
             'title'        => 'Osoite',
             'instructions' => '',
         ],
-        'email'         => [
+        'email'            => [
             'title'        => 'Sähköposti',
             'instructions' => '',
         ],
-        'phone'         => [
+        'phone'            => [
             'title'        => 'Puhelinnumero',
             'instructions' => '',
         ],
-        'link_columns'  => [
+        'link_columns'     => [
             'title'        => 'Linkkipalstat',
             'instructions' => '',
             'button_label' => 'Lisää linkkipalsta',
         ],
-        'column_title'  => [
+        'column_title'     => [
             'title'        => 'Otsikko',
             'instructions' => '',
         ],
-        'link_column'   => [
+        'link_column'      => [
             'title'        => 'Linkkipalsta',
             'instructions' => '',
             'button_label' => 'Lisää linkki',
         ],
-        'link'          => [
+        'link'             => [
             'title'        => 'Linkki',
             'instructions' => '',
         ],
-        'privacy_links' => [
+        'some_link_column' => [
+            'title'        => 'Some-linkkipalsta',
+            'instructions' => '',
+            'button_label' => 'Lisää linkki',
+        ],
+        'some_icon' => [
+            'title'        => 'Some-ikoni',
+            'instructions' => '',
+        ],
+        'privacy_links'    => [
             'title'        => 'Tietosuojalinkit',
             'instructions' => 'Saavutettavuusselosteet ja tietosuojalinkit',
             'button_label' => 'Lisää linkki',
         ],
-        'privacy_link'  => [
+        'privacy_link'     => [
             'title'        => 'Linkki',
             'instructions' => '',
         ],
-        'hero_credits'  => [
+        'hero_credits'     => [
             'title'        => 'Etusivun hero-kuvan tekijätieto tai kuvaajan nimi',
             'instructions' => '',
         ],
-        'copyright'     => [
+        'copyright'        => [
             'title'        => 'Copyright-teksti',
             'instructions' => '&copy; ja vuosi lisätään automaattisesti syötettyä tekstiä ennen',
         ],
@@ -113,39 +122,39 @@ class FooterSettingsTab extends Tab {
 
         try {
             $logo_field = ( new Field\Image( $strings['footer_logo']['title'] ) )
-                ->set_key( "${key}_footer_logo" )
+                ->set_key( "{$key}_footer_logo" )
                 ->set_name( 'footer_logo' )
                 ->set_return_format( 'id' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['footer_logo']['instructions'] );
 
             $contact_title_field = ( new Field\Text( $strings['contact_title']['title'] ) )
-                ->set_key( "${key}_contact_title" )
+                ->set_key( "{$key}_contact_title" )
                 ->set_name( 'contact_title' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['contact_title']['instructions'] );
 
             $address_field = ( new Field\Textarea( $strings['address']['title'] ) )
-                ->set_key( "${key}_address" )
+                ->set_key( "{$key}_address" )
                 ->set_name( 'address' )
                 ->set_new_lines( 'wpautop' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['address']['instructions'] );
 
             $email_field = ( new Field\Email( $strings['email']['title'] ) )
-                ->set_key( "${key}_email" )
+                ->set_key( "{$key}_email" )
                 ->set_name( 'email' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['email']['instructions'] );
 
             $phone_field = ( new Field\Text( $strings['phone']['title'] ) )
-                ->set_key( "${key}_phone" )
+                ->set_key( "{$key}_phone" )
                 ->set_name( 'phone' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['phone']['instructions'] );
 
             $link_columns_field = ( new Field\Repeater( $strings['link_columns']['title'] ) )
-                ->set_key( "${key}_link_columns" )
+                ->set_key( "{$key}_link_columns" )
                 ->set_name( 'link_columns' )
                 ->set_layout( 'block' )
                 ->set_max( 3 )
@@ -153,14 +162,14 @@ class FooterSettingsTab extends Tab {
                 ->set_instructions( $strings['link_columns']['instructions'] );
 
             $column_title_field = ( new Field\Text( $strings['column_title']['title'] ) )
-                ->set_key( "${key}_column_title" )
+                ->set_key( "{$key}_column_title" )
                 ->set_name( 'column_title' )
                 ->set_instructions( $strings['column_title']['instructions'] );
 
             $link_columns_field->add_field( $column_title_field );
 
             $link_column_field = ( new Field\Repeater( $strings['link_column']['title'] ) )
-                ->set_key( "${key}_link_column" )
+                ->set_key( "{$key}_link_column" )
                 ->set_name( 'link_column' )
                 ->set_button_label( $strings['link_column']['button_label'] )
                 ->set_instructions( $strings['link_column']['instructions'] );
@@ -168,32 +177,80 @@ class FooterSettingsTab extends Tab {
             $link_columns_field->add_field( $link_column_field );
 
             $link_field = ( new Field\Link( $strings['link']['title'] ) )
-                ->set_key( "${key}_link" )
+                ->set_key( "{$key}_link" )
                 ->set_name( 'link' )
                 ->set_instructions( $strings['link']['instructions'] );
 
             $link_column_field->add_field( $link_field );
 
+            $some_link_columns_field = ( new Field\Group( $strings['some_link_column']['title'] ) )
+                ->set_key( "{$key}_some_link_columns" )
+                ->set_name( 'some_link_columns' )
+                ->set_instructions( $strings['some_link_column']['instructions'] );
+
+            $some_link_column_field = ( new Field\Repeater( $strings['some_link_column']['title'] ) )
+                ->set_key( "{$key}_some_link_column" )
+                ->set_name( 'some_link_column' )
+                ->set_layout( 'block' )
+                ->set_button_label( $strings['some_link_column']['button_label'] )
+                ->set_instructions( $strings['some_link_column']['instructions'] );
+
+            $some_icon = ( new Field\Select( $strings['some_icon']['title'] ) )
+                ->set_key( "{$key}_some_icon" )
+                ->set_name( 'some_icon' )
+                ->set_choices( [
+                    'facebook'  => 'Facebook',
+                    'instagram' => 'Instagram',
+                    'twitter'   => 'X (Twitter)',
+                    'youtube'   => 'YouTube',
+                    'linkedin'  => 'LinkedIn',
+                    'tiktok'    => 'TikTok',
+                    'snapchat'  => 'Snapchat',
+                    'spotify'   => 'Spotify',
+                    'threads'   => 'Threads',
+                ] )
+                ->set_default_value( 'facebook' )
+                ->set_required()
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['some_icon']['instructions'] );
+
+            $some_link = ( new Field\Link( $strings['link']['title'] ) )
+                ->set_key( "{$key}_some_link" )
+                ->set_name( 'some_link' )
+                ->set_required()
+                ->set_wrapper_width( 50 )
+                ->set_instructions( $strings['link']['instructions'] );
+
+            $some_link_column_field->add_fields( [
+                $some_icon,
+                $some_link,
+            ] );
+
+            $some_link_columns_field->add_fields( [
+                $column_title_field,
+                $some_link_column_field,
+            ] );
+
             $privacy_links_field = ( new Field\Repeater( $strings['privacy_links']['title'] ) )
-                ->set_key( "${key}_privacy_links" )
+                ->set_key( "{$key}_privacy_links" )
                 ->set_name( 'privacy_links' )
                 ->set_button_label( $strings['privacy_links']['button_label'] )
                 ->set_instructions( $strings['privacy_links']['instructions'] );
 
             $privacy_link_field = ( new Field\Link( $strings['privacy_link']['title'] ) )
-                ->set_key( "${key}_privacy_link" )
+                ->set_key( "{$key}_privacy_link" )
                 ->set_name( 'privacy_link' )
                 ->set_instructions( $strings['privacy_link']['instructions'] );
 
             $privacy_links_field->add_field( $privacy_link_field );
 
             $hero_credits_field = ( new Field\Text( $strings['hero_credits']['title'] ) )
-                ->set_key( "${key}_hero_credits" )
+                ->set_key( "{$key}_hero_credits" )
                 ->set_name( 'hero_credits' )
                 ->set_instructions( $strings['hero_credits']['instructions'] );
 
             $copyright_field = ( new Field\Text( $strings['copyright']['title'] ) )
-                ->set_key( "${key}_copyright" )
+                ->set_key( "{$key}_copyright" )
                 ->set_name( 'copyright' )
                 ->set_instructions( $strings['copyright']['instructions'] );
 
@@ -204,6 +261,7 @@ class FooterSettingsTab extends Tab {
                 $email_field,
                 $phone_field,
                 $link_columns_field,
+                $some_link_columns_field,
                 $privacy_links_field,
                 $hero_credits_field,
                 $copyright_field,
