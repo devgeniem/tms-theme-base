@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.54.11] - 2024-05-14
+
 - TMS-1029: Change contacts-blocks width
 - TMS-1034: Add default text for articles related content title
 - TMS-1032:
