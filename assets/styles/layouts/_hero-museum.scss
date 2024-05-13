@@ -1,0 +1,18 @@
+.hero-museum {
+    height: auto !important;
+
+    &__background-container {
+        @include hero-height;
+    }
+
+    &__inner {
+        position: static;
+        transform: none;
+    }
+
+    h1 {
+        @include from($desktop) {
+            font-size: 4.41rem !important; // sass-lint:disable-line no-important
+        }
+    }
+}
