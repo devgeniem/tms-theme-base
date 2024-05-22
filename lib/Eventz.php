@@ -143,6 +143,45 @@ class Eventz implements Controller {
     }
 
     /**
+     * Normalize event name data
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function normalize_event_title( $event ) : array {
+        return [
+            'name' => $event->name ?? null,
+        ];
+    }
+
+    /**
+     * Normalize event description data
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function normalize_event_description( $event ) : array {
+        return [
+            'short_description' => static::get_short_description( $event ) ?? null,
+        ];
+    }
+
+    /**
+     * Normalize event url data
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function normalize_event_url( $event ) : array {
+        return [
+            'url' => static::get_event_url( $event->_id ),
+        ];
+    }
+
+    /**
      * Get event data for json+ld
      *
      * @param object $event Event object.
@@ -181,16 +220,14 @@ class Eventz implements Controller {
             return null;
         }
 
-        $start_time  = static::get_as_datetime( $event->event->start );
-        $end_time    = static::get_as_datetime( $event->event->end );
-        $date_format = get_option( 'date_format' );
+        $date_format = \get_option( 'date_format' );
 
         // If date-parameter exists in url
         if ( ! empty( $_GET['date'] ) ) {
-            list( $start_date, $end_date ) = array_merge( explode( ' - ', $_GET['date'] ), array( true ) );
+            list( $start_date, $end_date ) = array_merge( explode( ' - ', urldecode( $_GET['date'] ) ), array( false ) );
 
             $start_datetime = static::get_as_datetime( $start_date );
-            $end_datetime   = ! is_null($end_date) ? static::get_as_datetime( $end_date ) : '';
+            $end_datetime   = ! empty( $end_date ) ? static::get_as_datetime( $end_date ) : '';
 
             if ( $start_datetime && $end_datetime && $start_datetime->diff( $end_datetime )->days >= 1 ) {
                 return sprintf(
@@ -202,6 +239,9 @@ class Eventz implements Controller {
 
             return $start_datetime->format( $date_format );
         }
+
+        $start_time  = static::get_as_datetime( $event->event->start );
+        $end_time    = static::get_as_datetime( $event->event->end );
 
         if ( $start_time && $end_time && $start_time->diff( $end_time )->days >= 1 ) {
             return sprintf(
@@ -228,7 +268,7 @@ class Eventz implements Controller {
 
         // If time-parameter exists in url
         if ( ! empty( $_GET['time'] ) ) {
-            list( $start_time, $end_time) = array_merge( explode( ' - ', urldecode( $_GET['time'] ) ), array( false ) );
+            list( $start_time, $end_time ) = array_merge( explode( ' - ', urldecode( $_GET['time'] ) ), array( false ) );
 
             if ( $start_time && $end_time ) {
                 return sprintf(

@@ -56,7 +56,7 @@
 
         @include from($tablet) {
             &--seconds {
-                width: 125px;
+                width: 7.5rem;
                 text-align: center;
             }
         }

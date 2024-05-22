@@ -55,7 +55,7 @@ class CountdownFields extends Field\Group {
                 'label'        => 'Formaatti',
                 'instructions' => '',
                 'choices'      => [
-                    'countdown_seconds' => 'Laskuri (päivät, tunnit, minuutit, sekuntit)',
+                    'countdown_seconds' => 'Laskuri (päivät, tunnit, minuutit, sekunnit)',
                     'countdown'         => 'Laskuri (päivät, tunnit, minuutit)',
                     'countdown_date'    => 'Laskuri (päivät)',
                     'date'              => 'Päivämäärä',
