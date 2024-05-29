@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-04-24 22:45+0300\n"
-"PO-Revision-Date: 2024-05-02 10:20+0300\n"
+"POT-Creation-Date: 2024-05-29 12:01+0300\n"
+"PO-Revision-Date: 2024-05-29 12:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -74,13 +74,13 @@ msgstr ""
 msgid "Open map"
 msgstr "Avaa kartta"
 
-#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:73
+#: lib/ACF/FrontPageGroup.php:39 lib/ACF/OnepagerGroup.php:73
 #: lib/ACF/PageGroup.php:41
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "Sivun komponentit"
 
-#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:126
+#: lib/ACF/FrontPageGroup.php:91 lib/ACF/OnepagerGroup.php:126
 #: lib/ACF/PageGroup.php:142 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
@@ -101,7 +101,7 @@ msgctxt "theme ACF"
 msgid "Asetukset"
 msgstr ""
 
-#: lib/ACF/PostGroup.php:129
+#: lib/ACF/PostGroup.php:129 models/single.php:161
 msgid "Related posts"
 msgstr "Liittyvät sisällöt"
 
@@ -309,22 +309,42 @@ msgstr "Lisätiedot"
 msgid "Free"
 msgstr "Maksuton"
 
-#: lib/Formatters/CountdownFormatter.php:80 models/strings.php:229
+#: lib/Formatters/AccordionFormatter.php:57
+msgctxt "theme-frontend"
+msgid "Expand"
+msgstr "Avaa"
+
+#: lib/Formatters/AccordionFormatter.php:58
+msgctxt "theme-frontend"
+msgid "Collapse"
+msgstr "Sulje"
+
+#: lib/Formatters/AccordionFormatter.php:59
+msgctxt "theme-frontend"
+msgid "Expand all sections"
+msgstr "Avaa kaikki sisällöt"
+
+#: lib/Formatters/AccordionFormatter.php:60
+msgctxt "theme-frontend"
+msgid "Collapse all sections"
+msgstr "Sulje kaikki sisällöt"
+
+#: lib/Formatters/CountdownFormatter.php:92 models/strings.php:229
 msgctxt "theme-frontend"
 msgid "Days"
 msgstr "Päivää"
 
-#: lib/Formatters/CountdownFormatter.php:81 models/strings.php:230
+#: lib/Formatters/CountdownFormatter.php:93 models/strings.php:230
 msgctxt "theme-frontend"
 msgid "Hours"
 msgstr "Tuntia"
 
-#: lib/Formatters/CountdownFormatter.php:82 models/strings.php:231
+#: lib/Formatters/CountdownFormatter.php:94 models/strings.php:231
 msgctxt "theme-frontend"
 msgid "Minutes"
 msgstr "Minuuttia"
 
-#: lib/Formatters/CountdownFormatter.php:83 models/strings.php:232
+#: lib/Formatters/CountdownFormatter.php:95 models/strings.php:232
 msgctxt "theme-frontend"
 msgid "Seconds"
 msgstr "Sekuntia"
