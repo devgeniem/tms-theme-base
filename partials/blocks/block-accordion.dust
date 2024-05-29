@@ -12,12 +12,26 @@
     </header>
 
     {?sections}
+        <button class="accordion__open-all button is-size-6">
+            <span class="button__text">
+                {strings.expand_all|html}
+            </span>
+            {>"ui/icon" icon="chevron-down" class="icon--medium is-primary" /}
+        </button>
+
+        <button class="accordion__close-all button is-size-6 is-hidden">
+            <span class="button__text">
+                {strings.collapse_all|html}
+            </span>
+            {>"ui/icon" icon="chevron-up" class="icon--medium is-primary" /}
+        </button>
+
         <div class="accordion__inner bulmally-accordion mt-5">
             <ul class="accordion__list is-unstyled">
                 {#sections}
                     <li class="accordion__row mb-2 mb-4-tablet">
                         <h3 class="accordion__row-title m-0">
-                            <button id="accordion-title-button-{ID}"
+                            <button id="accordion-title-button-{ID|attr}"
                                     class="accordion__title-button is-flex is-align-items-center pt-5 pb-5 pr-4 pl-4 pr-6-tablet pl-6-tablet has-background-transparent"
                                     aria-expanded="false"
                                     aria-controls="accordion-content-{ID|attr}">
@@ -25,8 +39,14 @@
                                     {section_title|kses}
                                 </span>
 
-                                <span class="accordion__title-icon is-flex ml-auto" aria-hidden="true">
+                                <span class="accordion__title-icon is-flex ml-auto pl-2">
                                     {>"ui/icon" icon="chevron-down" class="icon--medium is-accent" /}
+                                    <span class="accordion__icon-text icon-text--open ml-2" aria-hidden="false">
+                                        {strings.expand|html}
+                                    </span>
+                                    <span class="accordion__icon-text icon-text--close ml-2" aria-hidden="true">
+                                        {strings.collapse|html}
+                                    </span>
                                 </span>
                             </button>
                         </h3>
