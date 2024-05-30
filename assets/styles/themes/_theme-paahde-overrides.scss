@@ -244,3 +244,23 @@
         }
     }
 }
+
+.accordion {
+    &__row {
+        border-color: $primary;
+    }
+
+    &__close-all,
+    &__open-all,
+    &__icon-text {
+        color: $primary-invert !important;
+    }
+
+    &__close-all,
+    &__open-all,
+    &__title-button {
+        .icon {
+            fill: $primary-invert !important;
+        }
+    }
+}
