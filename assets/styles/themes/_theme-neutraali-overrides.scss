@@ -176,3 +176,18 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
         }
     }
 }
+
+.accordion {
+    &__close-all,
+    &__open-all,
+    &__icon-text {
+        color: $primary-invert !important;
+    }
+
+    &__close-all,
+    &__open-all {
+        .icon {
+            fill: $primary-invert !important;
+        }
+    }
+}
