@@ -90,7 +90,7 @@ export default class Accordion {
     /**
      * Opens all dropdowns.
      *
-     * @param {HTMLButtonElement} mainContainer  Main container for accordion dropdowns.
+     * @param {HTMLDivElement}    mainContainer  Main container for accordion dropdowns.
      * @param {HTMLButtonElement} openAllButton  The open all -button that was clicked.
      * @param {HTMLButtonElement} closeAllButton The close all -button to be shown.
      *
@@ -134,7 +134,7 @@ export default class Accordion {
     /**
      * Closes all dropdowns.
      *
-     * @param {HTMLButtonElement} mainContainer  Main container for accordion dropdowns.
+     * @param {HTMLDivElement}    mainContainer  Main container for accordion dropdowns.
      * @param {HTMLButtonElement} closeAllButton The close all -button that was clicked.
      * @param {HTMLButtonElement} openAllButton  The open all -button to be shown.
      *
@@ -178,7 +178,7 @@ export default class Accordion {
     /**
      * Updates "Close all" or "Open all" -button states depending on open accordion dropdowns.
      *
-     * @param {HTMLButtonElement} mainContainer  Main container for accordion dropdowns.
+     * @param {HTMLDivElement}    mainContainer  Main container for accordion dropdowns.
      * @param {HTMLButtonElement} openAllButton  The open all -button.
      * @param {HTMLButtonElement} closeAllButton The close all -button.
      *
