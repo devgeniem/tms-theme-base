@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.55.0] - 2024-06-04
+
 - TMS-1044: Accordion-block changes
     - Add open all & close all -buttons & js functionalities
     - Add open / close text next to accordion toggler icon
