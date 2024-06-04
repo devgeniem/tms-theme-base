@@ -38,41 +38,41 @@ class PageEvent extends BaseModel {
      * @return void
      */
     public function hooks() : void {
-        add_filter(
+        \add_filter(
             'the_seo_framework_title_from_generation',
             Closure::fromCallable( [ $this, 'alter_title' ] )
         );
 
         // og:title.
-        add_filter(
+        \add_filter(
             'the_seo_framework_title_from_custom_field',
             Closure::fromCallable( [ $this, 'alter_title' ] )
         );
 
         // og:image.
-        add_filter(
+        \add_filter(
             'the_seo_framework_image_generation_params',
             Closure::fromCallable( [ $this, 'alter_image' ] )
         );
 
         // og:description.
-        add_filter(
+        \add_filter(
             'the_seo_framework_custom_field_description',
             Closure::fromCallable( [ $this, 'alter_desc' ] )
         );
 
         // og:url.
-        add_filter(
+        \add_filter(
             'the_seo_framework_ogurl_output',
             Closure::fromCallable( [ $this, 'alter_url' ] )
         );
 
-        add_action(
+        \add_action(
             'wp_head',
             Closure::fromCallable( [ $this, 'add_json_ld_data' ] )
         );
 
-        add_filter(
+        \add_filter(
             'tms/base/breadcrumbs/after_prepare',
             Closure::fromCallable( [ $this, 'alter_breadcrumbs' ] )
         );
@@ -109,14 +109,14 @@ class PageEvent extends BaseModel {
      * @return string
      */
     protected function alter_title( string $title ) : string {
-        if ( ! is_page_template( static::TEMPLATE ) ) {
+        if ( ! \is_page_template( static::TEMPLATE ) ) {
             return $title;
         }
 
         $event = $this->get_event();
 
         if ( $event ) {
-            $event = Eventz::normalize_event( $event );
+            $event = Eventz::normalize_event_title( $event );
             $title = $event['name'];
         }
 
@@ -174,7 +174,7 @@ class PageEvent extends BaseModel {
         $event = $this->get_event();
 
         if ( $event ) {
-            $event       = Eventz::normalize_event( $event );
+            $event       = Eventz::normalize_event_description( $event );
             $description = $event['short_description'];
         }
 
@@ -192,7 +192,7 @@ class PageEvent extends BaseModel {
         $event = $this->get_event();
 
         if ( $event ) {
-            $event = Eventz::normalize_event( $event );
+            $event = Eventz::normalize_event_url( $event );
             $url   = $event['url'];
         }
 
