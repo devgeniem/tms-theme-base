@@ -1,4 +1,5 @@
 .accordion {
+    // Important properties to override all child-themes class styles
     &__open-all,
     &__close-all {
         color: $primary !important;
