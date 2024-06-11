@@ -51,23 +51,27 @@ export default class Accordion {
 
         if ( this.mainContainer ) {
             for ( let i = 0; i < this.mainContainer.length; i++ ) {
-                this.openAllButton[ i ].addEventListener(
-                    'click',
-                    () => this.openAllDropdowns(
-                        this.mainContainer[ i ],
-                        this.openAllButton[ i ],
-                        this.closeAllButton[ i ]
-                    )
-                );
+                if ( this.openAllButton[ i ] ) {
+                    this.openAllButton[ i ].addEventListener(
+                        'click',
+                        () => this.openAllDropdowns(
+                            this.mainContainer[ i ],
+                            this.openAllButton[ i ],
+                            this.closeAllButton[ i ]
+                        )
+                    );
+                }
 
-                this.closeAllButton[ i ].addEventListener(
-                    'click',
-                    () => this.closeAllDropdowns(
-                        this.mainContainer[ i ],
-                        this.closeAllButton[ i ],
-                        this.openAllButton[ i ]
-                    )
-                );
+                if ( this.closeAllButton[ i ] ) {
+                    this.closeAllButton[ i ].addEventListener(
+                        'click',
+                        () => this.closeAllDropdowns(
+                            this.mainContainer[ i ],
+                            this.closeAllButton[ i ],
+                            this.openAllButton[ i ]
+                        )
+                    );
+                }
 
                 if ( this.dropdownTogglers ) {
                     const togglers = this.mainContainer[ i ].getElementsByClassName( 'accordion__title-button' );
@@ -98,6 +102,10 @@ export default class Accordion {
      */
     openAllDropdowns( mainContainer, openAllButton, closeAllButton ) {
         const dropdowns = mainContainer.getElementsByClassName( 'accordion__title-button' );
+
+        if ( dropdowns.length === 0 ) {
+            return;
+        }
 
         for ( let i = 0; i < dropdowns.length; i++ ) {
             const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
@@ -142,6 +150,10 @@ export default class Accordion {
      */
     closeAllDropdowns( mainContainer, closeAllButton, openAllButton ) {
         const dropdowns = mainContainer.getElementsByClassName( 'accordion__title-button' );
+
+        if ( dropdowns.length === 0 ) {
+            return;
+        }
 
         for ( let i = 0; i < dropdowns.length; i++ ) {
             const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
@@ -188,13 +200,15 @@ export default class Accordion {
         const dropdowns = mainContainer.getElementsByClassName( 'accordion__title-button' );
         const openDropdowns = mainContainer.getElementsByClassName( 'active-accordion' );
 
-        if ( openDropdowns.length === dropdowns.length ) {
-            closeAllButton.classList.remove( 'is-hidden' );
-            openAllButton.classList.add( 'is-hidden' );
-        }
-        else {
-            openAllButton.classList.remove( 'is-hidden' );
-            closeAllButton.classList.add( 'is-hidden' );
+        if ( openAllButton && closeAllButton ) {
+            if ( openDropdowns.length === dropdowns.length ) {
+                closeAllButton.classList.remove( 'is-hidden' );
+                openAllButton.classList.add( 'is-hidden' );
+            }
+            else {
+                openAllButton.classList.remove( 'is-hidden' );
+                closeAllButton.classList.add( 'is-hidden' );
+            }
         }
     }
 
@@ -211,8 +225,14 @@ export default class Accordion {
         const textOpen = clickedToggler.querySelector( '.icon-text--open' );
         const textClose = clickedToggler.querySelector( '.icon-text--close' );
 
-        this.toggleAriaHidden( textOpen );
-        this.toggleAriaHidden( textClose );
+        if ( textOpen ) {
+            this.toggleAriaHidden( textOpen );
+        }
+
+        if ( textClose ) {
+            this.toggleAriaHidden( textClose );
+        }
+
         this.toggleAriaExpanded( clickedToggler );
         dropDownContent.classList.toggle( 'is-hidden' );
 
