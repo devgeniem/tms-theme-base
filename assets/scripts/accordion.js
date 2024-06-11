@@ -103,38 +103,40 @@ export default class Accordion {
     openAllDropdowns( mainContainer, openAllButton, closeAllButton ) {
         const dropdowns = mainContainer.getElementsByClassName( 'accordion__title-button' );
 
-        if ( dropdowns.length >= 1 ) {
-            for ( let i = 0; i < dropdowns.length; i++ ) {
-                const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
-                const dropDownContent = document.querySelector( `#${ containerId }` );
-                const textOpen = dropdowns[ i ].querySelector( '.icon-text--open' );
-                const textClose = dropdowns[ i ].querySelector( '.icon-text--close' );
+        if ( dropdowns.length === 0 ) {
+            return;
+        }
 
-                textOpen.setAttribute( 'aria-hidden', 'true' );
-                textClose.setAttribute( 'aria-hidden', 'false' );
-                dropdowns[ i ].setAttribute( 'aria-expanded', 'true' );
-                if ( ! dropdowns[ i ].classList.contains( 'active-accordion' ) ) {
-                    dropdowns[ i ].classList.add( 'active-accordion' );
-                }
+        for ( let i = 0; i < dropdowns.length; i++ ) {
+            const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
+            const dropDownContent = document.querySelector( `#${ containerId }` );
+            const textOpen = dropdowns[ i ].querySelector( '.icon-text--open' );
+            const textClose = dropdowns[ i ].querySelector( '.icon-text--close' );
 
-                dropDownContent.classList.remove( 'is-hidden' );
-
-                if ( ! dropdowns[ i ].classList.contains( 'is-hidden' )
-                && ! dropdowns[ i ].classList.contains( 'accordion--table-initialized' ) ) {
-
-                    const accordionTables = dropDownContent.getElementsByTagName( 'table' );
-
-                    if ( accordionTables.length > 0 ) {
-                        new Indicate( accordionTables, { arrows: true } );
-
-                        dropdowns[ i ].classList.add( 'accordion--table-initialized' );
-                    }
-                }
+            textOpen.setAttribute( 'aria-hidden', 'true' );
+            textClose.setAttribute( 'aria-hidden', 'false' );
+            dropdowns[ i ].setAttribute( 'aria-expanded', 'true' );
+            if ( ! dropdowns[ i ].classList.contains( 'active-accordion' ) ) {
+                dropdowns[ i ].classList.add( 'active-accordion' );
             }
 
-            closeAllButton.classList.remove( 'is-hidden' );
-            openAllButton.classList.add( 'is-hidden' );
+            dropDownContent.classList.remove( 'is-hidden' );
+
+            if ( ! dropdowns[ i ].classList.contains( 'is-hidden' )
+            && ! dropdowns[ i ].classList.contains( 'accordion--table-initialized' ) ) {
+
+                const accordionTables = dropDownContent.getElementsByTagName( 'table' );
+
+                if ( accordionTables.length > 0 ) {
+                    new Indicate( accordionTables, { arrows: true } );
+
+                    dropdowns[ i ].classList.add( 'accordion--table-initialized' );
+                }
+            }
         }
+
+        closeAllButton.classList.remove( 'is-hidden' );
+        openAllButton.classList.add( 'is-hidden' );
     }
 
     /**
@@ -149,38 +151,40 @@ export default class Accordion {
     closeAllDropdowns( mainContainer, closeAllButton, openAllButton ) {
         const dropdowns = mainContainer.getElementsByClassName( 'accordion__title-button' );
 
-        if ( dropdowns.length >= 1 ) {
-            for ( let i = 0; i < dropdowns.length; i++ ) {
-                const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
-                const dropDownContent = document.querySelector( `#${ containerId }` );
-                const textOpen = dropdowns[ i ].querySelector( '.icon-text--open' );
-                const textClose = dropdowns[ i ].querySelector( '.icon-text--close' );
+        if ( dropdowns.length === 0 ) {
+            return;
+        }
 
-                textOpen.setAttribute( 'aria-hidden', 'false' );
-                textClose.setAttribute( 'aria-hidden', 'true' );
-                dropdowns[ i ].setAttribute( 'aria-expanded', 'false' );
-                if ( dropdowns[ i ].classList.contains( 'active-accordion' ) ) {
-                    dropdowns[ i ].classList.remove( 'active-accordion' );
-                }
+        for ( let i = 0; i < dropdowns.length; i++ ) {
+            const containerId = dropdowns[ i ].getAttribute( 'aria-controls' );
+            const dropDownContent = document.querySelector( `#${ containerId }` );
+            const textOpen = dropdowns[ i ].querySelector( '.icon-text--open' );
+            const textClose = dropdowns[ i ].querySelector( '.icon-text--close' );
 
-                dropDownContent.classList.add( 'is-hidden' );
-
-                if ( dropdowns[ i ].classList.contains( 'is-hidden' )
-                && dropdowns[ i ].classList.contains( 'accordion--table-initialized' ) ) {
-
-                    const accordionTables = dropDownContent.getElementsByTagName( 'table' );
-
-                    if ( accordionTables.length > 0 ) {
-                        new Indicate( accordionTables, { arrows: true } );
-
-                        dropdowns[ i ].classList.remove( 'accordion--table-initialized' );
-                    }
-                }
+            textOpen.setAttribute( 'aria-hidden', 'false' );
+            textClose.setAttribute( 'aria-hidden', 'true' );
+            dropdowns[ i ].setAttribute( 'aria-expanded', 'false' );
+            if ( dropdowns[ i ].classList.contains( 'active-accordion' ) ) {
+                dropdowns[ i ].classList.remove( 'active-accordion' );
             }
 
-            openAllButton.classList.remove( 'is-hidden' );
-            closeAllButton.classList.add( 'is-hidden' );
+            dropDownContent.classList.add( 'is-hidden' );
+
+            if ( dropdowns[ i ].classList.contains( 'is-hidden' )
+            && dropdowns[ i ].classList.contains( 'accordion--table-initialized' ) ) {
+
+                const accordionTables = dropDownContent.getElementsByTagName( 'table' );
+
+                if ( accordionTables.length > 0 ) {
+                    new Indicate( accordionTables, { arrows: true } );
+
+                    dropdowns[ i ].classList.remove( 'accordion--table-initialized' );
+                }
+            }
         }
+
+        openAllButton.classList.remove( 'is-hidden' );
+        closeAllButton.classList.add( 'is-hidden' );
     }
 
     /**
