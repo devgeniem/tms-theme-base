@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-05-29 12:01+0300\n"
-"PO-Revision-Date: 2024-05-29 12:04+0300\n"
+"POT-Creation-Date: 2024-06-18 15:17+0300\n"
+"PO-Revision-Date: 2024-06-19 13:05+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -75,13 +75,13 @@ msgid "Open map"
 msgstr "Avaa kartta"
 
 #: lib/ACF/FrontPageGroup.php:39 lib/ACF/OnepagerGroup.php:73
-#: lib/ACF/PageGroup.php:41
+#: lib/ACF/PageGroup.php:42
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "Sivun komponentit"
 
 #: lib/ACF/FrontPageGroup.php:91 lib/ACF/OnepagerGroup.php:126
-#: lib/ACF/PageGroup.php:142 lib/ACF/PostGroup.php:173
+#: lib/ACF/PageGroup.php:194 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
 msgstr "Komponentit"
@@ -100,6 +100,21 @@ msgstr ""
 msgctxt "theme ACF"
 msgid "Asetukset"
 msgstr ""
+
+#: lib/ACF/PageGroup.php:43
+msgctxt "theme ACF"
+msgid "Page settings"
+msgstr "Sivun asetukset"
+
+#: lib/ACF/PageGroup.php:169
+msgctxt "theme ACF"
+msgid "Remove hero-image overlay"
+msgstr "Poista herokuvan tummennus"
+
+#: lib/ACF/PageGroup.php:170
+msgctxt "theme ACF"
+msgid "Remove hero-image overlay and move the heading under the hero-element"
+msgstr "Poista herokuvan tummennus ja siirrä otsikkoteksti hero-elementin alle"
 
 #: lib/ACF/PostGroup.php:129 models/single.php:161
 msgid "Related posts"
@@ -301,11 +316,11 @@ msgstr ""
 msgid "Links"
 msgstr "Linkit"
 
-#: lib/Eventz.php:314
+#: lib/Eventz.php:354
 msgid "Additional information"
 msgstr "Lisätiedot"
 
-#: lib/Eventz.php:331
+#: lib/Eventz.php:371
 msgid "Free"
 msgstr "Maksuton"
 

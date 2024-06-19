@@ -18,6 +18,12 @@
             </div>
         {/Header.breadcrumbs}
 
+        {^Page.use_overlay}
+            <section class="page__hero-heading section pt-5-desktop pt-0 pb-0">
+                {>"ui/entry-title" class="mt-0 has-text-centered" /}
+            </section>
+        {/Page.use_overlay}
+
         <section class="section {?Header.hero_image}pt-7{:else}{?Header.breadcrumbs}pt-0{:else}pt-10{/Header.breadcrumbs}{/Header.hero_image}">
             <div class="container">
                 <div class="columns">
