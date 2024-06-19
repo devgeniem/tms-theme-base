@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1054: Add "remove hero overlay" -field to default page template
+
 ## [1.56.0] - 2024-06-12
 
 - TMS-1050: Add if-statements into accordion script to prevent breaking other elements functionality
