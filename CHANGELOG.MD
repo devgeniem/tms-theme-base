@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1057: Increase articles lead-text font-size
+
 ## [1.57.0] - 2024-06-26
 
 - TMS-1054: Add "remove hero overlay" -field to default page template
