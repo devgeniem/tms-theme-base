@@ -54,7 +54,7 @@
                     {>"ui/icon" icon="email" class="icon--large is-primary" /}
                 </div>
 
-                <a href="mailto:{email|url}" class="has-text-paragraph hyphenate">
+                <a href="mailto:{email|attr}" class="has-text-paragraph hyphenate">
                     {email|html}
                 </a>
             </div>

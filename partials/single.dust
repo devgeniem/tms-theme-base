@@ -38,8 +38,8 @@
                                     {/content.has_image}
 
                                     {?content.post_excerpt}
-                                        <p class="entry__lead">
-                                            {content.post_excerpt|s}
+                                        <p class="entry__lead is-size-5">
+                                            {content.post_excerpt|html}
                                         </p>
                                     {/content.post_excerpt}
 
@@ -48,7 +48,7 @@
                                     {?share_links}
                                         <div class="entry__share-links">
                                             <h2 class="h6 mt-6 mb-6">
-                                                {Strings.s.share.share_article|s}
+                                                {Strings.s.share.share_article|html}
                                             </h2>
 
                                             {>"ui/share-links" share_links=share_links li_class="mr-4" /}
