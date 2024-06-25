@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.57.0] - 2024-06-26
+
 - TMS-1054: Add "remove hero overlay" -field to default page template
 - TMS-1055: Fix mailto-links escaping-filter
 
