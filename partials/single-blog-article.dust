@@ -32,7 +32,7 @@
                                     {/content.image}
 
                                     {?content.post_excerpt}
-                                        <p class="entry__lead is-size-5">
+                                        <p class="entry__lead is-size-6">
                                             {content.post_excerpt|html}
                                         </p>
                                     {/content.post_excerpt}
