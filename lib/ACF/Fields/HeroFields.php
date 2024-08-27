@@ -80,9 +80,9 @@ class HeroFields extends \Geniem\ACF\Field\Group {
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
-        $video_field = ( new Field\URL( $strings['video']['label'] ) )
-            ->set_key( "${key}_video" )
-            ->set_name( 'video' )
+        $video_field = ( new Field\File( $strings['video']['label'] ) )
+            ->set_key( "${key}_video_file" )
+            ->set_name( 'video_file' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['video']['instructions'] );
 
