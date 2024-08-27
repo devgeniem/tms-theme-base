@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1061: Change hero video-field from URL to File, since the URL wasn't working
+
 ## [1.58.0] - 2024-08-21
 
 - TMS-1057: Increase articles lead-text font-size
