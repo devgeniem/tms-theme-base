@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1062: Increase menu-dropdown button size
+
 ## [1.58.0] - 2024-08-21
 
 - TMS-1057: Increase articles lead-text font-size
