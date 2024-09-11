@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1061: Change hero video-field from URL to File, since the URL wasn't working
+
 ## [1.58.1] - 2024-09-03
 
 - TMS-1062: Increase menu-dropdown button size

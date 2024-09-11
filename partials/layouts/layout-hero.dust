@@ -4,9 +4,9 @@
         <div class="overlay overlay--dark-50"></div>
     {/use_overlay}
 
-    {?video}
+    {?video_file}
         <div class="is-overlay is-clipped" aria-hidden="true" tabindex="-1">
-            <video src="{video}" class="hero__video is-hidden" loop muted playsinline></video>
+            <video src="{video_file.url|url}" class="hero__video is-hidden" loop muted playsinline></video>
 
             <button class="hero__control hero__control--play" aria-label="{Strings.s.video.play|attr}">
                 {>"ui/icon" icon="play" class="icon--xxxlarge"  /}
@@ -16,7 +16,7 @@
                 {>"ui/icon" icon="pause" class="icon--xxxlarge"  /}
             </button>
         </div>
-    {/video}
+    {/video_file}
 
     <div class="hero__inner">
         <div class="container">
