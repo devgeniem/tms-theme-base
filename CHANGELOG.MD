@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.58.2] - 2024-09-12
+
 - TMS-1061: Change hero video-field from URL to File, since the URL wasn't working
 
 ## [1.58.1] - 2024-09-03
