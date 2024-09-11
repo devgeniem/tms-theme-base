@@ -41,6 +41,7 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
             .icon {
                 color: inherit;
                 fill: currentColor;
+                vertical-align: middle;
             }
         }
 
@@ -82,12 +83,17 @@ $navbar-item-navbar-active-bg-color: rgba($navbar-item-navbar-link-color, .05) !
     }
 
     &--dropdown {
+        .navbar-link.dropdown-trigger {
+            padding-right: .75rem !important; // sass-lint:disable-line no-important
+        }
+
         .has-dropdown {
             position: static;
         }
 
         .dropdown-toggler {
             margin-right: 0 !important; // sass-lint:disable-line no-important
+            padding: .625rem;
         }
 
         .navbar-dropdown {
