@@ -150,6 +150,7 @@ class Strings extends \DustPress\Model {
                 'date'     => _x( 'Event date', 'theme-frontend', 'tms-theme-base' ),
                 'time'     => _x( 'Event time', 'theme-frontend', 'tms-theme-base' ),
                 'location' => _x( 'Event location', 'theme-frontend', 'tms-theme-base' ),
+                'price'    => _x( 'Event price', 'theme-frontend', 'tms-theme-base' ),
             ],
             'sitemap'            => [
                 'open'  => _x( 'Open', 'theme-frontend', 'tms-theme-base' ),

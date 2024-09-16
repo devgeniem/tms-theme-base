@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-06-18 15:17+0300\n"
-"PO-Revision-Date: 2024-06-19 13:05+0300\n"
+"POT-Creation-Date: 2024-09-13 15:09+0300\n"
+"PO-Revision-Date: 2024-09-13 15:09+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -75,13 +75,13 @@ msgid "Open map"
 msgstr "Avaa kartta"
 
 #: lib/ACF/FrontPageGroup.php:39 lib/ACF/OnepagerGroup.php:73
-#: lib/ACF/PageGroup.php:42
+#: lib/ACF/PageGroup.php:47
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "Sivun komponentit"
 
 #: lib/ACF/FrontPageGroup.php:91 lib/ACF/OnepagerGroup.php:126
-#: lib/ACF/PageGroup.php:194 lib/ACF/PostGroup.php:173
+#: lib/ACF/PageGroup.php:260 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
 msgstr "Komponentit"
@@ -101,17 +101,17 @@ msgctxt "theme ACF"
 msgid "Asetukset"
 msgstr ""
 
-#: lib/ACF/PageGroup.php:43
+#: lib/ACF/PageGroup.php:142
 msgctxt "theme ACF"
 msgid "Page settings"
 msgstr "Sivun asetukset"
 
-#: lib/ACF/PageGroup.php:169
+#: lib/ACF/PageGroup.php:235
 msgctxt "theme ACF"
 msgid "Remove hero-image overlay"
 msgstr "Poista herokuvan tummennus"
 
-#: lib/ACF/PageGroup.php:170
+#: lib/ACF/PageGroup.php:236
 msgctxt "theme ACF"
 msgid "Remove hero-image overlay and move the heading under the hero-element"
 msgstr "Poista herokuvan tummennus ja siirrä otsikkoteksti hero-elementin alle"
@@ -344,22 +344,22 @@ msgctxt "theme-frontend"
 msgid "Collapse all sections"
 msgstr "Sulje kaikki sisällöt"
 
-#: lib/Formatters/CountdownFormatter.php:92 models/strings.php:229
+#: lib/Formatters/CountdownFormatter.php:92 models/strings.php:230
 msgctxt "theme-frontend"
 msgid "Days"
 msgstr "Päivää"
 
-#: lib/Formatters/CountdownFormatter.php:93 models/strings.php:230
+#: lib/Formatters/CountdownFormatter.php:93 models/strings.php:231
 msgctxt "theme-frontend"
 msgid "Hours"
 msgstr "Tuntia"
 
-#: lib/Formatters/CountdownFormatter.php:94 models/strings.php:231
+#: lib/Formatters/CountdownFormatter.php:94 models/strings.php:232
 msgctxt "theme-frontend"
 msgid "Minutes"
 msgstr "Minuuttia"
 
-#: lib/Formatters/CountdownFormatter.php:95 models/strings.php:232
+#: lib/Formatters/CountdownFormatter.php:95 models/strings.php:233
 msgctxt "theme-frontend"
 msgid "Seconds"
 msgstr "Sekuntia"
@@ -720,8 +720,8 @@ msgctxt "theme-frontend"
 msgid "Current language: "
 msgstr "Valittu kieli: "
 
-#: models/strings.php:51 models/strings.php:52 models/strings.php:160
-#: models/strings.php:161
+#: models/strings.php:51 models/strings.php:52 models/strings.php:161
+#: models/strings.php:162
 msgctxt "theme-frontend"
 msgid "Search"
 msgstr "Hae"
@@ -732,7 +732,7 @@ msgid "Search from site"
 msgstr "Hae sivustolta"
 
 #: models/strings.php:55 models/strings.php:81 models/strings.php:143
-#: models/strings.php:156 models/strings.php:165 models/strings.php:236
+#: models/strings.php:157 models/strings.php:166 models/strings.php:237
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr "Sulje"
@@ -787,7 +787,7 @@ msgctxt "theme-frontend"
 msgid "Next"
 msgstr "Seuraava"
 
-#: models/strings.php:83 models/strings.php:155 models/strings.php:164
+#: models/strings.php:83 models/strings.php:156 models/strings.php:165
 msgctxt "theme-frontend"
 msgid "Open"
 msgstr "Avaa"
@@ -877,12 +877,12 @@ msgctxt "theme-frontend"
 msgid "Articletype:"
 msgstr "Artikkelityyppi:"
 
-#: models/strings.php:109 models/strings.php:186
+#: models/strings.php:109 models/strings.php:187
 msgctxt "theme-frontend"
 msgid "Month"
 msgstr "Kuukausi"
 
-#: models/strings.php:110 models/strings.php:187
+#: models/strings.php:110 models/strings.php:188
 msgctxt "theme-frontend"
 msgid "Year"
 msgstr "Vuosi"
@@ -902,62 +902,62 @@ msgctxt "theme-frontend"
 msgid "The page reloads after the selection."
 msgstr "Sivu latautuu uudelleen valinnan jälkeen."
 
-#: models/strings.php:116 models/strings.php:200
+#: models/strings.php:116 models/strings.php:201
 msgctxt "theme-frontend"
 msgid "January"
 msgstr "tammikuu"
 
-#: models/strings.php:117 models/strings.php:201
+#: models/strings.php:117 models/strings.php:202
 msgctxt "theme-frontend"
 msgid "February"
 msgstr "helmikuu"
 
-#: models/strings.php:118 models/strings.php:202
+#: models/strings.php:118 models/strings.php:203
 msgctxt "theme-frontend"
 msgid "March"
 msgstr "maaliskuu"
 
-#: models/strings.php:119 models/strings.php:203
+#: models/strings.php:119 models/strings.php:204
 msgctxt "theme-frontend"
 msgid "April"
 msgstr "huhtikuu"
 
-#: models/strings.php:120 models/strings.php:204 models/strings.php:218
+#: models/strings.php:120 models/strings.php:205 models/strings.php:219
 msgctxt "theme-frontend"
 msgid "May"
 msgstr "toukokuu"
 
-#: models/strings.php:121 models/strings.php:205
+#: models/strings.php:121 models/strings.php:206
 msgctxt "theme-frontend"
 msgid "June"
 msgstr "kesäkuu"
 
-#: models/strings.php:122 models/strings.php:206
+#: models/strings.php:122 models/strings.php:207
 msgctxt "theme-frontend"
 msgid "July"
 msgstr "heinäkuu"
 
-#: models/strings.php:123 models/strings.php:207
+#: models/strings.php:123 models/strings.php:208
 msgctxt "theme-frontend"
 msgid "August"
 msgstr "elokuu"
 
-#: models/strings.php:124 models/strings.php:208
+#: models/strings.php:124 models/strings.php:209
 msgctxt "theme-frontend"
 msgid "September"
 msgstr "syyskuu"
 
-#: models/strings.php:125 models/strings.php:209
+#: models/strings.php:125 models/strings.php:210
 msgctxt "theme-frontend"
 msgid "October"
 msgstr "lokakuu"
 
-#: models/strings.php:126 models/strings.php:210
+#: models/strings.php:126 models/strings.php:211
 msgctxt "theme-frontend"
 msgid "November"
 msgstr "marraskuu"
 
-#: models/strings.php:127 models/strings.php:211
+#: models/strings.php:127 models/strings.php:212
 msgctxt "theme-frontend"
 msgid "December"
 msgstr "joulukuu"
@@ -1016,217 +1016,179 @@ msgctxt "theme-frontend"
 msgid "Event location"
 msgstr "Paikka"
 
-#: models/strings.php:159
+#: models/strings.php:153
+msgctxt "theme-frontend"
+msgid "Event price"
+msgstr "Hinta"
+
+#: models/strings.php:160
 msgctxt "theme-frontend"
 msgid "Search contacts"
 msgstr "Etsi yhteystietoja"
 
-#: models/strings.php:166 models/strings.php:171
+#: models/strings.php:167 models/strings.php:172
 msgctxt "theme-frontend"
 msgid "Related artwork"
 msgstr "Liittyvät teokset"
 
-#: models/strings.php:169
+#: models/strings.php:170
 msgctxt "theme-frontend"
 msgid "Show artist"
 msgstr "Näytä taiteilija"
 
-#: models/strings.php:170
+#: models/strings.php:171
 msgctxt "theme-frontend"
 msgid "Artwork by the same artist"
 msgstr "Taiteilijan muut teokset"
 
-#: models/strings.php:174
+#: models/strings.php:175
 msgctxt "theme-frontend"
 msgid "Filter by type"
 msgstr "Rajaa tyypin mukaan"
 
-#: models/strings.php:175
+#: models/strings.php:176
 msgctxt "theme-frontend"
 msgid "Publish date"
 msgstr "Julkaisupäivä"
 
-#: models/strings.php:176
+#: models/strings.php:177
 msgctxt "theme-frontend"
 msgid "Page location:"
 msgstr "Sivun sijainti:"
 
-#: models/strings.php:177
+#: models/strings.php:178
 msgctxt "theme-frontend"
 msgid "Clear the form"
 msgstr "Tyhjennä lomake"
 
-#: models/strings.php:181 models/strings.php:189
+#: models/strings.php:182 models/strings.php:190
 msgctxt "theme-frontend"
 msgid "Pick a date"
 msgstr "Valitse päivämäärä"
 
-#: models/strings.php:182
+#: models/strings.php:183
 msgctxt "theme-frontend"
 msgid "dd.mm.yyyy"
 msgstr "pp.kk.vvvv"
 
-#: models/strings.php:183
+#: models/strings.php:184
 msgctxt "theme-frontend"
 msgid "The chosen date is"
 msgstr "Valittu päivämäärä on"
 
-#: models/strings.php:184
+#: models/strings.php:185
 msgctxt "theme-frontend"
 msgid "Previous month"
 msgstr "Edellinen kuukausi"
 
-#: models/strings.php:185
+#: models/strings.php:186
 msgctxt "theme-frontend"
 msgid "Next month"
 msgstr "Seuraava kuukausi"
 
-#: models/strings.php:188
+#: models/strings.php:189
 msgctxt "theme-frontend"
 msgid "Close window"
 msgstr "Sulje ikkuna"
 
-#: models/strings.php:191
+#: models/strings.php:192
 msgctxt "theme-frontend"
 msgid "Sunday"
 msgstr "Sunnuntai"
 
-#: models/strings.php:192
+#: models/strings.php:193
 msgctxt "theme-frontend"
 msgid "Monday"
 msgstr "Maanantai"
 
-#: models/strings.php:193
+#: models/strings.php:194
 msgctxt "theme-frontend"
 msgid "Tuesday"
 msgstr "Tiistai"
 
-#: models/strings.php:194
+#: models/strings.php:195
 msgctxt "theme-frontend"
 msgid "Wednesday"
 msgstr "Keskiviikko"
 
-#: models/strings.php:195
+#: models/strings.php:196
 msgctxt "theme-frontend"
 msgid "Thursday"
 msgstr "Torstai"
 
-#: models/strings.php:196
+#: models/strings.php:197
 msgctxt "theme-frontend"
 msgid "Friday"
 msgstr "Perjantai"
 
-#: models/strings.php:197
+#: models/strings.php:198
 msgctxt "theme-frontend"
 msgid "Saturday"
 msgstr "Lauantai"
 
-#: models/strings.php:214
+#: models/strings.php:215
 msgctxt "theme-frontend"
 msgid "Jan"
 msgstr "Tam"
 
-#: models/strings.php:215
+#: models/strings.php:216
 msgctxt "theme-frontend"
 msgid "Feb"
 msgstr "Hel"
 
-#: models/strings.php:216
+#: models/strings.php:217
 msgctxt "theme-frontend"
 msgid "Mar"
 msgstr "Maa"
 
-#: models/strings.php:217
+#: models/strings.php:218
 msgctxt "theme-frontend"
 msgid "Apr"
 msgstr "Huh"
 
-#: models/strings.php:219
+#: models/strings.php:220
 msgctxt "theme-frontend"
 msgid "Jun"
 msgstr "Kes"
 
-#: models/strings.php:220
+#: models/strings.php:221
 msgctxt "theme-frontend"
 msgid "Jul"
 msgstr "Hei"
 
-#: models/strings.php:221
+#: models/strings.php:222
 msgctxt "theme-frontend"
 msgid "Aug"
 msgstr "Elo"
 
-#: models/strings.php:222
+#: models/strings.php:223
 msgctxt "theme-frontend"
 msgid "Sept"
 msgstr "Syys"
 
-#: models/strings.php:223
+#: models/strings.php:224
 msgctxt "theme-frontend"
 msgid "Oct"
 msgstr "Loka"
 
-#: models/strings.php:224
+#: models/strings.php:225
 msgctxt "theme-frontend"
 msgid "Nov"
 msgstr "Mar"
 
-#: models/strings.php:225
+#: models/strings.php:226
 msgctxt "theme-frontend"
 msgid "Dec"
 msgstr "Jou"
 
-#: models/strings.php:235
+#: models/strings.php:236
 msgctxt "theme-frontend"
 msgid "Enlarged image"
 msgstr "Suurennettu kuva"
 
-#: models/strings.php:249
+#: models/strings.php:250
 msgid "Pagination"
 msgstr "Sivutus"
-
-#: wp-content/mu-plugins/acf-codifier/src/Field/FlexibleContent.php:67
-#: wp-content/mu-plugins/acf-codifier/src/Field/Repeater.php:60
-msgid "Add Row"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisitePostObject.php:24
-msgid "Multisite Post Object"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteRelationship.php:24
-msgid "Multisite Relationship"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/MultisiteTaxonomy.php:23
-msgid "Multisite taxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:23
-msgid "Multitaxonomy"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/Multitaxonomy.php:516
-#, php-format
-msgctxt "No terms"
-msgid "No %s"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:18
-msgid "PHP"
-msgstr ""
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:48
-#, fuzzy
-#| msgid "Induction loop"
-msgid "Instructions"
-msgstr "Induktio-silmukka"
-
-#: wp-content/mu-plugins/acf-codifier/src/Fields/PHP.php:50
-msgid ""
-"This field can only be used with ACF Codifier. Doesn't do anything if "
-"defined in the admin side."
-msgstr ""
 
 #. Theme Name of the plugin/theme
 msgid "TMS Theme Base"
@@ -1243,6 +1205,11 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://geniem.fi"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Induction loop"
+#~ msgid "Instructions"
+#~ msgstr "Induktio-silmukka"
 
 #~ msgctxt "theme-frontend"
 #~ msgid "Dialog Window - Close (Press escape to close)"
