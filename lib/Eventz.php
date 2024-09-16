@@ -348,7 +348,7 @@ class Eventz implements Controller {
 
         return [
             [
-                'is_free'     => null,
+                'is_free'     => property_exists( $event->price, 'isFree' ) ? true : null,
                 'price'       => $price,
                 'info_url'    => [
                     'title' => __( 'Additional information', 'tms-theme-base' ),
