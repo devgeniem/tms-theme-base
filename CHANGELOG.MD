@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.58.3] - 2024-09-25
+
 - TMS-1067: Show price-info for event in listing if it's free
 
 ## [1.58.2] - 2024-09-12
