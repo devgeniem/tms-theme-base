@@ -33,17 +33,17 @@ class Search extends BaseModel {
      * @return void
      */
     public static function hooks() {
-        add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
-        add_filter( 'redipress/scorer', [ __CLASS__, 'set_search_scorer' ], 10, 1 );
-        add_filter( 'redipress/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
-        add_filter( 'redipress/ignore_query_vars', [ __CLASS__, 'set_ignored_query_vars' ], 10, 1 );
+        \add_action( 'pre_get_posts', [ __CLASS__, 'modify_query' ] );
+        \add_filter( 'redipress/scorer', [ __CLASS__, 'set_search_scorer' ], 10, 1 );
+        \add_filter( 'redipress/index/posts/schema_fields', [ __CLASS__, 'set_fields_weight' ], 10, 1 );
+        \add_filter( 'redipress/ignore_query_vars', [ __CLASS__, 'set_ignored_query_vars' ], 10, 1 );
     }
 
     /**
      * Page title
      */
     public function page_title() : string {
-        return __( 'Search results', 'tms-theme-base' );
+        return \__( 'Search results', 'tms-theme-base' );
     }
 
     /**
