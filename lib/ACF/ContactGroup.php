@@ -24,13 +24,13 @@ class ContactGroup {
      * PageGroup constructor.
      */
     public function __construct() {
-        add_action(
+        \add_action(
             'init',
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
 
-        add_filter(
-            'redipress/schema_fields',
+        \add_filter(
+            'redipress/index/posts/schema_fields',
             \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
         );
     }
@@ -176,21 +176,21 @@ class ContactGroup {
         ];
 
         $image_field = ( new Field\Image( $strings['image']['title'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_return_format( 'id' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
         $title_field = ( new Field\Text( $strings['title']['title'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
 
         $first_name_field = ( new Field\Text( $strings['first_name']['title'] ) )
-            ->set_key( "${key}_first_name" )
+            ->set_key( "{$key}_first_name" )
             ->set_name( 'first_name' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
@@ -198,22 +198,23 @@ class ContactGroup {
             ->set_required();
 
         $last_name_field = ( new Field\Text( $strings['last_name']['title'] ) )
-            ->set_key( "${key}_last_name" )
+            ->set_key( "{$key}_last_name" )
             ->set_name( 'last_name' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
+            ->redipress_add_queryable()
             ->set_instructions( $strings['last_name']['instructions'] )
             ->set_required();
 
         $phone_repeater_field = ( new Field\Repeater( $strings['phone_repeater']['title'] ) )
-            ->set_key( "${key}_phone_repeater" )
+            ->set_key( "{$key}_phone_repeater" )
             ->set_name( 'phone_repeater' )
             ->set_min( 1 )
             ->set_max( 5 )
             ->set_instructions( $strings['phone_repeater']['instructions'] );
 
         $phone_text_field = ( new Field\Text( $strings['phone_text']['title'] ) )
-            ->set_key( "${key}_phone_text" )
+            ->set_key( "{$key}_phone_text" )
             ->set_name( 'phone_text' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['phone_text']['instructions'] );
@@ -221,7 +222,7 @@ class ContactGroup {
         $phone_repeater_field->add_field( $phone_text_field );
 
         $phone_number_field = ( new Field\Text( $strings['phone_number']['title'] ) )
-            ->set_key( "${key}_phone_number" )
+            ->set_key( "{$key}_phone_number" )
             ->set_name( 'phone_number' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['phone_number']['instructions'] );
@@ -229,76 +230,76 @@ class ContactGroup {
         $phone_repeater_field->add_field( $phone_number_field );
 
         $email_field = ( new Field\Email( $strings['email']['title'] ) )
-            ->set_key( "${key}_email" )
+            ->set_key( "{$key}_email" )
             ->set_name( 'email' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['email']['instructions'] );
 
         $office_field = ( new Field\Select( $strings['office']['title'] ) )
-            ->set_key( "${key}_office" )
+            ->set_key( "{$key}_office" )
             ->set_name( 'office' )
             ->set_wrapper_width( 50 )
             ->disable()
             ->set_instructions( $strings['office']['instructions'] );
 
         $domain_field = ( new Field\Text( $strings['domain']['title'] ) )
-            ->set_key( "${key}_domain" )
+            ->set_key( "{$key}_domain" )
             ->set_name( 'domain' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
             ->set_instructions( $strings['domain']['instructions'] );
 
         $unit_field = ( new Field\Text( $strings['unit']['title'] ) )
-            ->set_key( "${key}_unit" )
+            ->set_key( "{$key}_unit" )
             ->set_name( 'unit' )
             ->set_wrapper_width( 50 )
             ->redipress_include_search()
             ->set_instructions( $strings['unit']['instructions'] );
 
         $visiting_message_field = ( new Field\Message( $strings['visiting_address']['title'] ) )
-            ->set_key( "${key}_visiting_address" )
+            ->set_key( "{$key}_visiting_address" )
             ->set_name( 'visiting_address' );
 
         $visiting_address_street_field = ( new Field\Text( $strings['visiting_address_street']['title'] ) )
-            ->set_key( "${key}_visiting_address_street" )
+            ->set_key( "{$key}_visiting_address_street" )
             ->set_name( 'visiting_address_street' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['visiting_address_street']['instructions'] );
 
         $visiting_address_zip_code_field = ( new Field\Text( $strings['visiting_address_zip_code']['title'] ) )
-            ->set_key( "${key}_visiting_address_zip_code" )
+            ->set_key( "{$key}_visiting_address_zip_code" )
             ->set_name( 'visiting_address_zip_code' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['visiting_address_zip_code']['instructions'] );
 
         $visiting_address_city_field = ( new Field\Text( $strings['visiting_address_city']['title'] ) )
-            ->set_key( "${key}_visiting_address_city" )
+            ->set_key( "{$key}_visiting_address_city" )
             ->set_name( 'visiting_address_city' )
             ->set_instructions( $strings['visiting_address_city']['instructions'] );
 
         $mail_message_field = ( new Field\Message( $strings['mail_address']['title'] ) )
-            ->set_key( "${key}_mail_address" )
+            ->set_key( "{$key}_mail_address" )
             ->set_name( 'mail_address' );
 
         $mail_address_street_field = ( new Field\Text( $strings['mail_address_street']['title'] ) )
-            ->set_key( "${key}_mail_address_street" )
+            ->set_key( "{$key}_mail_address_street" )
             ->set_name( 'mail_address_street' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['mail_address_street']['instructions'] );
 
         $mail_address_zip_code_field = ( new Field\Text( $strings['mail_address_zip_code']['title'] ) )
-            ->set_key( "${key}_mail_address_zip_code" )
+            ->set_key( "{$key}_mail_address_zip_code" )
             ->set_name( 'mail_address_zip_code' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['mail_address_zip_code']['instructions'] );
 
         $mail_address_city_field = ( new Field\Text( $strings['mail_address_city']['title'] ) )
-            ->set_key( "${key}_mail_address_city" )
+            ->set_key( "{$key}_mail_address_city" )
             ->set_name( 'mail_address_city' )
             ->set_instructions( $strings['mail_address_city']['instructions'] );
 
         $additional_info_top = ( new Field\Textarea( $strings['additional_info_top']['title'] ) )
-            ->set_key( "${key}_additional_info_top" )
+            ->set_key( "{$key}_additional_info_top" )
             ->set_name( 'additional_info_top' )
             ->set_new_lines( 'wpautop' )
             ->set_rows( 4 )
@@ -306,7 +307,7 @@ class ContactGroup {
             ->set_instructions( $strings['additional_info_top']['instructions'] );
 
         $additional_info_bottom = ( new Field\Textarea( $strings['additional_info_bottom']['title'] ) )
-            ->set_key( "${key}_additional_info_bottom" )
+            ->set_key( "{$key}_additional_info_bottom" )
             ->set_name( 'additional_info_bottom' )
             ->set_new_lines( 'wpautop' )
             ->set_rows( 4 )
