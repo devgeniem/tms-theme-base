@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.59.1] - 2024-10-28
+
+- TMS-1075-fix: Early return added to ImageGalleryFormatter
+
+## [1.59.0] - 2024-10-24
+
 - TMS-1075: Redipress 2 filters
 
 ## [1.58.3] - 2024-09-25
