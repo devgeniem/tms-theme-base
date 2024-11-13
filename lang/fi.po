@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-09-13 15:09+0300\n"
-"PO-Revision-Date: 2024-09-13 15:09+0300\n"
+"POT-Creation-Date: 2024-11-13 20:00+0200\n"
+"PO-Revision-Date: 2024-11-13 20:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -280,47 +280,59 @@ msgctxt "pagination"
 msgid "Previous"
 msgstr "Edellinen"
 
-#: lib/Eventz.php:114
+#: lib/Eventz.php:118
+msgid "Purchase tickets"
+msgstr "Osta liput"
+
+#: lib/Eventz.php:122 lib/Eventz.php:171
+msgid "Sign up"
+msgstr "Ilmoittaudu"
+
+#: lib/Eventz.php:132
+msgid "Homepage"
+msgstr "Kotisivut"
+
+#: lib/Eventz.php:146
 msgid "Dates"
 msgstr "Päivät"
 
-#: lib/Eventz.php:119
+#: lib/Eventz.php:151
 msgid "Time"
 msgstr "Aika"
 
-#: lib/Eventz.php:124
+#: lib/Eventz.php:156
 msgid "Location"
 msgstr "Sijainti"
 
-#: lib/Eventz.php:126
+#: lib/Eventz.php:158
 msgid "Price"
 msgstr "Hinta"
 
-#: lib/Eventz.php:128
+#: lib/Eventz.php:160
 msgid "Organizer"
 msgstr "Järjestäjä"
 
-#: lib/Eventz.php:129
+#: lib/Eventz.php:161
 msgid "Area"
 msgstr ""
 
-#: lib/Eventz.php:131
+#: lib/Eventz.php:163
 msgid "Target"
 msgstr ""
 
-#: lib/Eventz.php:133
+#: lib/Eventz.php:165
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:137
+#: lib/Eventz.php:169
 msgid "Links"
 msgstr "Linkit"
 
-#: lib/Eventz.php:354
+#: lib/Eventz.php:389
 msgid "Additional information"
 msgstr "Lisätiedot"
 
-#: lib/Eventz.php:371
+#: lib/Eventz.php:406
 msgid "Free"
 msgstr "Maksuton"
 
@@ -1230,11 +1242,6 @@ msgstr ""
 #~| msgid "Skip to content"
 #~ msgid "Reply to comment"
 #~ msgstr "Siirry sisältöön"
-
-#, fuzzy
-#~| msgid "Comments"
-#~ msgid "comment-page"
-#~ msgstr "Kommentit"
 
 #, fuzzy
 #~| msgid "Comments"
