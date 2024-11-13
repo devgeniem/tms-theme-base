@@ -67,6 +67,17 @@
     </div>
 {/event.normalized.price}
 
+{?event.normalized.link_sign_up}
+    <div class="info-group mb-5 {template_classes.info_group|attr}">
+        {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.sign_up_title template_classes=template_classes.info_group_title icon="link" /}
+
+        <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+            <a href="{event.normalized.link_sign_up.url|url}" target="_blank" class="is-block">{event.normalized.link_sign_up.name|attr}</a>
+            {>"ui/link" link=event.normalized.link_sign_up.url /}
+        </div>
+    </div>
+{/event.normalized.link_sign_up}
+
 {?event.normalized.links}
     <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.links_title template_classes=template_classes.info_group_title icon="link" /}
