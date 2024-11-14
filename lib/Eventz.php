@@ -128,7 +128,7 @@ class Eventz implements Controller {
             }
 
             $event_other_links = array_map( function ( $event_link ) {
-                if ( $event_link->name === 'HomePage' ) {
+                if ( $event_link->name === 'HomePage' || $event_link->name === 'Homepage' ) {
                     $event_link->name = \__( 'Homepage', 'tms-theme-base' );
                 }
 
