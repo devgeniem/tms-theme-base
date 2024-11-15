@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add "Sign up"- & "Purchase tickets"-links
     - Add translation to homepage link
     - Fix regex pattern for short description
+- TMS-1087: Event-page main image style change
 
 ## [1.59.1] - 2024-10-28
 
