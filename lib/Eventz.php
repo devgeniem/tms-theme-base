@@ -115,11 +115,11 @@ class Eventz implements Controller {
             foreach ( $event->links as $event_link ) {
                 // Assign links to their own variables
                 if ( $event_link->name === 'PurchaseTicket' ) {
-                    $event_link->name = \__( 'Purchase tickets', 'tms-theme-base' );
+                    $event_link->name           = \__( 'Purchase tickets', 'tms-theme-base' );
                     $event_link_purchase_ticket = $event_link;
                 }
                 else if ( $event_link->name === 'SignUp' ) {
-                    $event_link->name = \__( 'Sign up', 'tms-theme-base' );
+                    $event_link->name   = \__( 'Sign up', 'tms-theme-base' );
                     $event_link_sign_up = $event_link;
                 }
                 else {
