@@ -72,7 +72,7 @@
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.sign_up_title template_classes=template_classes.info_group_title icon="link" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            <a href="{event.normalized.link_sign_up.url|url}" target="_blank" class="is-block">{event.normalized.link_sign_up.name|attr}</a>
+            <a href="{event.normalized.link_sign_up.url|url}" target="_blank" class="is-block">{event.normalized.link_sign_up.name|html}</a>
             {>"ui/link" link=event.normalized.link_sign_up.url /}
         </div>
     </div>
