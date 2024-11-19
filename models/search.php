@@ -191,6 +191,17 @@ class Search extends BaseModel {
         $post_excerpt                    = array_search( 'post_excerpt', array_column( $fields, 'name' ), true );
         $fields[ $post_excerpt ]->weight = 5;
 
+        // Include fields
+        $fields[] = new \Geniem\RediPress\Entity\NumericField( [
+            'name'     => 'is_active',
+        ] );
+        $fields[] = new \Geniem\RediPress\Entity\NumericField( [
+            'name'     => 'apply_start',
+        ] );
+        $fields[] = new \Geniem\RediPress\Entity\NumericField( [
+            'name'     => 'apply_end',
+        ] );
+
         return $fields;
     }
 
