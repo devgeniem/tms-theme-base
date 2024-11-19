@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.59.2] - 2024-11-19
+
 - TMS-1088: Add fields to redipress schema
 
 ## [1.59.1] - 2024-10-28
