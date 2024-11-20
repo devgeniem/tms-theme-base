@@ -140,16 +140,16 @@ class Eventz implements Controller {
         }
 
         return [
-            'name'                 => $event->name ?? null,
-            'short_description'    => static::get_short_description( $event ) ?? null,
-            'description'          => nl2br( $event->description ) ?? null,
-            'date_title'           => __( 'Dates', 'tms-theme-base' ),
-            'date'                 => static::get_event_date( $event ),
-            'dates'                => static::get_event_dates( $event ),
-            'entries'              => static::get_event_entries( $event ),
-            'recurring'            => $is_recurring,
-            'time_title'           => __( 'Time', 'tms-theme-base' ),
-            'time'                 => static::get_event_time( $event ),
+            'name'              => $event->name ?? null,
+            'short_description' => nl2br( $event->descriptionShort ) ?? null,
+            'description'       => nl2br( $event->description ) ?? null,
+            'date_title'        => __( 'Dates', 'tms-theme-base' ),
+            'date'              => static::get_event_date( $event ),
+            'dates'             => static::get_event_dates( $event ),
+            'entries'           => static::get_event_entries( $event ),
+            'recurring'         => $is_recurring,
+            'time_title'        => __( 'Time', 'tms-theme-base' ),
+            'time'              => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
             'start_date_raw'       => static::get_as_datetime( $event->event->start ),
             'end_date_raw'         => static::get_as_datetime( $event->event->end ),
@@ -199,7 +199,7 @@ class Eventz implements Controller {
      */
     public static function normalize_event_description( $event ) : array {
         return [
-            'short_description' => static::get_short_description( $event ) ?? null,
+            'short_description' => nl2br( $event->descriptionShort ) ?? null,
         ];
     }
 
@@ -641,28 +641,5 @@ class Eventz implements Controller {
             $start_time->format( 'j.n.Y H.i' ),
             $end_time->format( 'H.i' )
         );
-    }
-
-    /**
-     * Generate short description.
-     *
-     * @param object $event Event object.
-     *
-     * @return string|null
-     */
-    public static function get_short_description( $event ) {
-
-        if ( empty( $event->description ) ) {
-            return null;
-        }
-
-        // Define a regular expression pattern to match the first two sentences
-        // This also takes &nbsp; and closing html-tags after the dot into consideration
-        $pattern = '/^(.*?[.!?](?:\s|&nbsp;|<\/[^>]+>)+)(.*?[.!?](?:\s|&nbsp;|<\/[^>]+>)+)/';
-
-        // Use preg_match() to find the first two sentences
-        if ( preg_match( $pattern, $event->description, $matches ) ) {
-            return $matches[1] . ' ' . $matches[2];
-        }
     }
 }

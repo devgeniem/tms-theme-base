@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Add translation to homepage link
     - Fix regex pattern for short description
 - TMS-1087: Event-page main image style change
+- TMS-1083: Change event short description to be used from API
+
+## [1.59.2] - 2024-11-19
+
+- TMS-1088: Add fields to redipress schema
 
 ## [1.59.1] - 2024-10-28
 
