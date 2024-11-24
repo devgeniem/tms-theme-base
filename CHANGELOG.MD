@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.59.3] - 2024-11-25
+
 - TMS-1059: Eventz changes:
     - Add "Sign up"- & "Purchase tickets"-links
     - Add translation to homepage link
