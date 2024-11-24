@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1087: Event-page main image style change
 - TMS-1083: Change event short description to be used from API
 
 ## [1.59.2] - 2024-11-19

@@ -5,15 +5,9 @@
 .page-template-page-event {
     .entry {
         &__hero-image {
-            height: 18.25rem;
-
-            @include from($tablet) {
-                height: 22rem;
-            }
-
-            @include from($desktop) {
-                height: 31.25rem;
-            }
+            height: auto;
+            aspect-ratio: 16 / 9;
+            background-size: contain;
         }
 
         &__hero-info {
