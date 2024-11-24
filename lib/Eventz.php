@@ -107,38 +107,73 @@ class Eventz implements Controller {
             $is_recurring = true;
         }
 
+        // Format event links
+        $event_other_links          = [];
+        $event_link_sign_up         = '';
+        $event_link_purchase_ticket = '';
+        if ( $event->links ) {
+            foreach ( $event->links as $event_link ) {
+                // Assign links to their own variables
+                if ( $event_link->name === 'PurchaseTicket' ) {
+                    $event_link->name           = \__( 'Purchase tickets', 'tms-theme-base' );
+                    $event_link_purchase_ticket = $event_link;
+                }
+                else if ( $event_link->name === 'SignUp' ) {
+                    $event_link->name   = \__( 'Sign up', 'tms-theme-base' );
+                    $event_link_sign_up = $event_link;
+                }
+                else {
+                    $event_other_links[] = $event_link;
+                }
+            }
+
+            $event_other_links = array_map( function ( $event_link ) {
+                if ( $event_link->name === 'HomePage' || $event_link->name === 'Homepage' ) {
+                    $event_link->name = \__( 'Homepage', 'tms-theme-base' );
+                }
+
+                return $event_link;
+            }, $event_other_links );
+
+            // Remove null values from the array
+            $event_other_links = array_filter( $event_other_links );
+        }
+
         return [
-            'name'              => $event->name ?? null,
-            'short_description' => nl2br( $event->descriptionShort ) ?? null,
-            'description'       => nl2br( $event->description ) ?? null,
-            'date_title'        => __( 'Dates', 'tms-theme-base' ),
-            'date'              => static::get_event_date( $event ),
-            'dates'             => static::get_event_dates( $event ),
-            'entries'           => static::get_event_entries( $event ),
-            'recurring'         => $is_recurring,
-            'time_title'        => __( 'Time', 'tms-theme-base' ),
-            'time'              => static::get_event_time( $event ),
+            'name'                 => $event->name ?? null,
+            'short_description'    => nl2br( $event->descriptionShort ) ?? null,
+            'description'          => nl2br( $event->description ) ?? null,
+            'date_title'           => __( 'Dates', 'tms-theme-base' ),
+            'date'                 => static::get_event_date( $event ),
+            'dates'                => static::get_event_dates( $event ),
+            'entries'              => static::get_event_entries( $event ),
+            'recurring'            => $is_recurring,
+            'time_title'           => __( 'Time', 'tms-theme-base' ),
+            'time'                 => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
-            'start_date_raw'    => static::get_as_datetime( $event->event->start ),
-            'end_date_raw'      => static::get_as_datetime( $event->event->end ),
-            'location_title'    => __( 'Location', 'tms-theme-base' ),
-            'location'          => static::get_event_location( $event ),
-            'price_title'       => __( 'Price', 'tms-theme-base' ),
-            'price'             => static::get_event_price_info( $event, $lang_key ),
-            'provider_title'    => __( 'Organizer', 'tms-theme-base' ),
-            'area_title'        => __( 'Area', 'tms-theme-base' ),
-            'areas'             => static::get_area_info( $event ),
-            'target_title'      => __( 'Target', 'tms-theme-base' ),
-            'targets'           => static::get_target_info( $event ),
-            'tags_title'        => __( 'Tags', 'tms-theme-base' ),
-            'tags'              => static::get_tag_info( $event ),
-            'keywords'          => $topics ?? null,
-            'primary_keyword'   => empty( $topics ) ? null : $topics[0],
-            'links_title'       => __( 'Links', 'tms-theme-base' ),
-            'links'             => $event->links,
-            'image'             => $image ?? null,
-            'url'               => static::get_event_url( $event->_id ),
-            'is_dynamic'        => static::get_dynamic_event( $event->_id ),
+            'start_date_raw'       => static::get_as_datetime( $event->event->start ),
+            'end_date_raw'         => static::get_as_datetime( $event->event->end ),
+            'location_title'       => __( 'Location', 'tms-theme-base' ),
+            'location'             => static::get_event_location( $event ),
+            'price_title'          => __( 'Price', 'tms-theme-base' ),
+            'price'                => static::get_event_price_info( $event, $lang_key ),
+            'provider_title'       => __( 'Organizer', 'tms-theme-base' ),
+            'area_title'           => __( 'Area', 'tms-theme-base' ),
+            'areas'                => static::get_area_info( $event ),
+            'target_title'         => __( 'Target', 'tms-theme-base' ),
+            'targets'              => static::get_target_info( $event ),
+            'tags_title'           => __( 'Tags', 'tms-theme-base' ),
+            'tags'                 => static::get_tag_info( $event ),
+            'keywords'             => $topics ?? null,
+            'primary_keyword'      => empty( $topics ) ? null : $topics[0],
+            'links_title'          => __( 'Links', 'tms-theme-base' ),
+            'links'                => $event_other_links,
+            'sign_up_title'        => __( 'Sign up', 'tms-theme-base' ),
+            'link_sign_up'         => $event_link_sign_up,
+            'link_purchase_ticket' => $event_link_purchase_ticket,
+            'image'                => $image ?? null,
+            'url'                  => static::get_event_url( $event->_id ),
+            'is_dynamic'           => static::get_dynamic_event( $event->_id ),
         ];
     }
 
