@@ -87,11 +87,11 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
         $layout['events']  = $this->format_events( $events, $layout['show_images'] );
         $layout['classes'] = [
-            'event_item_bg'   => apply_filters( 'tms/theme/layout_events/item_bg_class', 'has-background-secondary' ),
-            'event_item_text' => apply_filters( 'tms/theme/layout_events/item_text_class', '' ),
-            'event_item_icon' => apply_filters( 'tms/theme/layout_events/item_icon_class', '' ),
-            'all_events_link' => apply_filters( 'tms/theme/layout_events/all_events_link', 'is-size-7' ),
-            'event_item_pill' => apply_filters( 'tms/theme/layout_events/event_item', 'is-primary-invert' ),
+            'event_item_bg'   => \apply_filters( 'tms/theme/layout_events/item_bg_class', 'has-background-secondary' ),
+            'event_item_text' => \apply_filters( 'tms/theme/layout_events/item_text_class', '' ),
+            'event_item_icon' => \apply_filters( 'tms/theme/layout_events/item_icon_class', '' ),
+            'all_events_link' => \apply_filters( 'tms/theme/layout_events/all_events_link', 'is-size-7' ),
+            'event_item_pill' => \apply_filters( 'tms/theme/layout_events/event_item', 'is-primary-invert' ),
         ];
 
         return $layout;
@@ -106,10 +106,10 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return void
      */
-    public static function create_recurring_events( $events, $query_params )  {
+    public static function create_recurring_events( $events, $query_params ) {
 
         $recurring_events = [];
-        if( ! empty( $events['events'] ) ) {
+        if ( ! empty( $events['events'] ) ) {
             foreach ( $events['events'] as $event ) {
                 $recurring_event_dates = [];
 
@@ -143,7 +143,7 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
                         }
 
                         // Check if endPart includes date & time
-                        if ( strpos($endPart, ' ') ) {
+                        if ( strpos( $endPart, ' ' ) ) {
                             list( $endDate, $endTime ) = explode( ' ', $endPart, 2 );
                         }
                         else {
@@ -185,7 +185,8 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
 
                         $recurring_events[] = $clone;
                     }
-                } else {
+                }
+                else {
                     $recurring_events[] = $event;
                 }
             }
@@ -248,7 +249,6 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
             'sort'        => null,
             'size'        => null,
             'skip'        => null,
-            'page_size'   => null,
         ];
 
         foreach ( $layout as $key => $value ) {
@@ -287,13 +287,12 @@ class EventzFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      *
      * @return array|null
      */
-    private function get_events( array $query_params ) : ?array {
+    private function get_events( array $query_params ): ?array {
         // Force sort param
         $query_params['sort'] = 'startDate';
 
-        if ( ! empty( $query_params['page_size'] ) ) {
-            $query_params['size'] = $query_params['page_size'];
-        }
+        // Get enough events to show correct events if they're recurring
+        $query_params['size'] = 30;
 
         $client = new EventzClient( PIRKANMAA_EVENTZ_API_URL, PIRKANMAA_EVENTZ_API_KEY );
 
