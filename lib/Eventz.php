@@ -115,11 +115,11 @@ class Eventz implements Controller {
             foreach ( $event->links as $event_link ) {
                 // Assign links to their own variables
                 if ( $event_link->name === 'PurchaseTicket' ) {
-                    $event_link->name = \__( 'Purchase tickets', 'tms-theme-base' );
+                    $event_link->name           = \__( 'Purchase tickets', 'tms-theme-base' );
                     $event_link_purchase_ticket = $event_link;
                 }
                 else if ( $event_link->name === 'SignUp' ) {
-                    $event_link->name = \__( 'Sign up', 'tms-theme-base' );
+                    $event_link->name   = \__( 'Sign up', 'tms-theme-base' );
                     $event_link_sign_up = $event_link;
                 }
                 else {
@@ -140,16 +140,16 @@ class Eventz implements Controller {
         }
 
         return [
-            'name'              => $event->name ?? null,
-            'short_description' => nl2br( $event->descriptionShort ) ?? null,
-            'description'       => nl2br( $event->description ) ?? null,
-            'date_title'        => __( 'Dates', 'tms-theme-base' ),
-            'date'              => static::get_event_date( $event ),
-            'dates'             => static::get_event_dates( $event ),
-            'entries'           => static::get_event_entries( $event ),
-            'recurring'         => $is_recurring,
-            'time_title'        => __( 'Time', 'tms-theme-base' ),
-            'time'              => static::get_event_time( $event ),
+            'name'                 => $event->name ?? null,
+            'short_description'    => nl2br( $event->descriptionShort ) ?? null,
+            'description'          => nl2br( $event->description ) ?? null,
+            'date_title'           => __( 'Dates', 'tms-theme-base' ),
+            'date'                 => static::get_event_date( $event ),
+            'dates'                => static::get_event_dates( $event ),
+            'entries'              => static::get_event_entries( $event ),
+            'recurring'            => $is_recurring,
+            'time_title'           => __( 'Time', 'tms-theme-base' ),
+            'time'                 => static::get_event_time( $event ),
             // Include raw dates for possible sorting.
             'start_date_raw'       => static::get_as_datetime( $event->event->start ),
             'end_date_raw'         => static::get_as_datetime( $event->event->end ),
