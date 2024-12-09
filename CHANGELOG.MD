@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.59.4] - 2024-12-09
+
 - TMS-1089: Fix event fetching for events-component
 
 ## [1.59.3] - 2024-11-25
