@@ -174,6 +174,7 @@ class Eventz implements Controller {
             'image'                => $image ?? null,
             'url'                  => static::get_event_url( $event->_id ),
             'is_dynamic'           => static::get_dynamic_event( $event->_id ),
+            'graphic_field'        => static::get_dynamic_event_fields( $event->_id ),
         ];
     }
 
@@ -592,6 +593,23 @@ class Eventz implements Controller {
         }
 
         return '#';
+    }
+
+    /**
+     * Get dynamic events custom fields
+     *
+     * @param string $event_id Event's API ID.
+     *
+     * @return array
+     */
+    public static function get_dynamic_event_fields( string $event_id ) : array {
+        $dynamic_events = DynamicEvent::get_event_graphic_field();
+
+        if ( isset( $dynamic_events[ $event_id . '_graphic' ] ) ) {
+            return $dynamic_events[ $event_id . '_graphic' ];
+        }
+
+        return [];
     }
 
     /**

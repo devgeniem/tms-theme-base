@@ -40,6 +40,33 @@ class SingleDynamicEventCpt extends PageEvent {
     }
 
     /**
+     * Hero image URL
+     *
+     * @return false|string
+     */
+    public function hero_image_url() {
+        return has_post_thumbnail()
+            ? get_the_post_thumbnail_url()
+            : false;
+    }
+
+    /**
+     * Hero image graphic field
+     *
+     * @return false|string
+     */
+    public function hero_image_graphic() {
+        $graphic_field = \get_field( 'graphic' );
+        $hero_graphic  = false;
+
+        if ( $graphic_field && $graphic_field !== 'none' ) {
+            $hero_graphic = get_stylesheet_directory_uri() . '/assets/images/' . $graphic_field . '.svg';
+        }
+
+        return $hero_graphic;
+    }
+
+    /**
      * Get event id
      *
      * @return string
