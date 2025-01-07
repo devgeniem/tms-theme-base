@@ -27,7 +27,7 @@
     {/event.normalized.location}
 
     {?event.normalized.link_purchase_ticket}
-        <div class="has-width-100 mt-3">
+        <div class="has-width-100 has-text-left mt-3">
             <a href="{event.normalized.link_purchase_ticket.url|url}" target="_blank" class="is-inline-block button is-small is-primary">
                 {event.normalized.link_purchase_ticket.name|html}
             </a>
