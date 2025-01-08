@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1093: Add graphics for dynamic event main images
+- TMS-1091: Remove align-wide class from accordion block
 
 ## [1.59.4] - 2024-12-09
 
