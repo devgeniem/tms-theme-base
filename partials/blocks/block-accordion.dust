@@ -1,4 +1,4 @@
-<div class="accordion is-align-wide" {?anchor}id="{anchor|attr}"{/anchor}>
+<div class="accordion" {?anchor}id="{anchor|attr}"{/anchor}>
     <header class="accordion__header has-text-centered">
         <h2 class="accordion__title h3 mt-0 mb-6">
             {title|html}
