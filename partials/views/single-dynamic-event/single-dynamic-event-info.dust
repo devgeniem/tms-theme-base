@@ -7,7 +7,7 @@
                 {?event.normalized.dates}
                     {#event.normalized.dates}
                         <div class="info-group__description pr-8 pb-1 pl-8">
-                            {date|attr}
+                            <p class="mt-0 mb-0">{date|html}</p>
                         </div>
                     {/event.normalized.dates}
                 {/event.normalized.dates}
@@ -15,7 +15,7 @@
                 {?event.normalized.entries}
                     {#event.normalized.entries}
                         <div class="info-group__description pr-8 pb-1 pl-8">
-                            {date|attr}
+                            <p class="mt-0 mb-0">{date|html}</p>
                         </div>
                     {/event.normalized.entries}
                 {/event.normalized.entries}
@@ -28,7 +28,7 @@
             {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.date_title template_classes=template_classes.info_group_title icon="date" /}
 
             <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-                {event.normalized.date|attr}
+                <p class="mt-0 mb-0">{event.normalized.date|html}</p>
             </div>
         </div>
     {/event.normalized.date}
@@ -37,21 +37,35 @@
             {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.time_title template_classes=template_classes.info_group_title icon="time" /}
 
             <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-                {event.normalized.time|attr}
+                <p class="mt-0 mb-0">{event.normalized.time|html}</p>
             </div>
         </div>
     {/event.normalized.time}
 {/event.normalized.recurring}
 
-{?event.normalized.location}
+{^event.normalized.multiple_locations}
+    {?event.normalized.location}
+        <div class="info-group mb-5 {template_classes.info_group|attr}">
+            {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title template_classes=template_classes.info_group_title icon="location" /}
+
+            <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
+                <p class="mb-0 mt-0">{event.normalized.location.name|html}</p>
+            </div>
+        </div>
+    {/event.normalized.location}
+{/event.normalized.multiple_locations}
+
+{?event.normalized.multiple_locations}
     <div class="info-group mb-5 {template_classes.info_group|attr}">
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.location_title template_classes=template_classes.info_group_title icon="location" /}
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
-            <div>{event.normalized.location.name|attr}</div>
+            {#event.normalized.multiple_locations}
+                <p class="mb-2 mt-0">{name|html}</p>
+            {/event.normalized.multiple_locations}
         </div>
     </div>
-{/event.normalized.location}
+{/event.normalized.multiple_locations}
 
 {?event.normalized.price}
     <div class="info-group mb-5 {template_classes.info_group|attr}">
@@ -59,9 +73,9 @@
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.price}
-                <div>
-                    {price|attr}
-                </div>
+                <p class="mt-0 mb-0">
+                    {price|html}
+                </p>
             {/event.normalized.price}
         </div>
     </div>
@@ -84,7 +98,7 @@
 
         <div class="info-group__description pt-3 pr-8 pb-3 pl-8">
             {#event.normalized.links}
-                <a href="{url|url}" target="_blank" class="is-block">{name|attr}</a>
+                <a href="{url|url}" target="_blank" class="is-block">{name|html}</a>
                 {>"ui/link" link=url /}
             {/event.normalized.links}
         </div>
@@ -96,13 +110,13 @@
         {>"views/single-dynamic-event/single-dynamic-event-group-title" title=event.normalized.provider_title template_classes=template_classes.info_group_title icon="bullhorn" /}
 
         <div class="info-group__description pr-8 pb-3 pl-8">
-            <div>{event.normalized.provider.name|attr}</div>
+            <p class="mt-0 mb-0">{event.normalized.provider.name|html}</p>
 
             {?event.normalized.provider.email}
                 <div>
                     <a href="mailto:{event.normalized.provider.email}"
                        class="has-text-black">
-                        {event.normalized.provider.email|attr}
+                        {event.normalized.provider.email|html}
                     </a>
                 </div>
             {/event.normalized.provider.email}
@@ -111,7 +125,7 @@
                 <div>
                     <a href="tel:{event.normalized.provider.phone}"
                        class="has-text-black">
-                        {event.normalized.provider.phone|attr}
+                        {event.normalized.provider.phone|html}
                     </a>
                 </div>
             {/event.normalized.provider.phone}

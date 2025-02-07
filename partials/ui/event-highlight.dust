@@ -22,7 +22,7 @@
                     {>"ui/icon" icon="date" class="icon--large is-primary mr-4 {classes.event_item_icon|attr}" /}
                 </span>
 
-                {date|kses}
+                <p class="mt-0 mb-0">{date|kses}</p>
             </div>
 
             <div class="is-flex is-align-items-center mt-2 mb-2 {classes.event_item_text|attr}">
@@ -30,7 +30,7 @@
                     {>"ui/icon" icon="time" class="icon--large is-primary mr-4 {classes.event_item_icon|attr}" /}
                 </span>
 
-                {time|kses}
+                <p class="mt-0 mb-0">{time|kses}</p>
             </div>
 
             {?location.name}
@@ -39,7 +39,12 @@
                         {>"ui/icon" icon="location" class="icon--large is-primary mr-4 {classes.event_item_icon|attr}" /}
                     </span>
 
-                    {location.name|html}
+                    <p class="mt-0 mb-0">
+                        {location.name|html}
+                        {?location_count.other_locations_string}
+                            {location_count.other_locations_string|html}
+                        {/location_count.other_locations_string}
+                    </p>
                 </div>
             {/location.name}
 
@@ -50,7 +55,7 @@
                             {>"ui/icon" icon="euro" class="icon--large is-primary mr-2 {item_classes.grid.icon|attr}" /}
                         </span>
 
-                        {price|html}
+                        <p class="mt-0 mb-0">{price|html}</p>
                     </div>
                 {/is_free}
             {/price}

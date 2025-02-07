@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2024-11-13 20:00+0200\n"
+"POT-Creation-Date: 2025-01-30 19:55+0200\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Purchase tickets"
 msgstr ""
 
-#: lib/Eventz.php:122 lib/Eventz.php:171
+#: lib/Eventz.php:122 lib/Eventz.php:172
 msgid "Sign up"
 msgstr ""
 
@@ -304,35 +304,39 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: lib/Eventz.php:158
+#: lib/Eventz.php:159
 msgid "Price"
 msgstr ""
 
-#: lib/Eventz.php:160
+#: lib/Eventz.php:161
 msgid "Organizer"
 msgstr ""
 
-#: lib/Eventz.php:161
+#: lib/Eventz.php:162
 msgid "Area"
 msgstr ""
 
-#: lib/Eventz.php:163
+#: lib/Eventz.php:164
 msgid "Target"
 msgstr ""
 
-#: lib/Eventz.php:165
+#: lib/Eventz.php:166
 msgid "Tags"
 msgstr ""
 
-#: lib/Eventz.php:169
+#: lib/Eventz.php:170
 msgid "Links"
 msgstr ""
 
-#: lib/Eventz.php:389
+#: lib/Eventz.php:367
+msgid "and other locations"
+msgstr ""
+
+#: lib/Eventz.php:411
 msgid "Additional information"
 msgstr ""
 
-#: lib/Eventz.php:406
+#: lib/Eventz.php:428
 msgid "Free"
 msgstr ""
 
@@ -642,7 +646,7 @@ msgstr ""
 msgid "No search term given"
 msgstr ""
 
-#: models/page-events-search.php:212 models/search.php:236
+#: models/page-events-search.php:212 models/search.php:239
 #, php-format
 msgctxt "search results summary"
 msgid "%1$1s result found for \"%2$2s\""
@@ -670,7 +674,7 @@ msgstr ""
 msgid "Looking for events? Use the event search!"
 msgstr ""
 
-#: models/search.php:247
+#: models/search.php:250
 msgid "No search results"
 msgstr ""
 
