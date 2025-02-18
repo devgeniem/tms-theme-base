@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.59.6] - 2025-02-18
+
+- Add scripts to be ignored by Cookiebot
+
 ## [1.59.5] - 2025-01-22
 
 - TMS-1091: Remove align-wide class from accordion block
