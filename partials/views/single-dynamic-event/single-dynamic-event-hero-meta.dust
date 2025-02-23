@@ -1,7 +1,7 @@
 <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
     {?event.normalized.date}
         <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
-            {>"ui/icon" icon="date" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
+            {>"ui/icon" icon="date" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|attr}" /}
             <p class="mt-0 mb-0">
                 {event.normalized.date|html}
             </p>
@@ -10,7 +10,7 @@
 
     {?event.normalized.time}
         <div class="is-flex is-align-items-center has-width-100-until-desktop mb-3 mb-0-desktop">
-            {>"ui/icon" icon="time" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
+            {>"ui/icon" icon="time" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|attr}" /}
             <p class="mt-0 mb-0">
                 {event.normalized.time|html}
             </p>
@@ -19,9 +19,12 @@
 
     {?event.normalized.location}
         <div class="is-flex is-align-items-center has-width-100-until-desktop">
-            {>"ui/icon" icon="location" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|s}" /}
+            {>"ui/icon" icon="location" class="icon--xlarge mr-4 mr-6-desktop {template_classes.hero_icon|attr}" /}
             <p class="mt-0 mb-0">
                 {event.normalized.location.name|html}
+                {?event.normalized.location_count.other_locations_string}
+                    {event.normalized.location_count.other_locations_string|html}
+                {/event.normalized.location_count.other_locations_string}
             </p>
         </div>
     {/event.normalized.location}

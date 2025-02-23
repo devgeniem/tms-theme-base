@@ -155,6 +155,8 @@ class Eventz implements Controller {
             'end_date_raw'         => static::get_as_datetime( $event->event->end ),
             'location_title'       => __( 'Location', 'tms-theme-base' ),
             'location'             => static::get_event_location( $event ),
+            'multiple_locations'   => static::get_event_multiple_locations( $event ),
+            'location_count'       => static::count_locations( $event ),
             'price_title'          => __( 'Price', 'tms-theme-base' ),
             'price'                => static::get_event_price_info( $event, $lang_key ),
             'provider_title'       => __( 'Organizer', 'tms-theme-base' ),
@@ -334,16 +336,50 @@ class Eventz implements Controller {
     /**
      * Get event location.
      *
-     * @param object $event    Event object.
+     * @param object $event Event object.
      *
      * @return array
      */
     public static function get_event_location( $event ) {
-
         return [
             'name' => $event->locations[0]->address ?? null,
         ];
+    }
 
+    /**
+     * Get all event locations if more than one exists.
+     *
+     * @param object $event Event object.
+     *
+     * @return array
+     */
+    public static function get_event_multiple_locations( $event ) {
+        $event_locations = [];
+
+        if ( count( $event->locations ) <= 1 ) {
+            return $event_locations;
+        }
+
+        foreach ( $event->locations as $location ) {
+            $event_locations[] = [
+                'name' => $location->address ?? null
+            ];
+        }
+
+        return $event_locations;
+    }
+
+    /**
+     * Get event location.
+     *
+     * @param object $event    Event object.
+     *
+     * @return array
+     */
+    public static function count_locations( $event ) {
+        return [
+            'other_locations_string' => count( $event->locations ) > 1 ? \__( 'and other locations', 'tms-theme-base' ) : null,
+        ];
     }
 
     /**
