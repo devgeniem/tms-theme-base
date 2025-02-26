@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1111: Add further instructions to CTA & Content columns display_artist field
+
 ## [1.59.7] - 2025-02-24
 
 - TMS-1100: Show multiple locations for events if available
