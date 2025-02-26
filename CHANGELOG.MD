@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1093: Add graphics for dynamic event main images
 - TMS-1109: Change ContentColumns & CallToAction TextArea fields to Wysiwyg
+- TMS-1111: Add further instructions to CTA & Content columns display_artist field
 
 ## [1.59.7] - 2025-02-24
 

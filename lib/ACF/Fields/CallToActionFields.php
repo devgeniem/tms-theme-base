@@ -69,7 +69,8 @@ class CallToActionFields extends Field\Group {
             ],
             'display_artist' => [
                 'label'        => 'Kuvan tekijätiedot',
-                'instructions' => 'Näytetäänkö kuvan alla kuvan tekijätiedot?',
+                'instructions' => 'Näytetäänkö kuvan alla kuvan tekijätiedot?
+                Tekijätietoina näytetään “Taiteilijan nimi: Kuvan otsikko”, molemmat kentät tulee olla täytettynä tämän tiedon näyttämiseksi',
                 'on'           => 'Näytetään',
                 'off'          => 'Ei näytetä',
             ],
