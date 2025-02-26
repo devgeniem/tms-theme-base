@@ -105,11 +105,11 @@ class ContentColumnsFields extends Field\Group {
             ->set_wrapper_width( 45 )
             ->set_instructions( $strings['image']['instructions'] );
 
-        $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
+        $description_field = ( new Field\Wysiwyg( $strings['description']['label'] ) )
             ->set_key( "{$key}_description" )
             ->set_name( 'description' )
-            ->set_rows( 4 )
-            ->set_new_lines( 'wpautop' )
+            ->set_toolbar( [ 'bold', 'italic' ] )
+            ->disable_media_upload()
             ->set_wrapper_width( 55 )
             ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );

@@ -50,6 +50,10 @@ class Cookiebot implements Controller {
             'vendor-js',
             'theme-js',
             'ina-logout-js',
+            'wp-dom-ready',
+            'wp-hooks',
+            'wp-i18n',
+            'wp-a11y',
         ];
         if ( ! in_array( $handle, $scripts_to_ignore_by_cookiebot, true ) ) {
             return $tag;

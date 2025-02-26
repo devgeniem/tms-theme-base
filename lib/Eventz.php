@@ -337,7 +337,7 @@ class Eventz implements Controller {
     /**
      * Get event location.
      *
-     * @param object $event    Event object.
+     * @param object $event Event object.
      *
      * @return array
      */
@@ -348,9 +348,9 @@ class Eventz implements Controller {
     }
 
     /**
-     * Get event location.
+     * Get all event locations if more than one exists.
      *
-     * @param object $event    Event object.
+     * @param object $event Event object.
      *
      * @return array
      */
