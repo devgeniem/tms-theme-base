@@ -32,6 +32,7 @@ const entryPoints = {
     theme_kokemus: [ `${ wpThemePath }/assets/scripts/theme-kokemus.js` ],
     theme_neutraali: [ `${ wpThemePath }/assets/scripts/theme-neutraali.js` ],
     theme_mustavalkoinen: [ `${ wpThemePath }/assets/scripts/theme-mustavalkoinen.js` ],
+    theme_haive: [ `${ wpThemePath }/assets/scripts/theme-haive.js` ],
 };
 
 // All loaders to use on assets.

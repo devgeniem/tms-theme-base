@@ -1,0 +1,182 @@
+.site-header {
+    &__logo-image {
+        > a {
+            &:focus {
+                outline-color: $black;
+            }
+        }
+    }
+}
+
+.icon {
+    &.is-primary {
+        fill: $accent !important;
+    }
+}
+
+.lang-nav--horizontal {
+    a {
+        color: $primary-invert !important;
+
+        &:hover,
+        &:focus {
+            color: $primary-invert !important;
+            background-color: $primary !important;
+        }
+    }
+
+}
+
+.language-nav {
+    .dropdown-trigger {
+        .button {
+            color: $black !important;
+            border-color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.icon-links .icon-links {
+    &__item {
+        > a.is-primary.is-outlined {
+            color: $black !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.search-item {
+    &__title {
+        > a {
+            &:hover,
+            &:focus {
+                color: lighten($black, 25%);
+            }
+        }
+    }
+
+    &__meta-item {
+        > a {
+            &:hover,
+            &:focus {
+                color: darken($primary, 70%) !important;
+            }
+        }
+    }
+}
+
+.logo-wall {
+    &__link {
+        outline-color: $black !important;
+    }
+}
+
+.share-links {
+    a {
+        &:focus,
+        &:focus {
+            .icon {
+                fill: $primary !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button {
+        color: $black !important;
+        background-color: transparent !important;
+        border-color: $black !important;
+
+        &:hover,
+        &:focus {
+            color: $black !important;
+            background-color: $primary !important;
+            border-color: $black !important;
+        }
+    }
+}
+
+.subpages {
+    &__items {
+        a {
+            &.has-background-image {
+                color: $white !important;
+
+                &:hover,
+                &:focus {
+                    color: $white !important;
+                }
+            }
+
+            &.has-background-primary {
+                &:hover,
+                &:focus {
+                    color: $white !important;
+
+                    .icon {
+                        fill: $white !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.events {
+    &__item-inner {
+        > .button.is-primary {
+            color: $black !important;
+            border-color: $black !important;
+
+            &:hover,
+            &:focus {
+                color: $black !important;
+            }
+        }
+    }
+}
+
+.search-form {
+    &__button {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+    }
+}
+
+.events {
+    &__more-link {
+        color: $black;
+
+        .icon {
+            fill: $black;
+        }
+    }
+}
+
+.accordion {
+    &__row {
+        border-color: $primary;
+    }
+
+    &__close-all,
+    &__open-all,
+    &__icon-text {
+        color: $primary-invert !important;
+    }
+
+    &__close-all,
+    &__open-all,
+    &__title-button {
+        .icon {
+            fill: $primary-invert !important;
+        }
+    }
+}
