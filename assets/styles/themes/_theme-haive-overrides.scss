@@ -77,7 +77,7 @@
 
 .share-links {
     a {
-        &:focus,
+        &:hover,
         &:focus {
             .icon {
                 fill: $primary !important;
@@ -87,7 +87,8 @@
 }
 
 .gform_wrapper {
-    .button {
+    .button,
+    button {
         color: $black !important;
         background-color: transparent !important;
         border-color: $black !important;
