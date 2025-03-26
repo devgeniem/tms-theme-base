@@ -79,6 +79,12 @@ class ContentColumnsFields extends Field\Group {
                 'on'           => 'Näytetään',
                 'off'          => 'Ei näytetä',
             ],
+            'display_author'  => [
+                'label'        => 'Kuvaajan tiedot',
+                'instructions' => 'Näytetäänkö kuvan alla kuvaajan nimi?',
+                'on'           => 'Näytetään',
+                'off'          => 'Ei näytetä',
+            ],
         ];
 
         $key = $this->get_key();
@@ -153,6 +159,15 @@ class ContentColumnsFields extends Field\Group {
             ->set_ui_on_text( $strings['display_caption']['on'] )
             ->set_instructions( $strings['display_caption']['instructions'] );
 
+        $display_author_field = ( new Field\TrueFalse( $strings['display_author']['label'] ) )
+            ->set_key( "{$key}_display_author" )
+            ->set_name( 'display_author' )
+            ->set_wrapper_width( 100 )
+            ->use_ui()
+            ->set_ui_off_text( $strings['display_author']['off'] )
+            ->set_ui_on_text( $strings['display_author']['on'] )
+            ->set_instructions( $strings['display_author']['instructions'] );
+
         $rows_field->add_fields( [
             $title_field,
             $image_field,
@@ -161,6 +176,7 @@ class ContentColumnsFields extends Field\Group {
             $aspect_ratio_field,
             $display_artist_field,
             $display_caption_field,
+            $display_author_field,
         ] );
 
         return [

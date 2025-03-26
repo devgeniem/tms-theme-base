@@ -8,8 +8,8 @@
                             {@image id=image.id size="large" class="objectfit-image" /}
                         </div>
 
-                        {@isset key1=display_caption key2=image.caption method="AND" }
-                            {>"ui/image/image-caption"  /}
+                        {@isset key1=display_caption key2=display_author method="OR" }
+                            {>"ui/image/image-caption-and-author"  /}
                         {/isset}
 
                         {?display_artist}
