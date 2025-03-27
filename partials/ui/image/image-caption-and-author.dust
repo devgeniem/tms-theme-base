@@ -8,7 +8,7 @@
     {/isset}
 
     {@isset key1=display_author key2=author_name method="AND" }
-        <div class="column is-flex is-justify-content-space-between is-flex-wrap-wrap has-text-small {?display_caption}is-6{/display_caption}">
+        <div class="column is-flex is-flex-wrap-wrap has-text-small {?display_caption}is-6 is-justify-content-end{/display_caption}">
             <p class="is-inline-block m-0">
                 {author_name|kses}
             </p>
