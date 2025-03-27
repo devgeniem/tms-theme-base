@@ -177,7 +177,7 @@ class ContentColumnsFields extends Field\Group {
             $aspect_ratio_field,
             $display_artist_field,
             $display_caption_field,
-            $display_author_field,
+            // $display_author_field,
         ] );
 
         return [
