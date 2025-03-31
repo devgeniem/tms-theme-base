@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1108: Add new Häive color-theme
 - TMS-1131: Change form border-colors
 - TMS-1114: Add display_author field to content-columns component
+- TMS-1095: Add field to disable pagination for events-calendar template
 
 ## [1.59.8] - 2025-03-03
 
