@@ -83,12 +83,20 @@ class PageEventsCalendar extends PageEventsSearch {
      * @return array
      */
     protected function get_events(): array {
+        $disable_pagination = \get_field( 'disable_pagination' );
+
+        if ( $disable_pagination === true ) {
+            $events_per_page = 999;
+        }
+        else {
+            $events_per_page = \get_option( 'posts_per_page' );
+        }
 
         $paged = \get_query_var( 'paged', 1 );
         $skip  = 0;
 
         if ( $paged > 1 ) {
-            $skip = ( $paged - 1 ) * \get_option( 'posts_per_page' );
+            $skip = ( $paged - 1 ) * $events_per_page;
         }
 
         $params = [
@@ -142,7 +150,7 @@ class PageEventsCalendar extends PageEventsSearch {
 
             $this->set_pagination_data( count( $response['events'] ) );
 
-            $response['events'] = array_slice( $response['events'], $skip, get_option( 'posts_per_page' ) );
+            $response['events'] = array_slice( $response['events'], $skip, $events_per_page );
         }
 
         return $response;
@@ -183,5 +191,32 @@ class PageEventsCalendar extends PageEventsSearch {
                 'title' => $item->post_title,
             ];
         }, $pages );
+    }
+
+    /**
+     * Set pagination data
+     *
+     * @param int $event_count Event count.
+     *
+     * @return void
+     */
+    protected function set_pagination_data( int $event_count ) : void {
+        $disable_pagination = \get_field( 'disable_pagination' );
+
+        if ( $disable_pagination === true ) {
+            $events_per_page = 999;
+        }
+        else {
+            $events_per_page = \get_option( 'posts_per_page' );
+        }
+
+        $per_page = $events_per_page;
+        $paged    = \get_query_var( 'paged' ) ? \get_query_var( 'paged' ) : 1;
+
+        $this->pagination           = new stdClass();
+        $this->pagination->page     = $paged;
+        $this->pagination->per_page = $per_page;
+        $this->pagination->items    = $event_count;
+        $this->pagination->max_page = (int) ceil( $event_count / $per_page );
     }
 }

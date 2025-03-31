@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1095: Add field to disable pagination for events-calendar template
+
 ## [1.59.8] - 2025-03-03
 
 - TMS-1109: Change ContentColumns & CallToAction TextArea fields to Wysiwyg
