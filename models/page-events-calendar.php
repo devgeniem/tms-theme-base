@@ -86,7 +86,7 @@ class PageEventsCalendar extends PageEventsSearch {
         $disable_pagination = \get_field( 'disable_pagination' );
 
         if ( $disable_pagination === true ) {
-            $events_per_page = 999;
+            $events_per_page = "999";
         }
         else {
             $events_per_page = \get_option( 'posts_per_page' );
@@ -200,11 +200,11 @@ class PageEventsCalendar extends PageEventsSearch {
      *
      * @return void
      */
-    protected function set_pagination_data( int $event_count ) : void {
+    protected function set_pagination_data( int $event_count ): void {
         $disable_pagination = \get_field( 'disable_pagination' );
 
         if ( $disable_pagination === true ) {
-            $events_per_page = 999;
+            $events_per_page = "999";
         }
         else {
             $events_per_page = \get_option( 'posts_per_page' );
