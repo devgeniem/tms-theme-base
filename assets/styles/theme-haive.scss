@@ -1,12 +1,5 @@
 @import "themes/includes";
 
-
-
-
-
-// TODO: Linkit ja ikonit paahde-värillä ( #e8b455 )
-
-
 $primary: #f8de79;
 $primary-invert: $color-black;
 $primary-light: bulmaLighten(#f2ac58, 10);
@@ -14,7 +7,7 @@ $primary-light-invert: $color-black;
 $primary-dark: bulmaDarken(#f2ac58, 20);
 $primary-dark-invert: $color-black;
 
-$secondary: #F9ECD4;
+$secondary: #f9ecd4;
 $secondary-invert: $color-black;
 $secondary-light: bulmaLighten($secondary, 10);
 $secondary-light-invert: $color-black;
