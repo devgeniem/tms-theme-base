@@ -1,0 +1,53 @@
+@import "themes/includes";
+
+$primary: #f8de79;
+$primary-invert: $color-black;
+$primary-light: bulmaLighten(#f2ac58, 10);
+$primary-light-invert: $color-black;
+$primary-dark: bulmaDarken(#f2ac58, 20);
+$primary-dark-invert: $color-black;
+
+$secondary: #f9ecd4;
+$secondary-invert: $color-black;
+$secondary-light: bulmaLighten($secondary, 10);
+$secondary-light-invert: $color-black;
+$secondary-dark: bulmaDarken($secondary, 10);
+$secondary-dark-invert: $color-black;
+
+$light: $primary-light;
+$light-invert: $primary-light-invert;
+$dark: $primary-dark;
+$dark-invert: $primary-dark-invert;
+$divider: $color-vaalean-harmaa;
+$divider-invert: $color-tumma-harmaa;
+
+$text: $black;
+$link: $primary-dark;
+
+$accent: $primary-dark;
+$accent-light: #f2ac58;
+
+$colors-palette-primary: ($primary, $primary-invert, $primary-dark, $primary-light);
+$colors-palette-secondary: ($secondary, $secondary-invert, $secondary-dark, $secondary-light);
+
+$colors: (
+    "primary": $colors-palette-primary,
+    "secondary": $colors-palette-secondary,
+    "white": ($color-white, $color-black),
+    "black": ($color-black, $color-white),
+    "accent": ($primary, $primary-invert),
+);
+
+$button-colors: (
+    "primary": ($primary, $color-white, $text, $text),
+    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
+);
+
+$navbar-colors: (
+    "primary": $colors-palette-primary
+);
+
+$color-background-primary-light--opaque-light: $secondary;
+
+@import "main";
+@import "themes/theme-haive-overrides";
