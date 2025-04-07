@@ -57,7 +57,7 @@ class SingleDynamicEventCpt extends PageEvent {
      */
     public function hero_image_graphic() {
         $graphic_field = \get_field( 'graphic' );
-        $hero_graphic  = false;
+        $hero_graphic  = null;
 
         if ( $graphic_field && $graphic_field !== 'none' ) {
             $hero_graphic = get_stylesheet_directory_uri() . '/assets/images/' . $graphic_field . '.svg';
