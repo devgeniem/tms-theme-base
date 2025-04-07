@@ -225,10 +225,6 @@ class DynamicEvent implements PostType {
     public static function get_event_graphic_field() : array {
         $dynamic_events = [];
 
-        if ( ! empty( $dynamic_events ) ) {
-            return $dynamic_events;
-        }
-
         $the_query = new \WP_Query( [
             'post_type'      => self::SLUG,
             'posts_per_page' => - 1,
