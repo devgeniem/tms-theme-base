@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-1114: Add display_author field to content-columns component
+- TMS-1114: Decrease image-meta paddings
 
 ## [1.59.8] - 2025-03-03
 
