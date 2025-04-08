@@ -216,4 +216,40 @@ class DynamicEvent implements PostType {
 
         return $dynamic_events;
     }
+
+    /**
+     * Get custom fields
+     *
+     * @return array
+     */
+    public static function get_event_graphic_field() : array {
+        $dynamic_events = [];
+
+        $the_query = new \WP_Query( [
+            'post_type'      => self::SLUG,
+            'posts_per_page' => - 1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+            'post_status'    => 'publish',
+        ] );
+
+        if ( ! $the_query->have_posts() ) {
+            return $dynamic_events;
+        }
+
+        $theme_stylesheet_uri = \get_stylesheet_directory_uri();
+
+        foreach ( $the_query->posts as $dynamic_event_id ) {
+            $api_id        = \get_field( 'event', $dynamic_event_id );
+            $graphic_field = \get_field( 'graphic', $dynamic_event_id );
+
+            if ( $api_id ) {
+                if ( $graphic_field && $graphic_field !== 'none' ) {
+                    $dynamic_events[ $api_id . '_graphic' ][] = $theme_stylesheet_uri . '/assets/images/' . $graphic_field . '.svg';
+                }
+            }
+        }
+
+        return $dynamic_events;
+    }
 }
