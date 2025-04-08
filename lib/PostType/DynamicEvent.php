@@ -237,13 +237,15 @@ class DynamicEvent implements PostType {
             return $dynamic_events;
         }
 
+        $theme_stylesheet_uri = \get_stylesheet_directory_uri();
+
         foreach ( $the_query->posts as $dynamic_event_id ) {
             $api_id        = \get_field( 'event', $dynamic_event_id );
             $graphic_field = \get_field( 'graphic', $dynamic_event_id );
 
             if ( $api_id ) {
                 if ( $graphic_field && $graphic_field !== 'none' ) {
-                    $dynamic_events[ $api_id . '_graphic' ][] = \get_stylesheet_directory_uri() . '/assets/images/' . $graphic_field . '.svg';
+                    $dynamic_events[ $api_id . '_graphic' ][] = $theme_stylesheet_uri . '/assets/images/' . $graphic_field . '.svg';
                 }
             }
         }

@@ -21,7 +21,7 @@ class Eventz implements Controller {
     /**
      * Hooks
      */
-    public function hooks() : void {
+    public function hooks(): void {
         add_action(
             'wp_ajax_event_search',
             Closure::fromCallable( [ $this, 'admin_event_search_callback' ] )
@@ -31,7 +31,7 @@ class Eventz implements Controller {
     /**
      * Admin event search callback
      */
-    protected function admin_event_search_callback() : void {
+    protected function admin_event_search_callback(): void {
         $params  = $_GET['params'] ?? []; // phpcs:ignore
         $post_id = $_GET['post_id'] ?? 0; // phpcs:ignore
         $event   = get_field( 'event', $post_id );
@@ -79,7 +79,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function normalize_event( $event ) : array {
+    public static function normalize_event( $event ): array {
         $lang_key = Localization::get_current_language();
 
         if ( ! empty( $event->topics ) ) {
@@ -185,7 +185,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function normalize_event_title( $event ) : array {
+    public static function normalize_event_title( $event ): array {
         return [
             'name' => $event->name ?? null,
         ];
@@ -198,7 +198,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function normalize_event_description( $event ) : array {
+    public static function normalize_event_description( $event ): array {
         return [
             'short_description' => nl2br( $event->descriptionShort ) ?? null,
         ];
@@ -211,7 +211,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function normalize_event_url( $event ) : array {
+    public static function normalize_event_url( $event ): array {
         return [
             'url' => static::get_event_url( $event->_id ),
         ];
@@ -375,7 +375,7 @@ class Eventz implements Controller {
      *
      * @return array|null
      */
-    public static function get_event_price_info( $event ) : ?array {
+    public static function get_event_price_info( $event ): ?array {
         if ( empty( $event ) || empty( $event->price ) ) {
             return null;
         }
@@ -402,7 +402,7 @@ class Eventz implements Controller {
      *
      * @return string|null
      */
-    public static function format_price( $price ) : ?string {
+    public static function format_price( $price ): ?string {
         if ( property_exists( $price, 'isFree' ) ) {
             return __( 'Free', 'tms-theme-base' );
         }
@@ -432,7 +432,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function get_area_info( object $event ) : string {
+    public static function get_area_info( object $event ): string {
         return implode( ',', $event->targets );
     }
 
@@ -443,7 +443,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function get_target_info( object $event ) : string {
+    public static function get_target_info( object $event ): string {
         return implode( ',', $event->targets );
     }
 
@@ -454,7 +454,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function get_tag_info( object $event ) : string {
+    public static function get_tag_info( object $event ): string {
         return implode( ',', $event->tags );
     }
 
@@ -574,7 +574,7 @@ class Eventz implements Controller {
      *
      * @return string
      */
-    public static function get_event_url( string $event_id ) : string {
+    public static function get_event_url( string $event_id ): string {
         $dynamic_events = DynamicEvent::get_link_list();
 
         if ( isset( $dynamic_events[ $event_id ] ) ) {
@@ -602,7 +602,7 @@ class Eventz implements Controller {
      *
      * @return array
      */
-    public static function get_dynamic_event_fields( string $event_id ) : array {
+    public static function get_dynamic_event_fields( string $event_id ): array {
         $dynamic_events = DynamicEvent::get_event_graphic_field();
 
         if ( isset( $dynamic_events[ $event_id . '_graphic' ] ) ) {
@@ -619,7 +619,7 @@ class Eventz implements Controller {
      *
      * @return string
      */
-    public static function get_dynamic_event( string $event_id ) : string {
+    public static function get_dynamic_event( string $event_id ): string {
         $dynamic_events = DynamicEvent::get_link_list();
 
         if ( isset( $dynamic_events[ $event_id ] ) ) {
