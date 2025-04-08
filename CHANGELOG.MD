@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1114: Decrease image-meta paddings
 - TMS-1093: Add graphics for dynamic event main images
 
 ## [1.59.9] - 2025-04-02
