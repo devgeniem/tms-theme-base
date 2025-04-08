@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1093: Add graphics for dynamic event main images
 
+## [1.59.9] - 2025-04-02
+
+- TMS-1108: Add new Häive color-theme
+
+## [1.59.8] - 2025-03-03
+
+- TMS-1109: Change ContentColumns & CallToAction TextArea fields to Wysiwyg
+
+## [1.59.7] - 2025-02-24
+
+- TMS-1100: Show multiple locations for events if available
+
+## [1.59.6] - 2025-02-18
+
+- Add scripts to be ignored by Cookiebot
+
+
+## [1.59.5] - 2025-01-22
+
+- TMS-1091: Remove align-wide class from accordion block
+
 ## [1.59.4] - 2024-12-09
 
 - TMS-1089: Fix event fetching for events-component
