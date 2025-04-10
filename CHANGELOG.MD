@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1131: Change form border-colors
 
+## [1.60.0] - 2025-04-09
+
+- TMS-1114: Decrease image-meta paddings
+- TMS-1093: Add graphics for dynamic event main images
+
+## [1.59.9] - 2025-04-02
+
+- TMS-1108: Add new Häive color-theme
+
 ## [1.59.8] - 2025-03-03
 
 - TMS-1109: Change ContentColumns & CallToAction TextArea fields to Wysiwyg
