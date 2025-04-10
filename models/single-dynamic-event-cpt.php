@@ -20,9 +20,9 @@ class SingleDynamicEventCpt extends PageEvent {
      * Hooks
      */
     public function hooks() : void {
-        add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
+        \add_filter( 'tms/theme/breadcrumbs/show_breadcrumbs_in_header', fn() => false );
 
-        add_filter(
+        \add_filter(
             'tms/base/breadcrumbs/after_prepare',
             Closure::fromCallable( [ $this, 'alter_breadcrumbs' ] )
         );
@@ -34,8 +34,8 @@ class SingleDynamicEventCpt extends PageEvent {
      * @return false|int
      */
     public function hero_image() {
-        return has_post_thumbnail()
-            ? get_post_thumbnail_id()
+        return \has_post_thumbnail()
+            ? \get_post_thumbnail_id()
             : false;
     }
 
@@ -45,8 +45,8 @@ class SingleDynamicEventCpt extends PageEvent {
      * @return false|string
      */
     public function hero_image_url() {
-        return has_post_thumbnail()
-            ? get_the_post_thumbnail_url()
+        return \has_post_thumbnail()
+            ? \get_the_post_thumbnail_url()
             : false;
     }
 
@@ -60,7 +60,7 @@ class SingleDynamicEventCpt extends PageEvent {
         $hero_graphic  = null;
 
         if ( $graphic_field && $graphic_field !== 'none' ) {
-            $hero_graphic = get_stylesheet_directory_uri() . '/assets/images/' . $graphic_field . '.svg';
+            $hero_graphic = \get_stylesheet_directory_uri() . '/assets/images/' . $graphic_field . '.svg';
         }
 
         return $hero_graphic;
@@ -72,7 +72,7 @@ class SingleDynamicEventCpt extends PageEvent {
      * @return string
      */
     protected function get_event_id() : string {
-        return get_field( 'event' ) ?? '';
+        return \get_field( 'event' ) ?? '';
     }
 
     /**
@@ -83,16 +83,16 @@ class SingleDynamicEventCpt extends PageEvent {
      * @return array
      */
     public function alter_breadcrumbs( array $breadcrumbs ) : array {
-        $referer  = wp_get_referer();
+        $referer  = \wp_get_referer();
         $home_url = DPT_PLL_ACTIVE && function_exists( 'pll_current_language' )
-            ? pll_home_url()
-            : home_url();
+            ? \pll_home_url()
+            : \home_url();
 
         if ( false === strpos( $referer, $home_url ) ) {
             return $breadcrumbs;
         }
 
-        $parent = get_page_by_path(
+        $parent = \get_page_by_path(
             str_replace( $home_url, '', $referer )
         );
 
@@ -104,7 +104,7 @@ class SingleDynamicEventCpt extends PageEvent {
 
         $breadcrumbs[] = [
             'title'     => $parent->post_title,
-            'permalink' => get_the_permalink( $parent->ID ),
+            'permalink' => \get_the_permalink( $parent->ID ),
         ];
 
         $breadcrumbs[] = $last;
