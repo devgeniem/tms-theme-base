@@ -156,6 +156,12 @@
     }
 }
 
+.event-search-form {
+    .button.is-primary {
+        @extend .is-secondary-invert;
+    }
+}
+
 .events {
     &__more-link {
         color: $black;

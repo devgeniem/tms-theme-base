@@ -35,6 +35,16 @@ $duet-radius: $theme-spacing-quarter !default;
 
     &__toggle {
         box-shadow: none;
+        height: calc(100% - 4px);
+        right: 2px;
+        top: 2px;
+    }
+
+    &__input,
+    &__toggle {
+        &:focus {
+            outline: revert;
+        }
     }
 
     &__mobile{
