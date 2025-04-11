@@ -35,11 +35,9 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
     }
 }
 
-.duet-date {
-    &__toggle {
-        &:focus {
-            outline: .0558rem solid $black !important;
-        }
+.event-search-form {
+    .button.is-primary {
+        @extend .is-primary-invert;
     }
 }
 
