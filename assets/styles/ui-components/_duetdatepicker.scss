@@ -1,5 +1,5 @@
 $duet-color-primary: $primary !default;
-$duet-color-text: $text !default;
+$duet-color-text: $color-black !default;
 $duet-color-text-active: $primary-invert !default;
 $duet-color-text-placeholder: $grey !default;
 $duet-color-button: $white !default;
@@ -35,9 +35,9 @@ $duet-radius: $theme-spacing-quarter !default;
 
     &__toggle {
         box-shadow: none;
-        height: calc(100% - 4px);
-        right: 2px;
-        top: 2px;
+        height: calc(100% - 5px);
+        right: 3px;
+        top: 2.5px;
     }
 
     &__input,
