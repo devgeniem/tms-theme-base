@@ -19,8 +19,8 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/register": "^7.21.0",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/register": "^7.14.5",
     "@wordpress/eslint-plugin": "^9.2.0",
     "ajv": "^6.12.6",
     "autoprefixer": "^9.8.6",
