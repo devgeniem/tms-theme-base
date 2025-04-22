@@ -1,13 +1,13 @@
 <div {?anchor}id="{anchor|attr}"{/anchor} class="subpages is-align-full mt-6 mb-6 {container_classes|attr}">
-    <div class="container columns">
-        <div class="column is-8 is-offset-2 has-text-centered has-text-paragraph">
-            {?title}
+    {?title}
+        <div class="container columns">
+            <div class="column is-8 is-offset-2 has-text-centered has-text-paragraph">
                 <h2 class="mt-0 mb-6">
                     {title|html}
                 </h2>
-            {/title}
+            </div>
         </div>
-    </div>
+    {/title}
 
     {?subpages}
         <div class="subpages__items">
