@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1141: Add if-statement for block-subpages title container
+
 ## [1.60.0] - 2025-04-09
 
 - TMS-1114: Decrease image-meta paddings
