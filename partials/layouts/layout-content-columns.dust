@@ -9,7 +9,7 @@
                         </div>
 
                         {@isset key1=display_caption key2=image.caption method="AND" }
-                            {>"ui/image/image-caption"  /}
+                            {>"ui/image/image-caption" /}
                         {/isset}
 
                         {?display_artist}
