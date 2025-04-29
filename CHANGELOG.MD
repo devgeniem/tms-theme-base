@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1139: Add another link-button to CTA-component
+
 ## [1.60.1] - 2025-04-23
 
 - TMS-1095: Add field to disable pagination for events-calendar template

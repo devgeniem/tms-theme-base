@@ -67,6 +67,10 @@ class CallToActionFields extends Field\Group {
                 'label'        => 'Linkki',
                 'instructions' => '',
             ],
+            'link_second'    => [
+                'label'        => 'Linkki',
+                'instructions' => 'Toinen linkki, linkit asemmoituu päällekkäin.',
+            ],
             'display_artist' => [
                 'label'        => 'Kuvan tekijätiedot',
                 'instructions' => 'Näytetäänkö kuvan alla kuvan tekijätiedot?',
@@ -110,7 +114,6 @@ class CallToActionFields extends Field\Group {
             ->set_name( 'description' )
             ->set_toolbar( [ 'bold', 'italic' ] )
             ->disable_media_upload()
-            ->set_wrapper_width( 50 )
             ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
 
@@ -119,6 +122,12 @@ class CallToActionFields extends Field\Group {
             ->set_name( 'link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );
+
+        $link_second_field = ( new Field\Link( $strings['link_second']['label'] ) )
+            ->set_key( "{$key}_link_second" )
+            ->set_name( 'link_second' )
+            ->set_wrapper_width( 50 )
+            ->set_instructions( $strings['link_second']['instructions'] );
 
         $layout_field = ( new Field\Radio( $strings['layout']['label'] ) )
             ->set_key( "{$key}_layout" )
@@ -153,6 +162,7 @@ class CallToActionFields extends Field\Group {
             $title_field,
             $description_field,
             $link_field,
+            $link_second_field,
             $layout_field,
             $display_artist_field,
             $display_caption_field,
