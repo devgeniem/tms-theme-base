@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.60.2] - 2025-04-30
+
 - TMS-1139: Add another link-button to CTA-component
 
 ## [1.60.1] - 2025-04-23
