@@ -8,9 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1131: Change form border-colors
-- TMS-1095: Add field to disable pagination for events-calendar template
+- TMS-1144: Change aria-attribute for menu-item
+
+## [1.60.2] - 2025-04-30
+
 - TMS-1139: Add another link-button to CTA-component
 - TMS-1141: Add if-statement for block-subpages title container
+
+## [1.60.1] - 2025-04-23
+
+- TMS-1095: Add field to disable pagination for events-calendar template
 
 ## [1.60.0] - 2025-04-09
 
