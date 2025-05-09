@@ -7,7 +7,7 @@
             </button>
 
             {^Header.hide_flyout_primary}
-                {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" icon_class="{Header.colors.fly_out_nav.link_icon}" menuitem_partial="ui/menu/menu-item" /}
+                {@menu menu_name="primary" depth="2" ul_id="js-navbar-menu" ul_classes="bulmally-navbar fly-out-nav__primary is-family-secondary" icon_class="{Header.colors.fly_out_nav.link_icon}" menuitem_partial="ui/menu/menu-item" data=Header.strings /}
             {/Header.hide_flyout_primary}
 
             {^Header.hide_flyout_secondary}
@@ -17,7 +17,7 @@
             {?PageOnepager.component_nav}
                 <ul class="bulmally-navbar fly-out-nav__primary fly-out-nav__onepager is-family-secondary js-scroll-children">
                     {#PageOnepager.component_nav}
-                        {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" /}
+                        {>"ui/menu/menu-item" url="#{anchor}" title="{menu_text}" data=Header.strings /}
                     {/PageOnepager.component_nav}
                 </ul>
             {/PageOnepager.component_nav}
