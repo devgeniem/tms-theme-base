@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2022-01-10 15:09+0200\n"
-"PO-Revision-Date: 2022-01-10 15:09+0200\n"
+"POT-Creation-Date: 2025-05-13 10:31+0300\n"
+"PO-Revision-Date: 2025-05-13 11:16+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko_KR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -23,6 +23,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 "X-Poedit-SearchPathExcluded-3: assets/dist\n"
+
+#: assets/dist/vendor.js:4630
+msgctxt "text direction"
+msgid "ltr"
+msgstr ""
 
 #: comments.php:14
 msgid "Comments"
@@ -42,7 +47,7 @@ msgctxt "theme ACF"
 msgid "Blogikirjoittaja"
 msgstr ""
 
-#: lib/ACF/DynamicEventGroup.php:55
+#: lib/ACF/DynamicEventGroup.php:60
 msgctxt "theme ACF"
 msgid "Tiedot"
 msgstr ""
@@ -51,14 +56,14 @@ msgstr ""
 msgid "Open map"
 msgstr "오픈 맵"
 
-#: lib/ACF/FrontPageGroup.php:38 lib/ACF/OnepagerGroup.php:70
-#: lib/ACF/PageGroup.php:39
+#: lib/ACF/FrontPageGroup.php:39 lib/ACF/OnepagerGroup.php:73
+#: lib/ACF/PageGroup.php:47
 msgctxt "theme ACF"
 msgid "Page Components"
 msgstr "페이지 구성 요소"
 
-#: lib/ACF/FrontPageGroup.php:90 lib/ACF/OnepagerGroup.php:123
-#: lib/ACF/PageGroup.php:140 lib/ACF/PostGroup.php:173
+#: lib/ACF/FrontPageGroup.php:91 lib/ACF/OnepagerGroup.php:126
+#: lib/ACF/PageGroup.php:260 lib/ACF/PostGroup.php:173
 msgctxt "theme ACF"
 msgid "Components"
 msgstr "구성 요소"
@@ -73,22 +78,158 @@ msgctxt "theme ACF"
 msgid "Kalenterin asetukset"
 msgstr ""
 
-#: lib/ACF/PostGroup.php:129
+#: lib/ACF/PageEventsSearchGroup.php:33
+msgctxt "theme ACF"
+msgid "Asetukset"
+msgstr ""
+
+#: lib/ACF/PageGroup.php:142
+msgctxt "theme ACF"
+msgid "Page settings"
+msgstr "사이트 설정"
+
+#: lib/ACF/PageGroup.php:235
+msgctxt "theme ACF"
+msgid "Remove hero-image overlay"
+msgstr ""
+
+#: lib/ACF/PageGroup.php:236
+msgctxt "theme ACF"
+msgid "Remove hero-image overlay and move the heading under the hero-element"
+msgstr ""
+
+#: lib/ACF/PostGroup.php:129 models/single.php:161
 msgid "Related posts"
 msgstr "관련 게시글"
 
-#: lib/ACF/SettingsGroup.php:51
+#: lib/ACF/SettingsGroup.php:52
 msgctxt "theme ACF"
 msgid "Site settings"
 msgstr "사이트 설정"
 
-#: lib/Admin.php:89
+#: lib/Admin.php:94
 msgid "Paragraph"
 msgstr "단락"
 
-#: lib/Admin.php:90
+#: lib/Admin.php:95
 msgid "Header"
 msgstr "머리글"
+
+#: lib/Assets.php:400
+msgid "Audio guide"
+msgstr ""
+
+#: lib/Assets.php:401
+msgid "Assistant"
+msgstr ""
+
+#: lib/Assets.php:402
+msgid "Lift"
+msgstr ""
+
+#: lib/Assets.php:403
+msgid "Induction loop"
+msgstr ""
+
+#: lib/Assets.php:404
+msgid "Information"
+msgstr "정보"
+
+#: lib/Assets.php:405
+msgid "Internet"
+msgstr "인터넷"
+
+#: lib/Assets.php:406
+msgid "Accessible entrance, Accessible toilet, Accessible parking"
+msgstr ""
+
+#: lib/Assets.php:407
+msgid "Café"
+msgstr ""
+
+#: lib/Assets.php:408
+msgid "Shop"
+msgstr ""
+
+#: lib/Assets.php:409
+msgid "Meeting room"
+msgstr ""
+
+#: lib/Assets.php:410
+msgid "Assistive device lending"
+msgstr ""
+
+#: lib/Assets.php:411
+msgid "Baby changing"
+msgstr ""
+
+#: lib/Assets.php:412
+msgid "Charging point"
+msgstr ""
+
+#: lib/Assets.php:413
+msgid "Ticket sales"
+msgstr ""
+
+#: lib/Assets.php:414
+msgid "Ramp"
+msgstr ""
+
+#: lib/Assets.php:415
+msgid "Services for the visually impaired"
+msgstr ""
+
+#: lib/Assets.php:416
+msgid "Service dogs allowed"
+msgstr ""
+
+#: lib/Assets.php:417
+msgid "Braille"
+msgstr ""
+
+#: lib/Assets.php:418
+msgid "Stairlift"
+msgstr ""
+
+#: lib/Assets.php:419
+msgid "Staircase"
+msgstr ""
+
+#: lib/Assets.php:420
+msgid "Platform lift"
+msgstr ""
+
+#: lib/Assets.php:421
+msgid "Rollator, walker"
+msgstr ""
+
+#: lib/Assets.php:422
+msgid "Electric mobility scooter storage"
+msgstr ""
+
+#: lib/Assets.php:423
+msgid "Lockers"
+msgstr ""
+
+#: lib/Assets.php:424
+msgid "Large print"
+msgstr ""
+
+#: lib/Assets.php:425
+msgid "Cloakroom"
+msgstr ""
+
+#: lib/Assets.php:426
+msgid "Sign-language services"
+msgstr ""
+
+#: lib/Assets.php:427 lib/Assets.php:428
+msgid "Accessible toilet: one-sided access"
+msgstr ""
+
+#: lib/Assets.php:429
+msgid "WC"
+msgstr ""
 
 #: lib/Comments.php:72
 msgid "Send Comment"
@@ -107,58 +248,129 @@ msgid "Edit"
 msgstr "편집"
 
 #: lib/DustPressController.php:60
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Go to slide"
 msgctxt "pagination"
 msgid "Go to Page"
-msgstr "슬라이드로 이동"
+msgstr "페이지로 이동"
 
-#: lib/Formatters/GridFormatter.php:147
-msgid "Read more"
-msgstr "더 읽기"
+#: lib/DustPressController.php:61
+msgctxt "pagination"
+msgid "Next"
+msgstr "다음"
 
-#: lib/LinkedEvents.php:98
+#: lib/DustPressController.php:62
+msgctxt "pagination"
+msgid "Previous"
+msgstr "이전"
+
+#: lib/Eventz.php:118
+msgid "Purchase tickets"
+msgstr ""
+
+#: lib/Eventz.php:122 lib/Eventz.php:173
+msgid "Sign up"
+msgstr ""
+
+#: lib/Eventz.php:132
+msgid "Homepage"
+msgstr "홈페이지로 이동"
+
+#: lib/Eventz.php:146
 msgid "Dates"
 msgstr "날짜"
 
-#: lib/LinkedEvents.php:100
+#: lib/Eventz.php:151
 msgid "Time"
 msgstr "시간"
 
-#: lib/LinkedEvents.php:102
+#: lib/Eventz.php:156
 msgid "Location"
 msgstr "위치"
 
-#: lib/LinkedEvents.php:104
+#: lib/Eventz.php:160
 msgid "Price"
 msgstr "가격"
 
-#: lib/LinkedEvents.php:106
+#: lib/Eventz.php:162
 msgid "Organizer"
 msgstr "주최자"
 
-#: lib/LinkedEvents.php:213 lib/LinkedEvents.php:265
+#: lib/Eventz.php:163
+msgid "Area"
+msgstr ""
+
+#: lib/Eventz.php:165
+msgid "Target"
+msgstr ""
+
+#: lib/Eventz.php:167
+msgid "Tags"
+msgstr ""
+
+#: lib/Eventz.php:171
+msgid "Links"
+msgstr ""
+
+#: lib/Eventz.php:382
+msgid "and other locations"
+msgstr "그리고 다른 위치"
+
+#: lib/Eventz.php:426
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: lib/LinkedEvents.php:258
+#: lib/Eventz.php:443
 msgid "Free"
 msgstr "무료"
 
-#: lib/LinkedEvents.php:288
-msgid "Additional info"
-msgstr "추가 정보"
+#: lib/Formatters/AccordionFormatter.php:57
+msgctxt "theme-frontend"
+msgid "Expand"
+msgstr ""
 
-#: lib/LinkedEvents.php:338
-msgid "Virtual event"
-msgstr "온라인 이벤트"
+#: lib/Formatters/AccordionFormatter.php:58
+msgctxt "theme-frontend"
+msgid "Collapse"
+msgstr ""
 
-#: lib/NavigationController.php:34
+#: lib/Formatters/AccordionFormatter.php:59
+msgctxt "theme-frontend"
+msgid "Expand all sections"
+msgstr ""
+
+#: lib/Formatters/AccordionFormatter.php:60
+msgctxt "theme-frontend"
+msgid "Collapse all sections"
+msgstr ""
+
+#: lib/Formatters/CountdownFormatter.php:92 models/strings.php:231
+msgctxt "theme-frontend"
+msgid "Days"
+msgstr ""
+
+#: lib/Formatters/CountdownFormatter.php:93 models/strings.php:232
+msgctxt "theme-frontend"
+msgid "Hours"
+msgstr ""
+
+#: lib/Formatters/CountdownFormatter.php:94 models/strings.php:233
+msgctxt "theme-frontend"
+msgid "Minutes"
+msgstr ""
+
+#: lib/Formatters/CountdownFormatter.php:95 models/strings.php:234
+msgctxt "theme-frontend"
+msgid "Seconds"
+msgstr ""
+
+#: lib/Formatters/GridFormatter.php:151
+msgid "Read more"
+msgstr "더 읽기"
+
+#: lib/NavigationController.php:39
 msgid "Primary Navigation"
 msgstr "기본 내비게이션"
 
-#: lib/NavigationController.php:35
+#: lib/NavigationController.php:40
 msgid "Secondary Navigation"
 msgstr "보조 내비게이션"
 
@@ -173,17 +385,11 @@ msgstr ""
 
 #: lib/PostType/BlogArticle.php:65 lib/PostType/BlogArticle.php:93
 #: lib/PostType/BlogArticle.php:95 lib/PostType/BlogArticle.php:96
-#, fuzzy
-#| msgctxt "theme CPT"
-#| msgid "Blog articles"
 msgctxt "theme CPT"
 msgid "Blog Articles"
 msgstr "블로그 글"
 
 #: lib/PostType/BlogArticle.php:94
-#, fuzzy
-#| msgctxt "theme CPT"
-#| msgid "Blog articles"
 msgctxt "theme CPT"
 msgid "Blog Article"
 msgstr "블로그 글"
@@ -223,45 +429,45 @@ msgctxt "theme CPT"
 msgid "Site settings"
 msgstr "사이트 설정"
 
-#: lib/Roles.php:340
+#: lib/Roles.php:394
 msgctxt "wp-geniem-roles"
 msgid "Super Administrator"
 msgstr "최고 관리자"
 
-#: lib/Roles.php:433
+#: lib/Roles.php:491
 msgctxt "wp-geniem-roles"
 msgid "Administrator"
 msgstr "관리자"
 
-#: lib/Roles.php:486
+#: lib/Roles.php:547
 msgctxt "wp-geniem-roles"
 msgid "Site Manager"
 msgstr "사이트 관리자"
 
-#: lib/Roles.php:530
+#: lib/Roles.php:600
 msgctxt "wp-geniem-roles"
 msgid "Author"
 msgstr "저자"
 
-#: lib/Roles.php:598
+#: lib/Roles.php:668
 msgctxt "wp-geniem-roles"
 msgid "Contributor"
 msgstr "기고자"
 
-#: lib/Roles.php:618
+#: lib/Roles.php:688
 msgctxt "wp-geniem-roles"
 msgid "Subscriber"
 msgstr "구독자"
 
-#: lib/Security.php:112
+#: lib/Security.php:113
 msgid "WARNING"
 msgstr ""
 
-#: lib/Security.php:113
+#: lib/Security.php:114
 msgid "Your password has been compromised."
 msgstr ""
 
-#: lib/Security.php:114
+#: lib/Security.php:115
 msgid "Please change your password <strong>as soon as possible</strong>."
 msgstr ""
 
@@ -277,7 +483,7 @@ msgstr "메인 메뉴"
 msgid "Site settings"
 msgstr "사이트 설정"
 
-#: lib/SiteController.php:170 models/strings.php:58
+#: lib/SiteController.php:170 models/strings.php:60
 msgctxt "theme-frontend"
 msgid "Page not found"
 msgstr "페이지를 찾을 수 없음"
@@ -343,82 +549,82 @@ msgctxt "Breadcrumbs"
 msgid "Home"
 msgstr "홈"
 
-#: lib/Traits/Sharing.php:97
+#: lib/Traits/Sharing.php:111
 msgid "Share on Facebook"
 msgstr "Facebook에서 공유"
 
-#: lib/Traits/Sharing.php:103
+#: lib/Traits/Sharing.php:117
 msgid "Share by email"
 msgstr "이메일로 공유"
 
-#: lib/Traits/Sharing.php:109
+#: lib/Traits/Sharing.php:123
 msgid "Copy link to clipboard"
 msgstr "클립보드에 링크 복사"
 
-#: lib/Traits/Sharing.php:110
+#: lib/Traits/Sharing.php:124
 msgid "Copied to clipboard"
 msgstr "클립보드에 복사됨"
 
-#: lib/Traits/Sharing.php:116
+#: lib/Traits/Sharing.php:130
 msgid "Share on Whatsapp"
 msgstr "Whatsapp에서 공유"
 
-#: lib/Traits/Sharing.php:122
+#: lib/Traits/Sharing.php:136
 msgid "Share on Twitter"
 msgstr "Twitter에서 공유"
 
-#: lib/Traits/Sharing.php:128
+#: lib/Traits/Sharing.php:142
 msgid "Share on LinkedIn"
 msgstr "LinkedIn에서 공유"
 
-#: lib/Traits/Sharing.php:134
+#: lib/Traits/Sharing.php:148
 msgid "Share on Vkontakte"
 msgstr "Vkontakte에서 공유"
 
-#: lib/Traits/Sharing.php:140
+#: lib/Traits/Sharing.php:154
 msgid "Share on Line"
 msgstr "Line에서 공유"
 
-#: models/archive-blog-article.php:167 models/archive.php:116
-#: models/home.php:269 models/search.php:70
+#: models/archive-blog-article.php:167 models/archive.php:122
+#: models/home.php:273 models/search.php:70
 msgid "All"
 msgstr "전체"
 
-#: models/error404.php:78
+#: models/error404.php:81
 msgctxt "theme-frontend"
 msgid "Go to search"
 msgstr "검색"
 
-#: models/error404.php:95
+#: models/error404.php:98
 msgctxt "theme-frontend"
 msgid "Return to home"
 msgstr "홈으로 돌아가기"
 
-#: models/page-events-calendar.php:39 models/page-events-search.php:118
+#: models/page-events-calendar.php:45 models/page-events-search.php:119
 msgid "No results"
 msgstr "결과 없음"
 
-#: models/page-events-search.php:51
+#: models/page-events-search.php:52
 msgid "Search term"
 msgstr "검색어"
 
-#: models/page-events-search.php:52
+#: models/page-events-search.php:53
 msgid "Events from"
 msgstr "이벤트"
 
-#: models/page-events-search.php:53 models/search.php:83
+#: models/page-events-search.php:54 models/search.php:83
 msgid "Start date"
 msgstr "시작일"
 
-#: models/page-events-search.php:54 models/search.php:84
+#: models/page-events-search.php:55 models/search.php:84
 msgid "End date"
 msgstr "종료일"
 
-#: models/page-events-search.php:117
+#: models/page-events-search.php:118
 msgid "No search term given"
 msgstr "검색어 없음"
 
-#: models/page-events-search.php:190 models/search.php:228
+#: models/page-events-search.php:212 models/search.php:239
 #, php-format
 msgctxt "search results summary"
 msgid "%1$1s result found for \"%2$2s\""
@@ -445,7 +651,7 @@ msgstr "결과별 필터"
 msgid "Looking for events? Use the event search!"
 msgstr "이벤트를 찾으십니까? 이벤트 검색을 사용하십시오!"
 
-#: models/search.php:239
+#: models/search.php:250
 msgid "No search results"
 msgstr "검색 결과 없음"
 
@@ -461,276 +667,297 @@ msgstr "메인 내비게이션"
 
 #: models/strings.php:44
 msgctxt "theme-frontend"
+msgid "Frequently searched pages"
+msgstr ""
+
+#: models/strings.php:45
+msgctxt "theme-frontend"
 msgid "Open menu"
 msgstr "메뉴 열기"
 
-#: models/strings.php:45
+#: models/strings.php:46
+msgctxt "theme-frontend"
+msgid "Main menu"
+msgstr "메인 메뉴"
+
+#: models/strings.php:47
 msgctxt "theme-frontend"
 msgid "Close menu"
 msgstr "메뉴 닫기"
 
-#: models/strings.php:46
+#: models/strings.php:48
 msgctxt "theme-frontend"
 msgid "Language navigation"
 msgstr "언어 내비게이션"
 
-#: models/strings.php:47
+#: models/strings.php:49
 msgctxt "theme-frontend"
 msgid "Open search form"
 msgstr "검색 양식 열기"
 
-#: models/strings.php:48
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Language navigation"
+#: models/strings.php:50
 msgctxt "theme-frontend"
 msgid "Open language navigation"
 msgstr "언어 내비게이션"
 
-#: models/strings.php:49
+#: models/strings.php:51
 msgctxt "theme-frontend"
 msgid "Current language: "
 msgstr ""
 
-#: models/strings.php:50 models/strings.php:51 models/strings.php:155
-#: models/strings.php:156
+#: models/strings.php:52 models/strings.php:53 models/strings.php:162
+#: models/strings.php:163
 msgctxt "theme-frontend"
 msgid "Search"
 msgstr "검색"
 
-#: models/strings.php:52 models/strings.php:53
+#: models/strings.php:54 models/strings.php:55
 msgctxt "theme-frontend"
 msgid "Search from site"
 msgstr "사이트에서 검색"
 
-#: models/strings.php:54 models/strings.php:80 models/strings.php:138
-#: models/strings.php:151
+#: models/strings.php:56 models/strings.php:82 models/strings.php:144
+#: models/strings.php:158 models/strings.php:167 models/strings.php:238
 msgctxt "theme-frontend"
 msgid "Close"
 msgstr "닫기"
 
-#: models/strings.php:55 models/strings.php:64
+#: models/strings.php:57 models/strings.php:66
 msgctxt "theme-frontend"
 msgid "To home page"
 msgstr "홈페이지로 이동"
 
-#: models/strings.php:60
+#: models/strings.php:62
 msgctxt "theme-frontend"
 msgid "The content were looking for was not found"
 msgstr "원하는 내용을 찾을 수 없음"
 
-#: models/strings.php:67
+#: models/strings.php:69
 msgctxt "theme-frontend"
 msgid "Skip video embed"
 msgstr "영상 저장 건너뛰기"
 
-#: models/strings.php:68
+#: models/strings.php:70
 msgctxt "theme-frontend"
 msgid "Play video"
 msgstr ""
 
-#: models/strings.php:69
+#: models/strings.php:71
 msgctxt "theme-frontend"
 msgid "Pause video"
 msgstr ""
 
-#: models/strings.php:72
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Skip video embed"
+#: models/strings.php:74
 msgctxt "theme-frontend"
 msgid "Skip social media embed"
-msgstr "영상 저장 건너뛰기"
+msgstr "소셜 미디어 삽입 건너뛰기"
 
-#: models/strings.php:75
+#: models/strings.php:77
 msgctxt "theme-frontend"
 msgid "Share Article"
 msgstr "글 공유"
 
-#: models/strings.php:76
+#: models/strings.php:78
 msgctxt "theme-frontend"
 msgid "Share Event"
 msgstr "이벤트 공유"
 
-#: models/strings.php:77
+#: models/strings.php:79
 msgctxt "theme-frontend"
 msgid "Share to social media"
 msgstr "소셜미디어에 공유"
 
-#: models/strings.php:81
+#: models/strings.php:83
 msgctxt "theme-frontend"
 msgid "Next"
 msgstr "다음"
 
-#: models/strings.php:82 models/strings.php:150
+#: models/strings.php:84 models/strings.php:157 models/strings.php:166
 msgctxt "theme-frontend"
 msgid "Open"
 msgstr "열기"
 
-#: models/strings.php:83
+#: models/strings.php:85
 msgctxt "theme-frontend"
 msgid "Previous"
 msgstr "이전"
 
-#: models/strings.php:84
+#: models/strings.php:86
 msgctxt "theme-frontend"
 msgid "Go to slide"
 msgstr "슬라이드로 이동"
 
-#: models/strings.php:85
-#, fuzzy
-#| msgctxt "theme-frontend"
-#| msgid "Enter"
+#: models/strings.php:87
 msgctxt "theme-frontend"
 msgid "Centered"
-msgstr "확인"
+msgstr "가운데 맞춤"
 
-#: models/strings.php:86
+#: models/strings.php:88
 msgctxt "theme-frontend"
 msgid "Slide"
 msgstr ""
 
-#: models/strings.php:87
+#: models/strings.php:89
 msgctxt "theme-frontend"
 msgid "Image carousel"
 msgstr ""
 
-#: models/strings.php:88
+#: models/strings.php:90
 msgctxt "theme-frontend"
 msgid "Modal image carousel"
 msgstr ""
 
-#: models/strings.php:89
+#: models/strings.php:91
 msgctxt "theme-frontend"
-msgid "Main image carousel"
+msgid "Browsing images"
 msgstr ""
 
 #: models/strings.php:92
 msgctxt "theme-frontend"
+msgid "Main image carousel"
+msgstr ""
+
+#: models/strings.php:95
+msgctxt "theme-frontend"
 msgid "Move to tampere.fi"
 msgstr "tampere.fi로 이동"
 
-#: models/strings.php:93
+#: models/strings.php:96
 msgctxt "theme-frontend"
 msgid "Back to top"
 msgstr "맨 위로 이동"
 
-#: models/strings.php:96
+#: models/strings.php:99
 msgctxt "theme-frontend"
 msgid "Opens in a new window"
 msgstr "새 창에서 열기"
 
-#: models/strings.php:97
+#: models/strings.php:100
+msgctxt "theme-frontend"
+msgid "The link takes you to an external website"
+msgstr ""
+
+#: models/strings.php:101
 msgctxt "theme-frontend"
 msgid "All"
 msgstr "전체"
 
-#: models/strings.php:98
+#: models/strings.php:102
 msgctxt "theme-frontend"
 msgid "Read more"
 msgstr "더 읽기"
 
-#: models/strings.php:101
+#: models/strings.php:105
 msgctxt "theme-frontend"
 msgid "Image:"
 msgstr "이미지:"
 
-#: models/strings.php:102
+#: models/strings.php:106
 msgctxt "theme-frontend"
 msgid "Text:"
 msgstr "텍스트:"
 
-#: models/strings.php:105 models/strings.php:174
+#: models/strings.php:107
+msgctxt "theme-frontend"
+msgid "Articletype:"
+msgstr ""
+
+#: models/strings.php:110 models/strings.php:188
 msgctxt "theme-frontend"
 msgid "Month"
 msgstr "월"
 
-#: models/strings.php:106 models/strings.php:175
+#: models/strings.php:111 models/strings.php:189
 msgctxt "theme-frontend"
 msgid "Year"
 msgstr "년"
 
-#: models/strings.php:107
+#: models/strings.php:112
 msgctxt "theme-frontend"
 msgid "No results"
 msgstr "결과 없음"
 
-#: models/strings.php:108
+#: models/strings.php:113
 msgctxt "theme-frontend"
 msgid "Filter by Category"
 msgstr "카테고리로 필터"
 
-#: models/strings.php:111 models/strings.php:188
+#: models/strings.php:114
+msgctxt "theme-frontend"
+msgid "The page reloads after the selection."
+msgstr ""
+
+#: models/strings.php:117 models/strings.php:202
 msgctxt "theme-frontend"
 msgid "January"
 msgstr "1월"
 
-#: models/strings.php:112 models/strings.php:189
+#: models/strings.php:118 models/strings.php:203
 msgctxt "theme-frontend"
 msgid "February"
 msgstr "2월"
 
-#: models/strings.php:113 models/strings.php:190
+#: models/strings.php:119 models/strings.php:204
 msgctxt "theme-frontend"
 msgid "March"
 msgstr "3월"
 
-#: models/strings.php:114 models/strings.php:191
+#: models/strings.php:120 models/strings.php:205
 msgctxt "theme-frontend"
 msgid "April"
 msgstr "4월"
 
-#: models/strings.php:115 models/strings.php:192 models/strings.php:206
+#: models/strings.php:121 models/strings.php:206 models/strings.php:220
 msgctxt "theme-frontend"
 msgid "May"
 msgstr "5월"
 
-#: models/strings.php:116 models/strings.php:193
+#: models/strings.php:122 models/strings.php:207
 msgctxt "theme-frontend"
 msgid "June"
 msgstr "6월"
 
-#: models/strings.php:117 models/strings.php:194
+#: models/strings.php:123 models/strings.php:208
 msgctxt "theme-frontend"
 msgid "July"
 msgstr "7월"
 
-#: models/strings.php:118 models/strings.php:195
+#: models/strings.php:124 models/strings.php:209
 msgctxt "theme-frontend"
 msgid "August"
 msgstr "8월"
 
-#: models/strings.php:119 models/strings.php:196
+#: models/strings.php:125 models/strings.php:210
 msgctxt "theme-frontend"
 msgid "September"
 msgstr "9월"
 
-#: models/strings.php:120 models/strings.php:197
+#: models/strings.php:126 models/strings.php:211
 msgctxt "theme-frontend"
 msgid "October"
 msgstr "10월"
 
-#: models/strings.php:121 models/strings.php:198
+#: models/strings.php:127 models/strings.php:212
 msgctxt "theme-frontend"
 msgid "November"
 msgstr "11월"
 
-#: models/strings.php:122 models/strings.php:199
+#: models/strings.php:128 models/strings.php:213
 msgctxt "theme-frontend"
 msgid "December"
 msgstr "12월"
 
-#: models/strings.php:125
+#: models/strings.php:131
 msgctxt "theme-frontend"
 msgid "Password:"
 msgstr "비밀번호:"
 
-#: models/strings.php:126
+#: models/strings.php:132
 msgctxt "theme-frontend"
 msgid "Enter"
 msgstr "확인"
 
-#: models/strings.php:128
+#: models/strings.php:134
 msgctxt "theme-frontend"
 msgid ""
 "This content is password protected. To view it please enter your password "
@@ -739,192 +966,212 @@ msgstr ""
 "이 내용은 비밀번호로 보호됩니다. 내용을 확인하려면 아래에 비밀번호를 입력하"
 "십시오."
 
-#: models/strings.php:134
+#: models/strings.php:140
 msgctxt "theme-frontend"
 msgid "Sibling pages"
 msgstr "시블링 페이지"
 
-#: models/strings.php:137
+#: models/strings.php:143
 msgctxt "theme-frontend"
 msgid "Comments"
 msgstr "댓글"
 
-#: models/strings.php:141
+#: models/strings.php:147
 msgctxt "theme-frontend"
 msgid "Show description"
 msgstr "설명 표시"
 
-#: models/strings.php:142
+#: models/strings.php:148
 msgctxt "theme-frontend"
 msgid "All articles"
 msgstr "전체 글"
 
-#: models/strings.php:145
+#: models/strings.php:151
 msgctxt "theme-frontend"
 msgid "Event date"
 msgstr "이벤트 날짜"
 
-#: models/strings.php:146
+#: models/strings.php:152
 msgctxt "theme-frontend"
 msgid "Event time"
 msgstr "이벤트 시간"
 
-#: models/strings.php:147
+#: models/strings.php:153
 msgctxt "theme-frontend"
 msgid "Event location"
 msgstr "이벤트 장소"
 
 #: models/strings.php:154
 msgctxt "theme-frontend"
+msgid "Event price"
+msgstr "이벤트 가격"
+
+#: models/strings.php:161
+msgctxt "theme-frontend"
 msgid "Search contacts"
 msgstr "연락처 검색"
 
-#: models/strings.php:159
-msgctxt "theme-frontend"
-msgid "Show artist"
-msgstr "작가 표시"
-
-#: models/strings.php:160
-msgctxt "theme-frontend"
-msgid "Artwork by the same artist"
-msgstr "같은 작가의 작품"
-
-#: models/strings.php:161
+#: models/strings.php:168 models/strings.php:173
 msgctxt "theme-frontend"
 msgid "Related artwork"
 msgstr "관련 작품"
 
-#: models/strings.php:164
+#: models/strings.php:171
+msgctxt "theme-frontend"
+msgid "Show artist"
+msgstr "작가 표시"
+
+#: models/strings.php:172
+msgctxt "theme-frontend"
+msgid "Artwork by the same artist"
+msgstr "같은 작가의 작품"
+
+#: models/strings.php:176
 msgctxt "theme-frontend"
 msgid "Filter by type"
 msgstr "유형별 필터"
 
-#: models/strings.php:165
+#: models/strings.php:177
 msgctxt "theme-frontend"
 msgid "Publish date"
 msgstr "공개일"
 
-#: models/strings.php:169 models/strings.php:177
+#: models/strings.php:178
+msgctxt "theme-frontend"
+msgid "Page location:"
+msgstr "페이지 위치:"
+
+#: models/strings.php:179
+msgctxt "theme-frontend"
+msgid "Clear the form"
+msgstr "양식 지우기"
+
+#: models/strings.php:183 models/strings.php:191
 msgctxt "theme-frontend"
 msgid "Pick a date"
 msgstr "날짜 선택"
 
-#: models/strings.php:170
+#: models/strings.php:184
 msgctxt "theme-frontend"
 msgid "dd.mm.yyyy"
 msgstr "dd.mm.yyyy"
 
-#: models/strings.php:171
+#: models/strings.php:185
 msgctxt "theme-frontend"
 msgid "The chosen date is"
 msgstr "선택한 날짜는 다음과 같습니다"
 
-#: models/strings.php:172
+#: models/strings.php:186
 msgctxt "theme-frontend"
 msgid "Previous month"
 msgstr "이전 달"
 
-#: models/strings.php:173
+#: models/strings.php:187
 msgctxt "theme-frontend"
 msgid "Next month"
 msgstr "다음 달"
 
-#: models/strings.php:176
+#: models/strings.php:190
 msgctxt "theme-frontend"
 msgid "Close window"
 msgstr "창 닫기"
 
-#: models/strings.php:179
+#: models/strings.php:193
 msgctxt "theme-frontend"
 msgid "Sunday"
 msgstr "일요일"
 
-#: models/strings.php:180
+#: models/strings.php:194
 msgctxt "theme-frontend"
 msgid "Monday"
 msgstr "월요일"
 
-#: models/strings.php:181
+#: models/strings.php:195
 msgctxt "theme-frontend"
 msgid "Tuesday"
 msgstr "화요일"
 
-#: models/strings.php:182
+#: models/strings.php:196
 msgctxt "theme-frontend"
 msgid "Wednesday"
 msgstr "수요일"
 
-#: models/strings.php:183
+#: models/strings.php:197
 msgctxt "theme-frontend"
 msgid "Thursday"
 msgstr "목요일"
 
-#: models/strings.php:184
+#: models/strings.php:198
 msgctxt "theme-frontend"
 msgid "Friday"
 msgstr "금요일"
 
-#: models/strings.php:185
+#: models/strings.php:199
 msgctxt "theme-frontend"
 msgid "Saturday"
 msgstr "토요일"
 
-#: models/strings.php:202
+#: models/strings.php:216
 msgctxt "theme-frontend"
 msgid "Jan"
 msgstr "1월"
 
-#: models/strings.php:203
+#: models/strings.php:217
 msgctxt "theme-frontend"
 msgid "Feb"
 msgstr "2월"
 
-#: models/strings.php:204
+#: models/strings.php:218
 msgctxt "theme-frontend"
 msgid "Mar"
 msgstr "3월"
 
-#: models/strings.php:205
+#: models/strings.php:219
 msgctxt "theme-frontend"
 msgid "Apr"
 msgstr "4월"
 
-#: models/strings.php:207
+#: models/strings.php:221
 msgctxt "theme-frontend"
 msgid "Jun"
 msgstr "6월"
 
-#: models/strings.php:208
+#: models/strings.php:222
 msgctxt "theme-frontend"
 msgid "Jul"
 msgstr "7월"
 
-#: models/strings.php:209
+#: models/strings.php:223
 msgctxt "theme-frontend"
 msgid "Aug"
 msgstr "8월"
 
-#: models/strings.php:210
+#: models/strings.php:224
 msgctxt "theme-frontend"
 msgid "Sept"
 msgstr "9월"
 
-#: models/strings.php:211
+#: models/strings.php:225
 msgctxt "theme-frontend"
 msgid "Oct"
 msgstr "10월"
 
-#: models/strings.php:212
+#: models/strings.php:226
 msgctxt "theme-frontend"
 msgid "Nov"
 msgstr "11월"
 
-#: models/strings.php:213
+#: models/strings.php:227
 msgctxt "theme-frontend"
 msgid "Dec"
 msgstr "12월"
 
-#: models/strings.php:227
+#: models/strings.php:237
+msgctxt "theme-frontend"
+msgid "Enlarged image"
+msgstr ""
+
+#: models/strings.php:251
 msgid "Pagination"
 msgstr "페이지 번호"
 
@@ -944,6 +1191,12 @@ msgstr "Geniem"
 msgid "https://geniem.fi"
 msgstr "https://geniem.fi"
 
+#~ msgid "Additional info"
+#~ msgstr "추가 정보"
+
+#~ msgid "Virtual event"
+#~ msgstr "온라인 이벤트"
+
 #~ msgctxt "theme ACF"
 #~ msgid "Authors"
 #~ msgstr "저자"
@@ -951,10 +1204,6 @@ msgstr "https://geniem.fi"
 #~ msgctxt "theme ACF"
 #~ msgid "Blog author"
 #~ msgstr "블로그 저자"
-
-#~ msgctxt "theme ACF"
-#~ msgid "Information"
-#~ msgstr "정보"
 
 #~ msgctxt "theme ACF"
 #~ msgid "Contact settings"

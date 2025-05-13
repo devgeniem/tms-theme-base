@@ -43,6 +43,7 @@ class Strings extends \DustPress\Model {
                 'main_navigation'           => _x( 'Main navigation', 'theme-frontend', 'tms-theme-base' ),
                 'frequently_searched_pages' => _x( 'Frequently searched pages', 'theme-frontend', 'tms-theme-base' ),
                 'open_menu'                 => _x( 'Open menu', 'theme-frontend', 'tms-theme-base' ),
+                'main_menu'                 => _x( 'Main menu', 'theme-frontend', 'tms-theme-base' ),
                 'close_menu'                => _x( 'Close menu', 'theme-frontend', 'tms-theme-base' ),
                 'language_navigation'       => _x( 'Language navigation', 'theme-frontend', 'tms-theme-base' ),
                 'open_search'               => _x( 'Open search form', 'theme-frontend', 'tms-theme-base' ),
