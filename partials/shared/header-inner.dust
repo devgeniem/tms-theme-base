@@ -35,9 +35,10 @@
 
             {?Header.has_nav_menu}
                 <button class="fly-out-nav__trigger {?Header.hide_search}ml-4{/Header.hide_search} {^Header.hide_main_nav}is-hidden-widescreen{/Header.hide_main_nav}"
-                        data-micromodal-trigger="js-fly-out-nav">
+                        data-micromodal-trigger="js-fly-out-nav"
+                        aria-expanded="false">
                     {>"ui/icon" icon="burger" class="icon--large" /}
-                    <span class="is-sr-only">{Strings.s.header.open_menu|html}</span>
+                    <span class="is-sr-only">{Strings.s.header.main_menu|html}</span>
                 </button>
             {/Header.has_nav_menu}
 
