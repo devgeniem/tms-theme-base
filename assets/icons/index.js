@@ -105,3 +105,6 @@ import './tiktok.svg';
 import './snapchat.svg';
 import './spotify.svg';
 import './threads.svg';
+import './stop.svg';
+import './volume.svg';
+import './volume-none.svg';
