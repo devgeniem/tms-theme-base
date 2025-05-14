@@ -12,7 +12,7 @@
                 {?autoplay_video}autoplay{/autoplay_video}>
             </video>
 
-            <button class="hero__control hero__control--play-large" aria-label="{Strings.s.video.play|attr}">
+            <button class="hero__control hero__control--play-large {?autoplay_video}is-hidden{/autoplay_video}" aria-label="{Strings.s.video.play|attr}">
                 {>"ui/icon" icon="play" class="icon--xxxlarge"  /}
             </button>
 
