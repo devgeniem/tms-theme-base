@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-1131: Change form border-colors
 - TMS-1144: Change aria-attribute for menu-item
+- TMS-1152: Add custom controllers to hero-video
+
+## [1.60.4] - 2025-05-14
+
+- TMS-1131: Change form border-colors
+
+## [1.60.3] - 2025-05-14
+
 - TMS-1155: Fix screen-reader text for mobile-nav dropdowns
 - TMS-1157: Improve main-menu trigger accessibility
 
