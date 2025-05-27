@@ -35,12 +35,13 @@
         top: 50%;
         left: 50%;
         z-index: 0;
-        width: auto;
+        width: 100%;
         min-width: 100%;
-        height: auto;
+        height: 100%;
         min-height: 100%;
         transform: translateX(-50%) translateY(-50%);
         cursor: pointer;
+        object-fit: cover;
     }
 
     &__inner {
