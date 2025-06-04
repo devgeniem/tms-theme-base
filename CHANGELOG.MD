@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.61.0] - 2025-06-05
+
 - TMS-1152: Add custom controllers to hero-video
 
 ## [1.60.4] - 2025-05-14
