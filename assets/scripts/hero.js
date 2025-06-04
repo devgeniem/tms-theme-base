@@ -37,9 +37,13 @@ export default class Hero {
     events() {
         $( window ).resize( debounce( this.adjustSpacing.bind( this ), 250 ) );
 
+        this.container.find( '.hero__control--play-large' ).on( 'click', this.initPlayVideo.bind( this ) );
         this.container.find( '.hero__control--play' ).on( 'click', this.playVideo.bind( this ) );
         this.container.find( '.hero__control--pause' ).on( 'click', this.pauseVideo.bind( this ) );
+        this.container.find( '.hero__control--stop' ).on( 'click', this.stopVideo.bind( this ) );
+        this.container.find( '.hero__control--mute' ).on( 'click', this.muteVideo.bind( this ) );
         this.container.find( '.hero__video' ).on( 'click', this.toggleVideo.bind( this ) );
+        this.container.find( '.hero__control--volume' ).on( 'change', this.alterVolume.bind( this ) );
     }
 
     /**
@@ -80,6 +84,30 @@ export default class Hero {
     }
 
     /**
+     * Initial play video, before the video is activated
+     *
+     * @return {void}
+     */
+    initPlayVideo() {
+        const el = this.getVideoElement();
+
+        if ( el && el.paused ) {
+            el.play();
+            this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
+            const pauseBtn = this.container.find( '.hero__control--pause' );
+            const playBtn = this.container.find( '.hero__control--play-large' );
+            const videoParent = this.container.find( '.hero__video' ).parent();
+            const videoControls = this.container.find( '.hero__video-controls' );
+
+            playBtn.addClass( 'is-hidden' );
+            videoParent.attr( 'aria-hidden', false );
+            videoParent.removeAttr( 'tabindex' );
+            videoControls.removeClass( 'is-hidden' );
+            pauseBtn.trigger( 'focus' );
+        }
+    }
+
+    /**
      * Play video
      *
      * @return {void}
@@ -89,17 +117,6 @@ export default class Hero {
 
         if ( el && el.paused ) {
             el.play();
-            this.container.toggleClass( 'has-video-playing' );
-            this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
-            const pauseBtn = this.container.find( '.hero__control--pause' );
-
-            pauseBtn.focus();
-
-            window.setTimeout( () => {
-                pauseBtn.fadeOut( 200, function() {
-                    $( this ).prop( 'style', '' );
-                } );
-            }, 1000 );
         }
     }
 
@@ -113,9 +130,60 @@ export default class Hero {
 
         if ( el && ! el.paused ) {
             el.pause();
-            this.container.toggleClass( 'has-video-playing' );
-            this.container.find( '.hero__control--play' ).focus();
         }
+    }
+
+    /**
+     * Stop video
+     *
+     * @return {void}
+     */
+    stopVideo() {
+        const el = this.getVideoElement();
+
+        if ( el ) {
+            el.pause();
+            el.currentTime = 0;
+        }
+    }
+
+    /**
+     * Mute or unmute video
+     *
+     * @return {void}
+     */
+    muteVideo() {
+        const el = this.getVideoElement();
+
+        if ( el ) {
+            el.muted = ! el.muted;
+
+            // Change volume slider value based on mute state
+            const volumeSlider = this.container.find( '.hero__control--volume' );
+            volumeSlider.val( el.muted ? 0 : 100 );
+            this.container.find( '.hero__volume' ).toggleClass( 'is-hidden', el.muted );
+            this.container.find( '.hero__volume-none' ).toggleClass( 'is-hidden', ! el.muted );
+        }
+    }
+
+    /**
+     * Alter video volume
+     *
+     * @return {void}
+     */
+    alterVolume() {
+        const el = this.getVideoElement();
+        const volumeSlider = this.container.find( '.hero__control--volume' );
+        const volume = volumeSlider.val();
+
+        // Unmute video on slider change and change icons
+        if ( el.muted && volume > 0 ) {
+            el.muted = false;
+            this.container.find( '.hero__volume' ).removeClass( 'is-hidden' );
+            this.container.find( '.hero__volume-none' ).addClass( 'is-hidden' );
+        }
+
+        el.volume = volume / 100;
     }
 
     /**

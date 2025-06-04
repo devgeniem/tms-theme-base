@@ -35,11 +35,13 @@
         top: 50%;
         left: 50%;
         z-index: 0;
-        width: auto;
+        width: 100%;
         min-width: 100%;
-        height: auto;
+        height: 100%;
         min-height: 100%;
         transform: translateX(-50%) translateY(-50%);
+        cursor: pointer;
+        object-fit: cover;
     }
 
     &__inner {
@@ -112,6 +114,51 @@
         }
     }
 
+    &__video-controls {
+        position: relative;
+        display: flex;
+        margin: 0 !important;
+
+        @include from($desktop) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .column {
+            width: 50%;
+        }
+
+        button {
+            all: unset;
+            cursor: pointer;
+            background-color: $primary;
+            padding: $theme-spacing-half;
+            width: $theme-spacing;
+            height: $theme-spacing;
+            display: inline-flex;
+            border-radius: 100%;
+
+            &:hover {
+                background-color: bulmaDarken( $primary, 10 );
+            }
+        }
+
+        .hero__control--volume {
+            accent-color: $primary;
+            width: 80px;
+        }
+
+        .hero__control--volume,
+        button {
+            &:focus {
+                outline: 2px dotted $white;
+                outline-offset: 2px;
+                box-shadow: 0 0 0 3px $black;
+            }
+        }
+    }
+
     &__control {
         position: absolute;
         top: 50%;
@@ -134,41 +181,8 @@
             background-color: rgba($black, .4); // sass-lint:disable-line no-color-literals
         }
 
-        &--pause {
-            display: none;
-        }
-
         .icon {
             fill: $white;
-        }
-    }
-
-    &.has-video-playing {
-        cursor: pointer;
-
-        .hero__control {
-            &--play {
-                display: none;
-            }
-
-            &--pause {
-                display: inline-flex;
-                opacity: 0;
-                transition: opacity .3s ease;
-
-                &:hover,
-                &:focus {
-                    opacity: 1;
-                }
-            }
-        }
-
-        &:hover {
-            .hero__control {
-                &--pause {
-                    opacity: 1;
-                }
-            }
         }
     }
 

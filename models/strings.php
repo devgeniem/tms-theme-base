@@ -68,6 +68,9 @@ class Strings extends \DustPress\Model {
                 'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
                 'play'       => _x( 'Play video', 'theme-frontend', 'tms-theme-base' ),
                 'pause'      => _x( 'Pause video', 'theme-frontend', 'tms-theme-base' ),
+                'stop'       => _x( 'Stop video', 'theme-frontend', 'tms-theme-base' ),
+                'mute'       => _x( 'Mute or unmute video', 'theme-frontend', 'tms-theme-base' ),
+                'volume'     => _x( 'Video volume', 'theme-frontend', 'tms-theme-base' ),
             ],
             'social_media'       => [
                 'skip_embed' => _x( 'Skip social media embed', 'theme-frontend', 'tms-theme-base' ),
