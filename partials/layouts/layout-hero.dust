@@ -29,7 +29,7 @@
                     </button>
                 </div>
                 <div class="column is-flex is-justify-content-end">
-                    <input is="hero-volume" class="hero__control--volume mr-1" type="range" min="0" max="100" step="1" value="0">
+                    <input id="hero-volume" class="hero__control--volume mr-1" type="range" min="0" max="100" step="1" value="0">
                     <label class="is-sr-only" for="hero-volume">
                         {Strings.s.video.volume|html}
                     </label>
