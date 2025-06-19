@@ -17,13 +17,13 @@
 
                     <div class="hero__video-controls columns p-2 {^autoplay_video}is-hidden{/autoplay_video}">
                         <div class="column">
-                            <button class="hero__control--play mr-1" aria-label="{Strings.s.video.play|html}">
+                            <button class="hero__control--play mr-1" aria-label="{Strings.s.video.play|attr}">
                                 {>"ui/icon" icon="play" class="icon--large is-primary-invert"  /}
                             </button>
-                            <button class="hero__control--pause mr-1" aria-label="{Strings.s.video.pause|html}">
+                            <button class="hero__control--pause mr-1" aria-label="{Strings.s.video.pause|attr}">
                                 {>"ui/icon" icon="pause" class="icon--large is-primary-invert"  /}
                             </button>
-                            <button class="hero__control--stop mr-1" aria-label="{Strings.s.video.stop|html}">
+                            <button class="hero__control--stop mr-1" aria-label="{Strings.s.video.stop|attr}">
                                 {>"ui/icon" icon="stop" class="icon--large is-primary-invert"  /}
                             </button>
                         </div>
@@ -32,7 +32,7 @@
                             <label class="is-sr-only" for="hero-volume">
                                 {Strings.s.video.volume|html}
                             </label>
-                            <button class="hero__control--mute" type="button" data-state="mute" aria-label="{Strings.s.video.mute|html}">
+                            <button class="hero__control--mute" type="button" data-state="mute" aria-label="{Strings.s.video.mute|attr}">
                                 {>"ui/icon" icon="volume" class="icon--large hero__volume is-hidden is-primary-invert"  /}
                                 {>"ui/icon" icon="volume-none" class="icon--large hero__volume-none is-primary-invert"  /}
                             </button>
