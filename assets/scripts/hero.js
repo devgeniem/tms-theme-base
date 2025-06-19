@@ -26,7 +26,7 @@ export default class Hero {
      * @return {void}
      */
     cache() {
-        this.container = $( '.hero' );
+        this.container = $( '.hero, .hero-museum' );
     }
 
     /**
@@ -96,12 +96,9 @@ export default class Hero {
             this.container.find( '.hero__video' ).removeClass( 'is-hidden' );
             const pauseBtn = this.container.find( '.hero__control--pause' );
             const playBtn = this.container.find( '.hero__control--play-large' );
-            const videoParent = this.container.find( '.hero__video' ).parent();
             const videoControls = this.container.find( '.hero__video-controls' );
 
             playBtn.addClass( 'is-hidden' );
-            videoParent.attr( 'aria-hidden', false );
-            videoParent.removeAttr( 'tabindex' );
             videoControls.removeClass( 'is-hidden' );
             pauseBtn.trigger( 'focus' );
         }
@@ -205,7 +202,7 @@ export default class Hero {
      * @return {void}
      */
     docReady() {
-        if ( $( '.hero' ).length === 0 ) {
+        if ( $( '.hero, .hero-museum' ).length === 0 ) {
             return;
         }
 
