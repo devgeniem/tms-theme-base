@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.62.0] - 2025-06-05
+
 - TMS-1172: Add video possibility to hero-museum layout
 
 ## [1.61.0] - 2025-06-05
