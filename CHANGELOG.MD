@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1144: Change aria-attribute for menu-item
 - TMS-1176: Add homepage-selection for some-linklist fields
+- TMS-1158: Disable mobile-nav from closing when scrolling by clicking the inner container
 
 ## [1.62.0] - 2025-06-23
 
