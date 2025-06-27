@@ -97,6 +97,7 @@ class SomeLinkListFields extends Field\Group {
                 'snapchat'  => 'Snapchat',
                 'spotify'   => 'Spotify',
                 'threads'   => 'Threads',
+                'globe'     => 'Kotisivut',
             ] )
             ->set_default_value( 'facebook' )
             ->set_required()
