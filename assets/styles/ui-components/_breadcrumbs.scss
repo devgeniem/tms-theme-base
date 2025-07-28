@@ -43,6 +43,7 @@ $tms-breadcrumb-item-color-separator: $color-black !default;
 
     li + li {
         &::before {
+            content: "≻" / "" !important;
             color: $tms-breadcrumb-item-color-separator;
         }
     }
