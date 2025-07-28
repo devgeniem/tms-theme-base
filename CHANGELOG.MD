@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- TMS-1162: Hide breadcrumbs pseudo-elements text from screen readers
+- TMS-1162:
+    - Hide breadcrumbs pseudo-elements text from screen readers
+    - Add aria-label translations for breadcrumbs
 
 ## [1.62.0] - 2025-06-23
 
