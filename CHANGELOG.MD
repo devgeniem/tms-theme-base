@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Hide breadcrumbs pseudo-elements text from screen readers
     - Add aria-label translations for breadcrumbs
 - TMS-1160: Fix elements focus outline thickness
+- TMS-1170: Change hamburger-menu icon color for häive-theme
 
 ## [1.62.0] - 2025-06-23
 
