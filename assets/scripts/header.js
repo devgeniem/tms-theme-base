@@ -76,11 +76,6 @@ export default class Header {
         $( '.fly-out-nav__close' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
         $( '.fly-out-nav .js-scroll-children' ).on( 'click', this.closeFlyOutMenu.bind( this ) );
 
-        // Prevent closing the menu when clicking inside the fly-out nav.
-        $( '.fly-out-nav__inner' ).on( 'click', ( event ) => {
-            event.stopPropagation();
-        } );
-
         MicroModal.init( {
             disableScroll: true,
             onShow: this.onFlyOutMenuOpen.bind( this ),
