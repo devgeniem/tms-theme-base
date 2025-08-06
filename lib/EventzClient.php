@@ -316,10 +316,12 @@ class EventzClient {
         $status_code = $payload->status_code;
 
         if ( ! in_array( $status_code, [ 200, 201 ], true ) ) {
-            throw new EventzException(
+            ( new Logger() )->error(
                 sprintf( '%s: %s', $api_url, $payload->body ?? 'Unknown error' ),
-                $status_code
+                [ 'status_code' => $status_code ]
             );
+
+            return false;
         }
 
         return $payload->body ?? '';
