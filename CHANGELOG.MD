@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1183: Use Logger for EventzClient errors
+
 ## [1.62.0] - 2025-06-23
 
 - TMS-1172: Add video possibility to hero-museum layout
