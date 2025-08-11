@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1162:
+    - Hide breadcrumbs pseudo-elements text from screen readers
+    - Add aria-label translations for breadcrumbs
 - TMS-1170: Change hamburger-menu icon color for häive-theme
 - TMS-1176: Add homepage-selection for some-linklist fields
 - TMS-1183: Use Logger for EventzClient errors
