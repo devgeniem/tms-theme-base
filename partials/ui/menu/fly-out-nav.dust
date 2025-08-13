@@ -1,5 +1,5 @@
 <nav id="js-fly-out-nav" class="fly-out-nav overlay overlay--dark-80" aria-hidden="true">
-    <div class="is-overlay" tabindex="-1" data-micromodal-close>
+    <div class="is-overlay" tabindex="-1">
         <div class="fly-out-nav__inner {Header.colors.fly_out_nav.inner|attr}" role="dialog" aria-modal="true">
             <button class="fly-out-nav__close">
                 <span class="is-sr-only"> {Strings.s.header.close_menu|html} </span>
