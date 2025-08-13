@@ -1,5 +1,5 @@
 {?breadcrumbs}
-<nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+<nav class="breadcrumb has-succeeds-separator" aria-label="{Strings.s.header.breadcrumbs|attr}">
     <ul class="breadcrumbs__nav is-relative is-flex m-0 p-0 is-family-secondary">
         {#breadcrumbs}
             <li class="{?is_active}is-active{/is_active} {?class}{class|attr}{/class}">
