@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1158: Disable mobile-nav from closing when scrolling by clicking the inner container
+
 ## [1.63.0] - 2025-08-11
 
 - TMS-1162:
