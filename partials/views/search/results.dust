@@ -7,12 +7,18 @@
         <div class="search-item mb-6 p-6 p-8-desktop {template_classes.search_item|attr}">
             <div class="search-item__inner">
 
-                <div>
+                <div class="search-item__content">
                     <h2 class="h5 mt-4 mb-0 search-item__title">
                         <a href="{permalink|url}">
                             {post_title|html}
                         </a>
                     </h2>
+
+                    {?meta}
+                        <div class="search-item__meta-container has-text-weight-medium">
+                            {>"views/search/search-item-meta"  /}
+                        </div>
+                    {/meta}
 
                     {?content_type}
                         <span class="mt-4 pill has-background-primary-invert has-text-primary is-bordered">
@@ -27,7 +33,7 @@
                     {/post_excerpt}
                 </div>
 
-                <div>
+                <div class="search-item__breadcrumbs">
                     {?breadcrumbs}
                         <div class="search-item__meta-container has-text-weight-medium">
                             <span class="is-sr-only">{Strings.s.search.breadcrumbs|html} </span>
@@ -36,7 +42,7 @@
                                     {#breadcrumbs}
                                         <li class="{?is_active}is-active{/is_active} {?class}{class|attr}{/class}">
                                             {?permalink}
-                                                <span href="{permalink|url}" {?is_active}aria-current="page"{/is_active} class="mr-2 ml-0">
+                                                <span {?is_active}aria-current="page"{/is_active} class="mr-2 ml-1">
                                                     {?icon}
                                                         {>"ui/icon" /}
                                                     {/icon}
@@ -60,12 +66,6 @@
                             </div>
                         </div>
                     {/breadcrumbs}
-
-                    {?meta}
-                        <div class="search-item__meta-container has-text-weight-medium">
-                            {>"views/search/search-item-meta"  /}
-                        </div>
-                    {/meta}
                 </div>
 
             </div>
