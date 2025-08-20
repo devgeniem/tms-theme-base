@@ -40,8 +40,8 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": ($primary, $primary-invert, $primary, $color-white),
-    "secondary": ($secondary, $secondary-invert, $color-white, $text),
+    "primary": ($primary, $primary-invert, $primary, $primary-invert),
+    "secondary": ($secondary, $secondary-invert, $secondary, $secondary-invert),
 );
 
 $navbar-colors: (
@@ -49,3 +49,4 @@ $navbar-colors: (
 );
 
 @import "main";
+@import "themes/theme-tunnelma-overrides";
