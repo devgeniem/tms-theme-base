@@ -41,8 +41,8 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": ($primary, $color-white, $text, $text),
-    "secondary": ($secondary, $secondary-invert, $color-white, $color-black),
+    "primary": ($primary, $primary-invert, $primary, $primary-invert),
+    "secondary": ($secondary, $secondary-invert, $secondary, $secondary-invert),
 );
 
 $navbar-colors: (
