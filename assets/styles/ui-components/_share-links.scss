@@ -1,0 +1,12 @@
+.share-links {
+    a.has-background-accent {
+        &:hover,
+        &:focus {
+            background-color: bulmaDarken($primary, 10) !important;
+
+            .icon {
+                fill: $primary-invert !important;
+            }
+        }
+    }
+}
