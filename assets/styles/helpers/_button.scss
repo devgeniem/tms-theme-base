@@ -119,7 +119,6 @@ $button-transition-speed: $speed !default;
     &.is-hovered,
     &:focus,
     &.is-focused {
-        border-color: $button-border-invert;
         text-decoration: underline !important;
 
         @extend .button-state-hover;
