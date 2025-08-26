@@ -31,6 +31,11 @@ $duet-radius: $theme-spacing-quarter !default;
     &__input {
         padding: $theme-spacing-half 60px $theme-spacing-half $theme-spacing-half;
         line-height: 1;
+
+        &:focus {
+            border-color: var(--duet-color-border);
+            box-shadow: none;
+        }
     }
 
     &__toggle {
