@@ -46,15 +46,8 @@ $search-item-hover: $primary-dark !default;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
-        .search-item__meta-container {
-            order: -1;
-        }
     }
 
-    &__breadcrumbs {
-        order: -1;
-    }
 
     &__meta-item,
     &__title {
