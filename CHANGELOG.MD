@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1166: Fix duet-datepicker border on focus
+- TMS-1163: Search results breadcrumbs accessibility fixes
 
 ## [1.64.0] - 2025-08-13
 
