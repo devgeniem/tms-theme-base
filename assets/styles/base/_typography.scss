@@ -23,7 +23,8 @@ a {
     &:focus,
     &.is-focused {
         text-decoration: underline;
-        outline: .0625rem dotted;
+        outline: .15rem dotted;
+        outline-offset: .2rem;
     }
 
     &.has-background-primary {
