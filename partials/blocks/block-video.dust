@@ -1,25 +1,29 @@
-{?video}
-    <div
-        class="video {@eq key=align value="full"}is-align-full{:else}is-align-wide{/eq} mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative"
-        {?anchor}id="{anchor|attr}"{/anchor}>
-        {>"shared/layout-before-main-content" /}
+<div
+    class="video {@eq key=align value="full"}is-align-full{:else}is-align-wide{/eq} mt-4 mb-4 mt-8-tablet mb-8-tablet is-relative"
+    {?anchor}id="{anchor|attr}"{/anchor}>
+    {>"shared/layout-before-main-content" /}
 
-        {?alt_text}
-            <span class="is-sr-only">{alt_text|html}</span>
-        {/alt_text}
+    {?alt_text}
+        <span class="is-sr-only">{alt_text|html}</span>
+    {/alt_text}
 
-        {! Skip embed !}
-        <a href="#{id|attr}" class="skip-to-content">
-            {skip_text|kses}
-        </a>
+    {! Skip embed !}
+    <a href="#{id|attr}" class="skip-to-content">
+        {skip_text|kses}
+    </a>
 
+    {?video}
         <div class="image is-16by9 is-embed-container">
             {video|s}
         </div>
+    {/video}
 
-        {! Skip embed target !}
-        <div id="{id|attr}"></div>
+    {?video_iframe}
+        {video_iframe|s}
+    {/video_iframe}
 
-        {>"shared/layout-after-main-content" /}
-    </div>
-{/video}
+    {! Skip embed target !}
+    <div id="{id|attr}"></div>
+
+    {>"shared/layout-after-main-content" /}
+</div>
