@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1199: Change events-search no-results text
+
 ## [1.65.0] - 2025-09-08
 
 - TMS-1166: Fix duet-datepicker border on focus
