@@ -73,13 +73,13 @@ class AccordionFields extends Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
             ->set_new_lines( 'wpautop' )
@@ -87,7 +87,7 @@ class AccordionFields extends Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $sections_field = ( new Field\Repeater( $strings['sections']['label'] ) )
-            ->set_key( "${key}_sections" )
+            ->set_key( "{$key}_sections" )
             ->set_name( 'sections' )
             ->set_layout( 'block' )
             ->set_min( 1 )
@@ -96,12 +96,12 @@ class AccordionFields extends Field\Group {
             ->set_instructions( $strings['sections']['instructions'] );
 
         $section_title_field = ( new Field\Text( $strings['section_title']['label'] ) )
-            ->set_key( "${key}_section_title" )
+            ->set_key( "{$key}_section_title" )
             ->set_name( 'section_title' )
             ->set_instructions( $strings['section_title']['instructions'] );
 
         $section_content_field = ( new Field\FlexibleContent( $strings['section_content']['label'] ) )
-            ->set_key( "${key}_section_content" )
+            ->set_key( "{$key}_section_content" )
             ->set_name( 'section_content' )
             ->set_instructions( $strings['section_content']['instructions'] );
 
