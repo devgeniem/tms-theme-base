@@ -54,7 +54,7 @@ class AccordionTableLayout extends BaseLayout {
 
         try {
             $table_field = ( new Field\Relationship( $strings['table']['label'] ) )
-                ->set_key( "${key}_table" )
+                ->set_key( "{$key}_table" )
                 ->set_name( 'table' )
                 ->set_post_types( [ PostType\TablePress::SLUG ] )
                 ->set_filters( [ 'search' ] )
