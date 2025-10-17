@@ -185,6 +185,12 @@ class Assets implements Interfaces\Controller {
     /**
      * Add localizations to window.s object.
      */
+    /**
+     * Adds localization strings to the footer by printing an inline script that sets
+     * the global `s` object with theme strings.
+     *
+     * @return void
+     */
     public static function add_localizations_to_footer() {
         $script_strings = ( new \Strings() )->s();
         $script = 'var s = ' . json_encode( $script_strings ) . ';';
