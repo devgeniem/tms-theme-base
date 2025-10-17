@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1209: Rework window.s translations inline script
+
 ## [1.66.1] - 2025-10-01
 
 - TMS-1199: Change events-search no-results text
