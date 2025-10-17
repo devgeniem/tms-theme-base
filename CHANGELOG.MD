@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1144: Change aria-attribute for menu-item
 - TMS-1164: Change button hover & focus styles
 - TMS-1201: Add iframe-field for accordion-blocks video field
+- TMS-1209: Rework window.s translations inline script
 
 ## [1.66.1] - 2025-10-01
 
