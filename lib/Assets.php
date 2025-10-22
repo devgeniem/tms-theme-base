@@ -72,12 +72,6 @@ class Assets implements Interfaces\Controller {
             10,
             2
         );
-
-        // Add localization to footer with data-attribute to be ignored by Cookiebot
-        \add_action(
-            'wp_footer',
-            \Closure::fromCallable( [ $this, 'add_localizations_to_footer' ] )
-        );
     }
 
     /**
@@ -163,6 +157,23 @@ class Assets implements Interfaces\Controller {
 
         $this->enqueue_theme( $selected_theme );
 
+        /**
+         * Add localizations to window.s object.
+         */
+        \wp_add_inline_script(
+            'theme-js',
+            'var s = ' . json_encode( ( new \Strings() )->s() ) . ';',
+            'before'
+        );
+
+        \wp_add_inline_script(
+            'theme-js',
+            'var themeData = ' . json_encode( [
+                'assetsUri' => \esc_url( \get_template_directory_uri() ),
+            ] ) . ';',
+            'before'
+        );
+
         \wp_dequeue_style( 'wp-block-library' );
 
         \wp_enqueue_script( // phpcs:ignore
@@ -180,25 +191,6 @@ class Assets implements Interfaces\Controller {
             null,
             false
         );
-    }
-
-    /**
-     * Add localizations to window.s object.
-     */
-    /**
-     * Adds localization strings to the footer by printing an inline script that sets
-     * the global `s` object with theme strings.
-     *
-     * @return void
-     */
-    public static function add_localizations_to_footer() {
-        $script_strings = ( new \Strings() )->s();
-        $script = 'var s = ' . json_encode( $script_strings ) . ';';
-
-        \wp_print_inline_script_tag( $script, [
-            'id'                 => 'themeData',
-            'data-cookieconsent' => 'ignore',
-        ] );
     }
 
     /**
