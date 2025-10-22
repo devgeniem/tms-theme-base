@@ -66,7 +66,7 @@ class Assets implements Interfaces\Controller {
             0
         );
 
-        add_filter(
+        \add_filter(
             'script_loader_tag',
             \Closure::fromCallable( [ $this, 'add_script_attributes' ] ),
             10,
@@ -89,18 +89,18 @@ class Assets implements Interfaces\Controller {
      * @param string $theme Theme file name without prefix 'theme_' or suffix '.js/.css'.
      */
     protected function enqueue_theme( $theme = 'tunnelma' ) : void {
-        $css = apply_filters( 'tms/theme/theme_css_file', sprintf( 'theme_%s.css', $theme ) );
-        $js  = apply_filters( 'tms/theme/theme_js_file', sprintf( 'theme_%s.js', $theme ) );
+        $css = \apply_filters( 'tms/theme/theme_css_file', sprintf( 'theme_%s.css', $theme ) );
+        $js  = \apply_filters( 'tms/theme/theme_js_file', sprintf( 'theme_%s.js', $theme ) );
 
         \wp_enqueue_style(
             'theme-css',
-            apply_filters(
+            \apply_filters(
                 'tms/theme/theme_css_path',
                 DPT_ASSET_URI . '/' . $css,
                 $css
             ),
             [],
-            apply_filters(
+            \apply_filters(
                 'tms/theme/asset_mod_time',
                 static::get_theme_asset_mod_time( $css ),
                 $css
@@ -110,13 +110,13 @@ class Assets implements Interfaces\Controller {
 
         \wp_enqueue_script(
             'theme-js',
-            apply_filters(
+            \apply_filters(
                 'tms/theme/theme_js_path',
                 DPT_ASSET_URI . '/' . $js,
                 $js
             ),
             [ 'jquery', 'vendor-js' ],
-            apply_filters(
+            \apply_filters(
                 'tms/theme/asset_mod_time',
                 static::get_theme_asset_mod_time( $js ),
                 $js
@@ -131,13 +131,13 @@ class Assets implements Interfaces\Controller {
     private function enqueue_assets() : void {
         \wp_enqueue_script(
             'vendor-js',
-            apply_filters(
+            \apply_filters(
                 'tms/theme/theme_js_path',
                 DPT_ASSET_URI . '/vendor.js',
                 'vendor.js'
             ),
             [ 'jquery', 'wp-a11y' ],
-            apply_filters(
+            \apply_filters(
                 'tms/theme/asset_mod_time',
                 static::get_theme_asset_mod_time( 'vendor.js' ),
                 'vendor.js'
@@ -145,12 +145,12 @@ class Assets implements Interfaces\Controller {
             true
         );
 
-        $theme_default_color = apply_filters(
+        $theme_default_color = \apply_filters(
             'tms/theme/theme_default_color',
             DEFAULT_THEME_COLOR
         );
 
-        $selected_theme = apply_filters(
+        $selected_theme = \apply_filters(
             'tms/theme/theme_selected',
             Settings::get_setting( 'theme_color' ) ?? $theme_default_color
         );
@@ -160,11 +160,19 @@ class Assets implements Interfaces\Controller {
         /**
          * Add localizations to window.s object.
          */
-        \wp_localize_script( 'theme-js', 's', ( new \Strings() )->s() );
+        \wp_add_inline_script(
+            'theme-js',
+            'var s = ' . json_encode( ( new \Strings() )->s() ) . ';',
+            'before'
+        );
 
-        \wp_localize_script( 'theme-js', 'themeData', [
-            'assetsUri' => esc_url( get_template_directory_uri() ),
-        ] );
+        \wp_add_inline_script(
+            'theme-js',
+            'var themeData = ' . json_encode( [
+                'assetsUri' => \esc_url( \get_template_directory_uri() ),
+            ] ) . ';',
+            'before'
+        );
 
         \wp_dequeue_style( 'wp-block-library' );
 
@@ -397,36 +405,36 @@ class Assets implements Interfaces\Controller {
      */
     public static function get_accessibility_icons() {
         return [
-            'aaniopastus'                        => __( 'Audio guide', 'tms-theme-base' ),
-            'avustaja'                           => __( 'Assistant', 'tms-theme-base' ),
-            'hissi'                              => __( 'Lift', 'tms-theme-base' ),
-            'induktiosilmukka'                   => __( 'Induction loop', 'tms-theme-base' ),
-            'info'                               => __( 'Information', 'tms-theme-base' ),
-            'internet'                           => __( 'Internet', 'tms-theme-base' ),
-            'isa'                                => __( 'Accessible entrance, Accessible toilet, Accessible parking', 'tms-theme-base' ),
-            'kahvila'                            => __( 'Café', 'tms-theme-base' ),
-            'kauppa'                             => __( 'Shop', 'tms-theme-base' ),
-            'kokoustilaa'                        => __( 'Meeting room', 'tms-theme-base' ),
-            'lainattavia-valineita'              => __( 'Assistive device lending', 'tms-theme-base' ),
-            'lastenhoitotila'                    => __( 'Baby changing', 'tms-theme-base' ),
-            'latauspiste'                        => __( 'Charging point', 'tms-theme-base' ),
-            'lipunmyynti'                        => __( 'Ticket sales', 'tms-theme-base' ),
-            'luiska'                             => __( 'Ramp', 'tms-theme-base' ),
-            'nakovammaisia_helpottavat_palvelut' => __( 'Services for the visually impaired', 'tms-theme-base' ),
-            'opaskoirat_sallittu'                => __( 'Service dogs allowed', 'tms-theme-base' ),
-            'pistekirjoitus'                     => __( 'Braille', 'tms-theme-base' ),
-            'porrashissi'                        => __( 'Stairlift', 'tms-theme-base' ),
-            'portaat'                            => __( 'Staircase', 'tms-theme-base' ),
-            'pyoratuolihissi'                    => __( 'Platform lift', 'tms-theme-base' ),
-            'rollaattori'                        => __( 'Rollator, walker', 'tms-theme-base' ),
-            'sahkomopon_sailytys'                => __( 'Electric mobility scooter storage', 'tms-theme-base' ),
-            'sailytyslokerot'                    => __( 'Lockers', 'tms-theme-base' ),
-            'suuri_teksti'                       => __( 'Large print', 'tms-theme-base' ),
-            'vaatesailytys'                      => __( 'Cloakroom', 'tms-theme-base' ),
-            'viitomakielinen_palvelu'            => __( 'Sign-language services', 'tms-theme-base' ),
-            'wc_oikea'                           => __( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
-            'wc_vasen'                           => __( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
-            'wc'                                 => __( 'WC', 'tms-theme-base' ),
+            'aaniopastus'                        => \__( 'Audio guide', 'tms-theme-base' ),
+            'avustaja'                           => \__( 'Assistant', 'tms-theme-base' ),
+            'hissi'                              => \__( 'Lift', 'tms-theme-base' ),
+            'induktiosilmukka'                   => \__( 'Induction loop', 'tms-theme-base' ),
+            'info'                               => \__( 'Information', 'tms-theme-base' ),
+            'internet'                           => \__( 'Internet', 'tms-theme-base' ),
+            'isa'                                => \__( 'Accessible entrance, Accessible toilet, Accessible parking', 'tms-theme-base' ),
+            'kahvila'                            => \__( 'Café', 'tms-theme-base' ),
+            'kauppa'                             => \__( 'Shop', 'tms-theme-base' ),
+            'kokoustilaa'                        => \__( 'Meeting room', 'tms-theme-base' ),
+            'lainattavia-valineita'              => \__( 'Assistive device lending', 'tms-theme-base' ),
+            'lastenhoitotila'                    => \__( 'Baby changing', 'tms-theme-base' ),
+            'latauspiste'                        => \__( 'Charging point', 'tms-theme-base' ),
+            'lipunmyynti'                        => \__( 'Ticket sales', 'tms-theme-base' ),
+            'luiska'                             => \__( 'Ramp', 'tms-theme-base' ),
+            'nakovammaisia_helpottavat_palvelut' => \__( 'Services for the visually impaired', 'tms-theme-base' ),
+            'opaskoirat_sallittu'                => \__( 'Service dogs allowed', 'tms-theme-base' ),
+            'pistekirjoitus'                     => \__( 'Braille', 'tms-theme-base' ),
+            'porrashissi'                        => \__( 'Stairlift', 'tms-theme-base' ),
+            'portaat'                            => \__( 'Staircase', 'tms-theme-base' ),
+            'pyoratuolihissi'                    => \__( 'Platform lift', 'tms-theme-base' ),
+            'rollaattori'                        => \__( 'Rollator, walker', 'tms-theme-base' ),
+            'sahkomopon_sailytys'                => \__( 'Electric mobility scooter storage', 'tms-theme-base' ),
+            'sailytyslokerot'                    => \__( 'Lockers', 'tms-theme-base' ),
+            'suuri_teksti'                       => \__( 'Large print', 'tms-theme-base' ),
+            'vaatesailytys'                      => \__( 'Cloakroom', 'tms-theme-base' ),
+            'viitomakielinen_palvelu'            => \__( 'Sign-language services', 'tms-theme-base' ),
+            'wc_oikea'                           => \__( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
+            'wc_vasen'                           => \__( 'Accessible toilet: one-sided access', 'tms-theme-base' ),
+            'wc'                                 => \__( 'WC', 'tms-theme-base' ),
         ];
     }
 }
