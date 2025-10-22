@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1209: Rework window.s translations inline script
+- TMS-1201: Add iframe-field for accordion-blocks video field
 
 ## [1.66.1] - 2025-10-01
 

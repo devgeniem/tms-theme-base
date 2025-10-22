@@ -3,3 +3,7 @@
         {video|s}
     </div>
 {/video}
+
+{?video_iframe}
+    {video_iframe|s}
+{/video_iframe}
