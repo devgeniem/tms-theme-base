@@ -94,6 +94,7 @@ class Strings extends \DustPress\Model {
                 'modal_carousel'  => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
                 'browsing_images' => _x( 'Browsing images', 'theme-frontend', 'tms-theme-base' ),
                 'main_carousel'   => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'expand'          => _x( 'Expand', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),

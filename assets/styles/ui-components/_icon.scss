@@ -100,6 +100,10 @@ $accent-invert: $primary-invert !default;
         fill: $black !important; // sass-lint:disable-line no-important
     }
 
+    &.is-white {
+        fill: $white !important; // sass-lint:disable-line no-important
+    }
+
     &.is-gray {
         fill: $color-tumma-harmaa;
     }
