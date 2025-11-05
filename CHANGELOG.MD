@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1204: Add expand-icon for image gallery item if it is expandable
 
+## [1.67.0] - 2025-10-22
+
+- TMS-1209: Rework window.s translations inline script
+- TMS-1201: Add iframe-field for accordion-blocks video field
+
 ## [1.66.1] - 2025-10-01
 
 - TMS-1199: Change events-search no-results text

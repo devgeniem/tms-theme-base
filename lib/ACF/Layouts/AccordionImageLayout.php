@@ -56,12 +56,12 @@ class AccordionImageLayout extends BaseLayout {
         $key = $this->get_key();
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_instructions( $strings['image']['instructions'] );
 
         $caption_field = ( new Field\ExtendedWysiwyg( $strings['caption']['label'] ) )
-            ->set_key( "${key}_caption" )
+            ->set_key( "{$key}_caption" )
             ->set_name( 'caption' )
             ->set_tabs( 'visual' )
             ->set_toolbar( [ 'bold', 'italic', 'link' ] )
