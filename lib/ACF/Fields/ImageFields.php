@@ -59,7 +59,7 @@ class ImageFields extends Field\Group {
         $key = $this->get_key();
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_required()
             ->set_wrapper_width( 60 )
@@ -67,7 +67,7 @@ class ImageFields extends Field\Group {
             ->set_instructions( $strings['image']['instructions'] );
 
         $is_clickable = ( new Field\TrueFalse( $strings['is_clickable']['label'] ) )
-            ->set_key( "${key}_is_clickable" )
+            ->set_key( "{$key}_is_clickable" )
             ->set_name( 'is_clickable' )
             ->use_ui()
             ->set_wrapper_width( 40 )
@@ -75,7 +75,7 @@ class ImageFields extends Field\Group {
             ->set_instructions( $strings['is_clickable']['instructions'] );
 
         $caption_field = ( new Field\ExtendedWysiwyg( $strings['caption']['label'] ) )
-            ->set_key( "${key}_caption" )
+            ->set_key( "{$key}_caption" )
             ->set_name( 'caption' )
             ->set_tabs( 'visual' )
             ->set_toolbar( [ 'bold', 'italic', 'link' ] )

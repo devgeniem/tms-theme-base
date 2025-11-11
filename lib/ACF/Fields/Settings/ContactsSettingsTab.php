@@ -62,7 +62,7 @@ class ContactsSettingsTab extends \Geniem\ACF\Field\Tab {
 
         try {
             $contacts_default_image_field = ( new Field\Image( $strings['contacts_default_image']['title'] ) )
-                ->set_key( "${key}_contacts_default_image" )
+                ->set_key( "{$key}_contacts_default_image" )
                 ->set_name( 'contacts_default_image' )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['contacts_default_image']['instructions'] );

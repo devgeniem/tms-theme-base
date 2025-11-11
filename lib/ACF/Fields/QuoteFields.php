@@ -59,19 +59,19 @@ class QuoteFields extends Field\Group {
         $key = $this->get_key();
 
         $quote_field = ( new Field\Textarea( $strings['quote']['label'] ) )
-            ->set_key( "${key}_quote" )
+            ->set_key( "{$key}_quote" )
             ->set_name( 'quote' )
             ->set_required()
             ->set_new_lines( 'wpautop' )
             ->set_instructions( $strings['quote']['instructions'] );
 
         $author_field = ( new Field\Text( $strings['author']['label'] ) )
-            ->set_key( "${key}_author" )
+            ->set_key( "{$key}_author" )
             ->set_name( 'author' )
             ->set_instructions( $strings['author']['instructions'] );
 
         $is_wide_field = ( new Field\TrueFalse( $strings['is_wide']['label'] ) )
-            ->set_key( "${key}_is_wide" )
+            ->set_key( "{$key}_is_wide" )
             ->set_name( 'is_wide' )
             ->use_ui()
             ->set_default_value( false )

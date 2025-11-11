@@ -86,7 +86,7 @@ class CommentGroup {
         ];
 
         return ( new Field\PostObject( $strings['author']['title'] ) )
-            ->set_key( "${key}_author" )
+            ->set_key( "{$key}_author" )
             ->set_name( 'author' )
             ->set_post_types( [ PostType\BlogAuthor::SLUG ] )
             ->allow_null()

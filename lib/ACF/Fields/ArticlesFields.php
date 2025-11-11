@@ -134,13 +134,13 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $this->strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $this->strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $this->strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_wrapper_width( 50 )
             ->set_rows( 4 )
@@ -153,14 +153,14 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $this->strings['link']['instructions'] );
 
         $highlight_article_field = ( new Field\PostObject( $this->strings['highlight_article']['label'] ) )
-            ->set_key( "${key}_highlight_article" )
+            ->set_key( "{$key}_highlight_article" )
             ->set_name( 'highlight_article' )
             ->set_post_types( [ Post::SLUG ] )
             ->allow_null()
             ->set_instructions( $this->strings['highlight_article']['instructions'] );
 
         $display_image_field = ( new Field\TrueFalse( $this->strings['display_image']['label'] ) )
-            ->set_key( "${key}_display_image" )
+            ->set_key( "{$key}_display_image" )
             ->set_name( 'display_image' )
             ->set_wrapper_width( 50 )
             ->set_default_value( true )
@@ -168,7 +168,7 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $this->strings['display_image']['instructions'] );
 
         $feed_type_field = ( new Field\Radio( $this->strings['feed_type']['label'] ) )
-            ->set_key( "${key}_feed_type" )
+            ->set_key( "{$key}_feed_type" )
             ->set_name( 'feed_type' )
             ->set_choices( [
                 'automatic' => $this->strings['feed_type']['type_automatic'],
@@ -182,7 +182,7 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
             ->add_rule( $feed_type_field, '==', 'manual' );
 
         $category_field = ( new Field\Taxonomy( $this->strings['category']['label'] ) )
-            ->set_key( "${key}_category" )
+            ->set_key( "{$key}_category" )
             ->set_name( 'category' )
             ->set_taxonomy( Category::SLUG )
             ->set_return_format( 'id' )
@@ -190,7 +190,7 @@ class ArticlesFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $this->strings['category']['instructions'] );
 
         $limit_field = ( new Field\Number( $this->strings['limit']['label'] ) )
-            ->set_key( "${key}_number" )
+            ->set_key( "{$key}_number" )
             ->set_name( 'number' )
             ->set_min( 4 )
             ->set_max( 12 )

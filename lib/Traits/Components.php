@@ -53,7 +53,7 @@ trait Components {
             $layout['partial'] = 'layout-' . $layout_name . '.dust';
 
             $handled[] = apply_filters(
-                "tms/acf/layout/${acf_layout}/data",
+                "tms/acf/layout/{$acf_layout}/data",
                 $layout
             );
         }

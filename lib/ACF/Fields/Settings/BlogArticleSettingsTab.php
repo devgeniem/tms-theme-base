@@ -78,26 +78,26 @@ class BlogArticleSettingsTab extends \Geniem\ACF\Field\Tab {
 
         try {
             $blog_name_field = ( new Field\Text( $strings['blog_name']['title'] ) )
-                ->set_key( "${key}_blog_name" )
+                ->set_key( "{$key}_blog_name" )
                 ->set_name( 'blog_name' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['blog_name']['instructions'] );
 
             $blog_subtitle_field = ( new Field\Text( $strings['blog_subtitle']['title'] ) )
-                ->set_key( "${key}_blog_subtitle" )
+                ->set_key( "{$key}_blog_subtitle" )
                 ->set_name( 'blog_subtitle' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['blog_subtitle']['instructions'] );
 
             $blog_description_field = ( new Field\Textarea( $strings['blog_description']['title'] ) )
-                ->set_key( "${key}_blog_description" )
+                ->set_key( "{$key}_blog_description" )
                 ->set_name( 'blog_description' )
                 ->set_rows( 4 )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['blog_description']['instructions'] );
 
             $blog_logo_field = ( new Field\Image( $strings['blog_logo']['title'] ) )
-                ->set_key( "${key}_blog_logo" )
+                ->set_key( "{$key}_blog_logo" )
                 ->set_name( 'blog_logo' )
                 ->set_return_format( 'id' )
                 ->set_preview_size( 'thumbnail' )
@@ -105,7 +105,7 @@ class BlogArticleSettingsTab extends \Geniem\ACF\Field\Tab {
                 ->set_instructions( $strings['blog_logo']['instructions'] );
 
             $higlight_field = ( new Field\PostObject( $strings['highlight']['title'] ) )
-                ->set_key( "${key}_blog_archive_highlight" )
+                ->set_key( "{$key}_blog_archive_highlight" )
                 ->set_name( 'blog_archive_highlight' )
                 ->set_post_types( [ BlogArticle::SLUG ] )
                 ->allow_null()
