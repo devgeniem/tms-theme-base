@@ -60,12 +60,12 @@ class MapFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\ExtendedWysiwyg( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_tabs( 'visual' )
             ->set_toolbar( 'tms-minimal' )
@@ -75,7 +75,7 @@ class MapFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $embed_field = ( new Field\Textarea( $strings['embed']['label'] ) )
-            ->set_key( "${key}_embed" )
+            ->set_key( "{$key}_embed" )
             ->set_name( 'embed' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['embed']['instructions'] );

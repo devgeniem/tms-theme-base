@@ -93,13 +93,13 @@ class PostGroup {
             ->set_placement( 'left' );
 
         $writing_credits_field = ( new Field\Text( $strings['writing_credits']['title'] ) )
-            ->set_key( "${key}_writing_credits" )
+            ->set_key( "{$key}_writing_credits" )
             ->set_name( 'writing_credits' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['writing_credits']['instructions'] );
 
         $image_credits_field = ( new Field\Text( $strings['image_credits']['title'] ) )
-            ->set_key( "${key}_image_credits" )
+            ->set_key( "{$key}_image_credits" )
             ->set_name( 'image_credits' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image_credits']['instructions'] );
@@ -138,14 +138,14 @@ class PostGroup {
             ->set_placement( 'left' );
 
         $title_field = ( new Field\Text( $strings['title']['title'] ) )
-            ->set_key( "${key}_related_title" )
+            ->set_key( "{$key}_related_title" )
             ->set_name( 'related_title' )
             ->set_default_value( $strings['title']['default_value'] )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['title'] ) )
-            ->set_key( "${key}_related_link" )
+            ->set_key( "{$key}_related_link" )
             ->set_name( 'related_link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );
@@ -179,7 +179,7 @@ class PostGroup {
             ->set_placement( 'left' );
 
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
-            ->set_key( "${key}_components" )
+            ->set_key( "{$key}_components" )
             ->set_name( 'components' )
             ->set_instructions( $strings['components']['instructions'] );
 

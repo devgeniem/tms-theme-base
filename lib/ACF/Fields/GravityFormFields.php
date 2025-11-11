@@ -51,7 +51,7 @@ class GravityFormFields extends Field\Group {
         $key = $this->get_key();
 
         $field = ( new Field\GravityForms( $strings['text']['label'] ) )
-            ->set_key( "${key}_form" )
+            ->set_key( "{$key}_form" )
             ->set_name( 'form' )
             ->set_required()
             ->set_instructions( $strings['text']['instructions'] );

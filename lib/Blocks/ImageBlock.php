@@ -37,6 +37,13 @@ class ImageBlock extends BaseBlock {
     protected $icon = 'cover-image';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

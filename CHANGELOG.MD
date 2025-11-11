@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Fix PHP deprecations
+
 ## [1.68.1] - 2025-11-10
 
 - TMS-1204-2: Remove external-link icon for tms.production.geniem.io links

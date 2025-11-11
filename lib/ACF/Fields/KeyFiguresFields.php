@@ -73,7 +73,7 @@ class KeyFiguresFields extends Field\Group {
         $key = $this->get_key();
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
+            ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
             ->set_max( 3 )
             ->set_layout( 'block' )
@@ -81,7 +81,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_instructions( $strings['rows']['instructions'] );
 
         $layout_field = ( new Field\Radio( $strings['layout']['label'] ) )
-            ->set_key( "${key}_layout" )
+            ->set_key( "{$key}_layout" )
             ->set_name( 'layout' )
             ->set_choices( [
                 '50-50' => '50/50',
@@ -91,7 +91,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_instructions( $strings['layout']['instructions'] );
 
         $numbers_field = ( new Field\Repeater( $strings['numbers']['label'] ) )
-            ->set_key( "${key}_numbers" )
+            ->set_key( "{$key}_numbers" )
             ->set_name( 'numbers' )
             ->set_max( 2 )
             ->set_layout( 'block' )
@@ -99,7 +99,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_instructions( $strings['numbers']['instructions'] );
 
         $number_field = ( new Field\Text( $strings['number']['label'] ) )
-            ->set_key( "${key}_number" )
+            ->set_key( "{$key}_number" )
             ->set_name( 'number' )
             ->set_required()
             ->set_wrapper_width( 30 )
@@ -107,7 +107,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_instructions( $strings['number']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_wrapper_width( 70 )
             ->set_rows( 2 )
@@ -115,7 +115,7 @@ class KeyFiguresFields extends Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $background_color_field = ( new Field\Select( $strings['background_color']['label'] ) )
-            ->set_key( "${key}_background_color" )
+            ->set_key( "{$key}_background_color" )
             ->set_name( 'background_color' )
             ->set_choices( [
                 'black'     => 'Musta',

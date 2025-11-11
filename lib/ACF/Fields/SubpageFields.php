@@ -58,13 +58,13 @@ class SubpageFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $background_color_field = ( new Field\Select( $strings['background_color']['label'] ) )
-            ->set_key( "${key}_background_color" )
+            ->set_key( "{$key}_background_color" )
             ->set_name( 'background_color' )
             ->set_choices( [
                 'black'     => 'Musta',
@@ -77,7 +77,7 @@ class SubpageFields extends \Geniem\ACF\Field\Group {
             ->set_instructions( $strings['background_color']['instructions'] );
 
         $display_image_field = ( new Field\TrueFalse( $strings['display_image']['label'] ) )
-            ->set_key( "${key}_display_image" )
+            ->set_key( "{$key}_display_image" )
             ->set_name( 'display_image' )
             ->set_wrapper_width( 50 )
             ->use_ui()

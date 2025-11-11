@@ -86,7 +86,7 @@ class HomeGroup {
             ->set_placement( 'left' );
 
         $higlight_field = ( new Field\PostObject( $strings['highlight']['title'] ) )
-            ->set_key( "${key}_highlight" )
+            ->set_key( "{$key}_highlight" )
             ->set_name( 'highlight' )
             ->set_post_types( [ PostType\Post::SLUG ] )
             ->allow_null()

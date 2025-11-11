@@ -192,7 +192,7 @@ window.onload = function() {
                     $file_name             = substr( $file_name_with_suffix, 0, strpos( $file_name_with_suffix, '.' ) );
                 }
 
-                $classes .= " geniem-${file_name}";
+                $classes .= " geniem-{$file_name}";
             }
         }
 

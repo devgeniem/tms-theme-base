@@ -72,12 +72,12 @@ class LogoWallFields extends Field\Group {
         $key = $this->get_key();
 
         $header_field = ( new Field\Text( $strings['header']['label'] ) )
-            ->set_key( "${key}_header" )
+            ->set_key( "{$key}_header" )
             ->set_name( 'header' )
             ->set_instructions( $strings['header']['instructions'] );
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
+            ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
             ->set_min( 1 )
             ->set_max( 20 )
@@ -86,7 +86,7 @@ class LogoWallFields extends Field\Group {
             ->set_instructions( $strings['rows']['instructions'] );
 
         $logo_field = ( new Field\Image( $strings['logo']['label'] ) )
-            ->set_key( "${key}_logo" )
+            ->set_key( "{$key}_logo" )
             ->set_name( 'logo' )
             ->set_wrapper_width( 50 )
             ->set_mime_types( $this->allowed_filetypes )
@@ -94,7 +94,7 @@ class LogoWallFields extends Field\Group {
             ->set_instructions( $strings['logo']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
+            ->set_key( "{$key}_link" )
             ->set_name( 'link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );

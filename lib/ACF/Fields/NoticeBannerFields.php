@@ -67,13 +67,13 @@ class NoticeBannerFields extends Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_rows( 4 )
             ->set_new_lines( 'br' )
@@ -81,13 +81,13 @@ class NoticeBannerFields extends Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
+            ->set_key( "{$key}_link" )
             ->set_name( 'link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );
 
         $background_color_field = ( new Field\Select( $strings['background_color']['label'] ) )
-            ->set_key( "${key}_background_color" )
+            ->set_key( "{$key}_background_color" )
             ->set_name( 'background_color' )
             ->set_choices( [
                 'primary'   => 'Pääväri',
@@ -101,7 +101,7 @@ class NoticeBannerFields extends Field\Group {
         $icons = apply_filters( 'tms/acf/field/' . $key . '_icon/choices', $icons );
 
         $icon_field = ( new Field\Select( $strings['icon']['label'] ) )
-            ->set_key( "${key}_icon" )
+            ->set_key( "{$key}_icon" )
             ->set_name( 'icon' )
             ->set_choices( $icons )
             ->allow_null()

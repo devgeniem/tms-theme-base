@@ -55,12 +55,12 @@ class TableFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_instructions( $strings['title']['instructions'] );
 
         $table_field = ( new Field\Relationship( $strings['table']['label'] ) )
-            ->set_key( "${key}_table" )
+            ->set_key( "{$key}_table" )
             ->set_name( 'table' )
             ->set_post_types( [ PostType\TablePress::SLUG ] )
             ->set_filters( [ 'search' ] )
