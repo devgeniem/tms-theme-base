@@ -71,13 +71,13 @@ class SitemapSettingsTab extends Tab {
 
         try {
             $sitemap_links_field = ( new Field\Repeater( $strings['sitemap_links']['title'] ) )
-                ->set_key( "${key}sitemap_links" )
+                ->set_key( "{$key}sitemap_links" )
                 ->set_name( 'sitemap_links' )
                 ->set_button_label( $strings['sitemap_links']['button_label'] )
                 ->set_instructions( $strings['sitemap_links']['instructions'] );
 
             $sitemap_link_field = ( new Field\Link( $strings['sitemap_link']['title'] ) )
-                ->set_key( "${key}_sitemap_link" )
+                ->set_key( "{$key}_sitemap_link" )
                 ->set_name( 'sitemap_link' )
                 ->set_instructions( $strings['sitemap_link']['instructions'] );
 

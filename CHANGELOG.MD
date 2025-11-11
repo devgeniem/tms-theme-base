@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1144: Change aria-attribute for menu-item
 - TMS-1164: Change button hover & focus styles
+- Fix PHP deprecations
+
+## [1.68.1] - 2025-11-10
+
 - TMS-1204-2: Remove external-link icon for tms.production.geniem.io links
 
 ## [1.68.0] - 2025-11-05

@@ -56,7 +56,7 @@ class ImageGalleryFields extends Field\Group {
         $key = $this->get_key();
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
+            ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
             ->set_min( 1 )
             ->set_layout( 'block' )
@@ -64,7 +64,7 @@ class ImageGalleryFields extends Field\Group {
             ->set_instructions( $strings['rows']['instructions'] );
 
         $image_field = ( new ImageFields( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_instructions( $strings['image']['instructions'] );
 

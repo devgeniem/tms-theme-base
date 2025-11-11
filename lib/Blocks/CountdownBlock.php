@@ -37,6 +37,13 @@ class CountdownBlock extends BaseBlock {
     protected $icon = 'clock';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

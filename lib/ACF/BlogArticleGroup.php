@@ -89,7 +89,7 @@ class BlogArticleGroup extends PostGroup {
             ->set_placement( 'left' );
 
         $authors_field = ( new Field\PostObject( $strings['authors']['title'] ) )
-            ->set_key( "${key}_authors" )
+            ->set_key( "{$key}_authors" )
             ->set_name( 'authors' )
             ->set_post_types( [ PostType\BlogAuthor::SLUG ] )
             ->allow_multiple()
