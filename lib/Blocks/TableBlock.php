@@ -37,6 +37,13 @@ class TableBlock extends BaseBlock {
     protected $icon = 'table-col-after';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

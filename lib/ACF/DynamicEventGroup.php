@@ -141,7 +141,7 @@ class DynamicEventGroup {
                 ->set_placement( 'left' );
 
             $search_field = ( new Field\Text( $strings['text']['label'] ) )
-                ->set_key( "${key}_text" )
+                ->set_key( "{$key}_text" )
                 ->set_name( 'text' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['text']['instructions'] );
@@ -167,7 +167,7 @@ class DynamicEventGroup {
                 ->set_instructions( $strings['category']['instructions'] );
 
             $target_field = ( new Field\Select( $strings['target']['label'] ) )
-                ->set_key( "${key}_target" )
+                ->set_key( "{$key}_target" )
                 ->set_name( 'target' )
                 ->use_ui()
                 ->use_ajax()
@@ -177,7 +177,7 @@ class DynamicEventGroup {
                 ->set_instructions( $strings['target']['instructions'] );
 
             $tag_field = ( new Field\Select( $strings['tag']['label'] ) )
-                ->set_key( "${key}_tag" )
+                ->set_key( "{$key}_tag" )
                 ->set_name( 'tag' )
                 ->use_ui()
                 ->use_ajax()
@@ -187,7 +187,7 @@ class DynamicEventGroup {
                 ->set_instructions( $strings['tag']['instructions'] );
 
             $event_field = ( new Field\Select( $strings['event']['label'] ) )
-                ->set_key( "${key}_event" )
+                ->set_key( "{$key}_event" )
                 ->set_name( 'event' )
                 ->allow_null()
                 ->use_ui()
@@ -344,7 +344,7 @@ class DynamicEventGroup {
             ->set_placement( 'left' );
 
         $components_field = ( new Field\FlexibleContent( $strings['components']['title'] ) )
-            ->set_key( "${key}_components" )
+            ->set_key( "{$key}_components" )
             ->set_name( 'components' )
             ->set_instructions( $strings['components']['instructions'] );
 

@@ -77,13 +77,13 @@ class Error404SettingsTab extends Tab {
 
         try {
             $title_field = ( new Field\Text( $strings['404_title']['title'] ) )
-                ->set_key( "${key}_404_title" )
+                ->set_key( "{$key}_404_title" )
                 ->set_name( '404_title' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['404_title']['instructions'] );
 
             $description_field = ( new Field\ExtendedWysiwyg( $strings['404_description']['title'] ) )
-                ->set_key( "${key}_404_description" )
+                ->set_key( "{$key}_404_description" )
                 ->set_name( '404_description' )
                 ->set_tabs( 'visual' )
                 ->set_toolbar(
@@ -101,13 +101,13 @@ class Error404SettingsTab extends Tab {
                 ->set_instructions( $strings['404_description']['instructions'] );
 
             $image_field = ( new Field\Image( $strings['404_image']['title'] ) )
-                ->set_key( "${key}_404_image" )
+                ->set_key( "{$key}_404_image" )
                 ->set_name( '404_image' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['404_image']['instructions'] );
 
             $alignment_field = ( new Field\Checkbox( $strings['404_alignment']['title'] ) )
-                ->set_key( "${key}_404_alignment" )
+                ->set_key( "{$key}_404_alignment" )
                 ->set_name( '404_alignment' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['404_alignment']['instructions'] )
