@@ -21,13 +21,6 @@ $lang-nav-link-border: $primary !default;
                 width: 2.2359rem;
                 height: 2.2359rem;
             }
-
-            &.has-background-primary {
-                &:hover,
-                &:focus {
-                    background-color: $primary !important; // sass-lint:disable-line no-important
-                }
-            }
         }
     }
 }

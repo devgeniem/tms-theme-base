@@ -256,7 +256,7 @@ $button-transition-speed: $speed !default;
             &,
             &:active,
             &.is-active {
-                @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
+                // @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
             }
 
             &:hover,
