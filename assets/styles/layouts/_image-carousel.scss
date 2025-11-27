@@ -25,14 +25,6 @@
                 fill: $black;
             }
 
-            &:hover {
-                background-color: darken($white, 10%);
-
-                .icon {
-                    fill: $black;
-                }
-            }
-
             &:focus {
                 outline-color: $white;
             }
