@@ -95,6 +95,10 @@
                 fill: $color-invert !important;
             }
 
+            .button .icon {
+                fill: currentColor !important;
+            }
+
             a {
                 &:not(.pill):not(.button) {
                     &:not(:hover) {
