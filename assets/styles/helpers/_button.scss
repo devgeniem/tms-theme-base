@@ -120,6 +120,7 @@ $button-transition-speed: $speed !default;
     &:focus,
     &.is-focused {
         text-decoration: underline !important;
+        color: currentColor;
 
         @extend .button-state-hover;
 
@@ -288,7 +289,7 @@ $button-transition-speed: $speed !default;
                 &,
                 &:active,
                 &.is-active {
-                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
+                    // @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     border-color: transparent !important;
                 }
 
@@ -300,7 +301,7 @@ $button-transition-speed: $speed !default;
                 &,
                 &:active,
                 &.is-active {
-                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
+                    // @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
                 }
 
                 &:hover,
@@ -316,7 +317,7 @@ $button-transition-speed: $speed !default;
                     &,
                     &:active,
                     &.is-active {
-                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
+                        // @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
                     &:hover,
