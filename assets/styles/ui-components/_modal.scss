@@ -40,7 +40,7 @@
 
         &:hover,
         &:focus {
-            color: $white !important; // sass-lint:disable-line no-important
+            color: $white;
             border: .125rem solid $white !important; // sass-lint:disable-line no-important
             outline: .125rem solid $white;
             outline-offset: .25rem;
