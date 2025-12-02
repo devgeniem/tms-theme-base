@@ -11,7 +11,7 @@
             {/Header.exception_notice.cta_btn}
             <button type="button" class="button is-primary-invert button--icon site-header-notice__close mt-2 mb-2">
                 {Strings.s.header.exception_close_button|s}
-                {>"ui/icon" icon="close" class="ml-2 is-primary icon--large" /}
+                {>"ui/icon" icon="close" class="ml-2 is-primary-invert icon--large" /}
             </button>
         </div>
     </div>

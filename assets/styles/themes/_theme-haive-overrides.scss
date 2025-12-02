@@ -1,3 +1,19 @@
+.button {
+    &,
+    &:hover,
+    &:focus {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+    }
+}
+
+.pill {
+    border-color: $primary !important;
+}
+
 .site-header {
     &__logo-image {
         > a {

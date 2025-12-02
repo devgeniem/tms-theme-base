@@ -2,6 +2,19 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+.button {
+    color: $black !important;
+    border-color: $black !important;
+
+    .icon {
+        fill: $black !important;
+    }
+}
+
+.pill.is-primary-invert {
+    color: $primary !important;
+}
+
 .site-header {
     &__logo-image {
         > a {
