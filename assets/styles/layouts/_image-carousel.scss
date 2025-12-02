@@ -22,7 +22,7 @@
             background-color: $white;
 
             .icon {
-                fill: $black;
+                fill: $black !important;
             }
 
             &:focus {

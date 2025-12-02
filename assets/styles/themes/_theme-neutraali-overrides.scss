@@ -2,6 +2,10 @@ $fly-out-nav-trigger-icon: $primary-dark;
 $fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
 $pill-background-active-focus: bulmaDarken($primary, 2.5%);
 
+.pill.is-primary-invert {
+    color: $primary !important;
+}
+
 // Use a low-level selector for easier overriding
 .site-header,
 .main-content {

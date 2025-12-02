@@ -1,3 +1,7 @@
+$sibling-navigation-item-active-color: $primary-invert;
+$sibling-navigation-item-active-background-color: $primary;
+$sibling-navigation-item-active-border-color: $primary;
+
 .site-header,
 .main-content {
     // Button styles
@@ -6,6 +10,10 @@
             border-color: $black !important;
         }
     }
+}
+
+.pill {
+    border-color: $primary !important;
 }
 
 .site-header {
@@ -147,18 +155,18 @@
 
 .layout-articles {
     &__read-more {
-        color: $black !important;
+        color: $white !important;
 
         .icon {
-            fill: $black !important;
+            fill: $white !important;
         }
 
         &:hover,
         &:focus {
-            color: $black !important;
+            color: $white !important;
 
             .icon {
-                fill: $black !important;
+                fill: $white !important;
             }
         }
     }

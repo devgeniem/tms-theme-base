@@ -66,14 +66,14 @@ $fly-out-nav-search-button-icon: $primary !default;
             outline: 0;
 
             .icon {
-                fill: $fly-out-nav-trigger-icon-hover;
+                fill: $fly-out-nav-trigger-icon-hover !important;
             }
         }
 
         .icon {
             width: 2rem;
             height: 1.75rem;
-            fill: $fly-out-nav-trigger-icon;
+            fill: $fly-out-nav-trigger-icon !important;
         }
     }
 
