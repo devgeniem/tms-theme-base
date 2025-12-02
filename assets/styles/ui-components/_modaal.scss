@@ -23,8 +23,13 @@
         &,
         &:hover,
         &:focus {
-            color: $white !important;
             background: transparent !important;
+            outline: 2px solid $white !important;
+
+            &::before,
+            &::after {
+                background: $white !important;
+            }
         }
     }
 
