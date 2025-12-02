@@ -111,7 +111,7 @@ $button-transition-speed: $speed !default;
         color: $button-text-primary;
 
         .icon {
-            fill: currentColor;
+            fill: currentColor !important;
         }
     }
 
@@ -120,12 +120,12 @@ $button-transition-speed: $speed !default;
     &:focus,
     &.is-focused {
         text-decoration: underline !important;
-        color: currentColor;
+        color: $button-text-primary;
 
         @extend .button-state-hover;
 
         .icon {
-            fill: currentColor;
+            fill: currentColor !important;
         }
     }
 
@@ -143,7 +143,7 @@ $button-transition-speed: $speed !default;
             color: $button-text-invert;
 
             .icon {
-                fill: currentColor;
+                fill: currentColor !important;
             }
         }
 
@@ -159,7 +159,7 @@ $button-transition-speed: $speed !default;
             color: $button-text-primary;
 
             .icon {
-                fill: currentColor;
+                fill: currentColor !important;
             }
         }
 
@@ -173,7 +173,7 @@ $button-transition-speed: $speed !default;
         color: $button-text-invert;
 
         .icon {
-            fill: currentColor;
+            fill: currentColor !important;
         }
 
         &:hover,
@@ -185,7 +185,7 @@ $button-transition-speed: $speed !default;
             // color: $button-text-primary;
 
             .icon {
-                fill: currentColor;
+                fill: currentColor !important;
             }
         }
 
@@ -200,7 +200,7 @@ $button-transition-speed: $speed !default;
             color: $button-text-invert;
 
             .icon {
-                fill: currentColor;
+                fill: currentColor !important;
             }
 
             @extend .button-states;
@@ -212,7 +212,7 @@ $button-transition-speed: $speed !default;
             color: $button-text-primary;
 
             .icon {
-                fill: currentColor;
+                fill: currentColor !important;
             }
 
             @extend .button-states;
