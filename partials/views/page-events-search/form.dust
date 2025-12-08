@@ -49,17 +49,17 @@
                     </div>
                 </div>
 
-                <div class="column is-align-self-flex-start is-flex order-4">
-                    <a href="{form.action|url}" class="button button-clear-inputs is-secondary">
-                        {Strings.s.search.clear|html}
-                    </a>
-                </div>
-
-                <div class="column is-12-mobile is-2-tablet is-3-widescreen is-align-self-flex-end is-flex order-3">
+                <div class="column is-12-mobile is-2-tablet is-3-widescreen is-align-self-flex-end is-flex">
                     <button type="submit" class="button button--icon is-primary ml-auto-desktop">
                         {Strings.s.header.search|html}
                         {>"ui/icon" icon="search" class="icon--medium"  /}
                     </button>
+                </div>
+
+                <div class="column is-align-self-flex-start is-flex">
+                    <a href="{form.action|url}" class="button button-clear-inputs is-secondary">
+                        {Strings.s.search.clear|html}
+                    </a>
                 </div>
             </div>
         </div>
