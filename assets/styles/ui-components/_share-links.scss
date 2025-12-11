@@ -1,12 +1,17 @@
 .share-links {
     a.has-background-accent {
         &:hover,
-        &:focus {
-            background-color: bulmaDarken($primary, 10) !important;
+        &:focus,
+        &:active {
+            background-color: $primary !important;
+        }
+    }
 
-            .icon {
-                fill: $primary-invert !important;
-            }
+    a {
+        &:hover,
+        &:focus {
+            outline: .15rem dotted;
+            outline-offset: .2rem;
         }
     }
 }

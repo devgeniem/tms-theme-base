@@ -112,17 +112,6 @@
     }
 }
 
-.share-links {
-    a {
-        &:focus,
-        &:focus {
-            .icon {
-                fill: $primary !important;
-            }
-        }
-    }
-}
-
 .layout-articles {
     &__read-more {
         color: darken($primary, 70%) !important;
