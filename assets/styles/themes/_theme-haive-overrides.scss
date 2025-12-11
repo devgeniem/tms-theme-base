@@ -37,6 +37,10 @@
         &:focus {
             color: $primary-invert !important;
         }
+
+        &.has-background-primary {
+            background-color: $primary !important;
+        }
     }
 }
 
@@ -90,17 +94,6 @@
 .logo-wall {
     &__link {
         outline-color: $black !important;
-    }
-}
-
-.share-links {
-    a {
-        &:hover,
-        &:focus {
-            .icon {
-                fill: $primary !important;
-            }
-        }
     }
 }
 

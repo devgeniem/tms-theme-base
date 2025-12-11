@@ -1,0 +1,11 @@
+.share-links {
+    li {
+        a.has-background-accent {
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: $accent !important;
+            }
+        }
+    }
+}
