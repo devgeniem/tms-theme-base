@@ -40,7 +40,7 @@ $colors: (
 );
 
 $button-colors: (
-    "primary": ($primary, $color-white, $primary, $color-white),
+    "primary": ($primary, $primary-invert, $primary, $primary-invert),
     "secondary": ($secondary, $secondary-invert, $secondary, $secondary-invert),
 );
 
