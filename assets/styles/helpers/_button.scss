@@ -257,14 +257,14 @@ $button-transition-speed: $speed !default;
             &,
             &:active,
             &.is-active {
-                // @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
+                @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
             }
 
             &:hover,
             &.is-hovered,
             &:focus,
             &.is-focused {
-                // @include button_colors($btn-pair-primary-text, $btn-pair-primary-invert, $btn-pair-primary);
+                @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
             }
 
             @extend .button-states;
@@ -273,13 +273,13 @@ $button-transition-speed: $speed !default;
                 &,
                 &:active,
                 &.is-active {
-                    // @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
+                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
                 &:hover,
                 &:focus,
                 &.is-hovered {
-                    // @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
+                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
                 @extend .button-states;
@@ -288,8 +288,11 @@ $button-transition-speed: $speed !default;
             &.is-borderless {
                 &,
                 &:active,
-                &.is-active {
-                    // @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
+                &.is-active,
+                &:hover,
+                &:focus,
+                &.is-hovered {
+                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     border-color: transparent !important;
                 }
 
@@ -301,14 +304,14 @@ $button-transition-speed: $speed !default;
                 &,
                 &:active,
                 &.is-active {
-                    // @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
+                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
                 }
 
                 &:hover,
                 &.is-hovered,
                 &:focus,
                 &.is-focused {
-                    // @include button_colors($btn-pair-primary-text-invert, $btn-pair-primary, $btn-pair-primary-invert);
+                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
                 }
 
                 @extend .button-states;
@@ -317,13 +320,13 @@ $button-transition-speed: $speed !default;
                     &,
                     &:active,
                     &.is-active {
-                        // @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
+                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
                     &:hover,
                     &:focus,
                     &.is-hovered {
-                        // @include button_colors($btn-pair-primary-text, $btn-pair-primary-invert, $btn-pair-primary-invert);
+                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
                     @extend .button-states;
@@ -340,7 +343,7 @@ $button-transition-speed: $speed !default;
                     &:hover,
                     &:focus,
                     &.is-hovered {
-                        // @include button_colors($btn-pair-primary-text-invert, $btn-pair-primary, transparent);
+                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
                     }
 
                     @extend .button-states;
