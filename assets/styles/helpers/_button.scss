@@ -137,7 +137,11 @@ $button-transition-speed: $speed !default;
     &.is-outlined {
         &,
         &:active,
-        &.is-active {
+        &.is-active,
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
             background-color: transparent;
             border-color: $button-border-invert;
             color: $button-text-invert;
@@ -153,7 +157,11 @@ $button-transition-speed: $speed !default;
     &.is-borderless {
         &,
         &:active,
-        &.is-active {
+        &.is-active,
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
             background-color: $button-background-primary;
             border-color: transparent;
             color: $button-text-primary;
@@ -180,9 +188,9 @@ $button-transition-speed: $speed !default;
         &.is-hovered,
         &:focus,
         &.is-focused {
-            // background-color: $button-background-primary;
-            // border-color: $button-border-primary;
-            // color: $button-text-primary;
+            background-color: $button-background-invert;
+            border-color: $button-border-invert;
+            color: $button-text-invert;
 
             .icon {
                 fill: currentColor !important;
@@ -195,24 +203,40 @@ $button-transition-speed: $speed !default;
         }
 
         &.is-borderless {
-            background-color: $button-background-invert;
-            border-color: transparent;
-            color: $button-text-invert;
+            &,
+            &:active,
+            &.is-active,
+            &:hover,
+            &.is-hovered,
+            &:focus,
+            &.is-focused {
+                background-color: $button-background-invert;
+                border-color: transparent;
+                color: $button-text-invert;
 
-            .icon {
-                fill: currentColor !important;
+                .icon {
+                    fill: currentColor !important;
+                }
             }
 
             @extend .button-states;
         }
 
         &.is-outlined {
-            background-color: transparent;
-            border-color: $button-text-primary;
-            color: $button-text-primary;
+            &,
+            &:active,
+            &.is-active,
+            &:hover,
+            &.is-hovered,
+            &:focus,
+            &.is-focused {
+                background-color: transparent;
+                border-color: $button-text-primary;
+                color: $button-text-primary;
 
-            .icon {
-                fill: currentColor !important;
+                .icon {
+                    fill: currentColor !important;
+                }
             }
 
             @extend .button-states;

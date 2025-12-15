@@ -27,7 +27,6 @@
         &:hover,
         &:focus {
             color: $primary-invert !important;
-            background-color: $primary !important;
         }
     }
 
@@ -120,10 +119,10 @@
 
         &:hover,
         &:focus {
-            color: $black !important;
+            color: darken($primary, 70%) !important;
 
             .icon {
-                fill: $black !important;
+                fill: darken($primary, 70%) !important;
             }
         }
     }
