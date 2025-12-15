@@ -92,6 +92,10 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     &.is-active {
         color: $pill-color-active;
         background-color: $pill-background-active;
+
+        &:hover {
+            color: $pill-color-active;
+        }
     }
 
     &.is-outlined {
