@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1144: Change aria-attribute for menu-item
 - TMS-1164: Change button hover & focus styles
 - TMS-1226: Change focus order on events-search form
+- TMS-1230: Allow audio-block
 
 ## [1.69.0] - 2025-11-18
 
