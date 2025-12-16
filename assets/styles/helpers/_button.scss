@@ -296,10 +296,7 @@ $button-transition-speed: $speed !default;
             &.is-outlined {
                 &,
                 &:active,
-                &.is-active {
-                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
-                }
-
+                &.is-active,
                 &:hover,
                 &:focus,
                 &.is-hovered {
@@ -327,10 +324,7 @@ $button-transition-speed: $speed !default;
             &.is-inverted {
                 &,
                 &:active,
-                &.is-active {
-                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
-                }
-
+                &.is-active,
                 &:hover,
                 &.is-hovered,
                 &:focus,
