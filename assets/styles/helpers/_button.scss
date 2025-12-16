@@ -106,9 +106,10 @@ $button-transition-speed: $speed !default;
     &,
     &:active,
     &.is-active {
-        background-color: $button-background-primary;
-        border-color: $button-border-primary;
-        color: $button-text-primary;
+        text-decoration: underline;
+        // background-color: $button-background-primary;
+        // border-color: $button-border-primary;
+        // color: $button-text-primary;
 
         .icon {
             fill: currentColor !important;

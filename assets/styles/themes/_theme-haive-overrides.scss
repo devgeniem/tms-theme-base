@@ -245,8 +245,13 @@
     }
 
     .button.is-primary {
-        color: $black !important;
-        border-color: $black !important;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $black !important;
+            border-color: $black !important;
+        }
     }
 }
 
