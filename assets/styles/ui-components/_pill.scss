@@ -73,15 +73,25 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     }
 
     &.is-primary {
-        color: $primary-invert;
-        background-color: $primary;
-        border-color: $primary;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $primary-invert;
+            background-color: $primary;
+            border-color: $primary;
+        }
 
         &-invert,
         &.is-inverted {
-            color: $primary;
-            background-color: $primary-invert;
-            border-color: $primary;
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                color: $primary;
+                background-color: $primary-invert;
+                border-color: $primary;
+            }
         }
     }
 
@@ -99,8 +109,13 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     }
 
     &.is-outlined {
-        color: $pill-outlined-color;
-        background-color: $pill-outlined-background-color;
-        border-color: $pill-outlined-border-color;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $pill-outlined-color;
+            background-color: $pill-outlined-background-color;
+            border-color: $pill-outlined-border-color;
+        }
     }
 }
