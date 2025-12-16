@@ -43,11 +43,16 @@
 .language-nav {
     .dropdown-trigger {
         .button {
-            color: $black !important;
-            border-color: $black !important;
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                color: $black !important;
+                border-color: $black !important;
 
-            .icon {
-                fill: $black !important;
+                .icon {
+                    fill: $black !important;
+                }
             }
         }
     }
