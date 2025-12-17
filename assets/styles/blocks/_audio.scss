@@ -1,0 +1,7 @@
+.wp-block-audio {
+    audio {
+        &::-webkit-media-controls-panel{
+            background-color: #f1eeeb;
+        }
+    }
+}
