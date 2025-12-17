@@ -9,3 +9,17 @@
         }
     }
 }
+
+.gform_wrapper {
+    .button,
+    .gform_delete_file {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-active {
+            background-color: $primary !important;
+            color: $white !important;
+        }
+    }
+}

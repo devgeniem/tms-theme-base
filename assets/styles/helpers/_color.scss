@@ -119,11 +119,16 @@
 
             .button {
                 &.is-#{$name} {
-                    color: $color !important;
-                    background-color: $color-invert !important;
+                    &,
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: $color !important;
+                        background-color: $color-invert !important;
 
-                    .icon {
-                        fill: currentColor !important;
+                        .icon {
+                            fill: currentColor !important;
+                        }
                     }
                 }
 

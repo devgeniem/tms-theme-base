@@ -10,22 +10,22 @@ $pill-background-active-focus: $primary;
 .site-header,
 .main-content {
     // Button styles
-    .button {
-        &.is-primary.is-outlined {
-            &,
-            &:active,
-            &:hover,
-            &:focus,
-            &.is-active {
-                border-color: $primary-dark !important; // sass-lint:disable-line no-important
-                color: $primary-dark !important; // sass-lint:disable-line no-important
+    // .button {
+    //     &.is-primary.is-outlined {
+    //         &,
+    //         &:active,
+    //         &:hover,
+    //         &:focus,
+    //         &.is-active {
+    //             border-color: $primary-dark !important; // sass-lint:disable-line no-important
+    //             color: $primary-dark !important; // sass-lint:disable-line no-important
 
-                .icon {
-                    fill: $primary-dark !important; // sass-lint:disable-line no-important
-                }
-            }
-        }
-    }
+    //             .icon {
+    //                 fill: $primary-dark !important; // sass-lint:disable-line no-important
+    //             }
+    //         }
+    //     }
+    // }
 
     .fly-out-nav__trigger {
         &:hover,
@@ -62,11 +62,16 @@ $pill-background-active-focus: $primary;
     .dropdown {
         .dropdown-trigger {
             .button {
-                color: $black !important;
-                border-color: $black !important;
+                &,
+                &:active,
+                &:hover,
+                &:focus {
+                    color: $black !important;
+                    border-color: $black !important;
 
-                .icon {
-                    fill: $black !important;
+                    .icon {
+                        fill: $black !important;
+                    }
                 }
             }
         }

@@ -6,12 +6,14 @@
 .site-header,
 .main-content,
 .site-footer {
-    .button {
+    .button:not(.modal-close-button),
+    .button.is-primary.is-inverted {
         &,
         &#js-back-to-top,
         &:hover,
         &:focus,
-        &:active {
+        &:active,
+        &.is-active {
             color: $black !important;
             border-color: $black !important;
 
