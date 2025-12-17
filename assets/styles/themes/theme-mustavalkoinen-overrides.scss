@@ -22,7 +22,13 @@
 
     &__end {
         .button {
-            border-color: $white !important;
+            &,
+            &:hover,
+            &:focus,
+            &:active,
+            &.is-active {
+                border-color: $white !important;
+            }
         }
     }
 
@@ -212,6 +218,20 @@
             color: $primary-invert;
             background-color: $primary;
             border-color: $primary;
+        }
+    }
+}
+
+.gform_wrapper {
+    .button,
+    .gform_delete_file {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-active {
+            background-color: $black !important;
+            color: $white !important;
         }
     }
 }
