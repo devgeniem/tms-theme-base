@@ -66,13 +66,13 @@ class MapSettingsTab extends Tab {
 
         try {
             $map_placeholder_field = ( new Field\Image( $strings['map_placeholder']['title'] ) )
-                ->set_key( "${key}_map_placeholder" )
+                ->set_key( "{$key}_map_placeholder" )
                 ->set_name( 'map_placeholder' )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['map_placeholder']['instructions'] );
 
             $map_button_text_field = ( new Field\Text( $strings['map_button_text']['title'] ) )
-                ->set_key( "${key}_map_button_text" )
+                ->set_key( "{$key}_map_button_text" )
                 ->set_name( 'map_button_text' )
                 ->set_default_value( __( 'Open map', 'tms-theme-base' ) )
                 ->set_instructions( $strings['map_button_text']['instructions'] );

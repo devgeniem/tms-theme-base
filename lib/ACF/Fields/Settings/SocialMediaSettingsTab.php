@@ -62,7 +62,7 @@ class SocialMediaSettingsTab extends Tab {
 
         try {
             $some_channels_field = ( new Field\Checkbox( $strings['some_channels']['title'] ) )
-                ->set_key( "${key}_some_channels" )
+                ->set_key( "{$key}_some_channels" )
                 ->set_name( 'some_channels' )
                 ->set_choices( [
                     'facebook'  => 'Facebook',

@@ -49,6 +49,10 @@ class VideoFields extends \Geniem\ACF\Field\Group {
                 'label'        => 'Alt-teksti ruudunlukijoille',
                 'instructions' => '',
             ],
+            'video_iframe' => [
+                'label'        => 'Videon upotuskoodi',
+                'instructions' => 'Lisää tähän videon upotuskoodi, jos videota ei voi käyttää pelkän urlin kautta (esim. Quickchannel).',
+            ],
             'align'    => [
                 'label'        => 'Asemointi',
                 'instructions' => '',
@@ -58,19 +62,24 @@ class VideoFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $video_field = ( new Field\Oembed( $strings['video']['label'] ) )
-            ->set_key( "${key}_video" )
+            ->set_key( "{$key}_video" )
             ->set_name( 'video' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['video']['instructions'] );
 
         $alt_text_field = ( new Field\Textarea( $strings['alt_text']['label'] ) )
-            ->set_key( "${key}_alt_text" )
+            ->set_key( "{$key}_alt_text" )
             ->set_name( 'alt_text' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['alt_text']['instructions'] );
 
+        $video_iframe_field = ( new Field\Textarea( $strings['video_iframe']['label'] ) )
+            ->set_key( "{$key}_video_iframe" )
+            ->set_name( 'video_iframe' )
+            ->set_instructions( $strings['video_iframe']['instructions'] );
+
         $align_field = ( new Field\Radio( $strings['align']['label'] ) )
-            ->set_key( "${key}_align" )
+            ->set_key( "{$key}_align" )
             ->set_name( 'align' )
             ->set_default_value( 'default' )
             ->set_choices( [
@@ -84,6 +93,7 @@ class VideoFields extends \Geniem\ACF\Field\Group {
         return [
             $video_field,
             $alt_text_field,
+            $video_iframe_field,
             $align_field,
         ];
     }

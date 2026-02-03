@@ -9,6 +9,41 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1164: Change button hover & focus styles
 
+## [1.70.0] - 2025-12-17
+
+- TMS-1230: Allow audio-block
+- TMS-1226: Change focus order on events-search form
+
+## [1.69.0] - 2025-11-18
+
+- Fix PHP deprecations
+
+## [1.68.1] - 2025-11-10
+
+- TMS-1204-2: Remove external-link icon for tms.production.geniem.io links
+
+## [1.68.0] - 2025-11-05
+
+- TMS-1204: Add expand-icon for image gallery item if it is expandable
+
+## [1.67.0] - 2025-10-22
+
+- TMS-1209: Rework window.s translations inline script
+- TMS-1201: Add iframe-field for accordion-blocks video field
+
+## [1.66.1] - 2025-10-01
+
+- TMS-1199: Change events-search no-results text
+
+## [1.66.0] - 2025-10-01
+
+- TMS-1201: Add iframe-field for video fields
+
+## [1.65.0] - 2025-09-08
+
+- TMS-1166: Fix duet-datepicker border on focus
+- TMS-1163: Search results breadcrumbs accessibility fixes
+
 ## [1.64.0] - 2025-08-13
 
 - TMS-1160: Fix elements focus outline thickness

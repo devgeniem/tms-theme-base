@@ -37,6 +37,13 @@ class ImageGalleryBlock extends BaseBlock {
     protected $icon = 'images-alt2';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

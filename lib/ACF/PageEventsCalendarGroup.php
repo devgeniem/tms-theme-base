@@ -109,7 +109,7 @@ class PageEventsCalendarGroup {
             ->set_placement( 'left' );
 
         $description_field = ( new TextEditor( $strings['description']['title'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
@@ -119,7 +119,7 @@ class PageEventsCalendarGroup {
         $search_fields->remove_field( 'page_size' );
 
         $layout_field = ( new Field\Radio( $strings['layout']['title'] ) )
-            ->set_key( "${key}_layout" )
+            ->set_key( "{$key}_layout" )
             ->set_name( 'layout' )
             ->set_choices( $strings['layout']['choices'] )
             ->set_wrapper_width( 50 )

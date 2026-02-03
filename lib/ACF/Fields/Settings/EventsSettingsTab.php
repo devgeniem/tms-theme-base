@@ -78,32 +78,32 @@ class EventsSettingsTab extends Tab {
 
         try {
             $image_field = ( new Field\Image( $strings['events_default_image']['title'] ) )
-                ->set_key( "${key}_events_default_image" )
+                ->set_key( "{$key}_events_default_image" )
                 ->set_name( 'events_default_image' )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_default_image']['instructions'] );
 
             $image_credits_field = ( new Field\Text( $strings['events_default_image_credits']['title'] ) )
-                ->set_key( "${key}_events_default_image_credits" )
+                ->set_key( "{$key}_events_default_image_credits" )
                 ->set_name( 'events_default_image_credits' )
                 ->set_instructions( $strings['events_default_image_credits']['instructions'] );
 
             $events_page_field = ( new Field\PostObject( $strings['events_page']['title'] ) )
-                ->set_key( "${key}_events_page" )
+                ->set_key( "{$key}_events_page" )
                 ->set_name( 'events_page' )
                 ->set_post_types( [ PostType\Page::SLUG ] )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_page']['instructions'] );
 
             $events_search_page_field = ( new Field\PostObject( $strings['events_search_page']['title'] ) )
-                ->set_key( "${key}_events_search_page" )
+                ->set_key( "{$key}_events_search_page" )
                 ->set_name( 'events_search_page' )
                 ->set_post_types( [ PostType\Page::SLUG ] )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['events_search_page']['instructions'] );
 
             $show_event_calendars_field = ( new Field\TrueFalse( $strings['show_related_events_calendars']['title'] ) )
-                ->set_key( "${key}_show_related_events_calendars" )
+                ->set_key( "{$key}_show_related_events_calendars" )
                 ->set_name( 'show_related_events_calendars' )
                 ->use_ui()
                 ->set_default_value( false )

@@ -1,6 +1,8 @@
-Severa-ID: 2108
-Severa-kuvaus: 
+Project: Tampereen kaupunki, konsernihallinto / Tietohallintoyksikkö:
+Project task: 
+
 Task: https://hiondigital.atlassian.net/browse/TMS-
+Task title: 
 
 <!--- Provide a general summary of your changes in the Title above -->
 

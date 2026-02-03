@@ -37,6 +37,13 @@ class SubpagesBlock extends BaseBlock {
     protected $icon = 'text-page';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

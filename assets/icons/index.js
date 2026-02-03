@@ -15,6 +15,7 @@ import './download.svg';
 import './droplet.svg';
 import './email.svg';
 import './euro.svg';
+import './expand.svg';
 import './external.svg';
 import './facebook.svg';
 import './file.svg';

@@ -92,7 +92,7 @@ class PageEventsSearchGroup {
             ->set_placement( 'left' );
 
         $category_field = ( new Field\Select( $strings['category']['label'] ) )
-            ->set_key( "${key}_category" )
+            ->set_key( "{$key}_category" )
             ->set_name( 'category' )
             ->use_ui()
             ->use_ajax()
