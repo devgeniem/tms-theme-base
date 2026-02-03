@@ -1,0 +1,13 @@
+.button {
+    &.is-secondary.is-outlined {
+        &,
+        &:active,
+        &.is-active,
+        &:hover,
+        &.is-hovered,
+        &:focus {
+            color: $secondary-invert !important;
+            border-color: $secondary-invert !important;
+        }
+    }
+}

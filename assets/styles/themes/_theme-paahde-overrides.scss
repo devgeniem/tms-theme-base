@@ -2,6 +2,32 @@
  *  Copyright (c) 2021. Geniem Oy
  */
 
+// Use a low-level selector for easier overriding
+.site-header,
+.main-content,
+.site-footer {
+    .button:not(.modal-close-button),
+    .button.is-primary.is-inverted {
+        &,
+        &#js-back-to-top,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-active {
+            color: $black !important;
+            border-color: $black !important;
+
+            .icon {
+                fill: $black !important;
+            }
+        }
+    }
+}
+
+.pill.is-primary-invert {
+    color: $primary !important;
+}
+
 .site-header {
     &__logo-image {
         > a {
@@ -28,11 +54,16 @@
 .language-nav {
     .dropdown-trigger {
         .button {
-            color: $black !important;
-            border-color: $black !important;
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                color: $black !important;
+                border-color: $black !important;
 
-            .icon {
-                fill: $black !important;
+                .icon {
+                    fill: $black !important;
+                }
             }
         }
     }
@@ -99,17 +130,6 @@
     }
 }
 
-.share-links {
-    a {
-        &:focus,
-        &:focus {
-            .icon {
-                fill: $primary !important;
-            }
-        }
-    }
-}
-
 .layout-articles {
     &__read-more {
         color: darken($primary, 70%) !important;
@@ -138,7 +158,7 @@
         &:hover,
         &:focus {
             color: $black !important;
-            background-color: $primary !important;
+            background-color: transparent !important;
             border-color: $black !important;
         }
     }
@@ -230,8 +250,13 @@
     }
 
     .button.is-primary {
-        color: $black !important;
-        border-color: $black !important;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $black !important;
+            border-color: $black !important;
+        }
     }
 }
 

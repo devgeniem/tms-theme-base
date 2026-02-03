@@ -5,9 +5,9 @@ $pill-color-active-hover: $primary-invert !default;
 $pill-color-hover: $secondary-invert !default;
 $pill-background-active: $primary !default;
 
-$pill-background-active-focus: $primary-dark !default;
-$pill-background-color-hover: opacify($secondary-light, .75) !default;
-$pill-background-color-focus: $secondary-light !default;
+$pill-background-active-focus: $primary !default;
+$pill-background-color-hover: $secondary !default;
+$pill-background-color-focus: $secondary !default;
 $pill-background-color-active: $dark !default;
 $pill-background-color-focus: $dark !default;
 $pill-border-color: transparent !default;
@@ -43,10 +43,13 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     border-radius: $pill-border-radius;
 
     &:not(span) {
-        &.is-active,
+        &.is-active {
+            text-decoration: none;
+        }
+
         &:focus,
         &:hover {
-            text-decoration: none;
+            text-decoration: underline !important;
         }
 
         &:focus,
@@ -55,19 +58,12 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         }
 
         &:hover {
-            color: $pill-color-hover;
-            background-color: $pill-background-color-hover;
-            border-color: $pill-border-color-hover;
+            color: $pill-color;
             box-shadow: $pill-hover-shadow-size $pill-hover-shadow-color;
             transition: box-shadow $pill-transition-easing $pill-transition-speed,
             border-color $pill-transition-easing $pill-transition-speed,
             color $pill-transition-easing $pill-transition-speed,
             background-color $pill-transition-easing $pill-transition-speed;
-        }
-
-        &:focus,
-        &:active {
-            background-color: $pill-background-color-focus;
         }
 
         &:focus {
@@ -77,45 +73,24 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
     }
 
     &.is-primary {
-        color: $primary-invert;
-        background-color: $primary;
-        border-color: $primary;
-
-        &:not(span) {
-            &:hover,
-            &.is-hovered {
-                color: $primary-invert;
-                background-color: bulmaDarken($primary, 2.5%);
-                border-color: transparent;
-            }
-
-            &:focus,
-            &.is-focused {
-                color: $primary;
-                background-color: $primary-invert;
-                border-color: $color-black;
-            }
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $primary-invert;
+            background-color: $primary;
+            border-color: $primary;
         }
 
         &-invert,
         &.is-inverted {
-            color: $primary;
-            background-color: $primary-invert;
-            border-color: $primary;
-
-            &:not(span) {
-                &:hover,
-                &.is-hovered {
-                    color: $primary-invert;
-                    background-color: bulmaDarken($primary, 2.5%);
-                }
-
-                &:focus,
-                &.is-focused {
-                    color: $primary-invert;
-                    background-color: bulmaDarken($primary, 2.5%);
-                    border-color: bulmaDarken($primary, 2.5%);
-                }
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                color: $primary;
+                background-color: $primary-invert;
+                border-color: $primary;
             }
         }
     }
@@ -128,32 +103,19 @@ $pill-hover-shadow-color: rgba(0, 0, 0, .15) !default;
         color: $pill-color-active;
         background-color: $pill-background-active;
 
-        &:not(span) {
-            &:hover,
-            &:focus {
-                color: $pill-color-active-hover !important;
-                background-color: $pill-background-active-focus;
-            }
+        &:hover {
+            color: $pill-color-active;
         }
     }
 
     &.is-outlined {
-        color: $pill-outlined-color;
-        background-color: $pill-outlined-background-color;
-        border-color: $pill-outlined-border-color;
-
-        &:not(span) {
-            &:hover {
-                color: $pill-outlined-color-hover;
-                background-color: $pill-outlined-background-color-hover;
-                border-color: $pill-outlined-border-color-hover;
-            }
-
-            &:focus,
-            &:active {
-                background-color: $pill-outlined-background-color-focus;
-                border-color: $pill-outlined-border-color-focus;
-            }
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $pill-outlined-color;
+            background-color: $pill-outlined-background-color;
+            border-color: $pill-outlined-border-color;
         }
     }
 }

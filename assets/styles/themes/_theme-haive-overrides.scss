@@ -1,3 +1,15 @@
+.button {
+    &,
+    &:hover,
+    &:focus {
+        color: $black !important;
+
+        .icon {
+            fill: $black !important;
+        }
+    }
+}
+
 .site-header {
     &__logo-image {
         > a {
@@ -16,11 +28,13 @@
 
 .lang-nav--horizontal {
     a {
-        color: $primary-invert !important;
-
+        &,
         &:hover,
         &:focus {
             color: $primary-invert !important;
+        }
+
+        &.has-background-primary {
             background-color: $primary !important;
         }
     }
@@ -29,11 +43,16 @@
 .language-nav {
     .dropdown-trigger {
         .button {
-            color: $black !important;
-            border-color: $black !important;
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                color: $black !important;
+                border-color: $black !important;
 
-            .icon {
-                fill: $black !important;
+                .icon {
+                    fill: $black !important;
+                }
             }
         }
     }
@@ -79,17 +98,6 @@
     }
 }
 
-.share-links {
-    a {
-        &:hover,
-        &:focus {
-            .icon {
-                fill: $primary !important;
-            }
-        }
-    }
-}
-
 .gform_wrapper {
     .button,
     button {
@@ -100,7 +108,7 @@
         &:hover,
         &:focus {
             color: $black !important;
-            background-color: $primary !important;
+            background-color: transparent !important;
             border-color: $black !important;
         }
     }
@@ -237,8 +245,13 @@
     }
 
     .button.is-primary {
-        color: $black !important;
-        border-color: $black !important;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: $black !important;
+            border-color: $black !important;
+        }
     }
 }
 

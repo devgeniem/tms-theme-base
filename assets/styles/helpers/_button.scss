@@ -33,7 +33,7 @@ $button-transition-speed: $speed !default;
     border-color: $button-color-mixin-border !important;
 
     .icon {
-        fill: $button-color-mixin-text !important;
+        fill: currentColor !important;
     }
 }
 
@@ -111,7 +111,7 @@ $button-transition-speed: $speed !default;
         color: $button-text-primary;
 
         .icon {
-            fill: $button-text-primary;
+            fill: currentColor !important;
         }
     }
 
@@ -119,14 +119,13 @@ $button-transition-speed: $speed !default;
     &.is-hovered,
     &:focus,
     &.is-focused {
-        background-color: $button-background-invert;
-        border-color: $button-border-invert;
-        color: $button-text-invert;
+        text-decoration: underline !important;
+        color: $button-text-primary;
 
         @extend .button-state-hover;
 
         .icon {
-            fill: $button-text-invert;
+            fill: currentColor !important;
         }
     }
 
@@ -138,13 +137,17 @@ $button-transition-speed: $speed !default;
     &.is-outlined {
         &,
         &:active,
-        &.is-active {
+        &.is-active,
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
             background-color: transparent;
             border-color: $button-border-invert;
             color: $button-text-invert;
 
             .icon {
-                fill: $button-text-invert;
+                fill: currentColor !important;
             }
         }
 
@@ -154,13 +157,17 @@ $button-transition-speed: $speed !default;
     &.is-borderless {
         &,
         &:active,
-        &.is-active {
+        &.is-active,
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused {
             background-color: $button-background-primary;
             border-color: transparent;
             color: $button-text-primary;
 
             .icon {
-                fill: $button-text-primary;
+                fill: currentColor !important;
             }
         }
 
@@ -174,19 +181,19 @@ $button-transition-speed: $speed !default;
         color: $button-text-invert;
 
         .icon {
-            fill: $button-text-invert;
+            fill: currentColor !important;
         }
 
         &:hover,
         &.is-hovered,
         &:focus,
         &.is-focused {
-            background-color: $button-background-primary;
-            border-color: $button-border-primary;
-            color: $button-text-primary;
+            background-color: $button-background-invert;
+            border-color: $button-border-invert;
+            color: $button-text-invert;
 
             .icon {
-                fill: $button-text-primary;
+                fill: currentColor !important;
             }
         }
 
@@ -196,24 +203,40 @@ $button-transition-speed: $speed !default;
         }
 
         &.is-borderless {
-            background-color: $button-background-invert;
-            border-color: transparent;
-            color: $button-text-invert;
+            &,
+            &:active,
+            &.is-active,
+            &:hover,
+            &.is-hovered,
+            &:focus,
+            &.is-focused {
+                background-color: $button-background-invert;
+                border-color: transparent;
+                color: $button-text-invert;
 
-            .icon {
-                fill: $button-text-invert;
+                .icon {
+                    fill: currentColor !important;
+                }
             }
 
             @extend .button-states;
         }
 
         &.is-outlined {
-            background-color: transparent;
-            border-color: $button-text-primary;
-            color: $button-text-primary;
+            &,
+            &:active,
+            &.is-active,
+            &:hover,
+            &.is-hovered,
+            &:focus,
+            &.is-focused {
+                background-color: transparent;
+                border-color: $button-text-primary;
+                color: $button-text-primary;
 
-            .icon {
-                fill: $button-text-primary;
+                .icon {
+                    fill: currentColor !important;
+                }
             }
 
             @extend .button-states;
@@ -265,7 +288,7 @@ $button-transition-speed: $speed !default;
             &.is-hovered,
             &:focus,
             &.is-focused {
-                @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary);
+                @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary);
             }
 
             @extend .button-states;
@@ -273,14 +296,11 @@ $button-transition-speed: $speed !default;
             &.is-outlined {
                 &,
                 &:active,
-                &.is-active {
-                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
-                }
-
+                &.is-active,
                 &:hover,
                 &:focus,
                 &.is-hovered {
-                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
+                    @include button_colors(transparent, $btn-pair-primary, $btn-pair-primary);
                 }
 
                 @extend .button-states;
@@ -289,7 +309,10 @@ $button-transition-speed: $speed !default;
             &.is-borderless {
                 &,
                 &:active,
-                &.is-active {
+                &.is-active,
+                &:hover,
+                &:focus,
+                &.is-hovered {
                     @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
                     border-color: transparent !important;
                 }
@@ -301,15 +324,12 @@ $button-transition-speed: $speed !default;
             &.is-inverted {
                 &,
                 &:active,
-                &.is-active {
-                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
-                }
-
+                &.is-active,
                 &:hover,
                 &.is-hovered,
                 &:focus,
                 &.is-focused {
-                    @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, $btn-pair-primary-invert);
+                    @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-invert);
                 }
 
                 @extend .button-states;
@@ -324,7 +344,7 @@ $button-transition-speed: $speed !default;
                     &:hover,
                     &:focus,
                     &.is-hovered {
-                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, $btn-pair-primary-text);
+                        @include button_colors(transparent, $btn-pair-primary-text-invert, $btn-pair-primary-text-invert);
                     }
 
                     @extend .button-states;
@@ -341,7 +361,7 @@ $button-transition-speed: $speed !default;
                     &:hover,
                     &:focus,
                     &.is-hovered {
-                        @include button_colors($btn-pair-primary, $btn-pair-primary-text-invert, transparent);
+                        @include button_colors($btn-pair-primary-invert, $btn-pair-primary-text, transparent);
                     }
 
                     @extend .button-states;

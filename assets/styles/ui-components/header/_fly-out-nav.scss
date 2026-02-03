@@ -3,7 +3,7 @@
  */
 
 $fly-out-nav-trigger-icon: $primary !default;
-$fly-out-nav-trigger-icon-hover: $primary-dark !default;
+$fly-out-nav-trigger-icon-hover: $primary !default;
 $fly-out-nav-primary-link: $primary-invert !default;
 $fly-out-nav-primary-link-hover: $primary-invert !default;
 $fly-out-nav-primary-dropdown-active-background: $primary-invert !default;
@@ -66,14 +66,14 @@ $fly-out-nav-search-button-icon: $primary !default;
             outline: 0;
 
             .icon {
-                fill: $fly-out-nav-trigger-icon-hover;
+                fill: $fly-out-nav-trigger-icon-hover !important;
             }
         }
 
         .icon {
             width: 2rem;
             height: 1.75rem;
-            fill: $fly-out-nav-trigger-icon;
+            fill: $fly-out-nav-trigger-icon !important;
         }
     }
 
@@ -247,7 +247,7 @@ $fly-out-nav-search-button-icon: $primary !default;
         &__button {
             &.is-inverted {
                 .icon {
-                    fill: $fly-out-nav-search-button-icon !important; // sass-lint:disable-line no-important
+                    fill: currentColor !important; // sass-lint:disable-line no-important
                 }
             }
         }

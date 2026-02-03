@@ -1,23 +1,43 @@
 $fly-out-nav-trigger-icon: $primary-dark;
-$fly-out-nav-trigger-icon-hover: bulmaDarken($primary-dark, 50);
-$pill-background-active-focus: bulmaDarken($primary, 2.5%);
+$fly-out-nav-trigger-icon-hover: $primary-dark;
+$pill-background-active-focus: $primary;
+
+.pill.is-primary-invert {
+    color: $primary !important;
+}
 
 // Use a low-level selector for easier overriding
 .site-header,
 .main-content {
     // Button styles
-    .button {
-        &.is-primary.is-outlined {
-            &,
-            &:active,
-            &.is-active {
-                border-color: $primary-dark !important; // sass-lint:disable-line no-important
-                color: $primary-dark !important; // sass-lint:disable-line no-important
+    // .button {
+    //     &.is-primary.is-outlined {
+    //         &,
+    //         &:active,
+    //         &:hover,
+    //         &:focus,
+    //         &.is-active {
+    //             border-color: $primary-dark !important; // sass-lint:disable-line no-important
+    //             color: $primary-dark !important; // sass-lint:disable-line no-important
 
-                .icon {
-                    fill: $primary-dark !important; // sass-lint:disable-line no-important
-                }
+    //             .icon {
+    //                 fill: $primary-dark !important; // sass-lint:disable-line no-important
+    //             }
+    //         }
+    //     }
+    // }
+
+    .fly-out-nav__trigger {
+        &:hover,
+        &:focus,
+        &:active {
+            .icon {
+                fill: $primary-dark !important;
             }
+        }
+
+        .icon {
+            fill: $primary-dark !important;
         }
     }
 }
@@ -26,11 +46,8 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
     a {
         color: $primary-invert !important;
 
-        &:hover,
-        &:focus {
-            color: $black !important;
+        &.has-background-primary {
             background-color: $primary !important;
-            outline-color: $black;
         }
     }
 }
@@ -45,11 +62,16 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
     .dropdown {
         .dropdown-trigger {
             .button {
-                color: $black !important;
-                border-color: $black !important;
+                &,
+                &:active,
+                &:hover,
+                &:focus {
+                    color: $black !important;
+                    border-color: $black !important;
 
-                .icon {
-                    fill: $black !important;
+                    .icon {
+                        fill: $black !important;
+                    }
                 }
             }
         }
@@ -115,13 +137,16 @@ $pill-background-active-focus: bulmaDarken($primary, 2.5%);
 }
 
 .share-links {
-    a {
-        &:hover,
-        &:focus {
-            background-color: $white !important;
+    li {
+        a.has-background-accent {
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $black !important;
 
-            .icon {
-                fill: $black !important;
+                .icon {
+                    fill: $white !important;
+                }
             }
         }
     }

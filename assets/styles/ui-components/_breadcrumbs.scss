@@ -3,8 +3,8 @@
  */
 
 $tms-breadcrumb-item-color-link: $primary-dark !default;
-$tms-breadcrumb-item-color-hover: bulmaDarken($primary-dark, 15) !default;
-$tms-breadcrumb-item-color-active: $primary-light !default;
+$tms-breadcrumb-item-color-hover: $primary-dark !default;
+$tms-breadcrumb-item-color-active: $primary-dark !default;
 $tms-breadcrumb-item-color-separator: $color-black !default;
 
 .breadcrumb {

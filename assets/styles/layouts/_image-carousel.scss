@@ -22,15 +22,7 @@
             background-color: $white;
 
             .icon {
-                fill: $black;
-            }
-
-            &:hover {
-                background-color: darken($white, 10%);
-
-                .icon {
-                    fill: $black;
-                }
+                fill: $black !important;
             }
 
             &:focus {

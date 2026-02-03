@@ -8,6 +8,10 @@
     }
 }
 
+.pill {
+    border-color: $primary !important;
+}
+
 .site-header {
     background-color: $black !important;
 
@@ -18,7 +22,13 @@
 
     &__end {
         .button {
-            border-color: $white !important;
+            &,
+            &:hover,
+            &:focus,
+            &:active,
+            &.is-active {
+                border-color: $white !important;
+            }
         }
     }
 
@@ -72,19 +82,6 @@
 
         .icon {
             fill: $white !important;
-        }
-
-        &:hover,
-        &:focus {
-            background-color: $white !important;
-            color: $black !important;
-            border-color: $black !important;
-            text-decoration: underline !important;
-            outline-color: $black !important;
-
-            .icon {
-                fill: $black !important;
-            }
         }
     }
 }
@@ -147,18 +144,18 @@
 
 .layout-articles {
     &__read-more {
-        color: $black !important;
+        color: $white !important;
 
         .icon {
-            fill: $black !important;
+            fill: $white !important;
         }
 
         &:hover,
         &:focus {
-            color: $black !important;
+            color: $white !important;
 
             .icon {
-                fill: $black !important;
+                fill: $white !important;
             }
         }
     }
@@ -211,6 +208,30 @@
     &__item-inner {
         .icon {
             fill: $accent !important;
+        }
+    }
+}
+
+.sibling-navigation {
+    &__item {
+        &.is-current {
+            color: $primary-invert;
+            background-color: $primary;
+            border-color: $primary;
+        }
+    }
+}
+
+.gform_wrapper {
+    .button,
+    .gform_delete_file {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-active {
+            background-color: $black !important;
+            color: $white !important;
         }
     }
 }
