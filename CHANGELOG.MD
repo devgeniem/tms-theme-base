@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1164: Button hover color fixes
+
 ## [1.71.0] - 2026-02-03
 
 - TMS-1164: Change button hover & focus styles
