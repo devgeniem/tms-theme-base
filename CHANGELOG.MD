@@ -8,9 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1144: Change aria-attribute for menu-item
+- TMS-1164: Button hover color fixes
+
+## [1.71.0] - 2026-02-03
+
 - TMS-1164: Change button hover & focus styles
-- TMS-1226: Change focus order on events-search form
+
+## [1.70.0] - 2025-12-17
+
 - TMS-1230: Allow audio-block
+- TMS-1226: Change focus order on events-search form
 
 ## [1.69.0] - 2025-11-18
 
