@@ -76,12 +76,17 @@
     }
 
     .button {
-        background-color: $black !important;
-        color: $white !important;
-        border-color: $black !important;
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $black !important;
+            color: $white !important;
+            border-color: $black !important;
 
-        .icon {
-            fill: $white !important;
+            .icon {
+                fill: $white !important;
+            }
         }
     }
 }
