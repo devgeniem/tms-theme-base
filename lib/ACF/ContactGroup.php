@@ -29,10 +29,13 @@ class ContactGroup {
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
 
-        \add_filter(
-            'redipress/index/posts/schema_fields',
-            \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
-        );
+        // Only add RediPress filter if the plugin is active
+        if ( class_exists( '\Geniem\RediPress\Entity\TextField' ) ) {
+            \add_filter(
+                'redipress/index/posts/schema_fields',
+                \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
+            );
+        }
     }
 
     /**
