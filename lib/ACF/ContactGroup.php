@@ -29,13 +29,10 @@ class ContactGroup {
             \Closure::fromCallable( [ $this, 'register_fields' ] )
         );
 
-        // Only add RediPress filter if the plugin is active
-        if ( class_exists( '\Geniem\RediPress\Entity\TextField' ) ) {
-            \add_filter(
-                'redipress/index/posts/schema_fields',
-                \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
-            );
-        }
+        \add_filter(
+            'redipress/index/posts/schema_fields',
+            \Closure::fromCallable( [ $this, 'add_redipress_fields' ] )
+        );
     }
 
     /**
@@ -189,25 +186,34 @@ class ContactGroup {
             ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
-            ->redipress_include_search()
             ->set_instructions( $strings['title']['instructions'] );
+
+        if ( $this->is_redipress_active() ) {
+            $title_field->redipress_include_search();
+        }
 
         $first_name_field = ( new Field\Text( $strings['first_name']['title'] ) )
             ->set_key( "{$key}_first_name" )
             ->set_name( 'first_name' )
             ->set_wrapper_width( 50 )
-            ->redipress_include_search()
             ->set_instructions( $strings['first_name']['instructions'] )
             ->set_required();
+
+        if ( $this->is_redipress_active() ) {
+            $first_name_field->redipress_include_search();
+        }
 
         $last_name_field = ( new Field\Text( $strings['last_name']['title'] ) )
             ->set_key( "{$key}_last_name" )
             ->set_name( 'last_name' )
             ->set_wrapper_width( 50 )
-            ->redipress_include_search()
-            ->redipress_add_queryable()
             ->set_instructions( $strings['last_name']['instructions'] )
             ->set_required();
+
+        if ( $this->is_redipress_active() ) {
+                $last_name_field->redipress_include_search();
+                $last_name_field->redipress_add_queryable();
+        }
 
         $phone_repeater_field = ( new Field\Repeater( $strings['phone_repeater']['title'] ) )
             ->set_key( "{$key}_phone_repeater" )
@@ -249,15 +255,21 @@ class ContactGroup {
             ->set_key( "{$key}_domain" )
             ->set_name( 'domain' )
             ->set_wrapper_width( 50 )
-            ->redipress_include_search()
             ->set_instructions( $strings['domain']['instructions'] );
+
+        if ( $this->is_redipress_active() ) {
+            $domain_field->redipress_include_search();
+        }
 
         $unit_field = ( new Field\Text( $strings['unit']['title'] ) )
             ->set_key( "{$key}_unit" )
             ->set_name( 'unit' )
             ->set_wrapper_width( 50 )
-            ->redipress_include_search()
             ->set_instructions( $strings['unit']['instructions'] );
+
+        if ( $this->is_redipress_active() ) {
+            $unit_field->redipress_include_search();
+        }
 
         $visiting_message_field = ( new Field\Message( $strings['visiting_address']['title'] ) )
             ->set_key( "{$key}_visiting_address" )
@@ -341,6 +353,26 @@ class ContactGroup {
     }
 
     /**
+     * Check if RediPress plugin is active
+     *
+     * @return bool
+     */
+    protected function is_redipress_active() : bool {
+        // Check if the RediPress class exists
+        if ( ! class_exists( '\Geniem\RediPress\Entity\TextField' ) ) {
+            return false;
+        }
+
+        // Additional check to see if plugin is actually activated
+        if ( function_exists( 'is_plugin_active' ) ) {
+            return \is_plugin_active( 'redipress/redipress.php' );
+        }
+
+        // If class exists but can't check plugin status, assume it's active
+        return true;
+    }
+
+    /**
      * Add RediPress fields
      *
      * @param array $fields array of fields.
@@ -349,10 +381,12 @@ class ContactGroup {
      * @throws \Exception In case of missing option.
      */
     protected function add_redipress_fields( $fields ) {
-        $fields[] = new \Geniem\RediPress\Entity\TextField( [
-            'name'     => 'last_name',
-            'sortable' => true,
-        ] );
+        if ( $this->is_redipress_active() ) {
+            $fields[] = new \Geniem\RediPress\Entity\TextField( [
+                'name'     => 'last_name',
+                'sortable' => true,
+            ] );
+        }
 
         return $fields;
     }
