@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1255: Check for redipress class before indexing contact field
+
 ## [1.71.1] - 2026-02-15
 
 - TMS-1164: Button hover color fixes
