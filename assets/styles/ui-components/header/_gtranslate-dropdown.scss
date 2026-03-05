@@ -33,6 +33,14 @@
         .is-small {
             font-size: 11px;
         }
+
+        .gtranslate-cookie-text-container {
+            width: 15rem;
+
+            @include from($tablet) {
+                width: 20rem;
+            }
+        }
     }
 }
 
