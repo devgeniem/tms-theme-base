@@ -56,6 +56,7 @@ class Strings extends \DustPress\Model {
                 'exception_close_button'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
                 'home'                      => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
                 'breadcrumbs'               => _x( 'Breadcrumbs', 'theme-frontend', 'tms-theme-base' ),
+                'translate'                 => _x( 'Translate', 'theme-frontend', 'tms-theme-base' ),
             ],
             '404'                => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),
