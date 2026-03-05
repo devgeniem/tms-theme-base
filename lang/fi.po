@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2026-03-05 10:20+0200\n"
-"PO-Revision-Date: 2026-03-05 10:20+0200\n"
+"POT-Creation-Date: 2026-03-05 17:41+0200\n"
+"PO-Revision-Date: 2026-03-05 17:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -669,15 +669,31 @@ msgstr "Etsitkö tapahtumia? Käytä tapahtumahakua!"
 msgid "No search results"
 msgstr "Ei hakutuloksia"
 
-#: models/shared/header.php:45
+#: models/shared/header.php:465
 msgid "Select language"
 msgstr "Valitse kieli"
 
-#: models/shared/header.php:46
+#: models/shared/header.php:466
 msgid ""
 "The City of Tampere is not responsible for translations made by Google "
 "Translate."
 msgstr "Tampereen kaupunki ei vastaa Google-kääntäjän tekemistä käännöksistä."
+
+#: models/shared/header.php:467
+msgid ""
+"Unfortunately you are not able to use the translation option since you "
+"haven't accepted related cookies. You can accept cookies by clicking the "
+"Renew consent icon at the bottom left corner of the website or on the Accept "
+"cookies button below."
+msgstr ""
+"Valitettavasti et voi käyttää käännöstyökalua, koska et ole hyväksynyt "
+"siihen liittyviä evästeitä. Voit hyväksyä evästeet napsauttamalla sivun "
+"vasemmassa alakulmassa olevaa Evästeasetukset-kuvaketta tai alla olevaa "
+"Hyväksy evästeitä -painiketta."
+
+#: models/shared/header.php:468
+msgid "Accept cookies"
+msgstr "Hyväksy evästeitä"
 
 #: models/strings.php:42
 msgctxt "theme-frontend"

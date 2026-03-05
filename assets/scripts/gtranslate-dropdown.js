@@ -88,6 +88,11 @@ export default class GtranslateDropdown {
 
         // Define the callback function globally
         window.googleTranslateElementInit = this.initGoogleTranslate.bind( this );
+
+        // Check if the script loaded successfully after a short delay
+        setTimeout( () => {
+            this.checkGoogleTranslateLoaded();
+        }, 1500 );
     }
 
     /**
@@ -111,6 +116,47 @@ export default class GtranslateDropdown {
             pageLanguage: currentLang,
             autoDisplay: false,
         }, 'google_translate_element_custom' );
+    }
+
+    /**
+     * Check if Google Translate loaded successfully, show cookie message if not
+     *
+     * @return {void}
+     */
+    checkGoogleTranslateLoaded() {
+        const container = document.getElementById( 'google_translate_element_custom' );
+
+        if ( container ) {
+            // Check if the container has been populated with Google Translate content
+            const hasGoogleContent = container.querySelector( '.skiptranslate' )
+                                    || container.querySelector( '.goog-te-combo' )
+                                    || ( container.children.length > 0 && ! container.querySelector( '.gtranslate-cookie-notice' ) );
+
+            // If no Google Translate content, show cookie disabled message and hide other elements
+            if ( ! hasGoogleContent ) {
+                // Show the cookie message container
+                const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
+                if ( cookieTextContainer ) {
+                    cookieTextContainer.classList.remove( 'is-hidden' );
+                }
+
+                // Hide other paragraph elements in the dropdown
+                const dropdownContent = document.querySelector( '.gtranslate-dropdown__content' );
+                if ( dropdownContent ) {
+                    const paragraphs = dropdownContent.querySelectorAll( 'p:not(.gtranslate-cookie-text)' );
+                    paragraphs.forEach( ( p ) => {
+                        p.classList.add( 'is-hidden' );
+                    } );
+                }
+            }
+            else {
+                // Hide the cookie message container when Google Translate loads successfully
+                const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
+                if ( cookieTextContainer ) {
+                    cookieTextContainer.classList.add( 'is-hidden' );
+                }
+            }
+        }
     }
 
     /**

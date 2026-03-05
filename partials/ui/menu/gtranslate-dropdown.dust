@@ -15,6 +15,14 @@
             <p class="is-small mb-0 mt-2">
                 {Header.gtranslate_menu.disclaimer_text|html}
             </p>
+            <div class="gtranslate-cookie-text-container is-hidden">
+                <p class="gtranslate-cookie-text mt-0 mb-4">
+                    {Header.gtranslate_menu.cookies_disabled|html}
+                </p>
+                <a href="javascript:Cookiebot.renew()" class="button is-primary">
+                    {Header.gtranslate_menu.accept_cookies|html}
+                </a>
+            </div>
         </div>
     </div>
 </div>
