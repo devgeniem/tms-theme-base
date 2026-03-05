@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1237: Add a custom Google Translate functionality to navigation
+
 ## [1.71.2] - 2026-02-25
 
 - TMS-1255: Check for redipress class before indexing contact field

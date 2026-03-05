@@ -73,6 +73,10 @@ class HeaderSettingsTab extends Tab {
             'title'        => 'Piilota hakutoiminto',
             'instructions' => '',
         ],
+        'gtranslate_menu'  => [
+            'title'        => 'Ota Google Translate -käännöksen valikko käyttöön',
+            'instructions' => '',
+        ],
     ];
 
     /**
@@ -162,6 +166,13 @@ class HeaderSettingsTab extends Tab {
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['hide_search']['instructions'] );
 
+            $enable_gtranslate_menu = ( new Field\TrueFalse( $strings['gtranslate_menu']['title'] ) )
+                ->set_key( "{$key}_enable_gtranslate_menu" )
+                ->set_name( 'enable_gtranslate_menu' )
+                ->set_default_value( false )
+                ->use_ui()
+                ->set_instructions( $strings['gtranslate_menu']['instructions'] );
+
             $this->add_fields( [
                 $logo_field,
                 $brand_logo_field,
@@ -171,6 +182,7 @@ class HeaderSettingsTab extends Tab {
                 $hide_main_nav_field,
                 $limit_nav_depth_field,
                 $hide_search_field,
+                $enable_gtranslate_menu,
             ] );
 
             if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
