@@ -22,8 +22,8 @@ export default class Image {
             type: 'image',
             background_scroll: false,
             after_open: this.disableBackgroundItemFocusing,
-            accessible_title: window.s.modaal.accessible_title || 'Enlarged image',
-            close_aria_label: window.s.modaal.close || 'Close',
+            accessible_title: ( window.s && window.s.modaal && window.s.modaal.accessible_title ) || 'Enlarged image',
+            close_aria_label: ( window.s && window.s.modaal && window.s.modaal.close ) || 'Close',
         } );
     }
 
