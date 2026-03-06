@@ -37,23 +37,23 @@ export default class GtranslateDropdown {
     }
 
     /**
-     * Toggle gtranslate wrapper visibility
+     * Toggle gtranslate text visibility
      *
-     * @param {boolean} isVisible - Show or hide
+     * @param {boolean} isVisible - Show or hide non-cookie paragraphs
      * @return {void}
      */
     setDropdownVisibility( isVisible ) {
-        const $wrapper = $( '.gtranslate-wrapper' );
+        const $dropdownContent = $( '.gtranslate-dropdown__content' );
+        const $cookieTextContainer = $( '.gtranslate-cookie-text-container' );
 
-        if ( ! $wrapper.length ) {
+        if ( ! $dropdownContent.length ) {
             return;
         }
 
-        if ( isVisible ) {
-            $wrapper.removeClass( 'is-hidden' );
-        }
-        else {
-            $wrapper.addClass( 'is-hidden' );
+        if ( ! isVisible ) {
+            const paragraphs = $dropdownContent.find( 'p:not(.gtranslate-cookie-text)' );
+            paragraphs.addClass( 'is-hidden' );
+            $cookieTextContainer.removeClass( 'is-hidden' );
         }
     }
 
