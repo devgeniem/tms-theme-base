@@ -16,6 +16,102 @@ export default class GtranslateDropdown {
         this.gtranslateCheckRetries = 0;
         this.gtranslateCheckMaxRetries = 3;
         this.gtranslateCheckDelay = 1500;
+        this.cookiebotEventsBound = false;
+    }
+
+    /**
+     * Check if Cookiebot consent allows loading Google Translate
+     *
+     * @return {boolean}
+     */
+    hasConsentForGtranslate() {
+        if ( typeof window.Cookiebot === 'undefined' ) {
+            return true;
+        }
+
+        if ( ! window.Cookiebot.consent ) {
+            return false;
+        }
+
+        return Boolean( window.Cookiebot.consent.preferences );
+    }
+
+    /**
+     * Toggle gtranslate wrapper visibility
+     *
+     * @param {boolean} isVisible - Show or hide
+     * @return {void}
+     */
+    setDropdownVisibility( isVisible ) {
+        const $wrapper = $( '.gtranslate-wrapper' );
+
+        if ( ! $wrapper.length ) {
+            return;
+        }
+
+        if ( isVisible ) {
+            $wrapper.removeClass( 'is-hidden' );
+        }
+        else {
+            $wrapper.addClass( 'is-hidden' );
+        }
+    }
+
+    /**
+     * Attach dropdown event handlers once
+     *
+     * @return {void}
+     */
+    attachEventsIfNeeded() {
+        if ( this.eventsAttached || ! $( '.gtranslate-trigger' ).length ) {
+            return;
+        }
+
+        // Handle gtranslate dropdown toggle
+        $( '.gtranslate-trigger' ).on( 'click', this.toggleGtranslateDropdown.bind( this ) );
+
+        // Close gtranslate dropdown when clicking outside
+        $( document ).on( 'click', this.closeGtranslateOnOutsideClick.bind( this ) );
+
+        // Handle ESC key
+        $( document ).on( 'keydown', this.handleEscKey.bind( this ) );
+
+        this.eventsAttached = true;
+    }
+
+    /**
+     * Handle consent-dependent loading and visibility
+     *
+     * @return {void}
+     */
+    handleConsentFlow() {
+        const hasConsent = this.hasConsentForGtranslate();
+
+        this.setDropdownVisibility( hasConsent );
+
+        if ( ! hasConsent ) {
+            return;
+        }
+
+        this.attachEventsIfNeeded();
+        this.loadGoogleTranslateAPI();
+    }
+
+    /**
+     * Bind Cookiebot consent events once
+     *
+     * @return {void}
+     */
+    bindCookiebotEvents() {
+        if ( this.cookiebotEventsBound ) {
+            return;
+        }
+
+        window.addEventListener( 'CookiebotOnConsentReady', this.handleConsentFlow.bind( this ) );
+        window.addEventListener( 'CookiebotOnAccept', this.handleConsentFlow.bind( this ) );
+        window.addEventListener( 'CookiebotOnDecline', this.handleConsentFlow.bind( this ) );
+
+        this.cookiebotEventsBound = true;
     }
 
     /**
@@ -174,23 +270,11 @@ export default class GtranslateDropdown {
      * @return {void}
      */
     docReady() {
-        // Only attach events once and if elements exist
-        if ( ! this.eventsAttached && $( '.gtranslate-trigger' ).length ) {
-            // Handle gtranslate dropdown toggle
-            $( '.gtranslate-trigger' ).on( 'click', this.toggleGtranslateDropdown.bind( this ) );
-
-            // Close gtranslate dropdown when clicking outside
-            $( document ).on( 'click', this.closeGtranslateOnOutsideClick.bind( this ) );
-
-            // Handle ESC key
-            $( document ).on( 'keydown', this.handleEscKey.bind( this ) );
-
-            this.eventsAttached = true;
+        if ( ! $( '#google_translate_element_custom' ).length ) {
+            return;
         }
 
-        // Check if Google Translate container exists and load API
-        if ( $( '#google_translate_element_custom' ).length ) {
-            this.loadGoogleTranslateAPI();
-        }
+        this.bindCookiebotEvents();
+        this.handleConsentFlow();
     }
 }
