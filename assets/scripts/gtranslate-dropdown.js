@@ -50,8 +50,13 @@ export default class GtranslateDropdown {
             return;
         }
 
-        if ( ! isVisible ) {
-            const paragraphs = $dropdownContent.find( 'p:not(.gtranslate-cookie-text)' );
+        const paragraphs = $dropdownContent.find( 'p:not(.gtranslate-cookie-text)' );
+
+        if ( isVisible ) {
+            paragraphs.removeClass( 'is-hidden' );
+            $cookieTextContainer.addClass( 'is-hidden' );
+        }
+        else {
             paragraphs.addClass( 'is-hidden' );
             $cookieTextContainer.removeClass( 'is-hidden' );
         }
