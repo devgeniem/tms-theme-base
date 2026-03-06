@@ -87,13 +87,13 @@ export default class GtranslateDropdown {
     handleConsentFlow() {
         const hasConsent = this.hasConsentForGtranslate();
 
+        this.attachEventsIfNeeded();
         this.setDropdownVisibility( hasConsent );
 
         if ( ! hasConsent ) {
             return;
         }
 
-        this.attachEventsIfNeeded();
         this.loadGoogleTranslateAPI();
     }
 
