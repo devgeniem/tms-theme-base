@@ -13,6 +13,9 @@ export default class GtranslateDropdown {
     constructor() {
         this.isGoogleLoaded = false;
         this.eventsAttached = false;
+        this.gtranslateCheckRetries = 0;
+        this.gtranslateCheckMaxRetries = 3;
+        this.gtranslateCheckDelay = 1500;
     }
 
     /**
@@ -92,7 +95,7 @@ export default class GtranslateDropdown {
         // Check if the script loaded successfully after a short delay
         setTimeout( () => {
             this.checkGoogleTranslateLoaded();
-        }, 1500 );
+        }, this.gtranslateCheckDelay );
     }
 
     /**
@@ -128,9 +131,15 @@ export default class GtranslateDropdown {
 
         if ( container ) {
             // Check if the container has been populated with Google Translate content
-            const hasGoogleContent = container.querySelector( '.skiptranslate' )
-                                    || container.querySelector( '.goog-te-combo' )
-                                    || ( container.children.length > 0 && ! container.querySelector( '.gtranslate-cookie-notice' ) );
+            const hasGoogleContent = container.children.length > 0;
+
+            if ( ! hasGoogleContent && this.gtranslateCheckRetries < this.gtranslateCheckMaxRetries ) {
+                this.gtranslateCheckRetries += 1;
+                setTimeout( () => {
+                    this.checkGoogleTranslateLoaded();
+                }, this.gtranslateCheckDelay );
+                return;
+            }
 
             // If no Google Translate content, show cookie disabled message and hide other elements
             if ( ! hasGoogleContent ) {
@@ -150,7 +159,6 @@ export default class GtranslateDropdown {
                 }
             }
             else {
-                // Hide the cookie message container when Google Translate loads successfully
                 const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
                 if ( cookieTextContainer ) {
                     cookieTextContainer.classList.add( 'is-hidden' );
