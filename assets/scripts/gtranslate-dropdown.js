@@ -22,7 +22,7 @@ export default class GtranslateDropdown {
     /**
      * Check if Cookiebot consent allows loading Google Translate
      *
-     * @return {boolean}
+     * @return {boolean} True when consent permits loading Google Translate.
      */
     hasConsentForGtranslate() {
         if ( typeof window.Cookiebot === 'undefined' ) {
