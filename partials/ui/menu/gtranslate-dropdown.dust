@@ -1,0 +1,28 @@
+<div class="gtranslate-wrapper is-relative ml-2">
+    <button class="gtranslate-trigger p-0 has-border-radius-small" aria-expanded="false" aria-haspopup="true" aria-controls="js-gtranslate-dropdown">
+        <span class="is-sr-only">{Strings.s.header.translate|html}</span>
+        {>"ui/icon" icon="icon-translate" class="icon--xlarge" /}
+    </button>
+
+    <div id="js-gtranslate-dropdown" class="gtranslate-dropdown p-4 is-hidden is-absolute" role="menu" aria-labelledby="gtranslate-trigger">
+        <div class="gtranslate-dropdown__content">
+            <div class="gtranslate-dropdown__text">
+                <p class="mb-2 mt-0">
+                {Header.gtranslate_menu.select_text|html}
+            </p>
+            </div>
+            <div id="google_translate_element_custom" class="nav-translate-wrapper" data-lang="{Header.gtranslate_menu.current_language}"></div>
+            <p class="is-small mb-0 mt-2">
+                {Header.gtranslate_menu.disclaimer_text|html}
+            </p>
+            <div class="gtranslate-cookie-text-container is-hidden">
+                <p class="gtranslate-cookie-text mt-0 mb-4">
+                    {Header.gtranslate_menu.cookies_disabled|html}
+                </p>
+                <a href="javascript:Cookiebot.renew()" class="button is-primary">
+                    {Header.gtranslate_menu.accept_cookies|html}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
