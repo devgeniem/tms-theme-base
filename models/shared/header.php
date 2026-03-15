@@ -464,7 +464,7 @@ class Header extends Model {
             'current_language' => $current_lang,
             'select_text'      => \__( 'Select language', 'tms-theme-base' ),
             'disclaimer_text'  => \__( 'The City of Tampere is not responsible for translations made by Google Translate.', 'tms-theme-base' ),
-            'cookies_disabled' => \__( "Unfortunately you are not able to use the translation option since you haven't accepted related cookies. You can accept cookies by clicking the Renew consent icon at the bottom left corner of the website or on the Accept cookies button below.", 'tms-theme-base' ),
+            'cookies_disabled' => \__( "Unfortunately you are not able to use the translation option since you haven't accepted related cookies. You can accept cookies by clicking the Accept cookies button below.", 'tms-theme-base' ),
             'accept_cookies'   => \__( 'Accept cookies', 'tms-theme-base' ),
         ];
     }
