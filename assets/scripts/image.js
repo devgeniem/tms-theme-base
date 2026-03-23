@@ -13,6 +13,13 @@ const $ = jQuery; // eslint-disable-line no-unused-vars
  */
 export default class Image {
     /**
+     * Store the element that triggered the modal.
+     */
+    constructor() {
+        this.lastModalTrigger = null;
+    }
+
+    /**
      * Run when the document is ready.
      *
      * @return {void}
@@ -21,7 +28,13 @@ export default class Image {
         $( '.has-modal' ).modaal( {
             type: 'image',
             background_scroll: false,
-            after_open: this.disableBackgroundItemFocusing,
+            before_open: () => {
+                this.lastModalTrigger = document.activeElement;
+            },
+            after_open: () => {
+                this.disableBackgroundItemFocusing();
+                this.setModalImageAltText();
+            },
             accessible_title: window.s.modaal.accessible_title || 'Enlarged image',
             close_aria_label: window.s.modaal.close || 'Close',
         } );
@@ -65,6 +78,29 @@ export default class Image {
                 }
             }
             );
+        }
+    }
+
+    /**
+     * Set alt text for the modal image using the trigger element's data.
+     */
+    setModalImageAltText() {
+        const modalImage = document.querySelector( '.modaal-container img' );
+
+        if ( ! modalImage ) {
+            return;
+        }
+
+        const trigger = this.lastModalTrigger;
+
+        if ( ! trigger || trigger.tagName !== 'IMG' ) {
+            return;
+        }
+
+        const alt = trigger.getAttribute( 'alt' );
+
+        if ( alt ) {
+            modalImage.setAttribute( 'alt', alt );
         }
     }
 }
