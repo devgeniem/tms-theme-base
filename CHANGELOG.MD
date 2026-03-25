@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1263: Fix pagination from showing arrow button on last page
+
 ## [1.71.3] - 2026-03-16
 
 - TMS-1259: Disable link underline in theme.json
