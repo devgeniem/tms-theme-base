@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1260: Add missing alt-text for enlargened images in image-block
 - TMS-1261: Change highlighted articles pill colors
 - TMS-1264: Fix Eventz to use endpoint url from env
+- TMS-1263: Fix pagination from showing arrow button on last page
 
 ## [1.71.3] - 2026-03-16
 

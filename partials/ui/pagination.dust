@@ -3,15 +3,15 @@
         <ul class="pagination is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center">
             {?prev_page}
                 <li class="arrow arrow-left">
-                    <a class="paginate" href="{page_link}{prev_page}{hash}" data-page="{prev_page}">
+                    <a class="paginate" href="{page_link|url}{prev_page|attr}{hash|attr}" data-page="{prev_page|attr}">
                         {>"ui/icon" icon="chevron-left" class="icon--medium" aria-hidden="true" /}
-                        <span class="is-sr-only">{S.prev}</span>
+                        <span class="is-sr-only">{S.prev|html}</span>
                     </a>
                 </li>
             {/prev_page}
             {?hellip_start}
                 <li class="pagination-item">
-                    <a class="pagination-item__link" href="{page_link}1{hash}" data-page="{first_page}">{first_page}</a>
+                    <a class="pagination-item__link" href="{page_link|url}1{hash|attr}" data-page="{first_page|attr}">{first_page|html}</a>
                 </li>
 
                 <li class="unavailable" aria-disabled="true">
@@ -20,11 +20,11 @@
             {/hellip_start}
             {#pages}
                 <li class="pagination-item{?active} is-current unavailable{/active}">
-                    <a class="pagination-item__link{^active} clickable{/active}" href="{page_link}{page}{hash}"
+                    <a class="pagination-item__link{^active} clickable{/active}" href="{page_link|url}{page|attr}{hash|attr}"
                        {?active}aria-current="true" {/active}
-                       aria-label="{S.page_aria_label|s} {page}"
-                       data-page="{page}">
-                        {page}
+                       aria-label="{S.page_aria_label|attr} {page|attr}"
+                       data-page="{page|attr}">
+                        {page|html}
                     </a>
                 </li>
             {/pages}
@@ -34,15 +34,15 @@
                 </li>
 
                 <li class="pagination-item">
-                    <a class="pagination-item__link" href="{page_link}{last_page}{hash}" data-page="{last_page}">
-                        {last_page}
+                    <a class="pagination-item__link" href="{page_link|url}{last_page|attr}{hash|attr}" data-page="{last_page|attr}">
+                        {last_page|html}
                     </a>
                 </li>
             {/hellip_end}
             {?next_page}
                 <li class="arrow arrow-right">
-                    <a class="paginate" href="{page_link}{next_page}{hash}" data-page="{next_page}">
-                        <span class="is-sr-only">{S.next}</span>
+                    <a class="paginate" href="{page_link|url}{next_page|attr}{hash|attr}" data-page="{next_page|attr}">
+                        <span class="is-sr-only">{S.next|html}</span>
                         {>"ui/icon" icon="chevron-right" class="icon--medium" aria-hidden="true" /}
                     </a>
                 </li>
