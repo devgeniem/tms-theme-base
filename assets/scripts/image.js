@@ -92,15 +92,27 @@ export default class Image {
         }
 
         const trigger = this.lastModalTrigger;
+        let sourceImage = null;
 
-        if ( ! trigger || trigger.tagName !== 'IMG' ) {
+        if ( ! trigger ) {
             return;
         }
 
-        const alt = trigger.getAttribute( 'alt' );
+        if ( trigger.tagName === 'IMG' ) {
+            sourceImage = trigger;
+        }
+        else if ( trigger.tagName === 'A' ) {
+            sourceImage = trigger.querySelector( 'img' );
+        }
 
-        if ( alt ) {
-            modalImage.setAttribute( 'alt', alt );
+        if ( ! sourceImage ) {
+            return;
+        }
+
+        const altText = sourceImage.getAttribute( 'alt' );
+
+        if ( altText ) {
+            modalImage.setAttribute( 'alt', altText );
         }
     }
 }
