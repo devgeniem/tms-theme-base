@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2026-03-13 14:05+0200\n"
-"PO-Revision-Date: 2026-03-16 15:18+0200\n"
+"POT-Creation-Date: 2026-03-26 12:18+0200\n"
+"PO-Revision-Date: 2026-03-26 12:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -247,6 +247,11 @@ msgstr "Esteetön wc, yksipuolisesti käytettävä"
 #: lib/Assets.php:437
 msgid "WC"
 msgstr "WC"
+
+#: lib/Blocks/ImageBlock.php:84
+msgctxt "theme-frontend"
+msgid "Open large image"
+msgstr "Avaa kuva suurennettuna"
 
 #: lib/Comments.php:72
 msgid "Send Comment"
