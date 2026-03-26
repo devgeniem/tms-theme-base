@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1260: Add missing alt-text for enlargened images in image-block
+
 ## [1.71.3] - 2026-03-16
 
 - TMS-1259: Disable link underline in theme.json
