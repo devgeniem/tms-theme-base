@@ -4,7 +4,7 @@
         {>"ui/icon" icon="icon-translate" class="icon--xlarge" /}
     </button>
 
-    <div id="js-gtranslate-dropdown" class="gtranslate-dropdown p-4 is-hidden is-absolute" role="menu" aria-labelledby="gtranslate-trigger">
+    <div id="js-gtranslate-dropdown" class="gtranslate-dropdown p-4 is-hidden is-absolute" role="menu">
         <div class="gtranslate-dropdown__content">
             <div class="gtranslate-dropdown__text">
                 <p class="mb-2 mt-0">
