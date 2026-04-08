@@ -54,7 +54,8 @@ const allModules = {
         },
         {
             test: /\.js$/,
-            exclude: /node_modules/,
+            // Transpile @wordpress packages, which ship modern syntax in build-module.
+            exclude: /node_modules\/(?!@wordpress\/)/,
             use: {
                 loader: 'babel-loader',
                 options: {
