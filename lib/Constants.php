@@ -74,7 +74,7 @@ class Constants implements Interfaces\Controller {
         }
 
         if ( ! defined( 'PIRKANMAA_EVENTZ_API_URL' ) ) {
-            define( 'PIRKANMAA_EVENTZ_API_URL', 'https://backend.ver5.eventz.today/' );
+            define( 'PIRKANMAA_EVENTZ_API_URL', env( 'PIRKANMAA_EVENTZ_API_URL' ) ?? '' );
         }
 
         if ( ! defined( 'PIRKANMAA_EVENTZ_API_KEY' ) ) {
