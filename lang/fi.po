@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2025-10-29 12:00+0200\n"
-"PO-Revision-Date: 2025-10-29 12:00+0200\n"
+"POT-Creation-Date: 2026-03-26 12:18+0200\n"
+"PO-Revision-Date: 2026-03-26 12:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -22,9 +22,28 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 
-#: assets/dist/vendor.js:4630
-msgctxt "text direction"
-msgid "ltr"
+#: assets/dist/vendor.js:1
+msgid "entries"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "values"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "keys"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong index!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong offset!"
+msgstr ""
+
+#: assets/dist/vendor.js:1
+msgid "Wrong length!"
 msgstr ""
 
 #: comments.php:14
@@ -113,121 +132,126 @@ msgstr "Tekstikappale"
 msgid "Header"
 msgstr "Ylätunniste"
 
-#: lib/Assets.php:400
+#: lib/Assets.php:408
 msgid "Audio guide"
 msgstr "Ääni-opastus"
 
-#: lib/Assets.php:401
+#: lib/Assets.php:409
 msgid "Assistant"
 msgstr "Avustaja"
 
-#: lib/Assets.php:402
+#: lib/Assets.php:410
 msgid "Lift"
 msgstr "Hissi"
 
-#: lib/Assets.php:403
+#: lib/Assets.php:411
 msgid "Induction loop"
 msgstr "Induktio-silmukka"
 
-#: lib/Assets.php:404
+#: lib/Assets.php:412
 msgid "Information"
 msgstr "Info"
 
-#: lib/Assets.php:405
+#: lib/Assets.php:413
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/Assets.php:406
+#: lib/Assets.php:414
 msgid "Accessible entrance, Accessible toilet, Accessible parking"
 msgstr "Esteetön sisäänkäynti, esteetön WC, esteetön pysäköinti"
 
-#: lib/Assets.php:407
+#: lib/Assets.php:415
 msgid "Café"
 msgstr "Kahvila"
 
-#: lib/Assets.php:408
+#: lib/Assets.php:416
 msgid "Shop"
 msgstr "Myymälä"
 
-#: lib/Assets.php:409
+#: lib/Assets.php:417
 msgid "Meeting room"
 msgstr "Kokoustila"
 
-#: lib/Assets.php:410
+#: lib/Assets.php:418
 msgid "Assistive device lending"
 msgstr "Lainattavia apuvälineitä"
 
-#: lib/Assets.php:411
+#: lib/Assets.php:419
 msgid "Baby changing"
 msgstr "Lastenhoito-tila"
 
-#: lib/Assets.php:412
+#: lib/Assets.php:420
 msgid "Charging point"
 msgstr "Latauspiste"
 
-#: lib/Assets.php:413
+#: lib/Assets.php:421
 msgid "Ticket sales"
 msgstr "Lipunmyyti"
 
-#: lib/Assets.php:414
+#: lib/Assets.php:422
 msgid "Ramp"
 msgstr "Luiska"
 
-#: lib/Assets.php:415
+#: lib/Assets.php:423
 msgid "Services for the visually impaired"
 msgstr "Näkö-vammaisia helpottavia palveluja"
 
-#: lib/Assets.php:416
+#: lib/Assets.php:424
 msgid "Service dogs allowed"
 msgstr "Opaskoira sallittu"
 
-#: lib/Assets.php:417
+#: lib/Assets.php:425
 msgid "Braille"
 msgstr "Piste-kirjoitus"
 
-#: lib/Assets.php:418
+#: lib/Assets.php:426
 msgid "Stairlift"
 msgstr "Porrashissi"
 
-#: lib/Assets.php:419
+#: lib/Assets.php:427
 msgid "Staircase"
 msgstr "Portaat"
 
-#: lib/Assets.php:420
+#: lib/Assets.php:428
 msgid "Platform lift"
 msgstr "Pyöratuoli-hissi, nostotaso"
 
-#: lib/Assets.php:421
+#: lib/Assets.php:429
 msgid "Rollator, walker"
 msgstr "Rollaattori"
 
-#: lib/Assets.php:422
+#: lib/Assets.php:430
 msgid "Electric mobility scooter storage"
 msgstr "Sähkömopo-säilytys"
 
-#: lib/Assets.php:423
+#: lib/Assets.php:431
 msgid "Lockers"
 msgstr "Säilytys-lokero"
 
-#: lib/Assets.php:424
+#: lib/Assets.php:432
 msgid "Large print"
 msgstr "Suuri teksti"
 
-#: lib/Assets.php:425
+#: lib/Assets.php:433
 msgid "Cloakroom"
 msgstr "Vaate-säilytys"
 
-#: lib/Assets.php:426
+#: lib/Assets.php:434
 msgid "Sign-language services"
 msgstr "Viittoma-kielinen palvelu"
 
-#: lib/Assets.php:427 lib/Assets.php:428
+#: lib/Assets.php:435 lib/Assets.php:436
 msgid "Accessible toilet: one-sided access"
 msgstr "Esteetön wc, yksipuolisesti käytettävä"
 
-#: lib/Assets.php:429
+#: lib/Assets.php:437
 msgid "WC"
 msgstr "WC"
+
+#: lib/Blocks/ImageBlock.php:84
+msgctxt "theme-frontend"
+msgid "Open large image"
+msgstr "Avaa kuva suurennettuna"
 
 #: lib/Comments.php:72
 msgid "Send Comment"
