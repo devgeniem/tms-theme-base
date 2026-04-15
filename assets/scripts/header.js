@@ -55,18 +55,6 @@ export default class Header {
     }
 
     /**
-     * Toggle aria-expanded attribute based on .fly-out-nav state.
-     *
-     * @return {void}
-     */
-    toggleFlyOutNavAria() {
-        const $flyOutNav = $( '.fly-out-nav' );
-        const $trigger = $( '.fly-out-nav__trigger' );
-        const ariaExpandedState = $flyOutNav.hasClass( 'is-open' );
-        $trigger.attr( 'aria-expanded', ariaExpandedState );
-    }
-
-    /**
      * Run when the document is ready.
      *
      * @return {void}
@@ -82,13 +70,5 @@ export default class Header {
         } );
 
         this.maybeShowGeneralNotification();
-
-        // Add an event listener to monitor changes to the .fly-out-nav class
-        const flyOutNav = document.getElementById( 'js-fly-out-nav' );
-        const observer = new MutationObserver( () => {
-            this.toggleFlyOutNavAria();
-        } );
-
-        observer.observe( flyOutNav, { attributes: true, attributeFilter: [ 'class' ] } );
     }
 }
