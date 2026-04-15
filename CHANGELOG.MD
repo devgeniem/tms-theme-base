@@ -10,11 +10,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1144: Change aria-attribute for menu-item
 - TMS-1237: Add a custom Google Translate functionality to navigation
 - Update modaal string null-guards
+- TMS-1141: Add if-statement for block-subpages title container
+
+## [1.72.0] - 2026-04-12
+
 - TMS-1260: Add missing alt-text for enlargened images in image-block
 - TMS-1261: Change highlighted articles pill colors
 - TMS-1264: Fix Eventz to use endpoint url from env
 - TMS-1263: Fix pagination from showing arrow button on last page
-- TMS-1141: Add if-statement for block-subpages title container
 
 ## [1.71.3] - 2026-03-16
 
