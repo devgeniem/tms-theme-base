@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1261: Change highlighted articles pill colors
 - TMS-1264: Fix Eventz to use endpoint url from env
 - TMS-1263: Fix pagination from showing arrow button on last page
+- TMS-1141: Add if-statement for block-subpages title container
 
 ## [1.71.3] - 2026-03-16
 
@@ -99,7 +100,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.60.2] - 2025-04-30
 
 - TMS-1139: Add another link-button to CTA-component
-- TMS-1141: Add if-statement for block-subpages title container
 
 ## [1.60.1] - 2025-04-23
 
