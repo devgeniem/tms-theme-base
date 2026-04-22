@@ -100,34 +100,34 @@ class HeaderSettingsTab extends Tab {
 
         try {
             $logo_field = ( new Field\Image( $strings['logo']['title'] ) )
-                ->set_key( "${key}_logo" )
+                ->set_key( "{$key}_logo" )
                 ->set_name( 'logo' )
                 ->set_return_format( 'id' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['logo']['instructions'] );
 
             $brand_logo_field = ( new Field\Image( $strings['brand_logo']['title'] ) )
-                ->set_key( "${key}_brand_logo" )
+                ->set_key( "{$key}_brand_logo" )
                 ->set_name( 'brand_logo' )
                 ->set_wrapper_width( 50 )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['brand_logo']['instructions'] );
 
             $tagline_field = ( new Field\Text( $strings['tagline']['title'] ) )
-                ->set_key( "${key}_tagline" )
+                ->set_key( "{$key}_tagline" )
                 ->set_name( 'tagline' )
                 ->set_wrapper_width( 50 )
                 ->set_instructions( $strings['tagline']['instructions'] );
 
             $favicon_field = ( new Field\Image( $strings['favicon']['title'] ) )
-                ->set_key( "${key}_favicon" )
+                ->set_key( "{$key}_favicon" )
                 ->set_name( 'favicon' )
                 ->set_wrapper_width( 50 )
                 ->set_return_format( 'id' )
                 ->set_instructions( $strings['favicon']['instructions'] );
 
             $lang_nav_display_field = ( new Field\Select( $strings['lang_nav_display']['title'] ) )
-                ->set_key( "${key}_lang_nav_display" )
+                ->set_key( "{$key}_lang_nav_display" )
                 ->set_name( 'lang_nav_display' )
                 ->set_choices( [
                     'hide'       => 'Ei käytössä',
@@ -139,7 +139,7 @@ class HeaderSettingsTab extends Tab {
                 ->set_instructions( $strings['lang_nav_display']['instructions'] );
 
             $hide_main_nav_field = ( new Field\TrueFalse( $strings['hide_main_nav']['title'] ) )
-                ->set_key( "${key}_hide_main_nav" )
+                ->set_key( "{$key}_hide_main_nav" )
                 ->set_name( 'hide_main_nav' )
                 ->set_default_value( false )
                 ->use_ui()
@@ -147,7 +147,7 @@ class HeaderSettingsTab extends Tab {
                 ->set_instructions( $strings['hide_main_nav']['instructions'] );
 
             $limit_nav_depth_field = ( new Field\TrueFalse( $strings['limit_nav_depth']['title'] ) )
-                ->set_key( "${key}_limit_nav_depth" )
+                ->set_key( "{$key}_limit_nav_depth" )
                 ->set_name( 'limit_nav_depth' )
                 ->set_default_value( false )
                 ->use_ui()
@@ -155,7 +155,7 @@ class HeaderSettingsTab extends Tab {
                 ->set_instructions( $strings['limit_nav_depth']['instructions'] );
 
             $hide_search_field = ( new Field\TrueFalse( $strings['hide_search']['title'] ) )
-                ->set_key( "${key}_hide_search" )
+                ->set_key( "{$key}_hide_search" )
                 ->set_name( 'hide_search' )
                 ->set_default_value( false )
                 ->use_ui()
@@ -175,7 +175,7 @@ class HeaderSettingsTab extends Tab {
 
             if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
                 $header_scripts_field = ( new Field\Textarea( $strings['header_scripts']['title'] ) )
-                    ->set_key( "${key}_header_scripts" )
+                    ->set_key( "{$key}_header_scripts" )
                     ->set_name( 'header_scripts' )
                     ->set_wrapper_width( 50 )
                     ->set_instructions( $strings['header_scripts']['instructions'] );
@@ -183,7 +183,7 @@ class HeaderSettingsTab extends Tab {
                 $this->add_field( $header_scripts_field );
 
                 $body_scripts_field = ( new Field\Textarea( $strings['body_scripts']['title'] ) )
-                    ->set_key( "${key}_body_scripts" )
+                    ->set_key( "{$key}_body_scripts" )
                     ->set_name( 'body_scripts' )
                     ->set_wrapper_width( 50 )
                     ->set_instructions( $strings['body_scripts']['instructions'] );

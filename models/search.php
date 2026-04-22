@@ -293,7 +293,7 @@ class Search extends BaseModel {
 
             switch ( $post_item->post_type ) {
                 case Page::SLUG:
-                    $post_item->content_type = get_post_type_object( Page::SLUG )->labels->singular_name;
+                    $post_item->page_content_type = \get_post_type_object( Page::SLUG )->labels->singular_name;
                     $post_item->breadcrumbs  = $this->prepare_by_type(
                         Page::SLUG,
                         $post_item->ID,
@@ -307,8 +307,6 @@ class Search extends BaseModel {
 
                     break;
                 case Post::SLUG:
-                    $post_item->content_type = get_post_type_object( Post::SLUG )->labels->singular_name;
-
                     $meta = $this->format_result_item_meta(
                         $post_item,
                         Post::get_primary_category( $post_item->ID )
@@ -316,7 +314,7 @@ class Search extends BaseModel {
 
                     break;
                 case BlogArticle::SLUG:
-                    $post_item->content_type = get_post_type_object( BlogArticle::SLUG )->labels->singular_name;
+                    $post_item->content_type = \get_post_type_object( BlogArticle::SLUG )->labels->singular_name;
 
                     $meta = $this->format_result_item_meta(
                         $post_item,
@@ -331,9 +329,9 @@ class Search extends BaseModel {
             }
 
             $post_item->meta      = $meta;
-            $post_item->permalink = get_permalink( $post_item->ID );
+            $post_item->permalink = \get_permalink( $post_item->ID );
 
-            apply_filters( 'tms/theme/base/search_result_item', $post_item );
+            \apply_filters( 'tms/theme/base/search_result_item', $post_item );
         }
 
         return $posts;

@@ -1,0 +1,25 @@
+.share-links {
+    li {
+        a.has-background-accent {
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: $accent !important;
+            }
+        }
+    }
+}
+
+.gform_wrapper {
+    .button,
+    .gform_delete_file {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-active {
+            background-color: $primary !important;
+            color: $white !important;
+        }
+    }
+}

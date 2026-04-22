@@ -37,6 +37,13 @@ class KeyFiguresBlock extends BaseBlock {
     protected $icon = 'admin-network';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

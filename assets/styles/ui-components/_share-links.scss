@@ -1,0 +1,17 @@
+.share-links {
+    a.has-background-accent {
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $primary !important;
+        }
+    }
+
+    a {
+        &:hover,
+        &:focus {
+            outline: .15rem dotted;
+            outline-offset: .2rem;
+        }
+    }
+}

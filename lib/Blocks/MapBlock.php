@@ -38,6 +38,13 @@ class MapBlock extends BaseBlock {
     protected $icon = 'location-alt';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

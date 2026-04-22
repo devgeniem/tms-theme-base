@@ -68,12 +68,12 @@ class ImageCarouselFields extends Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\ExtendedWysiwyg( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_tabs( 'visual' )
             ->set_toolbar(
@@ -90,7 +90,7 @@ class ImageCarouselFields extends Field\Group {
             ->set_instructions( $strings['description']['instructions'] );
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
+            ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
             ->set_min( 4 )
             ->set_max( 20 )
@@ -99,7 +99,7 @@ class ImageCarouselFields extends Field\Group {
             ->set_instructions( $strings['rows']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_required()
             ->set_wrapper_width( 40 )
@@ -107,7 +107,7 @@ class ImageCarouselFields extends Field\Group {
             ->set_instructions( $strings['image']['instructions'] );
 
         $caption_field = ( new Field\ExtendedWysiwyg( $strings['caption']['label'] ) )
-            ->set_key( "${key}_caption" )
+            ->set_key( "{$key}_caption" )
             ->set_name( 'caption' )
             ->set_tabs( 'visual' )
             ->set_toolbar( [ 'bold', 'italic', 'link' ] )

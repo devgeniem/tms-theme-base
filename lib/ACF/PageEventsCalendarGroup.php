@@ -99,13 +99,17 @@ class PageEventsCalendarGroup {
                     'list' => 'Lista',
                 ],
             ],
+            'disable_pagination' => [
+                'title'        => 'Poista sivutus käytöstä',
+                'instructions' => '',
+            ],
         ];
 
         $tab = ( new Field\Tab( $strings['tab'] ) )
             ->set_placement( 'left' );
 
         $description_field = ( new TextEditor( $strings['description']['title'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->redipress_include_search()
             ->set_instructions( $strings['description']['instructions'] );
@@ -115,14 +119,21 @@ class PageEventsCalendarGroup {
         $search_fields->remove_field( 'page_size' );
 
         $layout_field = ( new Field\Radio( $strings['layout']['title'] ) )
-            ->set_key( "${key}_layout" )
+            ->set_key( "{$key}_layout" )
             ->set_name( 'layout' )
             ->set_choices( $strings['layout']['choices'] )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['layout']['instructions'] );
 
+        $disable_pagination_field = ( new Field\TrueFalse( $strings['disable_pagination']['title'] ) )
+            ->set_key( "{$key}_disable_pagination" )
+            ->set_name( 'disable_pagination' )
+            ->use_ui()
+            ->set_instructions( $strings['disable_pagination']['instructions'] );
+
         $fields   = $search_fields->get_fields();
         $fields[] = $layout_field;
+        $fields[] = $disable_pagination_field;
         array_unshift( $fields, $description_field );
 
         $tab->add_fields( $fields );

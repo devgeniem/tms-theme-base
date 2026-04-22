@@ -54,6 +54,7 @@ class Strings extends \DustPress\Model {
                 'search_input_placeholder'  => _x( 'Search from site', 'theme-frontend', 'tms-theme-base' ),
                 'exception_close_button'    => _x( 'Close', 'theme-frontend', 'tms-theme-base' ),
                 'home'                      => _x( 'To home page', 'theme-frontend', 'tms-theme-base' ),
+                'breadcrumbs'               => _x( 'Breadcrumbs', 'theme-frontend', 'tms-theme-base' ),
             ],
             '404'                => [
                 'title'         => _x( 'Page not found', 'theme-frontend', 'tms-theme-base' ),
@@ -68,6 +69,9 @@ class Strings extends \DustPress\Model {
                 'skip_embed' => _x( 'Skip video embed', 'theme-frontend', 'tms-theme-base' ),
                 'play'       => _x( 'Play video', 'theme-frontend', 'tms-theme-base' ),
                 'pause'      => _x( 'Pause video', 'theme-frontend', 'tms-theme-base' ),
+                'stop'       => _x( 'Stop video', 'theme-frontend', 'tms-theme-base' ),
+                'mute'       => _x( 'Mute or unmute video', 'theme-frontend', 'tms-theme-base' ),
+                'volume'     => _x( 'Video volume', 'theme-frontend', 'tms-theme-base' ),
             ],
             'social_media'       => [
                 'skip_embed' => _x( 'Skip social media embed', 'theme-frontend', 'tms-theme-base' ),
@@ -89,6 +93,7 @@ class Strings extends \DustPress\Model {
                 'modal_carousel'  => _x( 'Modal image carousel', 'theme-frontend', 'tms-theme-base' ),
                 'browsing_images' => _x( 'Browsing images', 'theme-frontend', 'tms-theme-base' ),
                 'main_carousel'   => _x( 'Main image carousel', 'theme-frontend', 'tms-theme-base' ),
+                'expand'          => _x( 'Expand', 'theme-frontend', 'tms-theme-base' ),
             ],
             'footer'             => [
                 'to_main_site' => _x( 'Move to tampere.fi', 'theme-frontend', 'tms-theme-base' ),

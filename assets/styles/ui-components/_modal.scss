@@ -42,7 +42,7 @@
         &:focus {
             color: $white !important; // sass-lint:disable-line no-important
             border: .125rem solid $white !important; // sass-lint:disable-line no-important
-            outline: .125rem solid $white;
+            outline: .125rem solid $white !important; // sass-lint:disable-line no-important
             outline-offset: .25rem;
 
             .icon {

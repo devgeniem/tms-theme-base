@@ -37,6 +37,13 @@ class ShareLinksBlock extends BaseBlock {
     protected $icon = 'format-status';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

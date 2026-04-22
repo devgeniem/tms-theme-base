@@ -9,6 +9,102 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Update theme packages
 
+## [1.72.0] - 2026-04-12
+
+- TMS-1260: Add missing alt-text for enlargened images in image-block
+- TMS-1261: Change highlighted articles pill colors
+- TMS-1264: Fix Eventz to use endpoint url from env
+- TMS-1263: Fix pagination from showing arrow button on last page
+
+## [1.71.3] - 2026-03-16
+
+- TMS-1259: Disable link underline in theme.json
+
+## [1.71.2] - 2026-02-25
+
+- TMS-1255: Check for redipress class before indexing contact field
+
+## [1.71.1] - 2026-02-15
+
+- TMS-1164: Button hover color fixes
+
+## [1.71.0] - 2026-02-03
+
+- TMS-1164: Change button hover & focus styles
+
+## [1.70.0] - 2025-12-17
+
+- TMS-1230: Allow audio-block
+- TMS-1226: Change focus order on events-search form
+
+## [1.69.0] - 2025-11-18
+
+- Fix PHP deprecations
+
+## [1.68.1] - 2025-11-10
+
+- TMS-1204-2: Remove external-link icon for tms.production.geniem.io links
+
+## [1.68.0] - 2025-11-05
+
+- TMS-1204: Add expand-icon for image gallery item if it is expandable
+
+## [1.67.0] - 2025-10-22
+
+- TMS-1209: Rework window.s translations inline script
+- TMS-1201: Add iframe-field for accordion-blocks video field
+
+## [1.66.1] - 2025-10-01
+
+- TMS-1199: Change events-search no-results text
+
+## [1.66.0] - 2025-10-01
+
+- TMS-1201: Add iframe-field for video fields
+
+## [1.65.0] - 2025-09-08
+
+- TMS-1166: Fix duet-datepicker border on focus
+- TMS-1163: Search results breadcrumbs accessibility fixes
+
+## [1.64.0] - 2025-08-13
+
+- TMS-1160: Fix elements focus outline thickness
+- TMS-1158: Disable mobile-nav from closing when scrolling by clicking the inner container
+
+## [1.63.0] - 2025-08-11
+
+- TMS-1162:
+    - Hide breadcrumbs pseudo-elements text from screen readers
+    - Add aria-label translations for breadcrumbs
+- TMS-1170: Change hamburger-menu icon color for häive-theme
+- TMS-1176: Add homepage-selection for some-linklist fields
+- TMS-1183: Use Logger for EventzClient errors
+
+## [1.62.0] - 2025-06-23
+
+- TMS-1172: Add video possibility to hero-museum layout
+
+## [1.61.0] - 2025-06-05
+
+- TMS-1152: Add custom controllers to hero-video
+
+## [1.60.4] - 2025-05-14
+
+- TMS-1131: Change form border-colors
+
+## [1.60.3] - 2025-05-14
+
+- TMS-1155: Fix screen-reader text for mobile-nav dropdowns
+
+## [1.60.2] - 2025-04-30
+
+- TMS-1139: Add another link-button to CTA-component
+
+## [1.60.1] - 2025-04-23
+
+- TMS-1095: Add field to disable pagination for events-calendar template
+
 ## [1.60.0] - 2025-04-09
 
 - TMS-1114: Decrease image-meta paddings

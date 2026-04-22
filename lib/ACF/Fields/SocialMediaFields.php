@@ -58,17 +58,17 @@ class SocialMediaFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_instructions( $strings['description']['instructions'] );
 
         $flocker_embed_field = ( new Field\Textarea( $strings['flocker_embed']['label'] ) )
-            ->set_key( "${key}_flocker_embed" )
+            ->set_key( "{$key}_flocker_embed" )
             ->set_name( 'flocker_embed' )
             ->set_instructions( $strings['flocker_embed']['instructions'] );
 

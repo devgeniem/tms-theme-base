@@ -1,0 +1,29 @@
+{?breadcrumbs}
+<nav class="breadcrumb has-succeeds-separator" aria-label="{Strings.s.header.breadcrumbs|attr}">
+    <ul class="breadcrumbs__nav is-relative is-flex m-0 p-0 is-family-secondary">
+        {#breadcrumbs}
+            <li class="{?is_active}is-active{/is_active} {?class}{class|attr}{/class}">
+                {?permalink}
+                    <span class="p-0" {?is_active}aria-current="page"{/is_active}>
+                        {?icon}
+                            {>"ui/icon" icon=icon class=icon_class /}
+                        {/icon}
+                        {?title}
+                            {title|html}
+                        {/title}
+                    </span>
+                {:else}
+                    <span {?is_active}aria-current="page"{/is_active} class="ml-3">
+                        {?icon}
+                            {>"ui/icon" icon=icon class=icon_class /}
+                        {/icon}
+                        {?title}
+                            {title|html}
+                        {/title}
+                    </span>
+                {/permalink}
+            </li>
+        {/breadcrumbs}
+    </ul>
+</nav>
+{/breadcrumbs}

@@ -79,7 +79,7 @@ class ChatTab extends Tab {
         try {
             if ( user_can( get_current_user_id(), 'unfiltered_html' ) ) {
                 $chat_script_field = ( new Field\Textarea( $strings['chat_script']['title'] ) )
-                    ->set_key( "${key}_chat_script" )
+                    ->set_key( "{$key}_chat_script" )
                     ->set_name( 'chat_script' )
                     ->set_instructions( $strings['chat_script']['instructions'] );
 
@@ -87,14 +87,14 @@ class ChatTab extends Tab {
             }
 
             $chat_pages_field = ( new Field\Repeater( $strings['chat_pages']['title'] ) )
-                ->set_key( "${key}_chat_pages" )
+                ->set_key( "{$key}_chat_pages" )
                 ->set_name( 'chat_pages' )
                 ->set_instructions( $strings['chat_pages']['instructions'] );
 
             $this->add_field( $chat_pages_field );
 
             $chat_page_field = ( new Field\PostObject( $strings['chat_page']['title'] ) )
-                ->set_key( "${key}_chat_page" )
+                ->set_key( "{$key}_chat_page" )
                 ->set_name( 'chat_page' )
                 ->set_post_types( [ PostType\Page::SLUG ] )
                 ->set_return_format( 'id' )
@@ -103,7 +103,7 @@ class ChatTab extends Tab {
             $chat_pages_field->add_field( $chat_page_field );
 
             $show_on_child_field = ( new Field\TrueFalse( $strings['show_on_child']['title'] ) )
-                ->set_key( "${key}_show_on_child" )
+                ->set_key( "{$key}_show_on_child" )
                 ->set_name( 'show_on_child' )
                 ->use_ui()
                 ->set_instructions( $strings['show_on_child']['instructions'] );

@@ -37,6 +37,13 @@ class AccordionBlock extends BaseBlock {
     protected $icon = 'editor-kitchensink';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {
@@ -53,7 +60,7 @@ class AccordionBlock extends BaseBlock {
     protected function fields() : array {
         $group = new AccordionFields( $this->title, self::NAME );
 
-        return apply_filters(
+        return \apply_filters(
             'tms/block/' . self::KEY . '/fields',
             $group->get_fields(),
             self::KEY
@@ -77,6 +84,6 @@ class AccordionBlock extends BaseBlock {
             $data = [];
         }
 
-        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
+        return \apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }

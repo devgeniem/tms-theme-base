@@ -46,14 +46,14 @@ class PageEventsSearch extends BaseModel {
      */
     public function form() {
         return [
-            'search_term'      => trim( get_query_var( self::EVENT_SEARCH_TEXT ) ),
-            'form_start_date'  => get_query_var( self::EVENT_SEARCH_START_DATE ),
-            'form_end_date'    => get_query_var( self::EVENT_SEARCH_END_DATE ),
-            'seach_term_label' => __( 'Search term', 'tms-theme-base' ),
-            'time_frame_label' => __( 'Events from', 'tms-theme-base' ),
-            'start_date_label' => __( 'Start date', 'tms-theme-base' ),
-            'end_date_label'   => __( 'End date', 'tms-theme-base' ),
-            'action'           => get_the_permalink(),
+            'search_term'      => trim( \get_query_var( self::EVENT_SEARCH_TEXT ) ),
+            'form_start_date'  => \get_query_var( self::EVENT_SEARCH_START_DATE ),
+            'form_end_date'    => \get_query_var( self::EVENT_SEARCH_END_DATE ),
+            'seach_term_label' => \__( 'Search term', 'tms-theme-base' ),
+            'time_frame_label' => \__( 'Events from', 'tms-theme-base' ),
+            'start_date_label' => \__( 'Start date', 'tms-theme-base' ),
+            'end_date_label'   => \__( 'End date', 'tms-theme-base' ),
+            'action'           => \get_the_permalink(),
         ];
     }
 
@@ -63,7 +63,7 @@ class PageEventsSearch extends BaseModel {
      * @return string
      */
     public function item_classes() : array {
-        return apply_filters( 'tms/theme/page_events_search/item_classes', [
+        return \apply_filters( 'tms/theme/page_events_search/item_classes', [
             'list' => [
                 'item'        => 'has-background-secondary',
                 'item_inner'  => '',
@@ -84,7 +84,7 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     public function template_classes() {
-        return apply_filters(
+        return \apply_filters(
             'tms/theme/search/search_item',
             [
                 'search_form'         => 'has-background-secondary',
@@ -114,9 +114,7 @@ class PageEventsSearch extends BaseModel {
      * @return ?string
      */
     public function no_results() : ?string {
-        return empty( get_query_var( self::EVENT_SEARCH_TEXT ) )
-            ? __( 'No search term given', 'tms-theme-base' )
-            : __( 'No results', 'tms-theme-base' );
+        return \__( 'No results', 'tms-theme-base' );
     }
 
     /**
@@ -125,8 +123,8 @@ class PageEventsSearch extends BaseModel {
      * @return array
      */
     protected function get_events() : array {
-        $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
-        $start_date        = get_query_var( self::EVENT_SEARCH_START_DATE );
+        $event_search_text = \get_query_var( self::EVENT_SEARCH_TEXT );
+        $start_date        = \get_query_var( self::EVENT_SEARCH_START_DATE );
         $start_date        = ! empty( $start_date ) ? $start_date : date( 'Y-m-d' );
 
         // Start date can not be in the past.
@@ -135,15 +133,15 @@ class PageEventsSearch extends BaseModel {
             $start_date = $today;
         }
 
-        $end_date = get_query_var( self::EVENT_SEARCH_END_DATE );
+        $end_date = \get_query_var( self::EVENT_SEARCH_END_DATE );
         $end_date = ! empty( $end_date ) ? $end_date : date( 'Y-m-d', strtotime( '+1 year' ) );
 
-        $paged = get_query_var( 'paged', 1 );
+        $paged = \get_query_var( 'paged', 1 );
         $skip  = 0;
         $count = 0;
 
         if ( $paged > 1 ) {
-            $skip = ( $paged - 1 ) * get_option( 'posts_per_page' );
+            $skip = ( $paged - 1 ) * \get_option( 'posts_per_page' );
         }
 
         // Set user defined and default search parameters
@@ -152,21 +150,21 @@ class PageEventsSearch extends BaseModel {
             'start'       => $start_date,
             'end'         => $end_date,
             'sort'        => 'startDate',
-            'category_id' => get_field( 'category' ) ?? [],
+            'category_id' => \get_field( 'category' ) ?? [],
         ];
 
         $formatter = new EventzFormatter();
         $params    = $formatter->format_query_params( $params );
 
         $cache_group = 'page-events-search';
-        $cache_key   = md5( wp_json_encode( $params ) );
-        $response    = wp_cache_get( $cache_key, $cache_group );
+        $cache_key   = md5( \wp_json_encode( $params ) );
+        $response    = \wp_cache_get( $cache_key, $cache_group );
 
         if ( empty( $response ) ) {
             $response = $this->do_get_events( $params );
 
             if ( ! empty( $response ) ) {
-                wp_cache_set(
+                \wp_cache_set(
                     $cache_key,
                     $response,
                     $cache_group,
@@ -203,7 +201,7 @@ class PageEventsSearch extends BaseModel {
      * @return string|null
      */
     protected function get_results_text( $event_count ) : ?string {
-        $event_search_text = get_query_var( self::EVENT_SEARCH_TEXT );
+        $event_search_text = \get_query_var( self::EVENT_SEARCH_TEXT );
 
         if ( $event_count > 0 && ! empty( $event_search_text ) ) {
             $results_text = sprintf(
@@ -243,7 +241,7 @@ class PageEventsSearch extends BaseModel {
             $event_data['events'] = ( new EventzFormatter() )->format_events( $event_data['events'] );
 
             $event_data['events'] = array_map( function ( $item ) {
-                $item['short_description'] = wp_trim_words( $item['short_description'], 30 );
+                $item['short_description'] = \wp_trim_words( $item['short_description'], 30 );
                 $item['location_icon']     = isset( $item['is_virtual_event'] )
                     ? 'globe'
                     : 'location';
@@ -294,8 +292,8 @@ class PageEventsSearch extends BaseModel {
      * @return void
      */
     protected function set_pagination_data( int $event_count ) : void {
-        $per_page = get_option( 'posts_per_page' );
-        $paged    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+        $per_page = \get_option( 'posts_per_page' );
+        $paged    = \get_query_var( 'paged' ) ? \get_query_var( 'paged' ) : 1;
 
         $this->pagination           = new stdClass();
         $this->pagination->page     = $paged;

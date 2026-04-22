@@ -15,7 +15,6 @@
 
         select {
             width: 100%;
-            color: inherit;
 
             @include until($desktop) {
                 font-size: 1em;

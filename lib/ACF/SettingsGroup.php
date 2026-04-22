@@ -125,7 +125,7 @@ class SettingsGroup {
             ->set_placement( 'left' );
 
         $exception_text_field = ( new Field\Textarea( $strings['text']['title'] ) )
-            ->set_key( "${key}_exception_text" )
+            ->set_key( "{$key}_exception_text" )
             ->set_name( 'exception_text' )
             ->set_rows( 2 )
             ->set_wrapper_width( 50 )

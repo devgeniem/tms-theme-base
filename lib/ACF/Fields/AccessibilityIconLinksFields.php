@@ -68,7 +68,7 @@ class AccessibilityIconLinksFields extends Field\Group {
         $key = $this->get_key();
 
         $rows_field = ( new Field\Repeater( $strings['rows']['label'] ) )
-            ->set_key( "${key}_rows" )
+            ->set_key( "{$key}_rows" )
             ->set_name( 'rows' )
             ->set_min( 2 )
             ->set_layout( 'block' )
@@ -79,7 +79,7 @@ class AccessibilityIconLinksFields extends Field\Group {
         $icons = apply_filters( 'tms/acf/field/' . $key . '_acc_icon/choices', $icons );
 
         $icon_field = ( new Field\Select( $strings['icon']['label'] ) )
-            ->set_key( "${key}_acc_icon" )
+            ->set_key( "{$key}_acc_icon" )
             ->set_name( 'acc_icon' )
             ->set_choices( $icons )
             ->allow_null()
@@ -87,20 +87,20 @@ class AccessibilityIconLinksFields extends Field\Group {
             ->set_instructions( $strings['icon']['instructions'] );
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $description_field = ( new Field\Textarea( $strings['description']['label'] ) )
-            ->set_key( "${key}_description" )
+            ->set_key( "{$key}_description" )
             ->set_name( 'description' )
             ->set_wrapper_width( 50 )
             ->set_rows( 2 )
             ->set_instructions( $strings['description']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
+            ->set_key( "{$key}_link" )
             ->set_name( 'link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );

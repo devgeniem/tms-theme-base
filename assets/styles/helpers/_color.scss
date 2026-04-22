@@ -95,8 +95,12 @@
                 fill: $color-invert !important;
             }
 
+            .button .icon {
+                fill: currentColor !important;
+            }
+
             a {
-                &:not(.pill) {
+                &:not(.pill):not(.button) {
                     &:not(:hover) {
                         color: inherit;
                     }
@@ -115,11 +119,16 @@
 
             .button {
                 &.is-#{$name} {
-                    color: $color !important;
-                    background-color: $color-invert !important;
+                    &,
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: $color !important;
+                        background-color: $color-invert !important;
 
-                    .icon {
-                        fill: $color !important;
+                        .icon {
+                            fill: currentColor !important;
+                        }
                     }
                 }
 

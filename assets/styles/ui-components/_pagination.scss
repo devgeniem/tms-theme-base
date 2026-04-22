@@ -4,11 +4,11 @@ $pagination-item-color-hover: $pagination-item-color !default;
 $pagination-item-color-focus: $pagination-item-color !default;
 
 $pagination-item-background-color: $secondary !default;
-$pagination-item-background-color-hover: opacify($secondary-light, .75) !default;
-$pagination-item-background-color-focus: $secondary-light !default;
+$pagination-item-background-color-hover: $secondary !default;
+$pagination-item-background-color-focus: $secondary !default;
 $pagination-item-background-color-current: $primary !default;
-$pagination-item-background-color-current-hover: $primary-dark !default;
-$pagination-item-background-color-current-focus: $primary-dark !default;
+$pagination-item-background-color-current-hover: $primary !default;
+$pagination-item-background-color-current-focus: $primary !default;
 
 $pagination-item-hover-shadow-size: 0 4px 8px !default;
 $pagination-item-hover-shadow-color: rgba(0, 0, 0, .15) !default;

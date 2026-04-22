@@ -16,6 +16,14 @@
             height: 100% !important;
             object-fit: cover;
         }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            width: 2rem;
+        }
     }
 
     .modal {

@@ -23,29 +23,8 @@ a {
     &:focus,
     &.is-focused {
         text-decoration: underline;
-        outline: .0625rem dotted;
-    }
-
-    &.has-background-primary {
-        &:hover,
-        &:focus {
-            background-color: $link-hover !important; // sass-lint:disable-line no-important
-        }
-
-        &:active {
-            background-color: $link-active !important; // sass-lint:disable-line no-important
-        }
-    }
-
-    &.has-background-accent {
-        &:hover,
-        &:focus {
-            background-color: $link-hover !important; // sass-lint:disable-line no-important
-        }
-
-        &:active {
-            background-color: $link-active !important; // sass-lint:disable-line no-important
-        }
+        outline: .15rem dotted;
+        outline-offset: .2rem;
     }
 }
 

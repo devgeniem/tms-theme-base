@@ -37,6 +37,13 @@ class ContactsBlock extends BaseBlock {
     protected $icon = 'groups';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {

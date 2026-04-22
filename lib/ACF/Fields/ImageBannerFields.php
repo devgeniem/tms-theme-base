@@ -62,26 +62,26 @@ class ImageBannerFields extends \Geniem\ACF\Field\Group {
         $key = $this->get_key();
 
         $title_field = ( new Field\Text( $strings['title']['label'] ) )
-            ->set_key( "${key}_title" )
+            ->set_key( "{$key}_title" )
             ->set_name( 'title' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['title']['instructions'] );
 
         $image_field = ( new Field\Image( $strings['image']['label'] ) )
-            ->set_key( "${key}_image" )
+            ->set_key( "{$key}_image" )
             ->set_name( 'image' )
             ->set_required()
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['image']['instructions'] );
 
         $link_field = ( new Field\Link( $strings['link']['label'] ) )
-            ->set_key( "${key}_link" )
+            ->set_key( "{$key}_link" )
             ->set_name( 'link' )
             ->set_wrapper_width( 50 )
             ->set_instructions( $strings['link']['instructions'] );
 
         $align_field = ( new Field\Select( $strings['align']['label'] ) )
-            ->set_key( "${key}_align" )
+            ->set_key( "{$key}_align" )
             ->set_name( 'align' )
             ->set_choices( [
                 'has-text-left-desktop'     => 'Vasen',

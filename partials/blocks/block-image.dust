@@ -6,6 +6,7 @@
             {?is_clickable}
                 <a href="{image_url_orig|attr}" class="has-modal"
                     {?image_caption}data-modaal-desc="{image_caption|attr}"{/image_caption}>
+                    <span class="is-sr-only">{open_large_image_string|html}</span>
                     {@image id=image.id size="large" alt=image.alt title=image.description /}
                 </a>
             {:else}

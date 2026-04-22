@@ -37,6 +37,13 @@ class VideoBlock extends BaseBlock {
     protected $icon = 'video-alt2';
 
     /**
+     * The block title.
+     *
+     * @var string
+     */
+    protected string $title;
+
+    /**
      * Create the block and register it.
      */
     public function __construct() {
