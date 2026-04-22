@@ -1,6 +1,7 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
+const ESLintPlugin = require( 'eslint-webpack-plugin' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const SpriteLoaderPlugin = require( 'svg-sprite-loader/plugin' );
@@ -38,20 +39,6 @@ const entryPoints = {
 // All loaders to use on assets.
 const allModules = {
     rules: [
-        {
-            enforce: 'pre',
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'eslint-loader',
-                options: {
-                    configFile: '.eslintrc.json',
-                    fix: false,
-                    failOnWarning: false,
-                    failOnError: true,
-                },
-            },
-        },
         {
             test: /\.js$/,
             exclude: /node_modules/,
@@ -94,8 +81,9 @@ const allModules = {
         {
             test: /\.(gif|jpe?g|png|svg)(\?[a-z0-9=\.]+)?$/,
             exclude: [ /assets\/fonts/, /assets\/icons/, /node_modules/ ],
+            type: 'asset/resource',
+            generator: { filename: '[name][ext]' },
             use: [
-                'file-loader?name=[name].[ext]',
                 {
                     loader: 'image-webpack-loader',
                     options: {
@@ -112,7 +100,10 @@ const allModules = {
         {
             test: /\.(eot|svg|ttf|woff(2)?)(\?[a-z0-9=\.]+)?$/,
             exclude: [ /assets\/images/, /assets\/icons/, /node_modules/ ],
-            use: 'file-loader?name=[name].[ext]',
+            type: 'asset/resource',
+            generator: {
+                filename: '[name][ext]',
+            },
         },
         {
             test: /assets\/icons\/.*\.svg(\?[a-z0-9=\.]+)?$/,
@@ -129,8 +120,8 @@ const allModules = {
                     loader: 'svgo-loader',
                     options: {
                         plugins: [
-                            { removeTitle: true },
-                            { removeAttrs: { attrs: [ 'path:fill', 'path:class' ] } },
+                            { name: 'removeTitle' },
+                            { name: 'removeAttrs', params: { attrs: [ 'path:fill', 'path:class' ] } },
                         ],
                     },
                 },
@@ -155,6 +146,14 @@ const allOptimizations = {
 
 // All plugins to use.
 const allPlugins = [
+
+    // Lint JS files.
+    new ESLintPlugin( {
+        extensions: [ 'js' ],
+        failOnError: true,
+        failOnWarning: false,
+        fix: false,
+    } ),
 
     // Use BrowserSync.
     new BrowserSyncPlugin(
@@ -185,9 +184,7 @@ if ( isProduction ) {
 
         // Optimize for production build.
         new TerserPlugin( {
-            cache: true,
             parallel: true,
-            sourceMap: true,
             terserOptions: {
                 output: {
                     comments: false,
@@ -208,11 +205,10 @@ if ( isProduction ) {
 
 module.exports = [
     {
-        node: {
-            fs: 'empty', // <- prevent "fs not found"
-        },
-
         resolve: {
+            fallback: {
+                fs: false, // prevent "fs not found"
+            },
             alias: {
                 scripts: path.resolve( __dirname, 'assets', 'scripts' ),
                 styles: path.resolve( __dirname, 'assets', 'styles' ),
