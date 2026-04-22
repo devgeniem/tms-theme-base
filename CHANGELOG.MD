@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Update Node, webpack & dependency versions
+
 ## [1.72.0] - 2026-04-12
 
 - TMS-1260: Add missing alt-text for enlargened images in image-block
