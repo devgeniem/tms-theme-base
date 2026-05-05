@@ -80,8 +80,9 @@ class ImageBlock extends BaseBlock {
      * @return array The block data.
      */
     public function filter_data( $data, $instance, $block, $content, $is_preview, $post_id ) : array {
-        $data = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+        $data                            = self::add_filter_attributes( $data, $instance, $block, $content, $is_preview, $post_id );
+        $data['open_large_image_string'] = \_x( 'Open large image', 'theme-frontend', 'tms-theme-base' );
 
-        return apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
+        return \apply_filters( 'tms/acf/block/' . self::KEY . '/data', $data );
     }
 }

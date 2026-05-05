@@ -11,5 +11,14 @@
         "typography": {
             "dropCap": false
         }
+    },
+    "styles": {
+        "elements": {
+            "link": {
+                "typography": {
+                    "textDecoration": false
+                }
+            }
+        }
     }
 }

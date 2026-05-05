@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TMS-1237: Add a custom Google Translate functionality to navigation
 
+## [1.72.0] - 2026-04-12
+
+- TMS-1260: Add missing alt-text for enlargened images in image-block
+- TMS-1261: Change highlighted articles pill colors
+- TMS-1264: Fix Eventz to use endpoint url from env
+- TMS-1263: Fix pagination from showing arrow button on last page
+
+## [1.71.3] - 2026-03-16
+
+- TMS-1259: Disable link underline in theme.json
+
 ## [1.71.2] - 2026-02-25
 
 - TMS-1255: Check for redipress class before indexing contact field
