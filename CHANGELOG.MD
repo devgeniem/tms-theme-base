@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - TMS-1237: Add a custom Google Translate functionality to navigation
+- Remove delete site-link from wp-admin
 
 ## [1.72.0] - 2026-04-12
 

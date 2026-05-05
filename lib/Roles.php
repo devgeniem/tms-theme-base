@@ -485,6 +485,9 @@ class Roles implements Controller {
                 'themes.php',
                 'customize.php',
             ],
+            'tools.php'  => [
+                'ms-delete-site.php',
+            ],
         ] );
 
         $role = apply_filters( 'tms/roles/admin', $role );
@@ -539,6 +542,9 @@ class Roles implements Controller {
                 'themes.php',
                 'customize.php',
             ],
+            'tools.php'  => [
+                'ms-delete-site.php',
+            ],
         ] );
 
         $role->add_caps( $this->tablepress_all_capabilities );
@@ -589,6 +595,9 @@ class Roles implements Controller {
             'themes.php' => [
                 'themes.php',
                 'customize.php',
+            ],
+            'tools.php'  => [
+                'ms-delete-site.php',
             ],
         ] );
 
