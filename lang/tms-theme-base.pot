@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2026-03-26 12:18+0200\n"
+"POT-Creation-Date: 2026-05-05 13:27+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
