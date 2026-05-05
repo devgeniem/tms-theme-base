@@ -11,7 +11,7 @@
                 {Header.gtranslate_menu.select_text|html}
             </p>
             </div>
-            <div id="google_translate_element_custom" class="nav-translate-wrapper" data-lang="{Header.gtranslate_menu.current_language}"></div>
+            <div id="google_translate_element_custom" class="nav-translate-wrapper" data-lang="{Header.gtranslate_menu.current_language|attr}"></div>
             <p class="is-small mb-0 mt-2">
                 {Header.gtranslate_menu.disclaimer_text|html}
             </p>
