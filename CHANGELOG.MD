@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update modaal string null-guards
 - TMS-1141: Add if-statement for block-subpages title container
 - Update Node, webpack & dependency versions
+- TMS-1237: Fix script load on cookie consent without page refresh
+
+## [1.73.0] - 2026-05-05
+
 - TMS-1237: Add a custom Google Translate functionality to navigation
 - Remove delete site-link from wp-admin
 
