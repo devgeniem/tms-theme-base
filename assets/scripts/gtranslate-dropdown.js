@@ -18,6 +18,7 @@ export default class GtranslateDropdown {
         this.gtranslateCheckMaxRetries = 3;
         this.gtranslateCheckDelay = 1500;
         this.cookiebotEventsBound = false;
+        this.cookiebotConsentRetryDone = false;
     }
 
     /**
@@ -121,6 +122,7 @@ export default class GtranslateDropdown {
             return;
         }
 
+        window.addEventListener( 'CookiebotOnLoad', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnConsentReady', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnAccept', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnDecline', this.handleConsentFlow.bind( this ) );
@@ -314,5 +316,14 @@ export default class GtranslateDropdown {
 
         this.bindCookiebotEvents();
         this.handleConsentFlow();
+
+        // Guard against environments where Cookiebot consent state arrives
+        // shortly after docReady and earlier consent events were missed.
+        if ( ! this.cookiebotConsentRetryDone ) {
+            this.cookiebotConsentRetryDone = true;
+            setTimeout( () => {
+                this.handleConsentFlow();
+            }, 500 );
+        }
     }
 }
