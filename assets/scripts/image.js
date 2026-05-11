@@ -25,6 +25,8 @@ export default class Image {
      * @return {void}
      */
     docReady() {
+        const modaalStrings = window.s && window.s.modaal ? window.s.modaal : {};
+
         $( '.has-modal' ).modaal( {
             type: 'image',
             background_scroll: false,
@@ -35,8 +37,8 @@ export default class Image {
                 this.disableBackgroundItemFocusing();
                 this.setModalImageAltText();
             },
-            accessible_title: window.s.modaal.accessible_title || 'Enlarged image',
-            close_aria_label: window.s.modaal.close || 'Close',
+            accessible_title: modaalStrings.accessible_title || 'Enlarged image',
+            close_aria_label: modaalStrings.close || 'Close',
         } );
     }
 
