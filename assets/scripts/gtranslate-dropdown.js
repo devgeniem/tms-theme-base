@@ -12,7 +12,6 @@ export default class GtranslateDropdown {
 
     constructor() {
         this.isGoogleLoaded = false;
-        this.isGoogleInitialized = false;
         this.eventsAttached = false;
         this.gtranslateCheckRetries = 0;
         this.gtranslateCheckMaxRetries = 3;
@@ -100,14 +99,6 @@ export default class GtranslateDropdown {
             return;
         }
 
-        // If Google Translate is already available, initialize it immediately.
-        // This avoids relying on a full page reload after consent changes.
-        // eslint-disable-next-line no-undef
-        if ( typeof google !== 'undefined' && google.translate ) {
-            this.initGoogleTranslate();
-            return;
-        }
-
         this.loadGoogleTranslateAPI();
     }
 
@@ -189,34 +180,19 @@ export default class GtranslateDropdown {
      * @return {void}
      */
     loadGoogleTranslateAPI() {
-        // Define the callback before injecting the script so the API can call it reliably.
-        window.googleTranslateElementInit = this.initGoogleTranslate.bind( this );
-
-        // eslint-disable-next-line no-undef
-        if ( typeof google !== 'undefined' && google.translate ) {
-            this.initGoogleTranslate();
-            return;
-        }
-
-        if ( this.isGoogleLoaded ) {
-            return;
-        }
-
-        const existingScript = document.querySelector( 'script[src*="translate.google.com"]' );
-
-        if ( existingScript ) {
-            this.isGoogleLoaded = true;
-            setTimeout( () => {
-                this.checkGoogleTranslateLoaded();
-            }, this.gtranslateCheckDelay );
+        if ( this.isGoogleLoaded || document.querySelector( 'script[src*="translate.google.com"]' ) ) {
             return;
         }
 
         const script = document.createElement( 'script' );
         script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.setAttribute( 'data-cookieconsent', 'preferences' );
         script.async = true;
         document.head.appendChild( script );
         this.isGoogleLoaded = true;
+
+        // Define the callback function globally
+        window.googleTranslateElementInit = this.initGoogleTranslate.bind( this );
 
         // Check if the script loaded successfully after a short delay
         setTimeout( () => {
@@ -237,11 +213,6 @@ export default class GtranslateDropdown {
             return;
         }
 
-        if ( container.children.length > 0 || this.isGoogleInitialized ) {
-            this.setDropdownVisibility( true );
-            return;
-        }
-
         // Get current language from data attribute or default to 'fi'
         const currentLang = container.dataset.lang || 'fi';
 
@@ -250,10 +221,6 @@ export default class GtranslateDropdown {
             pageLanguage: currentLang,
             autoDisplay: false,
         }, 'google_translate_element_custom' );
-
-        this.isGoogleInitialized = true;
-        this.gtranslateCheckRetries = 0;
-        this.setDropdownVisibility( true );
     }
 
     /**
