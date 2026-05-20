@@ -13,6 +13,7 @@ export default class GtranslateDropdown {
     constructor() {
         this.isGoogleLoaded = false;
         this.isGoogleInitialized = false;
+        this.googleScriptLoadInProgress = false;
         this.eventsAttached = false;
         this.gtranslateCheckRetries = 0;
         this.gtranslateCheckMaxRetries = 3;
@@ -142,6 +143,8 @@ export default class GtranslateDropdown {
         const $trigger = $( event.currentTarget );
 
         if ( $dropdown.hasClass( 'is-hidden' ) ) {
+            // Retry consent-dependent loading each time menu is opened.
+            this.handleConsentFlow();
             $dropdown.removeClass( 'is-hidden' );
             $trigger.attr( 'aria-expanded', 'true' );
         }
@@ -196,19 +199,22 @@ export default class GtranslateDropdown {
 
         // eslint-disable-next-line no-undef
         if ( typeof google !== 'undefined' && google.translate ) {
+            this.isGoogleLoaded = true;
+            this.googleScriptLoadInProgress = false;
             this.initGoogleTranslate();
             return;
         }
 
-        if ( this.isGoogleLoaded ) {
+        if ( this.googleScriptLoadInProgress ) {
             return;
         }
 
         const existingScript = document.querySelector( 'script[src*="translate.google.com"]' );
 
         if ( existingScript ) {
-            this.isGoogleLoaded = true;
+            this.googleScriptLoadInProgress = true;
             setTimeout( () => {
+                this.googleScriptLoadInProgress = false;
                 this.checkGoogleTranslateLoaded();
             }, this.gtranslateCheckDelay );
             return;
@@ -216,9 +222,23 @@ export default class GtranslateDropdown {
 
         const script = document.createElement( 'script' );
         script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.setAttribute( 'data-cookieconsent', 'preferences' );
         script.async = true;
+        this.googleScriptLoadInProgress = true;
+
+        script.onload = () => {
+            this.isGoogleLoaded = true;
+            this.googleScriptLoadInProgress = false;
+            this.gtranslateCheckRetries = 0;
+            this.initGoogleTranslate();
+        };
+
+        script.onerror = () => {
+            this.isGoogleLoaded = false;
+            this.googleScriptLoadInProgress = false;
+        };
+
         document.head.appendChild( script );
-        this.isGoogleLoaded = true;
 
         // Check if the script loaded successfully after a short delay
         setTimeout( () => {
@@ -280,6 +300,9 @@ export default class GtranslateDropdown {
 
             // If no Google Translate content, show cookie disabled message and hide other elements
             if ( ! hasGoogleContent ) {
+                this.isGoogleLoaded = false;
+                this.googleScriptLoadInProgress = false;
+
                 // Show the cookie message container
                 const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
                 if ( cookieTextContainer ) {
