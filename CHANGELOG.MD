@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1141: Add if-statement for block-subpages title container
 - Update Node, webpack & dependency versions
 - TMS-1237: Fix script load on cookie consent without page refresh
+- TMS-1275: Change gtranslate dropdown text
 
 ## [1.73.0] - 2026-05-05
 
