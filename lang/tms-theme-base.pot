@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMS Theme Base\n"
-"POT-Creation-Date: 2026-05-22 14:22+0300\n"
+"POT-Creation-Date: 2026-05-22 14:57+0300\n"
 "PO-Revision-Date: 2022-01-12 10:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,24 +21,6 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
-
-#: assets/dist/main.js:1 assets/dist/theme_haive.js:1
-#: assets/dist/theme_havu.js:1 assets/dist/theme_kokemus.js:1
-#: assets/dist/theme_mustavalkoinen.js:1 assets/dist/theme_neutraali.js:1
-#: assets/dist/theme_paahde.js:1 assets/dist/theme_teraksensininen.js:1
-#: assets/dist/theme_tummavesi.js:1 assets/dist/theme_tunnelma.js:1
-#: assets/dist/theme_tyo.js:1
-msgid "#js-search-toggle-target"
-msgstr ""
-
-#: assets/dist/main.js:1 assets/dist/theme_haive.js:1
-#: assets/dist/theme_havu.js:1 assets/dist/theme_kokemus.js:1
-#: assets/dist/theme_mustavalkoinen.js:1 assets/dist/theme_neutraali.js:1
-#: assets/dist/theme_paahde.js:1 assets/dist/theme_teraksensininen.js:1
-#: assets/dist/theme_tummavesi.js:1 assets/dist/theme_tunnelma.js:1
-#: assets/dist/theme_tyo.js:1
-msgid "#js-search-toggle"
-msgstr ""
 
 #: comments.php:14
 msgid "Comments"
