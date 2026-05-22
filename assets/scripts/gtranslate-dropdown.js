@@ -14,6 +14,8 @@ export default class GtranslateDropdown {
         this.isGoogleLoaded = false;
         this.isGoogleInitialized = false;
         this.googleScriptLoadInProgress = false;
+        this.googleInitRetries = 0;
+        this.cookiebotScriptsExecutedAfterConsent = false;
         this.eventsAttached = false;
         this.gtranslateCheckRetries = 0;
         this.gtranslateCheckMaxRetries = 3;
@@ -99,7 +101,16 @@ export default class GtranslateDropdown {
         this.setDropdownVisibility( hasConsent );
 
         if ( ! hasConsent ) {
+            this.cookiebotScriptsExecutedAfterConsent = false;
             return;
+        }
+
+        // Ask Cookiebot to execute newly allowed scripts once after consent.
+        if ( ! this.cookiebotScriptsExecutedAfterConsent
+            && window.Cookiebot
+            && typeof window.Cookiebot.runScripts === 'function' ) {
+            window.Cookiebot.runScripts();
+            this.cookiebotScriptsExecutedAfterConsent = true;
         }
 
         // If Google Translate is already available, initialize it immediately.
@@ -209,15 +220,13 @@ export default class GtranslateDropdown {
             return;
         }
 
-        const existingScript = document.querySelector( 'script[src*="translate.google.com"]' );
+        const existingScript = document.querySelector( 'script[src*="translate.google.com/translate_a/element.js"]' );
 
         if ( existingScript ) {
-            this.googleScriptLoadInProgress = true;
-            setTimeout( () => {
-                this.googleScriptLoadInProgress = false;
-                this.checkGoogleTranslateLoaded();
-            }, this.gtranslateCheckDelay );
-            return;
+            // Replace stale/blocked script tags so we can recover without page reload.
+            existingScript.remove();
+            this.isGoogleLoaded = false;
+            this.googleScriptLoadInProgress = false;
         }
 
         const script = document.createElement( 'script' );
@@ -259,7 +268,20 @@ export default class GtranslateDropdown {
             return;
         }
 
-        if ( container.children.length > 0 || this.isGoogleInitialized ) {
+        // The namespace may exist before the constructor is ready.
+        // Retry briefly to avoid throwing in async load edge cases.
+        // eslint-disable-next-line no-undef
+        if ( typeof google.translate.TranslateElement !== 'function' ) {
+            if ( this.googleInitRetries < this.gtranslateCheckMaxRetries ) {
+                this.googleInitRetries += 1;
+                setTimeout( () => {
+                    this.initGoogleTranslate();
+                }, 300 );
+            }
+            return;
+        }
+
+        if ( this.isTranslateElementReady( container ) || this.isGoogleInitialized ) {
             this.setDropdownVisibility( true );
             return;
         }
@@ -273,9 +295,25 @@ export default class GtranslateDropdown {
             autoDisplay: false,
         }, 'google_translate_element_custom' );
 
+        this.googleInitRetries = 0;
         this.isGoogleInitialized = true;
         this.gtranslateCheckRetries = 0;
         this.setDropdownVisibility( true );
+    }
+
+    /**
+     * Check if translate element has a usable language combo.
+     *
+     * @param {HTMLElement} container - Translate container.
+     * @return {boolean} True when combo exists and has options.
+     */
+    isTranslateElementReady( container ) {
+        if ( ! container ) {
+            return false;
+        }
+
+        const combo = container.querySelector( '.goog-te-combo' );
+        return Boolean( combo && combo.options && combo.options.length > 0 );
     }
 
     /**
@@ -288,7 +326,7 @@ export default class GtranslateDropdown {
 
         if ( container ) {
             // Check if the container has been populated with Google Translate content
-            const hasGoogleContent = container.children.length > 0;
+            const hasGoogleContent = this.isTranslateElementReady( container );
 
             if ( ! hasGoogleContent && this.gtranslateCheckRetries < this.gtranslateCheckMaxRetries ) {
                 this.gtranslateCheckRetries += 1;
