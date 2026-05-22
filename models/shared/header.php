@@ -462,7 +462,7 @@ class Header extends Model {
 
         return [
             'current_language' => $current_lang,
-            'select_text'      => \__( 'Select language', 'tms-theme-base' ),
+            'select_text'      => \__( 'Translate', 'tms-theme-base' ),
             'disclaimer_text'  => \__( 'The City of Tampere is not responsible for translations made by Google Translate.', 'tms-theme-base' ),
             'cookies_disabled' => \__( "Unfortunately you are not able to use the translation option since you haven't accepted related cookies. You can accept cookies by clicking the Accept cookies button below.", 'tms-theme-base' ),
             'accept_cookies'   => \__( 'Accept cookies', 'tms-theme-base' ),
