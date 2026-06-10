@@ -12,16 +12,13 @@ export default class GtranslateDropdown {
 
     constructor() {
         this.isGoogleLoaded = false;
+        this.isGoogleLoadInProgress = false;
         this.isGoogleInitialized = false;
-        this.googleScriptLoadInProgress = false;
-        this.googleInitRetries = 0;
-        this.cookiebotScriptsExecutedAfterConsent = false;
         this.eventsAttached = false;
         this.gtranslateCheckRetries = 0;
         this.gtranslateCheckMaxRetries = 3;
         this.gtranslateCheckDelay = 1500;
         this.cookiebotEventsBound = false;
-        this.cookiebotConsentRetryDone = false;
     }
 
     /**
@@ -50,6 +47,7 @@ export default class GtranslateDropdown {
     setDropdownVisibility( isVisible ) {
         const $dropdownContent = $( '.gtranslate-dropdown__content' );
         const $cookieTextContainer = $( '.gtranslate-cookie-text-container' );
+        const $translateContainer = $( '#google_translate_element_custom' );
 
         if ( ! $dropdownContent.length ) {
             return;
@@ -60,10 +58,12 @@ export default class GtranslateDropdown {
         if ( isVisible ) {
             paragraphs.removeClass( 'is-hidden' );
             $cookieTextContainer.addClass( 'is-hidden' );
+            $translateContainer.removeClass( 'is-hidden' );
         }
         else {
             paragraphs.addClass( 'is-hidden' );
             $cookieTextContainer.removeClass( 'is-hidden' );
+            $translateContainer.addClass( 'is-hidden' );
         }
     }
 
@@ -100,28 +100,10 @@ export default class GtranslateDropdown {
         this.attachEventsIfNeeded();
         this.setDropdownVisibility( hasConsent );
 
-        if ( ! hasConsent ) {
-            this.cookiebotScriptsExecutedAfterConsent = false;
-            return;
-        }
-
-        // Ask Cookiebot to execute newly allowed scripts once after consent.
-        if ( ! this.cookiebotScriptsExecutedAfterConsent
-            && window.Cookiebot
-            && typeof window.Cookiebot.runScripts === 'function' ) {
-            window.Cookiebot.runScripts();
-            this.cookiebotScriptsExecutedAfterConsent = true;
-        }
-
-        // If Google Translate is already available, initialize it immediately.
-        // This avoids relying on a full page reload after consent changes.
-        // eslint-disable-next-line no-undef
-        if ( typeof google !== 'undefined' && google.translate ) {
+        if ( hasConsent ) {
+            this.loadGoogleTranslateAPI();
             this.initGoogleTranslate();
-            return;
         }
-
-        this.loadGoogleTranslateAPI();
     }
 
     /**
@@ -134,7 +116,6 @@ export default class GtranslateDropdown {
             return;
         }
 
-        window.addEventListener( 'CookiebotOnLoad', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnConsentReady', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnAccept', this.handleConsentFlow.bind( this ) );
         window.addEventListener( 'CookiebotOnDecline', this.handleConsentFlow.bind( this ) );
@@ -154,8 +135,6 @@ export default class GtranslateDropdown {
         const $trigger = $( event.currentTarget );
 
         if ( $dropdown.hasClass( 'is-hidden' ) ) {
-            // Retry consent-dependent loading each time menu is opened.
-            this.handleConsentFlow();
             $dropdown.removeClass( 'is-hidden' );
             $trigger.attr( 'aria-expanded', 'true' );
         }
@@ -205,47 +184,51 @@ export default class GtranslateDropdown {
      * @return {void}
      */
     loadGoogleTranslateAPI() {
-        // Define the callback before injecting the script so the API can call it reliably.
+        // The callback must exist before script execution.
         window.googleTranslateElementInit = this.initGoogleTranslate.bind( this );
 
         // eslint-disable-next-line no-undef
         if ( typeof google !== 'undefined' && google.translate ) {
             this.isGoogleLoaded = true;
-            this.googleScriptLoadInProgress = false;
             this.initGoogleTranslate();
             return;
         }
 
-        if ( this.googleScriptLoadInProgress ) {
+        if ( this.isGoogleLoadInProgress || this.isGoogleLoaded ) {
             return;
         }
 
         const existingScript = document.querySelector( 'script[src*="translate.google.com/translate_a/element.js"]' );
 
         if ( existingScript ) {
-            // Replace stale/blocked script tags so we can recover without page reload.
-            existingScript.remove();
-            this.isGoogleLoaded = false;
-            this.googleScriptLoadInProgress = false;
+            return;
         }
+
+        this.isGoogleLoadInProgress = true;
+        this.gtranslateCheckRetries = 0;
 
         const script = document.createElement( 'script' );
         script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.setAttribute( 'data-cookieconsent', 'preferences' );
         script.async = true;
-        this.googleScriptLoadInProgress = true;
+        script.defer = true;
 
-        script.onload = () => {
+        script.addEventListener( 'load', () => {
+            this.isGoogleLoadInProgress = false;
             this.isGoogleLoaded = true;
-            this.googleScriptLoadInProgress = false;
-            this.gtranslateCheckRetries = 0;
-            this.initGoogleTranslate();
-        };
 
-        script.onerror = () => {
+            // Init explicitly in case callback was skipped by cache/timing quirks.
+            this.initGoogleTranslate();
+
+            setTimeout( () => {
+                this.checkGoogleTranslateLoaded();
+            }, this.gtranslateCheckDelay );
+        } );
+
+        script.addEventListener( 'error', () => {
+            this.isGoogleLoadInProgress = false;
             this.isGoogleLoaded = false;
-            this.googleScriptLoadInProgress = false;
-        };
+            this.gtranslateCheckRetries = 0;
+        } );
 
         document.head.appendChild( script );
 
@@ -268,12 +251,10 @@ export default class GtranslateDropdown {
             return;
         }
 
-        // The namespace may exist before the constructor is ready.
-        // Retry briefly to avoid throwing in async load edge cases.
         // eslint-disable-next-line no-undef
         if ( typeof google.translate.TranslateElement !== 'function' ) {
-            if ( this.googleInitRetries < this.gtranslateCheckMaxRetries ) {
-                this.googleInitRetries += 1;
+            if ( this.gtranslateCheckRetries < this.gtranslateCheckMaxRetries ) {
+                this.gtranslateCheckRetries += 1;
                 setTimeout( () => {
                     this.initGoogleTranslate();
                 }, 300 );
@@ -281,8 +262,8 @@ export default class GtranslateDropdown {
             return;
         }
 
-        if ( this.isTranslateElementReady( container ) || this.isGoogleInitialized ) {
-            this.setDropdownVisibility( true );
+        if ( this.isGoogleInitialized || container.children.length > 0 ) {
+            this.isGoogleInitialized = true;
             return;
         }
 
@@ -295,25 +276,7 @@ export default class GtranslateDropdown {
             autoDisplay: false,
         }, 'google_translate_element_custom' );
 
-        this.googleInitRetries = 0;
         this.isGoogleInitialized = true;
-        this.gtranslateCheckRetries = 0;
-        this.setDropdownVisibility( true );
-    }
-
-    /**
-     * Check if translate element has a usable language combo.
-     *
-     * @param {HTMLElement} container - Translate container.
-     * @return {boolean} True when combo exists and has options.
-     */
-    isTranslateElementReady( container ) {
-        if ( ! container ) {
-            return false;
-        }
-
-        const combo = container.querySelector( '.goog-te-combo' );
-        return Boolean( combo && combo.options && combo.options.length > 0 );
     }
 
     /**
@@ -326,7 +289,7 @@ export default class GtranslateDropdown {
 
         if ( container ) {
             // Check if the container has been populated with Google Translate content
-            const hasGoogleContent = this.isTranslateElementReady( container );
+            const hasGoogleContent = container.children.length > 0;
 
             if ( ! hasGoogleContent && this.gtranslateCheckRetries < this.gtranslateCheckMaxRetries ) {
                 this.gtranslateCheckRetries += 1;
@@ -338,9 +301,6 @@ export default class GtranslateDropdown {
 
             // If no Google Translate content, show cookie disabled message and hide other elements
             if ( ! hasGoogleContent ) {
-                this.isGoogleLoaded = false;
-                this.googleScriptLoadInProgress = false;
-
                 // Show the cookie message container
                 const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
                 if ( cookieTextContainer ) {
@@ -354,12 +314,6 @@ export default class GtranslateDropdown {
                     paragraphs.forEach( ( p ) => {
                         p.classList.add( 'is-hidden' );
                     } );
-                }
-            }
-            else {
-                const cookieTextContainer = document.querySelector( '.gtranslate-cookie-text-container' );
-                if ( cookieTextContainer ) {
-                    cookieTextContainer.classList.add( 'is-hidden' );
                 }
             }
         }
@@ -376,15 +330,7 @@ export default class GtranslateDropdown {
         }
 
         this.bindCookiebotEvents();
+        this.loadGoogleTranslateAPI();
         this.handleConsentFlow();
-
-        // Guard against environments where Cookiebot consent state arrives
-        // shortly after docReady and earlier consent events were missed.
-        if ( ! this.cookiebotConsentRetryDone ) {
-            this.cookiebotConsentRetryDone = true;
-            setTimeout( () => {
-                this.handleConsentFlow();
-            }, 500 );
-        }
     }
 }
