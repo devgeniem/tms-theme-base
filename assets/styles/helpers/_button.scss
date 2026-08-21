@@ -77,6 +77,7 @@ $button-transition-speed: $speed !default;
     height: auto;
     border-width: $button-border-width;
     border-radius: $button-border-radius;
+    border-style: solid;
     cursor: pointer;
     font-weight: $button-font-weight;
     font-family: $family-secondary;
