@@ -12,7 +12,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1141: Add if-statement for block-subpages title container
 - Update Node, webpack & dependency versions
 - TMS-1237: Fix script load on cookie consent without page refresh
-- TMS-1280: Add button border-style
+- TMS-1280:
+    - Add button border-style
+    - Force ACF block version to 3
+    - Add gutenberg block styles
 
 ## [1.73.1] - 2026-06-22
 
