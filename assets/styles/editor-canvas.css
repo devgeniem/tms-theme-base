@@ -1,0 +1,32 @@
+/* Add clear clickable area for ACF blocks in editor canvas. */
+.block-editor-block-list__block[data-type^="acf/"],
+.editor-styles-wrapper .wp-block[data-type^="acf/"] {
+	position: relative;
+	min-height: 56px !important;
+	padding: 10px !important;
+	border: 1px dashed #c3c4c7 !important;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.block-editor-block-list__block[data-type^="acf/"].is-selected,
+.block-editor-block-list__block[data-type^="acf/"].has-child-selected,
+.editor-styles-wrapper .wp-block[data-type^="acf/"].is-selected,
+.editor-styles-wrapper .wp-block[data-type^="acf/"].has-child-selected {
+	border-color: #2271b1 !important;
+	box-shadow: inset 0 0 0 1px #2271b1;
+}
+
+/* Prevent iframe embeds from eating clicks intended for block selection. */
+.block-editor-block-list__block[data-type="acf/spotify-embed"] iframe,
+.block-editor-block-list__block[data-type="acf/spotify-embed"] .wp-block-embed__wrapper iframe,
+.editor-styles-wrapper .wp-block[data-type="acf/spotify-embed"] iframe,
+.editor-styles-wrapper .wp-block[data-type="acf/spotify-embed"] .wp-block-embed__wrapper iframe {
+	pointer-events: none;
+}
+
+/* Prevent link navigation inside ACF block previews in editor canvas. */
+.block-editor-block-list__block[data-type^="acf/"] a,
+.editor-styles-wrapper .wp-block[data-type^="acf/"] a {
+	pointer-events: none;
+}
