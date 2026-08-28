@@ -26,27 +26,6 @@ class ACFController implements Interfaces\Controller {
 
         \add_filter( 'acf/settings/show_admin', '__return_false' );
 
-        // Use ACF block v3 features in editor (expanded editor popup/button).
-        \add_filter(
-            'acf/blocks/default_block_version',
-            \Closure::fromCallable( [ $this, 'force_acf_block_version' ] ),
-            50,
-            2
-        );
-    }
-
-    /**
-     * Force ACF blocks to use block version 3.
-     *
-     * @param int   $default_version The default ACF block version.
-     * @param array $block           ACF block settings.
-     *
-     * @return int
-     */
-    protected function force_acf_block_version( int $default_version, array $block ) : int {
-        unset( $default_version, $block );
-
-        return 3;
     }
 
     /**
