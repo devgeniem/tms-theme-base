@@ -1,3 +1,31 @@
+/* Keep editor content readable when frontend theme uses light text on dark background. */
+.editor-styles-wrapper,
+.editor-styles-wrapper .wp-block,
+.editor-styles-wrapper .wp-block :where(
+	p,
+	li,
+	dt,
+	dd,
+	blockquote,
+	figcaption,
+	label,
+	legend,
+	td,
+	th,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+) {
+	color: #111 !important;
+}
+
+.editor-styles-wrapper .wp-block :where(input, textarea, select) {
+	color: #111 !important;
+}
+
 /* Add clear clickable area for ACF blocks in editor canvas. */
 .block-editor-block-list__block[data-type^="acf/"],
 .editor-styles-wrapper .wp-block[data-type^="acf/"] {
