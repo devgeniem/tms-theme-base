@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1280:
+    - Add button border-style
+    - Add gutenberg block styles
+
 ## [1.73.1] - 2026-06-22
 
 - TMS-1275: Change gtranslate dropdown text

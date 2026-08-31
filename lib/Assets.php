@@ -43,8 +43,20 @@ class Assets implements Interfaces\Controller {
         );
 
         \add_action(
+            'admin_footer',
+            \Closure::fromCallable( [ $this, 'include_admin_svg_icons' ] )
+        );
+
+        \add_action(
             'enqueue_block_editor_assets',
             \Closure::fromCallable( [ $this, 'editor' ] )
+        );
+
+        \add_filter(
+            'block_editor_settings_all',
+            \Closure::fromCallable( [ $this, 'add_canvas_styles_to_block_editor_settings' ] ),
+            20,
+            1
         );
 
         \add_action(
@@ -220,33 +232,103 @@ class Assets implements Interfaces\Controller {
      * @return void
      */
     private function editor() : void {
-        $css_mod_time = static::get_theme_asset_mod_time( 'editor.css' );
-        $js_mod_time  = static::get_theme_asset_mod_time( 'editor.js' );
+        $canvas_css_mod_time = $this->get_editor_canvas_asset_mod_time();
 
-        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.js' ) ) {
-            \wp_enqueue_script(
-                'editor-js',
-                DPT_ASSET_URI . '/editor.js',
-                [
-                    'wp-i18n',
-                    'wp-blocks',
-                    'wp-dom-ready',
-                    'wp-edit-post',
-                ],
-                $js_mod_time,
-                true
-            );
-        }
-
-        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.css' ) ) {
+        if ( file_exists( $this->get_editor_canvas_asset_path() ) ) {
             \wp_enqueue_style(
-                'editor-css',
-                DPT_ASSET_URI . '/editor.css',
+                'editor-canvas-css',
+                $this->get_editor_canvas_asset_uri(),
                 [],
-                $css_mod_time,
+                $canvas_css_mod_time,
                 'all'
             );
         }
+
+    }
+
+    /**
+     * Add front-end style parity only into block editor canvas (iframe).
+     *
+     * @param array $settings Block editor settings.
+     *
+     * @return array
+     */
+    private function add_canvas_styles_to_block_editor_settings( array $settings ) : array {
+        if ( ! is_admin() ) {
+            return $settings;
+        }
+
+        if ( function_exists( 'wp_should_load_block_editor_scripts_and_styles' )
+            && ! \wp_should_load_block_editor_scripts_and_styles()
+        ) {
+            return $settings;
+        }
+
+        $theme_default_color = \apply_filters(
+            'tms/theme/theme_default_color',
+            DEFAULT_THEME_COLOR
+        );
+
+        $selected_theme = \apply_filters(
+            'tms/theme/theme_selected',
+            Settings::get_setting( 'theme_color' ) ?? $theme_default_color
+        );
+
+        $css         = \apply_filters( 'tms/theme/theme_css_file', sprintf( 'theme_%s.css', $selected_theme ) );
+        $css_url     = \apply_filters( 'tms/theme/theme_css_path', DPT_ASSET_URI . '/' . $css, $css );
+        $css_version = \apply_filters( 'tms/theme/asset_mod_time', static::get_theme_asset_mod_time( $css ), $css );
+        $css_url     = \add_query_arg( 'ver', (string) $css_version, $css_url );
+
+        $canvas_css = '@import url("' . \esc_url_raw( $css_url ) . '");\n';
+
+        if ( file_exists( $this->get_editor_canvas_asset_path() ) ) {
+            $editor_canvas_css_url = $this->get_editor_canvas_asset_uri();
+            $editor_canvas_css_url = \add_query_arg(
+                'ver',
+                (string) $this->get_editor_canvas_asset_mod_time(),
+                $editor_canvas_css_url
+            );
+
+            $canvas_css .= '@import url("' . \esc_url_raw( $editor_canvas_css_url ) . '");\n';
+        }
+
+        if ( ! isset( $settings['styles'] ) || ! is_array( $settings['styles'] ) ) {
+            $settings['styles'] = [];
+        }
+
+        $settings['styles'][] = [
+            'css' => $canvas_css,
+        ];
+
+        return $settings;
+    }
+    /**
+     * Get static editor canvas stylesheet path.
+     *
+     * @return string
+     */
+    private function get_editor_canvas_asset_path() : string {
+        return \get_template_directory() . '/assets/styles/editor-canvas.css';
+    }
+
+    /**
+     * Get static editor canvas stylesheet URI.
+     *
+     * @return string
+     */
+    private function get_editor_canvas_asset_uri() : string {
+        return \get_template_directory_uri() . '/assets/styles/editor-canvas.css';
+    }
+
+    /**
+     * Get static editor canvas stylesheet modification time.
+     *
+     * @return int|string
+     */
+    private function get_editor_canvas_asset_mod_time() {
+        return file_exists( $this->get_editor_canvas_asset_path() )
+            ? filemtime( $this->get_editor_canvas_asset_path() )
+            : DPT_THEME_VERSION;
     }
 
     /**
@@ -306,6 +388,19 @@ class Assets implements Interfaces\Controller {
 
         if ( file_exists( $svg_icons_path ) ) {
             include_once $svg_icons_path;
+        }
+    }
+
+    /**
+     * Add SVG definitions to admin footer for editor sprite syncing.
+     */
+    private function include_admin_svg_icons() : void {
+        $svg_icons_path = \get_template_directory() . '/assets/dist/icons.svg';
+
+        if ( file_exists( $svg_icons_path ) ) {
+            echo '<div id="tms-icons-sprite" aria-hidden="true" style="display:none">';
+            include_once $svg_icons_path;
+            echo '</div>';
         }
     }
 
