@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.73.2] - 2026-08-31
+
 - TMS-1280:
     - Add button border-style
     - Add gutenberg block styles
