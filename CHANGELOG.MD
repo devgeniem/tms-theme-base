@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- TMS-1280: Small fix to load editor-canvas styles for child-themes properly
+
 ## [1.73.2] - 2026-08-31
 
 - TMS-1280:
