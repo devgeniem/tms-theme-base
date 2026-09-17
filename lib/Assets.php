@@ -279,7 +279,7 @@ class Assets implements Interfaces\Controller {
         $css_version = \apply_filters( 'tms/theme/asset_mod_time', static::get_theme_asset_mod_time( $css ), $css );
         $css_url     = \add_query_arg( 'ver', (string) $css_version, $css_url );
 
-        $canvas_css = '@import url("' . \esc_url_raw( $css_url ) . '");\n';
+        $canvas_css = '@import url("' . \esc_url_raw( $css_url ) . '"); ';
 
         if ( file_exists( $this->get_editor_canvas_asset_path() ) ) {
             $editor_canvas_css_url = $this->get_editor_canvas_asset_uri();
@@ -289,7 +289,7 @@ class Assets implements Interfaces\Controller {
                 $editor_canvas_css_url
             );
 
-            $canvas_css .= '@import url("' . \esc_url_raw( $editor_canvas_css_url ) . '");\n';
+            $canvas_css .= '@import url("' . \esc_url_raw( $editor_canvas_css_url ) . '"); ';
         }
 
         if ( ! isset( $settings['styles'] ) || ! is_array( $settings['styles'] ) ) {
