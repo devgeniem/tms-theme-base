@@ -42,6 +42,16 @@ class Assets implements Interfaces\Controller {
             \Closure::fromCallable( [ $this, 'include_svg_icons' ] )
         );
 
+        \add_action(
+            'enqueue_block_editor_assets',
+            \Closure::fromCallable( [ $this, 'editor' ] )
+        );
+
+        \add_action(
+            'admin_init',
+            \Closure::fromCallable( [ $this, 'add_editor_styles' ] )
+        );
+
         \add_filter(
             'tms/theme/icons',
             \Closure::fromCallable( [ $this, 'get_theme_icons' ] ),
@@ -62,6 +72,15 @@ class Assets implements Interfaces\Controller {
             10,
             2
         );
+    }
+
+    /**
+     * This adds custom styling to ACF Wysiwygs. Remove if nor needed.
+     *
+     * @return void
+     */
+    private function add_editor_styles() : void {
+        \add_editor_style( 'custom-editor-styles.css' );
     }
 
     /**
@@ -193,6 +212,41 @@ class Assets implements Interfaces\Controller {
             return $tag;
         }
         return $tag;
+    }
+
+    /**
+     * This adds assets (JS and CSS) to gutenberg in admin.
+     *
+     * @return void
+     */
+    private function editor() : void {
+        $css_mod_time = static::get_theme_asset_mod_time( 'editor.css' );
+        $js_mod_time  = static::get_theme_asset_mod_time( 'editor.js' );
+
+        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.js' ) ) {
+            \wp_enqueue_script(
+                'editor-js',
+                DPT_ASSET_URI . '/editor.js',
+                [
+                    'wp-i18n',
+                    'wp-blocks',
+                    'wp-dom-ready',
+                    'wp-edit-post',
+                ],
+                $js_mod_time,
+                true
+            );
+        }
+
+        if ( file_exists( DPT_ASSET_CACHE_URI . '/editor.css' ) ) {
+            \wp_enqueue_style(
+                'editor-css',
+                DPT_ASSET_URI . '/editor.css',
+                [],
+                $css_mod_time,
+                'all'
+            );
+        }
     }
 
     /**
