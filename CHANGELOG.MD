@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.73.3] - 2026-09-18
+
+- Revert editor style changes made with WP 7.0 upgrade- #572
+
 ## [1.73.2] - 2026-08-31
 
 - TMS-1280:
