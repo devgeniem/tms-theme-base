@@ -38,7 +38,7 @@ class Security implements Interfaces\Controller {
      * @return bool
      */
     public static function check_password_pwnd_status( string $password ) {
-        $password_hash = utf8_encode( strtoupper( sha1( $password ) ) );
+        $password_hash = strtoupper( sha1( $password ) );
         $k_anon        = substr( $password_hash, 0, 5 );
 
         $service_url = 'https://api.pwnedpasswords.com/range/' . $k_anon;
