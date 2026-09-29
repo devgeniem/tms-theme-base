@@ -63,6 +63,7 @@ class BaseBlock {
     protected $supports = [
         'align'  => false,
         'anchor' => true,
+        'mode'   => false,
     ];
 
     /**

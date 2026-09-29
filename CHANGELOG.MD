@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update Node, webpack & dependency versions
 - TMS-1237: Fix script load on cookie consent without page refresh
 - TMS-1280: Small fix to load editor-canvas styles for child-themes properly
+- TMS-1287: Disallow ACF-blocks preview-mode
+
+## [1.73.3] - 2026-09-18
+
+- Revert editor style changes made with WP 7.0 upgrade
 
 ## [1.73.2] - 2026-08-31
 
