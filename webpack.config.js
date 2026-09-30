@@ -221,6 +221,7 @@ module.exports = [
             path: themeOutput,
             publicPath: themePublicPath,
             filename: '[name].js',
+            hashFunction: 'xxhash64',
         },
 
         module: allModules,
