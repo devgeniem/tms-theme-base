@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TMS-1237: Fix script load on cookie consent without page refresh
 - TMS-1280: Small fix to load editor-canvas styles for child-themes properly
 - TMS-1287: Disallow ACF-blocks preview-mode
+- TMS-1294: Increase Eventz size for events fetched
 
 ## [1.73.3] - 2026-09-18
 
