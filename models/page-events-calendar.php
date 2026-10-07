@@ -123,6 +123,9 @@ class PageEventsCalendar extends PageEventsSearch {
         $formatter = new EventzFormatter();
         $params    = $formatter->format_query_params( $params );
 
+        // Increase the size of events fetched from default 100
+        $params['size'] = 150;
+
         $cache_group = 'page-events-calendar';
         $cache_key   = md5( \wp_json_encode( $params ) );
         $response    = \wp_cache_get( $cache_key, $cache_group );
