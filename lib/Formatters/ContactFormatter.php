@@ -129,6 +129,15 @@ class ContactFormatter implements \TMS\Theme\Base\Interfaces\Formatter {
      * @return array
      */
     public function map_keys( array $posts, array $field_keys, $default_image = null ) : array {
+        if ( empty( $posts ) || ! is_array( $posts ) ) {
+            return [];
+        }
+
+        // Skip deleted or unpublished contacts
+        $posts = array_filter( $posts, function ( $id ) {
+            return \get_post_status( $id ) === 'publish';
+        } );
+
         return array_map( function ( $id ) use ( $field_keys, $default_image ) {
             $fields = [];
 
