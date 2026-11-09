@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.73.5] - 2026-11-09
+
 - TMS-1295: Add a check for the contact post status
 
 ## [1.73.4] - 2026-10-07
